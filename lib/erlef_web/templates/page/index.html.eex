@@ -1,35 +1,79 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
-</section>
+<div id="content" class="site-content">
+    <section class="jumbotron text-center eco-jumbotron border-bottom text-white">
+        <div class="jumbo-overlay">
+            <div class="container">
+                <h1 class="jumbotron-heading">Erlang Ecosystem Foundation</h1>
+                <p class="lead">The Erlang Ecosystem Foundation is a new non-profit organization dedicated to furthering the state of the art for Erlang, Elixir, LFE, and other technologies based on the BEAM. Our goal is to increase the adoption of this sophisticated platform among forward-thinking organizations. With member-supported Working Groups actively contributing to libraries, tools, and documentation used regularly by individuals and companies relying on the stability and versatility of the ecosystem, we actively invest in critical pieces of technical infrastructure to support our users in their efforts to build the next generation of advanced, reliable, realtime applications.
+                </p>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">v1.4 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-    </ul>
-  </article>
-</section>
+                </script>
+                <!-- TODO: Get a new mail chimp form builder thingy -->
+                <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-116" method="post" data-id="116" data-name="">
+                    <div class="mc4wp-form-fields">
+                        <div class="subscribe">
+
+                            <p class="col-xs-4 col-md-4 col-lg-4" style="padding-left: 0">
+                                <input type="email" name="EMAIL" placeholder="Your e-mail address" required="">
+                            </p>
+
+                            <p class="col-xs-4 col-md-4 col-lg-4 mailform" style="padding-left: 0">
+                                <input style="border-color: #BBBBBB; width: 100%;" type="submit" value="Subscribe">
+                            </p>
+                        </div>
+                    </div>
+                    <label style="display: none !important;">Leave this field empty if you're human:
+                        <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" />
+                    </label>
+                    <input type="hidden" name="_mc4wp_timestamp" value="1559954148" />
+                    <input type="hidden" name="_mc4wp_form_id" value="116" />
+                    <input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" />
+                    <div class="mc4wp-response"></div>
+                </form>
+                <!-- / Mailchimp -->
+            </div>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+
+                    <p>The Erlang Software Foundation’s goal is to grow and support a diverse community around the Erlang and Elixir Ecosystem, encouraging the continued development of technologies and open source projects based on/around its runtime and languages</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+<!-- #content -->
+
+<footer id="colophon" class="site-footer text-center bg-white mt-4 text-muted">
+
+    <section class="footer-widgets text-left">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col col-lg-7">
+                    <aside class="widget-area footer-1-area mb-2">
+                      <section id="twitter_timeline-5" class="widget wp-bp-footer-widget widget_twitter_timeline">
+                      <h5 class="widget-title h6">Follow us on Twitter</h5>
+                        <a class="twitter-timeline"  data-dnt="true" data-theme="light" data-theme="light" data-link-color="#f96e5b" data-border-color="#e8e8e8" data-tweet-limit="2" data-lang="EN" data-chrome="noheader nofooter noborders noscrollbar transparent" href="https://twitter.com/TheErlef?ref_src=twsrc%5Etfw">Tweets by TheErlef</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                    </aside>
+                </div>
+
+            </div>
+            <!-- /.row -->
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="site-info">
+        </div>
+        <!-- .site-info -->
+    </div>
+    <!-- /.container -->
+</footer>
+<!-- #colophon -->
+</div>
+<!-- #page -->

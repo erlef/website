@@ -1,3 +1,362 @@
-/* This file is for your main application css. */
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i");
 
-@import "./phoenix.css";
+body {
+    background-color: #f8f8f8;
+	font-family: Raleway;
+}
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	display: inline-block;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid transparent;
+	line-height: 1.5;
+	border-radius: 0.25rem;
+	-webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+	-o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+	padding: 0.5rem 1.25rem;
+	color: #fff;
+	background-color: #007bff;
+	border-color: #007bff;
+}
+input[type="button"]:active,
+input[type="button"]:hover,
+input[type="reset"]:active,
+input[type="reset"]:hover,
+input[type="submit"]:active,
+input[type="submit"]:hover {
+	color: #fff;
+	background-color: #007bff;
+	border-color: #005cbf;
+	cursor: pointer;
+}
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	display: block;
+	width: 100%;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	-webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+	transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+	-o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+	color: #495057;
+	background-color: #fff;
+	border-color: #80bdff;
+	outline: 0;
+	-webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+input[type="text"]:-webkit-input-placeholder,
+input[type="text"]:-moz-placeholder,
+input[type="text"]:-ms-input-placeholder,
+input[type="email"]:-webkit-input-placeholder,
+input[type="email"]:-moz-placeholder,
+input[type="email"]:-ms-input-placeholder,
+input[type="url"]:-webkit-input-placeholder,
+input[type="url"]:-moz-placeholder,
+input[type="url"]:-ms-input-placeholder,
+input[type="password"]:-webkit-input-placeholder,
+input[type="password"]:-moz-placeholder,
+input[type="password"]:-ms-input-placeholder,
+input[type="search"]:-webkit-input-placeholder,
+input[type="search"]:-moz-placeholder,
+input[type="search"]:-ms-input-placeholder,
+input[type="number"]:-webkit-input-placeholder,
+input[type="number"]:-moz-placeholder,
+input[type="number"]:-ms-input-placeholder,
+input[type="tel"]:-webkit-input-placeholder,
+input[type="tel"]:-moz-placeholder,
+input[type="tel"]:-ms-input-placeholder,
+input[type="range"]:-webkit-input-placeholder,
+input[type="range"]:-moz-placeholder,
+input[type="range"]:-ms-input-placeholder,
+input[type="date"]:-webkit-input-placeholder,
+input[type="date"]:-moz-placeholder,
+input[type="date"]:-ms-input-placeholder,
+input[type="month"]:-webkit-input-placeholder,
+input[type="month"]:-moz-placeholder,
+input[type="month"]:-ms-input-placeholder,
+input[type="week"]:-webkit-input-placeholder,
+input[type="week"]:-moz-placeholder,
+input[type="week"]:-ms-input-placeholder,
+input[type="time"]:-webkit-input-placeholder,
+input[type="time"]:-moz-placeholder,
+input[type="time"]:-ms-input-placeholder,
+input[type="datetime"]:-webkit-input-placeholder,
+input[type="datetime"]:-moz-placeholder,
+input[type="datetime"]:-ms-input-placeholder,
+input[type="datetime-local"]:-webkit-input-placeholder,
+input[type="datetime-local"]:-moz-placeholder,
+input[type="datetime-local"]:-ms-input-placeholder,
+input[type="color"]:-webkit-input-placeholder,
+input[type="color"]:-moz-placeholder,
+input[type="color"]:-ms-input-placeholder,
+textarea:-webkit-input-placeholder,
+textarea:-moz-placeholder,
+textarea:-ms-input-placeholder {
+	color: #6c757d;
+	opacity: 1;
+}
+
+
+.navbar { 
+ padding: .1rem 1rem
+}
+
+.eco-jumbotron {
+    flex-shrink: 0;
+    background-size: cover;
+    background-position:  50% 80%;
+    border-radius: 0;
+    border-top: 0;
+    border-bottom: 0;
+    padding-top: 27px;
+    padding-bottom: 27px;
+    margin-bottom: 1px;
+    background-image: url(/images/cropped-bkgnd-1.jpg);
+}
+
+.
+.eco-jumbotron .jumbo-overlay { adding: 1rem; background: rgba(0,0,0, 0.4);;}
+
+.eco-jumbotron .jumbo-overlay .lead { font-size: 1.5rem; text-align: left; }
+
+.eco-jumbotron .jumbo-overlay .subscribe { font-size: 1.25rem; text-align: left; }
+
+.eco-jumbotron .jumbo-overlay .jumbotron-heading { font-weight: 600; font-size: 3rem; margin-bottom: 1rem; text-align: left; }
+
+.main-content {
+	background-color: #f8f8f8;
+	padding: 2rem;
+	padding-top: 2em;
+}
+
+.statement {
+	font-size: 1.25rem;
+	padding-bottom: 2em;
+}
+h1 {
+	text-align: center;
+}
+h3 {
+	font-size: 2rem;
+	font-weight: bold;
+	padding: 1rem;
+}
+
+.main-content p { font-size: 1.25rem; font-weight: 300; }
+
+.main-content {
+	padding: 4rem 0;
+}
+.main-content p {
+	font-size: 1.25rem;
+	font-weight: 300;
+}
+.main-content blockquote {
+	font-size: 1.35rem;
+}
+.main-content blockquote p {
+	font-size: 1.35rem;
+}
+.main-content .post-thumbnail {
+	margin-bottom: 1rem;
+	margin-top: 0.5rem;
+}
+
+.site-footer { padding-top: 3rem; padding-bottom: 3rem; }
+
+.mt-3r {
+	margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+	.hentry.card .card-body {
+		padding: 2.5rem 4rem;
+	}
+}
+
+.page-content, .entry-content, .entry-summary {
+    margin: 1.5em 0 0;
+}
+
+.entry-title a:hover {
+	text-decoration: none;
+}
+
+
+/* stylelint-disable selector-list-comma-newline-after */
+
+.blog-header {
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-scroller .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+}
+
+.card-img-right {
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+}
+
+.flex-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+/*
+ * Blog name and description
+ */
+.blog-title {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.blog-description {
+  font-size: 1.1rem;
+  color: #999;
+}
+
+@media (min-width: 40em) {
+  .blog-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+.blog-pagination > .btn {
+  border-radius: 2rem;
+}
+
+/*
+ * Blog posts
+ */
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-title {
+  margin-bottom: .25rem;
+  font-size: 2.5rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #999;
+}
+
+/*
+ * Footer
+ */
+.blog-footer {
+  padding: 2.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}

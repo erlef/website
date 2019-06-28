@@ -1,0 +1,58 @@
+    <nav class="navbar navbar-expand-lg navbar-light border mb-0">
+        <a class="navbar-brand" href="/">
+       <img src="<%=  Routes.static_path(@conn, "/images/eef-logo-transparent.png") %>" width="75" height="75" alt="">
+      </a>
+
+        <div class="site-branding-text">
+            <h2 class="site-title h3 mb-0">
+            <a href="/" rel="home" class="navbar-brand mb-0">
+              Erlang Ecosystem Foundation
+            </a>
+        </h2>
+            <p class="site-description">Supporting the BEAM community</p>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                                                     data-target="#navbarCollapse" 
+                                                     aria-controls="navbarCollapse" 
+                                                     aria-expanded="false" 
+                                                     aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mx-auto" style="">
+
+                <li class="nav-item"><a href="https://members.erlef.org/join-us" class="nav-link">Join Us!</a></li>
+                <li class="nav-item"><a href="/sponsors/" class="nav-link">Sponsors</a></li>
+                <li class="nav-item"><a href="/wg/" class="nav-link">Working Groups</a></li>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <a class="dropdown-item" href="/about/" class="nav-link">About Us</a>
+                        <a class="dropdown-item" href="/contact/" class="nav-link">Contact</a>
+                        <a class="dropdown-item" href="/bylaws/">Bylaws</a>
+                        <a class="dropdown-item" href="/faq/">FAQ</a>
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <form action="https://ErlangEcosystemFoundation.wildapricot.org/sys/login/OAuthLogin" 
+                    method="get">
+                        <input type="hidden" name="scope" value="contacts_me" />
+                        <input type="hidden" name="client_id" value="5fl5gzaiih" />
+                        <input type="hidden" name="response_type" value="authorization_code" />
+                        <input type="hidden" name="claimed_account_id" value="292325" />
+                        <input type="hidden" name="state" value="WaWpIntegrationLogin" />
+                        <input type="hidden" name="redirect_uri" value="https://erlef.org/" />
+                        <input type="submit" name="waLoginAction" class="button button-primary" 
+                          value="Login" title="Login" />
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>

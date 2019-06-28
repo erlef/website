@@ -19,8 +19,4 @@ defmodule ErlefWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ErlefWeb do
-  #   pipe_through :api
-  # end
 end
