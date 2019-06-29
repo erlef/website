@@ -1,0 +1,75 @@
+	<div id="content" class="site-content">
+
+
+	<div class="container">
+		<div class="row">
+
+							<div class="col-md-12 wp-bp-content-width">
+			
+				<div id="primary" class="content-area">
+					<main id="main" class="site-main">
+
+						
+<article id="post-234" class="card mt-3r post-234 page type-page status-publish hentry">
+	<div class="card-body">
+		<header class="entry-header">
+			<!-- ?php the_title( '<h1 class="entry-title h2">', '</h1>' ); ? -->
+		</header><!-- .entry-header -->
+
+		
+		<div class="entry-content">
+			<h1>Erlang Ecosystem Foundation &#8211; Fellowship Working Group Proposal</h1>
+<h2>Working Group Name</h2>
+<p>Fellowship</p>
+<h2>Mission Statement</h2>
+<p>Formally nominate community members for a fellowship role according to the Erlang Ecosystem Foundation bylaws.</p>
+<p>Creating and maintaining the criteria and procedure for nomination of fellows.</p>
+<h2>Main Objectives</h2>
+<ul>
+<li>Nominate fellows to the Foundation</li>
+</ul>
+<h2>Benefits to the community</h2>
+<ul>
+<li>Recognize the efforts of long term community members and participants</li>
+<li>Provide the foundation with the input of said members</li>
+</ul>
+<h2>Short term deliverables</h2>
+<ul>
+<li>Establish requirements for a fellowship nomination as per the bylaws</li>
+<li>The first round of fellows nominations for the Foundation’s first year</li>
+</ul>
+<h2>Long term deliverables</h2>
+<ul>
+<li>Yearly fellowship nominations</li>
+</ul>
+<h2>Why does this group require the Foundation</h2>
+<ul>
+<li>The group is mandated by the bylaws; the foundation needs it.</li>
+<li>The group defines the criteria for an entire member category for the foundation.</li>
+</ul>
+<h2>Initial list of volunteers</h2>
+<ul>
+<li>Francesco Cesarini</li>
+<li>Kenneth Lundin</li>
+<li>Jose Valim</li>
+<li>Benoit Chesneau</li>
+</ul>
+		</div><!-- .entry-content -->
+	</div>
+	<!-- /.card-body -->
+
+	</article><!-- #post-234 -->
+
+					</main><!-- #main -->
+				</div><!-- #primary -->
+			</div>
+			<!-- /.col-md-8 -->
+
+					</div>
+		<!-- /.row -->
+	</div>
+	<!-- /.container -->
+
+
+	</div><!-- #content -->
+

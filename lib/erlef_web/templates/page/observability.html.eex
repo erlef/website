@@ -1,0 +1,88 @@
+	<div id="content" class="site-content">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main">
+
+                        
+<article id="post-222" class="card mt-3r post-222 page type-page status-publish hentry">
+	<div class="card-body">
+		<header class="entry-header">
+			<!-- ?php the_title( '<h1 class="entry-title h2">', '</h1>' ); ? -->
+		</header><!-- .entry-header -->
+
+		
+		<div class="entry-content">
+			<h1>Erlang Ecosystem Foundation &#8211; Observability Working Group Proposal</h1>
+<h2>Working Group Name</h2>
+<p>Observability</p>
+<h2>Mission Statement</h2>
+<p>Evolve the tools in the ecosystem related to observability, such as metrics, distributed tracing and logging, with a strong focus on interoperability between BEAM languages.</p>
+<h2>Main Objectives</h2>
+<ul>
+<li>Improved runtime observability through integration with modern offerings &#8212; Zipkin, Jaeger, DataDog, Prometheus, Honeycomb, LightStep, Stackdriver and many more &#8212; without vendor lock in.</li>
+<li>Improve state of whitebox monitoring of BEAM applications</li>
+<li>Review possibilities to improve blackbox monitoring of BEAM (dtrace, eBPF)</li>
+<li>Provide common interfaces to viewing and gathering VM and application statistics and traces</li>
+<li>Cooperation with major OAM providers like New Relic to provide proper commercial support for Erlang monitoring</li>
+</ul>
+<h2>Benefits to the community</h2>
+<ul>
+<li>Provide tooling that will allow more integrated and application-wide monitoring, logging, and tracing in BEAM</li>
+<li>BEAM integrating smoothly with other languages and services</li>
+<li>Consolidate efforts across languages and combine tools</li>
+<li>Encourage and assist library developers to make things observable</li>
+<li>Encourage and make it easier for application developers to make their systems observable</li>
+<li>Make it easier for users of the virtual machine to integrate it in polyglot environments where existing monitoring systems are already in place, and where lack of support is a blocker to adoption</li>
+</ul>
+<h2>Short term deliverables</h2>
+<ul>
+<li>Living document for current best practices for observability with a blog post on a prominent Erlang site like Erlang Solutions or the Foundation website to go along with it</li>
+<li>Standard Logger/logger infrastructure to collect structured logs (logs, error reports and stacktraces) from both Erlang and Elixir.</li>
+<li>Support for metrics and traces of popular Erlang and Elixir libraries (Hackney, Ecto, Phoenix, etc) through Telemetry and OpenCensus.</li>
+<li>Support for HTTP and binary context propagation for distributed tracing in popular Erlang and Elixir libraries.</li>
+</ul>
+<h2>Long term deliverables</h2>
+<ul>
+<li>Helping library authors add standard instrumentation hooks (e.g. Telemetry or potentially even OpenCensus as it becomes more of a standard)</li>
+</ul>
+<h2>Why does this group require the Foundation</h2>
+<ul>
+<li>Promotion: Being a central group for user’s to find information on instrumenting and observing BEAM systems and promoting solutions to the community through the Foundation.</li>
+<li>Coordination of work across languages and libraries. Bringing together the work as a central place to bring suggestions and PRs to the OTP team.</li>
+</ul>
+<h2>Initial list of volunteers</h2>
+<ul>
+<li>Tristan Sloughter (OpenCensus)</li>
+<li>Vince Foley (New Relic)</li>
+<li>Łukasz Niemier (OpenCensus)</li>
+<li>Ilya Khaprov (prometheus.erl, prometheus.ex, OpenCensus)</li>
+<li>Bryan Naegele</li>
+<li>Greg Mefford (Spandex)</li>
+<li>Arkadiusz Gil (Telemetry)</li>
+<li>Zach Daniel (Spandex)</li>
+<li>Mark Allen (Lager)</li>
+<li>Andrew Thompson (Lager)</li>
+<li>Jose Valim</li>
+</ul>
+		</div><!-- .entry-content -->
+	</div>
+	<!-- /.card-body -->
+
+	</article><!-- #post-222 -->
+
+                    </main><!-- #main -->
+                </div><!-- #primary -->
+            </div>
+            <!-- /.col-md-8 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+
+	</div><!-- #content -->
+

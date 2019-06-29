@@ -17,6 +17,25 @@ defmodule ErlefWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-  end
 
+    get "/about", PageController, :about
+
+    get "/bylaws", PageController, :bylaws
+
+    get "/faq", PageController, :faq
+
+    get "/contact", PageController, :contact
+
+    get "/wg", PageController, :working_groups
+
+    get "/wg/marketing", PageController, :marketing
+
+    get "/wg/sponsorship", PageController, :sponsorship
+
+    get "/wg/fellowship", PageController, :fellowship
+
+    get "/wg/observability", PageController, :observability
+
+    get "/wg/building", PageController, :building
+  end
 end

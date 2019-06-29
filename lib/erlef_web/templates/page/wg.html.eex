@@ -1,0 +1,52 @@
+    <div class="container">
+                        <article class="card mt-3r page type-page status-publish hentry">
+                            <div class="card-body">
+                                <!-- .entry-header -->
+
+                                <div class="entry-content">
+                                    <h1>WORKING GROUPS</h1>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="statement">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology. Areas of particular interest include documentation, interoperability, and performance.</div>
+                                            <div class="statement">Over the coming months, the EEF will announce the first round of Working Groups and issue calls to action to the community. We hope that these Working Groups will be made up of people from all over the world and we expect these Working Groups will drive the languages, libraries, and communities of the Erlang Ecosystem forward.</div>
+                                            <div class="statement"><a href="/wg/proposal/">Working Group Proposal Template</a></div>
+                                            <div class="statement">List of Working Groups</div>
+                                            <ul>
+                                                <li><a href="/wg/marketing">Marketing Working Group</a></li>
+                                                <li><a href="/wg/building">Building and Packaging</a></li>
+                                                <li><a href="/wg/fellowship">Fellowship</a></li>
+                                                <li><a href="/wg/sponsorship">Sponsorship</a></li>
+                                                <li><a href="/wg/observability">Observability</a></li>
+                                            </ul>
+                                            <div class="statement"></div>
+                                            Log on to view pending documents.
+                                            <div class="wa_login_shortcode">
+                                                <form action="https://ErlangEcosystemFoundation.wildapricot.org/sys/login/OAuthLogin" method="get">
+                                                    <input type="hidden" name="scope" value="contacts_me" />
+                                                    <input type="hidden" name="client_id" value="5fl5gzaiih" />
+                                                    <input type="hidden" name="response_type" value="authorization_code" />
+                                                    <input type="hidden" name="claimed_account_id" value="292325" />
+                                                    <input type="hidden" name="state" value="WaWpIntegrationLogin" />
+                                                    <input type="hidden" name="redirect_uri" value="https://erlef.org/wg/" />
+                                                    <input type="submit" name="waLoginAction" class="button button-primary" value="Log in" title="Log in" />
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm">
+                                          <p class="align-items-end"><img class="justify-content-end" 
+                                            src="<%= Routes.static_path(@conn, "/images/leaves2.png") %>" width="300" height="300" /></p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!-- .entry-content -->
+                            </div>
+                            <!-- /.card-body -->
+
+                        </article>
+    </div>
+    <!-- /.container -->
+
+

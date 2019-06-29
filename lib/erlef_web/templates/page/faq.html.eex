@@ -1,0 +1,87 @@
+	<div id="content" class="site-content">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main">
+
+                        
+<article id="post-9" class="card mt-3r post-9 page type-page status-publish hentry">
+	<div class="card-body">
+		<header class="entry-header">
+			<!-- ?php the_title( '<h1 class="entry-title h2">', '</h1>' ); ? -->
+		</header><!-- .entry-header -->
+
+		
+		<div class="entry-content">
+			
+<h2>Why should I join the foundation?</h2>
+
+
+
+<p>Do you care about developing better tools and larger, more active communities for Erlang and its related technologies (Elixir, LFE, etc.)?</p>
+<p>Do you love the BEAM and want to see more companies adopting langues that run on it as part of their tech stack?</p>
+<p>Do you want to help support opportunities to share these wonderful technologies with a new, diverse group of developers?<br /><br />If you said yes to any of those questions, then you should definitely consider <a href="/join">joining the EEF</a> as either a sponsor or a member.</p>
+
+
+
+<h2>Do I need to pay to be a member?</h2>
+
+
+
+<p>No!</p>
+<p>Of course you <em>can </em>provide financial help if that&#8217;s something you would like, and your financial contribution would go a long way towards the great things that the foundation is working towards, but there are many other ways to help contribute to the foundation&#8217;s mission, including <a href="/wg">joining a working group</a>.</p>
+
+
+
+<h2>What is a sponsor?</h2>
+
+
+
+<p>Sponsors are companies or individuals who contribute a minimum of $1,999 per year to the foundation or who have paid the lifetime membership fee. A list of current sponsors can be found <a href="/sponsors">here</a>.</p>
+
+
+
+<h2>What is a member?</h2>
+
+
+
+<p>Members are companies or individuals who contribute a minimum of $99 per year to the foundation or who are part of a working group.</p>
+
+
+
+<h2>What is a working group?</h2>
+<p>Working groups are an independent collection of people that have a specific goal they would like to achieve that they feel will further the <a href="http://erlef.org/">EEF&#8217;s mission</a>. To start a working group, a proposal must be made and submitted to the board of directors. If the board accepts the proposal, it is then officially created and funded. Once the working group is created and funded, they will report on their progress regularly to the board of directors and the foundation&#8217;s members.</p>
+<p>For more information about starting a working group, send an email to <a href="mailto:eef@erlef.org">eef@erlef.org</a>.</p>
+<h2>How do I join a working group?</h2>
+
+
+
+<p>If you would like to join an existing working group, send an email to <a href="mailto:eef@erlef.org">eef@erlef.org</a> with information about your background and which working group you would like to join. Your information will be sent to a member of that working group for further discussion about how you may be able to contribute to that working group&#8217;s goals.</p>
+
+
+
+<h2>How can I propose a project?</h2>
+
+
+
+<p>If you have an idea for a project that might align with the EEF&#8217;s mission, send an email to <a href="mailto:eef@erlef.org">eef@erlef.org</a> with information about your idea. If that idea fits within the scope of an existing working group, that idea will be sent to someone in that working group for consideration. If your idea doesn&#8217;t fit within the scope of an existing working group then you will receive information about how you can propose a working group that can work on your proposed project.</p>
+		</div><!-- .entry-content -->
+	</div>
+	<!-- /.card-body -->
+
+	</article><!-- #post-9 -->
+
+                    </main><!-- #main -->
+                </div><!-- #primary -->
+            </div>
+            <!-- /.col-md-8 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+
+	</div><!-- #content -->

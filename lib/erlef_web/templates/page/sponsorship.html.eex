@@ -1,0 +1,76 @@
+	<div id="content" class="site-content">
+
+
+	<div class="container">
+		<div class="row">
+
+							<div class="col-md-12 wp-bp-content-width">
+			
+				<div id="primary" class="content-area">
+					<main id="main" class="site-main">
+
+						
+<article id="post-229" class="card mt-3r post-229 page type-page status-publish hentry">
+	<div class="card-body">
+		<header class="entry-header">
+			<!-- ?php the_title( '<h1 class="entry-title h2">', '</h1>' ); ? -->
+		</header><!-- .entry-header -->
+
+		
+		<div class="entry-content">
+			<h1>Erlang Ecosystem Foundation &#8211; Sponsorship Working Group Proposal</h1>
+<h2>Working Group Name</h2>
+<p>Sponsorship</p>
+<h2>Mission Statement</h2>
+<p>Approve sponsors candidacy</p>
+<h2>Main Objectives</h2>
+<ul>
+<li>Approve sponsors according to the policy defined by the board and approved by the members&#8230;</li>
+<li>Encourage foundation outreach to potential sponsors&#8230;</li>
+</ul>
+<h2>Benefits to the community</h2>
+<ul>
+<li>Ensure that the sponsors adhere to the Foundation Values.</li>
+<li>Validate the sponsorship tiers</li>
+<li>Provide sponsor information to the secretary for the billing and administrative tasks</li>
+<li>Provide sponsor information to the marketing group for communication purposes</li>
+</ul>
+<h2>Short term deliverables</h2>
+<ul>
+<li>Approve Founder sponsors</li>
+</ul>
+<h2>Long term deliverables</h2>
+<ul>
+<li>Approve sponsors.</li>
+<li>Maintain institutional memory of outreach to potential, current and historical sponsors.</li>
+</ul>
+<h2>Why does this group require the Foundation</h2>
+<ul>
+<li>Sponsorships help the Erlang Ecosystem worldwide by supporting sprints, meetups, community events and projects, and of course, software development and open source projects. All of these initiatives help improve the Erlang Ecosystem community and Erlang Ecosystem tools that are used daily. This work can’t be done without the generous financial support that sponsor organizations provide to the foundation.</li>
+</ul>
+<h2>Initial list of volunteers</h2>
+<ul>
+<li>Francesco Cesarini</li>
+<li>Benoît Chesneau</li>
+<li>Peer Stritzinger</li>
+<li>Sebastian Strollo</li>
+<li>Alistair Woodman</li>
+</ul>
+		</div><!-- .entry-content -->
+	</div>
+	<!-- /.card-body -->
+
+	</article><!-- #post-229 -->
+
+					</main><!-- #main -->
+				</div><!-- #primary -->
+			</div>
+			<!-- /.col-md-8 -->
+
+					</div>
+		<!-- /.row -->
+	</div>
+	<!-- /.container -->
+
+
+	</div><!-- #content -->

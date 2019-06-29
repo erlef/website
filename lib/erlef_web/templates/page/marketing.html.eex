@@ -1,0 +1,75 @@
+	<div id="content" class="site-content">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main">
+
+                        
+<article id="post-94" class="card mt-3r post-94 page type-page status-publish hentry">
+	<div class="card-body">
+		<header class="entry-header">
+			<!-- ?php the_title( '<h1 class="entry-title h2">', '</h1>' ); ? -->
+		</header><!-- .entry-header -->
+
+		
+		<div class="entry-content">
+			<h1>Marketing Working Group</h1>
+<h2>Mission Statement</h2>
+<p>To expand awareness of Erlang Ecosystem and participation in its community.  To promote the Erlang Ecosystem Foundation and its activities, and to increase engagement in the foundation.  </p>
+<h2>Main Objectives</h2>
+<ul>
+<li>Support learning and social opportunities within the Erlang Ecosystem community</li>
+<li>Gain a wider audience for Erlang Ecosystem-related technologies</li>
+<li>Attract new members and sponsors to the EEF</li>
+</ul>
+<h2>Benefits to the community</h2>
+<ul>
+<li>The BEAM community will benefit from a coordinated marketing effort of the EEF’s activities.</li>
+<li>Companies and organizations choosing technologies to adopt will be more likely to choose a BEAM technology if there is a comprehensive marketing strategy.</li>
+<li>Fostering excitement further encourages community growth</li>
+</ul>
+<h2>Short term deliverables</h2>
+<ul>
+<li>Increase membership in and sponsorship of the EEF</li>
+<li>Create a brand identity, web presence, and communications infrastructure</li>
+<li>Raise awareness of the EEF and its activities within the Erlang/Elixir communities</li>
+</ul>
+<h2>Long term deliverables</h2>
+<ul>
+<li>Expand Erlang Ecosystem adoption</li>
+<li>Research health of Erlang Ecosystem</li>
+<li>Promote EEF and its activities, including other Working Groups</li>
+</ul>
+<h2>Why does this group require the Foundation</h2>
+<p>The Erlang Ecosystem community needs a coordinated effort to promote its activities, both internally and externally.  Additionally, with a Working Group dedicated to raising the profile of itself and its other Working Groups, the EEF will see increased engagement and be better able to attract sponsors and members.  We can also provide valuable feedback to the Foundation on the state of the community via outreach. Support from the Foundation will enable these activities.</p>
+<h2>Initial list of volunteers</h2>
+<ul>
+<li>Desmond Bowe</li>
+<li>Miriam Pena</li>
+<li>Benoit Chesneau</li>
+<li>Magdalena Pokorska</li>
+<li>Maxim Fedorov</li>
+<li>Ben Marx</li>
+<li>Amos King</li>
+<li>Devon Estes</li>
+</ul>
+		</div><!-- .entry-content -->
+	</div>
+	<!-- /.card-body -->
+
+	</article><!-- #post-94 -->
+
+                    </main><!-- #main -->
+                </div><!-- #primary -->
+            </div>
+            <!-- /.col-md-8 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+
+	</div><!-- #content -->
