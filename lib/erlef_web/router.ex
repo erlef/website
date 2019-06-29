@@ -30,6 +30,8 @@ defmodule ErlefWeb.Router do
 
     get "/wg/marketing", PageController, :marketing
 
+    get "/sponsors", PageController, :sponsors
+
     get "/wg/sponsorship", PageController, :sponsorship
 
     get "/wg/fellowship", PageController, :fellowship

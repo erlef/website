@@ -21,6 +21,11 @@ defmodule ErlefWeb.PageController do
 
   def proposal(conn, _params), do: render(conn, "propsal.html")
 
+  def sponsors(conn, _params) do 
+    sponsors = Erlef.Sponsors.roster()
+    render(conn, "sponsors.html", sponsors: sponsors)
+  end
+
   def sponsorship(conn, _params), do: render(conn, "sponsorship.html")
 
   def working_groups(conn, _params), do: render(conn, "wg.html")
