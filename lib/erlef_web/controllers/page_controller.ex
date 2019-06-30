@@ -1,32 +1,41 @@
 defmodule ErlefWeb.PageController do
   use ErlefWeb, :controller
 
-  def index(conn, _params), do: render(conn, "index.html")
+  action_fallback ErlefWeb.FallbackController
 
-  def about(conn, _params), do: render(conn, "about.html")
+  # TODO: Read in existing files/dirs from templates/page to create this map
+  @static_map %{
+    "/" => "index.html",
+    "/about/" => "about.html",
+    "/wg/building" => "building.html",
+    "/bylaws/" => "bylaws.html",
+    "/contact/" => "contact.html",
+    "/faq/" => "faq.html",
+    "/sponsors/" => "/sponsors",
+    "/wg/fellowship" => "fellowship.html",
+    "/wg/marketing" => "marketing.html",
+    "/wg/observability" => "observability.html",
+    "/wg/proposal" => "proposal.html",
+    "/wg/sponsorship" => "sponsorship.html",
+    "/wg/" => "wg.html"
+  }
 
-  def building(conn, _params), do: render(conn, "building.html")
+  def static_pages, do: @static_map
 
-  def bylaws(conn, _params), do: render(conn, "bylaws.html")
-
-  def contact(conn, _params), do: render(conn, "contact.html")
-
-  def faq(conn, _params), do: render(conn, "faq.html")
-
-  def fellowship(conn, _params), do: render(conn, "fellowship.html")
-
-  def marketing(conn, _params), do: render(conn, "marketing.html")
-
-  def observability(conn, _params), do: render(conn, "observability.html")
-
-  def proposal(conn, _params), do: render(conn, "propsal.html")
-
-  def sponsors(conn, _params) do 
+  def page(%{request_path: "/sponsors/"} = conn, _params) do
     sponsors = Erlef.Sponsors.roster()
     render(conn, "sponsors.html", sponsors: sponsors)
   end
 
-  def sponsorship(conn, _params), do: render(conn, "sponsorship.html")
+  def page(conn, _params), do: index_for(conn)
 
-  def working_groups(conn, _params), do: render(conn, "wg.html")
+  def index_for(%{request_path: path} = conn) do
+    case Map.get(@static_map, path) do
+      nil ->
+        {:error, :not_found}
+
+      template ->
+        render(conn, template)
+    end
+  end
 end

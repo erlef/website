@@ -16,28 +16,8 @@ defmodule ErlefWeb.Router do
   scope "/", ErlefWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-
-    get "/about", PageController, :about
-
-    get "/bylaws", PageController, :bylaws
-
-    get "/faq", PageController, :faq
-
-    get "/contact", PageController, :contact
-
-    get "/wg", PageController, :working_groups
-
-    get "/wg/marketing", PageController, :marketing
-
-    get "/sponsors", PageController, :sponsors
-
-    get "/wg/sponsorship", PageController, :sponsorship
-
-    get "/wg/fellowship", PageController, :fellowship
-
-    get "/wg/observability", PageController, :observability
-
-    get "/wg/building", PageController, :building
+    for {page, _t} <- ErlefWeb.PageController.static_pages() do
+      get page, PageController, :page
+    end
   end
 end
