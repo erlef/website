@@ -12,6 +12,7 @@ defmodule ErlefWeb.PageController do
     "/contact/" => "contact.html",
     "/faq/" => "faq.html",
     "/sponsors/" => "/sponsors",
+    "/wg/education" => "education.html",
     "/wg/fellowship" => "fellowship.html",
     "/wg/marketing" => "marketing.html",
     "/wg/observability" => "observability.html",
