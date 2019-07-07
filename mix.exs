@@ -9,7 +9,8 @@ defmodule Erlef.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -37,8 +38,17 @@ defmodule Erlef.MixProject do
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
-      {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.1"}
+      {:jason, "~> 1.1", override: true},
+      {:plug_cowboy, "~> 2.1"},
+      {:nabo, "~> 1.0.1"},
+      {:earmark, "~> 1.2.4"},
+      {:timex, "~> 3.6"}
+    ]
+  end
+
+  defp aliases do
+    [
+      "phx.server": ["compile --force", "phx.server"]
     ]
   end
 end

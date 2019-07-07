@@ -19,5 +19,7 @@ defmodule ErlefWeb.Router do
     for {page, _t} <- ErlefWeb.PageController.static_pages() do
       get page, PageController, :page
     end
+
+    resources "/blogs/:topic", BlogController, only: [:index, :show]
   end
 end
