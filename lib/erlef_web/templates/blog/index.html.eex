@@ -14,14 +14,19 @@
   <% latest = Enum.take(@posts, 3) %>
   <%= if length(latest) == 3 do %>
     <% [_, post2, post3] = latest %>
+        <% month2 =  Timex.month_name(post2.datetime.month) %>
+        <% day2 =  post2.datetime.day %>
+      <% month3 =  Timex.month_name(post2.datetime.month) %>
+        <% day3 =  post2.datetime.day %>
+ 
     <div class="row mb-2">
       <div class="col-md-6">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary"></strong>
             <h3 class="mb-0"><%= post2.title %></h3>
-            <div class="mb-1 text-muted">Nov 12</div>
-            <p class="card-text mb-auto"><%= post2.excerpt %></p>
+            <div class="mb-1 text-muted"><%= "#{month2}, #{day2}" %></div>
+            <p class="card-text mb-auto truncate"><%= post2.excerpt %></p>
             <%= link("Continuing Reading", to: Routes.blog_path(@conn, :show, @topic, post2.slug), class: "stretched") %>
           </div>
           <div class="col-auto d-none d-lg-block">
@@ -35,8 +40,8 @@
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-success"></strong>
             <h3 class="mb-0"><%= post3.title %></h3>
-            <div class="mb-1 text-muted">Nov 11</div>
-            <p class="mb-auto"><%= post3.excerpt %>.</p>
+            <div class="mb-1 text-muted"><%= "#{month3}, #{day3}" %></div>
+            <p class="card-text mb-auto truncate"><%= post3.excerpt %>.</p>
             <%= link("Continuing Reading", to: Routes.blog_path(@conn, :show, @topic, post3.slug), class: "stretched") %>
           </div>
           <div class="col-auto d-none d-lg-block">
