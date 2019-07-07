@@ -1,20 +1,4 @@
 defmodule Mix.Tasks.Eef.Gen.Post do
-  # use Mix.Task
-
-  # def run([mod_name, post_name]) do
-  #   capitalized =
-  #     mod_name
-  #     |> String.capitalize()
-  #     |> String.to_atom()
-
-  #   mod = Module.concat(Erlef.Blogs, capitalized)
-  #   Mix.Tasks.Nabo.Gen.Post.run([post_name, "-p", mod.root])
-  #   :ok
-  # end
-
-  # def run(_) do
-  #   Mix.raise("expected eef.gen.post working-group-name post-name")
-  # end
   use Mix.Task
   import Mix.Generator
 
