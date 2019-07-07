@@ -8,12 +8,16 @@ defmodule Erlef.Blogs.Config do
   def module_for(name) do
     name
     |> get()
-    |> Map.get(:module)
+    |> fetch(:module)
   end
 
   def about_for(name) do
     name
     |> get()
-    |> Map.get(:about)
+    |> fetch(:module)
   end
+
+  defp fetch(:undefined, _key), do: nil
+  defp fetch(nil, _key), do: nil
+  defp fetch(map, key), do: Map.get(map, key)
 end
