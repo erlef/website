@@ -5,10 +5,10 @@ defmodule Erlef.Blogs.Config do
     :proplists.get_value(name, @configs)
   end
 
-  def module_for(name) do
+  def repo_for(name) do
     name
     |> get()
-    |> fetch(:module)
+    |> fetch(:repo)
   end
 
   def about_for(name) do

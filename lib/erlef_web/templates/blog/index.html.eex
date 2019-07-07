@@ -61,7 +61,11 @@
             <h2><%= post.title %></h2> 
           <% end %>
           <h3 class="post-subtitle">Sub-title</h3>
-          <p class="post-meta">Posted by starbelly on July 6, 2019</p>
+          <% month =  Timex.month_name(post.datetime.month) %>
+          <% day =  post.datetime.day %>
+          <% year = post.datetime.year %>
+          <% author = post.metadata["author"] %>
+          <p class="post-meta">Posted by <%= author %> on <%= month %> <%= day %>, <%= year %></p>
         </div>
         <hr/>
       <% end %>

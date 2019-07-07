@@ -1,47 +1,46 @@
 use Mix.Config
 
 config :erlef, :blogs, [
-  {"marketing", %{name: "marketing", module: Erlef.Blogs.Marketing}},
+  {"marketing",
+   %{
+     repo: Erlef.Blogs.Marketing,
+     about:
+       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum."
+   }},
   {"education",
    %{
-     name: "education",
-     module: Erlef.Blogs.Education,
+     repo: Erlef.Blogs.Education,
      about:
-       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean acinia bibendum nulla sed consectetur."
+       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum."
    }},
   {"fellowship",
    %{
-     name: "fellowship",
-     module: Erlef.Blogs.Fellowship,
+     repo: Erlef.Blogs.Fellowship,
      about:
-       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean acinia bibendum nulla sed consectetur."
+       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum."
    }},
   {"sponsorship",
    %{
-     name: "sponsorship",
-     module: Erlef.Blogs.Sponsorship,
+     repo: Erlef.Blogs.Sponsorship,
      about:
-       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean acinia bibendum nulla sed consectetur."
+       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum."
    }},
   {"security",
    %{
-     name: "security",
      module: Erlef.Blogs.Security,
      about:
-       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean acinia bibendum nulla sed consectetur."
+       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum."
    }},
   {"observability",
    %{
-     name: "observability",
-     module: Erlef.Blogs.Observability,
+     repo: Erlef.Blogs.Observability,
      about:
-       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean acinia bibendum nulla sed consectetur."
+       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum."
    }},
   {"proposal",
    %{
-     name: "proposal",
-     module: Erlef.Blogs.Proposal,
+     repo: Erlef.Blogs.Proposal,
      about:
-       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean acinia bibendum nulla sed consectetur."
+       "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum."
    }}
 ]

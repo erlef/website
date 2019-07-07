@@ -21,7 +21,7 @@ defmodule ErlefWeb.BlogController do
   end
 
   defp get(name, id) do
-    case Blogs.Config.module_for(name) do
+    case Blogs.Config.repo_for(name) do
       nil ->
         {:error, :not_found}
 
@@ -31,7 +31,7 @@ defmodule ErlefWeb.BlogController do
   end
 
   defp list(name) do
-    case Blogs.Config.module_for(name) do
+    case Blogs.Config.repo_for(name) do
       nil ->
         {:error, :not_found}
 

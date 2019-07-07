@@ -45,13 +45,7 @@ defmodule Mix.Tasks.Eef.Gen.Post do
   end
 
   defp root_path(blog) do
-    repo_name =
-      blog
-      |> String.capitalize()
-      |> String.to_atom()
-
-    repo = Module.concat(Erlef.Blogs, repo_name)
-
+    repo = Erlef.Blogs.Config.repo_for(blog)
     Path.relative_to(repo.root, Mix.Project.app_path())
   end
 
