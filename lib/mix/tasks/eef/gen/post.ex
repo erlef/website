@@ -92,13 +92,13 @@ defmodule Mix.Tasks.Eef.Gen.Post do
   embed_template(:post, """
   {
     "title": "<%= @title %>",
-    "author": <%= @author %>
+    "author": "<%= @author %>",
     "slug": "<%= @slug %>",
     "datetime": "<%= DateTime.to_iso8601(@datetime) %>"
   }
   ---
-  New post excerpt
+  Post excerpt goes here
   ---
-  Hello World
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Varius sit amet mattis vulputate enim nulla aliquet. Purus in massa tempor nec feugiat. Enim lobortis scelerisque fermentum dui faucibus in ornare. In nulla posuere sollicitudin aliquam ultrices sagittis orci.
   """)
 end
