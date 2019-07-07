@@ -14,7 +14,7 @@ defmodule Erlef.Blogs.Config do
   def about_for(name) do
     name
     |> get()
-    |> fetch(:module)
+    |> fetch(:about)
   end
 
   defp fetch(:undefined, _key), do: nil
