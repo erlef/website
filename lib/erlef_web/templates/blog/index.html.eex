@@ -27,7 +27,7 @@
             <h3 class="mb-0"><%= post2.title %></h3>
             <div class="mb-1 text-muted"><%= "#{month2}, #{day2}" %></div>
             <p class="card-text mb-auto truncate"><%= post2.excerpt %></p>
-            <%= link("Continuing Reading", to: Routes.blog_path(@conn, :show, @topic, post2.slug), class: "stretched") %>
+            <%= link("Continue Reading", to: Routes.blog_path(@conn, :show, @topic, post2.slug), class: "stretched") %>
           </div>
           <div class="col-auto d-none d-lg-block">
             <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
@@ -42,7 +42,7 @@
             <h3 class="mb-0"><%= post3.title %></h3>
             <div class="mb-1 text-muted"><%= "#{month3}, #{day3}" %></div>
             <p class="card-text mb-auto truncate"><%= post3.excerpt %>.</p>
-            <%= link("Continuing Reading", to: Routes.blog_path(@conn, :show, @topic, post3.slug), class: "stretched") %>
+            <%= link("Continue Reading", to: Routes.blog_path(@conn, :show, @topic, post3.slug), class: "stretched") %>
           </div>
           <div class="col-auto d-none d-lg-block">
             <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
