@@ -1,0 +1,84 @@
+<div id="content" class="site-content">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main">
+
+                        <article id="post-94" class="card mt-3r post-94 page type-page status-publish hentry">
+                            <div class="card-body">
+                                <header class="entry-header">
+                                </header>
+
+                                <div class="entry-content">
+                                    <h1>Education Working Group</h1>
+                                    <h2>Mission Statement</h2>
+                                    <p>Facilitate, evolve education and training and consolidate educational material(s)
+                                        for all BEAM languages and the BEAM itself.</p>
+                                    <h2>Benefits to the community</h2>
+                                    <ul>
+                                        <li>Be a resource to find information on how to educate on the BEAM technologies
+                                        </li>
+                                        <li>Be a resource that you could use to encourage your company to adopt the BEAM
+                                            technologies</li>
+                                        <li>Facilitate education and training on the BEAM languages</li>
+                                    </ul>
+                                    <h2>Short term deliverables</h2>
+                                    <ul>
+                                        <li>Make an analysis of the gaps in the current state of the field so we can
+                                            identify how to best help the community</li>
+                                        <li>Create a plan and present it to the board so they can allocate resources
+                                            whenever necessary</li>
+                                    </ul>
+                                    <h2>Long term deliverables</h2>
+                                    <ul>
+                                        <li>Help grow the community by providing ramp-up materials and training to fill
+                                            the gaps that have been identified</li>
+                                        <li>Coordination work with different organizations both commercial and
+                                            non-profit to foster support for BEAM technologies. Some examples are
+                                            bridges, conferences, meetups & user groups</li>
+                                        <li>Provide educational resources for corporate decision-makers who are
+                                            researching Ecosystem technologies</li>
+                                    </ul>
+                                    <h2>Why does this group require the Foundation</h2>
+                                    <ul>
+                                        <li>A point of organization, resources, influence, and provision of funds for
+                                            training and educational purposes</li>
+                                        <li>A trusted and canonical source of educational materials and guidance</li>
+                                        <li>Companies that are considering investing in this Ecosystem want to see a
+                                            robust community, which includes active Foundation involvement</li>
+                                    </ul>
+                                    <h2>Initial list of volunteers</h2>
+                                    <ul>
+                                        <li>Brujo Benavides</li>
+                                        <li>Desmond Bowe</li>
+                                        <li>Francesco Cesarini</li>
+                                        <li>Fred Hebert</li>
+                                        <li>Ben Marx</li>
+                                        <li>Anna Neyzberg</li>
+                                        <li>Bryan Paxton</li>
+                                        <li>Miriam Pena</li>
+                                        <li>Todd Resudek</li>
+                                        <li>Peer Stritzinger</li>
+                                        <li>Mrinal Wadhwa</li>
+                                        <li>Alistair Woodman</li>
+                                    </ul>
+                                </div><!-- .entry-content -->
+                            </div>
+                            <!-- /.card-body -->
+
+                        </article><!-- #post-94 -->
+
+                    </main><!-- #main -->
+                </div><!-- #primary -->
+            </div>
+            <!-- /.col-md-8 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+
+</div><!-- #content -->
