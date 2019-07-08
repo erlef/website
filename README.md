@@ -2,9 +2,9 @@
 
 ## Pre-requeisties 
 
- - erlang/otp 22
- - elixir 1.9
- - node v12.x 
+ - Erlang/OTP 22
+ - Elixir 1.9
+ - NodeJS v12.x 
 
 ## Up and running
 
@@ -22,9 +22,9 @@ The eef.gen.post mix task should be used to create new blog posts. The command s
 
 The current options are available:
 
- - --author <string> | -a <string>
- - --title <string>  | -t <string>
- 
+- `--author <string>` or  `-a <string>`
+- `--title    <string> ` or `-t <string>`
+
 Note that you may edit the author, title, and other meta data after the post is generated.
 
 ```shell
