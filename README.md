@@ -1,6 +1,7 @@
 # Erlef
 
-## Pre-requeisties 
+## Prerequisites
+ 
 
  - Erlang/OTP 22
  - Elixir 1.9
