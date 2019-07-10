@@ -1,0 +1,49 @@
+<div id="content" class="site-content">
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12">
+        <div id="primary" class="content-area">
+          <main id="main" class="site-main">
+
+            <article id="post-94" class="card mt-3r post-94 page type-page status-publish hentry">
+              <div class="card-body">
+                <header class="entry-header">
+                  <!-- ?php the_title( '<h1 class="entry-title h2">', '</h1>' ); ? -->
+                </header><!-- .entry-header -->
+
+
+                <div class="entry-content">
+                  <h1><%= @wg.name %> Working Group</h1>
+                  <p><%= @wg.description %></p>
+                  <%= if String.length(@wg.email) > 1 do %>
+                    <p>You can reach us at: <%= @wg.email %></p>
+                  <% end %>
+                </div>
+
+                <div class="entry-content">
+                  <h1>Latest News</h1>
+                  <%= if Enum.empty?(@blog_posts) do %>
+                    Nothing yet!  Check back soon!
+                  <% end %>
+                  <%= for post <- @blog_posts do %>
+                    <p>
+                    <%= render(ErlefWeb.BlogView, "preview.html", post: post) %>
+                    </p>
+                  <% end %>
+                </div>
+
+              </div>
+              <!-- /.card-body -->
+
+            </article><!-- #post-94 -->
+
+          </main><!-- #main -->
+        </div><!-- #primary -->
+      </div> <!-- /.col-md-8 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+
+</div><!-- #content -->
+

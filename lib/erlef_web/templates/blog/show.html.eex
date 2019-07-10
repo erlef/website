@@ -3,16 +3,12 @@
     <div class="col-md-8 blog-main">
       <div class="blog-post">
         <h2 class="blog-post-title"><%= @post.title %></h2>
-        <% month =  Timex.month_name(@post.datetime.month) %>
-        <% day =  @post.datetime.day %>
-        <% year = @post.datetime.year %>
-        <% author = Map.get(@post.metadata, "author") %>
-        <p class="blog-post-meta"><%= month %> <%= day %>, <%= year %> by <a href="#"><%= author %></a></p>
+        <p class="blog-post-meta">
+          <%= byline(@post) %><br />
+          Posted in <%= category(@working_group) %>
+        </p>
         <%= raw @post.body_html %>
       </div>
     </div>
-
-    <%= render ErlefWeb.BlogView, "sidebar.html", conn: @conn, about: @about %>
-    
   </div>
 </main>
