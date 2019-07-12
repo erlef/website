@@ -5,13 +5,7 @@ defmodule ErlefWeb.PageController do
 
   # TODO: Read in existing files/dirs from templates/page to create this map
   @static_map %{
-    "/" => "index.html",
-    "/about/" => "about.html",
     "/wg/building" => "building.html",
-    "/bylaws/" => "bylaws.html",
-    "/contact/" => "contact.html",
-    "/faq/" => "faq.html",
-    "/sponsors/" => "/sponsors",
     "/wg/education" => "education.html",
     "/wg/fellowship" => "fellowship.html",
     "/wg/marketing" => "marketing.html",
@@ -21,12 +15,32 @@ defmodule ErlefWeb.PageController do
     "/wg/" => "wg.html"
   }
 
-  def static_pages, do: @static_map
-
-  def page(%{request_path: "/sponsors/"} = conn, _params) do
-    sponsors = Erlef.Sponsors.roster()
-    render(conn, "sponsors.html", sponsors: sponsors)
+  def index(conn, _params) do
+    render(conn)
   end
+
+  def about(conn, _params) do
+    render(conn)
+  end
+
+  def bylaws(conn, _params) do
+    render(conn)
+  end
+
+  def contact(conn, _params) do
+    render(conn)
+  end
+
+  def faq(conn, _params) do
+    render(conn)
+  end
+
+  def sponsors(conn, _params) do
+    sponsors = Erlef.Sponsors.roster()
+    render(conn, sponsors: sponsors)
+  end
+
+  def static_pages, do: @static_map
 
   def page(conn, _params), do: index_for(conn)
 

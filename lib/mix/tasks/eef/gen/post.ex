@@ -33,7 +33,7 @@ defmodule Mix.Tasks.Eef.Gen.Post do
 
         create_file(
           file,
-          post_template(title: title, slug: slug, datetime: datetime, author: author)
+          post_template(title: title, slug: slug, datetime: datetime, author: author, category: blog)
         )
 
       _ ->
@@ -45,8 +45,7 @@ defmodule Mix.Tasks.Eef.Gen.Post do
   end
 
   defp root_path(blog) do
-    repo = Erlef.Blogs.Config.repo_for(blog)
-    Path.relative_to(repo.root, Mix.Project.app_path())
+    "priv/posts/#{blog}"
   end
 
   defp format_datetime(datetime) do
@@ -72,6 +71,7 @@ defmodule Mix.Tasks.Eef.Gen.Post do
     "title": "<%= @title %>",
     "author": "<%= @author %>",
     "slug": "<%= @slug %>",
+    "category": "<%= @category %>",
     "datetime": "<%= DateTime.to_iso8601(@datetime) %>"
   }
   ---

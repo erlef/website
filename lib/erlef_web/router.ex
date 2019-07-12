@@ -16,10 +16,15 @@ defmodule ErlefWeb.Router do
   scope "/", ErlefWeb do
     pipe_through :browser
 
-    for {page, _t} <- ErlefWeb.PageController.static_pages() do
-      get page, PageController, :page
-    end
+    get "/", PageController, :index
+    get "/about", PageController, :about
+    get "/bylaws", PageController, :bylaws
+    get "/contact", PageController, :contact
+    get "/faq", PageController, :faq
+    get "/sponsors", PageController, :sponsors
 
-    resources "/blogs/:topic", BlogController, only: [:index, :show]
+    get "/news/:id", BlogController, :show, as: :news
+
+    resources "/wg", WorkingGroupController, only: [:index, :show]
   end
 end

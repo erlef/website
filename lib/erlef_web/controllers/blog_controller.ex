@@ -4,39 +4,37 @@ defmodule ErlefWeb.BlogController do
 
   alias Erlef.Blogs
 
+  # not sure what we want to do with this yet.
   def index(conn, %{"topic" => topic}) do
     with {:ok, posts} <- list(topic) do
-      render(conn, "index.html", topic: topic, posts: posts, about: Blogs.Config.about_for(topic))
+      render(conn, "index.html", topic: topic, posts: posts)
     else
       _ -> {:error, :not_found}
     end
   end
 
-  def show(conn, %{"topic" => topic, "id" => id}) do
-    with {:ok, post} <- get(topic, id) do
-      render(conn, "show.html", topic: topic, post: post, about: Blogs.Config.about_for(topic))
+  def show(conn, %{"id" => id}) do
+    with {:ok, post} <- get(id) do
+      render(conn, "show.html", slug: id, post: post, working_group: fetch_working_group(post))
     else
       _ -> {:error, :not_found}
     end
   end
 
-  defp get(name, id) do
-    case Blogs.Config.repo_for(name) do
-      nil ->
-        {:error, :not_found}
-
-      mod ->
-        Blogs.get(mod, id)
+  defp get(id) do
+    case Blogs.Repo.get(id) do
+      {:ok, post} -> {:ok, post}
+      _ -> {:error, :not_found}
     end
   end
 
-  defp list(name) do
-    case Blogs.Config.repo_for(name) do
-      nil ->
-        {:error, :not_found}
+  defp fetch_working_group(%{metadata: %{"category" => slug}}) when not is_nil(slug) do
+    Erlef.WG.fetch(slug)
+  end
 
-      mod ->
-        Blogs.list(mod)
-    end
+  defp fetch_working_group(_), do: nil
+
+  defp list(_name) do
+    []
   end
 end
