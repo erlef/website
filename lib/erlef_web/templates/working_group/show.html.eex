@@ -17,7 +17,7 @@
                 <div class="entry-content">
                   <h1><%= @wg.name %> Working Group</h1>
                   <p><%= @wg.description %></p>
-                  <%= if String.length(@wg.email) > 1 do %>
+                  <%= if @wg.email do %>
                     <p>You can reach us at: <%= @wg.email %></p>
                   <% end %>
                 </div>

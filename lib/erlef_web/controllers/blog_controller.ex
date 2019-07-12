@@ -28,7 +28,7 @@ defmodule ErlefWeb.BlogController do
     end
   end
 
-  defp fetch_working_group(%{metadata: %{"category" => slug}}) when is_bitstring(slug) do
+  defp fetch_working_group(%{metadata: %{"category" => slug}}) when not is_nil(slug) do
     Erlef.WG.fetch(slug)
   end
 

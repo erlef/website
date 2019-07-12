@@ -1,5 +1,5 @@
 defmodule Erlef.WG do
-  defstruct name: "", slug: "", description: "", email: "", formed: nil
+  defstruct name: "", slug: "", description: "", email: nil, formed: nil
 
   @priv_dir "priv/working_groups/*md"
 
