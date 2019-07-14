@@ -1,0 +1,11 @@
+<div class="container">
+
+  <div id="calendar" data-calendar-header="true" class="mt-5">
+  </div>
+
+  <script>
+    window.calendar_events = <%= raw @events %>
+  </script>
+
+</div>
+<!-- /.container -->

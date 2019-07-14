@@ -25,6 +25,7 @@ defmodule ErlefWeb.Router do
 
     get "/news/:id", BlogController, :show, as: :news
 
+    resources "/events", EventController, only: [:index]
     resources "/wg", WorkingGroupController, only: [:index, :show]
   end
 end
