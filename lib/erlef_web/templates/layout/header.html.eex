@@ -9,7 +9,7 @@
               Erlang Ecosystem Foundation
             </a>
         </h2>
-            <p class="site-description">Supporting the BEAM community</p>
+            <p class="site-description mb-0">Supporting the BEAM community</p>
         </div>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" 
