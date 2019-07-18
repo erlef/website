@@ -3,7 +3,7 @@
 
 body {
     background-color: #f8f8f8;
-	font-family: Raleway;
+	  font-family: Raleway;
 }
 
 input[type="button"],
@@ -151,7 +151,7 @@ textarea:-ms-input-placeholder {
 
 
 .navbar { 
- padding: .1rem 1rem
+ padding: .5rem 1rem
 }
 
 .eco-jumbotron {
@@ -167,8 +167,7 @@ textarea:-ms-input-placeholder {
     background-image: url(/images/cropped-bkgnd-1.jpg);
 }
 
-.
-.eco-jumbotron .jumbo-overlay { adding: 1rem; background: rgba(0,0,0, 0.4);;}
+.eco-jumbotron .jumbo-overlay { padding: 1rem; background: rgba(0,0,0, 0.4);;}
 
 .eco-jumbotron .jumbo-overlay .lead { font-size: 1.5rem; text-align: left; }
 
@@ -253,7 +252,7 @@ h3 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-family: "Raleway", "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
 .display-4 {
@@ -299,6 +298,10 @@ h1, h2, h3, h4, h5, h6 {
 .flex-auto {
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
 }
 
 .h-250 { height: 250px; }
