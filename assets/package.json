@@ -7,9 +7,16 @@
   },
   "dependencies": {
     "phoenix": "file:../deps/phoenix",
-    "phoenix_html": "file:../deps/phoenix_html"
+    "phoenix_html": "file:../deps/phoenix_html",
+    "@fullcalendar/core": "4.2.0",
+    "@fullcalendar/daygrid": "4.2.0",
+    "@fullcalendar/list": "4.2.0",
+    "@fullcalendar/bootstrap": "4.2.0",
+    "@fullcalendar/interaction": "4.2.0",
+    "moment": "2.24.0"
   },
   "devDependencies": {
+    "lodash": "^4.17.15",
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
     "babel-loader": "^8.0.0",
@@ -18,7 +25,7 @@
     "mini-css-extract-plugin": "^0.4.0",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "uglifyjs-webpack-plugin": "^1.2.4",
-    "webpack": "4.4.0",
-    "webpack-cli": "^2.0.10"
+    "webpack": "4.36.1",
+    "webpack-cli": "^3.3.6"
   }
 }
