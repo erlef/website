@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
     var defaultView = calendarEl.getAttribute("data-calendar-type") || "dayGridMonth";
-    var gcal_api_key = calendarEl.getAttribute("data-calendar-gcal-api-key");
-    var gcal_id = calendarEl.getAttribute("data-calendar-gcal-id");
 
     var header;
     if (calendarEl.getAttribute("data-calendar-header") === "true") {

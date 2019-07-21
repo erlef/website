@@ -2,13 +2,14 @@ defmodule ErlefWeb.EventController do
   use ErlefWeb, :controller
   action_fallback ErlefWeb.FallbackController
 
-  alias Erlef.Event
+  alias Erlef.Events
 
   def index(conn, _params) do
-    gcal_api_key = System.get_env("GCAL_API_KEY")
-    gcal_id = System.get_env("GCAL_ID")
-
-    render(conn, events: Jason.encode!(Event.list()), gcal_api_key: gcal_api_key, gcal_id: gcal_id)
+    render(conn, events: Jason.encode!(all_events()))
   end
 
+
+  defp all_events do 
+     Enum.map(Events.Repo.all(), fn e -> Map.drop(e.metadata, ["author", "datetime", "slug"]) end)
+  end
 end
