@@ -17,11 +17,6 @@ defmodule Erlef.Blogs.Repo do
     |> Enum.reduce([], &compile/2)
   end
 
-  defp for_slug(posts, slug) do
-    posts
-    |> Enum.find(&(&1.slug == slug))
-  end
-
   defp filter_by_category(posts, category) do
     posts
     |> Enum.filter(&(Map.get(&1.metadata, "category") == category))
