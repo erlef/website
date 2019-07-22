@@ -15,7 +15,6 @@ defmodule ErlefWeb.EventView do
   def month_name_and_day(event) do
     meta = event.metadata
     {:ok, dt1, _offset} = DateTime.from_iso8601(meta["start"])
-    {:ok, dt2, _offset} = DateTime.from_iso8601(meta["end"])
     month = Timex.month_name(dt1.month)
     day = dt1.day
     "#{month} #{day}"
