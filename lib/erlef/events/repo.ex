@@ -1,12 +1,6 @@
 defmodule Erlef.Events.Repo do
   use Nabo.Repo, root: "priv/events"
 
-  @spec for_wg(String.t()) :: [Nabo.Post.t()]
-  def for_wg(wg) do
-    load_all()
-    |> filter_by_category(wg)
-  end
-
   @spec load_all(String.t()) :: [Nabo.Post.t()]
   def load_all(path \\ @root) do
     path
