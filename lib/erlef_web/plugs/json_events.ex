@@ -9,7 +9,16 @@ defmodule ErlefWeb.Plug.JsonEvents do
     events =
       Enum.map(Erlef.Events.Repo.all(), fn e ->
         slug = e.metadata["slug"]
-        Map.put(e.metadata, "url", "/events/#{slug}")
+
+        description =
+          case String.length(e.body) > 260 do
+            true -> String.slice(e.body, 0..260) <> "..."
+            false -> e.body
+          end
+
+        e.metadata
+        |> Map.put("url", "/events/#{slug}")
+        |> Map.put("description", description)
       end)
 
     Jason.encode!(events)
