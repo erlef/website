@@ -1,4 +1,88 @@
 <div class="container">
+    <article class="card mt-3r page type-page status-publish hentry">
+        <div class="card-body">
+            <p><a href="https://erlef.org/events/"> « All Events</a></p>
 
+            <h1 class="card-title">Code Elixir LDN</h1>
+            <h2><span><%= at_date(@event) %></span></h2>
+
+            <!-- Event header -->
+            <div data-title="<%= #{@event.title} %> – Erlang Ecosystem Foundation" data-viewtitle="<%= @event.title %>">
+                <!-- Navigation -->
+            </div>
+              
+
+            <div class="hentry">
+                <!-- Event featured image, but exclude link -->
+
+              <!-- Event content -->
+              <div class="event-description">
+                <%= raw @event.body %>
+              </div>
+
+              <div>
+                <a class="" href="https://www.google.com/calendar/event?action=TEMPLATE&amp;text=Code+Elixir+LDN&amp;dates=20190718T090000/20190718T170000&amp;details=Code+Elixir+LDN+is+a+one-day%2C+one+track+conference+bringing+together+the+Elixir+community+to+share%2C+learn+and+be+inspired.+The+conference+is+suitable+for+all+levels+of+programming+experience+and+all+team+members%2C+from+developers+to+CTOs+and+above.+%0AAttend+Code+Elixir+LDN%2C+meet+like-minded+professionals%2C+find+opportunities+with+companies+using+Elixir%2C+grow+your+career%2C+knowledge%2C+contacts+and+team.+%0ACode+Elixir+LDN+actively+encourages+diversity+in+the+Elixir+community.+%0A&amp;location=155+Bishopsgate%2C+LIVERPOOL+ST+LONDON+EC2M+3YD%2C+London%2C+United+Kingdom&amp;trp=false&amp;sprop=website:https://erlef.org&amp;ctz=Europe%2FLondon" title="Add to Google Calendar">+ Google Calendar</a>
+                <a href="#server_up_generated_ical_client_side" title="Download .ics file">+ iCal Export</a></div>
+              </div>
+
+              <div>
+                <h2> Details </h2>
+                <dl>
+                  <dt> Date: </dt>
+                  <dd><abbr title="2019-07-18"> July 18 </abbr></dd>
+                  <dt> Time: </dt>
+                  <dd><div title="2019-07-18">9:00 am - 5:00 pm </div></dd>
+                  <dt> Website: </dt>
+                  <dd><a href="https://codesync.global/conferences/code-elixir-ldn-2019/" target="_self">https://codesync.global/conferences/code-elixir-ldn-2019/</a> </dd>
+
+                </dl>
+              </div>
+
+              <div>
+                <h2>Organizer</h2>
+                <dl>
+                  <dd>Code Sync Ltd </dd>
+                  <dt>Website:</dt>
+                  <dd><a href="https://codesync.global/" target="_self">https://codesync.global/</a> </dd>
+                </dl>
+              </div>
+
+
+              <div>
+                <h2> Venue </h2>
+                <dl>
+                    <dd> 155 Bishopsgate </dd>
+                    <dd>
+                      <address class="tribe-events-address">
+					    <span>
+                          <span>LIVERPOOL ST LONDON EC2M 3YD</span>
+                          <br>
+		                  <span>London</span><span>,</span>
+                          <span>United Kingdom</span>
+                      </span>
+                      <a href="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=LIVERPOOL+ST+LONDON+EC2M+3YD+London+United+Kingdom" title="Click to view a Google Map" target="_blank">+ Google Map</a>					</address>
+                    </dd>
+                    <dt> Website: </dt>
+                    <dd> <a href="https://www.etcvenues.co.uk/venues/155bishopsgate" target="_self">https://www.etcvenues.co.uk/venues/155bishopsgate</a> </dd>
+                </dl>
+              </div>
+
+              <div style="height: 350px; width: 100%" aria-hidden="true"></div>
+                    <!-- #tribe-events-gmap- -->
+              </div>
+            </div>
+
+
+            <!-- Event footer -->
+            <div>
+              <!-- Navigation -->
+              <nav class="tribe-events-nav-pagination" aria-label="Event Navigation">
+                <ul class="tribe-events-sub-nav">
+                  <li class="tribe-events-nav-previous"></li>
+                  <li class="tribe-events-nav-next"><a href="https://erlef.org/event/code-beam-lite-budapest/">Code BEAM Lite Budapest <span>»</span></a></li>
+                </ul>
+              </nav>
+            </div>
+        </div>    
+    </article>
 </div>
-<!-- /.container -->

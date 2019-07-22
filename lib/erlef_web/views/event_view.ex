@@ -1,3 +1,15 @@
 defmodule ErlefWeb.EventView do
   use ErlefWeb, :view
+
+  def at_date(post) do
+    meta = post.metadata
+    {:ok, dt1, _eh} = DateTime.from_iso8601(meta["start"])
+    {:ok, dt2, _eh} = DateTime.from_iso8601(meta["end"])
+    month = Timex.month_name(dt1.month)
+    day = dt1.day
+    {:ok, start} = Timex.format(dt1, "%T", :strftime)
+    {:ok, ends} = Timex.format(dt2, "%T", :strftime)
+    "#{month} #{day} @ #{start} - #{ends}"
+  end
+
 end
