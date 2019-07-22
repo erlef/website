@@ -9,7 +9,7 @@ defmodule ErlefWeb.EventController do
   end
 
   def show(conn, %{"id" => id}) do
-    {:ok, event} =  Erlef.Events.Repo.get(id)
+    {:ok, event} = Erlef.Events.Repo.get(id)
     render(conn, event: event)
   end
 end
