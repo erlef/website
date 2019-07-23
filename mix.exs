@@ -40,8 +40,8 @@ defmodule Erlef.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.1", override: true},
       {:plug_cowboy, "~> 2.1"},
-      {:nabo, git: "https://github.com/jelly-beam/nabo.git"},
-      {:earmark, "~> 1.3.2"},
+      {:nabo, "~> 1.0.1"},
+      {:earmark, "~> 1.3.2", override: true},
       {:timex, "~> 3.6"}
     ]
   end
