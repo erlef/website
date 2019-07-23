@@ -23,6 +23,7 @@ defmodule ErlefWeb.Router do
     get "/contact", PageController, :contact
     get "/faq", PageController, :faq
     get "/sponsors", PageController, :sponsors
+    get "/become-a-sponsor", PageController, :sponsor_info
 
     get "/news/:id", BlogController, :show, as: :news
 

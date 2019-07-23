@@ -23,7 +23,17 @@
             <ul class="navbar-nav mx-auto" style="">
 
                 <li class="nav-item"><a href="https://members.erlef.org/join-us" class="nav-link">Join Us!</a></li>
-                <li class="nav-item"><a href="/sponsors/" class="nav-link">Sponsors</a></li>
+
+                 <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sponsors</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <a class="dropdown-item" href="/sponsors/" class="nav-link">Sponsors</a>
+                        <a class="dropdown-item" href="/become-a-sponsor/">Become a sponsor!</a>
+                    </div>
+                 </li>
+
                 <li class="nav-item"><a href="/wg/" class="nav-link">Working Groups</a></li>
 
                 <li class="nav-item dropdown">
