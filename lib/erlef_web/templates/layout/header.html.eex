@@ -31,7 +31,6 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                        <a class="dropdown-item" href="/about/" class="nav-link">About Us</a>
                         <a class="dropdown-item" href="/contact/" class="nav-link">Contact</a>
                         <a class="dropdown-item" href="/bylaws/">Bylaws</a>
                         <a class="dropdown-item" href="/faq/">FAQ</a>

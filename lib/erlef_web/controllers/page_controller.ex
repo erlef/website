@@ -19,10 +19,6 @@ defmodule ErlefWeb.PageController do
     render(conn)
   end
 
-  def about(conn, _params) do
-    render(conn)
-  end
-
   def bylaws(conn, _params) do
     render(conn)
   end
