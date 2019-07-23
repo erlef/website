@@ -7,6 +7,7 @@ defmodule ErlefWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug ErlefWeb.Plug.JsonEvents
   end
 
   pipeline :api do
@@ -22,9 +23,11 @@ defmodule ErlefWeb.Router do
     get "/contact", PageController, :contact
     get "/faq", PageController, :faq
     get "/sponsors", PageController, :sponsors
+    get "/become-a-sponsor", PageController, :sponsor_info
 
     get "/news/:id", BlogController, :show, as: :news
 
+    resources "/events", EventController, only: [:index, :show]
     resources "/wg", WorkingGroupController, only: [:index, :show]
   end
 end

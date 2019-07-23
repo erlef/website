@@ -33,7 +33,13 @@ defmodule Mix.Tasks.Eef.Gen.Post do
 
         create_file(
           file,
-          post_template(title: title, slug: slug, datetime: datetime, author: author, category: blog)
+          post_template(
+            title: title,
+            slug: slug,
+            datetime: datetime,
+            author: author,
+            category: blog
+          )
         )
 
       _ ->

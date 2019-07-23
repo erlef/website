@@ -41,7 +41,7 @@ defmodule Erlef.MixProject do
       {:jason, "~> 1.1", override: true},
       {:plug_cowboy, "~> 2.1"},
       {:nabo, "~> 1.0.1"},
-      {:earmark, "~> 1.2.4"},
+      {:earmark, "~> 1.3.2", override: true},
       {:timex, "~> 3.6"}
     ]
   end

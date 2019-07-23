@@ -1,0 +1,93 @@
+<div class="container">
+    <article class="card mt-3r page type-page status-publish hentry">
+        <div class="card-body">
+          <p> <%= link("« All Events", to: "/events") %></p>
+
+            <h1 class="card-title">Code Elixir LDN</h1>
+            <h2><span><%= at_date(@event) %></span></h2>
+
+            <!-- Event header -->
+            <div data-title="<%= #{@event.title} %> – Erlang Ecosystem Foundation" data-viewtitle="<%= @event.title %>">
+                <!-- Navigation -->
+            </div>
+              
+
+            <div class="hentry">
+                <!-- Event featured image, but exclude link -->
+
+              <!-- Event content -->
+              <div class="event-description">
+                <p>
+                <%= raw @event.body_html %>
+                </p>
+              </div>
+
+              <div>
+                <a class="btn btn-primary btn-sm" href="<%= raw @event.metadata["gcal_url"] %>" title="Add to Google Calendar">+ Google Calendar</a>
+                <a class="btn btn-primary btn-sm" href="#server_up_generated_ical_client_side" title="Download .ics file">+ iCal Export</a></div>
+              </div>
+
+              <div class="jumbotron mt-2">
+                <div class="row">
+              <div class="col">
+                <h2> Details </h2>
+                <dl>
+                  <dt> Date: </dt>
+                  <dd><abbr title="2019-07-18"> <%= month_name_and_day(@event) %> </abbr></dd>
+                  <dt> Time: </dt>
+                  <dd><div title="2019-07-18"><%= time_duration(@event) %> </div></dd>
+                  <dt> Website: </dt>
+                  <dd><a href="<%= @event.metadata["event_url"] %>" target="_self"><%= @event.metadata["organizer_url"] %></a> </dd>
+
+                </dl>
+              </div>
+
+
+              <div class="col">
+                <h2>Organizer</h2>
+                <dl>
+                  <dd>Code Sync Ltd </dd>
+                  <dt>Website:</dt>
+                  <dd><a href="><%= @event.metadata["organizer_url"] %>" target="_self"><%= @event.metadata["organizer_url"] %></a> </dd>
+                </dl>
+              </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col">
+                  <h2> Venue </h2>
+                    <dl>
+                      <dd> <%= @event.metadata["venue_address1"] %></dd>
+                        <dd>
+                          <address>
+					        <span>
+                              <span><%= @event.metadata["venue_address2"] %></span>
+                              <br>
+                              <span><%= @event.metadata["venue_territory"] %></span>,</span>
+                            <span><%= @event.metadata["venue_country"] %></span>
+                          </address>
+                          <a href="<%= raw @event.metadata["venue_gmap_url"] %>" title="Click to view a Google Map" target="_blank">+ Google Map</a>
+                        </dd>
+                        <dt> Website: </dt>
+                        <dd> <a href="<%= @event.metadata["venue_url"] %>" target="_self"><%= @event.metadata["venue_url"] %></a> </dd>
+                    </dl>
+                </div>
+                
+                <div class="col">
+                  <iframe src="<%= @event.metadata["gmap_embed_url"] %>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
+                  </iframe>
+                </div>
+            </div>
+
+
+            <!-- Event footer -->
+            <div>
+              <!-- Navigation -->
+              <nav aria-label="Event Navigation">
+              </nav>
+            </div>
+        </div>    
+    </article>
+</div>

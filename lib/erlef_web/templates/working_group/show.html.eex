@@ -10,7 +10,6 @@
             <article id="post-94" class="card mt-3r post-94 page type-page status-publish hentry">
               <div class="card-body">
                 <header class="entry-header">
-                  <!-- ?php the_title( '<h1 class="entry-title h2">', '</h1>' ); ? -->
                 </header><!-- .entry-header -->
 
 

@@ -15,25 +15,15 @@ defmodule ErlefWeb.PageController do
     "/wg/" => "wg.html"
   }
 
-  def index(conn, _params) do
-    render(conn)
-  end
+  def index(conn, _params), do: render(conn)
 
-  def about(conn, _params) do
-    render(conn)
-  end
+  def bylaws(conn, _params), do: render(conn)
 
-  def bylaws(conn, _params) do
-    render(conn)
-  end
+  def sponsor_info(conn, _params), do: render(conn, "become_a_sponsor.html")
 
-  def contact(conn, _params) do
-    render(conn)
-  end
+  def contact(conn, _params), do: render(conn)
 
-  def faq(conn, _params) do
-    render(conn)
-  end
+  def faq(conn, _params), do: render(conn)
 
   def sponsors(conn, _params) do
     sponsors = Erlef.Sponsors.roster()
