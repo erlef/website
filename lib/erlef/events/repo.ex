@@ -1,3 +1,7 @@
 defmodule Erlef.Events.Repo do
-  use Nabo.Repo, root: "priv/events"
+  @priv :code.priv_dir(:erlef)
+  @root "priv/events"
+  use Nabo.Repo, root: @root
+
+  def root, do: @root
 end
