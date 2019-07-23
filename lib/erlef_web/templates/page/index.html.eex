@@ -49,10 +49,6 @@
 </div>
 <!-- #content -->
 
- <script>
-    window.calendar_events = <%= raw @events %>
-  </script>
-
 <footer id="colophon" class="site-footer text-center bg-white mt-4 text-muted">
 
     <section class="footer-widgets text-left">
@@ -70,14 +66,9 @@
 
                   <h5 style="font-size:1rem;">Upcoming events</h5>
 
-  <div id="calendar" data-calendar-type="listWeek">
-  </div>
-
-  <script>
-    window.calendar_events = <%= raw @events %>
-  </script>
-
+                  <div id="calendar" data-calendar-type="listYear"></div>
                 </div>
+
 
  
             </div>
