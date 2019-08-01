@@ -16,33 +16,9 @@
 		
 		<div class="entry-content">
 			<p>Sign up for our newsletter to stay informed of EEF updates!</p>
-<script>(function() {
-	if (!window.mc4wp) {
-		window.mc4wp = {
-			listeners: [],
-			forms    : {
-				on: function (event, callback) {
-					window.mc4wp.listeners.push({
-						event   : event,
-						callback: callback
-					});
-				}
-			}
-		}
-	}
-})();
-</script><!-- Mailchimp for WordPress v4.5.2 - https://wordpress.org/plugins/mailchimp-for-wp/ --><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-116" method="post" data-id="116" data-name="" ><div class="mc4wp-form-fields"><div class="subscribe">
-  
-    <p class="col-xs-4 col-md-4 col-lg-4" style="padding-left: 0">
-    	<input type="email" name="EMAIL" placeholder="Your e-mail address"
-    required="">
-    </p>
- 
-    <p class="col-xs-4 col-md-4 col-lg-4 mailform" style="padding-left: 0">
-      <input style="border-color: #BBBBBB; width: 100%;" type="submit" value="Subscribe">
-    </p>
-</div></div><label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" value="1559954149" /><input type="hidden" name="_mc4wp_form_id" value="116" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" /><div class="mc4wp-response"></div></form><!-- / Mailchimp for WordPress Plugin -->
-<p>Contact us: eef@erlef.org</p>
+            <%= raw subscribe_form() %>
+            
+            <p>Contact us: eef@erlef.org</p>
 <p>Marketing working group: marketing@erlef.org</p>
 		</div><!-- .entry-content -->
 	</div>
