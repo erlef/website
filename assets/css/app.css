@@ -416,6 +416,10 @@ h1, h2, h3, h4, h5, h6 {
   user-select: none;
 }
 
+img.sponsor { 
+ border: none;
+}
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
