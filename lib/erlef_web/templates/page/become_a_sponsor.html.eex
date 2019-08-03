@@ -1,66 +1,47 @@
 <div id="content" class="site-content">
-
-
-	<div class="container">
-		<div class="row">
-
-							<div class="col-md-12 wp-bp-content-width">
-			
-				<div id="primary" class="content-area">
-					<main id="main" class="site-main">
-
-						
-<article id="post-359" class="card mt-3r post-359 page type-page status-publish hentry">
-	<div class="card-body">
-		<header class="entry-header">
-		</header><!-- .entry-header -->
-
-		
-		<div class="entry-content">
-			<h1>Become a sponsor!</h1>
-<div>We are really excited you are interested in helping us grow a diverse community around the Erlang and Elixir Ecosystem. Your donation will help on the development of technologies and open source projects that your engineers and many engineers around the world will use daily. This work can’t be done without the financial support of organizations like yours.</div>
-<div></div>
-<div>When you become a sponsor we will acknowledge your donation and we will include your logo and link on the EEF web site and on other communications such as conferences and social media whenever appropriate. Sponsors committing in the next weeks will have a special category named “Founding Sponsors” that will provide them better logo exposure.</div>
-<p>&nbsp;</p>
-<h2>Sponsorship Tiers</h2>
-<table style="width: 100%;">
-<tbody>
-<tr>
-<th>Revenue or expense whichever larger</th>
-<th>Yearly minimal sponsorship fee</th>
-</tr>
-<tr>
-<td>&lt; $1.000.000</td>
-<td>$2.000</td>
-</tr>
-<tr>
-<td>$1.000.000 … $5.000.000</td>
-<td>$5.000</td>
-</tr>
-<tr>
-<td>&gt; $5.000.000</td>
-<td>$10.000</td>
-</tr>
-</tbody>
-</table>
-<h2>How do I become a sponsor?</h2>
-<p>Please email <strong><a href="mailto:sponsorship@erlef.org" target="_blank" rel="noopener noreferrer"><span class="il">sponsorship@erlef.org</span></a></strong>.</p>
-		</div><!-- .entry-content -->
-	</div>
-	<!-- /.card-body -->
-
-	</article><!-- #post-359 -->
-
-					</main><!-- #main -->
-				</div><!-- #primary -->
-			</div>
-			<!-- /.col-md-8 -->
-
-					</div>
-		<!-- /.row -->
-	</div>
-	<!-- /.container -->
-
-
-	</div>
+  <div class="container">
+	<div class="row">
+      <div class="col-md-12 wp-bp-content-width">
+		  <div id="primary" class="content-area">
+			<main id="main" class="site-main">
+              <article class="card mt-3r page type-page status-publish hentry">
+	            <div class="card-body">
+		          <div class="entry-content">
+			        <h1>Become a sponsor!</h1>
+                      <div>We are really excited you are interested in helping us grow a diverse community around the Erlang and Elixir Ecosystem. Your donation will help on the development of technologies and open source projects that your engineers and many engineers around the world will use daily. This work can’t be done without the financial support of organizations like yours.</div>
+                      <div>When you become a sponsor we will acknowledge your donation and we will include your logo and link on the EEF web site and on other communications such as conferences and social media whenever appropriate. Sponsors committing in the next weeks will have a special category named “Founding Sponsors” that will provide them better logo exposure.</div>
+                    <p>&nbsp;</p>
+                    <h2>Sponsorship Tiers</h2>
+                    <table class="table">
+                      <tbody>
+                      <tr>
+                        <th>Revenue or expense whichever larger</th>
+                        <th>Yearly minimal sponsorship fee</th>
+                      </tr>
+                      <tr>
+                        <td>&lt; $1.000.000</td>
+                        <td>$2.000</td>
+                      </tr>
+                      <tr>
+                        <td>$1.000.000 … $5.000.000</td>
+                        <td>$5.000</td>
+                      </tr>
+                      <tr>
+                        <td>&gt; $5.000.000</td>
+                        <td>$10.000</td>
+                      </tr>
+                  </tbody>
+              </table>
+              <h2>How do I become a sponsor?</h2>
+              <p>Please email <strong><a href="mailto:sponsorship@erlef.org" target="_blank" rel="noopener noreferrer"><span class="il">sponsorship@erlef.org</span></a></strong>.</p>
+		    </div><!-- .entry-content -->
+	    </div>
+	  <!-- /.card-body -->
+	</article>
+  </main><!-- #main -->
+  </div><!-- #primary -->
+  </div>
+  </div>
+  </div>
+  </div>
 
