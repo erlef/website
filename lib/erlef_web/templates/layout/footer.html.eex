@@ -1,0 +1,32 @@
+
+<footer id="colophon" class="site-footer text-center bg-white mt-4 text-muted">
+
+    <section class="footer-widgets text-left">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col col-lg-6">
+                    <aside class="widget-area footer-1-area mb-2">
+                      <section id="twitter_timeline-5" class="widget wp-bp-footer-widget widget_twitter_timeline">
+                      <h5 class="widget-title h6">Follow us on Twitter</h5>
+                        <a class="twitter-timeline"  data-dnt="true" data-theme="light" data-theme="light" data-link-color="#f96e5b" data-border-color="#e8e8e8" data-tweet-limit="2" data-lang="EN" data-chrome="noheader nofooter noborders noscrollbar transparent" href="https://twitter.com/TheErlef?ref_src=twsrc%5Etfw">Tweets by TheErlef</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                    </aside>
+                </div>
+
+                <div class="col col-lg-6">
+
+                  <h5 style="font-size:1rem;">Upcoming events</h5>
+
+                  <div id="calendar" data-calendar-type="listYear"></div>
+                </div>
+
+
+ 
+            </div>
+            <!-- /.row -->
+        </div>
+    </section>
+  
+   
+
+</footer>
+
