@@ -1,0 +1,72 @@
+<div class="container">
+		<div class="row">
+
+							<div class="col-md-12 wp-bp-content-width">
+			
+				<div id="primary" class="content-area">
+					<main id="main" class="site-main">
+
+						
+<article id="post-407" class="card mt-3r post-407 page type-page status-publish hentry">
+	<div class="card-body">
+		<header class="entry-header">
+			<!-- ?php the_title( '<h1 class="entry-title h2">', '</h1>' ); ? -->
+		</header><!-- .entry-header -->
+
+		
+		<div class="entry-content">
+			<h1><b>Erlang Ecosystem Foundation – Documentation Working Group Proposal</b></h1>
+<h2>News</h2>
+<p>Please contact us at <a href="mailto:eef-documentation@erlef.org">eef-documentation@erlef.org</a> and checkout our <a href="https://erlef.org/blog/documentation/">blog</a> for news and updates.</p>
+<h2><b>Mission Statement</b></h2>
+<p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
+<h2><b>Main Objectives</b></h2>
+<ul>
+<li>Allow documentation to be accessed and shared across different languages in the Erlang Ecosystem (as it pertains to <a href="http://erlang.org/eeps/eep-0048.html">EEP 48</a>)</li>
+<li>Improve the user experience in writing, generating, and reading documentation from the shell, IDEs, web pages, etc.</li>
+<li>Be a central point for language designers, library authors, and tool maintainers to learn, discuss, propose, and improve the current best practices related to documentation</li>
+</ul>
+<h2><b>Benefits to the community</b></h2>
+<ul>
+<li>Better integration between various languages: today IDE integrations written for Elixir cannot show documentation for Erlang projects, and vice-versa. The lack of interoperability often means developers would reimplement a library in language X rather than use an existing library in language Y as to leverage the full toolset</li>
+<li>Share tools and ideas between languages: Erlang’s documentation has man pages, other languages do not. Elixir provides EPUB generation and modern web front-end for documentation. By standardizing how documentation is written and accessed, we write tools that work for all languages instead of fragmenting the community</li>
+<li>The current documentation ecosystem is generally understaffed within each language. By pooling resources, developer time, and focusing on interoperability, we can hope for better sustainability</li>
+</ul>
+<h2><b>Short term deliverables</b></h2>
+<ul>
+<li>Adopt EEP 48 on EDoc to make it interoperable with other tools in the community, such as ExDoc. Given EDoc is the most used documentation tool in the Erlang community, improving its outcome will push the ecosystem as a whole towards better documentation and better tools</li>
+<li>Streamline generation and publishing of documentation across the existing build tools. For example, pushing a package to Hex should by default push users towards also publishing docs (this requires collaboration with the Building and Packaging Working Group)</li>
+</ul>
+<h2><b>Long term deliverables</b></h2>
+<ul>
+<li>Guide languages towards adoption of EEP 48</li>
+<li>Define a documentation language to be used as a standard in the community</li>
+<li>Adopt said standard in Erlang/OTP and the existing tooling</li>
+</ul>
+<h2><b>Why does this group require the Foundation</b></h2>
+<p>While EEP 48 has been a recent effort into unifying how documentation is managed in the Erlang Ecosystem, its adoption has been slow. The working group will be a central point for language authors to learn about best practices and provide feedback on the current standards, increasing EEP 48’s adoption as well as improving the interoperability between languages.</p>
+<p>The adoption of EEP 48 may also require changes to existing tools. Some of these tools may be managed by other Working Groups, which we aim to support. The Working Group may also need funding when it comes to enhancing and maintaining said tools.</p>
+<p>Note that it is not the goal of the Documentation Working Group to write and provide documentation for libraries and tools it doesn’t directly maintain. Although it is our goal to provide materials and resources for library authors to instruct and push them towards writing documentation of great quality.</p>
+<h2><b>Initial list of volunteers</b></h2>
+<ul>
+<li>José Valim (Elixir, ExDoc)</li>
+<li>Kenneth Lundin (Erlang/OTP, EDoc)</li>
+<li>Radosław Szymczyszyn (Docsh)</li>
+<li>Fred Hebert (Rebar3)</li>
+<li>László Bácsi (ExDoc)</li>
+<li>Mariano Guerra (Efene)</li>
+</ul>
+		</div><!-- .entry-content -->
+	</div>
+	<!-- /.card-body -->
+
+	</article><!-- #post-407 -->
+
+					</main><!-- #main -->
+				</div><!-- #primary -->
+			</div>
+			<!-- /.col-md-8 -->
+
+					</div>
+		<!-- /.row -->
+	</div>

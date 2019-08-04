@@ -21,29 +21,13 @@
                       <div class="statement">
                         We will get back to you with next steps!
                       </div>
-                        <div class="statement"><a href="/wg/proposal/">Working Group Proposal Template</a></div>
+                        <div class="statement"><a href="/wg-proposal-template">Working Group Proposal Template</a></div>
                         <div class="statement">List of Active Working Groups</div>
                         <ul>
                           <%= for group <- @working_groups do %>
                             <li><a href="/wg/<%= group.slug %>"><%= group.name %></a></li>
                           <% end %>
                         </ul>
-                        <div class="statement"></div>
-                        Log on to view pending documents.
-                        <div class="wa_login_shortcode">
-                            <form action="https://ErlangEcosystemFoundation.wildapricot.org/sys/login/OAuthLogin"
-                                method="get">
-                                <input type="hidden" name="scope" value="contacts_me" />
-                                <input type="hidden" name="client_id" value="5fl5gzaiih" />
-                                <input type="hidden" name="response_type" value="authorization_code" />
-                                <input type="hidden" name="claimed_account_id" value="292325" />
-                                <input type="hidden" name="state" value="WaWpIntegrationLogin" />
-                                <input type="hidden" name="redirect_uri" value="https://erlef.org/wg/" />
-                                <input type="submit" name="waLoginAction" class="button button-primary" value="Log in"
-                                    title="Log in" />
-                            </form>
-                        </div>
-
                     </div>
                     <div class="col-sm">
                         <p class="align-items-end"><img class="justify-content-end"
