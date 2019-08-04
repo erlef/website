@@ -14,7 +14,8 @@ defmodule Erlef.Sponsors do
     {"peer", "https://www.stritzinger.com/"},
     {"platformatec", "http://plataformatec.com.br/"},
     {"simplabs", "https://simplabs.com/"},
-    {"whatsapp", "https://www.whatsapp.com/"}
+    {"whatsapp", "https://www.whatsapp.com/"},
+    {"coders51", "https://www.coders51.com/"}
   ]
 
   def roster do
