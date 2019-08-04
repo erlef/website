@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
- A `.tool-versions' file is provided in this repo for [asdf](https://asdf-vm.com/) users. 
+ A `.tool-versions` file is provided in this repo for [asdf](https://asdf-vm.com/) users. 
 
  - Erlang/OTP 22
  - Elixir 1.9
