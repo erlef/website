@@ -1,11 +1,12 @@
 # Erlef
 
 ## Prerequisites
- 
+
+ A `.tool-versions' file is provided in this repo for [asdf](https://asdf-vm.com/) users. 
 
  - Erlang/OTP 22
  - Elixir 1.9
- - NodeJS v12.x 
+ - NodeJS v12 
 
 ## Up and running
 
@@ -52,7 +53,7 @@ Post excerpt goes here. This is a short description of the what the post is abou
 This is where the body of the post goes. 
 
 ## Standard markdown and GFM supported.
- See https://hexdocs.pm/earmark/1.3.2/Earmark.html for details. 
+ See [Earmark Docs](https://hexdocs.pm/earmark/1.3.2/Earmark.html) for details. 
 
 ```
 
