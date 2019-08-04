@@ -24,6 +24,7 @@ defmodule ErlefWeb.Router do
     get "/faq", PageController, :faq
     get "/sponsors", PageController, :sponsors
     get "/become-a-sponsor", PageController, :sponsor_info
+    get "/wg-proposal-template", PageController, :wg_proposal_template
 
     get "/news/:id", BlogController, :show, as: :news
 
