@@ -5,9 +5,9 @@ defmodule ErlefWeb.BlogController do
   alias Erlef.Blogs
 
   # not sure what we want to do with this yet.
-  def index(conn, %{"topic" => topic}) do
-    with {:ok, posts} <- list(topic) do
-      render(conn, "index.html", topic: topic, posts: posts)
+  def index(conn, _params) do
+    with {:ok, posts} <- list("eef") do
+      render(conn, "index.html", topic: "eef", about: "eh", posts: posts)
     else
       _ -> {:error, :not_found}
     end
@@ -34,7 +34,7 @@ defmodule ErlefWeb.BlogController do
 
   defp fetch_working_group(_), do: nil
 
-  defp list(_name) do
-    []
+  defp list(name) do
+    {:ok, Erlef.Blogs.Repo.for_wg(name)}
   end
 end

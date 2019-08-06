@@ -2,7 +2,7 @@
   "title": "Time is running out!",
   "author": "EEF",
   "slug": "time-is-running-out",
-  "category": "wg",
+  "category": "eef",
   "datetime": "2019-07-17T22:24:21.605755Z"
 }
 ---
