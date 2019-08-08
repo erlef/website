@@ -7,10 +7,15 @@ defmodule ErlefWeb.BlogController do
   # not sure what we want to do with this yet.
   def index(conn, %{"topic" => topic}) do
     with {:ok, posts} <- list(topic) do
-      render(conn, "index.html", topic: topic, posts: posts)
+      render(conn, "index.html", topic: topic, wg: Erlef.WG.fetch(topic), posts: posts)
     else
-      _ -> {:error, :not_found}
+      _ -> 
+      render(conn, "index.html", topic: topic, wg: Erlef.WG.fetch(topic), posts: [])
     end
+  end
+
+  def index(conn, _params) do
+    index(conn, %{"topic" => "eef"})
   end
 
   def show(conn, %{"id" => id}) do
@@ -34,7 +39,7 @@ defmodule ErlefWeb.BlogController do
 
   defp fetch_working_group(_), do: nil
 
-  defp list(_name) do
-    []
+  defp list(name) do
+    {:ok, Erlef.Blogs.Repo.for_wg(name)}
   end
 end
