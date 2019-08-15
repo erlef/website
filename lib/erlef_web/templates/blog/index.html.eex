@@ -1,4 +1,4 @@
-<%= if length(@posts) > 0 do %>
+<%= if @posts != [] do %>
   <div class="container mt-2">
     <% post1 = Enum.at(@posts, 0) %>
     <%= unless is_nil(post1) do %>

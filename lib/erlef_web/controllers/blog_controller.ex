@@ -2,15 +2,14 @@ defmodule ErlefWeb.BlogController do
   use ErlefWeb, :controller
   action_fallback ErlefWeb.FallbackController
 
-  alias Erlef.Blogs
+  alias Erlef.{Blogs, WG}
 
   # not sure what we want to do with this yet.
   def index(conn, %{"topic" => topic}) do
-    with {:ok, posts} <- list(topic) do
-      render(conn, "index.html", topic: topic, wg: Erlef.WG.fetch(topic), posts: posts)
-    else
-      _ -> 
-      render(conn, "index.html", topic: topic, wg: Erlef.WG.fetch(topic), posts: [])
+    case fetch_working_group(topic) do
+      nil -> {:error, :not_found}
+      wkgroup ->
+        render(conn, "index.html", topic: topic, wg: wkgroup, posts: list(topic))
     end
   end
 
@@ -34,12 +33,12 @@ defmodule ErlefWeb.BlogController do
   end
 
   defp fetch_working_group(%{metadata: %{"category" => slug}}) when not is_nil(slug) do
-    Erlef.WG.fetch(slug)
+    WG.fetch(slug)
   end
 
+  defp fetch_working_group(name) when is_bitstring(name), do: WG.fetch(name)
   defp fetch_working_group(_), do: nil
 
-  defp list(name) do
-    {:ok, Erlef.Blogs.Repo.for_wg(name)}
-  end
+  def list(name) when not is_nil(name), do: Blogs.Repo.for_wg(name)
+  def list(_), do: []
 end
