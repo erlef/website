@@ -28,7 +28,7 @@
                   <% end %>
                   <%= for post <- @blog_posts do %>
                     <p>
-                    <%= render(ErlefWeb.BlogView, "preview.html", post: post) %>
+                    <%= render(ErlefWeb.BlogView, "preview.html", post: post, topic: @topic) %>
                     </p>
                   <% end %>
                 </div>

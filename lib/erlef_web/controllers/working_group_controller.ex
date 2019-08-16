@@ -13,7 +13,7 @@ defmodule ErlefWeb.WorkingGroupController do
   def show(conn, %{"id" => slug}) do
     case Erlef.WG.fetch(slug) do
       nil -> {:error, :not_found}
-      wg -> render(conn, wg: wg, blog_posts: fetch_blog_preview(slug))
+      wg -> render(conn, wg: wg, blog_posts: fetch_blog_preview(slug), topic: slug)
     end
   end
 

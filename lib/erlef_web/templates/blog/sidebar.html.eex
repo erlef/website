@@ -1,15 +1,20 @@
     <aside class="col-md-4 blog-sidebar">
       <div class="p-4 mb-3 bg-light rounded">
-        <h4 class="font-italic">About</h4>
-        <p class="mb-0"><%= @about %></p>
+        <h4 class="font-italic">About <%= @wg.name %></h4>
+        <p class="mb-0"><%= @wg.description %></p>
       </div>
 
       <div class="p-4">
-        <h4 class="font-italic">Elsewhere</h4>
+        <h4 class="font-italic">Workgroup news...</h4>
         <ol class="list-unstyled">
-          <li><a href="#">GitHub</a></li>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">Facebook</a></li>
+          <%= link("Building", to: "/news/building", class: "stretched") %> </br>
+          <%= link("Documentation", to: "/news/documentation", class: "stretched") %> </br>
+          <%= link("Education", to: "/news/education", class: "stretched") %> </br>
+          <%= link("Fellowship", to: "/news/fellowship", class: "stretched") %> </br>
+          <%= link("Marketing", to: "/news/marketing", class: "stretched") %> </br>
+          <%= link("Observability", to: "/news/observability", class: "stretched") %> </br>
+          <%= link("Security", to: "/news/security", class: "stretched") %> </br>
+          <%= link("Sponsorship", to: "/news/sponsorship", class: "stretched") %> </br>
         </ol>
       </div>
     </aside>

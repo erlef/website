@@ -1,56 +1,60 @@
-<div class="container mt-2">
-  <% post1 = Enum.at(@posts, 0) %>
-  <%= unless is_nil(post1) do %>
-    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-      <div class="col-md-6 px-0">
-        <h1 class="display-4 font-italic"><%= post1.title %></h1>
-        <p class="lead my-3"><%= post1.excerpt %></p>
-        <p class="lead mb-0">
-        <%= link("Continuing Reading", to: Routes.news_path(@conn, :show, @topic, post1.slug), class: "stretched") %>
-      </div>
-    </div>
-  <% end %>
-
-  <% latest = Enum.take(@posts, 3) %>
-  <%= if length(latest) == 3 do %>
-    <% [_, post2, post3] = latest %>
-        <% month2 =  Timex.month_name(post2.datetime.month) %>
-        <% day2 =  post2.datetime.day %>
-      <% month3 =  Timex.month_name(post2.datetime.month) %>
-        <% day3 =  post2.datetime.day %>
-
-    <div class="row mb-2">
-      <div class="col-md-6">
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary"></strong>
-            <h3 class="mb-0"><%= post2.title %></h3>
-            <div class="mb-1 text-muted"><%= "#{month2}, #{day2}" %></div>
-            <p class="card-text mb-auto truncate"><%= post2.excerpt %></p>
-            <%= link("Continue Reading", to: Routes.news_path(@conn, :show, @topic, post2.slug), class: "stretched") %>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-          </div>
+<%= if @posts != [] do %>
+  <div class="container mt-2">
+    <% post1 = Enum.at(@posts, 0) %>
+    <%= unless is_nil(post1) do %>
+      <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 font-italic"><%= post1.title %></h1>
+          <p class="lead my-3"><%= post1.excerpt %></p>
+          <p class="lead mb-0">
+          <%= link("Continuing Reading", to: Routes.news_path(@conn, :show, @topic, post1.slug), class: "stretched") %>
         </div>
       </div>
+    <% end %>
 
-      <div class="col-md-6">
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-success"></strong>
-            <h3 class="mb-0"><%= post3.title %></h3>
-            <div class="mb-1 text-muted"><%= "#{month3}, #{day3}" %></div>
-            <p class="card-text mb-auto truncate"><%= post3.excerpt %>.</p>
-            <%= link("Continue Reading", to: Routes.news_path(@conn, :show, @topic, post3.slug), class: "stretched") %>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+    <% latest = Enum.take(@posts, 3) %>
+    <%= if length(latest) == 3 do %>
+      <% [_, post2, post3] = latest %>
+          <% month2 =  Timex.month_name(post2.datetime.month) %>
+          <% day2 =  post2.datetime.day %>
+        <% month3 =  Timex.month_name(post2.datetime.month) %>
+          <% day3 =  post2.datetime.day %>
+
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary"></strong>
+              <h3 class="mb-0"><%= post2.title %></h3>
+              <div class="mb-1 text-muted"><%= "#{month2}, #{day2}" %></div>
+              <p class="card-text mb-auto truncate"><%= post2.excerpt %></p>
+              <%= link("Continue Reading", to: Routes.news_path(@conn, :show, @topic, post2.slug), class: "stretched") %>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            </div>
           </div>
         </div>
-      </div>
-  <% end %>
-</div>
+
+        <div class="col-md-6">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-success"></strong>
+              <h3 class="mb-0"><%= post3.title %></h3>
+              <div class="mb-1 text-muted"><%= "#{month3}, #{day3}" %></div>
+              <p class="card-text mb-auto truncate"><%= post3.excerpt %>.</p>
+              <%= link("Continue Reading", to: Routes.news_path(@conn, :show, @topic, post3.slug), class: "stretched") %>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+<% else %>
+  <h4 class="font-italic">No posts found</h4>
+<% end %>
 
 <main role="main" class="container mt-2">
   <div class="row">
@@ -70,6 +74,6 @@
         <hr/>
       <% end %>
     </div>
-    <%= render ErlefWeb.BlogView, "sidebar.html", conn: @conn, about: @about %>
+    <%= render ErlefWeb.BlogView, "sidebar.html", conn: @conn, wg: @wg %>
   </div>
 </main>
