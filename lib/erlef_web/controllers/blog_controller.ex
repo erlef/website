@@ -7,7 +7,9 @@ defmodule ErlefWeb.BlogController do
   # not sure what we want to do with this yet.
   def index(conn, %{"topic" => topic}) do
     case fetch_working_group(topic) do
-      nil -> {:error, :not_found}
+      nil ->
+        {:error, :not_found}
+
       wkgroup ->
         render(conn, "index.html", topic: topic, wg: wkgroup, posts: list(topic))
     end

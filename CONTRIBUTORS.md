@@ -6,5 +6,6 @@ and donation of life's most precious commodity... time.
 In alphabetical order: 
 
 - Anthony Bullard (@gamebox)
-- Desmond Bowe (@desmondmonster)
 - Ben Marx (@bgmarx)
+- Desmond Bowe (@desmondmonster)
+- Joaquin Alcerro(@joaquinalcerro)
