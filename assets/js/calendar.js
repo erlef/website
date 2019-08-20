@@ -32,13 +32,28 @@ document.addEventListener('DOMContentLoaded', function() {
             header = '';
         }
 
+        var navLinks;
+
+        if (calendarEl.getAttribute("data-calendar-header") === "true") { 
+            navLinks = true;
+        } else { 
+            navLinks = false;
+        }
+
         var calendar = new Calendar(calendarEl, {
             plugins: [interactionPlugin, dayGridPlugin, listPlugin, bootstrapPlugin],
             header: header, 
-            navLinks: true,
+            navLinks: navLinks,
             themeSystem: 'bootstrap',
             defaultView: defaultView,
             timezone: "local",
+            visibleRange: function(currentDate) {
+                var startDate = new Date(currentDate.valueOf());
+                var endDate = new Date(currentDate.valueOf());
+                startDate.setDate(startDate.getDate() - 1); // One day in the past
+                endDate.setDate(endDate.getDate() + 90); // 3 monts roughly into the future
+                return { start: startDate, end: endDate };
+            },
             eventLimit: true,
             allDaySlot: true,
             displayEventTime: true,

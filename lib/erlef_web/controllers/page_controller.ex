@@ -13,6 +13,8 @@ defmodule ErlefWeb.PageController do
 
   def faq(conn, _params), do: render(conn)
 
+  def grants(conn, _params), do: render(conn)
+
   def sponsors(conn, _params) do
     sponsors = Enum.shuffle(Erlef.Sponsors.roster())
     render(conn, sponsors: sponsors)

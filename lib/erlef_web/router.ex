@@ -22,6 +22,7 @@ defmodule ErlefWeb.Router do
     get "/bylaws", PageController, :bylaws
     get "/contact", PageController, :contact
     get "/faq", PageController, :faq
+    get "/grants", PageController, :grants 
     get "/sponsors", PageController, :sponsors
     get "/become-a-sponsor", PageController, :sponsor_info
     get "/wg-proposal-template", PageController, :wg_proposal_template

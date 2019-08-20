@@ -3,19 +3,5 @@
         <h4 class="font-italic">About <%= @wg.name %></h4>
         <p class="mb-0"><%= @wg.description %></p>
       </div>
-
-      <div class="p-4">
-        <h4 class="font-italic">Workgroup news...</h4>
-        <ol class="list-unstyled">
-          <%= link("Building", to: "/news/building", class: "stretched") %> </br>
-          <%= link("Documentation", to: "/news/documentation", class: "stretched") %> </br>
-          <%= link("Education", to: "/news/education", class: "stretched") %> </br>
-          <%= link("Fellowship", to: "/news/fellowship", class: "stretched") %> </br>
-          <%= link("Marketing", to: "/news/marketing", class: "stretched") %> </br>
-          <%= link("Observability", to: "/news/observability", class: "stretched") %> </br>
-          <%= link("Security", to: "/news/security", class: "stretched") %> </br>
-          <%= link("Sponsorship", to: "/news/sponsorship", class: "stretched") %> </br>
-        </ol>
-      </div>
     </aside>
 

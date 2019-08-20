@@ -20,7 +20,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mx-auto" style="">
+            <ul class="navbar-nav navbar-right ml-auto" style="">
 
                 <li class="nav-item"><a href="https://members.erlef.org/join-us" class="nav-link">Join Us!</a></li>
 
@@ -36,10 +36,13 @@
 
                 <li class="nav-item"><a href="/wg/" class="nav-link">Working Groups</a></li>
 
+                <li class="nav-item"><a href="/news/" class="nav-link">News</a></li>
+                <li class="nav-item"><a href="/grants/" class="nav-link">Grants</a></li>
+
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                         <a class="dropdown-item" href="/contact/" class="nav-link">Contact</a>
                         <a class="dropdown-item" href="/bylaws/">Bylaws</a>
@@ -47,23 +50,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item"><a href="/news/" class="nav-link">News</a></li>
             </ul>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <form action="https://ErlangEcosystemFoundation.wildapricot.org/sys/login/OAuthLogin" 
-                    method="get">
-                        <input type="hidden" name="scope" value="contacts_me" />
-                        <input type="hidden" name="client_id" value="5fl5gzaiih" />
-                        <input type="hidden" name="response_type" value="authorization_code" />
-                        <input type="hidden" name="claimed_account_id" value="292325" />
-                        <input type="hidden" name="state" value="WaWpIntegrationLogin" />
-                        <input type="hidden" name="redirect_uri" value="https://erlef.org/" />
-                        <input type="submit" name="waLoginAction" class="button button-primary" 
-                          value="Login" title="Login" />
-                    </form>
-                </li>
-            </ul>
         </div>
     </nav>

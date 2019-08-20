@@ -1,5 +1,18 @@
+
+  <div class="container">
+<div class="nav-scroller py-1 mb-1">
+        <nav class="nav d-flex justify-content-between">
+            <%= link("EEF", to: "/news", class: "p-2 text-muted") %>
+            <%= link("Building", to: "/news/building", class: "p-2 text-muted") %>
+            <%= link("Documentation", to: "/news/documentation", class: "p-2 text-muted") %>
+            <%= link("Education", to: "/news/education", class: "p-2 text-muted") %>
+            <%= link("Fellowship", to: "/news/fellowship", class: "p-2 text-muted") %>
+			<%= link("Marketing", to: "/news/marketing", class: "p-2 text-muted") %>
+			<%= link("Observability", to: "/news/observability", class: "p-2 text-muted") %>
+			<%= link("Security", to: "/news/security", class: "p-2 text-muted") %>
+        </nav>
+</div>
 <%= if @posts != [] do %>
-  <div class="container mt-2">
     <% post1 = Enum.at(@posts, 0) %>
     <%= unless is_nil(post1) do %>
       <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
@@ -11,60 +24,21 @@
         </div>
       </div>
     <% end %>
-
-    <% latest = Enum.take(@posts, 3) %>
-    <%= if length(latest) == 3 do %>
-      <% [_, post2, post3] = latest %>
-          <% month2 =  Timex.month_name(post2.datetime.month) %>
-          <% day2 =  post2.datetime.day %>
-        <% month3 =  Timex.month_name(post2.datetime.month) %>
-          <% day3 =  post2.datetime.day %>
-
-      <div class="row mb-2">
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary"></strong>
-              <h3 class="mb-0"><%= post2.title %></h3>
-              <div class="mb-1 text-muted"><%= "#{month2}, #{day2}" %></div>
-              <p class="card-text mb-auto truncate"><%= post2.excerpt %></p>
-              <%= link("Continue Reading", to: Routes.news_path(@conn, :show, @topic, post2.slug), class: "stretched") %>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-success"></strong>
-              <h3 class="mb-0"><%= post3.title %></h3>
-              <div class="mb-1 text-muted"><%= "#{month3}, #{day3}" %></div>
-              <p class="card-text mb-auto truncate"><%= post3.excerpt %>.</p>
-              <%= link("Continue Reading", to: Routes.news_path(@conn, :show, @topic, post3.slug), class: "stretched") %>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            </div>
-          </div>
-        </div>
-    <% end %>
-  </div>
-<% else %>
-  <h4 class="font-italic">No posts found</h4>
 <% end %>
 
-<main role="main" class="container mt-2">
+<main role="main" class="container">
   <div class="row">
     <div class="col-md-8 blog-main">
+      <%= if Enum.empty?(@posts) do %>
+         <h1 class="mt-5">Nothing yet! Check back soon!</h1>
+       <% end %>
+
       <%= for post <- @posts do %>
         <div class="post-preview">
           <%= link(to: Routes.news_path(@conn, :show, @topic, post.slug), class: "post-title") do %>
             <h2><%= post.title %></h2>
           <% end %>
-          <h3 class="post-subtitle">Sub-title</h3>
+          <h3 class="post-subtitle"><%= post.excerpt %></h3>
           <% month =  Timex.month_name(post.datetime.month) %>
           <% day =  post.datetime.day %>
           <% year = post.datetime.year %>
@@ -77,3 +51,4 @@
     <%= render ErlefWeb.BlogView, "sidebar.html", conn: @conn, wg: @wg %>
   </div>
 </main>
+  </div>

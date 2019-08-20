@@ -4,7 +4,7 @@
     <section class="footer-widgets text-left">
         <div class="container">
             <div class="row justify-content-md-center">
-                <div class="col col-lg-6">
+                <div class="col col-lg-4">
                     <aside class="widget-area footer-1-area mb-2">
                       <section id="twitter_timeline-5" class="widget wp-bp-footer-widget widget_twitter_timeline">
                       <h5 class="widget-title h6">Follow us on Twitter</h5>
@@ -12,13 +12,28 @@
                     </aside>
                 </div>
 
-                <div class="col col-lg-6">
+                <div class="col col-lg-4">
 
                   <h5 style="font-size:1rem;">Upcoming events</h5>
 
-                  <div id="calendar" data-calendar-type="listYear"></div>
+                  <div id="calendar" data-calendar-type="list"></div>
                 </div>
 
+
+                <div class="col col-lg-4">
+                   <h5 style="font-size:1rem;">Login to view your membership details</h5>
+                  <form action="https://ErlangEcosystemFoundation.wildapricot.org/sys/login/OAuthLogin" 
+                    method="get" class="mt-2">
+                        <input type="hidden" name="scope" value="contacts_me" />
+                        <input type="hidden" name="client_id" value="5fl5gzaiih" />
+                        <input type="hidden" name="response_type" value="authorization_code" />
+                        <input type="hidden" name="claimed_account_id" value="292325" />
+                        <input type="hidden" name="state" value="WaWpIntegrationLogin" />
+                        <input type="hidden" name="redirect_uri" value="https://erlef.org/" />
+                        <input type="submit" name="waLoginAction" class="button button-primary" 
+                          value="Login" title="Login" />
+                  </form>
+                </div>
 
  
             </div>

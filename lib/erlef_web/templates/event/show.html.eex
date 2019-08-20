@@ -24,7 +24,6 @@
 
               <div>
                 <a class="btn btn-primary btn-sm" href="<%= raw @event.metadata["gcal_url"] %>" title="Add to Google Calendar">+ Google Calendar</a>
-                <a class="btn btn-primary btn-sm" href="#server_up_generated_ical_client_side" title="Download .ics file">+ iCal Export</a></div>
               </div>
 
               <div class="jumbotron mt-2">
