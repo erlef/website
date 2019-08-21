@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-lg navbar-light border mb-0">
+    <nav class="navbar navbar-expand-md navbar-light border mb-0">
         <a class="navbar-brand" href="/">
        <img src="<%=  Routes.static_path(@conn, "/images/eef-logo-transparent.png") %>" width="75" height="75" alt="">
       </a>
