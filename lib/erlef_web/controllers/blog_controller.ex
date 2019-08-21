@@ -41,6 +41,7 @@ defmodule ErlefWeb.BlogController do
   defp fetch_working_group(name) when is_bitstring(name), do: WG.fetch(name)
   defp fetch_working_group(_), do: nil
 
+  def list("eef"), do: Blogs.Repo.index()
   def list(name) when not is_nil(name), do: Blogs.Repo.for_wg(name)
   def list(_), do: []
 end

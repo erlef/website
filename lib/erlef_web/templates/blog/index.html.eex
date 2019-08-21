@@ -16,8 +16,8 @@
     <% post1 = Enum.at(@posts, 0) %>
     <%= unless is_nil(post1) do %>
       <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
-          <h1 class="display-4 font-italic"><%= post1.title %></h1>
+        <div class="col px-0">
+          <h1 class="display-8 font-italic"><%= post1.title %></h1>
           <p class="lead my-3"><%= post1.excerpt %></p>
           <p class="lead mb-0">
           <%= link("Continuing Reading", to: Routes.news_path(@conn, :show, @topic, post1.slug), class: "stretched") %>
