@@ -19,7 +19,8 @@
             <div class="col col-md">
               <div class="footer-widget">
                 <h4 class="widget-title">Links</h4>
-                  <ul>
+                <div class="pull-left">
+                <ul class="list-inline">
                     <li>
                         <form action="https://ErlangEcosystemFoundation.wildapricot.org/sys/login/OAuthLogin" 
                             method="get" class="mt-2">
@@ -52,6 +53,7 @@
 
                   </ul>
                 </div>
+              </div>
               </div>
 
               <div class="col col-md">
