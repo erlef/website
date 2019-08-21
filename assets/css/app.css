@@ -218,7 +218,16 @@ h3 {
 	margin-top: 0.5rem;
 }
 
-.site-footer { padding-top: 3rem; padding-bottom: 3rem; }
+.site-footer { 
+    padding-top: 3rem; 
+    padding-bottom: 3rem; 
+    background-color: #141313;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.site-footer a {
+    color: rgba(255, 255, 255, 0.7);
+}
 
 .mt-3r {
 	margin-top: 1rem;
@@ -419,6 +428,15 @@ h1, h2, h3, h4, h5, h6 {
 img.sponsor { 
  border: none;
 }
+
+.submit-link { 
+    padding: 0px; 
+    background: none;
+    border: none; 
+    color: #6c757d !important; 
+    text-decoration: underline; 
+    cursor: pointer;
+ }
 
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {

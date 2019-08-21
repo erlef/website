@@ -1,7 +1,7 @@
 {
   "title": "Honouring the first Erlang Ecosystem Foundation Fellows,  without whom, there would be no foundation.",
   "author": "Francesco Cesarini",
-  "slug": "honoring-the-fellows-fellows",
+  "slug": "honoring-the-fellows",
   "category": "fellowship",
   "datetime": "2019-08-21T00:33:33.753534Z"
 }
