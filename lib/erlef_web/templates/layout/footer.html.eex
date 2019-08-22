@@ -1,5 +1,5 @@
 
-<footer id="colophon" class="site-footer text-center mt-2" style="background-color: #141313; color: rgba(255, 255, 255, 0.7)">
+<footer id="colophon" class="site-footer text-center mt-4" style="background-color: #141313; color: rgba(255, 255, 255, 0.7)">
   <hr/>
     <section class="footer-widgets text-left">
         <div class="container">
