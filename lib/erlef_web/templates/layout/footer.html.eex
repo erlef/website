@@ -11,9 +11,21 @@
                 <img src="<%=  Routes.static_path(@conn, "/images/eef-logo-transparent-inverted.png") %>" width="75" height="75" alt="">
                 </h2>
 
-                  <p>Supporting the BEAM community</p>
-                  Contact us : <a href="mailto:eef@erlerf.org">eef@erlef.org</a>
-              </div>
+                <p>Supporting the BEAM community</p>
+                <div class="row">
+                  <div class="col-sm-3">
+                  <span><a href="mailto:eef@erlef.org"><i class="far fa-lg fa-envelope fa-2x"></i></a></span>
+                  </div>
+
+                  <div class="col-sm-3">
+                  <span><a href="https://twitter.com/TheErlef"><i class="fab fa-lg fa-twitter fa-2x"></i></a></span>
+                  </div>
+
+                  <div class="col-sm-3">
+                  <span><a href="https://twitter.com/TheErlef"><i class="fab fa-lg fa-github fa-2x"></i></a></span>
+                  </div>
+                  </div>
+                </div>
             </div>
 
             <div class="col col-md">
@@ -61,7 +73,7 @@
                 <aside class="widget-area footer-1-area mb-2">
                       <section id="twitter_timeline-5" class="widget wp-bp-footer-widget widget_twitter_timeline">
                       <h4 class="widget-title">Recent Tweets</h4>
-                      <a class="twitter-timeline"  data-dnt="true" data-theme="dark" data-theme="light" data-link-color="#f96e5b" data-border-color="#e8e8e8" data-tweet-limit="2" data-lang="EN" data-chrome="noheader nofooter noborders noscrollbar transparent" href="https://twitter.com/TheErlef?ref_src=twsrc%5Etfw">Tweets by TheErlef</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                      <a class="twitter-timeline"  data-dnt="true" data-theme="dark" data-theme="light" data-link-color="#f96e5b" data-border-color="#e8e8e8" data-tweet-limit="1" data-lang="EN" data-chrome="noheader nofooter noborders noscrollbar transparent" href="https://twitter.com/TheErlef?ref_src=twsrc%5Etfw">Tweets by TheErlef</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
                 </aside>
               </div>
 
