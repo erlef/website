@@ -5,9 +5,9 @@ defmodule ErlefWeb.Plug.JsonEvents do
 
   def call(conn, _default) do
     {events, events_json} = all_events()
-    
+
     conn
-    |> assign(:events_json, events_json) 
+    |> assign(:events_json, events_json)
     |> assign(:events, events)
   end
 

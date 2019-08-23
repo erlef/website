@@ -20,7 +20,7 @@ defmodule Erlef.MixProject do
   def application do
     [
       mod: {Erlef.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :swoosh]
     ]
   end
 
@@ -42,7 +42,10 @@ defmodule Erlef.MixProject do
       {:plug_cowboy, "~> 2.1"},
       {:nabo, "~> 1.0.1"},
       {:earmark, "~> 1.3.2", override: true},
-      {:timex, "~> 3.6"}
+      {:timex, "~> 3.6"},
+      {:swoosh, "~> 0.23.3"},
+      {:phoenix_swoosh, "~> 0.2.0"},
+      {:gen_smtp, "~> 0.14.0"}
     ]
   end
 

@@ -14,6 +14,13 @@ defmodule ErlefWeb.Router do
     plug :accepts, ["json"]
   end
 
+  if Erlef.Config.env() == :dev do
+    scope "/dev" do
+      pipe_through [:browser]
+      forward "/mailbox", Plug.Swoosh.MailboxPreview, base_path: "/dev/mailbox"
+    end
+  end
+
   scope "/", ErlefWeb do
     pipe_through :browser
 
@@ -22,7 +29,6 @@ defmodule ErlefWeb.Router do
     get "/bylaws", PageController, :bylaws
     get "/contact", PageController, :contact
     get "/faq", PageController, :faq
-    get "/grants", PageController, :grants 
     get "/sponsors", PageController, :sponsors
     get "/become-a-sponsor", PageController, :sponsor_info
     get "/wg-proposal-template", PageController, :wg_proposal_template
@@ -33,5 +39,11 @@ defmodule ErlefWeb.Router do
 
     resources "/events", EventController, only: [:index, :show]
     resources "/wg", WorkingGroupController, only: [:index, :show]
+    get "/grants", GrantController, :index
+  end
+
+  scope "/grants", ErlefWeb do
+    pipe_through :api
+    post "/", GrantController, :create
   end
 end

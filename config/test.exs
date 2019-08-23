@@ -6,5 +6,7 @@ config :erlef, ErlefWeb.Endpoint,
   http: [port: 4002],
   server: false
 
+config :erlef, :env, :test
+
 # Print only warnings and errors during test
 config :logger, level: :warn

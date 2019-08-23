@@ -65,3 +65,9 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :erlef, Erlef.Mailer, adapter: Swoosh.Adapters.Local
+
+config :erlef, env: :dev
+
+config :swoosh, preview_port: 4001

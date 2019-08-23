@@ -3,9 +3,12 @@
 // its own CSS file.
 import css from "../css/app.css"
 
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;
 import "phoenix_html"
-
 // Import local files
 //
+
 
 require("./calendar.js")

@@ -1,0 +1,122 @@
+<%= if @copy do %>
+  <h1>Congrats <%= "#{@proposal.first_name} #{@proposal.last_name}" %> !</h1>
+<p>Please find below a copy of your grant proposal submission</p>
+<% end %>
+<h2>Grant Proposal</h2>
+  <div>    
+    <strong>First name</strong> : <%= @proposal.first_name %>
+  </div>
+  <br/>
+
+  <div class="row">
+    <strong>Last Name</strong> : <%= @proposal.last_name %>
+  </div>
+  <br/>
+  <div class="row">
+    <strong>Nick Name</strong> : <%= @proposal.nick_name %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Email Address</strong> : <%= @proposal.email_address %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Phone Number</strong> : <%= @proposal.phone_number %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Alt. Phone Number</strong> : <%= @proposal.alt_phone_number %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Organization Name</strong> : <%= @proposal.org_name %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Organization Email</strong> : <%= @proposal.org_email %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Organization Phone Number</strong> : <%= @proposal.org_phone_number %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>City</strong> : <%= @proposal.city %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Province/State/Region</strong> : <%= @proposal.province %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Postal Code</strong> : <%= @proposal.postal_code %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Country</strong> : <%= @proposal.country %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Twitter</strong> : <%= @proposal.twitter %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Linkedin</strong> : <%= @proposal.linkedin %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Website</strong> : <%= @proposal.website %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Bio</strong> : <p> <%= @proposal.bio %></p>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Grant Type</strong> : <%= @proposal.grant_type %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Code of Conduct link</strong> : <%=  @proposal.code_of_conduct_link %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Grant Amount</strong> : <%= @proposal.grant_amount %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Payment Method</strong> : <%= @proposal.payment_method %>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Purpose</strong> <p> <%= @proposal.purpose %> </p>
+  </div>
+  <br/>
+
+  <div class="row">
+  <strong>Beneficiaries</strong> : <%= @proposal.beneficiaries %>
+  </div>
+  <br/>
+
+  <div class="row">
+      <strong>Report</strong> : <%= @proposal.report %>
+  </div>

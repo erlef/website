@@ -3,9 +3,8 @@ defmodule Erlef.Blogs.Repo do
 
   use Nabo.Repo, root: @root
 
-
   @spec index() :: [Nabo.Post.t()]
-  def index() do 
+  def index() do
     load_all()
     |> sort_by_datetime_desc()
   end
@@ -31,8 +30,8 @@ defmodule Erlef.Blogs.Repo do
   end
 
   defp sort_by_datetime_desc(posts) do
-    Enum.sort(posts, fn(x,y) -> 
-      DateTime.to_unix(x.datetime) >= DateTime.to_unix(y.datetime)  
+    Enum.sort(posts, fn x, y ->
+      DateTime.to_unix(x.datetime) >= DateTime.to_unix(y.datetime)
     end)
   end
 

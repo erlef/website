@@ -11,7 +11,7 @@ defmodule Erlef.Application do
       # Start the endpoint when the application starts
       ErlefWeb.Endpoint
       # Starts a worker by calling: Erlef.Worker.start_link(arg)
-      # {Erlef.Worker, arg},
+      # {Erlef.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
