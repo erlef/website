@@ -229,6 +229,10 @@ h3 {
     color: rgba(255, 255, 255, 0.7);
 }
 
+.site-footer hr {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
 .mt-3r {
 	margin-top: 1rem;
 }

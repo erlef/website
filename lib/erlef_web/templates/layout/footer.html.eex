@@ -1,8 +1,7 @@
 
-<footer id="colophon" class="site-footer text-center mt-4" style="background-color: #141313; color: rgba(255, 255, 255, 0.7)">
-  <hr/>
+<footer id="colophon" class="site-footer text-center mt-4">
     <section class="footer-widgets text-left">
-        <div class="container">
+      <div class="container">
           <div class="row">
             <div class="col col-md">
               <div class="footer-widget">
@@ -79,24 +78,15 @@
 
 
               <div class="col col-md">
-                  <% now = DateTime.utc_now() %>
                   <h4>Upcoming events</h4>
-                  <%= for event <- @events  do %>
-                    <% {:ok, date, _offset} = DateTime.from_iso8601(event["datetime"]) %>
-                    <%= if Timex.diff(now, date, :months) == 0 do %>
-                      <p>
-                        <a href="<%= event["url"] %>"><%= event["title"] %></a>
-                      </p>
-                    <% end %>
-                  <% end %>
-
+                  <%= render "event_list.html", assigns %>
                 </div>
               </div>
             <!-- /.row -->
         </div>
     </section>
 
-    <hr>
+    <hr/>
        <a rel="license" 
           href="http://creativecommons.org/licenses/by-sa/4.0/">
          <img alt="Creative Commons License" style="border-width:0" 
