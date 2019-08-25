@@ -12,6 +12,7 @@ defmodule ErlefWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :protect_from_forgery 
   end
 
   if Erlef.Config.env() == :dev do
