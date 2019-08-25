@@ -230,7 +230,7 @@
 
             <h2 id="#form">Grant Proposal Form</h2>
 
-  <%= form_for @conn, Routes.grant_path(@conn, :create), [id: "grant-form", multipart: true, class: "dropzone"], fn _f -> %>
+  <%= form_for @conn, Routes.grant_path(@conn, :create), [id: "grant_form", multipart: true, class: "dropzone"], fn _f -> %>
               <div class="form-row">
                 <div class="col-md-3 mb-3">
                   <label for="first_name">First name</label>
@@ -542,7 +542,8 @@
   var previewTemplate = document.querySelector("#template").innerHTML;
   var form = document.querySelector("#grant_form");
 
-  Dropzone.options.grantForm = { 
+  Dropzone.options.grantForm = {
+    url: "/api/grants",
     autoProcessQueue: false,
     uploadMultiple: true,
     parallelUploads: 100,
@@ -552,25 +553,22 @@
       var myDropzone = this;
 
       this.element.querySelector("#submit_form").addEventListener("click", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-
-        if(!form..checkValidity())
+        if(!form.checkValidity())
         {
            e.preventDefault();
            form.reportValidity();
         } else {
-          e.preventDefault();
-          e.stopPropagation();
+          if (myDropzone.getQueuedFiles().length > 0) { 
+            e.preventDefault();
+            e.stopPropagation();
+            $("#grant_form :input").prop("disabled", true);
           
-          $("#grant_form :input").prop("disabled", true);
-          
-          $("#submit_form").html(
-            `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...`
-          );
+            $("#submit_form").html(
+              `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...`
+            );
 
-          myDropzone.processQueue();
+              myDropzone.processQueue();  
+          }
         }
       });
 

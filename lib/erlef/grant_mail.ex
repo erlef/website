@@ -10,11 +10,7 @@ defmodule Erlef.GrantMail do
       |> from({"EEF Grant Submissions", "eef-grant-submissions@beam.eco"})
       |> subject("EEF Grant Proposal Submission")
 
-    new_email =
-      Enum.reduce(proposal.files, email, fn {_k, f}, acc ->
-        attachment(acc, f)
-      end)
-
+    new_email = attach_files(email, proposal.files)
     render_body(new_email, "grant_submission.html", proposal: proposal, copy: false)
   end
 
@@ -27,11 +23,16 @@ defmodule Erlef.GrantMail do
       |> from({"EEF Grant Submissions", "eef-grant-submissions@beam.eco"})
       |> subject("EEF Grant Proposal Copy")
 
-    new_email =
-      Enum.reduce(proposal.files, email, fn {_k, f}, acc ->
-        attachment(acc, f)
-      end)
-
+    new_email = attach_files(email, proposal.files)
     render_body(new_email, "grant_submission.html", proposal: proposal, copy: true)
+  end
+
+  defp attach_files(email, nil), do: email
+  defp attach_files(email, []), do: email
+
+  defp attach_files(email, files) do
+    Enum.reduce(files, email, fn {_k, f}, acc ->
+      attachment(acc, f)
+    end)
   end
 end

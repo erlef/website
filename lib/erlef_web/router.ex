@@ -39,11 +39,11 @@ defmodule ErlefWeb.Router do
 
     resources "/events", EventController, only: [:index, :show]
     resources "/wg", WorkingGroupController, only: [:index, :show]
-    get "/grants", GrantController, :index
+    resources "/grants", GrantController, only: [:index, :create]
   end
 
-  scope "/grants", ErlefWeb do
+  scope "/api/grants", ErlefWeb do
     pipe_through :api
-    post "/", GrantController, :create
+    post "/", GrantApiController, :create
   end
 end
