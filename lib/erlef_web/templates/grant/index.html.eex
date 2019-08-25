@@ -1,5 +1,5 @@
 <script src="/js/dropzone.js"></script>
-<div class="container">
+  <div class="container">
   
   <div id="congrats" class="d-none">
     <h3>Congrats!</h3>
@@ -233,17 +233,17 @@
   <%= form_for @conn, Routes.grant_path(@conn, :create), [id: "grant_form", multipart: true, class: "dropzone"], fn _f -> %>
               <div class="form-row">
                 <div class="col-md-3 mb-3">
-                  <label for="first_name">First name</label>
+                  <label for="first_name">* First name</label>
                   <input type="text" name="first_name" class="form-control"
                     id="first_name" placeholder="First name" required>
                 </div>
                 <div class="col-md-3 mb-3">
-                  <label for="last_name">Last name</label>
+                  <label for="last_name">* Last name</label>
                   <input type="text" class="form-control"
                     id="last_name" name="last_name" placeholder="Last name" required>
                 </div>
                 <div class="col-md-3 mb-3">
-                  <label for="validationServerUsername">Nick Name</label>
+                  <label for="nick_name">* Nick Name</label>
                   <div class="input-group">
                     <input type="text" class="form-control" name="nick_name"
                       id="nick_name" placeholder="Nick Name"
@@ -254,7 +254,7 @@
 
               <div class="form-row">
                 <div class="col-md-3 mb-3">
-                  <label for="exampleInputEmail1">Email address</label>
+                  <label for="email_address">* Email address</label>
                   <input type="email" name="email_address" class="form-control"
                     id="email_address" aria-describedby="emailHelp"
                     placeholder="Enter email" required>
@@ -262,7 +262,7 @@
 
 
                 <div class="col-md-3 mb-3">
-                  <label for="phone_number">Phone Number</label>
+                  <label for="phone_number">* Phone Number</label>
                   <input type="text" name="phone_number" class="form-control" id="phone_number"
                     placeholder="Phone Number" required>
                 </div>
@@ -284,7 +284,7 @@
               </div>
               <div class="form-row">
                 <div class="col-md-3 mb-3">
-                  <label for="validationServer03">City</label>
+                  <label for="city">* City</label>
                   <input type="text"  name="city" class="form-control"
                     id="city" placeholder="City" required>
                   <div class="invalid-feedback">
@@ -293,29 +293,22 @@
                 </div>
                 <div class="col-md-3 mb-3">
                   <label
-                    for="province">Province/State/Region</label>
+                    for="province">* Country Subdivision</label>
                   <input type="text" name="province" class="form-control"
-                    id="province" placeholder="Province" required>
-                  <div class="invalid-feedback">
-                    Please provide a valid state.
-                  </div>
+                                                     id="province" placeholder="Province" required>
+                  <small class="text-muted">ISO 3166-2 code for your country's subdivsion (e.g., state or province)</small>
                 </div>
                 <div class="col-md-3 mb-3">
-                  <label for="postal_code">Postal Code</label>
+                  <label for="postal_code">* Postal Code</label>
                   <input type="text" name="postal_code" class="form-control"
                     id="postal_code" placeholder="Postal Code" required>
-                  <div class="invalid-feedback">
-                    Please provide a valid zip.
-                  </div>
                 </div>
 
                 <div class="col-md-3 mb-3">
-                  <label for="country">Country</label>
+                  <label for="country">* Country</label>
                   <input type="text" name="country" class="form-control"
-                    id="country" placeholder="Country" required>
-                  <div class="invalid-feedback">
-                    Please provide a valid country.
-                  </div>
+                                                    id="country" placeholder="Country" required>
+                  <small class="text-muted">ISO 3166-1 for your country</small>
                 </div>
 
               </div>
@@ -343,27 +336,29 @@
 
               <div class="form-row">
                 <div class="col-md-9 mb-6">
-                  <label for="bio">Small Bio</label>
+                  <label for="bio">* Small Bio</label>
                   <textarea class="form-control"
                             id="bio" rows="3"
-                            name="bio"
+                                     name="bio"
+                                     maxlength="5000"
                     placeholder="Small Bio" required></textarea>
                 </div>
               </div>
 
               <div class="form-row mt-3">
                 <div class="col-md-3 mb-3">
-                  <label for="grant_type">Grant Type</label>
-                  <select name="grant_type" class="form-control" id="grant_type">
-                    <option>Conference</option>
-                    <option>Development Work</option>
-                    <option>Event Site Description</option>
-                    <option>Kids Coding Camp</option>
-                    <option>Sprint</option>
-                    <option>Training program</option>
-                    <option>Workshop-educational</option>
-                    <option>Workshop-Women</option>
-                    <option>Other</option>
+                  <label for="grant_type">* Grant Type</label>
+                  <select name="grant_type" class="form-control" id="grant_type" required>
+                    <option data-requires-coc="false" value="">--</option>
+                    <option data-requires-coc="true"  value="Conference">Conference</option>
+                    <option data-requires-coc="false" value="Development Work">Development Work</option>
+                    <option data-requires-coc="true" value="Event Site Description">Event Site Description</option>
+                    <option data-requires-coc="true" value="Kids Coding Camp">Kids Coding Camp</option>
+                    <option data-requires-coc="false" value="Sprint">Sprint</option>
+                    <option data-requires-coc="false" value="Training Program">Training Program</option>
+                    <option data-requires-coc="true" value="Workshop-Education">Workshop-Educational</option>
+                    <option data-requires-coc="true" value="Workgroup-Women">Workshop-Women</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
                 <div class="col-md-3 mb-3">
@@ -373,17 +368,12 @@
               </div>
 
 
-              <div class="form-row">
+              <div id="coc_link" class="form-row d-none">
                 <div class="col-md-6 mb-3">
-                  <label for="coc_link">Link to code of conduct of the event
+                  <label for="code_of_conduct_link">* Link to code of conduct of the event
                     (required for workshops and conferences)</label>
-                  <input id="coc_link" name="code_of_conduct_link" type="text" class="form-control" id="phone_number"
+                  <input id="coc_input" name="code_of_conduct_link" type="text" class="form-control"
                     placeholder="">
-                </div>
-                <div class="col-md-2 mb-3">
-                  <p class="alert alert-warning">TODO: This will only display if
-                    conference or workshop option is selected</p>
-
                 </div>
               </div>
 
@@ -408,7 +398,7 @@
 
               <div class="form-row">
                 <div class="col-md-9 mb-6">
-                  <label for="org_name">Purpose</label>
+                  <label for="org_name">* Purpose</label>
 
                   <small>
                   <p id="purpose_help" class="form-text alert alert-info">Describe
@@ -427,7 +417,7 @@
                 </small>
                   <textarea class="form-control"
                     id="purpose" name="purpose" rows="3"
-                    placeholder="Purpose" required></textarea>
+                    placeholder="Purpose" maxlength="5000" required></textarea>
 
                 </div>
               </div>
@@ -455,12 +445,12 @@
 
               <div class="form-row">
                                 <div class="col-md-3 mb-6">
-                  <label for="grant_amount">Amount</label>
+                  <label for="grant_amount">* Amount</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">$</span>
                     </div>
-                    <input id="grant_amount" name="grant_amount" type="text" value="0.00" min="0.00" step="1.00"
+                    <input id="grant_amount" name="grant_amount" type="text" value="" min="0.00" step="1.00"
                       data-number-to-fixed="2" data-number-stepfactor="100"
                       class="form-control currency" required>
                   </div>
@@ -469,11 +459,12 @@
                 <div class="col-md-6 mb-3">
                     <label for="payment_method">Preferred payment
                       method</label>
-                    <select class="form-control" id="payment_method" name="payment_method">
-                      <option>Paypal</option>
-                      <option>Zelle</option>
-                      <option>Check</option>
-                      <option>Wire</option>
+                    <select class="form-control" id="payment_method" name="payment_method" required>
+                      <option value="">--</option>
+                      <option value="Paypal">Paypal</option>
+                      <option value="Zelle">Zelle</option>
+                      <option value="Check">Check</option>
+                      <option value="Wire">Wire</option>
                     </select>
                     <small id="payment_method_help"
                       class="form-text text-muted">We can do checks only within
@@ -485,8 +476,8 @@
 
                 <div class="form-row">
                   <div class="col-md-9 mb-6">
-                    <small id="emailHelp" class="form-text text-muted">
-                      <label for="beneficiaries">Beneficiaries</label>
+                    <small id="beneficiaries_help" class="form-text text-muted">
+                      <label for="beneficiaries">* Beneficiaries</label>
 
                       <p class="form-text alert alert-info">
                         Describe who will be the beneficiaries of the grant and
@@ -498,14 +489,14 @@
                       </p>
                       <textarea class="form-control"
                         id="beneficiaries" name="beneficiaries" rows="3"
-                        placeholder="Beneficiaries" required></textarea>
+                        placeholder="Beneficiaries" maxlength="5000" required></textarea>
 
                   </div>
                 </div>
 
                 <div class="form-row">
                   <div class="col-md-9 mb-6">
-                    <label for="report">Report</label>
+                    <label for="report">* Report</label>
                     <p class="form-text alert alert-info">The EEF would like to
                       see how the grant was used so we require that we receive a
                       report that will help us understand the impact that the
@@ -520,7 +511,8 @@
                       attendees, demographics, and such.</p>
                     <textarea class="form-control"
                               id="report" rows="3"
-                              name="report"
+                                          name="report"
+                                          maxlength="5000"
                       placeholder="Report" required></textarea>
                   </div>
                 </div>
@@ -539,9 +531,20 @@
 </div>
 
 <script>
+  document.querySelector("#grant_type").addEventListener("change", function(e) {
+    var required = this.options[this.selectedIndex].getAttribute("data-requires-coc");
+    if (required == "true" || required == true) {
+        $("#coc_input").prop("required", true);
+        $("#coc_link").removeClass("d-none");
+      } else { 
+        $("#coc_link").addClass("d-none");
+        $('#coc_input').removeAttr('required');
+    }
+  });
+
   var previewTemplate = document.querySelector("#template").innerHTML;
   var form = document.querySelector("#grant_form");
-
+  
   Dropzone.options.grantForm = {
     url: "/api/grants",
     autoProcessQueue: false,
@@ -549,6 +552,7 @@
     parallelUploads: 100,
     maxFiles: 5,
     paramName: "files",
+    acceptedFiles: "image/*,application/pdf",
     init: function() {
       var myDropzone = this;
 
