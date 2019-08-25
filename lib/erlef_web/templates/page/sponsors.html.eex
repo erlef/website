@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card-body card mt-3">
-  <p class="mt-3">For more information about sponsoring the EEF, please email <a href="mailto:treasurer@erlef.org">treasurer@erlef.org</a>.</p>
+  <p class="mt-3">Interested in becoming a sponsor?  <a href="/become-a-sponsor/">Check this out!</a></p>
   <div class="row text-center text-lg-left mt-3 mb-3">
 
     <%= for {name, href} <- @sponsors do %>
