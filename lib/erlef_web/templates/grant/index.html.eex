@@ -236,17 +236,11 @@
                   <label for="first_name">First name</label>
                   <input type="text" name="first_name" class="form-control"
                     id="first_name" placeholder="First name" required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="last_name">Last name</label>
                   <input type="text" class="form-control"
                     id="last_name" name="last_name" placeholder="Last name" required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="validationServerUsername">Nick Name</label>
@@ -254,9 +248,6 @@
                     <input type="text" class="form-control" name="nick_name"
                       id="nick_name" placeholder="Nick Name"
                       aria-describedby="inputGroupPrepend3" required>
-                    <div class="invalid-feedback">
-                      Please choose a username.
-                    </div>
                   </div>
                 </div>
               </div>
@@ -266,14 +257,14 @@
                   <label for="exampleInputEmail1">Email address</label>
                   <input type="email" name="email_address" class="form-control"
                     id="email_address" aria-describedby="emailHelp"
-                    placeholder="Enter email">
+                    placeholder="Enter email" required>
                 </div>
 
 
                 <div class="col-md-3 mb-3">
                   <label for="phone_number">Phone Number</label>
                   <input type="text" name="phone_number" class="form-control" id="phone_number"
-                    placeholder="Phone Number">
+                    placeholder="Phone Number" required>
                 </div>
               </div>
 
@@ -346,7 +337,7 @@
                 <div class="col-md-3 mb-3">
                   <label for="website">WebSite</label>
                   <input type="text" class="form-control" name="website" id="website"
-                    placeholder="WebSite">
+                    placeholder="WebSite" required>
                 </div>
               </div>
 
@@ -356,7 +347,7 @@
                   <textarea class="form-control"
                             id="bio" rows="3"
                             name="bio"
-                    placeholder="Small Bio"></textarea>
+                    placeholder="Small Bio" required></textarea>
                 </div>
               </div>
 
@@ -436,7 +427,7 @@
                 </small>
                   <textarea class="form-control"
                     id="purpose" name="purpose" rows="3"
-                    placeholder="Purpose"></textarea>
+                    placeholder="Purpose" required></textarea>
 
                 </div>
               </div>
@@ -471,7 +462,7 @@
                     </div>
                     <input id="grant_amount" name="grant_amount" type="text" value="0.00" min="0.00" step="1.00"
                       data-number-to-fixed="2" data-number-stepfactor="100"
-                      class="form-control currency" id="c2" />
+                      class="form-control currency" required>
                   </div>
                 </div>
 
@@ -507,7 +498,7 @@
                       </p>
                       <textarea class="form-control"
                         id="beneficiaries" name="beneficiaries" rows="3"
-                        placeholder="Beneficiaries"></textarea>
+                        placeholder="Beneficiaries" required></textarea>
 
                   </div>
                 </div>
@@ -530,7 +521,7 @@
                     <textarea class="form-control"
                               id="report" rows="3"
                               name="report"
-                      placeholder="Report"></textarea>
+                      placeholder="Report" required></textarea>
                   </div>
                 </div>
 
@@ -549,6 +540,8 @@
 
 <script>
   var previewTemplate = document.querySelector("#template").innerHTML;
+  var form = document.querySelector("#grant_form");
+
   Dropzone.options.grantForm = { 
     autoProcessQueue: false,
     uploadMultiple: true,
@@ -562,12 +555,23 @@
         e.preventDefault();
         e.stopPropagation();
 
-        $("#grant_form :input").prop("disabled", true);
-        $("#submit_form").html(
-          `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...`
-        );
 
-        myDropzone.processQueue();
+        if(!form..checkValidity())
+        {
+           e.preventDefault();
+           form.reportValidity();
+        } else {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          $("#grant_form :input").prop("disabled", true);
+          
+          $("#submit_form").html(
+            `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...`
+          );
+
+          myDropzone.processQueue();
+        }
       });
 
       this.on("sendingmultiple", function() {
