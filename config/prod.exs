@@ -19,8 +19,8 @@ config :erlef, Erlef.Mailer,
 
 config :erlef, env: :prod
 
-# config :erlef, ErlefWeb.Endpoint,
-#   force_ssl: [rewrite_on: [:x_forwarded_proto]]
+config :erlef, ErlefWeb.Endpoint,
+  force_ssl: [hsts: true, rewrite_on: [:x_forwarded_proto]]
 
 # ## SSL Support
 #
