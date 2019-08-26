@@ -293,8 +293,8 @@
                 </div>
                 <div class="col-md-3 mb-3">
                   <label
-                    for="province">* Country Subdivision</label>
-                  <input type="text" name="subdivison" class="form-control"
+                    for="subdivision">* Country Subdivision</label>
+                  <input type="text" name="subdivision" class="form-control"
                                                      id="subdivision" placeholder="Subdivison" required>
                   <small class="text-muted">ISO 3166-2 code for your country's subdivsion (e.g., state or province)</small>
                 </div>
