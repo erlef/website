@@ -7,6 +7,8 @@ import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 import "phoenix_html"
+import "bootstrap";
+
 // Import local files
 //
 

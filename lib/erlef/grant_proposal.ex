@@ -1,30 +1,32 @@
 defmodule Erlef.GrantProposal do
+  # The string version of the key name followed by
+  # a tuple consisting of the atom version of the key, 
+  # a second atom declaring its type or a tuple declaring its type and size
+  #
   @string_key_map %{
-    "first_name" => :first_name,
-    "last_name" => :last_name,
-    "nick_name" => :nick_name,
-    "email_address" => :email_address,
-    "phone_number" => :phone_number,
-    "alt_phone_number" => :alt_phone_number,
-    "org_name" => :org_name,
-    "org_email" => :org_email,
-    "org_phone_number" => :org_phone_number,
-    "city" => :city,
-    "subdivision" => :subdivision,
-    "country" => :country,
-    "postal_code" => :postal_code,
-    "twitter" => :twitter,
-    "linkedin" => :linkedin,
-    "website" => :website,
-    "bio" => :bio,
-    "code_of_conduct_link" => :code_of_conduct_link,
-    "files" => :files,
-    "purpose" => :purpose,
-    "grant_type" => :grant_type,
-    "grant_amount" => :grant_amount,
-    "payment_method" => :payment_method,
-    "beneficiaries" => :beneficiaries,
-    "report" => :report
+    "first_name" => {:first_name, {:binary, 50}},
+    "last_name" => {:last_name, {:binary, 50}},
+    "nick_name" => {:nick_name, {:binary, 50}},
+    "email_address" => {:email_address, {:binary, 50}},
+    "phone_number" => {:phone_number, {:binary, 20}},
+    "org_name" => {:org_name, {:binary, 50}},
+    "org_email" => {:org_email, :binary},
+    "city" => {:city, {:binary, 85}},
+    "subdivision" => {:subdivision, {:binary, 2}},
+    "country" => {:country, {:binary, 2}},
+    "postal_code" => {:postal_code, {:binary, 10}},
+    "twitter" => {:twitter, {:binary, 50}},
+    "linkedin" => {:linkedin, {:binary, 50}},
+    "website" => {:website, {:binary, 50}},
+    "bio" => {:bio, {:binary, 5000}},
+    "code_of_conduct_link" => {:code_of_conduct_link, {:binary, 50}},
+    "files" => {:files, :list},
+    "purpose" => {:purpose, {:binary, 5000}},
+    "grant_type" => {:grant_type, {:binary, 18}},
+    "grant_amount" => {:grant_amount, {:binary, 50}},
+    "payment_method" => {:payment_method, {:binary, 6}},
+    "beneficiaries" => {:beneficiaries, {:binary, 5000}},
+    "report" => {:report, {:binary, 5000}}
   }
 
   defstruct Map.values(@string_key_map)
@@ -32,8 +34,37 @@ defmodule Erlef.GrantProposal do
   def from_map(params) do
     kept = Map.take(params, Map.keys(@string_key_map))
 
-    Enum.reduce(kept, %__MODULE__{}, fn {k, v}, acc ->
-      %{acc | Map.get(@string_key_map, k) => v}
-    end)
+    {proposal, errors} =
+      Enum.reduce(kept, {%__MODULE__{}, []}, fn {k, v}, {acc, errs} ->
+        {key, t} = Map.get(@string_key_map, k)
+
+        case validate(t, k, v) do
+          {:ok, ^k, ^v} ->
+            {%{acc | key => v}, errs}
+
+          {:error, reason} ->
+            {acc, [reason] ++ errs}
+        end
+      end)
+
+    case errors do
+      [] ->
+        {:ok, proposal}
+
+      errors ->
+        {:error, errors}
+    end
   end
+
+  defp validate({:binary, length}, key, val) when is_binary(val) and byte_size(val) <= length do
+    {:ok, key, val}
+  end
+
+  defp validate({:binary, length}, key, _val), do: {:error, "invalid #{key} - max size #{length}"}
+
+  defp validate(:binary, key, val) when is_binary(val), do: {:ok, key, val}
+
+  defp validate(:binary, key, _val), do: {:error, "invalid #{key}"}
+
+  defp validate(:list, key, val) when is_list(val), do: {:ok, key, val}
 end

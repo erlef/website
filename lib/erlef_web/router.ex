@@ -6,9 +6,12 @@ defmodule ErlefWeb.Router do
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
+
     plug :put_secure_browser_headers, %{
-      "Content-Security-Policy" => " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: fonts.gstatic.com fonts.googleapis.com use.fontawesome.com stackpath.bootstrapcdn.com use.fontawesome.com platform.twitter.com code.jquery.com platform.twitter.com syndication.twitter.com cdn.syndication.twimg.com licensebuttons.net i.creativecommons.org platform.twitter.com pbs.twimg.com syndication.twitter.com"
+      "Content-Security-Policy" =>
+        " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: fonts.gstatic.com fonts.googleapis.com use.fontawesome.com stackpath.bootstrapcdn.com use.fontawesome.com platform.twitter.com code.jquery.com platform.twitter.com syndication.twitter.com cdn.syndication.twimg.com licensebuttons.net i.creativecommons.org platform.twitter.com pbs.twimg.com syndication.twitter.com"
     }
+
     plug ErlefWeb.Plug.JsonEvents
   end
 
@@ -43,5 +46,4 @@ defmodule ErlefWeb.Router do
     resources "/wg", WorkingGroupController, only: [:index, :show]
     resources "/grants", GrantController, only: [:index, :create]
   end
-
 end

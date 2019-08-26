@@ -28,22 +28,12 @@
   <br/>
 
   <div class="row">
-  <strong>Alt. Phone Number</strong> : <%= @proposal.alt_phone_number %>
-  </div>
-  <br/>
-
-  <div class="row">
   <strong>Organization Name</strong> : <%= @proposal.org_name %>
   </div>
   <br/>
 
   <div class="row">
   <strong>Organization Email</strong> : <%= @proposal.org_email %>
-  </div>
-  <br/>
-
-  <div class="row">
-  <strong>Organization Phone Number</strong> : <%= @proposal.org_phone_number %>
   </div>
   <br/>
 

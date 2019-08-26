@@ -10,7 +10,7 @@
     <hr />
     <div class="row">
       <div class="col-2">
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+        <div id="nav_tabs" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
           aria-orientation="vertical">
           <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
             href="#intro" role="tab" aria-controls="v-pills-home"
@@ -18,7 +18,7 @@
           <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill"
             href="#faq" role="tab" aria-controls="v-pills-messages"
             aria-selected="false">FAQ</a>
-          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
+          <a id="form_link" class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
             href="#form" role="tab" aria-controls="v-pills-profile"
             aria-selected="false">Form</a>
         </div>
@@ -229,22 +229,36 @@
 
             <h2 id="#form">Grant Proposal Form</h2>
 
+
+  <%= unless @errors == [] do %>
+    <script>
+      $('#nav_tabs a[href="#form"]').tab('show') 
+    </script>
+
+    <div class="alert alert-danger mt-3">
+      <strong>Errors : </strong>
+    <ul>
+      <% errs = Enum.reduce(@errors, "", fn(err, acc) -> acc <> "<li>#{err}</li>" end) %> 
+    <%= raw errs %>
+    </ul>
+  </div>
+<% end %>
   <%= form_for @conn, Routes.grant_path(@conn, :create), [id: "grant_form", multipart: true, class: "dropzone"], fn _f -> %>
               <div class="form-row">
                 <div class="col-md-3 mb-3">
                   <label for="first_name">* First name</label>
                   <input type="text" name="first_name" class="form-control"
-                    id="first_name" placeholder="First name" required>
+                    id="first_name" maxlength="50" placeholder="First name" required>
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="last_name">* Last name</label>
                   <input type="text" class="form-control"
-                    id="last_name" name="last_name" placeholder="Last name" required>
+                    id="last_name" maxlength="50" name="last_name" placeholder="Last name" required>
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="nick_name">* Nick Name</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" name="nick_name"
+                    <input type="text" maxlength="50" class="form-control" name="nick_name"
                       id="nick_name" placeholder="Nick Name"
                       aria-describedby="inputGroupPrepend3" required>
                   </div>
@@ -254,7 +268,7 @@
               <div class="form-row">
                 <div class="col-md-3 mb-3">
                   <label for="email_address">* Email address</label>
-                  <input type="email" name="email_address" class="form-control"
+                  <input type="email" maxlength="50" name="email_address" class="form-control"
                     id="email_address" aria-describedby="emailHelp"
                     placeholder="Enter email" required>
                 </div>
@@ -262,7 +276,7 @@
 
                 <div class="col-md-3 mb-3">
                   <label for="phone_number">* Phone Number</label>
-                  <input type="text" name="phone_number" class="form-control" id="phone_number"
+                  <input type="text" maxlength="20" name="phone_number" class="form-control" id="phone_number"
                     placeholder="Phone Number" required>
                 </div>
               </div>
@@ -270,21 +284,21 @@
               <div class="form-row">
                 <div class="col-md-3 mb-3">
                   <label for="org_name">Organization Name</label>
-                  <input type="text" name="org_name" class="form-control" id="org_name"
+                  <input type="text" maxlength="50" name="org_name" class="form-control" id="org_name"
                     placeholder="Organization Name">
                 </div>
 
 
                 <div class="col-md-3 mb-3">
                   <label for="org_name">Organization Email</label>
-                  <input type="text" name="org_email" class="form-control" id="org_email"
+                  <input type="text" maxlength="50" name="org_email" class="form-control" id="org_email"
                     placeholder="Organization Email">
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-md-3 mb-3">
                   <label for="city">* City</label>
-                  <input type="text"  name="city" class="form-control"
+                  <input type="text" maxlength="85"  name="city" class="form-control"
                     id="city" placeholder="City" required>
                   <div class="invalid-feedback">
                     Please provide a valid city.
@@ -293,19 +307,19 @@
                 <div class="col-md-3 mb-3">
                   <label
                     for="subdivision">* Country Subdivision</label>
-                  <input type="text" name="subdivision" class="form-control"
+                  <input type="text" maxlength="2" name="subdivision" class="form-control"
                                                      id="subdivision" placeholder="Subdivison" required>
                   <small class="text-muted">ISO 3166-2 code for your country's subdivsion (e.g., state or province)</small>
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="postal_code">* Postal Code</label>
-                  <input type="text" name="postal_code" class="form-control"
+                  <input type="text" maxlength="10" name="postal_code" class="form-control"
                     id="postal_code" placeholder="Postal Code" required>
                 </div>
 
                 <div class="col-md-3 mb-3">
                   <label for="country">* Country</label>
-                  <input type="text" name="country" class="form-control"
+                  <input type="text" maxlength="2" name="country" class="form-control"
                                                     id="country" placeholder="Country" required>
                   <small class="text-muted">ISO 3166-1 for your country</small>
                 </div>
@@ -315,20 +329,20 @@
               <div class="form-row">
                 <div class="col-md-3 mb-3">
                   <label for="twitter">Twitter Handle</label>
-                  <input type="text" name="twitter" class="form-control" id="twitter"
+                  <input type="text" maxlength="50" name="twitter" class="form-control" id="twitter"
                     placeholder="Twitter Handle">
                 </div>
 
 
                 <div class="col-md-3 mb-3">
                   <label for="linkedin">LinkedIn</label>
-                  <input type="text" class="form-control" name="linkedin" id="linkedin"
+                  <input type="text" maxlength="50" class="form-control" name="linkedin" id="linkedin"
                     placeholder="LinkedIn">
                 </div>
 
                 <div class="col-md-3 mb-3">
                   <label for="website">WebSite</label>
-                  <input type="text" class="form-control" name="website" id="website"
+                  <input type="text" maxlength="50" class="form-control" name="website" id="website"
                     placeholder="WebSite">
                 </div>
               </div>
@@ -410,7 +424,7 @@ A gathering including talks and other events to promote Beam languages in the lo
               </div>
 
               <div class="mb-2">
-                  <label for="files">File attachment(s) : </label>
+                  <label for="files">Optional File attachment(s) : </label>
                     <div>
                   <input type="file" name="files[]" accept="image/png, image/jpeg, application/pdf" />
                     </div>
@@ -480,7 +494,7 @@ A gathering including talks and other events to promote Beam languages in the lo
                     <div class="input-group-prepend">
                       <span class="input-group-text">$</span>
                     </div>
-                    <input id="grant_amount" name="grant_amount" type="text" value="" min="0.00" step="1.00"
+                    <input id="grant_amount" maxlength="6" name="grant_amount" type="text" value="" min="0.00" step="1.00"
                       data-number-to-fixed="2" data-number-stepfactor="100"
                       class="form-control currency" required>
                   </div>

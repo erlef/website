@@ -28,10 +28,14 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+
   </head>
 
   <body>
     <%= render "header.html", assigns %>
+    
     <main role="main">
       <%= render @view_module, @view_template, assigns %>
     </main>
@@ -39,12 +43,7 @@
   <script>
     window.calendar_events = <%= raw @events_json %>
   </script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-    <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-
-    <%= render "footer.html", assigns %>
+        <%= render "footer.html", assigns %>
 
   </body>
 
