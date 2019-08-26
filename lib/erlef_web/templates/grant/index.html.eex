@@ -1,4 +1,3 @@
-<script src="/js/dropzone.js"></script>
   <div class="container">
   
   <div id="congrats" class="d-none">
@@ -334,7 +333,7 @@
                 </div>
               </div>
 
-              <div class="form-row">
+              <div class="form-row mb-2">
                 <div class="col-md-9 mb-6">
                   <label for="bio">* Small Bio</label>
                   <textarea class="form-control"
@@ -345,7 +344,7 @@
                 </div>
               </div>
 
-              <div class="form-row mt-3">
+              <div class="form-row mb-2">
                 <div class="col-md-3 mb-3">
                   <label for="grant_type">* Grant Type</label>
                   <select name="grant_type" class="form-control" id="grant_type" required>
@@ -401,7 +400,7 @@ A gathering including talks and other events to promote Beam languages in the lo
               </div>
 
 
-              <div id="coc_link" class="form-row d-none">
+              <div id="coc_link" class="form-row d-none mb-2">
                 <div class="col-md-6 mb-3">
                   <label for="code_of_conduct_link">* Link to code of conduct of the event
                     (required for workshops and conferences)</label>
@@ -410,26 +409,24 @@ A gathering including talks and other events to promote Beam languages in the lo
                 </div>
               </div>
 
-              <div class="form-row">
-                <div class="col-md-9 mb-6">
-                  <label for="dropzone">File attachment(s) : </label>
-                  </br>
-                <div class="btn btn-secondary dz-default dz-message">Click here or drag 'n drop to append file attachments</div> 
-              
-                       <div id="file-preview" class="dropzone-previews row"></div>
-
-                       <div id="files">
-                       </div>
-                       <div id="template">
-                         <div class="preview col-md-3">
-                           <img data-dz-thumbnail />
-                               <div class="dz-size" data-dz-size></div>
-                       </div>
-                </div>
-              </div>
+              <div class="mb-2">
+                  <label for="files">File attachment(s) : </label>
+                    <div>
+                  <input type="file" name="files[]" accept="image/png, image/jpeg, application/pdf" />
+                    </div>
+                    <div>
+                    <input type="file" name="files[]" accept="image/png, image/jpeg, application/pdf" />
+                    </div>
+                    <input type="file" name="files[]" accept="image/png, image/jpeg, application/pdf" />
+                    <div>
+                    <input type="file" name="files[]" accept="image/png, image/jpeg, application/pdf" />
+                    </div>
+                    <div>
+                    <input type="file" name="files[]" accept="image/png, image/jpeg, application/pdf" />
+                    </div>
              </div>
 
-              <div class="form-row">
+              <div class="form-row mb-2">
                 <div class="col-md-9 mb-6">
                   <label for="org_name">* Purpose</label>
 
@@ -456,7 +453,7 @@ A gathering including talks and other events to promote Beam languages in the lo
               </div>
 
 
-              <div class="form-row">
+              <div class="form-row mb-2">
 
             <div class="col-md-9">
                   <small id="grant_amount_help" class="form-text text-muted">
@@ -476,7 +473,7 @@ A gathering including talks and other events to promote Beam languages in the lo
             </div>
               </div>
 
-              <div class="form-row">
+              <div class="form-row mb-2">
                                 <div class="col-md-3 mb-6">
                   <label for="grant_amount">* Amount</label>
                   <div class="input-group">
@@ -489,7 +486,7 @@ A gathering including talks and other events to promote Beam languages in the lo
                   </div>
                 </div>
 
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-2">
                     <label for="payment_method">Preferred payment
                       method</label>
                     <select class="form-control" id="payment_method" name="payment_method" required>
@@ -507,7 +504,7 @@ A gathering including talks and other events to promote Beam languages in the lo
  
                </div>
 
-                <div class="form-row">
+                <div class="form-row mb-2">
                   <div class="col-md-9 mb-6">
                     <small id="beneficiaries_help" class="form-text text-muted">
                       <label for="beneficiaries">* Beneficiaries</label>
@@ -527,7 +524,7 @@ A gathering including talks and other events to promote Beam languages in the lo
                   </div>
                 </div>
 
-                <div class="form-row">
+                <div class="form-row mb-2">
                   <div class="col-md-9 mb-6">
                     <label for="report">* Report</label>
                     <p class="form-text alert alert-info">The EEF would like to
@@ -578,62 +575,4 @@ A gathering including talks and other events to promote Beam languages in the lo
     }
   });
 
-  var previewTemplate = document.querySelector("#template").innerHTML;
-  var form = document.querySelector("#grant_form");
-  
-  Dropzone.options.grantForm = {
-    url: "/api/grants",
-    autoProcessQueue: false,
-    uploadMultiple: true,
-    parallelUploads: 100,
-    maxFiles: 5,
-    paramName: "files",
-    acceptedFiles: "image/*,application/pdf",
-    init: function() {
-      var myDropzone = this;
-
-      this.element.querySelector("#submit_form").addEventListener("click", function(e) {
-        if(!form.checkValidity())
-        {
-           e.preventDefault();
-           form.reportValidity();
-        } else {
-          if (myDropzone.getQueuedFiles().length > 0) { 
-            e.preventDefault();
-            e.stopPropagation();
-            $("#grant_form :input").prop("disabled", true);
-          
-            $("#submit_form").html(
-              `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...`
-            );
-
-              myDropzone.processQueue();  
-          }
-        }
-      });
-
-      this.on("sendingmultiple", function() {
-
-        $("#submit_error").addClass("d-none");
-        $("#submit_error").html("");
-        $("<div class='modal-backdrop'></div>").wrap("#form");
-
-      });
-
-      this.on("successmultiple", function(files, response) {
-        $("#main_content").addClass("d-none");
-        $("#congrats").removeClass("d-none");
-      });
-
-      this.on("errormultiple", function(files, response) {
-        $("#submit_form").html("Submit");
-        $("#grant_form :input").prop("enabled", true);
-        $("#submit_error").html("Error submitting form");
-        $("#submit_error").removeClass("d-none");
-      });
-    },
-    previewsContainer: "#file-preview",
-    addRemoveLinks: true,
-    previewTemplate: previewTemplate,
-  };
 </script>

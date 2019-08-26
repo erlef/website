@@ -12,8 +12,6 @@ defmodule ErlefWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-    plug :fetch_session
-    plug :protect_from_forgery
   end
 
   if Erlef.Config.env() == :dev do
@@ -44,8 +42,4 @@ defmodule ErlefWeb.Router do
     resources "/grants", GrantController, only: [:index, :create]
   end
 
-  scope "/api/grants", ErlefWeb do
-    pipe_through :api
-    post "/", GrantApiController, :create
-  end
 end

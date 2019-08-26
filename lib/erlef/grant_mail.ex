@@ -31,7 +31,7 @@ defmodule Erlef.GrantMail do
   defp attach_files(email, []), do: email
 
   defp attach_files(email, files) do
-    Enum.reduce(files, email, fn {_k, f}, acc ->
+    Enum.reduce(files, email, fn f, acc ->
       attachment(acc, f)
     end)
   end
