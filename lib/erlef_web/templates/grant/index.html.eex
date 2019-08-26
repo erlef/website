@@ -1,4 +1,13 @@
-  <div class="container">
+<script>
+
+function show_form() { 
+  $('#nav_tabs a[href="#form"]').tab('show');
+  return false;
+}
+
+</script>
+
+<div class="container">
   
   <div id="congrats" class="d-none">
     <h3>Congrats!</h3>
@@ -28,7 +37,12 @@
         <div class="tab-content" id="pills-tabContent">
           <div class="tab-pane fade show active" id="intro" role="tabpanel"
             aria-labelledby="pills-home-tab">
-            <h2 id="#intro">Introduction</h2>
+            <p>
+              It is our great pleasure to announce that we have just opened our grant program. The goal of it is to
+              fund open source development, trainings, workshops and other initiatives that will help increase
+              and expand the Beam community. These grants are funded by our <a href="/sponsors/">sponsors</a>,
+              membership fees and donations.
+            </p>
             <p>The current focus of the foundation is on increasing and
               expanding the
               community so we will favour grants that are targeted to
@@ -55,13 +69,13 @@
               objective. We encourage those applying for funding to try and get
               sponsorship
               from corporations or local sponsors as we want to encourage
-              sustainable, long
-              term relationships with them.</p>
+              sustainable, long term relationships with them. The EEF could limit the 
+              number of events per
+              organizer and/or city that are granted within a given year. </p>
 
-            <p>The EEF could limit the number of events per organizer and/or
-              city that are
-              granted within a given year. If you have any questions reach out
-              to
+            <p>
+            If you want to apply for a grant, fill out the form <a href="#" onclick="show_form();">here</a>.
+              If you have any questions please reach out to
               <a href="mailto:education@erlef.org">education@erlef.org</a>
             </p>
           </div>
@@ -232,7 +246,7 @@
 
   <%= unless @errors == [] do %>
     <script>
-      $('#nav_tabs a[href="#form"]').tab('show') 
+      show_form();
     </script>
 
     <div class="alert alert-danger mt-3">
