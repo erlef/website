@@ -53,7 +53,7 @@
   <br/>
 
   <div class="row">
-  <strong>Province/State/Region</strong> : <%= @proposal.province %>
+  <strong>Country Subdivision</strong> : <%= @proposal.subdivision %>
   </div>
   <br/>
 

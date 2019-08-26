@@ -10,7 +10,7 @@ defmodule Erlef.GrantProposal do
     "org_email" => :org_email,
     "org_phone_number" => :org_phone_number,
     "city" => :city,
-    "province" => :province,
+    "subdivision" => :subdivision,
     "country" => :country,
     "postal_code" => :postal_code,
     "twitter" => :twitter,

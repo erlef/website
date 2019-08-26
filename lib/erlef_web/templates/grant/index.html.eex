@@ -294,8 +294,8 @@
                 <div class="col-md-3 mb-3">
                   <label
                     for="province">* Country Subdivision</label>
-                  <input type="text" name="province" class="form-control"
-                                                     id="province" placeholder="Province" required>
+                  <input type="text" name="subdivison" class="form-control"
+                                                     id="subdivision" placeholder="Subdivison" required>
                   <small class="text-muted">ISO 3166-2 code for your country's subdivsion (e.g., state or province)</small>
                 </div>
                 <div class="col-md-3 mb-3">
@@ -330,7 +330,7 @@
                 <div class="col-md-3 mb-3">
                   <label for="website">WebSite</label>
                   <input type="text" class="form-control" name="website" id="website"
-                    placeholder="WebSite" required>
+                    placeholder="WebSite">
                 </div>
               </div>
 
@@ -349,22 +349,55 @@
                 <div class="col-md-3 mb-3">
                   <label for="grant_type">* Grant Type</label>
                   <select name="grant_type" class="form-control" id="grant_type" required>
-                    <option data-requires-coc="false" value="">--</option>
-                    <option data-requires-coc="true"  value="Conference">Conference</option>
-                    <option data-requires-coc="false" value="Development Work">Development Work</option>
-                    <option data-requires-coc="true" value="Event Site Description">Event Site Description</option>
-                    <option data-requires-coc="true" value="Kids Coding Camp">Kids Coding Camp</option>
-                    <option data-requires-coc="false" value="Sprint">Sprint</option>
-                    <option data-requires-coc="false" value="Training Program">Training Program</option>
-                    <option data-requires-coc="true" value="Workshop-Education">Workshop-Educational</option>
-                    <option data-requires-coc="true" value="Workgroup-Women">Workshop-Women</option>
-                    <option value="Other">Other</option>
+                    <option data-type="none" data-requires-coc="false" value="">--</option>
+                    <option data-type="conference" data-requires-coc="true"  value="Conference">Conference</option>
+                    <option data-type="devel_work" data-requires-coc="false" value="Development Work">Development Work</option>
+                    <option data-type="event_site_sub" data-requires-coc="true" value="Event Site Description">Event Site Description</option>
+                    <option data-type="kids_camp" data-requires-coc="true" value="Kids Coding Camp">Kids Coding Camp</option>
+                    <option data-type="sprint" data-requires-coc="false" value="Sprint">Sprint</option>
+                    <option data-type="training" data-requires-coc="false" value="Training Program">Training Program</option>
+                    <option data-type="workshop-edu" data-requires-coc="true" value="Workshop-Education">Workshop-Educational</option>
+                    <option data-type="workshop-women" data-requires-coc="true" value="Workgroup-Women">Workshop-Women</option>
+                    <option data-type="other" value="Other">Other</option>
                   </select>
                 </div>
-                <div class="col-md-3 mb-3">
-                  <p class="alert alert-warning">TODO: This will display
-                    descriptions in-line on selection</p>
+                <div class="col-md-6 mb-3">
+
+                  <p id=""></p>
+                  <p id="conference" class="alert info d-none">
+A gathering including talks and other events to promote Beam languages in the local community. A separate grant should be submitted for educational programs that are a subset of conference events.</p>
+                   <p id="devel_work" class="alert info d-none">  
+                    Develop a Beam languages-based open source program or library.
+                   </p>
+
+                   <p id="event_site_sub" class="alert info d-none">
+                      The subscription cost of a service providing advertising services for Beam languages-related events.
+                   </p>
+                   
+                   <p id="kids_camp" class="alert info d-none">
+                    Teach aspiring Beam language coders under age 18 coding skills.
+                   </p>
+                   
+                   <p id="sprint" class="alert info d-none"> 
+                    Development of an open-source project for 2+ days in a team environment.
+                   </p>
+
+                   <p id="training" class="alert info d-none">
+                    Multiple weeks or month course on Beam languages that is principally hands-on
+                   </p>
+
+                   <p id="workshop-women" class="alert info d-none">
+                    An interactive, hands-on, training into one or more specific Beam languages topics/themes/goals, which supports and mentors women. </p>
+                  
+                   <p id="workshop-edu" class="alert info d-none">
+                      An interactive, hands-on, training into one or more specific Beam languages topics/themes/goals. It should include at least 6 hours of instruction
+                   </p>
+
+                   <p id="other" class="alert info d-none">
+                   </p>
+                
                 </div>
+
               </div>
 
 
@@ -533,6 +566,9 @@
 <script>
   document.querySelector("#grant_type").addEventListener("change", function(e) {
     var required = this.options[this.selectedIndex].getAttribute("data-requires-coc");
+    var show = "#" + this.options[this.selectedIndex].getAttribute("data-type");
+    $(".active-grant-type-help").removeClass("active-grant-type-help").addClass("d-none");
+    $(show).addClass("active-grant-type-help").removeClass("d-none");
     if (required == "true" || required == true) {
         $("#coc_input").prop("required", true);
         $("#coc_link").removeClass("d-none");
