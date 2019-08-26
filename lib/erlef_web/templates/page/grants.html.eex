@@ -14,7 +14,12 @@
       <div class="col-10">
         <div class="tab-content" id="pills-tabContent">
           <div class="tab-pane fade show active" id="intro" role="tabpanel" aria-labelledby="pills-home-tab">
-            <h2 id="#intro">Introduction</h2>
+            <p>
+              It is our great pleasure to announce that we have just opened our grant program. The goal of it is to
+              fund open source development, trainings, workshops and other initiatives that will help increase
+              and expand the Beam community. These grants are funded by our <a href="/sponsors/">sponsors</a>,
+              membership fees and donations.
+            </p>
             <p>The current focus of the foundation is on increasing and expanding the
               community so we will favour grants that are targeted to beneficiaries that
               are new to Erlang/Elixir and the ecosystem. We prefer grants that support
@@ -29,10 +34,11 @@
               weeks prior to the event. Proposals should be concise and have a clear
               objective. We encourage those applying for funding to try and get sponsorship
               from corporations or local sponsors as we want to encourage sustainable, long
-              term relationships with them.</p>
+              term relationships with them. The EEF could limit the number of events per
+              organizer and/or city that are granted within a given year. </p>
 
-            <p>The EEF could limit the number of events per organizer and/or city that are
-              granted within a given year. If you have any questions reach out to
+            <p>If you want to apply for a grant, fill the form at this page <a href="/grants/">form</a>
+              If you have any questions please reach out to
               <a href="mailto:education@erlef.org">education@erlef.org</a>
             </p>
           </div>
