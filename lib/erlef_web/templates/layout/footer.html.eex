@@ -33,23 +33,7 @@
                 <div class="pull-left">
                 <ul class="list-inline">
                     <li>
-                        <form action="https://ErlangEcosystemFoundation.wildapricot.org/sys/login/OAuthLogin" 
-                            method="get" class="mt-2">
-                          <input type="hidden" name="scope" value="contacts_me" />
-                          <input type="hidden" name="client_id" value="5fl5gzaiih" />
-                          <input type="hidden" name="response_type" value="authorization_code" />
-                          <input type="hidden" name="claimed_account_id" value="292325" />
-                          <input type="hidden" name="state" value="WaWpIntegrationLogin" />
-                          <input type="hidden" name="redirect_uri" value="https://erlef.org/" />
-                          <input type="submit" name="waLoginAction" 
-                                             style="padding: 0px; 
-                                                    background: 
-                                                    none;border: none; 
-                                                    color: rgba(255, 255, 255, 0.7); 
-                                                    text-decoration: underline; 
-                                                    cursor: pointer;"  
-                                             value="Membership details" title="Login" />
-                      </form>
+                      <a target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Membership details</a>
                     </li>
                     <li><a href="https://members.erlef.org/join-us">Join us!</a></li>
                     <li><a href="/sponsors/">Sponsors</a></li>
