@@ -291,7 +291,7 @@
 
                 <div class="col-md-3 mb-3">
                   <label for="org_name">Organization Email</label>
-                  <input type="text" maxlength="50" name="org_email" class="form-control" id="org_email"
+                  <input type="email" maxlength="50" name="org_email" class="form-control" id="org_email"
                     placeholder="Organization Email">
                 </div>
               </div>
