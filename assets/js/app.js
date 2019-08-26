@@ -10,5 +10,4 @@ import "phoenix_html"
 // Import local files
 //
 
-
 require("./calendar.js")

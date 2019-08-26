@@ -6,7 +6,6 @@
                 <p class="lead">The Erlang Ecosystem Foundation is a new non-profit organization dedicated to furthering the state of the art for Erlang, Elixir, LFE, and other technologies based on the BEAM. Our goal is to increase the adoption of this sophisticated platform among forward-thinking organizations. With member-supported Working Groups actively contributing to libraries, tools, and documentation used regularly by individuals and companies relying on the stability and versatility of the ecosystem, we actively invest in critical pieces of technical infrastructure to support our users in their efforts to build the next generation of advanced, reliable, realtime applications.
                 </p>
 
-                </script>
               <div>
                 <%= raw subscribe_form() %>
               </div> 
