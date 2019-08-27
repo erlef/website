@@ -18,8 +18,12 @@
 			<p>Sign up for our newsletter to stay informed of EEF updates!</p>
             <%= raw subscribe_form() %>
             
-            <p>Contact us: eef@erlef.org</p>
-<p>Marketing working group: marketing@erlef.org</p>
+            <p>General: eef (at) erlef.org</p>
+            <p>Marketing: marketing (at) erlef (dot) org</p>
+            <p>Sponsorships: sponsorship (at) erlef (dot) org</p>
+            <p>Education, Training, Adoption: education (at) erlef (dot) org</p>
+            <p>Grants: grants (at) erlef (dot) org</p>
+
 		</div><!-- .entry-content -->
 	</div>
 	<!-- /.card-body -->
