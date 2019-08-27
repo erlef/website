@@ -57,13 +57,13 @@ defmodule ErlefWeb.GrantView do
     )
   end
 
-  def payment_method_select(form) do 
+  def payment_method_select(form) do
     select(
       form,
       :payment_method,
       [[key: "--", value: ""], "Paypal", "Zelle", "Check", "Wire"],
       class: "form-control",
       required: "true"
-    ) 
+    )
   end
 end

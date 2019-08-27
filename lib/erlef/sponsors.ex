@@ -17,7 +17,8 @@ defmodule Erlef.Sponsors do
     {"whatsapp", "https://www.whatsapp.com/"},
     {"coders51", "https://www.coders51.com/"},
     {"id3as", "https://www.id3as.com/"},
-    {"sfractal", "https://www.sfractal.com/"}
+    {"sfractal", "https://www.sfractal.com/"},
+    {"arcblock", "https://www.arcblock.io/"}
   ]
 
   def roster do
