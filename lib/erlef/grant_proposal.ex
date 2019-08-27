@@ -12,7 +12,7 @@ defmodule Erlef.GrantProposal do
     "org_name" => {:org_name, {:binary, 50}},
     "org_email" => {:org_email, :binary},
     "city" => {:city, {:binary, 85}},
-    "subdivision" => {:subdivision, {:binary, 50}},
+    "region" => {:region, {:binary, 50}},
     "country" => {:country, {:binary, 50}},
     "postal_code" => {:postal_code, {:binary, 10}},
     "twitter" => {:twitter, {:binary, 50}},

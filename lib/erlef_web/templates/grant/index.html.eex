@@ -311,29 +311,24 @@ function show_form() {
 				<%= text_input(f, :city, class: "form-control", maxlength: 85, required: true, placeholder: "City") %>
  
 				</div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-2 mb-3">
                   <label
-                    for="subdivision">* Country Subdivision</label>
+                    for="region">* Region</label>
             
-				<%= text_input(f, :subdivision, class: "form-control", maxlength: 50, required: true, placeholder: "Subdivision") %>
+				<%= text_input(f, :region, class: "form-control", maxlength: 50, required: true, placeholder: "Region") %>
      
-			  <small class="text-muted">(e.g., state, province, territory, etc.)</small>
+			  <small class="text-muted">(e.g., state or province)</small>
                 </div>
                 <div class="col-md-2 mb-3">
                   <label for="postal_code">* Postal Code</label>
 					<%= text_input(f, :postal_code, class: "form-control", maxlength: 10, required: true, placeholder: "Postal code") %>
                 </div>
 
-
-                
-                         <div class="col-md-3 mb-3">
- 
-                           <label for="country">* Country</label>
-                                 
-                           <input type="text" name="country" id="country">
-                           <input type="hidden" name="country_code" id="country_code" />
-                    </div>
-
+                <div class="col-md-3 mb-3">
+                  <label for="country">* Country</label>
+                    <input type="text" name="country" id="country">
+                    <input type="hidden" name="country_code" id="country_code" />
+                </div>
               </div>
 
               <div class="form-row">
@@ -438,11 +433,7 @@ A gathering including talks and other events to promote Beam languages in the lo
 
                   <div>
                       <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-                  </div>
-                  
-                  <div>
-                       <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-                  </div>
+                  </div>     
              </div>
 
               <div class="form-row mb-2">

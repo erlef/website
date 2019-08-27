@@ -43,7 +43,7 @@
   <br/>
 
   <div class="row">
-  <strong>Country Subdivision</strong> : <%= @proposal.subdivision %>
+  <strong>Region</strong> : <%= @proposal.region %>
   </div>
   <br/>
 
