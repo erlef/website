@@ -607,7 +607,13 @@
 	// Note: using single char property names to keep filesize down
 	// n = name
 	// i = iso2 (2-char country code)
-	var allCountries = $.each([ {
+    //
+    // aa is a hack for empty country
+	var allCountries = $.each([{
+        n: "Select a country",
+        i: "aa",
+    },
+    {
 		n: "Afghanistan (‫افغانستان‬‎)",
 		i: "af"
 	}, {

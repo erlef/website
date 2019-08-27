@@ -257,7 +257,7 @@ function show_form() {
     </ul>
   </div>
 <% end %>
-  <%= form_for @conn, Routes.grant_path(@conn, :create), [id: "grant_form", multipart: true, class: "dropzone"], fn f -> %>
+  <%= form_for @conn, Routes.grant_path(@conn, :create), [id: "grant_form", multipart: true], fn f -> %>
               <div class="form-row">
                 <div class="col-md-3 mb-3">
                   <label for="first_name">* First name</label>
@@ -326,7 +326,7 @@ function show_form() {
 
                 <div class="col-md-3 mb-3">
                   <label for="country">* Country</label>
-                    <input type="text" name="country" id="country">
+                    <input type="text" name="country" id="country" required>
                     <input type="hidden" name="country_code" id="country_code" />
                 </div>
               </div>
@@ -573,4 +573,13 @@ A gathering including talks and other events to promote Beam languages in the lo
     }
   });
 
+$("#grant_form").submit(function() { 
+  
+  if ($("#country_code").val() == "aa") {
+     var elmnt = document.getElementById("country");
+    elmnt.scrollIntoView();
+    alert("Please select a country");
+    return false;
+  }
+});
 </script>
