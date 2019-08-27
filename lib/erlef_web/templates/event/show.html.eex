@@ -3,7 +3,7 @@
         <div class="card-body">
           <p> <%= link("« All Events", to: "/events") %></p>
 
-            <h1 class="card-title">Code Elixir LDN</h1>
+          <h1 class="card-title"><%= @event.metadata["title"] %> </h1>
             <h2><span><%= at_date(@event) %></span></h2>
 
             <!-- Event header -->
@@ -45,7 +45,7 @@
               <div class="col">
                 <h2>Organizer</h2>
                 <dl>
-                  <dd>Code Sync Ltd </dd>
+                  <dd><%=  @event.metadata["organizer"] %> </dd>
                   <dt>Website:</dt>
                   <dd><a href="><%= @event.metadata["organizer_url"] %>" target="_self"><%= @event.metadata["organizer_url"] %></a> </dd>
                 </dl>
