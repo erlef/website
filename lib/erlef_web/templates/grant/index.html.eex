@@ -293,14 +293,14 @@ function show_form() {
                 <div class="col-md-3 mb-3">
                   <label for="org_name">Organization Name</label>
                   
- 					<%= text_input(f, :org_name, class: "form-control", maxlength: 50, required: true, placeholder: "Organization name") %>
+ 					<%= text_input(f, :org_name, class: "form-control", maxlength: 50, placeholder: "Organization name") %>
                 </div>
 
 
                 <div class="col-md-3 mb-3">
                   <label for="org_name">Organization Email</label>
 				 
- 					<%= text_input(f, :org_email, class: "form-control", maxlength: 50, required: true, placeholder: "Organization email") %>
+ 					<%= text_input(f, :org_email, class: "form-control", maxlength: 50, placeholder: "Organization email") %>
  
                 </div>
               </div>
@@ -321,7 +321,7 @@ function show_form() {
                 </div>
                 <div class="col-md-2 mb-3">
                   <label for="postal_code">* Postal Code</label>
-					<%= number_input(f, :postal_code, class: "form-control", maxlength: 10, required: true, placeholder: "Postal code") %>
+					<%= text_input(f, :postal_code, class: "form-control", maxlength: 10, required: true, placeholder: "Postal code") %>
                 </div>
 
 
