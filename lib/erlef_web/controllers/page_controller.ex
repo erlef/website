@@ -5,6 +5,11 @@ defmodule ErlefWeb.PageController do
 
   def index(conn, _params), do: render(conn)
 
+  def board_members(conn, _params) do
+    members = Enum.shuffle(Erlef.Board.members())
+    render(conn, members: members)
+  end
+
   def bylaws(conn, _params), do: render(conn)
 
   def sponsor_info(conn, _params), do: render(conn, "become_a_sponsor.html")

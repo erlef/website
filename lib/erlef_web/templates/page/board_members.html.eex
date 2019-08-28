@@ -1,0 +1,16 @@
+<div class="container mt-3">
+  <h3>EEF Board Members</h3>
+  <div class="row">
+    
+    <%= for %{name: name, image: image} <- @members do %>
+    <div class="col">
+      <div class="card mb-2" style="width: 10.5rem; height: 15.5rem;">
+        <img src="/images/eef-board/<%= image %>" height="175" width="175" class="card-img-top" alt="<%= name %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= name %></h5>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

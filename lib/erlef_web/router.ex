@@ -32,6 +32,7 @@ defmodule ErlefWeb.Router do
     get "/", PageController, :index
     get "/about", PageController, :about
     get "/bylaws", PageController, :bylaws
+    get "/board_members", PageController, :board_members
     get "/contact", PageController, :contact
     get "/faq", PageController, :faq
     get "/sponsors", PageController, :sponsors
