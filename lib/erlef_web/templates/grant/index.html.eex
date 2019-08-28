@@ -326,8 +326,7 @@ function show_form() {
 
                 <div class="col-md-3 mb-3">
                   <label for="country">* Country</label>
-                    <input type="text" name="country" id="country" required>
-                    <input type="hidden" name="country_code" id="country_code" />
+                  <%= country_select(f) %>
                 </div>
               </div>
 
@@ -558,7 +557,6 @@ A gathering including talks and other events to promote Beam languages in the lo
 </div>
 
 <script>
-  $("#country").countrySelect({preferredCountries: [], defaultCountry: "<%= @params["country"] %>"});
   document.querySelector("#grant_type").addEventListener("change", function(e) {
     var required = this.options[this.selectedIndex].getAttribute("data-requires-coc");
     var show = "#" + this.options[this.selectedIndex].getAttribute("data-type");
@@ -573,13 +571,4 @@ A gathering including talks and other events to promote Beam languages in the lo
     }
   });
 
-$("#grant_form").submit(function() { 
-  
-  if ($("#country_code").val() == "aa") {
-     var elmnt = document.getElementById("country");
-    elmnt.scrollIntoView();
-    alert("Please select a country");
-    return false;
-  }
-});
 </script>

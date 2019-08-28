@@ -8,6 +8,7 @@ window.jQuery = $;
 window.$ = $;
 import "phoenix_html"
 import "bootstrap";
+import "bootstrap-select";
 
 // Import local files
 //
