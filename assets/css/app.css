@@ -4,7 +4,6 @@
 @import url("./fullcalendar/daygrid.css");
 @import url("./fullcalendar/list.css");
 @import url("./fullcalendar/bootstrap.css");
-@import url("../vendor/css/countrySelect.css");
 @import url("../node_modules/bootstrap-select/dist/css/bootstrap-select.css");
 
 body {
