@@ -5,7 +5,7 @@ defmodule Erlef.Board do
     %{image: "richard-carlsson.jpg", name: "Richard Carlsson"},
     %{image: "sebastian-strollo.jpg", name: "Sebastion Strollo"},
     %{image: "benoit-chesneau.png", name: "Benoit Chesneau"},
-    %{image: "fred-hebert.png", name: "Fred Hebert"},
+    %{image: "fred-hebert.jpg", name: "Fred Hebert"},
     %{image: "miriam-pena.jpg", name: "Miriam Pena"},
     %{image: "alistair-woodman.png", name: "Alistair Woodman"},
     %{image: "maxim-fedorov.png", name: "Maxim Fedorov"},
