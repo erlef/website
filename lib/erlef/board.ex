@@ -11,7 +11,6 @@ defmodule Erlef.Board do
     %{image: "maxim-fedorov.png", name: "Maxim Fedorov"},
     %{image: "kenneth-lundin.png", name: "Kenneth Lundin"},
     %{image: "peer-stritzinger.png", name: "Peer Stitzinger"}
-
   ]
 
   def members do

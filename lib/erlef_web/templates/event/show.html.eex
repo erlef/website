@@ -57,7 +57,8 @@
               <div class="row">
                 <div class="col">
                   <h2> Venue </h2>
-                    <dl>
+                  <dl>
+                    <dd> <%= @event.metadata["venue_name"] %></dd>
                       <dd> <%= @event.metadata["venue_address1"] %></dd>
                         <dd>
                           <address>

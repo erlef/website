@@ -12,8 +12,10 @@ defmodule ErlefWeb.Plug.JsonEvents do
   end
 
   defp all_events do
+    unsorted = Erlef.Events.Repo.all()
+
     events =
-      Enum.map(Erlef.Events.Repo.all(), fn e ->
+      Enum.map(sort_by_datetime(unsorted), fn e ->
         slug = e.metadata["slug"]
 
         description =
@@ -28,5 +30,19 @@ defmodule ErlefWeb.Plug.JsonEvents do
       end)
 
     {events, Jason.encode!(events)}
+  end
+
+  defp sort_by_datetime(events) do
+    Enum.sort(
+      events,
+      fn d1, d2 ->
+        Date.compare(from_iso8601(d1), from_iso8601(d2)) == :lt
+      end
+    )
+  end
+
+  defp from_iso8601(d) do
+    {:ok, dt, _} = DateTime.from_iso8601(d.metadata["start"])
+    dt
   end
 end

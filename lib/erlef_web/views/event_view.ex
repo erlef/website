@@ -1,7 +1,6 @@
 defmodule ErlefWeb.EventView do
   use ErlefWeb, :view
 
-
   def year_month_day(date) do
     {:ok, dt, _offset} = DateTime.from_iso8601(date)
     "#{dt.year}-#{dt.month}-#{dt.day}"
