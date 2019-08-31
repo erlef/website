@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var header;
         if (calendarEl.getAttribute("data-calendar-header") === "true") {
             header = {
-                left: 'prevYear,prev,next,nextYear',
+                left: 'prev,next',
                 center: 'title',
                 right: 'dayGridMonth,dayGridWeek,dayGridDay,listMonth'
             };
