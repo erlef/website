@@ -4,7 +4,7 @@
           <p> <%= link("« All Events", to: "/events") %></p>
 
           <h1 class="card-title"><%= @event.metadata["title"] %> </h1>
-            <h2><span><%= at_date(@event) %></span></h2>
+          <h2><span><%= at_date(@event) %>  <%= @event.metadata["offset"] %></span></h2>
 
             <!-- Event header -->
             <div data-title="<%= #{@event.title} %> – Erlang Ecosystem Foundation" data-viewtitle="<%= @event.title %>">
@@ -34,7 +34,11 @@
                   <dt> Date: </dt>
                   <dd><abbr title="<%= year_month_day(@event.metadata["start"]) %>"> <%= month_name_and_day(@event) %> </abbr></dd>
                   <dt> Time: </dt>
-                  <dd><div title="<%= year_month_day(@event.metadata["end"]) %>"><%= time_duration(@event) %> </div></dd>
+                  <dd>
+                  <div title="<%= year_month_day(@event.metadata["end"]) %>">
+                      <%= time_duration(@event) %> <%= @event.metadata["offset"] %>
+                    </div>
+                  </dd>
                   <dt> Website: </dt>
                   <dd><a href="<%= @event.metadata["event_url"] %>" target="_blank"><%= @event.metadata["organizer_url"] %></a> </dd>
 
