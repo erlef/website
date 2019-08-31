@@ -36,7 +36,7 @@
                   <dt> Time: </dt>
                   <dd><div title="<%= year_month_day(@event.metadata["end"]) %>"><%= time_duration(@event) %> </div></dd>
                   <dt> Website: </dt>
-                  <dd><a href="<%= @event.metadata["event_url"] %>" target="_self"><%= @event.metadata["organizer_url"] %></a> </dd>
+                  <dd><a href="<%= @event.metadata["event_url"] %>" target="_blank"><%= @event.metadata["organizer_url"] %></a> </dd>
 
                 </dl>
               </div>
@@ -47,7 +47,7 @@
                 <dl>
                   <dd><%=  @event.metadata["organizer"] %> </dd>
                   <dt>Website:</dt>
-                  <dd><a href="><%= @event.metadata["organizer_url"] %>" target="_self"><%= @event.metadata["organizer_url"] %></a> </dd>
+                  <dd><a href="<%= @event.metadata["organizer_url"] %>" target="_blank"><%= @event.metadata["organizer_url"] %></a> </dd>
                 </dl>
               </div>
                 </div>
@@ -70,7 +70,7 @@
                           <a href="<%= raw @event.metadata["venue_gmap_url"] %>" title="Click to view a Google Map" target="_blank">+ Google Map</a>
                         </dd>
                         <dt> Website: </dt>
-                        <dd> <a href="<%= @event.metadata["venue_url"] %>" target="_self"><%= @event.metadata["venue_url"] %></a> </dd>
+                        <dd> <a href="<%= @event.metadata["venue_url"] %>" target="_blank"><%= @event.metadata["venue_url"] %></a> </dd>
                     </dl>
                 </div>
                 
