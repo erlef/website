@@ -32,9 +32,9 @@
                 <h2> Details </h2>
                 <dl>
                   <dt> Date: </dt>
-                  <dd><abbr title="2019-07-18"> <%= month_name_and_day(@event) %> </abbr></dd>
+                  <dd><abbr title="<%= year_month_day(@event.metadata["start"]) %>"> <%= month_name_and_day(@event) %> </abbr></dd>
                   <dt> Time: </dt>
-                  <dd><div title="2019-07-18"><%= time_duration(@event) %> </div></dd>
+                  <dd><div title="<%= year_month_day(@event.metadata["end"]) %>"><%= time_duration(@event) %> </div></dd>
                   <dt> Website: </dt>
                   <dd><a href="<%= @event.metadata["event_url"] %>" target="_self"><%= @event.metadata["organizer_url"] %></a> </dd>
 
