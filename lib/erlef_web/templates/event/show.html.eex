@@ -63,7 +63,7 @@
                   </dl>
                   <%= if  @event.metadata["organizer_url"] do %> 
                   <dt> Website: </dt>
-                  <dd><a href="<%= @event.metadata["event_url"] %>" target="_blank"><%= @event.metadata["organizer_url"] %></a> </dd>
+                  <dd><a href="<%= @event.metadata["event_url"] %>" target="_blank"><%= @event.metadata["event_url"] %></a> </dd>
 
                 <% end %>
                 </dl>
