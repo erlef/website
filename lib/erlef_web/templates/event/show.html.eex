@@ -4,8 +4,12 @@
           <p> <%= link("« All Events", to: "/events") %></p>
 
           <h1 class="card-title"><%= @event.metadata["title"] %> </h1>
-          <h2><span><%= at_date(@event) %>  <%= @event.metadata["offset"] %></span></h2>
-
+        
+        <% starts = at_date(@event.metadata["start"]) %>
+        <% ends = at_date(@event.metadata["end"]) %>
+        <% offset = @event.metadata["offset"] %> 
+        
+        <h4 class="d-flex justify-content-center"><span><%= starts %> <%= offset %> - <%= ends %> <%= offset %></span></h4>
             <!-- Event header -->
             <div data-title="<%= #{@event.title} %> – Erlang Ecosystem Foundation" data-viewtitle="<%= @event.title %>">
                 <!-- Navigation -->
@@ -33,17 +37,35 @@
               <div class="col">
                 <h2> Details </h2>
                 <dl>
-                  <dt> Date: </dt>
-                  <dd><abbr title="<%= year_month_day(@event.metadata["start"]) %>"> <%= month_name_and_day(@event) %> </abbr></dd>
-                  <dt> Time: </dt>
-                  <dd>
-                  <div title="<%= year_month_day(@event.metadata["end"]) %>">
-                      <%= time_duration(@event) %> <%= @event.metadata["offset"] %>
-                    </div>
-                  </dd>
+                  <dt>Starts: </dt>
+                    <dl class="ml-5">
+                      <dt> Date: </dt>
+                      <dd><abbr title="<%= year_month_day(@event.metadata["start"]) %>"> <%= month_name_and_day(@event.metadata["start"]) %> </abbr></dd>
+                      <dt> Time: </dt>
+                      <dd>
+                        <div title="<%= year_month_day(@event.metadata["end"]) %>">
+                          <%= time(@event.metadata["start"]) %> <%= @event.metadata["offset"] %>
+                        </div>
+                      </dd>
+                    </dl>
+
+                  <dt>Ends: </dt>
+                  <dl class="ml-5">
+                    <dt> Date: </dt>
+                    <dd><abbr title="<%= year_month_day(@event.metadata["end"]) %>"> <%= month_name_and_day(@event.metadata["end"]) %> </abbr></dd>
+                      <dt> Time: </dt>
+                      <dd>
+                        <div title="<%= year_month_day(@event.metadata["end"]) %>">
+                          <%= time(@event.metadata["end"]) %> <%= @event.metadata["offset"] %>
+                        </div>
+                      </dd>
+ 
+                  </dl>
+                  <%= if  @event.metadata["organizer_url"] do %> 
                   <dt> Website: </dt>
                   <dd><a href="<%= @event.metadata["event_url"] %>" target="_blank"><%= @event.metadata["organizer_url"] %></a> </dd>
 
+                <% end %>
                 </dl>
               </div>
 
