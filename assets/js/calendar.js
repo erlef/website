@@ -13,6 +13,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import 'bootstrap';
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         var calendar = new Calendar(calendarEl, {
-            plugins: [interactionPlugin, dayGridPlugin, listPlugin, bootstrapPlugin],
+            plugins: [interactionPlugin, dayGridPlugin, listPlugin, bootstrapPlugin, googleCalendarPlugin],
             header: header, 
             navLinks: navLinks,
             themeSystem: 'bootstrap',
@@ -68,7 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
             weekends: true,
             nowIndicator: true,
             dayPopoverFormat: 'dddd DD/MM',
-            events: window.calendar_events,
+            googleCalendarApiKey: '',
+            eventSources: [ 
+              {
+                googleCalendarId: ''
+              },
+              window.calendar_events
+            ],
             eventRender: function (info) {
                 $(info.el).popover({
                     title: info.event.title,

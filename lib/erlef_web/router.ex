@@ -9,7 +9,7 @@ defmodule ErlefWeb.Router do
 
     plug :put_secure_browser_headers, %{
       "content-security-policy" =>
-        " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: www.google.com www.googletagmanager.com  www.google-analytics.com fonts.gstatic.com fonts.googleapis.com use.fontawesome.com stackpath.bootstrapcdn.com use.fontawesome.com platform.twitter.com code.jquery.com platform.twitter.com syndication.twitter.com cdn.syndication.twimg.com licensebuttons.net i.creativecommons.org platform.twitter.com pbs.twimg.com syndication.twitter.com"
+        " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: www.google.com www.googletagmanager.com  www.google-analytics.com fonts.gstatic.com fonts.googleapis.com use.fontawesome.com stackpath.bootstrapcdn.com use.fontawesome.com platform.twitter.com code.jquery.com platform.twitter.com syndication.twitter.com cdn.syndication.twimg.com licensebuttons.net i.creativecommons.org platform.twitter.com pbs.twimg.com syndication.twitter.com www.googleapis.com"
     }
 
     plug ErlefWeb.Plug.JsonEvents
