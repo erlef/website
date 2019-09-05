@@ -5,6 +5,7 @@ defmodule ErlefWeb.WorkingGroupController do
   def index(conn, _params) do
     groups =
       Erlef.WG.all()
+      |> Enum.reject(fn wg -> wg.slug == "eef" end)
       |> sort_by_formation()
 
     render(conn, working_groups: groups)
@@ -12,8 +13,12 @@ defmodule ErlefWeb.WorkingGroupController do
 
   def show(conn, %{"id" => slug}) do
     case Erlef.WG.fetch(slug) do
-      nil -> {:error, :not_found}
-      wg -> render(conn, wg: wg, blog_posts: fetch_blog_preview(slug), topic: slug)
+      nil ->
+        {:error, :not_found}
+
+      wg ->
+        members = Enum.shuffle(Erlef.Members.roster(slug))
+        render(conn, wg: wg, blog_posts: fetch_blog_preview(slug), members: members, topic: slug)
     end
   end
 

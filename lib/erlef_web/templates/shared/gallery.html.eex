@@ -1,14 +1,20 @@
-  <div class="row">
-    
-    <%= for %{name: name, image: image} <- @members do %>
-    <div class="col">
-      <div class="card mb-2" style="width: 10.5rem; height: 15.5rem;">
-        <img src="/images/<%= @group %>/<%= image %>" height="175" width="175" class="card-img-top" alt="<%= name %>">
-        <div class="card-body">
-          <h5 class="card-title"><%= name %></h5>
+<div class="container">
+  <article class="card">
+  <div class="card-body">
+  <%= for list <- Enum.chunk_every(@members, 4) do %>
+      <div class="row">
+      <%= for %{name: name, image: image} <- list do %>
+        <div class="col-md-3">
+          <div class="card  mb-4 box-shadow" style="width: 10.5rem; height: 15.5rem;">
+            <img src="/images/<%= image %>" height="175" width="175" class="card-img-top" alt="<%= name %>">
+              <div class="card-body text-center">
+                <h6 class="card-title"><%= name %></h6>
+              </div>
+          </div>
         </div>
-      </div>
-    </div>
-  <% end %>
+      <% end %>
+     </div>
+   <% end %>
   </div>
-
+  </div>
+</div>
