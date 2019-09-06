@@ -97,7 +97,7 @@ config :erlef, :education, [
   %{image: "members/desmond-bowe.png", name: "Desmond Bowe"},
   %{image: "members/profile-placeholder.png", name: "Alistair Woodman"},
   %{image: "members/paulo-d-gonzalez.png", name: "Paulo D. Gonzalez"},
-  %{image: "members/profile-placeholder.png", name: "Norberto Ortigoza"}
+  %{image: "members/norberto-ortigoza.jpg", name: "Norberto Ortigoza"}
 ]
 
 config :erlef, :fellowship, [
