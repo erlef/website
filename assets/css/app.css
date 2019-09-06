@@ -109,10 +109,6 @@ a:hover {
             position: relative;
 }
 
-.nav-pills .nav-link:hover { 
-    background-color: #f6f6f6;
-}
-
 .card-body > p > a { 
     color: #343a40;
     text-decoration: underline;
