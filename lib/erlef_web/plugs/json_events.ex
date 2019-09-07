@@ -25,6 +25,8 @@ defmodule ErlefWeb.Plug.JsonEvents do
           end
 
         e.metadata
+        |> Map.put("start", apply_time_offset(e.metadata["start"], e.metadata["offset"]))
+        |> Map.put("end", apply_time_offset(e.metadata["end"], e.metadata["offset"]))
         |> Map.put("url", "/events/#{slug}")
         |> Map.put("description", description)
       end)
@@ -40,6 +42,17 @@ defmodule ErlefWeb.Plug.JsonEvents do
       end
     )
   end
+
+  defp apply_time_offset(date_str, "UTC" <> offset) when offset != "" do
+    {:ok, datetime, _} = DateTime.from_iso8601(date_str)
+    {offset_hours, _} = Integer.parse(offset)
+
+    datetime
+    |> Timex.shift(hours: offset_hours)
+    |> DateTime.to_iso8601()
+  end
+
+  defp apply_time_offset(date_str, _), do: date_str
 
   defp from_iso8601(d) do
     {:ok, dt, _} = DateTime.from_iso8601(d.metadata["start"])

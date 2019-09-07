@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks: navLinks,
             themeSystem: 'bootstrap',
             defaultView: defaultView,
-            timezone: "local",
+            timeZone: "UTC",
             visibleRange: function(currentDate) {
                 var startDate = new Date(currentDate.valueOf());
                 var endDate = new Date(currentDate.valueOf());
