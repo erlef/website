@@ -64,7 +64,7 @@ config :erlef, :observability, [
   %{image: "members/profile-placeholder.png", name: "Vince Foley"},
   %{image: "members/profile-placeholder.png", name: "Ilya Khaprov"},
   %{image: "members/bryan-naegele.png", name: "Bryan Naegele"},
-  %{image: "members/profile-placeholder.png", name: "Greg Mefford"},
+  %{image: "members/greg-mefford.jpg", name: "Greg Mefford"},
   %{image: "members/profile-placeholder.png", name: "Arkadiusz Gil"},
   %{image: "members/zachary-daniel.jpg", name: "Zach Daniel"},
   %{image: "members/mark-allen.jpg", name: "Mark Allen"},
