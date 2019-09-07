@@ -54,7 +54,8 @@ defmodule Erlef.MixProject do
 
   defp aliases do
     [
-      "phx.server": ["compile --force", "phx.server"]
+      "phx.server": ["compile --force", "phx.server"],
+      test: ["compile --warnings-as-errors", "credo", "test"]
     ]
   end
 
@@ -63,7 +64,7 @@ defmodule Erlef.MixProject do
       plt_add_apps: [:mix, :ex_unit],
       remove_defaults: [:unknown],
       checks: [
-        {Credo.Check.Refactor.MapInto, false}, 
+        {Credo.Check.Refactor.MapInto, false},
         {Credo.Check.Warning.LazyLogging, false}
       ]
     ]

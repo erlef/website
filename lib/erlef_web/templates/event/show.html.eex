@@ -22,13 +22,13 @@
               <!-- Event content -->
               <div class="event-description">
                 <p>
-                <%= raw @event.body_html %>
+                <%= safe_to_string({:safe, @event.body_html}) %>
                 </p>
               </div>
 
               <%= if @event.metadata["gcal_url"] do %>
                 <div>
-                <a class="btn btn-primary btn-sm" href="<%= raw @event.metadata["gcal_url"] %>" title="Add to Google Calendar">+ Google Calendar</a>
+                  <a class="btn btn-primary btn-sm" href="<%= safe_to_string({:safe, @event.metadata["gcal_url"]}) %>" title="Add to Google Calendar">+ Google Calendar</a>
               </div>
             <% end %>
 
@@ -97,7 +97,7 @@
                               <span><%= @event.metadata["venue_territory"] %></span>,</span>
                             <span><%= @event.metadata["venue_country"] %></span>
                           </address>
-                          <a href="<%= raw @event.metadata["venue_gmap_url"] %>" title="Click to view a Google Map" target="_blank">+ Google Map</a>
+                          <a href="<%= safe_to_string({:safe, @event.metadata["venue_gmap_url"] })%>" title="Click to view a Google Map" target="_blank">+ Google Map</a>
                         </dd>
                         <dt> Website: </dt>
                         <dd> <a href="<%= @event.metadata["venue_url"] %>" target="_blank"><%= @event.metadata["venue_url"] %></a> </dd>

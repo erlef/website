@@ -7,7 +7,7 @@
                 </p>
 
               <div>
-                <%= raw subscribe_form() %>
+                <%= safe_to_string({:safe, subscribe_form()}) %>
               </div> 
             <!-- / Mailchimp -->
         </div>

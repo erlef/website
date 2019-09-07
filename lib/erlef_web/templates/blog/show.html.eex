@@ -7,7 +7,7 @@
           <%= byline(@post) %><br />
           Posted in <%= category(@working_group) %>
         </p>
-        <%= raw @post.body_html %>
+        <%= safe_to_string({:safe, @post.body_html}) %>
       </div>
     </div>
   </div>
