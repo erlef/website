@@ -10,7 +10,8 @@ defmodule Erlef.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      dialyzer: dialyzer_opts()
     ]
   end
 
@@ -45,13 +46,26 @@ defmodule Erlef.MixProject do
       {:timex, "~> 3.6"},
       {:swoosh, "~> 0.23.3"},
       {:phoenix_swoosh, "~> 0.2.0"},
-      {:gen_smtp, "~> 0.14.0"}
+      {:gen_smtp, "~> 0.14.0"},
+      {:dialyxir, "~> 1.0.0-rc.6", only: [:dev], runtime: false},
+      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false}
     ]
   end
 
   defp aliases do
     [
       "phx.server": ["compile --force", "phx.server"]
+    ]
+  end
+
+  defp dialyzer_opts do
+    [
+      plt_add_apps: [:mix, :ex_unit],
+      remove_defaults: [:unknown],
+      checks: [
+        {Credo.Check.Refactor.MapInto, false}, 
+        {Credo.Check.Warning.LazyLogging, false}
+      ]
     ]
   end
 end

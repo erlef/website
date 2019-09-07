@@ -1,4 +1,8 @@
 defmodule Erlef.Mailer do
+  @moduledoc """
+  Erlef.Mailer
+  """
+
   use Swoosh.Mailer, otp_app: :erlef
 
   def send(email) do

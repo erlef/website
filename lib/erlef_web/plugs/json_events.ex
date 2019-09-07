@@ -1,5 +1,10 @@
 defmodule ErlefWeb.Plug.JsonEvents do
   import Plug.Conn
+  alias Erlef.Events.Repo
+
+  @moduledoc """
+    Erlef.Plug.JsonEvents
+  """
 
   def init(default), do: default
 
@@ -12,7 +17,7 @@ defmodule ErlefWeb.Plug.JsonEvents do
   end
 
   defp all_events do
-    unsorted = Erlef.Events.Repo.all()
+    unsorted = Repo.all()
 
     events =
       Enum.map(sort_by_datetime(unsorted), fn e ->

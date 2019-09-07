@@ -1,4 +1,8 @@
 defmodule Erlef.Members do
+  @moduledoc """
+  Erlef.Members
+  """
+
   Enum.each(Application.get_env(:erlef, :rosters), fn roster ->
     Module.register_attribute(__MODULE__, roster, persist: true)
     Module.put_attribute(__MODULE__, roster, Application.get_env(:erlef, roster))

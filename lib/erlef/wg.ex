@@ -1,4 +1,8 @@
 defmodule Erlef.WG do
+  @moduledoc """
+    Erlef.WG
+  """
+
   defstruct name: "",
             slug: "",
             description: "",
