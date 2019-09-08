@@ -1,6 +1,7 @@
 defmodule Mix.Tasks.Eef.Gen.Event do
   use Mix.Task
   import Mix.Generator
+  alias Erlef.Events.Repo
 
   @shortdoc "Generates an event post"
 
@@ -25,7 +26,7 @@ defmodule Mix.Tasks.Eef.Gen.Event do
       {options, [slug], _invalid} ->
         title = Keyword.get(options, :title, "Title goes here")
         datetime = DateTime.utc_now()
-        path = Erlef.Events.Repo.root()
+        path = Repo.root()
         file = Path.join(path, "#{format_datetime(datetime)}_#{slug}.md")
 
         create_file(

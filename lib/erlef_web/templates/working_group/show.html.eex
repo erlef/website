@@ -28,6 +28,10 @@
                       <%= if @wg.primary_contact_method == "github" && @wg.github do %>
                         <p>You can reach us at: <a href="<%= @wg.github %>"><%= @wg.github %></a></p>
                       <% end %>
+                      <%= if @wg.gcal_url do %>
+                        <p>Feel free to subscribe to our <a href="<%= raw @wg.gcal_url %>" title="Add to Google Calendar">Google Calendar</a>
+  to keep track of upcoming meetings </p>
+                      <% end %>
                     </div>
 
                     <div class="entry-content">

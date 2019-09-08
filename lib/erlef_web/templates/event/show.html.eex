@@ -5,11 +5,12 @@
 
           <h1 class="card-title"><%= @event.metadata["title"] %> </h1>
         
-        <% starts = at_date(@event.metadata["start"]) %>
-        <% ends = at_date(@event.metadata["end"]) %>
-        <% offset = @event.metadata["offset"] %> 
+        <% starts = month_name_and_day(@event.metadata["start"]) %>
+        <% ends = month_name_and_day(@event.metadata["end"]) %>
+        <% start_time = time(@event.metadata["start"], @event.metadata["offset"]) %>
+        <% end_time = time(@event.metadata["end"], @event.metadata["offset"]) %>
         
-        <h4 class="d-flex justify-content-center"><span><%= starts %> <%= offset %> - <%= ends %> <%= offset %></span></h4>
+        <h4 class="d-flex justify-content-center"><span><%= starts %> @ <%= start_time %> - <%= ends %> @ <%= end_time %></span></h4>
             <!-- Event header -->
             <div data-title="<%= #{@event.title} %> – Erlang Ecosystem Foundation" data-viewtitle="<%= @event.title %>">
                 <!-- Navigation -->
@@ -28,7 +29,7 @@
 
               <%= if @event.metadata["gcal_url"] do %>
                 <div>
-                <a class="btn btn-primary btn-sm" href="<%= raw @event.metadata["gcal_url"] %>" title="Add to Google Calendar">+ Google Calendar</a>
+                  <a class="btn btn-primary btn-sm" href="<%= raw @event.metadata["gcal_url"] %>" title="Add to Google Calendar">+ Google Calendar</a>
               </div>
             <% end %>
 
@@ -44,7 +45,7 @@
                       <dt> Time: </dt>
                       <dd>
                         <div title="<%= year_month_day(@event.metadata["end"]) %>">
-                          <%= time(@event.metadata["start"]) %> <%= @event.metadata["offset"] %>
+                          <%= start_time %>
                         </div>
                       </dd>
                     </dl>
@@ -56,7 +57,7 @@
                       <dt> Time: </dt>
                       <dd>
                         <div title="<%= year_month_day(@event.metadata["end"]) %>">
-                          <%= time(@event.metadata["end"]) %> <%= @event.metadata["offset"] %>
+                          <%= end_time %>
                         </div>
                       </dd>
  

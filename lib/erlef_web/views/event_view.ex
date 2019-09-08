@@ -21,9 +21,26 @@ defmodule ErlefWeb.EventView do
     "#{month} #{day}"
   end
 
-  def time(date_str) do
+  def time(date_str, "UTC" <> offset) when offset != "" do
+    {offset_hours, _offset_minutes_str} = Integer.parse(offset)
+    {:ok, datetime, _offset} = DateTime.from_iso8601(date_str)
+
+    datetime
+    |> Timex.shift(hours: offset_hours)
+    |> format_time
+  end
+
+  def time(date_str, _), do: time(date_str)
+
+  def time(date_str) when is_binary(date_str) do
     {:ok, dt, _offset} = DateTime.from_iso8601(date_str)
-    {:ok, time} = Timex.format(dt, "%T", :strftime)
+    format_time(dt)
+  end
+
+  def time(%DateTime{} = datetime), do: format_time(datetime)
+
+  defp format_time(datetime) do
+    {:ok, time} = Timex.format(datetime, "%T", :strftime)
     time
   end
 end

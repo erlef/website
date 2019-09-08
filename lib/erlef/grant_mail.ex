@@ -1,8 +1,13 @@
 defmodule Erlef.GrantMail do
+  @moduledoc """
+  Erlef.GrantMail
+  """
+
   import Swoosh.Email
 
   use Phoenix.Swoosh, view: ErlefWeb.EmailView, layout: {ErlefWeb.LayoutView, :email}
 
+  @spec submission(%Erlef.GrantProposal{}) :: %Swoosh.Email{}
   def submission(proposal) do
     email =
       new()

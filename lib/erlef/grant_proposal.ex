@@ -1,6 +1,10 @@
 defmodule Erlef.GrantProposal do
+  @moduledoc """
+    Erlef.GrantProposal
+  """
+
   # The string version of the key name followed by
-  # a tuple consisting of the atom version of the key, 
+  # a tuple consisting of the atom version of the key,
   # a second atom declaring its type or a tuple declaring its type and size
   #
   @string_key_map %{

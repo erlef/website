@@ -1,10 +1,9 @@
 defmodule Erlef.Blogs.Repo do
   @root "priv/posts/**"
-
   use Nabo.Repo, root: @root
 
   @spec index() :: [Nabo.Post.t()]
-  def index() do
+  def index do
     load_all()
     |> sort_by_datetime_desc()
   end
