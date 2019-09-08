@@ -114,6 +114,10 @@ a:hover {
     text-decoration: underline;
 }
 
+div.entry-content > p > a { 
+  text-decoration: underline;
+}
+
 div.card-body div.entry-content div.row div.col-md-8 ul li a {  
     color: #343a40;
     text-decoration: underline;
