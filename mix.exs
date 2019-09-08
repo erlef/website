@@ -41,20 +41,19 @@ defmodule Erlef.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.1", override: true},
       {:plug_cowboy, "~> 2.1"},
-      {:nabo, "~> 1.0.1"},
       {:earmark, "~> 1.3.2", override: true},
       {:timex, "~> 3.6"},
       {:swoosh, "~> 0.23.3"},
       {:phoenix_swoosh, "~> 0.2.0"},
       {:gen_smtp, "~> 0.14.0"},
       {:dialyxir, "~> 1.0.0-rc.6", only: [:dev], runtime: false},
-      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false},
+      {:etso, "~> 0.1.1"}
     ]
   end
 
   defp aliases do
     [
-      "phx.server": ["compile --force", "phx.server"],
       test: ["compile --warnings-as-errors", "credo", "test"]
     ]
   end

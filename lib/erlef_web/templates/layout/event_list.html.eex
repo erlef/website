@@ -1,14 +1,13 @@
 <% now = Date.utc_today() %>
- <%= for event <- @events  do %>
-    <% {:ok, dt, _offset} = DateTime.from_iso8601(event["start"]) %>
-    <% date = DateTime.to_date(dt) %>
+<%= for event <- @events  do %>
+    <% date = DateTime.to_date(event.start) %>
     <%= if Timex.after?(date, now) do %>
         <p>
         <%  month = Timex.month_name(date.month)
             day = Timex.day_name(Timex.weekday(date))
             year = date.year
         %>
-        <a href="<%= event["url"] %>"><%= day %>, <%= month %>, <%= date.day %> <%= year %> - <%= event["title"] %></a>
+        <a href="/events/<%= event.slug %>"><%= day %>, <%= month %>, <%= date.day %> <%= year %> - <%= event.title %></a>
         </p>
     <% end %>
 <% end %>

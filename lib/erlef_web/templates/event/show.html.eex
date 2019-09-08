@@ -3,12 +3,12 @@
         <div class="card-body">
           <p> <%= link("« All Events", to: "/events") %></p>
 
-          <h1 class="card-title"><%= @event.metadata["title"] %> </h1>
+          <h1 class="card-title"><%= @event.title %> </h1>
         
-        <% starts = month_name_and_day(@event.metadata["start"]) %>
-        <% ends = month_name_and_day(@event.metadata["end"]) %>
-        <% start_time = time(@event.metadata["start"], @event.metadata["offset"]) %>
-        <% end_time = time(@event.metadata["end"], @event.metadata["offset"]) %>
+        <% starts = month_name_and_day(@event.start) %>
+        <% ends = month_name_and_day(@event.end) %>
+        <% start_time = time(@event.start, @event.offset) %>
+        <% end_time = time(@event.end, @event.offset) %>
         
         <h4 class="d-flex justify-content-center"><span><%= starts %> @ <%= start_time %> - <%= ends %> @ <%= end_time %></span></h4>
             <!-- Event header -->
@@ -23,13 +23,13 @@
               <!-- Event content -->
               <div class="event-description">
                 <p>
-                <%= raw @event.body_html %>
+                <%= raw @event.body %>
                 </p>
               </div>
 
-              <%= if @event.metadata["gcal_url"] do %>
+              <%= if @event.gcal_url do %>
                 <div>
-                  <a class="btn btn-primary btn-sm" href="<%= raw @event.metadata["gcal_url"] %>" title="Add to Google Calendar">+ Google Calendar</a>
+                  <a class="btn btn-primary btn-sm" href="<%= raw @event.gcal_url %>" title="Add to Google Calendar">+ Google Calendar</a>
               </div>
             <% end %>
 
@@ -41,10 +41,10 @@
                   <dt>Starts: </dt>
                     <dl class="ml-5">
                       <dt> Date: </dt>
-                      <dd><abbr title="<%= year_month_day(@event.metadata["start"]) %>"> <%= month_name_and_day(@event.metadata["start"]) %> </abbr></dd>
+                      <dd><abbr title="<%= year_month_day(@event.start) %>"> <%= month_name_and_day(@event.start) %> </abbr></dd>
                       <dt> Time: </dt>
                       <dd>
-                        <div title="<%= year_month_day(@event.metadata["end"]) %>">
+                        <div title="<%= year_month_day(@event.end) %>">
                           <%= start_time %>
                         </div>
                       </dd>
@@ -53,20 +53,15 @@
                   <dt>Ends: </dt>
                   <dl class="ml-5">
                     <dt> Date: </dt>
-                    <dd><abbr title="<%= year_month_day(@event.metadata["end"]) %>"> <%= month_name_and_day(@event.metadata["end"]) %> </abbr></dd>
+                    <dd><abbr title="<%= year_month_day(@event.end) %>"> <%= month_name_and_day(@event.end) %> </abbr></dd>
                       <dt> Time: </dt>
                       <dd>
-                        <div title="<%= year_month_day(@event.metadata["end"]) %>">
+                        <div title="<%= year_month_day(@event.end) %>">
                           <%= end_time %>
                         </div>
                       </dd>
  
                   </dl>
-                  <%= if  @event.metadata["organizer_url"] do %> 
-                  <dt> Website: </dt>
-                  <dd><a href="<%= @event.metadata["event_url"] %>" target="_blank"><%= @event.metadata["event_url"] %></a> </dd>
-
-                <% end %>
                 </dl>
               </div>
 
@@ -74,40 +69,40 @@
               <div class="col">
                 <h2>Organizer</h2>
                 <dl>
-                  <dd><%=  @event.metadata["organizer"] %> </dd>
+                  <dd><%=  @event.organizer %> </dd>
                   <dt>Website:</dt>
-                  <dd><a href="<%= @event.metadata["organizer_url"] %>" target="_blank"><%= @event.metadata["organizer_url"] %></a> </dd>
+                  <dd><a href="<%= raw @event.organizer_url %>" target="_blank"><%= @event.organizer_url %></a> </dd>
                 </dl>
               </div>
                 </div>
               </div>
 
 
-              <%= if @event.metadata["venue_address1"] do %>
+              <%= if @event.venue_address1 do %>
               <div class="row">
                 <div class="col">
                   <h2> Venue </h2>
                   <dl>
-                    <dd> <%= @event.metadata["venue_name"] %></dd>
-                      <dd> <%= @event.metadata["venue_address1"] %></dd>
+                    <dd> <%= @event.venue_name %></dd>
+                      <dd> <%= @event.venue_address1 %></dd>
                         <dd>
                           <address>
 					        <span>
-                              <span><%= @event.metadata["venue_address2"] %></span>
+                              <span><%= @event.venue_address2 %></span>
                               <br>
-                              <span><%= @event.metadata["venue_territory"] %></span>,</span>
-                            <span><%= @event.metadata["venue_country"] %></span>
+                              <span><%= @event.venue_territory %></span>,</span>
+                            <span><%= @event.venue_country %></span>
                           </address>
-                          <a href="<%= raw @event.metadata["venue_gmap_url"] %>" title="Click to view a Google Map" target="_blank">+ Google Map</a>
+                          <a href="<%= raw @event.venue_gmap_url %>" title="Click to view a Google Map" target="_blank">+ Google Map</a>
                         </dd>
                         <dt> Website: </dt>
-                        <dd> <a href="<%= @event.metadata["venue_url"] %>" target="_blank"><%= @event.metadata["venue_url"] %></a> </dd>
+                        <dd> <a href="<%= raw @event.venue_url %>" target="_blank"><%= @event.venue_url %></a> </dd>
                     </dl>
                 </div>
 
-                <%= if @event.metadata["gmap_embed_url"] do %>
+                <%= if @event.gmap_embed_url do %>
                 <div class="col">
-                  <iframe src="<%= @event.metadata["gmap_embed_url"] %>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
+                  <iframe src="<%= raw @event.gmap_embed_url %>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
                   </iframe>
                 </div>
               <% end %>

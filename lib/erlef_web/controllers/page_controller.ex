@@ -6,7 +6,7 @@ defmodule ErlefWeb.PageController do
   def index(conn, _params), do: render(conn)
 
   def board_members(conn, _params) do
-    members = Enum.shuffle(Erlef.Members.roster("board"))
+    members = Enum.shuffle(Erlef.Rosters.get("board"))
     render(conn, members: members)
   end
 
@@ -19,7 +19,7 @@ defmodule ErlefWeb.PageController do
   def faq(conn, _params), do: render(conn)
 
   def sponsors(conn, _params) do
-    sponsors = Enum.shuffle(Erlef.Sponsors.roster())
+    sponsors = Enum.shuffle(Erlef.Rosters.get("sponsors"))
     render(conn, sponsors: sponsors)
   end
 

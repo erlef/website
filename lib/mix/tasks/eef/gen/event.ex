@@ -1,7 +1,6 @@
 defmodule Mix.Tasks.Eef.Gen.Event do
   use Mix.Task
   import Mix.Generator
-  alias Erlef.Events.Repo
 
   @shortdoc "Generates an event post"
 
@@ -26,7 +25,7 @@ defmodule Mix.Tasks.Eef.Gen.Event do
       {options, [slug], _invalid} ->
         title = Keyword.get(options, :title, "Title goes here")
         datetime = DateTime.utc_now()
-        path = Repo.root()
+        path = "priv/events"
         file = Path.join(path, "#{format_datetime(datetime)}_#{slug}.md")
 
         create_file(
@@ -72,11 +71,14 @@ defmodule Mix.Tasks.Eef.Gen.Event do
     "slug": "<%= @slug %>",
     "start": "<%= DateTime.to_iso8601(@start_date) %>",
     "end": "<%= DateTime.to_iso8601(@end_date) %>",
+    "offset": "UTC offset",
     "datetime": "<%= DateTime.to_iso8601(@datetime) %>",
     "event_url": "https://gcal_url.changeme",
+    "gcal_url", "eh?",
     "gmap_embed_url": "https://gmap_embed_url.changeme",
     "organizer": "Organize Name",
     "organizer_url": "https://organize_url.changeme",
+    "venue_name": "venue name",
     "venue_url": "https://venue_url.changeme",
     "venue_territory": "Venue state/territory/province",
     "venue_country": "Venue Two letter Country Code",

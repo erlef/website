@@ -10,61 +10,24 @@ defmodule Erlef.WG do
             formed: nil,
             github: nil,
             gcal_url: nil,
-            primary_contact_method: nil
-
-  @priv_dir "priv/working_groups/*md"
+            primary_contact_method: nil,
+            members: []
 
   @type t :: map()
 
+  @group_list Application.get_env(:erlef, :working_groups)
+
+  @group_map Enum.reduce(@group_list, %{}, fn group, acc ->
+               Map.put(acc, group.slug, group)
+             end)
+
   @spec all :: [t]
   def all do
-    priv_dir()
-    |> Path.wildcard()
-    |> Enum.map(&load!/1)
+    @group_list
   end
 
   @spec fetch(String.t()) :: t | nil
   def fetch(slug) do
-    all()
-    |> Enum.find(&slug_matches?(&1, slug))
-  end
-
-  defp priv_dir, do: @priv_dir
-
-  defp load!(path) do
-    path
-    |> File.read!()
-    |> to_map()
-    |> compile()
-  end
-
-  defp to_map(str) do
-    str
-    |> String.split("\n")
-    |> Enum.reject(&(&1 == ""))
-    |> Enum.map(&String.split(&1, ": "))
-    |> Map.new(&List.to_tuple/1)
-  end
-
-  defp slug_matches?(%{slug: slug}, slug), do: true
-  defp slug_matches?(_working_group, _slug), do: false
-
-  defp compile(attrs) do
-    %__MODULE__{
-      name: attrs["name"],
-      slug: attrs["slug"],
-      description: attrs["description"],
-      email: attrs["email"],
-      github: attrs["github"],
-      gcal_url: attrs["gcal_url"],
-      primary_contact_method: attrs["primary_contact_method"],
-      formed: parse_date(attrs, "formed")
-    }
-  end
-
-  defp parse_date(attrs, key) do
-    attrs
-    |> Map.fetch!(key)
-    |> Date.from_iso8601!()
+    struct(__MODULE__, @group_map[slug])
   end
 end

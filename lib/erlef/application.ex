@@ -9,6 +9,8 @@ defmodule Erlef.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
+      Erlef.Repo,
+      Erlef.Repo.Importer,
       ErlefWeb.Endpoint
       # Starts a worker by calling: Erlef.Worker.start_link(arg)
       # {Erlef.Worker, arg}

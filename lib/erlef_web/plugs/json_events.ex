@@ -1,6 +1,6 @@
 defmodule ErlefWeb.Plug.JsonEvents do
   import Plug.Conn
-  alias Erlef.Events.Repo
+  alias Erlef.{Event, Posts}
 
   @moduledoc """
     Erlef.Plug.JsonEvents
@@ -17,11 +17,11 @@ defmodule ErlefWeb.Plug.JsonEvents do
   end
 
   defp all_events do
-    unsorted = Repo.all()
+    unsorted = Posts.all(Event)
 
     events =
       Enum.map(sort_by_datetime(unsorted), fn e ->
-        slug = e.metadata["slug"]
+        slug = e.slug
 
         description =
           case String.length(e.body) > 260 do
@@ -29,27 +29,41 @@ defmodule ErlefWeb.Plug.JsonEvents do
             false -> e.body
           end
 
-        e.metadata
-        |> Map.put("start", apply_time_offset(e.metadata["start"], e.metadata["offset"]))
-        |> Map.put("end", apply_time_offset(e.metadata["end"], e.metadata["offset"]))
+        e
+        |> Map.from_struct()
+        |> Map.delete(:__meta__)
+        |> stringify_keys()
+        |> Map.put("start", apply_time_offset(e.start, e.offset))
+        |> Map.put("end", apply_time_offset(e.end, e.offset))
         |> Map.put("url", "/events/#{slug}")
         |> Map.put("description", description)
       end)
 
-    {events, Jason.encode!(events)}
+    {sort_by_datetime(unsorted), Jason.encode!(events)}
+  end
+
+  def stringify_keys(map = %{}) do
+    map
+    |> Enum.map(fn {k, v} -> {Atom.to_string(k), v} end)
+    |> Enum.into(%{})
+  end
+
+  # Walk the list and stringify the keys of
+  # of any map members
+  def stringify_keys([head | rest]) do
+    [stringify_keys(head) | stringify_keys(rest)]
   end
 
   defp sort_by_datetime(events) do
     Enum.sort(
       events,
       fn d1, d2 ->
-        Date.compare(from_iso8601(d1), from_iso8601(d2)) == :lt
+        Date.compare(d1.start, d2.start) == :lt
       end
     )
   end
 
-  defp apply_time_offset(date_str, "UTC" <> offset) when offset != "" do
-    {:ok, datetime, _} = DateTime.from_iso8601(date_str)
+  defp apply_time_offset(datetime, "UTC" <> offset) when offset != "" do
     {offset_hours, _} = Integer.parse(offset)
 
     datetime
@@ -58,9 +72,4 @@ defmodule ErlefWeb.Plug.JsonEvents do
   end
 
   defp apply_time_offset(date_str, _), do: date_str
-
-  defp from_iso8601(d) do
-    {:ok, dt, _} = DateTime.from_iso8601(d.metadata["start"])
-    dt
-  end
 end

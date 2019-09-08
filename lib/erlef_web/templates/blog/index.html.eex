@@ -42,13 +42,13 @@
           <% month =  Timex.month_name(post.datetime.month) %>
           <% day =  post.datetime.day %>
           <% year = post.datetime.year %>
-          <% author = post.metadata["author"] %>
+          <% author = post.author %>
           <p class="post-meta">Posted by <%= author %> on <%= month %> <%= day %>, <%= year %></p>
         </div>
         <hr/>
       <% end %>
     </div>
-    <%= render ErlefWeb.BlogView, "sidebar.html", conn: @conn, wg: @wg %>
+    <%= render ErlefWeb.BlogView, "sidebar.html", conn: @conn, name: @name, description: @description %>
   </div>
 </main>
   </div>

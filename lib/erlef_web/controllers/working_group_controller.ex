@@ -1,7 +1,6 @@
 defmodule ErlefWeb.WorkingGroupController do
   use ErlefWeb, :controller
-  alias Erlef.Blogs.Repo
-  alias Erlef.{Members, WG}
+  alias Erlef.{Blog, Posts, WG}
 
   action_fallback ErlefWeb.FallbackController
 
@@ -20,14 +19,12 @@ defmodule ErlefWeb.WorkingGroupController do
         {:error, :not_found}
 
       wg ->
-        members = Enum.shuffle(Members.roster(slug))
-        render(conn, wg: wg, blog_posts: fetch_blog_preview(slug), members: members, topic: slug)
+        render(conn, wg: wg, blog_posts: fetch_blog_preview(slug), topic: slug)
     end
   end
 
   defp fetch_blog_preview(id) do
-    id
-    |> Repo.for_wg()
+    Posts.get_by_category(Blog, id)
   end
 
   defp sort_by_formation(groups) do
