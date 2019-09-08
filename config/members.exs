@@ -65,11 +65,11 @@ config :erlef, :security, [
 config :erlef, :observability, [
   %{image: "members/tristan-sloughter.jpg", name: "Tristan Sloughter"},
   %{image: "members/lukasz-niemier.jpg", name: "Łukasz Niemier"},
-  %{image: "members/profile-placeholder.png", name: "Vince Foley"},
+  %{image: "members/vince-foley.png", name: "Vince Foley"},
   %{image: "members/profile-placeholder.png", name: "Ilya Khaprov"},
   %{image: "members/bryan-naegele.png", name: "Bryan Naegele"},
   %{image: "members/greg-mefford.jpg", name: "Greg Mefford"},
-  %{image: "members/profile-placeholder.png", name: "Arkadiusz Gil"},
+  %{image: "members/arkadiusz-gil.jpg", name: "Arkadiusz Gil"},
   %{image: "members/zachary-daniel.jpg", name: "Zach Daniel"},
   %{image: "members/mark-allen.jpg", name: "Mark Allen"},
   %{image: "members/profile-placeholder.png", name: "Andrew Thompson"},
