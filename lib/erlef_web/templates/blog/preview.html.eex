@@ -4,7 +4,7 @@
       <div class="blog-post">
         <h2 class="blog-post-title"><%= link @post.title, to: Routes.news_path(ErlefWeb.Endpoint, :show, @topic, @post.slug) %></h2>
         <p class="blog-post-meta"><%= byline(@post) %></p>
-        <%= safe_to_string({:raw, @post.excerpt}) %>
+        <%= raw @post.excerpt %>
         <p>
           <%= link "Read more...", to: Routes.news_path(ErlefWeb.Endpoint, :show, @topic, @post.slug) %>
         </p>

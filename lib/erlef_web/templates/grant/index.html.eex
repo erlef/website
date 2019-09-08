@@ -253,7 +253,7 @@ function show_form() {
       <strong>Errors : </strong>
     <ul>
       <% errs = Enum.reduce(@errors, "", fn(err, acc) -> acc <> "<li>#{err}</li>" end) %> 
-      <%= safe_to_string({:safe, errs}) %>
+      <%= raw errs %>
     </ul>
   </div>
 <% end %>

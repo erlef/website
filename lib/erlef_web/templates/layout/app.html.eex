@@ -51,7 +51,7 @@
     </main>
     
   <script>
-    window.calendar_events = <%= safe_to_string({:safe, @events_json}) %>
+    window.calendar_events = <%= raw @events_json %>
   </script>
         <%= render "footer.html", assigns %>
 

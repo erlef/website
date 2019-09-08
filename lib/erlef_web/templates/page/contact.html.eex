@@ -16,7 +16,7 @@
 		
 		<div class="entry-content">
 			<p>Sign up for our newsletter to stay informed of EEF updates!</p>
-            <%= safe_to_string({:safe, subscribe_form()}) %>
+            <%= raw subscribe_form() %>
             
             <p>General: eef (at) erlef.org</p>
             <p>Marketing: marketing (at) erlef (dot) org</p>
