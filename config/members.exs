@@ -55,7 +55,8 @@ config :erlef, :security, [
   %{image: "members/profile-placeholder.png", name: "Hans Nilsson"},
   %{image: "members/profile-placeholder.png", name: "Peter Dimitrov"},
   %{image: "members/profile-placeholder.png", name: "Griffin Byatt"},
-  %{image: "members/profile-placeholder.png", name: "Duncan Sparrell"}
+  %{image: "members/profile-placeholder.png", name: "Duncan Sparrell"},
+  %{image: "members/profile-placeholder.png", name: "Drew Varner"}
 ]
 
 config :erlef, :observability, [
