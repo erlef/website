@@ -45,7 +45,10 @@ config :erlef, :building, [
   %{image: "members/bryan-paxton.jpg", name: "Bryan Paxton"},
   %{image: "members/todd-resudek.jpg", name: "Todd Resudek"},
   %{image: "members/profile-placeholder.png", name: "Randy Thompson"},
-  %{image: "members/wojtek-mach.jpg", name: "Wojtek Mach"}
+  %{image: "members/wojtek-mach.jpg", name: "Wojtek Mach"},
+  %{image: "members/profile-placeholder.png", name: "Ivan Glushkov"},
+  %{image: "members/andrea-leopardi.jpg", name: "Andrea Leopardi"},
+  %{image: "members/profile-placeholder.png", name: "Justin Wood"}
 ]
 
 config :erlef, :security, [
