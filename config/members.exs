@@ -20,10 +20,10 @@ config :erlef, :board, [
   %{image: "members/profile-placeholder.png", name: "Benoit Chesneau"},
   %{image: "members/fred-hebert.jpg", name: "Fred Hebert"},
   %{image: "members/miriam-pena.jpg", name: "Miriam Pena"},
-  %{image: "members/profile-placeholder.png", name: "Alistair Woodman"},
+  %{image: "members/alistair-woodman.png", name: "Alistair Woodman"},
   %{image: "members/profile-placeholder.png", name: "Maxim Fedorov"},
   %{image: "members/kenneth-lundin.jpg", name: "Kenneth Lundin"},
-  %{image: "members/peer-stitzinger.jpg", name: "Peer Stritzinger"}
+  %{image: "members/peer-stritzinger.jpg", name: "Peer Stritzinger"}
 ]
 
 config :erlef, :marketing, [
