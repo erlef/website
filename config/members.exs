@@ -45,7 +45,10 @@ config :erlef, :building, [
   %{image: "members/bryan-paxton.jpg", name: "Bryan Paxton"},
   %{image: "members/todd-resudek.jpg", name: "Todd Resudek"},
   %{image: "members/profile-placeholder.png", name: "Randy Thompson"},
-  %{image: "members/wojtek-mach.jpg", name: "Wojtek Mach"}
+  %{image: "members/wojtek-mach.jpg", name: "Wojtek Mach"},
+  %{image: "members/profile-placeholder.png", name: "Ivan Glushkov"},
+  %{image: "members/andrea-leopardi.jpg", name: "Andrea Leopardi"},
+  %{image: "members/profile-placeholder.png", name: "Justin Wood"}
 ]
 
 config :erlef, :security, [
@@ -55,7 +58,8 @@ config :erlef, :security, [
   %{image: "members/profile-placeholder.png", name: "Hans Nilsson"},
   %{image: "members/profile-placeholder.png", name: "Peter Dimitrov"},
   %{image: "members/profile-placeholder.png", name: "Griffin Byatt"},
-  %{image: "members/profile-placeholder.png", name: "Duncan Sparrell"}
+  %{image: "members/profile-placeholder.png", name: "Duncan Sparrell"},
+  %{image: "members/drew-varner.jpg", name: "Drew Varner"}
 ]
 
 config :erlef, :observability, [
