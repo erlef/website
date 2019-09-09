@@ -5,7 +5,10 @@ defmodule ErlefWeb.EventController do
   alias Erlef.Events
 
   def index(conn, _params) do
-    render(conn)
+    render(conn,
+      gcal_api_key: Application.get_env(:erlef, :gcal_api_key),
+      gcal_id: Application.get_env(:erlef, :gcal_id)
+    )
   end
 
   def show(conn, %{"id" => id}) do

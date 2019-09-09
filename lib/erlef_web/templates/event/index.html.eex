@@ -1,6 +1,10 @@
 <div class="container">
 
-  <div id="calendar" data-calendar-header="true" class="mt-5">
+  <div id="calendar"
+       data-calendar-header="true"
+       <%= gcal_api_key(@gcal_api_key) %>
+       <%= gcal_id(@gcal_id) %>
+       class="mt-5">
   </div>
 
 </div>

@@ -22,6 +22,22 @@ document.addEventListener('DOMContentLoaded', function() {
     if (calendarEl != null) { 
         var defaultView = calendarEl.getAttribute("data-calendar-type") || "dayGridMonth";
 
+        var gcal_id = calendarEl.getAttribute("data-gcal-id");
+        var gcal_api_key= calendarEl.getAttribute("data-gcal-api-key");
+        var calendar_opts;
+        if ( gcal_api_key != null) {
+            calendar_opts = [ 
+             {
+                googleCalendarId: gcal_id
+              },
+              window.calendar_events
+            ];
+        } else { 
+            calendar_opts = [ 
+              window.calendar_events
+            ];
+        }
+
         var header;
         if (calendarEl.getAttribute("data-calendar-header") === "true") {
             header = {
@@ -69,13 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
             weekends: true,
             nowIndicator: true,
             dayPopoverFormat: 'dddd DD/MM',
-            googleCalendarApiKey: '',
-            eventSources: [ 
-              {
-                googleCalendarId: ''
-              },
-              window.calendar_events
-            ],
+            googleCalendarApiKey: gcal_api_key,
+            eventSources: calendar_opts, 
             eventRender: function (info) {
                 $(info.el).popover({
                     title: info.event.title,
