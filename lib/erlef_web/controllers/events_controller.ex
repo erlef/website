@@ -6,8 +6,8 @@ defmodule ErlefWeb.EventController do
 
   def index(conn, _params) do
     render(conn,
-      gcal_api_key: Application.get_env(:erlef, :gcal_api_key),
-      gcal_id: Application.get_env(:erlef, :gcal_id)
+      gcal_api_key: System.get_env("GCAL_API_KEY"),
+      gcal_id: System.get_env("GCAL_ID")
     )
   end
 

@@ -22,10 +22,6 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :erlef,
-  gcal_api_key: System.get_env("GCAL_API_KEY"),
-  gcal_id: System.get_env("GCAL_ID")
-
 import_config "members.exs"
 import_config "sponsors.exs"
 
