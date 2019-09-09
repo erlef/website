@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var header;
         if (calendarEl.getAttribute("data-calendar-header") === "true") {
             header = {
-                left: 'prevYear,prev,next,nextYear',
+                left: 'prev,next',
                 center: 'title',
                 right: 'dayGridMonth,dayGridWeek,dayGridDay,listMonth'
             };
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks: navLinks,
             themeSystem: 'bootstrap',
             defaultView: defaultView,
-            timezone: "local",
+            timeZone: "UTC",
             visibleRange: function(currentDate) {
                 var startDate = new Date(currentDate.valueOf());
                 var endDate = new Date(currentDate.valueOf());

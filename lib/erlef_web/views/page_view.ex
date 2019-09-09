@@ -19,7 +19,7 @@ defmodule ErlefWeb.PageView do
              </p>
 
              <p class="col-xs-4 col-md-4 col-lg-4 mailform" style="padding-left: 0">
-               <input class="btn btn-secondary" style="border-color: #BBBBBB; width: 100%;" type="submit" value="Subscribe">
+               <input class="btn btn-dark" style="background-color: #343a40; border-color: #636a71; width: 100%;" type="submit" value="Subscribe to our Newsletter">
              </p>
            </div>
          </div>    

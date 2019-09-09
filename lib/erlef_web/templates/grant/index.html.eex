@@ -18,7 +18,7 @@ function show_form() {
     <h2>Grant request process</h2>
     <hr />
     <div class="row">
-      <div class="col-2">
+      <div class="col-sm-2">
         <div id="nav_tabs" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
           aria-orientation="vertical">
           <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
@@ -33,7 +33,7 @@ function show_form() {
         </div>
       </div>
 
-      <div class="col-10">
+      <div class="col-sm-10">
         <div class="tab-content" id="pills-tabContent">
           <div class="tab-pane fade show active" id="intro" role="tabpanel"
             aria-labelledby="pills-home-tab">
@@ -253,7 +253,7 @@ function show_form() {
       <strong>Errors : </strong>
     <ul>
       <% errs = Enum.reduce(@errors, "", fn(err, acc) -> acc <> "<li>#{err}</li>" end) %> 
-    <%= raw errs %>
+      <%= raw errs %>
     </ul>
   </div>
 <% end %>

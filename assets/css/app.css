@@ -6,6 +6,124 @@
 @import url("./fullcalendar/bootstrap.css");
 @import url("../node_modules/bootstrap-select/dist/css/bootstrap-select.css");
 
+
+:root { 
+    --primary: #343a40;
+}
+
+.btn-primary { 
+ background-color: #343a40;
+ border-color: #636a71;
+}
+
+
+.btn-group { 
+ border-color: #636a71;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle { 
+ background-color: #000;
+ border-color: #636a71;
+}
+
+.fc-dayGridMonth-button {
+ background-color: #343a40;
+ border-color: #636a71;
+}
+
+.fc-event { 
+ border-color: #343a40;
+ background-color: #636a71;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    border-color: #343a40;
+    background-color: #636a71;
+}
+
+
+.btn-link { 
+    color: #343a40;
+}
+
+.btn-link:hover, .btn-link:focus, .btn-link:active, .btn-link.active, .open>.dropdown-toggle.btn-link {
+    color: #636a71;
+}
+
+.selected .active  { 
+    background-color: #343a40;
+}
+
+a { 
+    color: #343a40;
+}
+
+a:active { 
+    color: #343a40;
+}
+
+
+a:hover { 
+    color: #6c757d;
+}
+
+
+.nav-pills { 
+    flex-direction: column;
+    margin: 0 0 32px;
+    border-radius: 2px;    
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 5px rgba(85, 85, 85, 0.15);
+}
+
+.nav-pills .nav-link {
+        position: relative;
+        display: block;
+        margin: 0;
+        padding: 13px 16px;
+        background-color: #fff;
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        border-radius: 0;
+        color: #616161;
+        transition: background-color .2s ease;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link { 
+    background-color: #343a40;
+}
+
+.nav-pills .nav-link { 
+    color: #343a40;
+}
+
+.nav-pills .nav-link:last-of-type { 
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+            border-bottom: 0;
+}
+
+.nav-pills .nav-link  i.mdi {
+            margin-right: 5px;
+            font-size: 18px;
+            position: relative;
+}
+
+.card-body > p > a { 
+    color: #343a40;
+    text-decoration: underline;
+}
+
+div.entry-content > p > a { 
+  text-decoration: underline;
+}
+
+div.card-body div.entry-content div.row div.col-md-8 ul li a {  
+    color: #343a40;
+    text-decoration: underline;
+}
+
+
 body {
     background-color: #f8f8f8;
 	  font-family: Raleway;
@@ -249,7 +367,6 @@ h3 {
 }
 
 .entry-title a:hover {
-	text-decoration: none;
 }
 
 
@@ -389,7 +506,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .post-preview > a:focus, .post-preview > a:hover {
   text-decoration: none;
-  color: #0085A1;
+  color: #343a40;
 }
 
 .post-preview > a > .post-title {
@@ -412,7 +529,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .post-preview > .post-meta > a {
-  text-decoration: none;
+  text-decoration: underline;
   color: #212529;
 }
 

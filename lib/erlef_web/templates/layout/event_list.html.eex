@@ -8,7 +8,7 @@
             day = Timex.day_name(Timex.weekday(date))
             year = date.year
         %>
-          <a href="<%= event["url"] %>"><%= day %>, <%= month %>, <%= year %> - <%= event["title"] %></a>
+        <a href="<%= event["url"] %>"><%= day %>, <%= month %>, <%= date.day %> <%= year %> - <%= event["title"] %></a>
         </p>
     <% end %>
 <% end %>

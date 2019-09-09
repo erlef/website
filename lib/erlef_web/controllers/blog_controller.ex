@@ -20,10 +20,12 @@ defmodule ErlefWeb.BlogController do
   end
 
   def show(conn, %{"id" => id}) do
-    with {:ok, post} <- get(id) do
-      render(conn, "show.html", slug: id, post: post, working_group: fetch_working_group(post))
-    else
-      _ -> {:error, :not_found}
+    case get(id) do
+      {:ok, post} ->
+        render(conn, "show.html", slug: id, post: post, working_group: fetch_working_group(post))
+
+      _ ->
+        {:error, :not_found}
     end
   end
 

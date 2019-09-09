@@ -1,10 +1,15 @@
 defmodule Erlef.WG do
+  @moduledoc """
+    Erlef.WG
+  """
+
   defstruct name: "",
             slug: "",
             description: "",
             email: nil,
             formed: nil,
             github: nil,
+            gcal_url: nil,
             primary_contact_method: nil
 
   @priv_dir "priv/working_groups/*md"
@@ -51,6 +56,7 @@ defmodule Erlef.WG do
       description: attrs["description"],
       email: attrs["email"],
       github: attrs["github"],
+      gcal_url: attrs["gcal_url"],
       primary_contact_method: attrs["primary_contact_method"],
       formed: parse_date(attrs, "formed")
     }
