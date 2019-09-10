@@ -39,10 +39,10 @@ defmodule ErlefWeb.EventView do
 
   def time(%DateTime{} = datetime), do: format_time(datetime)
 
-  def gcal_id(id) when id == nil, do: ""
+  def gcal_id(nil), do: ""
   def gcal_id(id), do: "data-gcal-id=#{id} "
 
-  def gcal_api_key(key) when key == nil, do: ""
+  def gcal_api_key(nil), do: ""
   def gcal_api_key(key), do: "data-gcal-api-key=#{key} "
 
   defp format_time(datetime) do
