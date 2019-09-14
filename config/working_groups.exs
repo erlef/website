@@ -43,7 +43,7 @@ config :erlef, :working_groups, [
       %{image: "members/tristan-sloughter.jpg", name: "Tristan Sloughter"},
       %{image: "members/lukasz-niemier.jpg", name: "Łukasz Niemier"},
       %{image: "members/vince-foley.png", name: "Vince Foley"},
-      %{image: "members/profile-placeholder.png", name: "Ilya Khaprov"},
+      %{image: "members/ilya-khaprov.jpg", name: "Ilya Khaprov"},
       %{image: "members/bryan-naegele.png", name: "Bryan Naegele"},
       %{image: "members/greg-mefford.jpg", name: "Greg Mefford"},
       %{image: "members/arkadiusz-gil.jpg", name: "Arkadiusz Gil"},
