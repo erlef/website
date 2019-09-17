@@ -23,7 +23,7 @@
               <!-- Event content -->
               <div class="event-description">
                 <p>
-                <%= raw @event.body %>
+                <%= raw @event.body_html %>
                 </p>
               </div>
 
@@ -90,7 +90,15 @@
 					        <span>
                               <span><%= @event.venue_address2 %></span>
                               <br>
-                              <span><%= @event.venue_territory %></span>,</span>
+                              <%= if @event.venue_city do %>
+                              <span>
+                                <%= @event.venue_city %>,
+                              </span>
+                            <% end %>
+                            <span><%= @event.venue_territory %></span>
+                            <%= if @event.venue_postal_code do %>
+                              <span><%= @event.venue_postal_code %>
+                            <% end %>
                             <span><%= @event.venue_country %></span>
                           </address>
                           <a href="<%= raw @event.venue_gmap_url %>" title="Click to view a Google Map" target="_blank">+ Google Map</a>
