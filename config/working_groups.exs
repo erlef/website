@@ -49,7 +49,7 @@ config :erlef, :working_groups, [
       %{image: "members/arkadiusz-gil.jpg", name: "Arkadiusz Gil"},
       %{image: "members/zachary-daniel.jpg", name: "Zach Daniel"},
       %{image: "members/mark-allen.jpg", name: "Mark Allen"},
-      %{image: "members/profile-placeholder.png", name: "Andrew Thompson"},
+      %{image: "members/andrew-thompson.jpg", name: "Andrew Thompson"},
       %{image: "members/jose-valim.jpg", name: "José Valim"}
     ]
   },
@@ -106,7 +106,7 @@ config :erlef, :working_groups, [
       %{image: "members/fred-hebert.jpg", name: "Fred Hebert"},
       %{image: "members/bryan-paxton.jpg", name: "Bryan Paxton"},
       %{image: "members/todd-resudek.jpg", name: "Todd Resudek"},
-      %{image: "members/profile-placeholder.png", name: "Randy Thompson"},
+      %{image: "members/randy-thompson.jpg", name: "Randy Thompson"},
       %{image: "members/wojtek-mach.jpg", name: "Wojtek Mach"},
       %{image: "members/profile-placeholder.png", name: "Ivan Glushkov"},
       %{image: "members/andrea-leopardi.jpg", name: "Andrea Leopardi"},
