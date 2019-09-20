@@ -19,5 +19,6 @@ config :erlef, :sponsors, %{
   "coders51" => "https://www.coders51.com/",
   "id3as" => "https://www.id3as.com/",
   "sfractal" => "https://www.sfractal.com/",
-  "arcblock" => "https://www.arcblock.io/"
+  "arcblock" => "https://www.arcblock.io/",
+  "ispirata" => "https://www.ispirata.com/"
 }
