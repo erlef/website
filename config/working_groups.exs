@@ -170,5 +170,21 @@ config :erlef, :working_groups, [
       %{image: "members/profile-placeholder.png", name: "Alistair Woodman"},
       %{image: "members/peer-stritzinger.jpg", name: "Peer Stritzinger"}
     ]
-  }
+  },
+  %{
+    name: "Embedded Systems",
+    slug: "embedded-systems",
+    description:
+      "Standardize, improve, and promote the APIs, tooling, and infrastructure for building embedded systems and IoT devices usingErlang VMs",
+    primary_contact_method: "email",
+    email: "embedded-systems@erlef.org",
+    formed: ~D[2019-08-09],
+    members: [
+      %{image: "members/peer-stritzinger.jpg", name: "Peer Stritzinger"},
+      %{image: "members/adam-lindberg.jpg", name: "Adam Lindberg"},
+      %{image: "members/profile-placeholder.png", name: "Frank Hunleth"},
+      %{image: "members/profile-placeholder.png", name: "Justin Schneck"},
+      %{image: "members/profile-placeholder.png", name: "Hideki Takase"},
+    ]
+  },
 ]
