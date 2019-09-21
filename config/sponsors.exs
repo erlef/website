@@ -20,5 +20,6 @@ config :erlef, :sponsors, %{
   "id3as" => "https://www.id3as.com/",
   "sfractal" => "https://www.sfractal.com/",
   "arcblock" => "https://www.arcblock.io/",
-  "ispirata" => "https://www.ispirata.com/"
+  "ispirata" => "https://www.ispirata.com/",
+  "happi-hacking" => "http://happihacking.com/"
 }
