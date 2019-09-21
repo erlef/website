@@ -184,7 +184,7 @@ config :erlef, :working_groups, [
       %{image: "members/adam-lindberg.jpg", name: "Adam Lindberg"},
       %{image: "members/profile-placeholder.png", name: "Frank Hunleth"},
       %{image: "members/profile-placeholder.png", name: "Justin Schneck"},
-      %{image: "members/profile-placeholder.png", name: "Hideki Takase"},
+      %{image: "members/hideki-takase.jpg", name: "Hideki Takase"}
     ]
   },
 ]
