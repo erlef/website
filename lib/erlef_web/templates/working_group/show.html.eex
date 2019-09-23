@@ -1,12 +1,18 @@
 <div id="content" class="site-content mt-4">
   <div class="container">
+    <div class="row">    <h3><%= @wg.name %> Working Group</h3>
+    </div>
     <div class="row">
+
       <div class="col-sm-2">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
           aria-orientation="vertical">
           <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
             href="#about" role="tab" aria-controls="v-pills-home"
-            aria-selected="true">About</a>
+                                     aria-selected="true">About</a>
+          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
+            href="#news" role="tab" aria-controls="v-pills-profile"
+            aria-selected="false">News</a>
           <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
             href="#members" role="tab" aria-controls="v-pills-profile"
             aria-selected="false">Members</a>
@@ -20,8 +26,7 @@
                 <article class="card post-94 page type-page status-publish hentry">
                   <div class="card-body">
                     <div class="entry-content">
-                      <h1><%= @wg.name %> Working Group</h1>
-                      <p><%= @wg.description %></p>
+                      <p><%= raw @wg.body_html %></p>
                       <%= if @wg.primary_contact_method == "email" && @wg.email do %>
                         <p>You can reach us at: <a href="mailto:<%= @wg.email %>"><%= @wg.email %></a></p>
                       <% end %>
@@ -33,7 +38,15 @@
   to keep track of upcoming meetings </p>
                       <% end %>
                     </div>
+                  </div>
+                </article>
+             </main>
+           </div>
 
+            <div class="tab-pane fade" id="news" role="tabpanel" aria-labelledby="pills-home-tab">
+              <main id="main" class="site-main">
+                <article class="card post-94 page type-page status-publish hentry">
+                  <div class="card-body">
                     <div class="entry-content">
                       <h1>Latest News</h1>
                       <%= if Enum.empty?(@blog_posts) do %>
@@ -43,10 +56,10 @@
                         <p> <%= render(ErlefWeb.BlogView, "preview.html", post: post, topic: @topic) %></p>
                       <% end %>
                     </div>
-                </div> <!-- /.card-body -->
-              </article>
-            </main><!-- #main -->
-           </div><!-- #content -->
+                  </div>
+                </article>
+              </main><!-- #main -->
+            </div>
 
           <div class="tab-pane fade" id="members" role="tabpanel" aria-labelledby="pills-home-tab">
             <%= render_shared "gallery.html", members: Enum.shuffle(@wg.members) %>

@@ -9,7 +9,7 @@ defmodule Erlef.GrantMail do
 
   @spec submission(%Erlef.GrantProposal{}) :: %Swoosh.Email{}
   def submission(proposal) do
-    dt_str = DateTime.utc_now |> DateTime.truncate(:second)
+    dt_str = DateTime.utc_now() |> DateTime.truncate(:second)
 
     subject_suffix = "on #{dt_str} via #{full_name(proposal)} (#{proposal.email_address}"
 
@@ -24,7 +24,6 @@ defmodule Erlef.GrantMail do
   end
 
   def submission_copy(proposal) do
-
     email =
       new()
       |> to({full_name(proposal), proposal.email_address})
@@ -44,7 +43,7 @@ defmodule Erlef.GrantMail do
     end)
   end
 
-  defp full_name(proposal) do 
+  defp full_name(proposal) do
     "#{proposal.first_name} #{proposal.last_name}"
   end
 end

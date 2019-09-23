@@ -22,14 +22,15 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# paths are implicitly priv
 config :erlef, :repo_imports, [
   {"/posts/**/*.md", Erlef.Blog},
-  {"/events/**/*.md", Erlef.Event}
+  {"/events/**/*.md", Erlef.Event},
+  {"/working_groups/**/*.md", Erlef.WorkingGroup}
 ]
 
 import_config "members.exs"
 import_config "sponsors.exs"
-import_config "working_groups.exs"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

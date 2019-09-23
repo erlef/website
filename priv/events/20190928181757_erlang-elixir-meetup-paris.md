@@ -1,8 +1,8 @@
 {
   "title": "Erlang & Elixir Paris meetup",
   "slug": "erlang-elixir-paris-meetup-10-2019",
-  "start": "2019-10-18T17:00:00.000000Z",
-  "end": "2019-10-18T19:00:00.000007Z",
+  "start": "2019-10-08T17:00:00.000000Z",
+  "end": "2019-10-08T19:00:00.000007Z",
   "offset": "utc+2",
   "datetime": "2019-09-28T18:17:57.039048Z",
   "event_url": "https://www.meetup.com/Erlang-Paris/events/265207130/",
