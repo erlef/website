@@ -9,7 +9,7 @@ defmodule Erlef.GrantMail do
 
   @spec submission(%Erlef.GrantProposal{}) :: %Swoosh.Email{}
   def submission(proposal) do
-    dt_str = DateTime.to_string(DateTime.utc_now())
+    dt_str = DateTime.utc_now(DateTime.truncate(:second))
 
     subject_suffix = "on #{dt_str} via #{full_name(proposal)} (#{proposal.email_address}"
 
