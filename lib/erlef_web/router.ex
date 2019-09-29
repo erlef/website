@@ -7,7 +7,7 @@ defmodule ErlefWeb.Router do
     code.jquery.com platform.twitter.com syndication.twitter.com 
     syndication.twitter.com/settings cdn.syndication.twimg.com 
     licensebuttons.net i.creativecommons.org platform.twitter.com 
-    pbs.twimg.com syndication.twitter.com www.googleapis.com"
+    pbs.twimg.com syndication.twitter.com www.googleapis.com
   )
 
   @default_source Enum.join(@trusted_sources, " ")
