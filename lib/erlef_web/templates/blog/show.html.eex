@@ -5,7 +5,7 @@
         <h2 class="blog-post-title"><%= @post.title %></h2>
         <p class="blog-post-meta">
           <%= byline(@post) %><br />
-          Posted in <%= category(@working_group) %>
+          Posted in <%= @post.category %>
         </p>
         <%= raw @post.body_html %>
       </div>

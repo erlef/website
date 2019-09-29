@@ -19,7 +19,8 @@ defmodule ErlefWeb.Router do
     plug :protect_from_forgery
 
     plug :put_secure_browser_headers, %{
-      "content-security-policy" => " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}"
+      "content-security-policy" =>
+        " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}"
     }
 
     plug ErlefWeb.Plug.JsonEvents
@@ -57,5 +58,4 @@ defmodule ErlefWeb.Router do
     resources "/wg", WorkingGroupController, only: [:index, :show]
     resources "/grants", GrantController, only: [:index, :create]
   end
-
 end

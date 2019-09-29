@@ -54,8 +54,30 @@ defmodule Erlef.MixProject do
 
   defp aliases do
     [
-      test: ["compile --warnings-as-errors", "credo", "test"]
+      test: ["compile --warnings-as-errors", "credo", "test"],
+      "eef.gen.newsletter": [&gen_newsletter/1]
     ]
+  end
+
+  defp gen_newsletter(_arg) do
+    id = 1 + (Path.wildcard("priv/posts/newsletter/**/*.md") |> Enum.count())
+
+    args = [
+      "newsletter",
+      "newsletter-#{id}",
+      "-a",
+      "eef",
+      "-t",
+      "EEF Newsletter ##{id}",
+      "-e",
+      "",
+      "-b",
+      default_newsletter_body(),
+      "-p",
+      "priv/posts/newsletter"
+    ]
+
+    Mix.Task.run("eef.gen.post", args)
   end
 
   defp dialyzer_opts do
@@ -67,5 +89,26 @@ defmodule Erlef.MixProject do
         {Credo.Check.Warning.LazyLogging, false}
       ]
     ]
+  end
+
+  defp default_newsletter_body do
+    """
+    ## In This Newsletter
+    ------------------------------------------------------------
+    Some text
+
+    ## Working Group Water Cooler
+    ------------------------------------------------------------
+    Some text
+
+    ## Ecosystem News
+    ------------------------------------------------------------
+    Some text
+
+    ## See you Soon!
+    ------------------------------------------------------------
+    Some text
+
+    """
   end
 end
