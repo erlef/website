@@ -1,6 +1,17 @@
 defmodule ErlefWeb.Router do
   use ErlefWeb, :router
 
+  @trusted_sources ~w(www.google.com www.googletagmanager.com  www.google-analytics.com 
+    fonts.gstatic.com fonts.googleapis.com use.fontawesome.com 
+    stackpath.bootstrapcdn.com use.fontawesome.com platform.twitter.com 
+    code.jquery.com platform.twitter.com syndication.twitter.com 
+    syndication.twitter.com/settings cdn.syndication.twimg.com 
+    licensebuttons.net i.creativecommons.org platform.twitter.com 
+    pbs.twimg.com syndication.twitter.com www.googleapis.com"
+  )
+
+  @default_source Enum.join(@trusted_sources, " ")
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -8,8 +19,7 @@ defmodule ErlefWeb.Router do
     plug :protect_from_forgery
 
     plug :put_secure_browser_headers, %{
-      "content-security-policy" =>
-        " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: www.google.com www.googletagmanager.com  www.google-analytics.com fonts.gstatic.com fonts.googleapis.com use.fontawesome.com stackpath.bootstrapcdn.com use.fontawesome.com platform.twitter.com code.jquery.com platform.twitter.com syndication.twitter.com cdn.syndication.twimg.com licensebuttons.net i.creativecommons.org platform.twitter.com pbs.twimg.com syndication.twitter.com www.googleapis.com"
+      "content-security-policy" => " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}"
     }
 
     plug ErlefWeb.Plug.JsonEvents
@@ -47,4 +57,5 @@ defmodule ErlefWeb.Router do
     resources "/wg", WorkingGroupController, only: [:index, :show]
     resources "/grants", GrantController, only: [:index, :create]
   end
+
 end
