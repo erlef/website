@@ -2,7 +2,7 @@ defmodule ErlefWeb.BlogController do
   use ErlefWeb, :controller
   action_fallback ErlefWeb.FallbackController
 
-  alias Erlef.{Blog, Posts, WG}
+  alias Erlef.{Blog, Posts, WorkingGroup}
 
   def index(conn, %{"topic" => topic}) do
     case fetch_working_group(topic) do
@@ -38,10 +38,12 @@ defmodule ErlefWeb.BlogController do
   defp get(id), do: Posts.get_by_slug(Blog, id)
 
   defp fetch_working_group(%{metadata: %{"category" => slug}}) when not is_nil(slug) do
-    WG.fetch(slug)
+    Posts.get_by_slug(WorkingGroup, slug)
   end
 
-  defp fetch_working_group(name) when is_bitstring(name), do: WG.fetch(name)
+  defp fetch_working_group(name) when is_bitstring(name),
+    do: Posts.get_by_slug(WorkingGroup, name)
+
   defp fetch_working_group(_), do: nil
 
   def list("eef"), do: Posts.all(Blog)

@@ -67,25 +67,25 @@ defmodule Mix.Tasks.Eef.Gen.Event do
 
   embed_template(:event, """
   {
+    "datetime": "<%= DateTime.to_iso8601(@datetime) %>", 
     "title": "<%= @title %>",
     "slug": "<%= @slug %>",
-    "start": "<%= DateTime.to_iso8601(@start_date) %>",
-    "end": "<%= DateTime.to_iso8601(@end_date) %>",
+    "event_starts": "<%= DateTime.to_iso8601(@start_date) %>",
+    "event_ends": "<%= DateTime.to_iso8601(@end_date) %>",
     "offset": "UTC offset",
-    "datetime": "<%= DateTime.to_iso8601(@datetime) %>",
-    "event_url": "https://gcal_url.changeme",
-    "gcal_url", "eh?",
-    "gmap_embed_url": "https://gmap_embed_url.changeme",
-    "organizer": "Organize Name",
-    "organizer_url": "https://organize_url.changeme",
-    "venue_name": "venue name",
+    "gcal_url", "https://gcal-event-template-url.changeme",
+    "gmap_embed_url": "https://gmap-embed-url.changeme",
+    "organizer": "Organizer Name",
+    "organizer_url": "https://organizer-url.changeme",
+    "venue_name": "Venue name",
+    "venue_address1": "Venue Address1",
+    "venue_address2": "Venue Address2",
+    "venue_address3": "Venue Address3",
+    "venue_territory": "Venue state/province/region",
+    "venue_postal_code": "12345",
+    "venue_country":  "Venue country",
     "venue_url": "https://venue_url.changeme",
-    "venue_territory": "Venue state/territory/province",
-    "venue_country": "Venue Two letter Country Code",
     "venue_gmap_url": "https://venue_gmap_url.changeme",
-    "venue_address1": "123 Mocking Bird Lane",
-    "venue_address2": "Building 42",
-    "venue_country":  "Venue country code"
   }
   ---
   Event excerpt goes here
