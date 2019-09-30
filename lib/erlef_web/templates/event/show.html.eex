@@ -5,10 +5,10 @@
 
           <h1 class="card-title"><%= @event.title %> </h1>
         
-        <% starts = month_name_and_day(@event.event_start) %>
-        <% ends = month_name_and_day(@event.event_end) %>
-        <% start_time = time(@event.event_start, @event.event_offset) %>
-        <% end_time = time(@event.event_end, @event.event_offset) %>
+        <% starts = month_name_and_day(@event.start) %>
+        <% ends = month_name_and_day(@event.end) %>
+        <% start_time = time(@event.start, @event.offset) %>
+        <% end_time = time(@event.end, @event.offset) %>
         
         <h4 class="d-flex justify-content-center"><span><%= starts %> @ <%= start_time %> - <%= ends %> @ <%= end_time %></span></h4>
             <!-- Event header -->
@@ -41,7 +41,7 @@
                   <dt>Starts: </dt>
                     <dl class="ml-5">
                       <dt> Date: </dt>
-                      <dd><abbr title="<%= year_month_day(@event.event_start) %>"> <%= month_name_and_day(@event.event_start) %> </abbr></dd>
+                      <dd><abbr title="<%= year_month_day(@event.start) %>"> <%= month_name_and_day(@event.start) %> </abbr></dd>
                       <dt> Time: </dt>
                       <dd>
                         <div title="<%= year_month_day(@event.end) %>">
