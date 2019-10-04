@@ -73,6 +73,11 @@
       "image": "members/todd-resudek.jpg",
       "name": "Todd Resudek"
     }
+    ,
+    {
+      "image": "members/adolfo-netp.jpg",
+      "name": "Adolfo Neto"
+    }
   ],
   "name": "Education, Training, & Adoption",
   "primary_contact_method": "email",
