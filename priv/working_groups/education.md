@@ -75,7 +75,7 @@
     }
     ,
     {
-      "image": "members/adolfo-netp.jpg",
+      "image": "members/adolfo-neto.jpg",
       "name": "Adolfo Neto"
     }
   ],
