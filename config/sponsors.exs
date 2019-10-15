@@ -21,5 +21,6 @@ config :erlef, :sponsors, %{
   "sfractal" => "https://www.sfractal.com/",
   "arcblock" => "https://www.arcblock.io/",
   "ispirata" => "https://www.ispirata.com/",
-  "happi-hacking" => "http://happihacking.com/"
+  "happi-hacking" => "http://happihacking.com/",
+  "dockyard" => "https://dockyard.com/"
 }
