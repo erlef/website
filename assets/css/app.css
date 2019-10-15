@@ -386,6 +386,10 @@ h3 {
   text-decoration: none;
 }
 
+.blog_post,  a { 
+  text-decoration: underline;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", "Playfair Display", Georgia, "Times New Roman", serif;
 }
