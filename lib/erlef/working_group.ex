@@ -1,4 +1,8 @@
 defmodule Erlef.WorkingGroup do
+  @moduledoc """
+  Erlef.WorkingGroup schema
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -23,7 +27,8 @@ defmodule Erlef.WorkingGroup do
     end
   end
 
-  @required_fields ~w(name slug description email github gcal_url formed primary_contact_method body body_html excerpt excerpt_html)a
+  @required_fields ~w(name slug description email github gcal_url formed
+    primary_contact_method body body_html excerpt excerpt_html)a
 
   def changeset(struct, params \\ %{}) do
     struct

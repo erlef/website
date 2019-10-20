@@ -76,9 +76,9 @@ defmodule Mix.Tasks.Eef.Gen.Post do
     |> String.pad_leading(2, "0")
   end
 
-  defp default_excerpt(), do: "Post excerpt goes here"
+  defp default_excerpt, do: "Post excerpt goes here"
 
-  defp default_body(),
+  defp default_body,
     do:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
 
@@ -93,6 +93,6 @@ defmodule Mix.Tasks.Eef.Gen.Post do
   ---
   <%= @excerpt %>
   ---
-  <%= @body %>  
+  <%= @body %>
   """)
 end

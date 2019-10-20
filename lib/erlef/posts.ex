@@ -1,4 +1,8 @@
 defmodule Erlef.Posts do
+  @moduledoc """
+  Erlef.Posts context
+  """
+
   import Ecto.Query
   alias Erlef.Repo
 

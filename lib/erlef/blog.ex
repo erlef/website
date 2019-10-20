@@ -1,4 +1,8 @@
 defmodule Erlef.Blog do
+  @moduledoc """
+  Erlef.Blog schema
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
