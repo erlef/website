@@ -3,7 +3,7 @@ defmodule Erlef.Posts do
   alias Erlef.Repo
 
   def all(schema) do
-    schema |> Repo.all() |> sort_by_datetime()
+    schema |> Repo.all()
   end
 
   def get_by_slug(schema, slug) do
@@ -17,7 +17,7 @@ defmodule Erlef.Posts do
     schema |> where([x], x.category == ^cat) |> Repo.all()
   end
 
-  defp sort_by_datetime(posts) do
+  def sort_by_datetime(posts) do
     Enum.sort(
       posts,
       fn p1, p2 ->

@@ -46,7 +46,7 @@ defmodule ErlefWeb.BlogController do
 
   defp fetch_working_group(_), do: nil
 
-  def list("eef"), do: Posts.all(Blog)
+  def list("eef"), do: Blog |> Posts.all() |> Posts.sort_by_datetime()
   def list(name) when not is_nil(name), do: Posts.get_by_category(Blog, name)
   def list(_), do: []
 end
