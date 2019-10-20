@@ -14,7 +14,6 @@ defmodule ErlefWeb.WorkingGroupController do
   end
 
   def show(conn, %{"id" => slug}) do
-    IO.inspect(slug)
     {:ok, wg} = Posts.get_by_slug(WorkingGroup, slug)
 
     render(conn,
