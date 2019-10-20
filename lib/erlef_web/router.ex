@@ -26,11 +26,7 @@ defmodule ErlefWeb.Router do
     plug ErlefWeb.Plug.JsonEvents
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
-  if Erlef.Config.env() == :dev do
+  if Erlef.is_env?(:dev) do
     scope "/dev" do
       pipe_through [:browser]
       forward "/mailbox", Plug.Swoosh.MailboxPreview, base_path: "/dev/mailbox"
@@ -41,7 +37,6 @@ defmodule ErlefWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/about", PageController, :about
     get "/bylaws", PageController, :bylaws
     get "/board_members", PageController, :board_members
     get "/contact", PageController, :contact
