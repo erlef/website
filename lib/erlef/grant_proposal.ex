@@ -68,7 +68,5 @@ defmodule Erlef.GrantProposal do
 
   defp validate(:binary, key, val) when is_binary(val), do: {:ok, key, val}
 
-  defp validate(:binary, key, _val), do: {:error, "invalid #{key}"}
-
   defp validate(:list, key, val) when is_list(val), do: {:ok, key, val}
 end

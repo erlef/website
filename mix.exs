@@ -57,7 +57,7 @@ defmodule Erlef.MixProject do
 
   defp aliases do
     [
-      test: ["compile --warnings-as-errors", "credo --strict", "test"],
+      test: ["compile --warnings-as-errors", "test"],
       "eef.gen.newsletter": [&gen_newsletter/1]
     ]
   end

@@ -8,5 +8,7 @@ config :erlef, ErlefWeb.Endpoint,
 
 config :erlef, :env, :test
 
+config :erlef, Erlef.Mailer, adapter: Swoosh.Adapters.Test
+
 # Print only warnings and errors during test
 config :logger, level: :warn

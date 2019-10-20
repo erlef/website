@@ -1,6 +1,6 @@
 <script>
 
-function show_form() { 
+function show_form() {
   $('#nav_tabs a[href="#form"]').tab('show');
   return false;
 }
@@ -8,7 +8,7 @@ function show_form() {
 </script>
 
 <div class="container">
-  
+
   <div id="congrats" class="d-none">
     <h3>Congrats!</h3>
     <p>Expect a copy of your grant proposal coming from eef-grant-submissions@beam.eco</p>
@@ -69,7 +69,7 @@ function show_form() {
               objective. We encourage those applying for funding to try and get
               sponsorship
               from corporations or local sponsors as we want to encourage
-              sustainable, long term relationships with them. The EEF could limit the 
+              sustainable, long term relationships with them. The EEF could limit the
               number of events per
               organizer and/or city that are granted within a given year. </p>
 
@@ -252,7 +252,7 @@ function show_form() {
     <div class="alert alert-danger mt-3">
       <strong>Errors : </strong>
     <ul>
-      <% errs = Enum.reduce(@errors, "", fn(err, acc) -> acc <> "<li>#{err}</li>" end) %> 
+      <% errs = Enum.reduce(@errors, "", fn(err, acc) -> acc <> "<li>#{err}</li>" end) %>
       <%= raw errs %>
     </ul>
   </div>
@@ -261,12 +261,12 @@ function show_form() {
               <div class="form-row">
                 <div class="col-md-3 mb-3">
                   <label for="first_name">* First name</label>
-               
-				 <%= text_input(f, :first_name, class: "form-control", maxlength: 50, required: true, placeholder: "First name") %> 
+
+				 <%= text_input(f, :first_name, class: "form-control", maxlength: 50, required: true, placeholder: "First name") %>
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="last_name">* Last name</label>
-                  <%= text_input(f, :last_name, class: "form-control", maxlength: 50, required: true, placeholder: "Last name") %> 
+                  <%= text_input(f, :last_name, class: "form-control", maxlength: 50, required: true, placeholder: "Last name") %>
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="nick_name">* Nick Name</label>
@@ -292,31 +292,31 @@ function show_form() {
               <div class="form-row">
                 <div class="col-md-3 mb-3">
                   <label for="org_name">Organization Name</label>
-                  
+
  					<%= text_input(f, :org_name, class: "form-control", maxlength: 50, placeholder: "Organization name") %>
                 </div>
 
 
                 <div class="col-md-3 mb-3">
                   <label for="org_name">Organization Email</label>
-				 
+
  					<%= text_input(f, :org_email, class: "form-control", maxlength: 50, placeholder: "Organization email") %>
- 
+
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-md-2 mb-3">
                   <label for="city">* City</label>
-                
+
 				<%= text_input(f, :city, class: "form-control", maxlength: 85, required: true, placeholder: "City") %>
- 
+
 				</div>
                 <div class="col-md-2 mb-3">
                   <label
                     for="region">* Region</label>
-            
+
 				<%= text_input(f, :region, class: "form-control", maxlength: 50, required: true, placeholder: "Region") %>
-     
+
 			  <small class="text-muted">(e.g., state or province)</small>
                 </div>
                 <div class="col-md-2 mb-3">
@@ -334,8 +334,8 @@ function show_form() {
                 <div class="col-md-3 mb-3">
                   <label for="twitter">Twitter Handle</label>
 
-				 <%= text_input(f, :twitter, class: "form-control", maxlength: 50,  placeholder: "Twitter Handle") %> 
-    
+				 <%= text_input(f, :twitter, class: "form-control", maxlength: 50,  placeholder: "Twitter Handle") %>
+
                 </div>
 
 
@@ -361,26 +361,26 @@ function show_form() {
               <div class="form-row mb-2">
                 <div class="col-md-3 mb-3">
                   <label for="grant_type">* Grant Type</label>
-                  <%= grant_type_select(f) %> 
+                  <%= grant_type_select(f) %>
                 </div>
 
                 <div class="col-md-6 mb-3">
                   <p id=""></p>
                   <p id="conference" class="alert info d-none">
 A gathering including talks and other events to promote Beam languages in the local community. A separate grant should be submitted for educational programs that are a subset of conference events.</p>
-                   <p id="devel_work" class="alert info d-none">  
+                   <p id="devel_work" class="alert info d-none">
                     Develop a Beam languages-based open source program or library.
                    </p>
 
                    <p id="event_site_sub" class="alert info d-none">
                       The subscription cost of a service providing advertising services for Beam languages-related events.
                    </p>
-                   
+
                    <p id="kids_camp" class="alert info d-none">
                     Teach aspiring Beam language coders under age 18 coding skills.
                    </p>
-                   
-                   <p id="sprint" class="alert info d-none"> 
+
+                   <p id="sprint" class="alert info d-none">
                     Development of an open-source project for 2+ days in a team environment.
                    </p>
 
@@ -390,7 +390,7 @@ A gathering including talks and other events to promote Beam languages in the lo
 
                    <p id="workshop-women" class="alert info d-none">
                     An interactive, hands-on, training into one or more specific Beam languages topics/themes/goals, which supports and mentors women. </p>
-                  
+
                    <p id="workshop-edu" class="alert info d-none">
                       An interactive, hands-on, training into one or more specific Beam languages topics/themes/goals. It should include at least 6 hours of instruction
                    </p>
@@ -405,9 +405,9 @@ A gathering including talks and other events to promote Beam languages in the lo
                 <div class="col-md-6 mb-3">
                   <label for="code_of_conduct_link">* Link to code of conduct of the event
                     (required for workshops and conferences)</label>
- 
-                  <%= text_input(f, :code_of_conduct_link, class: "form-control", maxlength: 50,  placeholder: "") %> 
-               
+
+                  <%= text_input(f, :code_of_conduct_link, class: "form-control", maxlength: 50,  placeholder: "") %>
+
                 </div>
               </div>
 
@@ -417,11 +417,11 @@ A gathering including talks and other events to promote Beam languages in the lo
                   <div>
                     <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
                   </div>
-                  
+
                   <div>
-                    <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %> 
+                    <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
                   </div>
-                    
+
                   <div>
                      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
                   </div>
@@ -432,7 +432,7 @@ A gathering including talks and other events to promote Beam languages in the lo
 
                   <div>
                       <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-                  </div>     
+                  </div>
              </div>
 
               <div class="form-row mb-2">
@@ -454,7 +454,7 @@ A gathering including talks and other events to promote Beam languages in the lo
                     plan with learning outcomes for participants.
                   </p>
                   </small>
-                  <%= textarea(f, :purpose, class: "form-control", maxlength: "5000", rows: 3, required: true) %> 
+                  <%= textarea(f, :purpose, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
                 </div>
               </div>
 
@@ -487,8 +487,8 @@ A gathering including talks and other events to promote Beam languages in the lo
                       <span class="input-group-text">$</span>
                     </div>
 
-                    <%= number_input(f, :grant_amount, class: "form-control currency", maxlength: 6, required: true, placeholder: "0.00", step: "1.00") %> 
-                
+                    <%= number_input(f, :grant_amount, class: "form-control currency", maxlength: 6, required: true, placeholder: "0.00", step: "1.00") %>
+
                   </div>
                 </div>
 
@@ -502,7 +502,7 @@ A gathering including talks and other events to promote Beam languages in the lo
                       the US. If the request is for $500 or less, PayPal is
                       suggested.</small>
                   </div>
- 
+
                </div>
 
                 <div class="form-row mb-2">
@@ -518,7 +518,7 @@ A gathering including talks and other events to promote Beam languages in the lo
                         activities/meetups/trainings/conferences located in that
                         area, the number of attendees, frequency and such.
                       </p>
-                      
+
 					<%= textarea(f, :beneficiaries, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
 
                   </div>
@@ -539,12 +539,12 @@ A gathering including talks and other events to promote Beam languages in the lo
                       learned (what went well and what needs to improve), the
                       feedback from the participants, social media, number of
                       attendees, demographics, and such.</p>
-                    <%= textarea(f, :report, class: "form-control", maxlength: "5000", rows: 3, required: true) %>  
+                    <%= textarea(f, :report, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
                   </div>
                 </div>
 
 
-                <button id="submit_form" class="btn btn-primary mt-2" type="submit">Submit</button>  
+                <button id="submit_form" class="btn btn-primary mt-2" type="submit">Submit</button>
                 <div id="submit_error" class="alert alert-danger d-none">
 
               </div>
@@ -565,7 +565,7 @@ A gathering including talks and other events to promote Beam languages in the lo
     if (required == "true" || required == true) {
         $("#coc_input").prop("required", true);
         $("#coc_link").removeClass("d-none");
-      } else { 
+      } else {
         $("#coc_link").addClass("d-none");
         $('#coc_input').removeAttr('required');
     }
