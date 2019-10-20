@@ -42,7 +42,7 @@ defmodule ErlefWeb.Plug.JsonEvents do
     {sort_by_datetime(unsorted), Jason.encode!(events)}
   end
 
-  def stringify_keys(map = %{}) do
+  def stringify_keys(%{} = map) do
     map
     |> Enum.map(fn {k, v} -> {Atom.to_string(k), v} end)
     |> Enum.into(%{})

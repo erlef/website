@@ -1,12 +1,12 @@
 defmodule ErlefWeb.Router do
   use ErlefWeb, :router
 
-  @trusted_sources ~w(www.google.com www.googletagmanager.com  www.google-analytics.com 
-    fonts.gstatic.com fonts.googleapis.com use.fontawesome.com 
-    stackpath.bootstrapcdn.com use.fontawesome.com platform.twitter.com 
-    code.jquery.com platform.twitter.com syndication.twitter.com 
-    syndication.twitter.com/settings cdn.syndication.twimg.com 
-    licensebuttons.net i.creativecommons.org platform.twitter.com 
+  @trusted_sources ~w(www.google.com www.googletagmanager.com  www.google-analytics.com
+    fonts.gstatic.com fonts.googleapis.com use.fontawesome.com
+    stackpath.bootstrapcdn.com use.fontawesome.com platform.twitter.com
+    code.jquery.com platform.twitter.com syndication.twitter.com
+    syndication.twitter.com/settings cdn.syndication.twimg.com
+    licensebuttons.net i.creativecommons.org platform.twitter.com
     pbs.twimg.com syndication.twitter.com www.googleapis.com
   )
 

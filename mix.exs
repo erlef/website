@@ -9,6 +9,8 @@ defmodule Erlef.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [coveralls: :test, "coveralls.html": :test],
       deps: deps(),
       aliases: aliases(),
       dialyzer: dialyzer_opts()
@@ -42,6 +44,7 @@ defmodule Erlef.MixProject do
       {:jason, "~> 1.1", override: true},
       {:plug_cowboy, "~> 2.1"},
       {:earmark, "~> 1.3.2", override: true},
+      {:excoveralls, "~> 0.12.0"},
       {:timex, "~> 3.6"},
       {:swoosh, "~> 0.23.3"},
       {:phoenix_swoosh, "~> 0.2.0"},
@@ -54,7 +57,7 @@ defmodule Erlef.MixProject do
 
   defp aliases do
     [
-      test: ["compile --warnings-as-errors", "credo", "test"],
+      test: ["compile --warnings-as-errors", "credo --strict", "test"],
       "eef.gen.newsletter": [&gen_newsletter/1]
     ]
   end

@@ -1,4 +1,8 @@
 defmodule Erlef.Event do
+  @moduledoc """
+  Erlef.Event schema
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -31,7 +35,7 @@ defmodule Erlef.Event do
 
   @required_fields ~w(title slug datetime start end organizer organizer_url excerpt body excerpt_html body_html)a
 
-  @optional_fields ~w(gcal_url gmap_embed_url venue_url venue_name venue_country venue_address1 
+  @optional_fields ~w(gcal_url gmap_embed_url venue_url venue_name venue_country venue_address1
       venue_address2 venue_city venue_postal_code venue_territory venue_gmap_url offset event_url)a
 
   def changeset(struct, params \\ %{}) do

@@ -1,4 +1,8 @@
 defmodule Erlef.Repo.Importer do
+  @moduledoc """
+    Erlef.Repo.Importer - handles importing markdown files into the ETS repo
+  """
+
   use GenServer
 
   @post_pattern ~r/[\s\r\n]---[\s\r\n]/s
