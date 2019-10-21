@@ -25,8 +25,7 @@ defmodule Mix.Tasks.Eef.Gen.Event do
       {options, [slug], _invalid} ->
         title = Keyword.get(options, :title, "Title goes here")
         datetime = DateTime.utc_now()
-        path = "priv/events"
-        file = Path.join(path, "#{format_datetime(datetime)}_#{slug}.md")
+        file = Path.join(root_path(), "#{format_datetime(datetime)}_#{slug}.md")
 
         create_file(
           file,
@@ -39,11 +38,20 @@ defmodule Mix.Tasks.Eef.Gen.Event do
           )
         )
 
+        file
+
       _ ->
         Mix.raise(
           "expected eef.gen.event to receive event slug, " <>
             "got: #{inspect(Enum.join(args, " "))}"
         )
+    end
+  end
+
+  defp root_path do
+    case Erlef.is_env?(:test) do
+      true -> "priv/test/events"
+      false -> "priv/events"
     end
   end
 
@@ -67,7 +75,7 @@ defmodule Mix.Tasks.Eef.Gen.Event do
 
   embed_template(:event, """
   {
-    "datetime": "<%= DateTime.to_iso8601(@datetime) %>", 
+    "datetime": "<%= DateTime.to_iso8601(@datetime) %>",
     "title": "<%= @title %>",
     "slug": "<%= @slug %>",
     "start": "<%= DateTime.to_iso8601(@start_date) %>",

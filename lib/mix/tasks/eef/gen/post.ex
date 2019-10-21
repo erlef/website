@@ -46,6 +46,8 @@ defmodule Mix.Tasks.Eef.Gen.Post do
           )
         )
 
+        file
+
       _ ->
         Mix.raise(
           "expected eef.gen.post to receive blog slug, " <>
@@ -55,7 +57,10 @@ defmodule Mix.Tasks.Eef.Gen.Post do
   end
 
   defp root_path(blog) do
-    "priv/posts/#{blog}"
+    case Erlef.is_env?(:test) do
+      true -> "priv/test/posts/#{blog}"
+      false -> "priv/posts/#{blog}"
+    end
   end
 
   defp format_datetime(datetime) do

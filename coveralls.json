@@ -4,6 +4,7 @@
     "lib/erlef_web.ex",
     "lib/erlef/application.ex",
     "lib/erlef_web/endpoint.ex",
-    "lib/erlef_web/gettext.ex"
+    "lib/erlef_web/gettext.ex",
+    "lib/erlef_web/views/error_helpers.ex"
   ]
 }
