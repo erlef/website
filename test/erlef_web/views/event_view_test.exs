@@ -6,12 +6,12 @@ defmodule ErlefWeb.WorkingGroupViewTest do
   end
 
   test "gcal_id/1" do
-    assert  "" == ErlefWeb.EventView.gcal_id(nil)
-    assert  "data-gcal-id=123" == ErlefWeb.EventView.gcal_id("123")
+    assert "" == ErlefWeb.EventView.gcal_id(nil)
+    assert "data-gcal-id=123" == ErlefWeb.EventView.gcal_id("123")
   end
 
   test "gcal_api_key/1" do
-    assert  "" == ErlefWeb.EventView.gcal_api_key(nil)
-    assert  "data-gcal-api-key=123" == ErlefWeb.EventView.gcal_api_key("123")
+    assert "" == ErlefWeb.EventView.gcal_api_key(nil)
+    assert "data-gcal-api-key=123" == ErlefWeb.EventView.gcal_api_key("123")
   end
 end

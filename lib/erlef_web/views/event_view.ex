@@ -5,13 +5,6 @@ defmodule ErlefWeb.EventView do
     "#{dt.year}-#{dt.month}-#{dt.day}"
   end
 
-  def at_date(dt1) do
-    month = Timex.month_name(dt1.month)
-    day = dt1.day
-    {:ok, start} = Timex.format(dt1, "%T", :strftime)
-    "#{month} #{day} @ #{start}"
-  end
-
   def month_name_and_day(dt) do
     month = Timex.month_name(dt.month)
     day = dt.day
