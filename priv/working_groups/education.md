@@ -46,16 +46,8 @@
       "name": "Mrinal Wadhwa"
     },
     {
-      "image": "members/bryan-paxton.jpg",
-      "name": "Bryan Paxton"
-    },
-    {
       "image": "members/ben-marx.jpg",
       "name": "Ben Marx"
-    },
-    {
-      "image": "members/desmond-bowe.png",
-      "name": "Desmond Bowe"
     },
     {
       "image": "members/alistair-woodman.png",
@@ -70,11 +62,6 @@
       "name": "Norberto Ortigoza"
     },
     {
-      "image": "members/todd-resudek.jpg",
-      "name": "Todd Resudek"
-    }
-    ,
-    {
       "image": "members/adolfo-neto.jpg",
       "name": "Adolfo Neto"
     }
@@ -88,15 +75,15 @@ EEF Education Working Group
 ---
 
 ## Mission Statement
-Facilitate, evolve education and training and consolidate educational material(s) for all BEAM languages and the BEAM itself. 
+Facilitate, evolve education and training and consolidate educational material(s) for all BEAM languages and the BEAM itself.
 
 ## Benefits to the community
 - Make an analysis of the gaps in the current state of the field so we can identify how to best help the community.
-- Create a plan and present it to the board so they can allocate resources whenever necessary. 
+- Create a plan and present it to the board so they can allocate resources whenever necessary.
 
 ## Short term deliverables
 - Make an analysis of the gaps in the current state of the field so we can identify how to best help the community.
-- Create a plan and present it to the board so they can allocate resources whenever necessary. 
+- Create a plan and present it to the board so they can allocate resources whenever necessary.
 
 ## Long term deliverables
 - Help grow the community by providing ramp-up materials and training to fill the gaps that have been identified.
@@ -119,8 +106,8 @@ Facilitate, evolve education and training and consolidate educational material(s
 - Bryan Paxton
 - Miriam Pena
 - Todd Resudek
-- Peer Stritzinger 
-- Mrinal Wadhwa 
+- Peer Stritzinger
+- Mrinal Wadhwa
 - Alistair Woodman
 
 -------

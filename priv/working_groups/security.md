@@ -17,7 +17,7 @@
       "name": "Maxim Fedorov"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "members/alexandre-rodrigues.png",
       "name": "Alexandre Rodrigues"
     },
     {
@@ -71,7 +71,7 @@ Security resources (libraries, tools, documentation) must originate from trusted
 
 Security features are fundamental parts of a platform, and making security-related changes requires consensus among major stakeholders. Erlang Ecosystem Foundation, and a Security Working Group being part of it, can coordinate such work and ensure consensus is reached.
 
-It is often undesirable to disclose specific security issues before a mitigation is made. Trust in Security Working Group as a part of foundation is necessary to facilitate discussion and mitigation of sensitive issues before making a public statement. 
+It is often undesirable to disclose specific security issues before a mitigation is made. Trust in Security Working Group as a part of foundation is necessary to facilitate discussion and mitigation of sensitive issues before making a public statement.
 
 ## Initial list of volunteers
 - Maxim Fedorov

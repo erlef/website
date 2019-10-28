@@ -22,7 +22,7 @@
       "name": "Mariano Guerra"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "members/radek-szymczyszyn.jpg",
       "name": "Radosław Szymczyszyn"
     },
     {
