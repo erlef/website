@@ -26,10 +26,6 @@
       "name": "Desmond Bowe"
     },
     {
-      "image": "members/brian-cardella.jpg",
-      "name": "Brian Cardella"
-    },
-    {
       "image": "members/profile-placeholder.png",
       "name": "Johnny Winn"
     },
@@ -44,6 +40,14 @@
     {
       "image": "members/profile-placeholder.png",
       "name": "Magdalena Pokorska"
+    },
+    {
+      "image": "members/ghislaine-guerin.png",
+      "name": "Ghislaine Guerin"
+    },
+    {
+      "image": "members/profile-placeholder.png",
+      "name": "Matt McKinney"
     }
   ],
   "name": "Marketing",
