@@ -47,7 +47,7 @@ perception of BEAM languages and the Erlang VM as mature and long-term viable pl
 We need to get the word out among embedded systems designers in the BEAM community that this working group exists. There
 are a lot of areas that the working group could address. A first deliverables would be to survey embedded systems
 developers in the BEAM community to identify needs so that the working group can focus their efforts. Completing this
-survey need not delay funding of embedded systems working group grant proposals of common interest.
+survey need not delay funding of embedded systems working group stipend proposals of common interest.
 
 ## Long term deliverables
 
@@ -67,10 +67,10 @@ the BEAM and the embedded use case in a way that can outlast the current set of 
 involved with embedded Erlang and Elixir.
 
 ## Initial list of volunteers
-- Adam Lindberg 
-- Frank Hunleth 
-- Justin Schneck 
-- Peer Stritzinger 
+- Adam Lindberg
+- Frank Hunleth
+- Justin Schneck
+- Peer Stritzinger
 - Hideki Takase
 
 -------

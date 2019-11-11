@@ -51,6 +51,6 @@ defmodule ErlefWeb.Router do
 
     resources "/events", EventController, only: [:index, :show]
     resources "/wg", WorkingGroupController, only: [:index, :show]
-    resources "/grants", GrantController, only: [:index, :create]
+    resources "/stipends", StipendController, only: [:index, :create]
   end
 end
