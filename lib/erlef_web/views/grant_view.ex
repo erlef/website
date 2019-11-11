@@ -1,8 +1,8 @@
-defmodule ErlefWeb.GrantView do
+defmodule ErlefWeb.StipendView do
   use ErlefWeb, :view
 
   # Currently values chosen for select simply go into an html doc so we map name to name as to avoid
-  # grant reviewers having to look up the country name for agiven code.
+  # stipend reviewers having to look up the country name for agiven code.
 
   @country_data [
     {"Select your country", ""},
@@ -250,10 +250,10 @@ defmodule ErlefWeb.GrantView do
     {"Zimbabwe", "Zimbabwe"}
   ]
 
-  def grant_type_select(form) do
+  def stipend_type_select(form) do
     select(
       form,
-      :grant_type,
+      :stipend_type,
       [
         [key: "--", value: "", "data-type": "none", "data-requires-coc": "false"],
         [
@@ -301,7 +301,7 @@ defmodule ErlefWeb.GrantView do
         ],
         [key: "Other", value: "Other", "data-type": "other", "data-requires-coc": "false"]
       ],
-      id: "grant_type",
+      id: "stipend_type",
       class: "form-control"
     )
   end

@@ -1,8 +1,8 @@
 <%= if @copy do %>
   <h1>Congrats <%= "#{@proposal.first_name} #{@proposal.last_name}" %> !</h1>
-<p>Please find below a copy of your grant proposal submission</p>
+<p>Please find below a copy of your stipend proposal submission</p>
 <% end %>
-<h2>Grant Proposal</h2>
+<h2>Stipend Proposal</h2>
   <div>    
     <strong>First name</strong> : <%= @proposal.first_name %>
   </div>
@@ -78,7 +78,7 @@
   <br/>
 
   <div class="row">
-  <strong>Grant Type</strong> : <%= @proposal.grant_type %>
+  <strong>Stipend Type</strong> : <%= @proposal.stipend_type %>
   </div>
   <br/>
 
@@ -88,7 +88,7 @@
   <br/>
 
   <div class="row">
-  <strong>Grant Amount</strong> : <%= @proposal.grant_amount %>
+  <strong>Stipend Amount</strong> : <%= @proposal.stipend_amount %>
   </div>
   <br/>
 

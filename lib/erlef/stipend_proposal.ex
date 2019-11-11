@@ -1,6 +1,6 @@
-defmodule Erlef.GrantProposal do
+defmodule Erlef.StipendProposal do
   @moduledoc """
-    Erlef.GrantProposal
+    Erlef.StipendProposal
   """
 
   # The string version of the key name followed by
@@ -26,8 +26,8 @@ defmodule Erlef.GrantProposal do
     "code_of_conduct_link" => {:code_of_conduct_link, {:binary, 50}},
     "files" => {:files, :list},
     "purpose" => {:purpose, {:binary, 5000}},
-    "grant_type" => {:grant_type, {:binary, 25}},
-    "grant_amount" => {:grant_amount, {:binary, 50}},
+    "stipend_type" => {:stipend_type, {:binary, 25}},
+    "stipend_amount" => {:stipend_amount, {:binary, 50}},
     "payment_method" => {:payment_method, {:binary, 6}},
     "beneficiaries" => {:beneficiaries, {:binary, 5000}},
     "report" => {:report, {:binary, 5000}}

@@ -1,4 +1,4 @@
-defmodule ErlefWeb.GrantController do
+defmodule ErlefWeb.StipendController do
   use ErlefWeb, :controller
   action_fallback ErlefWeb.FallbackController
 
@@ -9,10 +9,10 @@ defmodule ErlefWeb.GrantController do
   def create(%{private: %{phoenix_format: "html"}} = conn, params) do
     files = params["files"] || []
 
-    case Erlef.GrantProposal.from_map(Map.put(params, "files", files)) do
+    case Erlef.StipendProposal.from_map(Map.put(params, "files", files)) do
       {:ok, proposal} ->
-        Erlef.GrantMail.submission(proposal) |> Erlef.Mailer.send()
-        Erlef.GrantMail.submission_copy(proposal) |> Erlef.Mailer.send()
+        Erlef.StipendMail.submission(proposal) |> Erlef.Mailer.send()
+        Erlef.StipendMail.submission_copy(proposal) |> Erlef.Mailer.send()
         render(conn)
 
       {:error, errs} ->

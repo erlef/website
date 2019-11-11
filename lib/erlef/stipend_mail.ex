@@ -1,13 +1,13 @@
-defmodule Erlef.GrantMail do
+defmodule Erlef.StipendMail do
   @moduledoc """
-  Erlef.GrantMail
+  Erlef.StipendMail
   """
 
   import Swoosh.Email
 
   use Phoenix.Swoosh, view: ErlefWeb.EmailView, layout: {ErlefWeb.LayoutView, :email}
 
-  @spec submission(%Erlef.GrantProposal{}) :: %Swoosh.Email{}
+  @spec submission(%Erlef.StipendProposal{}) :: %Swoosh.Email{}
   def submission(proposal) do
     dt_str = DateTime.utc_now() |> DateTime.truncate(:second)
 
@@ -15,23 +15,23 @@ defmodule Erlef.GrantMail do
 
     email =
       new()
-      |> to({"eef-grants", "eef-grants@googlegroups.com"})
-      |> from({"EEF Grant Submissions", "eef-grant-submissions@beam.eco"})
-      |> subject("EEF Grant Proposal Submission #{subject_suffix}")
+      |> to({"eef-stipends", "eef-stipends@googlegroups.com"})
+      |> from({"EEF Stipend Submissions", "eef-stipend-submissions@beam.eco"})
+      |> subject("EEF Stipend Proposal Submission #{subject_suffix}")
 
     new_email = attach_files(email, proposal.files)
-    render_body(new_email, "grant_submission.html", proposal: proposal, copy: false)
+    render_body(new_email, "stipend_submission.html", proposal: proposal, copy: false)
   end
 
   def submission_copy(proposal) do
     email =
       new()
       |> to({full_name(proposal), proposal.email_address})
-      |> from({"EEF Grant Submissions", "eef-grant-submissions@beam.eco"})
-      |> subject("EEF Grant Proposal Copy")
+      |> from({"EEF Stipend Submissions", "eef-stipend-submissions@beam.eco"})
+      |> subject("EEF Stipend Proposal Copy")
 
     new_email = attach_files(email, proposal.files)
-    render_body(new_email, "grant_submission.html", proposal: proposal, copy: true)
+    render_body(new_email, "stipend_submission.html", proposal: proposal, copy: true)
   end
 
   defp attach_files(email, nil), do: email
