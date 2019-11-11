@@ -22,5 +22,6 @@ config :erlef, :sponsors, %{
   "arcblock" => "https://www.arcblock.io/",
   "ispirata" => "https://www.ispirata.com/",
   "happi-hacking" => "http://happihacking.com/",
-  "dockyard" => "https://dockyard.com/"
+  "dockyard" => "https://dockyard.com/",
+  "pepsico" => "https://pepsi.co/ecommerce"
 }
