@@ -11,19 +11,18 @@
                   <div class="entry-content">
                       <h1>Academic Papers</h1>
 
-                      <p>This is where we consolidate academic papers for all
-                      BEAM languages and the BEAM itself.</p>
+                      <p><a href="https://github.com/erlef/website/issues/new">Please open an issue to add a new paper</a>.</p>
 
-                      <h2>List of papers</h2>
+                      <p>Papers are organized chronologically and we attempt to show the tech used next to the title if possible.</p>
+
                       <ul>
                         <%= for ap <- @academic_papers do %>
                           <li>
-                            <a href="<%= ap.link %>"><%= ap.name %></a>
+                            <a href="<%= ap.link %>"><%= ap.name %> | <%= ap.tags %></a>
                           </li>
                         <% end %>
                       </ul>
 
-                      <p><a href="https://github.com/erlef/website/issues/new">Please open an issue to add a new paper</a></p>
                   </div><!-- .entry-content -->
                 </div>
               <!-- /.card-body -->

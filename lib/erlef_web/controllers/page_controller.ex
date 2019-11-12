@@ -26,6 +26,6 @@ defmodule ErlefWeb.PageController do
   def wg_proposal_template(conn, _params), do: render(conn, "wg-proposal-template.html")
 
   def academic_papers(conn, _params) do
-    render(conn, academic_papers: Erlef.AcademicPaper.all())
+    render(conn, academic_papers: Erlef.AcademicPapers.all())
   end
 end
