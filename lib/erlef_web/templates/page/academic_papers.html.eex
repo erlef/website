@@ -1,0 +1,34 @@
+<div id="content" class="site-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="primary" class="content-area">
+          <main id="main" class="site-main">
+            <article id="post-94" class="card mt-3r post-94 page type-page status-publish hentry">
+              <div class="card-body">
+                <header class="entry-header"></header>
+
+                  <div class="entry-content">
+                      <h1>Academic Papers</h1>
+
+                      <p>This is where we consolidate academic papers for all
+                      BEAM languages and the BEAM itself.</p>
+
+                      <h2>List of papers</h2>
+                      <ul>
+                        <%= for ap <- @academic_papers do %>
+                          <li>
+                            <a href="<%= ap.link %>"><%= ap.name %></a>
+                          </li>
+                        <% end %>
+                      </ul>
+                  </div><!-- .entry-content -->
+                </div>
+              <!-- /.card-body -->
+            </article><!-- #post-94 -->
+          </main><!-- #main -->
+        </div><!-- #primary -->
+      </div>
+    </div>
+  </div>
+</div><!-- #content -->
