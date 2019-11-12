@@ -11,9 +11,15 @@
                   <div class="entry-content">
                       <h1>Academic Papers</h1>
 
-                      <p><a href="https://github.com/erlef/website/issues/new">Please open an issue to add a new paper</a>.</p>
+                      <p>
+                        <a href="https://github.com/erlef/website/issues/new">
+                          Please open an issue to add a new paper
+                        </a>
+                      </p>
 
-                      <p>Papers are organized chronologically and we attempt to show the tech used next to the title if possible.</p>
+                      <p>Papers are organized chronologically. We attempt to
+                      show the BEAM related tech used in the paper next to the
+                      title.</p>
 
                       <ul>
                         <%= for ap <- @academic_papers do %>
