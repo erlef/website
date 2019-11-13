@@ -24,6 +24,18 @@ defmodule Erlef.AcademicPapers do
         date: Date.new(2011, 1, 1)
       },
       %{
+        link: "https://pdfs.semanticscholar.org/cd4e/7b338616eb6a87a542aa224d5d1b3e7aee41.pdf",
+        name: "SFMT pseudo random number generator for Erlang",
+        tags: "Erlang, PRNG",
+        date: Date.new(2011, 9, 23)
+      },
+      %{
+        link: "https://www.researchgate.net/publication/254464022_TinyMT_pseudo_random_number_generator_for_Erlang",
+        name: "TinyMT pseudo random number generator for Erlang",
+        tags: "Erlang, PRNG",
+        date: Date.new(2012, 9, 14)
+      },
+      %{
         link: "https://staff.um.edu.mt/afra1/papers/rv13jour.pdf",
         name: "Synthesising correct concurrent runtime monitors",
         tags: "Erlang",
