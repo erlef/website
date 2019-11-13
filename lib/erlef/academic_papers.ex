@@ -48,6 +48,12 @@ defmodule Erlef.AcademicPapers do
         date: Date.new(2016, 5, 1)
       },
       %{
+        link: "https://ieeexplore.ieee.org/document/7797392",
+        name: "Elixir programming language evaluation for IoT (in Japanese)",
+        tags: "Elixir",
+        date: Date.new(2016, 9, 28)
+      },
+      %{
         link: "https://staff.um.edu.mt/afra1/papers/betty-book.pdf",
         name: "A Runtime Monitoring Tool for Actor-Based Systems",
         tags: "Erlang",
@@ -64,6 +70,42 @@ defmodule Erlef.AcademicPapers do
         name: "Sparrow: a DSL for coordinating large groups of heterogeneous actors",
         tags: "Elixir",
         date: Date.new(2017, 9, 1)
+      },
+      %{
+        link: "https://zeam-vm.github.io/papers/callback-thread-2nd-WSA.html",
+        name: "Plan to Implementation of Lightweight Callback Thread for Elixir and Improvement of Maximum Concurrent Sessions and Latency of Phoenix (in Japanese)",
+        tags: "Elixir",
+        date: Date.new(2018, 5, 12)
+      },
+      %{
+        link: "https://ipsj.ixsq.nii.ac.jp/ej/index.php?active_action=repository_view_main_item_detail&page_id=13&block_id=8&item_id=190322&item_no=1",
+        name: "An Empirical Evaluation to Performance of Elixir for Introducing IoT Systems (in Japanese)",
+        tags: "Elixir",
+        date: Date.new(2018, 6, 29)
+      },
+      %{
+        link: "https://ipsj.ixsq.nii.ac.jp/ej/index.php?active_action=repository_view_main_item_detail&page_id=13&block_id=8&item_id=190626&item_no=1",
+        name: "Implementation of Runtime Environments of C++ and Elixir with the Node Programming Model (in Japanese)",
+        tags: "Elixir",
+        date: Date.new(2018, 7, 23)
+      },
+      %{
+        link: "https://researchmap.jp/?action=cv_download_main&upload_id=192105",
+        name: "A Method Using GPGPU for Super-Parallelization in Elixir Programming (in Japanese)",
+        tags: "Elixir",
+        date: Date.new(2018, 8, 1)
+      },
+      %{
+        link: "https://ci.nii.ac.jp/naid/170000150470/",
+        name: "Hastega: Parallelization of Linear Regression Using SIMD Instruction for Elixir Programming (in Japanese)",
+        tags: "Elixir",
+        date: Date.new(2018, 1, 17)
+      },
+      %{
+        link: "https://ci.nii.ac.jp/naid/170000180471/",
+        name: "SumMag: Design and Implementation of an Analyzer an Extension Mechanism by Meta-programming Using Elixir Macros (in Japanese)",
+        tags: "Elixir",
+        date: Date.new(2019, 3, 19)
       },
       %{
         link: "https://www.mdpi.com/1424-8220/19/18/4017/htm",
