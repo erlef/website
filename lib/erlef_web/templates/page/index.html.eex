@@ -1,29 +1,60 @@
 <div id="content" class="site-content">
-    <section class="jumbotron text-center eco-jumbotron border-bottom text-white">
-        <div class="jumbo-overlay">
-            <div class="container">
-                <h1 class="jumbotron-heading">Erlang Ecosystem Foundation</h1>
-                <p class="lead">The Erlang Ecosystem Foundation is a new non-profit organization dedicated to furthering the state of the art for Erlang, Elixir, LFE, and other technologies based on the BEAM. Our goal is to increase the adoption of this sophisticated platform among forward-thinking organizations. With member-supported Working Groups actively contributing to libraries, tools, and documentation used regularly by individuals and companies relying on the stability and versatility of the ecosystem, we actively invest in critical pieces of technical infrastructure to support our users in their efforts to build the next generation of advanced, reliable, realtime applications.
-                </p>
-
-              <div>
-                <%= raw subscribe_form() %>
-              </div> 
-            <!-- / Mailchimp -->
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1 class="mb-4">Supporting the next generation of advanced, reliable, realtime applications</h1>
+        <p class="lead">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
+        <p class="lead">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
+      </div>
+    </div>
+  </div>
+  <!--container-->
+  <div class="container py-5">
+    <h2>What does the EEF do?</h2>
+    <p class="lead">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology.</p>
+    <h3>EEF Working Groups</h3>
+    <div class="row">
+      <div class="col-lg-4">
+        <h4>Documentation</h4>
+        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
+      </div>
+      <div class="col-lg-4">
+        <h4>Documentation</h4>
+        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
+      </div>
+      <div class="col-lg-4">
+        <h4>Documentation</h4>
+        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
+      </div>
+      <div class="col-lg-4">
+        <h4>Documentation</h4>
+        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
+      </div>
+      <div class="col-lg-4">
+        <h4>Documentation</h4>
+        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
+      </div>
+      <div class="col-lg-4">
+        <h4>Documentation</h4>
+        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
+      </div>
+    </div>
+  </div>
+  <div class="bg-brand-light py-5">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2>Connect with a diverse community around the Erlang and Elixir Ecosystem</h2>
+          <p>Subscribe to our newsletter to find out how you can take action and stay updated!</p>
+          <%= raw subscribe_form() %>
         </div>
-    </section>
-
-    <section class="main-content">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-
-                    <p>The Erlang Software Foundation’s goal is to grow and support a diverse community around the Erlang and Elixir Ecosystem, encouraging the continued development of technologies and open source projects based on/around its runtime and languages</p>
-
-                </div>
-            </div>
+        <div class="col-lg-auto bg-dark">
+          
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+  <!-- / Mailchimp -->
 
 </div>
 <!-- #page -->
