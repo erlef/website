@@ -7,20 +7,20 @@ defmodule ErlefWeb.PageView do
            method="post" id="mc-embedded-subscribe-form" 
            name="mc-embedded-subscribe-form" 
            class="validate mc4wp-form mc4wp-form-116" 
-           target="_blank" novalidate>    
-         <div class="mc-form-fields">
+           target="_blank" novalidate> 
+         <div>
            <div style="position: absolute; left: -5000px;" aria-hidden="true">
              <input type="text" name="b_8d8ff4d9284d463c374e574bb_8cad7357f8" tabindex="-1" value="">
            </div>
 
-           <div class="subscribe">
-             <p class="col-xs-4 col-md-4 col-lg-4" style="padding-left: 0">
-               <input type="email" name="EMAIL" placeholder="Your e-mail address" required="">
-             </p>
+           <div class="form-row subscribe">
+             
+               <input class="col-lg-6 form-control" type="email" name="EMAIL" placeholder="Your e-mail address" required="">
+            
 
-             <p class="col-xs-4 col-md-4 col-lg-4 mailform" style="padding-left: 0">
-               <input class="btn btn-dark" style="background-color: #343a40; border-color: #636a71; width: 100%;" type="submit" value="Subscribe to our Newsletter">
-             </p>
+             
+               <input class="col-lg-auto btn btn-primary ml-2" type="submit" value="Subscribe to our Newsletter">
+            
            </div>
          </div>    
      </form>
