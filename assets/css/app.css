@@ -34,6 +34,14 @@ body {
     background-color: var(--primary);
     background-image: url("/images/hero-mask.png");
     background-repeat: no-repeat;
-    background-position: -35vw;
-    background-size: 100vw 100%;
+    background-position: -30vw;
+    background-size: auto 100%;
+}
+
+.newsletter {
+    background-color: var(--primary);
+    background-image: url("/images/call-to-action-mask.png");
+    background-repeat: no-repeat;
+    background-position: -5vw;
+    background-size: auto 100%;
 }
