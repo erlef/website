@@ -16,9 +16,11 @@
   </section>
   <!--hero-->
   <div class="container py-5">
-    <div class="mb-5">
+    <div class="row mb-5">
+      <div class="col-lg-8">
       <h2>What does the EEF do?</h2>
       <p class="lead">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology.</p>
+      </div>
     </div>
     <h3 class="mb-4">EEF Working Groups</h3>
     <div class="row">
