@@ -1,9 +1,12 @@
 defmodule ErlefWeb.PageController do
   use ErlefWeb, :controller
+  alias Erlef.{Posts, WorkingGroup}
 
   action_fallback ErlefWeb.FallbackController
 
-  def index(conn, _params), do: render(conn)
+  def index(conn, _params) do
+    render(conn, working_groups: Posts.all(WorkingGroup))
+  end
 
   def board_members(conn, _params) do
     members = Enum.shuffle(Erlef.Rosters.get("board"))
