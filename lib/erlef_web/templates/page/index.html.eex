@@ -18,8 +18,8 @@
   <div class="container py-5">
     <div class="row mb-5">
       <div class="col-lg-8">
-      <h2>What does the EEF do?</h2>
-      <p class="lead">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology.</p>
+        <h2>What does the EEF do?</h2>
+        <p class="lead">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology.</p>
       </div>
     </div>
     <h3 class="mb-4">EEF Working Groups</h3>
@@ -28,13 +28,15 @@
       <div class="col-lg-4 mb-4">
         <h4><a class="text-dark" href="/wg/<%= group.slug %>">
             <%= group.name %></a></h4>
-        <p>Description</p>
+        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
+        <a href="/wg/<%= group.slug %>">
+          Learn More</a>
       </div>
       <% end %>
     </div>
     <!--row-->
   </div>
-  <div class="bg-brand-light py-5">
+  <section class="newsletter bg-dark py-5">
     <div class="container py-5">
       <div class="row">
         <div class="col-lg-6">
@@ -42,11 +44,34 @@
           <p>Subscribe to our newsletter to find out how you can take action and stay updated!</p>
           <%= raw subscribe_form() %>
         </div>
-        <div class="col-lg-auto bg-dark">
+      </div>
+    </div>
+  </section>
+  <!-- / Mailchimp -->
+  <section class="latest-news py-5">
+    <div class="container">
+      <h3 class="mb-5">Latest News</h3>
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>Headline</h4>
+          <p>News Content</p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Headline</h4>
+          <p>News Content</p>
+        </div>
+        <div class="col-lg-4">
+          <h4>Headline</h4>
+          <p>News Content</p>
         </div>
       </div>
     </div>
-  </div>
-  <!-- / Mailchimp -->
+  </section>
+  <section class="contribute py-5">
+    <div class="container">
+      <h2>Support our work</h2>
+      <p class="lead">Commit to support Foundation activities, such as Working Groups and community events through memberships or sponsorships.</p>
+    </div>
+  </section>
 </div>
 <!-- #page -->
