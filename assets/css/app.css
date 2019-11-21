@@ -25,3 +25,15 @@ body {
 .bg-brand-light {
     background: var(--brand-light);
 }
+
+.bg-brand {
+    background-color: var(--primary);
+}
+
+.hero {
+    background-color: var(--primary);
+    background-image: url("/images/hero-mask.png");
+    background-repeat: no-repeat;
+    background-position: -35vw;
+    background-size: 100vw 100%;
+}
