@@ -1,16 +1,22 @@
 <div id="content" class="site-content">
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-lg-6">
-        <h1 class="mb-4">Supporting the next generation of advanced, reliable, realtime applications</h1>
-        <p class="lead">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
-        <p class="lead">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
+  <section class="hero my-5">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="mb-4">Supporting the next generation of advanced, reliable, realtime applications</h1>
+          <p class="lead">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
+          <p class="lead">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
+        </div>
+        <div class="col-lg-6 align-self-end">
+          <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/hero-image.png") %>" />
+        </div>
       </div>
     </div>
-  </div>
-  <!--container-->
+    <!--container-->
+  </section>
+  <!--hero-->
   <div class="container py-5">
-    <div class="mb-4">
+    <div class="mb-5">
       <h2>What does the EEF do?</h2>
       <p class="lead">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology.</p>
     </div>
@@ -19,7 +25,7 @@
       <%= for group <- @working_groups do %>
       <div class="col-lg-4 mb-4">
         <h4><a class="text-dark" href="/wg/<%= group.slug %>">
-          <%= group.name %></a></h4>
+            <%= group.name %></a></h4>
         <p>Description</p>
       </div>
       <% end %>
