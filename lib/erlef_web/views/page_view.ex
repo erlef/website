@@ -19,7 +19,7 @@ defmodule ErlefWeb.PageView do
             
 
              
-               <input class="col-lg-auto btn btn-primary ml-2" type="submit" value="Subscribe to our Newsletter">
+               <input class="col-lg-auto btn btn-primary ml-2" type="submit" value="Subscribe">
             
            </div>
          </div>    
