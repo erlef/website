@@ -10,35 +10,21 @@
   </div>
   <!--container-->
   <div class="container py-5">
-    <h2>What does the EEF do?</h2>
-    <p class="lead">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology.</p>
-    <h3>EEF Working Groups</h3>
-    <div class="row">
-      <div class="col-lg-4">
-        <h4>Documentation</h4>
-        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
-      </div>
-      <div class="col-lg-4">
-        <h4>Documentation</h4>
-        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
-      </div>
-      <div class="col-lg-4">
-        <h4>Documentation</h4>
-        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
-      </div>
-      <div class="col-lg-4">
-        <h4>Documentation</h4>
-        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
-      </div>
-      <div class="col-lg-4">
-        <h4>Documentation</h4>
-        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
-      </div>
-      <div class="col-lg-4">
-        <h4>Documentation</h4>
-        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
-      </div>
+    <div class="mb-4">
+      <h2>What does the EEF do?</h2>
+      <p class="lead">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology.</p>
     </div>
+    <h3 class="mb-4">EEF Working Groups</h3>
+    <div class="row">
+      <%= for group <- @working_groups do %>
+      <div class="col-lg-4 mb-4">
+        <h4><a class="text-dark" href="/wg/<%= group.slug %>">
+          <%= group.name %></a></h4>
+        <p>Description</p>
+      </div>
+      <% end %>
+    </div>
+    <!--row-->
   </div>
   <div class="bg-brand-light py-5">
     <div class="container py-5">
@@ -49,12 +35,10 @@
           <%= raw subscribe_form() %>
         </div>
         <div class="col-lg-auto bg-dark">
-          
         </div>
       </div>
     </div>
   </div>
   <!-- / Mailchimp -->
-
 </div>
 <!-- #page -->
