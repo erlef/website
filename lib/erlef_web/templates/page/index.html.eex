@@ -1,11 +1,14 @@
 <div id="content" class="site-content">
-  <section class="hero my-5">
-    <div class="container py-5">
+  <section class="bg-brand my-5">
+    <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <h1 class="mb-4">Supporting the next generation of advanced, reliable, realtime applications</h1>
-          <p class="lead">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
-          <p class="lead">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
+        <div class="col-lg-6 mask">
+          
+          <div class="py-5" style="position: relative;">
+            <h1 class="mb-4">Supporting the next generation of advanced, reliable, realtime applications</h1>
+            <p class="lead">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
+            <p class="lead">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
+          </div>
         </div>
         <div class="col-lg-6 align-self-end">
           <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/hero-image.png") %>" />
