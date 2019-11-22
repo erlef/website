@@ -50,23 +50,15 @@ body {
 
     content: "";
 
-    background-image: url("/images/hero-mask.png");
+    background-color: #fff;
+    background-image: url("/images/hero-mask.svg");
+    background-repeat: no-repeat;
     background-position: right;
     background-size: auto 100%;
 }
 
-.hero {
-    background-color: var(--primary);
-    background-image: url("/images/hero-mask.png");
-    background-repeat: no-repeat;
-    background-position: -30vw;
-    background-size: auto 100%;
-}
-
-.newsletter {
-    background-color: var(--primary);
-    background-image: url("/images/call-to-action-mask.png");
-    background-repeat: no-repeat;
-    background-position: -5vw;
-    background-size: auto 100%;
+@media (min-width: 768px) {
+    .mask::after {
+        background-color: transparent;
+    }
 }
