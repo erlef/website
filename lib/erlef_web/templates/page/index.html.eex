@@ -3,8 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 mask">
-          
-          <div class="py-5" style="position: relative;">
+          <div class="py-5">
             <h1 class="mb-4">Supporting the next generation of advanced, reliable, realtime applications</h1>
             <p class="lead">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
             <p class="lead">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
@@ -39,13 +38,15 @@
     </div>
     <!--row-->
   </div>
-  <section class="newsletter bg-dark py-5">
-    <div class="container py-5">
+  <section class="bg-dark mt-5">
+    <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <h2>Connect with a diverse community around the Erlang and Elixir Ecosystem</h2>
-          <p>Subscribe to our newsletter to find out how you can take action and stay updated!</p>
-          <%= raw subscribe_form() %>
+        <div class="col-lg-6 mask">
+          <div class="py-5">
+            <h2>Connect with a diverse community around the Erlang and Elixir Ecosystem</h2>
+            <p>Subscribe to our newsletter to find out how you can take action and stay updated!</p>
+            <%= raw subscribe_form() %>
+          </div>
         </div>
       </div>
     </div>
