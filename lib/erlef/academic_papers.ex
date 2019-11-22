@@ -18,6 +18,12 @@ defmodule Erlef.AcademicPapers do
         date: Date.new(2003, 12, 1)
       },
       %{
+        link: "https://www.researchgate.net/profile/Phil_Trinder/publication/221211369_Comparing_C_and_ERLANG_for_motorola_telecoms_software/links/570fb77408aec95f061589cb/Comparing-C-and-ERLANG-for-motorola-telecoms-software.pdf",
+        name: "Comparing C++ and ERLANG for motorola telecoms software",
+        tags: "Erlang",
+        date: Date.new(2006, 1, 1)
+      },
+      %{
         link: "https://kth.diva-portal.org/smash/record.jsf?searchId=2&pid=diva2%3A392243&dswid=-4049",
         name: "Characterizing the Scalability of Erlang VM on Many-core Processors",
         tags: "BEAM",
