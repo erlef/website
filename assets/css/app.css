@@ -61,6 +61,18 @@ a {
     background-size: auto 100%;
 }
 
+.mask::before {
+    position: absolute;
+    left: -100vw;
+
+    width: 100vw;
+    height: 100%;
+
+    content: "";
+
+    background-color: #fff;
+}
+
 
 .mask-0::after {
     right: 0;
