@@ -52,30 +52,80 @@
     </div>
   </section>
   <!-- / Mailchimp -->
-  <section class="latest-news py-5">
+  <section class="latest-news py-5 my-5">
     <div class="container">
       <h3 class="mb-5">Latest News</h3>
       <div class="row">
         <div class="col-lg-4">
-          <h4>Headline</h4>
-          <p>News Content</p>
-        </div>
+          <h6>Education, Training, & Adoption</h6>
+          <h4>Introducing the EEF Grant Program</h4>
+          <div class="d-flex align-items-center mt-4">
+            <div class="avatar mr-2 rounded-circle">
+              <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+            </div>
+            <div>
+              <div>August 21, 2019</div>
+              <div>by <a href="#">Francesco Cesarini</a></div>
+            </div>
+          </div>
+        </div><!--col-->
         <div class="col-lg-4">
-          <h4>Headline</h4>
-          <p>News Content</p>
-        </div>
+          <h6>Education, Training, & Adoption</h6>
+          <h4>Introducing the EEF Grant Program</h4>
+          <div class="d-flex align-items-center mt-4">
+            <div class="avatar mr-2 rounded-circle">
+              <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+            </div>
+            <div>
+              <div>August 21, 2019</div>
+              <div>by <a href="#">Francesco Cesarini</a></div>
+            </div>
+          </div>
+        </div><!--col-->
         <div class="col-lg-4">
-          <h4>Headline</h4>
-          <p>News Content</p>
-        </div>
+          <h6>Education, Training, & Adoption</h6>
+          <h4>Introducing the EEF Grant Program</h4>
+          <div class="d-flex align-items-center mt-4">
+            <div class="avatar mr-2 rounded-circle">
+              <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+            </div>
+            <div>
+              <div>August 21, 2019</div>
+              <div>by <a href="#">Francesco Cesarini</a></div>
+            </div>
+          </div>
+        </div><!--col-->
+        
       </div>
     </div>
   </section>
-  <section class="contribute py-5">
-    <div class="container">
-      <h2>Support our work</h2>
-      <p class="lead">Commit to support Foundation activities, such as Working Groups and community events through memberships or sponsorships.</p>
+  <section class="bg-dark">
+    <div class="container mask mask-0">
+      <div class="py-5">
+        <div class="row mt-5">
+          <div class="col-lg-8">
+            <h2>Support our work</h2>
+            <p class="lead">Commit to support Foundation activities, such as Working Groups and community events through memberships or sponsorships.</p>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col-lg-6">
+            <div class="rounded bg-brand text-white p-5 text-center">
+              <h5>People are the core of what we do and, we welcome all who share our vision to join us</h5>
+              <a href="#" class="btn btn-dark">Become a Member</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="rounded bg-brand text-white p-5 text-center">
+              <h5>We invite corporations to support our efforts through sponsorships</h5>
+              <a href="#" class="btn btn-dark">Sponsor the EEF</a>
+            </div>
+          </div>
+        </div>
+        <!--row-->
+      </div>
     </div>
+    <!--container-->
   </section>
 </div>
 <!-- #page -->
