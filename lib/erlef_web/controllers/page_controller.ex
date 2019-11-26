@@ -19,8 +19,8 @@ defmodule ErlefWeb.PageController do
   def faq(conn, _params), do: render(conn)
 
   def sponsors(conn, _params) do
-    sponsors = Enum.shuffle(Erlef.Rosters.get("sponsors"))
-    render(conn, sponsors: sponsors)
+    %{true: founding_sponsors, false: sponsors} = Erlef.Rosters.get("sponsors") |> Enum.group_by(fn({k, x}) -> x.founding_sponsor == true end)
+    render(conn, founding_sponsors: founding_sponsors, sponsors: sponsors )
   end
 
   def wg_proposal_template(conn, _params), do: render(conn, "wg-proposal-template.html")
