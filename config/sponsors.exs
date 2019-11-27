@@ -2,7 +2,7 @@ use Mix.Config
 
 config :erlef, :sponsors, %{
   "adroll" => %{founding_sponsor: true, url: "https://www.adroll.com/"},
-  "aeternityae" => %{founding_sponsor: true, url: "https://aeternity.com/"},
+  "aeternityae" => %{founding_sponsor: true, url: "https://www.aeternity-foundation.org/"},
   "binary_noggin" => %{founding_sponsor: true, url: "https://binarynoggin.com/"},
   "cisco" => %{founding_sponsor: true, url: "https://www.cisco.com/"},
   "crevalle" => %{founding_sponsor: true, url: "https://crevalle.io/"},
