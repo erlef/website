@@ -58,10 +58,6 @@
 EEF Marketing Working Group
 ---
 
-## Mission Statement
-To expand awareness of Erlang Ecosystem and participation in its community.  To promote the Erlang Ecosystem Foundation
-and its activities, and to increase engagement in the foundation.
-
 ## Main Objectives
 - Support learning and social opportunities within the Erlang Ecosystem community
 - Gain a wider audience for Erlang Ecosystem-related technologies

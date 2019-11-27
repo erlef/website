@@ -1,70 +1,47 @@
-<div id="content" class="site-content mt-4">
-  <div class="container">
-    <div class="row">    <h3><%= @wg.name %> Working Group</h3>
-    </div>
-    <div class="row">
-
-      <div class="col-sm-2">
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
-          aria-orientation="vertical">
-          <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
-            href="#about" role="tab" aria-controls="v-pills-home"
-                                     aria-selected="true">About</a>
-          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
-            href="#news" role="tab" aria-controls="v-pills-profile"
-            aria-selected="false">News</a>
-          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
-            href="#members" role="tab" aria-controls="v-pills-profile"
-            aria-selected="false">Members</a>
-        </div>
-      </div>
-
-      <div class="col-sm-10">
-        <div class="tab-content" id="pills-tabContent">
-           <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="v-pills-members-tab">
-             <main id="main" class="site-main">
-                <article class="card post-94 page type-page status-publish hentry">
-                  <div class="card-body">
-                    <div class="entry-content">
-                      <p><%= raw @wg.body_html %></p>
-                      <%= if @wg.primary_contact_method == "email" && @wg.email do %>
-                        <p>You can reach us at: <a href="mailto:<%= @wg.email %>"><%= @wg.email %></a></p>
-                      <% end %>
-                      <%= if @wg.primary_contact_method == "github" && @wg.github do %>
-                        <p>You can reach us at: <a href="<%= @wg.github %>"><%= @wg.github %></a></p>
-                      <% end %>
-                      <%= if @wg.gcal_url do %>
-                        <p>Feel free to subscribe to our <a href="<%= raw @wg.gcal_url %>" title="Add to Google Calendar">Google Calendar</a>
-  to keep track of upcoming meetings </p>
-                      <% end %>
-                    </div>
-                  </div>
-                </article>
-             </main>
-           </div>
-
-            <div class="tab-pane fade" id="news" role="tabpanel" aria-labelledby="pills-home-tab">
-              <main id="main" class="site-main">
-                <article class="card post-94 page type-page status-publish hentry">
-                  <div class="card-body">
-                    <div class="entry-content">
-                      <h1>Latest News</h1>
-                      <%= if Enum.empty?(@blog_posts) do %>
-                        Nothing yet!  Check back soon!
-                      <% end %>
-                      <%= for post <- @blog_posts do %>
-                        <p> <%= render(ErlefWeb.BlogView, "preview.html", post: post, topic: @topic) %></p>
-                      <% end %>
-                    </div>
-                  </div>
-                </article>
-              </main><!-- #main -->
-            </div>
-
-          <div class="tab-pane fade" id="members" role="tabpanel" aria-labelledby="pills-home-tab">
-            <%= render_shared "gallery.html", members: Enum.shuffle(@wg.members) %>
-          </div>
+<div class="bg-brand my-5">
+  <div class="container mask mask-0">
+    <div class="row py-5">
+      <div class="col-lg-8">
+        <h1>
+          <%= @wg.name %> Working Group</h1>
+          <h2 class="mt-5">Mission</h2>
+        <p class="lead">
+          <%= @wg.description %>
+        </p>
       </div>
     </div>
   </div>
-</div> <!-- /.container -->
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 pr-5">
+      <%= raw @wg.body_html %>
+    </div>
+    <div class="col-lg-4">
+      <%= if @wg.primary_contact_method == "email" && @wg.email do %>
+      <p>You can reach us at: <a href="mailto:<%= @wg.email %>">
+          <%= @wg.email %></a></p>
+      <% end %>
+      <%= if @wg.primary_contact_method == "github" && @wg.github do %>
+      <p>You can reach us at: <a href="<%= @wg.github %>">
+          <%= @wg.github %></a></p>
+      <% end %>
+      <%= if @wg.gcal_url do %>
+      <p>Feel free to subscribe to our <a href="<%= raw @wg.gcal_url %>" title="Add to Google Calendar">Google Calendar</a>
+        to keep track of upcoming meetings </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div>
+  <h1>Latest News</h1>
+  <%= if Enum.empty?(@blog_posts) do %>
+  Nothing yet! Check back soon!
+  <% end %>
+  <%= for post <- @blog_posts do %>
+  <p>
+    <%= render(ErlefWeb.BlogView, "preview.html", post: post, topic: @topic) %>
+  </p>
+  <% end %>
+  <%= render_shared "gallery.html", members: Enum.shuffle(@wg.members) %>
+</div>
