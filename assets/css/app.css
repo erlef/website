@@ -84,6 +84,12 @@ a {
     overflow: hidden;
 }
 
+.avatar-large {
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
+}
+
 @media (min-width: 768px) {
     .mask::after {
         background-color: transparent;

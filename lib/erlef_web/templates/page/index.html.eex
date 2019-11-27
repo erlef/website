@@ -99,33 +99,6 @@
       </div>
     </div>
   </section>
-  <section class="bg-dark">
-    <div class="container mask mask-0">
-      <div class="py-5">
-        <div class="row mt-5">
-          <div class="col-lg-8">
-            <h2>Support our work</h2>
-            <p class="lead">Commit to support Foundation activities, such as Working Groups and community events through memberships or sponsorships.</p>
-          </div>
-        </div>
-        <div class="row my-5">
-          <div class="col-lg-6">
-            <div class="rounded bg-brand text-white p-5 text-center">
-              <h5>People are the core of what we do and, we welcome all who share our vision to join us</h5>
-              <a href="#" class="btn btn-dark">Become a Member</a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="rounded bg-brand text-white p-5 text-center">
-              <h5>We invite corporations to support our efforts through sponsorships</h5>
-              <a href="#" class="btn btn-dark">Sponsor the EEF</a>
-            </div>
-          </div>
-        </div>
-        <!--row-->
-      </div>
-    </div>
-    <!--container-->
-  </section>
+  
 </div>
 <!-- #page -->

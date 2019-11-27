@@ -92,6 +92,3 @@ The Erlang Ecosystem community needs a coordinated effort to promote its activit
 - Ben Marx
 - Amos King
 - Devon Estes
-
-
--------
