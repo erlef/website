@@ -4,7 +4,7 @@
       <div class="col-lg-8">
         <h1>
           <%= @wg.name %> Working Group</h1>
-          <h2 class="mt-5">Mission</h2>
+          <h4 class="mt-4">Mission</h4>
         <p class="lead">
           <%= @wg.description %>
         </p>
@@ -33,15 +33,13 @@
     </div>
   </div>
 </div>
-<div>
+<div class="container">
   <h1>Latest News</h1>
   <%= if Enum.empty?(@blog_posts) do %>
   Nothing yet! Check back soon!
   <% end %>
   <%= for post <- @blog_posts do %>
-  <p>
-    <%= render(ErlefWeb.BlogView, "preview.html", post: post, topic: @topic) %>
-  </p>
+  <%= render(ErlefWeb.BlogView, "preview.html", post: post, topic: @topic) %>
   <% end %>
   <%= render_shared "gallery.html", members: Enum.shuffle(@wg.members) %>
 </div>
