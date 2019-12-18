@@ -1,11 +1,29 @@
-<div class="container">
-
-  <div id="calendar"
-       data-calendar-header="true"
-       <%= gcal_api_key(@gcal_api_key) %>
-       <%= gcal_id(@gcal_id) %>
-       class="mt-5">
+<div class="bg-brand my-5">
+  <div class="container mask mask-0">
+    <div class="row py-5">
+      <div class="col-lg-8">
+        <h1>Events</h1>
+        <p class="lead">
+          The EEF participates in many events related to the BEAM Community.
+        </p>
+      </div>
+    </div>
   </div>
-
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 pr-5">
+      <div id="calendar" data-calendar-header="true" <%=gcal_api_key(@gcal_api_key) %>
+        <%= gcal_id(@gcal_id) %>
+        >
+      </div>
+    </div>
+    <!--col-->
+    <div class="col-lg-4">
+      <h6>Event Promotion</h6>
+      <h4>If you want to list an event</h4>
+      <p>If you know about a related event that is not yet listed here or that you run on your own, contact us at <a href="mailto:">events@erlef.org</a></p>
+    </div><!--col-->
+  </div>
 </div>
 <!-- /.container -->
