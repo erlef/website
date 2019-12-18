@@ -16,6 +16,9 @@
   <div class="row">
     <div class="col-lg-8 pr-5">
       <%= raw @wg.body_html %>
+      <div class="mt-5">
+      <%= render_shared "gallery.html", members: Enum.shuffle(@wg.members) %>
+      </div>
     </div>
     <div class="col-lg-4">
       <%= if @wg.primary_contact_method == "email" && @wg.email do %>
@@ -33,13 +36,13 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <h1>Latest News</h1>
+<div class="container mt-5">
+  <h2>Latest News</h2>
   <%= if Enum.empty?(@blog_posts) do %>
-  Nothing yet! Check back soon!
+  <p>Nothing yet! Check back soon!</p>
   <% end %>
   <%= for post <- @blog_posts do %>
   <%= render(ErlefWeb.BlogView, "preview.html", post: post, topic: @topic) %>
   <% end %>
-  <%= render_shared "gallery.html", members: Enum.shuffle(@wg.members) %>
+  
 </div>

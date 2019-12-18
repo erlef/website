@@ -1,12 +1,13 @@
 <%= for list <- Enum.chunk_every(@members, 4) do %>
 <div class="d-flex">
   <%= for %{name: name, image: image} <- list do %>
-  <div>
+  <div class="pr-2 mb-2">
     <div class="avatar-large rounded">
-      <img class="h-100" src="/images/<%= image %>" alt="<%= name %>">
+      <img class="img-fluid" src="/images/<%= image %>" alt="<%= name %>">
     </div>
     <%= name %>
   </div>
   <% end %>
 </div>
 <% end %>
+
