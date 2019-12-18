@@ -29,7 +29,7 @@
         <h2>Details</h2>
         <dl>
           <dt>Starts: </dt>
-          <dl class="ml-5">
+          <dl class="ml-2">
             <dt> Date: </dt>
             <dd><abbr title="<%= year_month_day(@event.start) %>">
                 <%= month_name_and_day(@event.start) %> </abbr></dd>
@@ -41,7 +41,7 @@
             </dd>
           </dl>
           <dt>Ends: </dt>
-          <dl class="ml-5">
+          <dl class="ml-2">
             <dt> Date: </dt>
             <dd><abbr title="<%= year_month_day(@event.end) %>">
                 <%= month_name_and_day(@event.end) %> </abbr></dd>
@@ -57,7 +57,11 @@
     </div>
     <!--col-->
     <div class="col-lg-4">
-      <h6>Participate</h6>
+      <h6>About the Organizer</h6>
+      <h3><%=  @event.organizer %></h3>
+      <a href="<%= raw @event.organizer_url %>" target="_blank">
+                    <%= @event.organizer_url %></a>
+      <h6 class="mt-4">Participate</h6>
       <h4>Add the event to your calendar</h4>
       <%= if @event.gcal_url do %>
       <div>
@@ -75,54 +79,8 @@
         <!-- Navigation -->
       </div>
       <div class="hentry">
-        <!-- Event featured image, but exclude link -->
-        <!-- Event content -->
-        <div class="event-description">
-        </div>
-        <div class="jumbotron mt-2">
-          <div class="row">
-            <div class="col">
-              <h2> Details </h2>
-              <dl>
-                <dt>Starts: </dt>
-                <dl class="ml-5">
-                  <dt> Date: </dt>
-                  <dd><abbr title="<%= year_month_day(@event.start) %>">
-                      <%= month_name_and_day(@event.start) %> </abbr></dd>
-                  <dt> Time: </dt>
-                  <dd>
-                    <div title="<%= year_month_day(@event.end) %>">
-                      <%= start_time %>
-                    </div>
-                  </dd>
-                </dl>
-                <dt>Ends: </dt>
-                <dl class="ml-5">
-                  <dt> Date: </dt>
-                  <dd><abbr title="<%= year_month_day(@event.end) %>">
-                      <%= month_name_and_day(@event.end) %> </abbr></dd>
-                  <dt> Time: </dt>
-                  <dd>
-                    <div title="<%= year_month_day(@event.end) %>">
-                      <%= end_time %>
-                    </div>
-                  </dd>
-                </dl>
-              </dl>
-            </div>
-            <div class="col">
-              <h2>Organizer</h2>
-              <dl>
-                <dd>
-                  <%=  @event.organizer %>
-                </dd>
-                <dt>Website:</dt>
-                <dd><a href="<%= raw @event.organizer_url %>" target="_blank">
-                    <%= @event.organizer_url %></a> </dd>
-              </dl>
-            </div>
-          </div>
-        </div>
+        
+        
         <%= if @event.venue_address1 do %>
         <div class="row">
           <div class="col">

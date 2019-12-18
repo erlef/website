@@ -17,6 +17,15 @@ body {
     font-family: canada-type-gibson, sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+}
+
 a {
     color: var(--primary);
 }
@@ -41,8 +50,6 @@ a {
 .mask > div {
     position: relative;
     z-index: 100;
-
-    outline: 1px solid gray;
 }
 
 .mask::after {
@@ -56,7 +63,6 @@ a {
 
     content: "";
 
-    outline: 1px solid gray;
     background-color: #fff;
     background-image: url("/images/hero-mask.svg");
     background-repeat: no-repeat;
@@ -73,7 +79,6 @@ a {
 
     content: "";
 
-    outline: 1px solid gray;
     background-color: #fff;
 }
 
@@ -88,9 +93,11 @@ a {
 }
 
 .avatar-large {
-    width: 128px;
-    height: 128px;
+    width: 160px;
+    height: 160px;
     overflow: hidden;
+
+    background: #444;
 }
 
 @media (min-width: 768px) {
