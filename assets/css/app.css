@@ -35,6 +35,10 @@ a {
     background: var(--primary);
 }
 
+.btn-primary.active {
+    background: #444;
+}
+
 .bg-brand-light {
     background: var(--brand-light);
 }
