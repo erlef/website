@@ -3,7 +3,7 @@
     <div class="col-lg-8">
       <h1>Latest News</h1>
       <p class="lead">
-        The latest from the Beam community
+        <%= @description %>
       </p>
     </div>
   </div>
@@ -26,7 +26,7 @@
   <%= if @posts != [] do %>
   <% post1 = Enum.at(@posts, 0) %>
   <%= unless is_nil(post1) do %>
-  <div class="jumbotron p-4 p-md-5">
+  <div class="jumbotron p-4 p-md-5 mb-5">
     <div class="col px-0">
       <h6 class="text-uppercase text-muted">
         <%= post1.category %>
@@ -54,7 +54,7 @@
   <% end %>
   <main role="main" class="container">
     <div class="row">
-      <div class="col-md-8 blog-main">
+      <div class="col-lg-8 blog-main pr-5">
         <%= if Enum.empty?(@posts) do %>
         <h1 class="mt-5">Nothing yet! Check back soon!</h1>
         <% end %>
