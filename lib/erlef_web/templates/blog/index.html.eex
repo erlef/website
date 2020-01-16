@@ -43,11 +43,20 @@
           <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
         </div>
         <div>
-          <div>August 21, 2019</div>
-          <div>by <a class="text-capitalize" href="#"><%= post1.author %></a></div>
+          <% month =  Timex.month_name(post1.datetime.month) %>
+          <% day =  post1.datetime.day %>
+          <% year = post1.datetime.year %>
+          <% author = post1.author %>
+          <div>
+            <%= month %>
+            <%= day %>,
+            <%= year %>
+          </div>
+          <div>by <a class="text-capitalize" href="#">
+              <%= post1.author %></a>
+          </div>
         </div>
       </div>
-      
     </div>
   </div>
   <% end %>
@@ -60,10 +69,13 @@
         <% end %>
         <%= for post <- @posts do %>
         <div class="post-preview">
+          <h6 class="text-uppercase text-muted">
+            <%= post.category %>
+          </h6>
           <%= link(to: Routes.news_path(@conn, :show, @topic, post.slug), class: "post-title") do %>
-          <h2>
+          <h3>
             <%= post.title %>
-          </h2>
+          </h3>
           <% end %>
           <h3 class="post-subtitle">
             <%= post.excerpt %>
