@@ -1,54 +1,88 @@
-
-  <div class="container">
-<div class="nav-scroller py-1 mb-1">
-        <nav class="nav d-flex justify-content-between">
-            <%= link("EEF", to: "/news", class: "p-2 text-muted") %>
-            <%= link("Building", to: "/news/building", class: "p-2 text-muted") %>
-            <%= link("Documentation", to: "/news/documentation", class: "p-2 text-muted") %>
-            <%= link("Education", to: "/news/education", class: "p-2 text-muted") %>
-            <%= link("Fellowship", to: "/news/fellowship", class: "p-2 text-muted") %>
-			<%= link("Marketing", to: "/news/marketing", class: "p-2 text-muted") %>
-			<%= link("Observability", to: "/news/observability", class: "p-2 text-muted") %>
-			<%= link("Security", to: "/news/security", class: "p-2 text-muted") %>
-        </nav>
+<div class="container">
+  <div class="row py-5">
+    <div class="col-lg-8">
+      <h1>Latest News</h1>
+      <p class="lead">
+        The latest from the Beam community
+      </p>
+    </div>
+  </div>
 </div>
-<%= if @posts != [] do %>
-    <% post1 = Enum.at(@posts, 0) %>
-    <%= unless is_nil(post1) do %>
-      <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-        <div class="col px-0">
-          <h1 class="display-8 font-italic"><%= post1.title %></h1>
-          <p class="lead my-3"><%= post1.excerpt %></p>
-          <p class="lead mb-0">
-          <%= link("Continuing Reading", to: Routes.news_path(@conn, :show, @topic, post1.slug), class: "stretched") %>
+<div class="container">
+  <!--
+  <div class="nav-scroller py-1 mb-1">
+    <nav class="nav d-flex justify-content-between">
+      <%= link("EEF", to: "/news", class: "p-2 text-muted") %>
+      <%= link("Building", to: "/news/building", class: "p-2 text-muted") %>
+      <%= link("Documentation", to: "/news/documentation", class: "p-2 text-muted") %>
+      <%= link("Education", to: "/news/education", class: "p-2 text-muted") %>
+      <%= link("Fellowship", to: "/news/fellowship", class: "p-2 text-muted") %>
+      <%= link("Marketing", to: "/news/marketing", class: "p-2 text-muted") %>
+      <%= link("Observability", to: "/news/observability", class: "p-2 text-muted") %>
+      <%= link("Security", to: "/news/security", class: "p-2 text-muted") %>
+    </nav>
+  </div>
+  -->
+  <%= if @posts != [] do %>
+  <% post1 = Enum.at(@posts, 0) %>
+  <%= unless is_nil(post1) do %>
+  <div class="jumbotron p-4 p-md-5">
+    <div class="col px-0">
+      <h6 class="text-uppercase text-muted">
+        <%= post1.category %>
+      </h6>
+      <h1 class="display-4">
+        <%= post1.title %>
+      </h1>
+      <%= link("Continuing Reading", to: Routes.news_path(@conn, :show, @topic, post1.slug), class: "stretched") %>
+      <p class="lead my-3">
+        <%= post1.excerpt %>
+      </p>
+      <div class="d-flex align-items-center my-4">
+        <div class="avatar mr-2 rounded-circle">
+          <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+        </div>
+        <div>
+          <div>August 21, 2019</div>
+          <div>by <a class="text-capitalize" href="#"><%= post1.author %></a></div>
         </div>
       </div>
-    <% end %>
-<% end %>
-
-<main role="main" class="container">
-  <div class="row">
-    <div class="col-md-8 blog-main">
-      <%= if Enum.empty?(@posts) do %>
-         <h1 class="mt-5">Nothing yet! Check back soon!</h1>
-       <% end %>
-
-      <%= for post <- @posts do %>
+      
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+        <%= if Enum.empty?(@posts) do %>
+        <h1 class="mt-5">Nothing yet! Check back soon!</h1>
+        <% end %>
+        <%= for post <- @posts do %>
         <div class="post-preview">
           <%= link(to: Routes.news_path(@conn, :show, @topic, post.slug), class: "post-title") do %>
-            <h2><%= post.title %></h2>
+          <h2>
+            <%= post.title %>
+          </h2>
           <% end %>
-          <h3 class="post-subtitle"><%= post.excerpt %></h3>
+          <h3 class="post-subtitle">
+            <%= post.excerpt %>
+          </h3>
           <% month =  Timex.month_name(post.datetime.month) %>
           <% day =  post.datetime.day %>
           <% year = post.datetime.year %>
           <% author = post.author %>
-          <p class="post-meta">Posted by <%= author %> on <%= month %> <%= day %>, <%= year %></p>
+          <p class="post-meta">Posted by
+            <%= author %> on
+            <%= month %>
+            <%= day %>,
+            <%= year %>
+          </p>
         </div>
-        <hr/>
-      <% end %>
+        <hr />
+        <% end %>
+      </div>
+      <%= render ErlefWeb.BlogView, "sidebar.html", conn: @conn, name: @name, description: @description %>
     </div>
-    <%= render ErlefWeb.BlogView, "sidebar.html", conn: @conn, name: @name, description: @description %>
-  </div>
-</main>
-  </div>
+  </main>
+</div>
