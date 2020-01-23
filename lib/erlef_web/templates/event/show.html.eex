@@ -1,4 +1,4 @@
-<div class="bg-brand my-5" data-title="<%= #{@event.title} %> – Erlang Ecosystem Foundation" data-viewtitle="<%= @event.title %>">
+<div class="my-5" data-title="<%= #{@event.title} %> – Erlang Ecosystem Foundation" data-viewtitle="<%= @event.title %>">
   <div class="container mask mask-0">
     <div class="row py-5">
       <div class="col-lg-8">
