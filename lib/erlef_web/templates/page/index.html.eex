@@ -1,25 +1,25 @@
+
 <div id="content" class="site-content">
-  <section class="bg-brand my-5">
+  <section class="py-5">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mask">
-          <div class="py-5">
-            <h1 class="mb-4">Supporting the next generation of advanced, reliable, realtime applications</h1>
-            <p class="lead">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
-            <p class="lead">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
-          </div>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1 class="mb-4">Supporting the next generation of advanced, reliable, realtime applications</h1>
+          <p class="lead">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
+          <p class="lead">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
         </div>
-        <div class="col-lg-6 align-self-end">
-          <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/hero-image.png") %>" />
+        <div class="col-md-5 offset-1">
+          <div class="clip-svg right-bleed bg-dark">
+            <img class="gradient-mask-right" src="/images/leaves.jpg">
+          </div>
         </div>
       </div>
     </div>
-    <!--container-->
   </section>
   <!--hero-->
   <div class="container py-5">
     <div class="row mb-5">
-      <div class="col-lg-8">
+      <div class="col-md-8">
         <h2>What does the EEF do?</h2>
         <p class="lead">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology.</p>
       </div>
@@ -27,7 +27,7 @@
     <h3 class="mb-4">EEF Working Groups</h3>
     <div class="row">
       <%= for group <- @working_groups do %>
-      <div class="col-lg-4 mb-4">
+      <div class="col-md-4 mb-4">
         <h4><a class="text-dark" href="/wg/<%= group.slug %>">
             <%= group.name %></a></h4>
         <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
@@ -38,16 +38,20 @@
     </div>
     <!--row-->
   </div>
-  <section class="bg-dark mt-5">
+  <section class="bg-light py-5">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mask">
-          <div class="py-5">
-            <h2>Connect with a diverse community around the Erlang and Elixir Ecosystem</h2>
-            <p>Subscribe to our newsletter to find out how you can take action and stay updated!</p>
-            <%= raw subscribe_form() %>
+      <div class="row align-items-center">
+        <div class="col-md-3">
+          <div class="clip-svg left-bleed bg-dark text-right">
+            <img class="gradient-mask-left" src="/images/leaves2.png">
           </div>
         </div>
+        <div class="col-md-8 offset-1 align-self-center">
+          <h2>Connect with a diverse community around the Erlang and Elixir Ecosystem</h2>
+          <p>Subscribe to our newsletter to find out how you can take action and stay updated!</p>
+          <%= raw subscribe_form() %>
+        </div>
+        
       </div>
     </div>
   </section>
@@ -68,7 +72,8 @@
               <div>by <a href="#">Francesco Cesarini</a></div>
             </div>
           </div>
-        </div><!--col-->
+        </div>
+        <!--col-->
         <div class="col-lg-4">
           <h6>Education, Training, & Adoption</h6>
           <h4>Introducing the EEF Grant Program</h4>
@@ -81,7 +86,8 @@
               <div>by <a href="#">Francesco Cesarini</a></div>
             </div>
           </div>
-        </div><!--col-->
+        </div>
+        <!--col-->
         <div class="col-lg-4">
           <h6>Education, Training, & Adoption</h6>
           <h4>Introducing the EEF Grant Program</h4>
@@ -94,11 +100,18 @@
               <div>by <a href="#">Francesco Cesarini</a></div>
             </div>
           </div>
-        </div><!--col-->
-        
+        </div>
+        <!--col-->
       </div>
     </div>
   </section>
-  
 </div>
 <!-- #page -->
+
+<svg height="0" width="0" viewBox="0 0 864 563">
+  <defs>
+    <clipPath id="myClip" transform="scale(0.001157407407 0.001776198934)" clipPathUnits="objectBoundingBox">
+      <path d="M80.14 0h775.738a8 8 0 017.931 9.044l-72.017 547a8 8 0 01-7.931 6.956H8.122a8 8 0 01-7.931-9.044l72.017-547A8 8 0 0180.139 0z" />
+    </clipPath>
+  </defs>
+</svg>
