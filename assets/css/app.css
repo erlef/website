@@ -7,14 +7,14 @@
 
 
 :root {
-    --brand-light: #f8f5f6;
-    --primary: #9d2653;
+  --brand-light: #f8f5f6;
+  --primary: #9d2653;
 }
 
 
 html,
 body {
-    font-family: canada-type-gibson, sans-serif;
+  font-family: canada-type-gibson, sans-serif;
 }
 
 h1,
@@ -23,89 +23,78 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 a {
-    color: var(--primary);
+  color: var(--primary);
+}
+
+section {
+  overflow: hidden;
 }
 
 .btn-primary {
-    border-color: var(--primary);
-    background: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary);
 }
 
 .btn-primary.active {
-    background: #444;
+  background: #444;
 }
 
 .bg-brand-light {
-    background: var(--brand-light);
+  background: var(--brand-light);
 }
 
 .bg-brand {
-    background-color: var(--primary);
-}
-
-.mask {
-    position: relative;
-}
-
-.mask > div {
-    position: relative;
-    z-index: 100;
-}
-
-.mask::after {
-    position: absolute;
-    top: 0;
-    right: -25%;
-    z-index: 0;
-
-    width: 200%;
-    height: 100%;
-
-    content: "";
-
-    background-color: #fff;
-    background-image: url("/images/hero-mask.svg");
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: auto 100%;
-}
-
-.mask::before {
-    position: absolute;
-    left: -100vw;
-
-    width: 100vw;
-    height: 100%;
-
-    content: "";
-
-    background-color: #fff;
-}
-
-.mask-0::after {
-    right: 0;
+  background-color: var(--primary);
 }
 
 .avatar {
-    width: 48px;
-    height: 48px;
-    overflow: hidden;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
 }
 
 .avatar-large {
-    width: 160px;
-    height: 160px;
-    overflow: hidden;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
 
-    background: #444;
+  background: #444;
 }
 
+.clip-svg {
+  -webkit-clip-path: url(#myClip);
+  clip-path: url(#myClip);
+}
+
+.gradient-mask-right {
+  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.gradient-mask-left {
+  -webkit-mask-image: linear-gradient(270deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(270deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.right-bleed {
+  display: none;
+}
+
+
 @media (min-width: 768px) {
-    .mask::after {
-        background-color: transparent;
-    }
+  .right-bleed {
+    display: block;
+    margin-right: calc(-100vw / 2);
+
+  }
+
+  .left-bleed {
+    display: block;
+    margin-left: calc(-100vw / 2);
+
+  }
 }
