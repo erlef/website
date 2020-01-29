@@ -1,37 +1,35 @@
+<div class="py-5 mb-5 bg-light">
+  <div class="container">
+    <h1>Academic Papers</h1>
+  </div>
+</div>
 <div id="content" class="site-content">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div id="primary" class="content-area">
           <main id="main" class="site-main">
-            <article id="post-94" class="card mt-3r post-94 page type-page status-publish hentry">
-              <div class="card-body">
-                <header class="entry-header"></header>
-
-                  <div class="entry-content">
-                      <h1>Academic Papers</h1>
-
-                      <p>
-                        <a href="https://github.com/erlef/website/issues/new">
-                          Please open an issue to add a new paper
-                        </a>
-                      </p>
-
-                      <p>Papers are organized chronologically. We attempt to
-                      show the BEAM related tech used in the paper next to the
-                      title.</p>
-
-                      <ul>
-                        <%= for ap <- @academic_papers do %>
-                          <li>
-                            <a href="<%= ap.link %>"><%= ap.name %> | <%= ap.tags %></a>
-                          </li>
-                        <% end %>
-                      </ul>
-
-                  </div><!-- .entry-content -->
-                </div>
-              <!-- /.card-body -->
+            <article id="post-94" class="post-94 page type-page status-publish hentry">
+              <header class="entry-header"></header>
+              <div class="entry-content">
+                <p>
+                  <a href="https://github.com/erlef/website/issues/new">
+                    Please open an issue to add a new paper
+                  </a>
+                </p>
+                <p>Papers are organized chronologically. We attempt to
+                  show the BEAM related tech used in the paper next to the
+                  title.</p>
+                <ul>
+                  <%= for ap <- @academic_papers do %>
+                  <li>
+                    <a href="<%= ap.link %>">
+                      <%= ap.name %> |
+                      <%= ap.tags %></a>
+                  </li>
+                  <% end %>
+                </ul>
+              </div><!-- .entry-content -->
             </article><!-- #post-94 -->
           </main><!-- #main -->
         </div><!-- #primary -->
