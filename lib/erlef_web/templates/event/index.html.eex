@@ -1,13 +1,9 @@
-<div class="my-5">
-  <div class="container mask mask-0">
-    <div class="row py-5">
-      <div class="col-lg-8">
-        <h1>Events</h1>
-        <p class="lead">
-          The EEF participates in many events related to the BEAM Community.
-        </p>
-      </div>
-    </div>
+<div class="py-5 mb-5 bg-light">
+  <div class="container">
+    <h1>Events</h1>
+    <p class="lead">
+      The EEF participates in many events related to the BEAM Community.
+    </p>
   </div>
 </div>
 <div class="container">
@@ -23,7 +19,8 @@
       <h6>Event Promotion</h6>
       <h4>If you want to list an event</h4>
       <p>If you know about a related event that is not yet listed here or that you run on your own, contact us at <a href="mailto:">events@erlef.org</a></p>
-    </div><!--col-->
+    </div>
+    <!--col-->
   </div>
 </div>
 <!-- /.container -->

@@ -1,42 +1,35 @@
 <script>
-
-function show_form() {
+  function show_form() {
   $('#nav_tabs a[href="#form"]').tab('show');
   return false;
 }
-
 </script>
-
+<div class="py-5 mb-5 bg-light">
+  <div class="container">
+    <h1>Stipends</h1>
+    <p class="lead">
+      Our stipend program is funded by our Sponsors and committed to supporting open source development, training, workshops, and other initiatives that will help increase and expand the Beam community.
+    </p>
+  </div>
+</div>
 <div class="container">
-
   <div id="congrats" class="d-none">
     <h3>Congrats!</h3>
     <p>Expect a copy of your stipend proposal coming from eef-stipend-submissions@beam.eco</p>
   </div>
-
   <main id="main_content" role="main" class="mt-3">
-    <h2>Stipend request process</h2>
-    <hr />
+    <h2>Request Process</h2>
     <div class="row">
       <div class="col-sm-2">
-        <div id="nav_tabs" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
-          aria-orientation="vertical">
-          <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
-            href="#intro" role="tab" aria-controls="v-pills-home"
-            aria-selected="true">Intro</a>
-          <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill"
-            href="#faq" role="tab" aria-controls="v-pills-messages"
-            aria-selected="false">FAQ</a>
-          <a id="form_link" class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
-            href="#form" role="tab" aria-controls="v-pills-profile"
-            aria-selected="false">Form</a>
+        <div id="nav_tabs" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#intro" role="tab" aria-controls="v-pills-home" aria-selected="true">Intro</a>
+          <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#faq" role="tab" aria-controls="v-pills-messages" aria-selected="false">FAQ</a>
+          <a id="form_link" class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#form" role="tab" aria-controls="v-pills-profile" aria-selected="false">Form</a>
         </div>
       </div>
-
       <div class="col-sm-10">
         <div class="tab-content" id="pills-tabContent">
-          <div class="tab-pane fade show active" id="intro" role="tabpanel"
-            aria-labelledby="pills-home-tab">
+          <div class="tab-pane fade show active" id="intro" role="tabpanel" aria-labelledby="pills-home-tab">
             <p>
               It is our great pleasure to announce that we have just opened our stipend program. The goal of it is to
               fund open source development, trainings, workshops and other initiatives that will help increase
@@ -61,7 +54,6 @@ function show_form() {
               education
               for a minimum of 6 hours. We will not fund prizes for hackathons
               or swag.</p>
-
             <p>We recommend that you submit stipend proposals via our form at
               least 12
               weeks prior to the event. Proposals should be concise and have a
@@ -72,38 +64,26 @@ function show_form() {
               sustainable, long term relationships with them. The EEF could limit the
               number of events per
               organizer and/or city that are stipended within a given year. </p>
-
             <p>
-            If you want to apply for a stipend, fill out the form <a href="#" onclick="show_form();">here</a>.
+              If you want to apply for a stipend, fill out the form <a href="#" onclick="show_form();">here</a>.
               If you have any questions please reach out to
               <a href="mailto:stipends@erlef.org">stipends@erlef.org</a>
             </p>
           </div>
-
-
-          <div class="tab-pane fade" id="faq" role="tabpanel"
-            aria-labelledby="pills-profile-tab">
+          <div class="tab-pane fade" id="faq" role="tabpanel" aria-labelledby="pills-profile-tab">
             <h2 id="#faq">FAQ</h2>
-
             <div class="faq-nav">
               <div class="tab-content" id="faq-tab-content">
-                <div class="tab-pane show active" id="tab1" role="tabpanel"
-                  aria-labelledby="tab1">
+                <div class="tab-pane show active" id="tab1" role="tabpanel" aria-labelledby="tab1">
                   <div class="accordion" id="accordion-tab-1">
                     <div class="card">
                       <div class="card-header" id="accordion-tab-1-heading-1">
                         <h5>
-                          <button class="btn btn-link" type="button"
-                            data-toggle="collapse"
-                            data-target="#accordion-tab-1-content-1"
-                            aria-expanded="false"
-                            aria-controls="accordion-tab-1-content-1"> When
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-1" aria-expanded="false" aria-controls="accordion-tab-1-content-1"> When
                             should I submit my stipend request?</button>
                         </h5>
                       </div>
-                      <div class="collapse show" id="accordion-tab-1-content-1"
-                        aria-labelledby="accordion-tab-1-heading-1"
-                        data-parent="#accordion-tab-1">
+                      <div class="collapse show" id="accordion-tab-1-content-1" aria-labelledby="accordion-tab-1-heading-1" data-parent="#accordion-tab-1">
                         <div class="card-body">
                           We recommend that stipend requests be submitted at least
                           12 weeks before the funding is needed.
@@ -113,18 +93,12 @@ function show_form() {
                     <div class="card">
                       <div class="card-header" id="accordion-tab-1-heading-2">
                         <h5>
-                          <button class="btn btn-link" type="button"
-                            data-toggle="collapse"
-                            data-target="#accordion-tab-1-content-2"
-                            aria-expanded="false"
-                            aria-controls="accordion-tab-1-content-2">What stipend
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-2" aria-expanded="false" aria-controls="accordion-tab-1-content-2">What stipend
                             can I ask for organizing a
                             conference?</button>
                         </h5>
                       </div>
-                      <div class="collapse" id="accordion-tab-1-content-2"
-                        aria-labelledby="accordion-tab-1-heading-2"
-                        data-parent="#accordion-tab-1">
+                      <div class="collapse" id="accordion-tab-1-content-2" aria-labelledby="accordion-tab-1-heading-2" data-parent="#accordion-tab-1">
                         <div class="card-body">
                           <p>The maximum conference stipend size is typically
                             around 10 USD per
@@ -143,19 +117,13 @@ function show_form() {
                     <div class="card">
                       <div class="card-header" id="accordion-tab-1-heading-3">
                         <h5>
-                          <button class="btn btn-link" type="button"
-                            data-toggle="collapse"
-                            data-target="#accordion-tab-1-content-3"
-                            aria-expanded="false"
-                            aria-controls="accordion-tab-1-content-3">
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-3" aria-expanded="false" aria-controls="accordion-tab-1-content-3">
                             I am organizing a workshop. What stipend can I ask
                             for?
                           </button>
                         </h5>
                       </div>
-                      <div class="collapse" id="accordion-tab-1-content-3"
-                        aria-labelledby="accordion-tab-1-heading-3"
-                        data-parent="#accordion-tab-1">
+                      <div class="collapse" id="accordion-tab-1-content-3" aria-labelledby="accordion-tab-1-heading-3" data-parent="#accordion-tab-1">
                         <div class="card-body">
                           <p>Our maximum educational program stipend size is
                             typically USD 25 per
@@ -209,21 +177,14 @@ function show_form() {
                         </div>
                       </div>
                     </div>
-
                     <div class="card">
                       <div class="card-header" id="accordion-tab-1-heading-4">
-                        <h5><button class="btn btn-link" type="button"
-                            data-toggle="collapse"
-                            data-target="#accordion-tab-1-content-4"
-                            aria-expanded="false"
-                            aria-controls="accordion-tab-1-content-4">
+                        <h5><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-tab-1-content-4" aria-expanded="false" aria-controls="accordion-tab-1-content-4">
                             Is there a maximum stipend size that can be
                             awarded?</button>
                         </h5>
                       </div>
-                      <div class="collapse" id="accordion-tab-1-content-4"
-                        aria-labelledby="accordion-tab-1-heading-4"
-                        data-parent="#accordion-tab-1">
+                      <div class="collapse" id="accordion-tab-1-content-4" aria-labelledby="accordion-tab-1-heading-4" data-parent="#accordion-tab-1">
                         <div class="card-body">
                           <p>There is no maximum, however bear in mind that the
                             foundation has a limited budget and we reserve the
@@ -237,209 +198,159 @@ function show_form() {
               </div>
             </div>
           </div>
-
-          <div class="tab-pane fade" id="form" role="tabpanel"
-            aria-labelledby="pills-contact-tab">
-
+          <div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="pills-contact-tab">
             <h2 id="#form">Stipend Proposal Form</h2>
-
-
-  <%= unless @errors == [] do %>
-    <script>
-      show_form();
+            <%= unless @errors == [] do %>
+            <script>
+              show_form();
     </script>
-
-    <div class="alert alert-danger mt-3">
-      <strong>Errors : </strong>
-    <ul>
-      <% errs = Enum.reduce(@errors, "", fn(err, acc) -> acc <> "<li>#{err}</li>" end) %>
-      <%= raw errs %>
-    </ul>
-  </div>
-<% end %>
-  <%= form_for @conn, Routes.stipend_path(@conn, :create), [id: "stipend_form", multipart: true], fn f -> %>
-              <div class="form-row">
-                <div class="col-md-3 mb-3">
-                  <label for="first_name">* First name</label>
-
-				 <%= text_input(f, :first_name, class: "form-control", maxlength: 50, required: true, placeholder: "First name") %>
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="last_name">* Last name</label>
-                  <%= text_input(f, :last_name, class: "form-control", maxlength: 50, required: true, placeholder: "Last name") %>
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="nick_name">* Nick Name</label>
-                  <div class="input-group">
-                    <%= text_input(f, :nick_name, class: "form-control", maxlength: 50, required: true, placeholder: "Nick name") %>
-                  </div>
+            <div class="alert alert-danger mt-3">
+              <strong>Errors : </strong>
+              <ul>
+                <% errs = Enum.reduce(@errors, "", fn(err, acc) -> acc <> "<li>#{err}</li>" end) %>
+                <%= raw errs %>
+              </ul>
+            </div>
+            <% end %>
+            <%= form_for @conn, Routes.stipend_path(@conn, :create), [id: "stipend_form", multipart: true], fn f -> %>
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label for="first_name">* First name</label>
+                <%= text_input(f, :first_name, class: "form-control", maxlength: 50, required: true, placeholder: "First name") %>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="last_name">* Last name</label>
+                <%= text_input(f, :last_name, class: "form-control", maxlength: 50, required: true, placeholder: "Last name") %>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="nick_name">* Nick Name</label>
+                <div class="input-group">
+                  <%= text_input(f, :nick_name, class: "form-control", maxlength: 50, required: true, placeholder: "Nick name") %>
                 </div>
               </div>
-
-              <div class="form-row">
-                <div class="col-md-3 mb-3">
-                  <label for="email_address">* Email address</label>
-                  <%= text_input(f, :email_address, class: "form-control", maxlength: 50, required: true, placeholder: "Email address") %>
-                </div>
-
-
-                <div class="col-md-3 mb-3">
-                  <label for="phone_number">* Phone Number</label>
-                   <%= telephone_input(f, :phone_number, class: "form-control", maxlength: 50, required: true, placeholder: "Phone number") %>
-                </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label for="email_address">* Email address</label>
+                <%= text_input(f, :email_address, class: "form-control", maxlength: 50, required: true, placeholder: "Email address") %>
               </div>
-
-              <div class="form-row">
-                <div class="col-md-3 mb-3">
-                  <label for="org_name">Organization Name</label>
-
- 					<%= text_input(f, :org_name, class: "form-control", maxlength: 50, placeholder: "Organization name") %>
-                </div>
-
-
-                <div class="col-md-3 mb-3">
-                  <label for="org_name">Organization Email</label>
-
- 					<%= text_input(f, :org_email, class: "form-control", maxlength: 50, placeholder: "Organization email") %>
-
-                </div>
+              <div class="col-md-3 mb-3">
+                <label for="phone_number">* Phone Number</label>
+                <%= telephone_input(f, :phone_number, class: "form-control", maxlength: 50, required: true, placeholder: "Phone number") %>
               </div>
-              <div class="form-row">
-                <div class="col-md-2 mb-3">
-                  <label for="city">* City</label>
-
-				<%= text_input(f, :city, class: "form-control", maxlength: 85, required: true, placeholder: "City") %>
-
-				</div>
-                <div class="col-md-2 mb-3">
-                  <label
-                    for="region">* Region</label>
-
-				<%= text_input(f, :region, class: "form-control", maxlength: 50, required: true, placeholder: "Region") %>
-
-			  <small class="text-muted">(e.g., state or province)</small>
-                </div>
-                <div class="col-md-2 mb-3">
-                  <label for="postal_code">* Postal Code</label>
-					<%= text_input(f, :postal_code, class: "form-control", maxlength: 10, required: true, placeholder: "Postal code") %>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                  <label for="country">* Country</label>
-                  <%= country_select(f) %>
-                </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label for="org_name">Organization Name</label>
+                <%= text_input(f, :org_name, class: "form-control", maxlength: 50, placeholder: "Organization name") %>
               </div>
-
-              <div class="form-row">
-                <div class="col-md-3 mb-3">
-                  <label for="twitter">Twitter Handle</label>
-
-				 <%= text_input(f, :twitter, class: "form-control", maxlength: 50,  placeholder: "Twitter Handle") %>
-
-                </div>
-
-
-                <div class="col-md-3 mb-3">
-                  <label for="linkedin">LinkedIn</label>
-                 <%= text_input(f, :linkedin, class: "form-control", maxlength: 50,  placeholder: "LinkedIn") %>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                  <label for="website">WebSite</label>
-
-                  <%= text_input(f, :website, class: "form-control", maxlength: 50,  placeholder: "Website") %>
-                </div>
+              <div class="col-md-3 mb-3">
+                <label for="org_name">Organization Email</label>
+                <%= text_input(f, :org_email, class: "form-control", maxlength: 50, placeholder: "Organization email") %>
               </div>
-
-              <div class="form-row mb-2">
-                <div class="col-md-9 mb-6">
-                  <label for="bio">* Small Bio</label>
-                  <%= textarea(f, :bio, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
-                </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-2 mb-3">
+                <label for="city">* City</label>
+                <%= text_input(f, :city, class: "form-control", maxlength: 85, required: true, placeholder: "City") %>
               </div>
-
-              <div class="form-row mb-2">
-                <div class="col-md-3 mb-3">
-                  <label for="stipend_type">* Stipend Type</label>
-                  <%= stipend_type_select(f) %>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <p id=""></p>
-                  <p id="conference" class="alert info d-none">
-A gathering including talks and other events to promote Beam languages in the local community. A separate stipend should be submitted for educational programs that are a subset of conference events.</p>
-                   <p id="devel_work" class="alert info d-none">
-                    Develop a Beam languages-based open source program or library.
-                   </p>
-
-                   <p id="event_site_sub" class="alert info d-none">
-                      The subscription cost of a service providing advertising services for Beam languages-related events.
-                   </p>
-
-                   <p id="kids_camp" class="alert info d-none">
-                    Teach aspiring Beam language coders under age 18 coding skills.
-                   </p>
-
-                   <p id="sprint" class="alert info d-none">
-                    Development of an open-source project for 2+ days in a team environment.
-                   </p>
-
-                   <p id="training" class="alert info d-none">
-                    Multiple weeks or month course on Beam languages that is principally hands-on
-                   </p>
-
-                   <p id="workshop-women" class="alert info d-none">
-                    An interactive, hands-on, training into one or more specific Beam languages topics/themes/goals, which supports and mentors women. </p>
-
-                   <p id="workshop-edu" class="alert info d-none">
-                      An interactive, hands-on, training into one or more specific Beam languages topics/themes/goals. It should include at least 6 hours of instruction
-                   </p>
-
-                   <p id="other" class="alert info d-none">
-                   </p>
-                </div>
+              <div class="col-md-2 mb-3">
+                <label for="region">* Region</label>
+                <%= text_input(f, :region, class: "form-control", maxlength: 50, required: true, placeholder: "Region") %>
+                <small class="text-muted">(e.g., state or province)</small>
               </div>
-
-
-              <div id="coc_link" class="form-row d-none mb-2">
-                <div class="col-md-6 mb-3">
-                  <label for="code_of_conduct_link">* Link to code of conduct of the event
-                    (required for workshops and conferences)</label>
-
-                  <%= text_input(f, :code_of_conduct_link, class: "form-control", maxlength: 50,  placeholder: "") %>
-
-                </div>
+              <div class="col-md-2 mb-3">
+                <label for="postal_code">* Postal Code</label>
+                <%= text_input(f, :postal_code, class: "form-control", maxlength: 10, required: true, placeholder: "Postal code") %>
               </div>
-
-              <div class="mb-2">
-                <label for="files">Optional File attachment(s) : </label>
-                <small class="text-muted">Maximum upload size in total limited to 8MB</small>
-                  <div>
-                    <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-                  </div>
-
-                  <div>
-                    <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-                  </div>
-
-                  <div>
-                     <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-                  </div>
-
-                  <div>
-                       <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-                  </div>
-
-                  <div>
-                      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-                  </div>
-             </div>
-
-              <div class="form-row mb-2">
-                <div class="col-md-9 mb-6">
-                  <label for="org_name">* Purpose</label>
-
-                  <small>
+              <div class="col-md-3 mb-3">
+                <label for="country">* Country</label>
+                <%= country_select(f) %>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label for="twitter">Twitter Handle</label>
+                <%= text_input(f, :twitter, class: "form-control", maxlength: 50,  placeholder: "Twitter Handle") %>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="linkedin">LinkedIn</label>
+                <%= text_input(f, :linkedin, class: "form-control", maxlength: 50,  placeholder: "LinkedIn") %>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="website">WebSite</label>
+                <%= text_input(f, :website, class: "form-control", maxlength: 50,  placeholder: "Website") %>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+              <div class="col-md-9 mb-6">
+                <label for="bio">* Small Bio</label>
+                <%= textarea(f, :bio, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+              <div class="col-md-3 mb-3">
+                <label for="stipend_type">* Stipend Type</label>
+                <%= stipend_type_select(f) %>
+              </div>
+              <div class="col-md-6 mb-3">
+                <p id=""></p>
+                <p id="conference" class="alert info d-none">
+                  A gathering including talks and other events to promote Beam languages in the local community. A separate stipend should be submitted for educational programs that are a subset of conference events.</p>
+                <p id="devel_work" class="alert info d-none">
+                  Develop a Beam languages-based open source program or library.
+                </p>
+                <p id="event_site_sub" class="alert info d-none">
+                  The subscription cost of a service providing advertising services for Beam languages-related events.
+                </p>
+                <p id="kids_camp" class="alert info d-none">
+                  Teach aspiring Beam language coders under age 18 coding skills.
+                </p>
+                <p id="sprint" class="alert info d-none">
+                  Development of an open-source project for 2+ days in a team environment.
+                </p>
+                <p id="training" class="alert info d-none">
+                  Multiple weeks or month course on Beam languages that is principally hands-on
+                </p>
+                <p id="workshop-women" class="alert info d-none">
+                  An interactive, hands-on, training into one or more specific Beam languages topics/themes/goals, which supports and mentors women. </p>
+                <p id="workshop-edu" class="alert info d-none">
+                  An interactive, hands-on, training into one or more specific Beam languages topics/themes/goals. It should include at least 6 hours of instruction
+                </p>
+                <p id="other" class="alert info d-none">
+                </p>
+              </div>
+            </div>
+            <div id="coc_link" class="form-row d-none mb-2">
+              <div class="col-md-6 mb-3">
+                <label for="code_of_conduct_link">* Link to code of conduct of the event
+                  (required for workshops and conferences)</label>
+                <%= text_input(f, :code_of_conduct_link, class: "form-control", maxlength: 50,  placeholder: "") %>
+              </div>
+            </div>
+            <div class="mb-2">
+              <label for="files">Optional File attachment(s) : </label>
+              <small class="text-muted">Maximum upload size in total limited to 8MB</small>
+              <div>
+                <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+              </div>
+              <div>
+                <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+              </div>
+              <div>
+                <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+              </div>
+              <div>
+                <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+              </div>
+              <div>
+                <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+              <div class="col-md-9 mb-6">
+                <label for="org_name">* Purpose</label>
+                <small>
                   <p id="purpose_help" class="form-text alert alert-info">Describe
                     the purpose of the stipend, location and date, including the
                     date in which the funds must be received. We recommend to
@@ -453,101 +364,83 @@ A gathering including talks and other events to promote Beam languages in the lo
                     ratio, the amount of hands-on training time and a lesson
                     plan with learning outcomes for participants.
                   </p>
-                  </small>
-                  <%= textarea(f, :purpose, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
-                </div>
+                </small>
+                <%= textarea(f, :purpose, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
               </div>
-
-
-              <div class="form-row mb-2">
-
-            <div class="col-md-9">
-                  <small id="stipend_amount_help" class="form-text text-muted">
-                    <p class="form-text alert alert-info">
-                      Specify here the stipend amount in detail. Please note that
-                      the EEF may only be able to provide partial funding for a
-                      proposal so let us know if this is acceptable to you. Be
-                      sure to include a breakdown of the amount you are
-                      requesting. We prefer to see what you plan on using the
-                      funds for.
-                      Example: 1200$ total ($700 for venue, $300 for trav
-                      el, $200 for food). To thank you for your sponsorship, we
-                      will place the EEF logo on our site and offer you 3 free
-                      tickets to the event to distribute as you see fit.
-                    </p>
-                  </small>
             </div>
+            <div class="form-row mb-2">
+              <div class="col-md-9">
+                <small id="stipend_amount_help" class="form-text text-muted">
+                  <p class="form-text alert alert-info">
+                    Specify here the stipend amount in detail. Please note that
+                    the EEF may only be able to provide partial funding for a
+                    proposal so let us know if this is acceptable to you. Be
+                    sure to include a breakdown of the amount you are
+                    requesting. We prefer to see what you plan on using the
+                    funds for.
+                    Example: 1200$ total ($700 for venue, $300 for trav
+                    el, $200 for food). To thank you for your sponsorship, we
+                    will place the EEF logo on our site and offer you 3 free
+                    tickets to the event to distribute as you see fit.
+                  </p>
+                </small>
               </div>
-
-              <div class="form-row mb-2">
-                                <div class="col-md-3 mb-6">
-                  <label for="stipend_amount">* Amount (USD)</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">$</span>
-                    </div>
-
-                    <%= number_input(f, :stipend_amount, class: "form-control currency", maxlength: 6, required: true, placeholder: "0.00", step: "1.00") %>
-
+            </div>
+            <div class="form-row mb-2">
+              <div class="col-md-3 mb-6">
+                <label for="stipend_amount">* Amount (USD)</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
                   </div>
+                  <%= number_input(f, :stipend_amount, class: "form-control currency", maxlength: 6, required: true, placeholder: "0.00", step: "1.00") %>
                 </div>
-
-                <div class="col-md-6 mb-2">
-                    <label for="payment_method">Preferred payment
-                      method</label>
-
-                    <%= payment_method_select(f) %>
-                    <small id="payment_method_help"
-                      class="form-text text-muted">We can do checks only within
-                      the US. If the request is for $500 or less, PayPal is
-                      suggested.</small>
-                  </div>
-
-               </div>
-
-                <div class="form-row mb-2">
-                  <div class="col-md-9 mb-6">
-                    <small id="beneficiaries_help" class="form-text text-muted">
-                      <label for="beneficiaries">* Beneficiaries</label>
-
-                      <p class="form-text alert alert-info">
-                        Describe who will be the beneficiaries of the stipend and
-                        the expected size of the event.
-                        For onsite events we would love to have an overview of
-                        other Beam related
-                        activities/meetups/trainings/conferences located in that
-                        area, the number of attendees, frequency and such.
-                      </p>
-
-					<%= textarea(f, :beneficiaries, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
-
-                  </div>
-                </div>
-
-                <div class="form-row mb-2">
-                  <div class="col-md-9 mb-6">
-                    <label for="report">* Report</label>
-                    <p class="form-text alert alert-info">The EEF would like to
-                      see how the stipend was used so we require that we receive a
-                      report that will help us understand the impact that the
-                      stipends are having and how the activities are received
-                      by the community. We require to receive this report within
-                      one month of the event. Please describe in this section
-                      what items you will include on the report and what follow
-                      up activities do you plan on. For example: blog posts,
-                      post events write-ups, web pages, project updates, lessons
-                      learned (what went well and what needs to improve), the
-                      feedback from the participants, social media, number of
-                      attendees, demographics, and such.</p>
-                    <%= textarea(f, :report, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
-                  </div>
-                </div>
-
-
-                <button id="submit_form" class="btn btn-primary mt-2" type="submit">Submit</button>
-                <div id="submit_error" class="alert alert-danger d-none">
-
               </div>
+              <div class="col-md-6 mb-2">
+                <label for="payment_method">Preferred payment
+                  method</label>
+                <%= payment_method_select(f) %>
+                <small id="payment_method_help" class="form-text text-muted">We can do checks only within
+                  the US. If the request is for $500 or less, PayPal is
+                  suggested.</small>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+              <div class="col-md-9 mb-6">
+                <small id="beneficiaries_help" class="form-text text-muted">
+                  <label for="beneficiaries">* Beneficiaries</label>
+                  <p class="form-text alert alert-info">
+                    Describe who will be the beneficiaries of the stipend and
+                    the expected size of the event.
+                    For onsite events we would love to have an overview of
+                    other Beam related
+                    activities/meetups/trainings/conferences located in that
+                    area, the number of attendees, frequency and such.
+                  </p>
+                  <%= textarea(f, :beneficiaries, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+              <div class="col-md-9 mb-6">
+                <label for="report">* Report</label>
+                <p class="form-text alert alert-info">The EEF would like to
+                  see how the stipend was used so we require that we receive a
+                  report that will help us understand the impact that the
+                  stipends are having and how the activities are received
+                  by the community. We require to receive this report within
+                  one month of the event. Please describe in this section
+                  what items you will include on the report and what follow
+                  up activities do you plan on. For example: blog posts,
+                  post events write-ups, web pages, project updates, lessons
+                  learned (what went well and what needs to improve), the
+                  feedback from the participants, social media, number of
+                  attendees, demographics, and such.</p>
+                <%= textarea(f, :report, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
+              </div>
+            </div>
+            <button id="submit_form" class="btn btn-primary mt-2" type="submit">Submit</button>
+            <div id="submit_error" class="alert alert-danger d-none">
+            </div>
             <% end %>
           </div>
         </div>
@@ -555,20 +448,18 @@ A gathering including talks and other events to promote Beam languages in the lo
     </div>
   </main>
 </div>
-
 <script>
-  document.querySelector("#stipend_type").addEventListener("change", function(e) {
-    var required = this.options[this.selectedIndex].getAttribute("data-requires-coc");
-    var show = "#" + this.options[this.selectedIndex].getAttribute("data-type");
-    $(".active-stipend-type-help").removeClass("active-stipend-type-help").addClass("d-none");
-    $(show).addClass("active-stipend-type-help").removeClass("d-none");
-    if (required == "true" || required == true) {
-        $("#coc_input").prop("required", true);
-        $("#coc_link").removeClass("d-none");
-      } else {
-        $("#coc_link").addClass("d-none");
-        $('#coc_input').removeAttr('required');
-    }
-  });
-
+document.querySelector("#stipend_type").addEventListener("change", function(e) {
+  var required = this.options[this.selectedIndex].getAttribute("data-requires-coc");
+  var show = "#" + this.options[this.selectedIndex].getAttribute("data-type");
+  $(".active-stipend-type-help").removeClass("active-stipend-type-help").addClass("d-none");
+  $(show).addClass("active-stipend-type-help").removeClass("d-none");
+  if (required == "true" || required == true) {
+    $("#coc_input").prop("required", true);
+    $("#coc_link").removeClass("d-none");
+  } else {
+    $("#coc_link").addClass("d-none");
+    $('#coc_input').removeAttr('required');
+  }
+});
 </script>

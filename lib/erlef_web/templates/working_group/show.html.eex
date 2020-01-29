@@ -1,15 +1,11 @@
-<div class="my-5">
-  <div class="container mask mask-0">
-    <div class="row py-5">
-      <div class="col-lg-8">
-        <h1>
-          <%= @wg.name %> Working Group</h1>
-          <h4 class="mt-4">Mission</h4>
-        <p class="lead">
-          <%= @wg.description %>
-        </p>
-      </div>
-    </div>
+<div class="py-5 mb-5 bg-light">
+  <div class="container">
+    <h1>
+      <%= @wg.name %> Working Group</h1>
+    <h4 class="mt-4">Mission</h4>
+    <p class="lead">
+      <%= @wg.description %>
+    </p>
   </div>
 </div>
 <div class="container">
@@ -17,7 +13,7 @@
     <div class="col-lg-8 pr-5">
       <%= raw @wg.body_html %>
       <div class="mt-5">
-      <%= render_shared "gallery.html", members: Enum.shuffle(@wg.members) %>
+        <%= render_shared "gallery.html", members: Enum.shuffle(@wg.members) %>
       </div>
     </div>
     <div class="col-lg-4">
@@ -44,5 +40,4 @@
   <%= for post <- @blog_posts do %>
   <%= render(ErlefWeb.BlogView, "preview.html", post: post, topic: @topic) %>
   <% end %>
-  
 </div>
