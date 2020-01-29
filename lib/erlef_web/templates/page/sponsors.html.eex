@@ -1,36 +1,40 @@
-<div class="container">
-  <div class="card-body card mt-3">
-  <p class="mt-3">Interested in becoming a sponsor?  <a href="/become-a-sponsor/">Check this out!</a></p>
-
-  <hr/>
-    <h3>Founding Sponsors</h3>
-    <hr/>
-    <div class="row text-center text-lg-left mt-3 mb-3">
-
-    <%= for {name, %{url: href}} <- @founding_sponsors do %>
-    <div class="col-lg-2 col-md-4 col-6">
-      <a href="<%= href %>" class="d-block mb-2">
-        <img class="img-fluid img-thumbnail sponsor"
-          src="<%= Routes.static_path(@conn, "/images/sponsors/#{name}-logo.png") %>" alt="">
-      </a>
-    </div>
-  <% end %>
-  </div>
-
-  <hr/>
-  <h3> Sponsors </h3>
-  <hr/>
-  <div class="row text-center text-lg-left mt-3 mb-3">
-
-    <%= for {name, %{url: href}} <- @sponsors do %>
-    <div class="col-lg-2 col-md-4 col-6">
-      <a href="<%= href %>" class="d-block mb-2">
-        <img class="img-fluid img-thumbnail sponsor"
-          src="<%= Routes.static_path(@conn, "/images/sponsors/#{name}-logo.png") %>" alt="">
-      </a>
-    </div>
-  <% end %>
-  </div>
+<div class="py-5 mb-5 bg-light">
+  <div class="container">
+    <h1>Sponsors</h1>
+    <p class="lead">
+      Our sponsors play a vital role in supporting the foundation's initiatives. It is through their generous donations that we can work on our mission to support and expand the Beam community.
+    </p>
   </div>
 </div>
-
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9 pr-5">
+      <h3>Founding Sponsors</h3>
+      <div class="row text-center text-lg-left mt-3 mb-3">
+        <%= for {name, %{url: href}} <- @founding_sponsors do %>
+        <div class="col-lg-2 col-md-4 col-6">
+          <a href="<%= href %>" class="d-block mb-2">
+            <img class="img-fluid img-thumbnail sponsor" src="<%= Routes.static_path(@conn, "/images/sponsors/#{name}-logo.png") %>" alt="">
+          </a>
+        </div>
+        <% end %>
+      </div>
+      <h3> Sponsors </h3>
+      <div class="row text-center text-lg-left mt-3 mb-3">
+        <%= for {name, %{url: href}} <- @sponsors do %>
+        <div class="col-lg-2 col-md-4 col-6">
+          <a href="<%= href %>" class="d-block mb-2">
+            <img class="img-fluid img-thumbnail sponsor" src="<%= Routes.static_path(@conn, "/images/sponsors/#{name}-logo.png") %>" alt="">
+          </a>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <h6>Contributing</h6>
+      <h4>Interested in becoming a sponsor?</h4>
+      <p>Your donation will help on the development of technologies and open source projects that your engineers and many engineers around the world will use daily.</p>
+      <p class="mt-3"><a class="" href="/become-a-sponsor/">Learn more about our Sponsorship Tiers</a></p>
+    </div>
+  </div>
+</div>
