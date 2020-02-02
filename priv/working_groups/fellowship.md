@@ -10,7 +10,7 @@
       "name": "Francesco Cesarini"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "members/benoit-chesneau.jpg",
       "name": "Benoit Chesneau"
     },
     {

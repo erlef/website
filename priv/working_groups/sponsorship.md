@@ -14,11 +14,11 @@
       "name": "Sebastion Strollo"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "members/benoit-chesneau.jpg",
       "name": "Benoit Chesneau"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "members/alistair-woodman.png",
       "name": "Alistair Woodman"
     },
     {
@@ -55,9 +55,9 @@ Approve sponsors candidacy
 - Maintain institutional memory of outreach to potential, current and historical sponsors.
 
 ## Why does this group require the Foundation
-Sponsorships help the Erlang Ecosystem worldwide by supporting sprints, meetups, community events and projects, 
-and of course, software development and open source projects. All of these initiatives help improve the 
-Erlang Ecosystem community and Erlang Ecosystem tools that are used daily. This work can’t be done without the generous 
+Sponsorships help the Erlang Ecosystem worldwide by supporting sprints, meetups, community events and projects,
+and of course, software development and open source projects. All of these initiatives help improve the
+Erlang Ecosystem community and Erlang Ecosystem tools that are used daily. This work can’t be done without the generous
 financial support that sponsor organizations provide to the foundation.
 
 

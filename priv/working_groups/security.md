@@ -13,7 +13,7 @@
       "name": "Bram Verburg"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "members/maxim-fedorov.jpg",
       "name": "Maxim Fedorov"
     },
     {
