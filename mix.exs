@@ -36,21 +36,21 @@ defmodule Erlef.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.4.8"},
+      {:phoenix, "~> 1.4.12"},
       {:phoenix_pubsub, "~> 1.1"},
-      {:phoenix_html, "~> 2.11"},
+      {:phoenix_html, "~> 2.14"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:gettext, "~> 0.11"},
+      {:gettext, "~> 0.17.4"},
       {:jason, "~> 1.1", override: true},
       {:plug_cowboy, "~> 2.1"},
-      {:earmark, "~> 1.3.2", override: true},
-      {:excoveralls, "~> 0.12.0"},
+      {:earmark, "~> 1.4.3", override: true},
+      {:excoveralls, "~> 0.12.2"},
       {:timex, "~> 3.6"},
-      {:swoosh, "~> 0.23.3"},
+      {:swoosh, "~> 0.24.4"},
       {:phoenix_swoosh, "~> 0.2.0"},
-      {:gen_smtp, "~> 0.14.0"},
+      {:gen_smtp, "~> 0.15.0"},
       {:dialyxir, "~> 1.0.0-rc.6", only: [:dev], runtime: false},
-      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.2.2", only: [:dev, :test], runtime: false},
       {:etso, "~> 0.1.1"}
     ]
   end
