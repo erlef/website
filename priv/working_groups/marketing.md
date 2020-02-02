@@ -18,7 +18,7 @@
       "name": "Miriam Pena"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "members/maxim-fedorov.png",
       "name": "Maxim Fedorov"
     },
     {
