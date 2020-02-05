@@ -6,7 +6,7 @@
     </p>
   </div>
 </div>
-<div class="container">
+<div class="container mb-5">
   <div class="row">
     <div class="col-lg-8 pr-5">
       <div id="calendar" data-calendar-header="true" <%=gcal_api_key(@gcal_api_key) %>

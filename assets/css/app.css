@@ -8,8 +8,10 @@
 
 :root {
   --brand-light: #f8f5f6;
-  --primary: #0A3A59;
+  --primary: #1F2C34;
   --dark: #0F1F29;
+  --link: #4CA9E7;
+  --muted: #90AFC4;
 }
 
 
@@ -28,10 +30,19 @@ h6 {
 }
 
 a {
-  color: var(--primary);
+  color: var(--link);
 }
 
 section {
+  overflow: hidden;
+}
+
+.img-inverted {
+  filter: invert(1);
+}
+
+.font-weight-bold {
+  font-weight: 500 !important;
 }
 
 .btn-primary {
@@ -77,6 +88,14 @@ section {
 .clip-svg-hero {
   position: absolute;
   left: 0;
+  top: 0;
+  z-index: 0;
+  height: 100%;
+}
+
+.clip-svg-cta {
+  position: absolute;
+  left: 0;
   top: 10%;
   z-index: 0;
   height: 100%;
@@ -100,15 +119,21 @@ section {
   display: none;
 }
 
+.event-card img {
+  height: 4rem;
+  width: auto;
+}
 
 @media (min-width: 768px) {
   .right-bleed {
     display: block;
     margin-right: calc(-100vw / 2);
+    overflow: hidden;
   }
 
   .left-bleed {
     display: block;
     margin-left: calc(-100vw / 2);
+    overflow: hidden;
   }
 }

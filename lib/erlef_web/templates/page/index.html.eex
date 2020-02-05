@@ -1,35 +1,37 @@
-<div id="content" class="site-content">
-  <section class="py-5 bg-dark">
+<div id="content" class="site-content bg-brand">
+  <section class="py-5 bg-brand">
     <div class="container">
       <div class="row align-items-stretch">
         <div class="col-md-5 py-5">
-          
-          <h1 class="mb-4 text-white">Supporting the next generation of advanced, reliable, realtime applications</h1>
+
+          <h1 class="mb-4 display-4 font-weight-bold text-white">Erlang Ecosystem Foundation</h1>
+          <h2 class="text-white mb-4">Supporting the next generation of advanced, reliable, realtime applications</h2>
           <p class="lead text-white">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
           <p class="lead text-white">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
+          <a class="h3" href="#">Join Now →</a>
         </div>
         <div class="col-md-7 offset-lg-1 col-lg-6">
           <div class="d-flex flex-column h-100 py-0 py-md-5" style="position: relative; z-index: 100;">
-            <h5 class="px-2 px-md-4 text-white font-weight-bold">Upcoming Events</h5>
-            <div class="p-2 p-md-4 rounded text-white bg-dark my-2 d-flex align-items-center">
-              <div style="background-color: #ff0160;" class="p-2 p-md-4 mr-4 rounded w-25 align-self-stretch">
-                <img style="max-height: 50px;" src="/images/code-sync.svg" class="img-fluid d-block mx-auto">
+            <h5 class="py-2 text-white font-weight-bold">Upcoming Events</h5>
+            <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+              <div style="background-color: #ff0160;" class="p-2 p-md-4 mr-4 w-25 rounded-left">
+                <img src="/images/code-sync.svg" class="img-fluid d-block mx-auto">
               </div>
               <div>
                 <h4>Code BEAM SF 2020</h4>
                 <h5 class="mb-0">5-6 March</h5>
               </div>
             </div>
-            <div class="p-2 p-md-4 rounded text-white bg-dark my-2 d-flex align-items-center">
-              <div style="background-color: #235185;" class="p-2 p-md-4 mr-4 rounded w-25">
-                <img style="max-height: 50px;" src="/images/lonestar-elixir.svg" class="img-fluid d-block mx-auto">
+            <div class="event-card rounded bg-white my-2 d-flex align-items-center">
+              <div style="background-color: #235185;" class="p-2 p-md-4 mr-4 w-25">
+                <img src="/images/lonestar-elixir.svg" class=" d-block mx-auto">
               </div>
               <div>
                 <h4>Lonestar Elixir 2020</h4>
                 <h5 class="mb-0">5-6 March</h5>
               </div>
             </div>
-            <a class="text-white px-2 px-md-4" href="#">View All Events →</a>
+            <a class="h4 py-2" href="#">View All Events →</a>
           </div>
           <div class="clip-svg clip-svg-hero right-bleed bg-dark"><img class="gradient-mask-right h-100" src="/images/leaves.jpg"></div>
         </div>
@@ -37,39 +39,39 @@
     </div>
   </section>
   <!--hero-->
-  
-  <div class="container py-5 mt-5">
-    <div class="row mb-5">
-      <div class="col-md-8">
-        
-        <h2 class="">What does the EEF do?</h2>
-        <p class="lead">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology.</p>
+  <section>
+    <div class="container py-5 mt-5">
+      <div class="row mb-5">
+        <div class="col-md-8">
+          <h2 class="text-white display-4 font-weight-bold">What does the EEF do?</h2>
+          <p class="lead text-white">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology.</p>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <%= for group <- @working_groups do %>
-      <div class="col-md-4 mb-4">
-        <h4><a class="text-dark" href="/wg/<%= group.slug %>">
-            <%= group.name %></a></h4>
-        <p>Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
-        <a href="/wg/<%= group.slug %>">
-          Learn More →</a>
+      <div class="row">
+        <%= for group <- @working_groups do %>
+        <div class="col-md-4 mb-5">
+          <h3 class="font-weight-bold"><a href="/wg/<%= group.slug %>">
+              <%= group.name %></a></h3>
+          <p class="text-white">Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
+          <a href="/wg/<%= group.slug %>">
+            Learn More →</a>
+        </div>
+        <% end %>
       </div>
-      <% end %>
+      <!--row-->
     </div>
-    <!--row-->
-  </div>
-  <section class="bg-light py-5">
+  </section>
+  <section class="py-5">
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row align-items-stretch">
         <div class="col-md-3">
           <div class="clip-svg left-bleed bg-dark text-right">
             <img class="gradient-mask-left" src="/images/leaves2.png">
           </div>
         </div>
-        <div class="col-md-8 offset-1 align-self-center">
-          <h2>Connect with a diverse community around the Erlang and Elixir Ecosystem</h2>
-          <p>Subscribe to our newsletter to find out how you can take action and stay updated!</p>
+        <div class="col-md-8 offset-md-1 align-self-center">
+          <h2 class="text-white display-4 font-weight-bold">Connect with a diverse community around the Erlang and Elixir Ecosystem</h2>
+          <p class="lead text-white mb-5">Subscribe to our newsletter to find out how you can take action and stay updated!</p>
           <%= raw subscribe_form() %>
         </div>
       </div>
@@ -78,16 +80,16 @@
   <!-- / Mailchimp -->
   <section class="latest-news py-5 my-5">
     <div class="container">
-      <h3 class="mb-5">Latest News</h3>
+      <h3 class="mb-5 text-white">Latest News</h3>
       <div class="row">
         <div class="col-lg-4">
-          <h6>Education, Training, & Adoption</h6>
-          <h4>Introducing the EEF Grant Program</h4>
+          <h6 class="text-white">Education, Training, & Adoption</h6>
+          <h4 class="text-white">Introducing the EEF Grant Program</h4>
           <div class="d-flex align-items-center mt-4">
             <div class="avatar mr-2 rounded-circle">
               <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
             </div>
-            <div>
+            <div class="text-white">
               <div>August 21, 2019</div>
               <div>by <a href="#">Francesco Cesarini</a></div>
             </div>
@@ -95,13 +97,13 @@
         </div>
         <!--col-->
         <div class="col-lg-4">
-          <h6>Education, Training, & Adoption</h6>
-          <h4>Introducing the EEF Grant Program</h4>
+          <h6 class="text-white">Education, Training, & Adoption</h6>
+          <h4 class="text-white">Introducing the EEF Grant Program</h4>
           <div class="d-flex align-items-center mt-4">
             <div class="avatar mr-2 rounded-circle">
               <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
             </div>
-            <div>
+            <div class="text-white">
               <div>August 21, 2019</div>
               <div>by <a href="#">Francesco Cesarini</a></div>
             </div>
@@ -109,13 +111,13 @@
         </div>
         <!--col-->
         <div class="col-lg-4">
-          <h6>Education, Training, & Adoption</h6>
-          <h4>Introducing the EEF Grant Program</h4>
+          <h6 class="text-white">Education, Training, & Adoption</h6>
+          <h4 class="text-white">Introducing the EEF Grant Program</h4>
           <div class="d-flex align-items-center mt-4">
             <div class="avatar mr-2 rounded-circle">
               <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
             </div>
-            <div>
+            <div class="text-white">
               <div>August 21, 2019</div>
               <div>by <a href="#">Francesco Cesarini</a></div>
             </div>
@@ -125,12 +127,12 @@
       </div>
     </div>
   </section>
-</div>
-<!-- #page -->
-<svg height="0" width="0" viewBox="0 0 864 563">
+  <svg height="0" width="0" viewBox="0 0 864 563">
   <defs>
     <clipPath id="myClip" transform="scale(0.001157407407 0.001776198934)" clipPathUnits="objectBoundingBox">
       <path d="M80.14 0h775.738a8 8 0 017.931 9.044l-72.017 547a8 8 0 01-7.931 6.956H8.122a8 8 0 01-7.931-9.044l72.017-547A8 8 0 0180.139 0z" />
     </clipPath>
   </defs>
 </svg>
+</div>
+<!-- #page -->
