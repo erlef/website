@@ -8,7 +8,8 @@
 
 :root {
   --brand-light: #f8f5f6;
-  --primary: #9d2653;
+  --primary: #0A3A59;
+  --dark: #0F1F29;
 }
 
 
@@ -31,7 +32,6 @@ a {
 }
 
 section {
-  overflow: hidden;
 }
 
 .btn-primary {
@@ -49,6 +49,10 @@ section {
 
 .bg-brand {
   background-color: var(--primary);
+}
+
+.bg-dark {
+  background: var(--dark) !important;
 }
 
 .avatar {
@@ -70,6 +74,14 @@ section {
   clip-path: url(#myClip);
 }
 
+.clip-svg-hero {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  z-index: 0;
+  height: 100%;
+}
+
 .gradient-mask-right {
   -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
   mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
@@ -84,17 +96,19 @@ section {
   display: none;
 }
 
+.left-bleed {
+  display: none;
+}
+
 
 @media (min-width: 768px) {
   .right-bleed {
     display: block;
     margin-right: calc(-100vw / 2);
-
   }
 
   .left-bleed {
     display: block;
     margin-left: calc(-100vw / 2);
-
   }
 }
