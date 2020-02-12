@@ -1,13 +1,13 @@
-<footer id="colophon" class="site-footer text-center bg-brand py-5">
+<footer id="colophon" class="site-footer text-center bg-white py-5">
   <section class="footer-widgets text-left">
     <div class="container">
       <div class="row">
         <div class="col col-sm">
           <div class="footer-widget">
             <h2>
-              <img src="<%=  Routes.static_path(@conn, "/images/eef-logo.svg") %>" width="100" class="img-inverted" alt="">
+              <img src="<%=  Routes.static_path(@conn, "/images/eef-logo.svg") %>" width="100" alt="">
             </h2>
-            <p class="text-white">Supporting the BEAM community</p>
+            <p class="">Supporting the BEAM community</p>
             <div class="row">
               <div class="col-sm-3 pb-2">
                 <span><a href="mailto:eef@erlef.org"><i class="far fa-lg fa-envelope fa-2x"></i></a></span>
@@ -23,7 +23,7 @@
         </div>
         <div class="col col-sm">
           <div class="footer-widget">
-            <h4 class="widget-title text-white">Links</h4>
+            <h4 class="widget-title ">Links</h4>
             <div class="pull-left">
               <ul class="list-inline">
                 <li>
@@ -46,13 +46,13 @@
         <div class="col col-sm">
           <aside class="widget-area footer-1-area mb-2">
             <section id="twitter_timeline-5" class="widget wp-bp-footer-widget widget_twitter_timeline">
-              <h4 class="widget-title text-white">Recent Tweets</h4>
+              <h4 class="widget-title ">Recent Tweets</h4>
               <a class="twitter-timeline" data-dnt="true" data-theme="dark" data-theme="light" data-link-color="#f96e5b" data-border-color="#e8e8e8" data-tweet-limit="1" data-lang="EN" data-chrome="noheader nofooter noborders noscrollbar transparent" href="https://twitter.com/TheErlef?ref_src=twsrc%5Etfw">Tweets by TheErlef</a>
               <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </aside>
         </div>
         <div class="col col-sm">
-          <h4 class="text-white">Upcoming events</h4>
+          <h4 class="">Upcoming events</h4>
           <%= render "event_list.html", assigns %>
         </div>
       </div>

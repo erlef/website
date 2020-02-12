@@ -2,15 +2,16 @@
   <section class="py-5 bg-brand">
     <div class="container">
       <div class="row align-items-stretch">
-        <div class="col-md-5 py-5">
-
-          <h1 class="mb-4 display-4 font-weight-bold text-white">Erlang Ecosystem Foundation</h1>
-          <h2 class="text-white mb-4">Supporting the next generation of advanced, reliable, realtime applications</h2>
-          <p class="lead text-white">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
-          <p class="lead text-white">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
-          <a class="h3" href="#">Join Now →</a>
+        <div class="col-lg-6 py-5">
+          <div style="position: relative; z-index: 100">
+            <h1 class="mb-4 h3 font-weight-normal text-white">Erlang Ecosystem Foundation</h1>
+            <h2 class="text-white font-weight-bold mb-4 display-4">Supporting the next generation of advanced, reliable, realtime applications</h2>
+            <p class="lead text-white">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
+            <p class="lead text-white">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
+            <a class="h3" href="#">Join Now →</a>
+          </div>
         </div>
-        <div class="col-md-7 offset-lg-1 col-lg-6">
+        <div class="offset-lg-1 col-lg-5">
           <div class="d-flex flex-column h-100 py-0 py-md-5" style="position: relative; z-index: 100;">
             <h5 class="py-2 text-white font-weight-bold">Upcoming Events</h5>
             <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
@@ -33,14 +34,104 @@
             </div>
             <a class="h4 py-2" href="#">View All Events →</a>
           </div>
-          <div class="clip-svg clip-svg-hero right-bleed bg-dark"><img class="gradient-mask-right h-100" src="/images/leaves.jpg"></div>
+          <div class="clip-svg clip-svg-hero right-bleed bg-dark"><img class="gradient-mask-right h-100" src="/images/crowd.jpg"></div>
         </div>
       </div>
     </div>
   </section>
+  <section class="pt-5">
+    <div class="container">
+      <h3 class="mb-4 text-white">Latest News</h3>
+      <div class="row py-2 py-lg-0 align-items-stretch">
+        <div class="py-lg-5 col-lg-4">
+          <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+            <div class="p-4">
+              <p>Just given my last undergrad lecture at
+                @UniKentComp
+                … language processing in #erlang (with #haskell and #ocaml versions available too)</p>
+            </div>
+          </div>
+          <!--event-card-->
+          <div style="min-height: 800px;" class="clip-svg clip-svg-hero left-bleed bg-dark"><img class="gradient-mask-left h-100" src="/images/crowd.jpg"></div>
+        </div>
+        <div class="py-lg-5 col-lg-4">
+          <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+            <div class="p-4">
+              <p>Just given my last undergrad lecture at
+                @UniKentComp
+                … language processing in #erlang (with #haskell and #ocaml versions available too)</p>
+            </div>
+          </div>
+          <!--event-card-->
+        </div>
+        <div class="py-lg-5 col-lg-4">
+          <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+            <div class="p-4">
+              <p>Just given my last undergrad lecture at
+                @UniKentComp
+                … language processing in #erlang (with #haskell and #ocaml versions available too)</p>
+            </div>
+          </div>
+          <!--event-card-->
+        </div>
+      </div>
+      <!--row-->
+    </div>
+  </section>
   <!--hero-->
+  <section class="latest-news py-5 mb-5 bg-white">
+    <div class="container">
+      <div class="">
+        <div class="row">
+          <div class="col-lg-4">
+            <h6 class="">Education, Training, & Adoption</h6>
+            <h4 class="">Introducing the EEF Grant Program</h4>
+            <div class="d-flex align-items-center mt-4">
+              <div class="avatar mr-2 rounded-circle">
+                <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+              </div>
+              <div class="">
+                <div>August 21, 2019</div>
+                <div>by <a href="#">Francesco Cesarini</a></div>
+              </div>
+            </div>
+          </div>
+          <!--col-->
+          <div class="col-lg-4">
+            <h6 class="">Education, Training, & Adoption</h6>
+            <h4 class="">Introducing the EEF Grant Program</h4>
+            <div class="d-flex align-items-center mt-4">
+              <div class="avatar mr-2 rounded-circle">
+                <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+              </div>
+              <div class="">
+                <div>August 21, 2019</div>
+                <div>by <a href="#">Francesco Cesarini</a></div>
+              </div>
+            </div>
+          </div>
+          <!--col-->
+          <div class="col-lg-4">
+            <h6 class="">Education, Training, & Adoption</h6>
+            <h4 class="">Introducing the EEF Grant Program</h4>
+            <div class="d-flex align-items-center mt-4">
+              <div class="avatar mr-2 rounded-circle">
+                <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+              </div>
+              <div class="">
+                <div>August 21, 2019</div>
+                <div>by <a href="#">Francesco Cesarini</a></div>
+              </div>
+            </div>
+          </div>
+          <!--col-->
+        </div>
+      </div>
+    </div>
+    <!--container-->
+  </section>
   <section>
-    <div class="container py-5 mt-5">
+    <div class="container py-5">
       <div class="row mb-5">
         <div class="col-md-8">
           <h2 class="text-white display-4 font-weight-bold">What does the EEF do?</h2>
@@ -64,75 +155,25 @@
   <section class="py-5">
     <div class="container">
       <div class="row align-items-stretch">
-        <div class="col-md-3">
-          <div class="clip-svg left-bleed bg-dark text-right">
-            <img class="gradient-mask-left" src="/images/leaves2.png">
-          </div>
+        <div class="col-lg-5">
+          <div style="min-height: 800px;" class="clip-svg clip-svg-hero left-bleed bg-dark"><img class="gradient-mask-left h-100" src="/images/crowd.jpg"></div>
         </div>
-        <div class="col-md-8 offset-md-1 align-self-center">
-          <h2 class="text-white display-4 font-weight-bold">Connect with a diverse community around the Erlang and Elixir Ecosystem</h2>
-          <p class="lead text-white mb-5">Subscribe to our newsletter to find out how you can take action and stay updated!</p>
+        <div class="col-lg-6 py-5 offset-lg-1">
+          <h2 class="mb-4 font-weight-bold text-white">Connect with a diverse community around the Erlang and Elixir Ecosystem</h2>
+          <h4 class="text-white mb-4">Subscribe to our newsletter to find out how you can take action and stay updated!</h4>
           <%= raw subscribe_form() %>
         </div>
       </div>
     </div>
   </section>
+  <!--hero-->
   <!-- / Mailchimp -->
-  <section class="latest-news py-5 my-5">
-    <div class="container">
-      <h3 class="mb-5 text-white">Latest News</h3>
-      <div class="row">
-        <div class="col-lg-4">
-          <h6 class="text-white">Education, Training, & Adoption</h6>
-          <h4 class="text-white">Introducing the EEF Grant Program</h4>
-          <div class="d-flex align-items-center mt-4">
-            <div class="avatar mr-2 rounded-circle">
-              <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
-            </div>
-            <div class="text-white">
-              <div>August 21, 2019</div>
-              <div>by <a href="#">Francesco Cesarini</a></div>
-            </div>
-          </div>
-        </div>
-        <!--col-->
-        <div class="col-lg-4">
-          <h6 class="text-white">Education, Training, & Adoption</h6>
-          <h4 class="text-white">Introducing the EEF Grant Program</h4>
-          <div class="d-flex align-items-center mt-4">
-            <div class="avatar mr-2 rounded-circle">
-              <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
-            </div>
-            <div class="text-white">
-              <div>August 21, 2019</div>
-              <div>by <a href="#">Francesco Cesarini</a></div>
-            </div>
-          </div>
-        </div>
-        <!--col-->
-        <div class="col-lg-4">
-          <h6 class="text-white">Education, Training, & Adoption</h6>
-          <h4 class="text-white">Introducing the EEF Grant Program</h4>
-          <div class="d-flex align-items-center mt-4">
-            <div class="avatar mr-2 rounded-circle">
-              <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
-            </div>
-            <div class="text-white">
-              <div>August 21, 2019</div>
-              <div>by <a href="#">Francesco Cesarini</a></div>
-            </div>
-          </div>
-        </div>
-        <!--col-->
-      </div>
-    </div>
-  </section>
-  <svg height="0" width="0" viewBox="0 0 864 563">
+</div>
+<svg height="0" width="0" viewBox="0 0 864 563">
   <defs>
     <clipPath id="myClip" transform="scale(0.001157407407 0.001776198934)" clipPathUnits="objectBoundingBox">
       <path d="M80.14 0h775.738a8 8 0 017.931 9.044l-72.017 547a8 8 0 01-7.931 6.956H8.122a8 8 0 01-7.931-9.044l72.017-547A8 8 0 0180.139 0z" />
     </clipPath>
   </defs>
 </svg>
-</div>
 <!-- #page -->

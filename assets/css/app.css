@@ -37,6 +37,10 @@ section {
   overflow: hidden;
 }
 
+.display-4 {
+  font-size: 3rem;
+}
+
 .img-inverted {
   filter: invert(1);
 }
@@ -87,7 +91,6 @@ section {
 
 .clip-svg-hero {
   position: absolute;
-  left: 0;
   top: 0;
   z-index: 0;
   height: 100%;
@@ -95,7 +98,6 @@ section {
 
 .clip-svg-cta {
   position: absolute;
-  left: 0;
   top: 10%;
   z-index: 0;
   height: 100%;
@@ -119,6 +121,11 @@ section {
   display: none;
 }
 
+.event-card {
+  z-index: 100;
+  position: relative;
+}
+
 .event-card img {
   height: 4rem;
   width: auto;
@@ -127,13 +134,15 @@ section {
 @media (min-width: 768px) {
   .right-bleed {
     display: block;
-    margin-right: calc(-100vw / 2);
+    margin-right: calc(-50vw / 2);
     overflow: hidden;
+    left: 0;
   }
 
   .left-bleed {
     display: block;
-    margin-left: calc(-100vw / 2);
+    right: 0;
+    margin-left: calc(-50vw / 2);
     overflow: hidden;
   }
 }
