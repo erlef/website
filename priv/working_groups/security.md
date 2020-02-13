@@ -6,7 +6,7 @@
   "email": "security@erlef.org",
   "formed": "2019-04-30",
   "gcal_url": null,
-  "github": null,
+  "github": "https://github.com/erlef/security-wg",
   "members": [
     {
       "image": "members/bram-verburg.jpg",
