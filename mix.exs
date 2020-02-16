@@ -23,7 +23,7 @@ defmodule Erlef.MixProject do
   def application do
     [
       mod: {Erlef.Application, []},
-      extra_applications: [:logger, :runtime_tools, :swoosh]
+      extra_applications: [:logger, :runtime_tools, :swoosh, :plug_attack]
     ]
   end
 
@@ -36,7 +36,7 @@ defmodule Erlef.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.4.12"},
+      {:phoenix, "~> 1.4.13"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_html, "~> 2.14"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
@@ -49,9 +49,10 @@ defmodule Erlef.MixProject do
       {:swoosh, "~> 0.24.4"},
       {:phoenix_swoosh, "~> 0.2.0"},
       {:gen_smtp, "~> 0.15.0"},
-      {:dialyxir, "~> 1.0.0-rc.6", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.0.0-rc.7", only: [:dev], runtime: false},
       {:credo, "~> 1.2.2", only: [:dev, :test], runtime: false},
-      {:etso, "~> 0.1.1"}
+      {:etso, "~> 0.1.1"},
+      {:plug_attack, "~> 0.4.2"}
     ]
   end
 
