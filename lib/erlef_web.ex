@@ -41,6 +41,7 @@ defmodule ErlefWeb do
 
       import ErlefWeb.ErrorHelpers
       import ErlefWeb.Gettext
+      import ErlefWeb.HTML
       alias ErlefWeb.Router.Helpers, as: Routes
 
       def render_shared(template, assigns \\ []) do

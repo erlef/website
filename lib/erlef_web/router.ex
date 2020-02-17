@@ -24,7 +24,7 @@ defmodule ErlefWeb.Router do
         " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}"
     }
 
-    plug ErlefWeb.Plug.JsonEvents
+    plug ErlefWeb.Plug.Events
   end
 
   if Erlef.is_env?(:dev) do

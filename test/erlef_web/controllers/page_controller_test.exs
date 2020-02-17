@@ -3,7 +3,9 @@ defmodule ErlefWeb.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get(conn, Routes.page_path(conn, :index))
-    assert html_response(conn, 200) =~ "The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization"
+
+    assert html_response(conn, 200) =~
+             "The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization"
   end
 
   test "GET /bylaws", %{conn: conn} do
