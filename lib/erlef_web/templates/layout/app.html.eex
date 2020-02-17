@@ -15,9 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <title>Erlang Ecosystem Foundation - Supporting the BEAM community</title>
-    <link rel="stylesheet" 
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
@@ -45,11 +45,20 @@
 
   <body>
     <%= render "header.html", assigns %>
-    
+
     <main role="main">
+
+      <%= if flash = get_flash(@conn, :error) do %>
+        <div class="alert alert-danger" role="alert"><%=raw flash %></div>
+      <% end %>
+
+      <%= if flash = get_flash(@conn, :success) do %>
+        <div class="alert alert-success" role="alert"><%=raw flash %></div>
+      <% end %>
+
       <%= render @view_module, @view_template, assigns %>
     </main>
-    
+
   <script>
     window.calendar_events = <%= raw @events_json %>
   </script>
@@ -57,5 +66,5 @@
 
   </body>
 
- 
+
 </html>
