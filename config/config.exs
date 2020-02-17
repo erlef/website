@@ -35,11 +35,6 @@ import_config "sponsors.exs"
 config :erlef, :slack_teams, ["erlanger", "erlang"]
 
 config :erlef, :slack_invite_config, %{
-  "erlang" => %{
-    token_key: "ERLANG_SLACK_API_TOKEN",
-    team_key: "ERLANG_SLACK_TEAM_ID",
-    channel_key: "ERLANG_SLACK_GENERAL_CHANNEL_ID"
-  },
   "erlanger" => %{
     token_key: "ERLANG_SLACK_API_TOKEN",
     team_key: "ERLANG_SLACK_TEAM_ID",
