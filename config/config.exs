@@ -32,7 +32,7 @@ config :erlef, :repo_imports, [
 import_config "members.exs"
 import_config "sponsors.exs"
 
-config :erlef, :slack_teams, ["erlanger", "erlang"]
+config :erlef, :slack_teams, ["erlanger"]
 
 config :erlef, :slack_invite_config, %{
   "erlanger" => %{
