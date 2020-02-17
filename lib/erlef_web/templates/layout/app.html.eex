@@ -46,9 +46,6 @@
   <main role="main">
     <%= render @view_module, @view_template, assigns %>
   </main>
-  <script>
-  window.calendar_events = <%= raw @events_json %>
-  </script>
   <%= render "footer.html", assigns %>
 </body>
 
