@@ -71,7 +71,7 @@
     </section>
 
     <hr/>
-    <div class="row">
+    <div class="row" style="margin-right: 0px;">
       <div class="col col-sm-6">
        <a rel="license"
           href="http://creativecommons.org/licenses/by-sa/4.0/">
