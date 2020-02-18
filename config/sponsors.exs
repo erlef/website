@@ -25,5 +25,6 @@ config :erlef, :sponsors, %{
   "dockyard" => %{founding_sponsor: false, url: "https://dockyard.com/"},
   "pepsico" => %{founding_sponsor: false, url: "https://pepsi.co/ecommerce"},
   "simplifi" => %{founding_sponsor: false, url: "https://simpli.fi/"},
-  "dnsimple" => %{founding_sponsor: false, url: "https://dnsimple.com/"}
+  "dnsimple" => %{founding_sponsor: false, url: "https://dnsimple.com/"},
+  "pharos" => %{founding_sponsor: false, url: "https://www.pharos-corp.com/"}
 }
