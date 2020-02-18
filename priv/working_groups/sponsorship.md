@@ -11,7 +11,7 @@
     },
     {
       "image": "members/sebastian-strollo.jpg",
-      "name": "Sebastion Strollo"
+      "name": "Sebastian Strollo"
     },
     {
       "image": "members/benoit-chesneau.jpg",

@@ -4,7 +4,7 @@ config :erlef, :board_members, [
   %{image: "members/francesco-cesarini.jpg", name: "Francesco Cesarini"},
   %{image: "members/jose-valim.jpg", name: "José Valim"},
   %{image: "members/richard-carlsson.jpg", name: "Richard Carlsson"},
-  %{image: "members/sebastian-strollo.jpg", name: "Sebastion Strollo"},
+  %{image: "members/sebastian-strollo.jpg", name: "Sebastian Strollo"},
   %{image: "members/benoit-chesneau.jpg", name: "Benoit Chesneau"},
   %{image: "members/fred-hebert.jpg", name: "Fred Hebert"},
   %{image: "members/miriam-pena.jpg", name: "Miriam Pena"},
