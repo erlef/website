@@ -43,7 +43,15 @@
 
     <body>
         <%= render "header.html", assigns %>
+
         <main role="main">
+            <%= if flash = get_flash(@conn, :error) do %>
+                <div class="alert alert-danger" role="alert"><%=raw flash %></div>
+            <% end %>
+
+            <%= if flash = get_flash(@conn, :success) do %>
+                <div class="alert alert-success" role="alert"><%=raw flash %></div>
+            <% end %>
             <%= render @view_module, @view_template, assigns %>
         </main>
         <%= render "footer.html", assigns %>
