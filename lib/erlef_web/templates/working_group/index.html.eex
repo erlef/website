@@ -1,6 +1,6 @@
-<div class="py-5 mb-5 bg-light">
+<div class="py-3">
   <div class="container">
-    <h1>Working Groups</h1>
+    <h1 class="display-4 font-weight-bold">Working Groups</h1>
     <p class="lead">
       In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology. Areas of particular interest include documentation, interoperability, and performance.
     </p>

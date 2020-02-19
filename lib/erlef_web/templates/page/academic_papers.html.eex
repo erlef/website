@@ -1,12 +1,12 @@
-<div class="py-5 mb-5 bg-light">
+<div class="py-3">
   <div class="container">
-    <h1>Academic Papers</h1>
+    <h1 class="display-4 font-weight-bold">Academic Papers</h1>
   </div>
 </div>
-<div id="content" class="site-content">
+<div id="content" class="site-content mb-5">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-lg-8">
         <div id="primary" class="content-area">
           <main id="main" class="site-main">
             <article id="post-94" class="post-94 page type-page status-publish hentry">
