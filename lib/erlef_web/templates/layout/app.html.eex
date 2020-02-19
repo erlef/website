@@ -47,6 +47,13 @@
     <%= render @view_module, @view_template, assigns %>
   </main>
   <%= render "footer.html", assigns %>
+  <svg height="0" width="0" viewBox="0 0 864 563">
+    <defs>
+      <clipPath id="myClip" transform="scale(0.001157407407 0.001776198934)" clipPathUnits="objectBoundingBox">
+        <path d="M80.14 0h775.738a8 8 0 017.931 9.044l-72.017 547a8 8 0 01-7.931 6.956H8.122a8 8 0 01-7.931-9.044l72.017-547A8 8 0 0180.139 0z" />
+      </clipPath>
+    </defs>
+  </svg>
 </body>
 
 </html>

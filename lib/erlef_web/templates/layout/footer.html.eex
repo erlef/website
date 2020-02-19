@@ -1,65 +1,46 @@
-<footer id="colophon" class="site-footer text-center bg-white py-5">
+<footer id="colophon" class="site-footer border-top text-center bg-white py-5">
   <section class="footer-widgets text-left">
     <div class="container">
       <div class="row">
-        <div class="col col-sm">
-          <div class="footer-widget">
-            <h2>
-              <img src="<%=  Routes.static_path(@conn, "/images/eef-logo.svg") %>" width="100" alt="">
-            </h2>
-            <p class="">Supporting the BEAM community</p>
-            <div class="row">
-              <div class="col-sm-3 pb-2">
-                <span><a href="mailto:eef@erlef.org"><i class="far fa-lg fa-envelope fa-2x"></i></a></span>
-              </div>
-              <div class="col-sm-3 pb-2">
-                <span><a href="https://twitter.com/TheErlef"><i class="fab fa-lg fa-twitter fa-2x"></i></a></span>
-              </div>
-              <div class="col-sm-3 pb-2">
-                <span><a href="https://github.com/erlef"><i class="fab fa-lg fa-github fa-2x"></i></a></span>
-              </div>
+        <div class="col-lg-3">
+          <h2>
+            <img src="<%=  Routes.static_path(@conn, "/images/eef-logo.svg") %>" width="100" alt="">
+          </h2>
+          <p class="">Supporting the BEAM community</p>
+          <div class="row">
+            <div class="col-sm-3 pb-2">
+              <span><a href="mailto:eef@erlef.org"><i class="far fa-lg fa-envelope fa-2x"></i></a></span>
+            </div>
+            <div class="col-sm-3 pb-2">
+              <span><a href="https://twitter.com/TheErlef"><i class="fab fa-lg fa-twitter fa-2x"></i></a></span>
+            </div>
+            <div class="col-sm-3 pb-2">
+              <span><a href="https://github.com/erlef"><i class="fab fa-lg fa-github fa-2x"></i></a></span>
             </div>
           </div>
         </div>
-        <div class="col col-sm">
-          <div class="footer-widget">
-            <h4 class="widget-title ">Links</h4>
-            <div class="pull-left">
-              <ul class="list-inline">
-                <li>
-                  <a target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Membership details</a>
-                </li>
-                <li><a href="https://members.erlef.org/join-us">Join us!</a></li>
-                <li><a href="/sponsors/">Sponsors</a></li>
-                <li><a href="/become-a-sponsor/">Become a sponsor!</a></li>
-                <li><a href="/wg/">Working Groups</a></li>
-                <li><a href="/stipends">Stipends</a></li>
-                <li><a href="/news">News</a></li>
-                <li><a href="/events">Events</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/bylaws">Bylaws</a></li>
-                <li><a href="/faq">FAQ</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col col-sm">
-          <aside class="widget-area footer-1-area mb-2">
-            <section id="twitter_timeline-5" class="widget wp-bp-footer-widget widget_twitter_timeline">
-              <h4 class="widget-title ">Recent Tweets</h4>
-              <a class="twitter-timeline" data-dnt="true" data-theme="dark" data-theme="light" data-link-color="#f96e5b" data-border-color="#e8e8e8" data-tweet-limit="1" data-lang="EN" data-chrome="noheader nofooter noborders noscrollbar transparent" href="https://twitter.com/TheErlef?ref_src=twsrc%5Etfw">Tweets by TheErlef</a>
-              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </aside>
-        </div>
-        <div class="col col-sm">
-          <h4 class="">Upcoming events</h4>
-          <%= render "event_list.html", assigns %>
+        <!--col-->
+        <div class="col-lg-9">
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Membership details</a>
+            </li>
+            <li class="list-inline-item"><a href="https://members.erlef.org/join-us">Join us!</a></li>
+            <li class="list-inline-item"><a href="/sponsors/">Sponsors</a></li>
+            <li class="list-inline-item"><a href="/become-a-sponsor/">Become a sponsor!</a></li>
+            <li class="list-inline-item"><a href="/wg/">Working Groups</a></li>
+            <li class="list-inline-item"><a href="/stipends">Stipends</a></li>
+            <li class="list-inline-item"><a href="/news">News</a></li>
+            <li class="list-inline-item"><a href="/events">Events</a></li>
+            <li class="list-inline-item"><a href="/contact">Contact</a></li>
+            <li class="list-inline-item"><a href="/bylaws">Bylaws</a></li>
+            <li class="list-inline-item"><a href="/faq">FAQ</a></li>
+          </ul>
         </div>
       </div>
       <!-- /.row -->
     </div>
   </section>
-
   <div class="row" style="display: none;">
     <div class="col col-sm-6">
       <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
