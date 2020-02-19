@@ -1,0 +1,49 @@
+    <div class="container">
+      <div class="">
+        <div class="row">
+          <div class="col-lg-4">
+            <h6 class="">Education, Training, & Adoption</h6>
+            <h4 class="">Introducing the EEF Grant Program</h4>
+            <div class="d-flex align-items-center mt-4">
+              <div class="avatar mr-2 rounded-circle">
+                <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+              </div>
+              <div class="">
+                <div>August 21, 2019</div>
+                <div>by <a href="#">Francesco Cesarini</a></div>
+              </div>
+            </div>
+          </div>
+          <!--col-->
+          <div class="col-lg-4">
+            <h6 class="">Education, Training, & Adoption</h6>
+            <h4 class="">Introducing the EEF Grant Program</h4>
+            <div class="d-flex align-items-center mt-4">
+              <div class="avatar mr-2 rounded-circle">
+                <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+              </div>
+              <div class="">
+                <div>August 21, 2019</div>
+                <div>by <a href="#">Francesco Cesarini</a></div>
+              </div>
+            </div>
+          </div>
+          <!--col-->
+          <div class="col-lg-4">
+            <h6 class="">Education, Training, & Adoption</h6>
+            <h4 class="">Introducing the EEF Grant Program</h4>
+            <div class="d-flex align-items-center mt-4">
+              <div class="avatar mr-2 rounded-circle">
+                <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+              </div>
+              <div class="">
+                <div>August 21, 2019</div>
+                <div>by <a href="#">Francesco Cesarini</a></div>
+              </div>
+            </div>
+          </div>
+          <!--col-->
+        </div>
+      </div>
+    </div>
+

@@ -1,0 +1,36 @@
+      <div class="row py-2 py-lg-0 align-items-stretch">
+        <div class="py-lg-5 col-lg-4">
+          <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+            <div class="p-4">
+              <p>Just given my last undergrad lecture at
+                @UniKentComp
+                … language processing in #erlang (with #haskell and #ocaml versions available too)</p>
+            </div>
+          </div>
+          <!--event-card-->
+          <%= left_svg_hero(style: "min-height: 800px;") do %>
+            <img class="gradient-mask-left h-100" src="/images/crowd.jpg">
+          <% end %>
+        </div>
+        <div class="py-lg-5 col-lg-4">
+          <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+            <div class="p-4">
+              <p>Just given my last undergrad lecture at
+                @UniKentComp
+                … language processing in #erlang (with #haskell and #ocaml versions available too)</p>
+            </div>
+          </div>
+          <!--event-card-->
+        </div>
+        <div class="py-lg-5 col-lg-4">
+          <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+            <div class="p-4">
+              <p>Just given my last undergrad lecture at
+                @UniKentComp
+                … language processing in #erlang (with #haskell and #ocaml versions available too)</p>
+            </div>
+          </div>
+          <!--event-card-->
+        </div>
+      </div>
+

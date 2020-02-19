@@ -3,7 +3,7 @@ defmodule ErlefWeb.StipendControllerTest do
 
   test "GET /stipends", %{conn: conn} do
     conn = get(conn, Routes.stipend_path(conn, :index))
-    assert html_response(conn, 200) =~ "Stipend request process"
+    assert html_response(conn, 200) =~ "Our stipend program is funded by our Sponsors"
   end
 
   describe "POST /stipends" do
