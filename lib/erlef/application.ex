@@ -11,7 +11,8 @@ defmodule Erlef.Application do
       # Start the endpoint when the application starts
       Erlef.Repo,
       Erlef.Repo.Importer,
-      ErlefWeb.Endpoint
+      ErlefWeb.Endpoint,
+      {PlugAttack.Storage.Ets, name: MyApp.PlugAttack.Storage, clean_period: 60_000}
       # Starts a worker by calling: Erlef.Worker.start_link(arg)
       # {Erlef.Worker, arg}
     ]

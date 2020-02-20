@@ -32,6 +32,16 @@ config :erlef, :repo_imports, [
 import_config "members.exs"
 import_config "sponsors.exs"
 
+config :erlef, :slack_teams, ["erlanger"]
+
+config :erlef, :slack_invite_config, %{
+  "erlanger" => %{
+    token_key: "ERLANG_SLACK_API_TOKEN",
+    team_key: "ERLANG_SLACK_TEAM_ID",
+    channel_key: "ERLANG_SLACK_GENERAL_CHANNEL_ID"
+  }
+}
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

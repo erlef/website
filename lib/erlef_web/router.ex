@@ -2,7 +2,7 @@ defmodule ErlefWeb.Router do
   use ErlefWeb, :router
 
   @trusted_sources ~w(www.google.com www.googletagmanager.com  www.google-analytics.com
-    fonts.gstatic.com fonts.googleapis.com use.fontawesome.com
+    fonts.gstatic.com www.gstatic.com fonts.googleapis.com use.fontawesome.com
     stackpath.bootstrapcdn.com use.fontawesome.com platform.twitter.com
     code.jquery.com platform.twitter.com syndication.twitter.com
     syndication.twitter.com/settings cdn.syndication.twimg.com
@@ -17,6 +17,7 @@ defmodule ErlefWeb.Router do
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
+    plug ErlefWeb.PlugAttack
 
     plug :put_secure_browser_headers, %{
       "content-security-policy" =>
@@ -53,5 +54,7 @@ defmodule ErlefWeb.Router do
     resources "/events", EventController, only: [:index, :show]
     resources "/wg", WorkingGroupController, only: [:index, :show]
     resources "/stipends", StipendController, only: [:index, :create]
+
+    resources "/slack-invite/:team", SlackInviteController, only: [:create, :index]
   end
 end

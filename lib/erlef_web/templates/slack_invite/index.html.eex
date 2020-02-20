@@ -1,0 +1,26 @@
+<div class="container">
+  <%= if @created do %>
+    <h3>Keep your 👀 peeled for an invitation email to <%= @team %>.slack.com</h3>
+  <% else %>
+    <h3>Get an invite to <%= @team %>.slack.com</h3>
+    <div class="form-group">
+    <%= form_for @conn, Routes.slack_invite_path(@conn, :create, @team), [], fn f -> %>
+
+      <%= email_input(f, :email, placeholder: "Enter email") %>
+
+      <br/>
+
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+      <div class="g-recaptcha" data-sitekey="<%= @recaptcha_site_key %>">
+      </div>
+
+      <br/>
+
+      <%= submit "Submit", class: "btn-primary" %>
+
+    <% end %>
+
+    </div>
+  <% end %>
+</div>
