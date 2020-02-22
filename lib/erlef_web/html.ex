@@ -1,4 +1,7 @@
 defmodule ErlefWeb.HTML do
+  @moduledoc """
+  ErlefWeb.HTML - HTML helpers for ErlefWeb
+  """
   import Phoenix.HTML.Tag
 
   def right_svg_hero(f_opts, opts) when is_list(f_opts) do

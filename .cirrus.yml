@@ -1,6 +1,7 @@
 test_task:
   env:
     MIX_ENV: test
+    ERLEF_COOKIE_ENCRYPTION_SALT: 41SM3UP3NgSUTzLOqCqF0r2pJBn54JuOy9+cZswJuiQi5pnCIIwJfEYO7DP3/QqR
   container:
     image: elixir:latest
   mix_cache:

@@ -1,4 +1,8 @@
 defmodule Erlef.SlackInvite do
+  @moduledoc """
+  Erlef.SlackInvite - Slack Invite API client
+  """
+
   def invite(email, team: team) do
     slack_config = Application.get_env(:erlef, :slack_invite_config)
     team_env_keys = slack_config[team]

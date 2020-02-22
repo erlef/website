@@ -24,6 +24,8 @@ defmodule ErlefWeb do
       import Plug.Conn
       import ErlefWeb.Gettext
       alias ErlefWeb.Router.Helpers, as: Routes
+
+      defp recaptcha_site_key, do: System.get_env("RECAPTCHA_SITE_KEY")
     end
   end
 
@@ -46,6 +48,15 @@ defmodule ErlefWeb do
 
       def render_shared(template, assigns \\ []) do
         render(ErlefWeb.SharedView, template, assigns)
+      end
+
+      def logged_in?(assigns) do
+        !!assigns[:current_user]
+      end
+
+      def is_admin?(assigns) do
+        user = assigns[:current_user]
+        user.is_admin || false
       end
     end
   end

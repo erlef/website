@@ -17,7 +17,8 @@ defmodule ErlefWeb.Router do
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
-    plug ErlefWeb.PlugAttack
+    plug ErlefWeb.Plug.Attack
+    plug ErlefWeb.Plug.Session
 
     plug :put_secure_browser_headers, %{
       "content-security-policy" =>
@@ -25,6 +26,11 @@ defmodule ErlefWeb.Router do
     }
 
     plug ErlefWeb.Plug.Events
+  end
+
+  pipeline :admin_required do
+    plug :put_layout, {ErlefWeb.Admin.LayoutView, "app.html"}
+    plug ErlefWeb.Plug.RequiresAdmin
   end
 
   if Erlef.is_env?(:dev) do
@@ -36,6 +42,10 @@ defmodule ErlefWeb.Router do
 
   scope "/", ErlefWeb do
     pipe_through :browser
+
+    get "/login", SessionController, :show
+    post "/login", SessionController, :create
+    post "/logout", SessionController, :delete
 
     get "/", PageController, :index
     get "/academic-papers", PageController, :academic_papers
@@ -56,5 +66,10 @@ defmodule ErlefWeb.Router do
     resources "/stipends", StipendController, only: [:index, :create]
 
     resources "/slack-invite/:team", SlackInviteController, only: [:create, :index]
+
+    scope "/admin", Admin, as: :admin do
+      pipe_through [:admin_required]
+      get "/", EventController, :index
+    end
   end
 end
