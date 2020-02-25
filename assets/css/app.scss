@@ -35,6 +35,10 @@ section {
   filter: invert(1);
 }
 
+.img-align-center {
+  transform: translateY(-25%);
+}
+
 .font-weight-bold {
   font-weight: 500 !important;
 }

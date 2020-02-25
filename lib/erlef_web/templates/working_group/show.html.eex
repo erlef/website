@@ -1,13 +1,12 @@
-<div class="py-5 mb-5 bg-light">
+<div class="py-3">
   <div class="container">
-    <h1>
-      <%= @wg.name %> Working Group</h1>
-    <h4 class="mt-4">Mission</h4>
+    <h1 class="display-4 font-weight-bold"><%= @wg.name %> Working Group</h1>
     <p class="lead">
       <%= @wg.description %>
     </p>
   </div>
 </div>
+
 <div class="container mb-5">
   <div class="row">
     <div class="col-lg-8 pr-5">
