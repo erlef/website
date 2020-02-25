@@ -38,11 +38,15 @@ defmodule ErlefWeb.Endpoint do
     key: "_erlef_key",
     serializer: Erlef.Session,
     encryption_salt: {__MODULE__, :encryption_salt, []},
-    signing_salt: "pSnWMnUh"
+    signing_salt: {__MODULE__, :signing_salt, []}
 
   plug ErlefWeb.Router
 
   def encryption_salt do
     System.get_env("ERLEF_COOKIE_ENCRYPTION_SALT")
+  end
+
+  def signing_salt do
+    System.get_env("ERLEF_COOKIE_SIGN_SALT")
   end
 end

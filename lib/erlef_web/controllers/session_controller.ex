@@ -38,7 +38,7 @@ defmodule ErlefWeb.SessionController do
     |> redirect(to: "/")
   end
 
-  if Erlef.is_env?(:eh) do
+  if Erlef.is_env?(:dev) do
     defp verify_captcha(_token), do: {:ok, :verified}
   else
     defp verify_captcha(token), do: Erlef.Captcha.verify_recaptcha(token)

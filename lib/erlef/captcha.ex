@@ -2,7 +2,6 @@ defmodule Erlef.Captcha do
   @moduledoc """
   Erlef.Captcha - Captcha related verification functions
   """
-  @recaptch_url Application.get_env(:erlef, :recaptcha_url)
 
   def verify_recaptcha(response) do
     body = URI.encode_query(response: response, secret: System.get_env("RECAPTCHA_SECRET_KEY"))
@@ -16,7 +15,7 @@ defmodule Erlef.Captcha do
 
     opts = [timeout: 5000, secret: secret]
 
-    case Erlef.HTTP.perform(:post, @recaptch_url, headers, body, opts) do
+    case Erlef.HTTP.perform(:post, recaptcha_url(), headers, body, opts) do
       {:ok, %{body: %{"success" => true}}} ->
         {:ok, :verified}
 
@@ -24,4 +23,6 @@ defmodule Erlef.Captcha do
         {:error, "Invalid recaptcha response"}
     end
   end
+
+  defp recaptcha_url, do: System.get_env("RECAPTCHA_URL")
 end
