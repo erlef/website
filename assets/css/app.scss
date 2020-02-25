@@ -4,11 +4,7 @@
 
 
 :root {
-  --brand-light: #f8f5f6;
-  --primary: #1F2C34;
-  --dark: #0F1F29;
-  --link: #4CA9E7;
-  --muted: #90AFC4;
+
 }
 
 
@@ -27,16 +23,13 @@ h6 {
 }
 
 a {
-  color: var(--link);
+
 }
 
 section {
   overflow: hidden;
 }
 
-.display-4 {
-  font-size: 3rem;
-}
 
 .img-inverted {
   filter: invert(1);
@@ -56,15 +49,11 @@ section {
 }
 
 .bg-brand-light {
-  background: var(--brand-light);
+  background: var(--light);
 }
 
 .bg-brand {
-  background-color: var(--primary);
-}
-
-.bg-dark {
-  background: var(--dark) !important;
+  background-color: var(--dark);
 }
 
 .avatar {

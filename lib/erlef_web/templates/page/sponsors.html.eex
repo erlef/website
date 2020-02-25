@@ -1,6 +1,7 @@
-<div class="py-5 mb-5 bg-light">
+
+<div class="py-3">
   <div class="container">
-    <h1>Sponsors</h1>
+    <h1 class="display-4 font-weight-bold">Sponsors</h1>
     <p class="lead">
       Our sponsors play a vital role in supporting the foundation's initiatives. It is through their generous donations that we can work on our mission to support and expand the Beam community.
     </p>
