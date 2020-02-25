@@ -1,14 +1,11 @@
 <div class="row py-2 py-lg-0 align-items-stretch">
   <div class="py-lg-5 col-lg-4">
-    <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+    <div class="event-card h-100 rounded bg-white  my-2 d-flex align-items-start">
       <div class="p-4">
-        <p>Just given my last undergrad lecture at
-          @UniKentComp
-          … language processing in #erlang (with #haskell and #ocaml versions available too)</p>
-        <div>
-          <div>August 21, 2019</div>
-          <div><a href="#">@erlef</a></div>
-        </div>
+        <p>Hey,
+          @TheErlef
+          has been accepted into this year's Google Summer of Code!</p>
+        <div class="text-muted"><a href="#">@pablocostass</a><span class="mx-1">·</span>Feb 20</div>
       </div>
     </div>
     <!--event-card-->
@@ -17,29 +14,22 @@
     <% end %>
   </div>
   <div class="py-lg-5 col-lg-4">
-    <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+    <div class="event-card h-100 rounded bg-white  my-2 d-flex align-items-start">
       <div class="p-4">
         <p>Just given my last undergrad lecture at
           @UniKentComp
           … language processing in #erlang (with #haskell and #ocaml versions available too)</p>
-        <div>
-          <div>August 21, 2019</div>
-          <div><a href="#">@erlef</a></div>
-        </div>
+        <div class="text-muted"><a href="#">@pablocostass</a><span class="mx-1">·</span>Feb 20</div>
       </div>
     </div>
     <!--event-card-->
   </div>
   <div class="py-lg-5 col-lg-4">
-    <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+    <div class="event-card h-100 rounded bg-white  my-2 d-flex align-items-start">
       <div class="p-4">
-        <p>Just given my last undergrad lecture at
-          @UniKentComp
-          … language processing in #erlang (with #haskell and #ocaml versions available too)</p>
-        <div>
-          <div>August 21, 2019</div>
-          <div><a href="#">@erlef</a></div>
-        </div>
+        <p>@TheErlef
+ In 2005 I wrote edids, Erlang Distributed Intrusion Detection system. It ran on machines around the Internet, communicating over SSL through firewalls. ‘Buddies’ were notified of misbehaving IPs. One day I’ll rework it to run on current Erlang release.</p>
+        <div class="text-muted"><a href="#">@pablocostass</a><span class="mx-1">·</span>Feb 20</div>
       </div>
     </div>
     <!--event-card-->
