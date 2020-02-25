@@ -1,7 +1,7 @@
-<div class="py-5 mb-5 bg-light" data-title="<%= #{@event.title} %> – Erlang Ecosystem Foundation" data-viewtitle="<%= @event.title %>">
+<div class="py-3" data-title="<%= #{@event.title} %> – Erlang Ecosystem Foundation" data-viewtitle="<%= @event.title %>">
   <div class="container">
     <%= link("« All Events", to: "/events") %>
-    <h1>
+    <h1 class="display-4 font-weight-bold">
       <%= @event.title %>
     </h1>
     <% starts = month_name_and_day(@event.start) %>
@@ -16,11 +16,13 @@
     </p>
   </div>
 </div>
-<div class="container mb-5">
+
+<div class="container mb-5" style="background: <%= raw @event.organizer_brand_color %>">
   <div class="row">
     <div class="col-lg-8 pr-5">
+
       <%= raw @event.body_html %>
-      <div class="mt-4">
+      <div class="card mt-4">
         <h2>Details</h2>
         <dl>
           <dt>Starts: </dt>
@@ -48,7 +50,7 @@
             </dd>
           </dl>
         </dl>
-      </div>
+      </div><!--details-->
     </div>
     <!--col-->
     <div class="col-lg-4">

@@ -9,6 +9,20 @@
 <div class="container mb-5">
   <div class="row">
     <div class="col-lg-8 pr-5">
+      <ul class="nav nav-pills mb-2">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">All Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Conferences</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Talks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Meetups</a>
+        </li>
+      </ul>
       <div class="event-card rounded border bg-white  my-2 d-flex align-items-stretch">
         <div style="flex-shrink: 0; background-color: #A91F91; width: 8rem;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
           <img src="/images/fosdem_circle.png" class="img-fluid d-block mx-auto">
@@ -17,7 +31,7 @@
           <h3><a class="text-dark font-weight-bold" href="#">Beam Fosdem</a></h3>
           <h5 class="mb-0">February 1 @ 10:30:00 - February 1 @ 13:30:00</h5>
           <p class="mb-0 mt-3">At FOSDEM 2020 we’re having the 1st edition of a Devroom completely dedicated to the BEAM (and all languages running on it). FOSDEM is an annual conference about free and open source software, attended by over 5000 developers and open-source enthusiasts from all over the world.</p>
-          <a class="h5 mt-4 d-block" href="#">Learn More →</a>
+          <a class="h5 mt-4 d-block" href="lonestar-elixir-2020">Learn More →</a>
         </div>
       </div>
       <!--event-card-->
@@ -29,7 +43,7 @@
           <h3><a class="text-dark font-weight-bold" href="#">Lonestar Elixir 2020</a></h3>
           <h5 class="mb-0">February 1 @ 10:30:00 - February 1 @ 13:30:00</h5>
           <p class="mb-0 mt-3">At FOSDEM 2020 we’re having the 1st edition of a Devroom completely dedicated to the BEAM (and all languages running on it). FOSDEM is an annual conference about free and open source software, attended by over 5000 developers and open-source enthusiasts from all over the world.</p>
-          <a class="h5 mt-4 d-block" href="#">Learn More →</a>
+          <a class="h5 mt-4 d-block" href="lonestar-elixir-2020">Learn More →</a>
         </div>
       </div>
       <!--event-card-->
@@ -41,7 +55,7 @@
           <h3><a class="text-dark font-weight-bold" href="#">Code BEAM SF 2020</a></h3>
           <h5 class="mb-0">February 1 @ 10:30:00 - February 1 @ 13:30:00</h5>
           <p class="mb-0 mt-3">Learn from 50+ cutting-edge talks and our in-depth training program, how BEAM languages are revolutionising areas like IoT, Blockchain, Fintech, Security, Machine Learning and more.</p>
-          <a class="h5 mt-4 d-block" href="#">Learn More →</a>
+          <a class="h5 mt-4 d-block" href="lonestar-elixir-2020">Learn More →</a>
         </div>
       </div>
       <!--event-card-->
@@ -58,6 +72,5 @@
 <section class="py-5 text-white bg-dark">
   <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
 </section>
-
 </div>
 <!-- /.container -->
