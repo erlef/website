@@ -97,17 +97,6 @@ defmodule Erlef.Session do
 
   # TODO: Speed this up by caching the admin token in Erlef.Config
   @spec is_admin(integer(), integer()) :: boolean()
-
-  if Erlef.is_env?(:dev) do
-    def is_admin(_aid, _id) do
-      true
-    end
-
-    def is_admin(_aid, _id) do
-      false
-    end
-  end
-
   def is_admin(aid, uid) do
     with {:ok, %{"access_token" => api_token}} <- Erlef.WildApricot.get_api_token() do
       Erlef.WildApricot.is_admin(api_token, aid, uid)
@@ -115,37 +104,6 @@ defmodule Erlef.Session do
   end
 
   @spec login(String.t(), String.t()) :: {:ok, t()} | {:error, term()}
-
-  #   if Erlef.is_env?(:dev) do
-  #     @faux_dev_accounts ["member@erlef.test", "admin@erlef.test"]
-
-  #     def login(u, _password) when u in @faux_dev_accounts do
-  #       case u do
-  #         "member@erlef.test" ->
-  #           {:ok,
-  #            %__MODULE__{
-  #              access_token: "member_token",
-  #              account_id: 12_345,
-  #              expires_at: DateTime.to_string(Timex.shift(DateTime.utc_now(), minutes: 30)),
-  #              is_admin: false,
-  #              refresh_token: "rt_member_token",
-  #              username: "member@erlef.test"
-  #            }}
-
-  #         "admin@erlef.test" ->
-  #           {:ok,
-  #            %__MODULE__{
-  #              access_token: "admin_token",
-  #              account_id: 54_321,
-  #              expires_at: DateTime.to_string(Timex.shift(DateTime.utc_now(), minutes: 30)),
-  #              is_admin: true,
-  #              refresh_token: "rt_admin_token",
-  #              username: "admin@erlef.test"
-  #            }}
-  #       end
-  #     end
-  #   end
-
   def login_uri(), do: Erlef.WildApricot.gen_login_uri()
 
   def login(code, state) do
@@ -162,27 +120,11 @@ defmodule Erlef.Session do
   end
 
   @spec logout(t()) :: term()
-
-  #   if Erlef.is_env?(:dev) do
-  #     @faux_dev_access_tokens ["admin_token", "member_token"]
-  #     def logout(%{access_token: t}) when t in @faux_dev_access_tokens do
-  #       :ok
-  #     end
-  #   end
-
   def logout(%{access_token: access_token, refresh_token: refresh_token}) do
     Erlef.WildApricot.user_logout(access_token, refresh_token)
   end
 
   @spec refresh(t()) :: {:ok, t()} | {:error, term()}
-
-  # if Erlef.is_env?(:dev) do
-  #   def refresh(%{username: u} = session) when u in @faux_dev_accounts do
-  #     {:ok,
-  #      %{session | expires_at: DateTime.to_string(Timex.shift(DateTime.utc_now(), minutes: 30))}}
-  #   end
-  # end
-
   def refresh(%{refresh_token: refresh_token}) do
     case Erlef.WildApricot.user_refresh(refresh_token) do
       {:ok, data} ->
