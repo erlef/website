@@ -1,7 +1,6 @@
 test_task:
   env:
     MIX_ENV: test
-    ERLEF_COOKIE_ENCRYPTION_SALT: 41SM3UP3NgSUTzLOqCqF0r2pJBn54JuOy9+cZswJuiQi5pnCIIwJfEYO7DP3/QqR
     RECAPTCHA_URL: http://127.0.0.1:9998/recaptcha/api/siteverify
   container:
     image: elixir:latest
