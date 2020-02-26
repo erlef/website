@@ -3,16 +3,27 @@ defmodule Erlef.WildApricot do
   Erlef.WildApricot Client
   """
 
-  @spec user_login(String.t(), String.t()) :: {:ok, map()} | {:error, term()}
-  def user_login(user, password) do
+  @wa_member_login "https://erlangecosystemfoundation.wildapricot.org"
+
+  def gen_login_uri(),
+    do:
+      :hackney_url.make_url(@wa_member_login, "/sys/login/OAuthLogin", [
+        {"client_Id", client_id()},
+        {"state", 12345},
+        {"scope", "auto"},
+        {"redirect_uri", "https://erlef.com/login"}
+      ])
+
+  @spec login(String.t(), String.t()) :: {:ok, map()} | {:error, term()}
+  def login(code, _password) do
     body =
       {:form,
        [
-         {"grant_type", "password"},
-         {"username", user},
-         {"password", password},
-         {"scope", "auto"},
-         {"includeDetails", true}
+         {"grant_type", "authorization_code"},
+         {"client_id", client_id()},
+         {"code", code},
+         {"redirect_uri", "https://erlef.com/login"},
+         {"scope", "auto"}
        ]}
 
     headers = [{"Content-Type", "application/x-www-form-urlencoded"}]

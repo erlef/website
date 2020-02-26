@@ -1,35 +1,33 @@
 defmodule ErlefWeb.SessionControllerTest do
   use ErlefWeb.ConnCase
 
-  test "GET /login", %{conn: conn} do
+  test "GET /login/init", %{conn: conn} do
     conn = get(conn, Routes.session_path(conn, :show))
-    assert html_response(conn, 200) =~ "Log in"
-    assert html_response(conn, 200) =~ "Username or Email"
+    assert redirected_to(conn, 302)
   end
 
-  describe "POST /login" do
+  describe "GET /login" do
     test "as a member", %{conn: conn} do
       params = %{
-        "username" => "member@erlef.test",
-        "g-recaptcha-response" => "valid",
-        "password" => "hunter42"
+        "code" => 12345,
+        "state" => 12345
       }
 
-      conn = post(conn, Routes.session_path(conn, :create), params)
+      conn = get(conn, Routes.session_path(conn, :create), params)
       assert "/" = redir_path = redirected_to(conn, 302)
       conn = get(conn, redir_path)
       refute html_response(conn, 200) =~ "Log in"
       assert html_response(conn, 200) =~ "Log out"
     end
 
+    @tag :only
     test "as an admin", %{conn: conn} do
       params = %{
-        "username" => "admin@erlef.test",
-        "g-recaptcha-response" => "valid",
-        "password" => "hunter42"
+        "code" => 12345,
+        "state" => 12345
       }
 
-      conn = post(conn, Routes.session_path(conn, :create), params)
+      conn = get(conn, Routes.session_path(conn, :create), params)
       assert "/" = redir_path = redirected_to(conn, 302)
       conn = get(conn, redir_path)
       refute html_response(conn, 200) =~ "Log in"
@@ -37,32 +35,11 @@ defmodule ErlefWeb.SessionControllerTest do
       assert html_response(conn, 200) =~ "Log out"
     end
 
-    test "with invalid recaptcha response", %{conn: conn} do
-      params = %{
-        "username" => "admin@erlef.test",
-        "g-recaptcha-response" => "invalid",
-        "password" => "hunter42"
-      }
-
-      conn = post(conn, Routes.session_path(conn, :create), params)
-      assert html_response(conn, 200) =~ "Invalid Login"
-    end
-
-    test "with an invalid username", %{conn: conn} do
-      params = %{
-        "username" => "not_an_email",
-        "g-recaptcha-response" => "valid",
-        "password" => "hunter42"
-      }
-
-      conn = post(conn, Routes.session_path(conn, :create), params)
-      assert html_response(conn, 200) =~ "Invalid Login"
-    end
-
     test "with no params", %{conn: conn} do
       params = %{}
-
-      conn = post(conn, Routes.session_path(conn, :create), params)
+      conn = get(conn, Routes.session_path(conn, :create), params)
+      assert "/" = redir_path = redirected_to(conn, 302)
+      conn = get(conn, redir_path)
       assert html_response(conn, 200) =~ "Invalid Login"
     end
   end
@@ -70,12 +47,11 @@ defmodule ErlefWeb.SessionControllerTest do
   describe "POST /logout" do
     test "as a member", %{conn: conn} do
       params = %{
-        "username" => "member@erlef.test",
-        "g-recaptcha-response" => "valid",
-        "password" => "hunter42"
+        "code" => 12345,
+        "state" => 12345
       }
 
-      conn = post(conn, Routes.session_path(conn, :create), params)
+      conn = get(conn, Routes.session_path(conn, :create), params)
       assert "/" = redir_path = redirected_to(conn, 302)
       conn = get(conn, redir_path)
       refute html_response(conn, 200) =~ "Log in"
@@ -89,12 +65,11 @@ defmodule ErlefWeb.SessionControllerTest do
 
     test "as an admin", %{conn: conn} do
       params = %{
-        "username" => "member@erlef.test",
-        "g-recaptcha-response" => "valid",
-        "password" => "hunter42"
+         "code" => 12345,
+        "state" => 12345
       }
 
-      conn = post(conn, Routes.session_path(conn, :create), params)
+      conn = get(conn, Routes.session_path(conn, :create), params)
       assert "/" = redir_path = redirected_to(conn, 302)
       conn = get(conn, redir_path)
       refute html_response(conn, 200) =~ "Log in"

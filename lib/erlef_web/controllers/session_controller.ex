@@ -3,17 +3,14 @@ defmodule ErlefWeb.SessionController do
   action_fallback ErlefWeb.FallbackController
 
   def show(conn, _params) do
-    render(conn, "show.html", recaptcha_site_key: recaptcha_site_key())
+    redirect(conn, external: Erlef.Session.login_uri())
   end
 
   def create(conn, %{
-        "username" => user,
-        "g-recaptcha-response" => recaptcha_token,
-        "password" => password
+        "code" => auth_code,
+        "state" => state
       }) do
-    with true <- Erlef.Inputs.is_email(user),
-         {:ok, :verified} <- verify_captcha(recaptcha_token),
-         {:ok, session} <- Erlef.Session.login(user, password) do
+    with {:ok, session} <- Erlef.Session.login(auth_code, state) do
       conn
       |> configure_session(renew: true)
       |> put_session("member_session", session)
@@ -27,7 +24,7 @@ defmodule ErlefWeb.SessionController do
   def create(conn, _params) do
     conn
     |> put_flash(:error, "Invalid Login")
-    |> render("show.html", recaptcha_site_key: recaptcha_site_key())
+    |> redirect(to: "/")
   end
 
   def delete(conn, _params) do
@@ -36,11 +33,5 @@ defmodule ErlefWeb.SessionController do
     conn
     |> delete_session("member_session")
     |> redirect(to: "/")
-  end
-
-  if Erlef.is_env?(:dev) do
-    defp verify_captcha(_token), do: {:ok, :verified}
-  else
-    defp verify_captcha(token), do: Erlef.Captcha.verify_recaptcha(token)
   end
 end

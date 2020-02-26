@@ -41,5 +41,4 @@ defmodule ErlefWeb.Endpoint do
     signing_salt: "pSnWMnUh"
 
   plug ErlefWeb.Router
-
 end

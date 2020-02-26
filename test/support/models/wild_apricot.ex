@@ -77,7 +77,8 @@ defmodule Erlef.Test.WildApricot do
 
   get "/v2.1/accounts/12345/contacts/me" do
     data = %{
-      "Id" => 12_345
+      "Id" => 12_345,
+      "DisplayName" => "starbelly"
     }
 
     conn
@@ -87,7 +88,8 @@ defmodule Erlef.Test.WildApricot do
 
   get "/v2.1/accounts/54321/contacts/me" do
     data = %{
-      "Id" => 54_321
+      "Id" => 54_321,
+      "DisplayName" => "eh"
     }
 
     conn

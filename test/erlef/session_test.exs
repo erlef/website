@@ -26,7 +26,7 @@ defmodule Erlef.SessionTest do
                is_admin: true,
                refresh_token: _,
                username: "starbelly"
-             } = Erlef.Session.new("starbelly", data)
+             } = Erlef.Session.new(data)
     end
 
     test "when is not admin" do
@@ -51,7 +51,7 @@ defmodule Erlef.SessionTest do
                is_admin: false,
                refresh_token: _,
                username: "eh"
-             } = Erlef.Session.new("eh", data)
+             } = Erlef.Session.new(data)
     end
   end
 
@@ -160,11 +160,11 @@ defmodule Erlef.SessionTest do
   test "refresh/1" do
     session = %Erlef.Session{
       access_token: "HiuWUvqcMMuY-4AlJ5rM2ZqSbeo-",
-      account_id: 54_321,
+      account_id: 12_345,
       expires_at: DateTime.to_string(Timex.shift(DateTime.utc_now(), minutes: 100)),
       is_admin: false,
       refresh_token: "rt_2020-02-23_JoR0ez-SYAFjcOIkgO-5HqHWt9E-",
-      username: "eh"
+      username: "starbelly"
     }
 
     assert {:ok,
@@ -174,7 +174,7 @@ defmodule Erlef.SessionTest do
               expires_at: _,
               is_admin: true,
               refresh_token: _,
-              username: "eh"
+              username: "starbelly"
             }} = Erlef.Session.refresh(session)
   end
 end

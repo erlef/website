@@ -43,8 +43,8 @@ defmodule ErlefWeb.Router do
   scope "/", ErlefWeb do
     pipe_through :browser
 
-    get "/login", SessionController, :show
-    post "/login", SessionController, :create
+    get "/login/init", SessionController, :show
+    get "/login", SessionController, :create
     post "/logout", SessionController, :delete
 
     get "/", PageController, :index
