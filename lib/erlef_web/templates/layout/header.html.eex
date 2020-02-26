@@ -44,7 +44,8 @@
           </a>
           <ul class="dropdown-menu">
             <li role="separator" class="divider"></li>
-            <li>
+            <a class="dropdown-item" target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Membership details</a>
+            <li class="dropdown-item">
               <%= form_tag(Routes.session_path(@conn, :delete)) do %>
                 <button type="submit" class="btn btn-link nav-link">Log out</button>
               <% end %>

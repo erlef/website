@@ -7,9 +7,10 @@ defmodule Erlef.HTTP do
   @json_mimes ["application/json", "application/json; charset=utf-8", "application/vnd.api+json"]
 
   def perform(method, url, headers, body, opts) do
-    {:ok, payload} = maybe_json_encode(content_type(headers), body)
+    trusted_headers = safe_headers(headers)
+    {:ok, payload} = maybe_json_encode(content_type(trusted_headers), body)
 
-    case :hackney.request(method, url, headers, payload, build_options(opts)) do
+    case :hackney.request(method, url, trusted_headers, payload, build_options(opts)) do
       {:ok, status_code, res_headers, client_ref} ->
         pretty_result(method, url, headers, status_code, res_headers, client_ref)
 
@@ -40,6 +41,19 @@ defmodule Erlef.HTTP do
       _ ->
         {:error, result}
     end
+  end
+
+  defp safe_headers(headers) do
+    Enum.map(headers, fn {k, v} ->
+      {URI.encode(k), safe_header_value(v)}
+    end)
+  end
+
+  defp safe_header_value(v) do
+    v
+    |> String.split(" ")
+    |> Enum.map(&URI.encode/1)
+    |> Enum.join(" ")
   end
 
   defp content_type(headers) do

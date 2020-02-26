@@ -65,7 +65,7 @@ defmodule ErlefWeb.SessionControllerTest do
 
     test "as an admin", %{conn: conn} do
       params = %{
-         "code" => 12345,
+        "code" => 12345,
         "state" => 12345
       }
 

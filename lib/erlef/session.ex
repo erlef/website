@@ -36,7 +36,7 @@ defmodule Erlef.Session do
 
     {:ok, %{"Id" => uid, "DisplayName" => username}} = Erlef.WildApricot.me(access_token, aid)
 
-    case is_admin(aid, uid, access_token) do
+    case is_admin(aid, uid) do
       truth when is_boolean(truth) ->
         %__MODULE__{
           account_id: aid,
@@ -96,19 +96,19 @@ defmodule Erlef.Session do
   end
 
   # TODO: Speed this up by caching the admin token in Erlef.Config
-  @spec is_admin(integer(), integer(), String.t()) :: boolean()
+  @spec is_admin(integer(), integer()) :: boolean()
 
   if Erlef.is_env?(:dev) do
-    def is_admin(_aid, "admin_token") do
+    def is_admin(_aid, _id) do
       true
     end
 
-    def is_admin(_aid, "member_token") do
+    def is_admin(_aid, _id) do
       false
     end
   end
 
-  def is_admin(aid, uid, access_token) do
+  def is_admin(aid, uid) do
     with {:ok, %{"access_token" => api_token}} <- Erlef.WildApricot.get_api_token() do
       Erlef.WildApricot.is_admin(api_token, aid, uid)
     end
