@@ -19,7 +19,8 @@ defmodule ErlefWeb.SlackInviteController do
   end
 
   def create(conn, %{"email" => email, "g-recaptcha-response" => recaptcha_token, "team" => team}) do
-    with {:ok, :verified} <- Erlef.Captcha.verify_recaptcha(recaptcha_token),
+    with true <- Erlef.Inputs.is_email(email),
+         {:ok, :verified} <- Erlef.Captcha.verify_recaptcha(recaptcha_token),
          {:ok, :invited} <- Erlef.SlackInvite.invite(email, team: team) do
       conn
       |> put_flash(:success, success_msg())
@@ -41,8 +42,6 @@ defmodule ErlefWeb.SlackInviteController do
     |> put_flash(:error, "<h3>Whoops, you did something very wrong 🤔</h3>")
     |> redirect(to: "/")
   end
-
-  defp recaptcha_site_key, do: System.get_env("RECAPTCHA_SITE_KEY")
 
   defp success_msg, do: "<h3>Keep your 👀 peeled for an invitation email ...</h3>"
 end
