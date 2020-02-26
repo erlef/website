@@ -16,7 +16,9 @@
   "venue_gmap_url": "https://goo.gl/maps/SVdvSiTbDNfQakaC6",
   "venue_address1": "Hyatt Centric Fisherman's Wharf",
   "venue_address2": "555 North Point Street",
-  "venue_city": "San Francisco"
+  "venue_city": "San Francisco",
+  "organizer_brand_color": "#ff0160",
+  "organizer_brand_logo": "/images/code-sync.svg"
 }
 ---
 Discover the future of Erlang and Elixir

@@ -16,61 +16,51 @@
     </p>
   </div>
 </div>
-
-<div class="container mb-5" style="background: <%= raw @event.organizer_brand_color %>">
-  <div class="row">
-    <div class="col-lg-8 pr-5">
-
-      <%= raw @event.body_html %>
-      <div class="card mt-4">
-        <h2>Details</h2>
-        <dl>
-          <dt>Starts: </dt>
-          <dl class="ml-2">
-            <dt> Date: </dt>
-            <dd><abbr title="<%= year_month_day(@event.start) %>">
-                <%= month_name_and_day(@event.start) %> </abbr></dd>
-            <dt> Time: </dt>
-            <dd>
-              <div title="<%= year_month_day(@event.end) %>">
-                <%= start_time %>
-              </div>
-            </dd>
-          </dl>
-          <dt>Ends: </dt>
-          <dl class="ml-2">
-            <dt> Date: </dt>
-            <dd><abbr title="<%= year_month_day(@event.end) %>">
-                <%= month_name_and_day(@event.end) %> </abbr></dd>
-            <dt> Time: </dt>
-            <dd>
-              <div title="<%= year_month_day(@event.end) %>">
-                <%= end_time %>
-              </div>
-            </dd>
-          </dl>
-        </dl>
-      </div><!--details-->
-    </div>
-    <!--col-->
-    <div class="col-lg-4">
-      <h6>About the Organizer</h6>
-      <h3>
-        <%=  @event.organizer %>
-      </h3>
-      <a href="<%= raw @event.organizer_url %>" target="_blank">
-        <%= @event.organizer_url %></a>
-      <h6 class="mt-4">Participate</h6>
-      <h4>Add the event to your calendar</h4>
-      <%= if @event.gcal_url do %>
-      <div>
-        <a class="btn btn-primary btn-lg btn-block" href="<%= raw @event.gcal_url %>" title="Add to Google Calendar">+ Google Calendar</a>
+<div class="bg-dark mb-5 py-lg-5 py-2 text-white">
+  <div class="container">
+    <div class="row ">
+      <div class="col-lg-2">
+        <div class="h-100 left-bleed clip-svg p-5 d-lg-flex align-items-center" style="background: <%= raw @event.organizer_brand_color %>">
+          <img src="<%= raw @event.organizer_brand_logo %>" class="img-fluid d-block mx-auto">
+        </div>
       </div>
-      <% end %>
+      <div class="col-lg-6">
+        <div class="p-lg-5 p-2">
+          <h2 class="mb-2">About the Event</h2>
+          <%= raw @event.body_html %>
+          
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="bg-white mt-5 mb-3 text-dark p-4 rounded">
+          <h6>Details</h6>
+          <h5>Starts</h5>
+          <p>
+            <%= month_name_and_day(@event.start) %><span class="mx-2">-</span>
+            <%= start_time %>
+          </p>
+          <h5>Ends</h5>
+          <p>
+            <%= month_name_and_day(@event.end) %><span class="mx-2">-</span>
+            <%= end_time %>
+          </p>
+          <%= if @event.gcal_url do %>
+       
+            <a class="btn btn-primary btn-block mt-3" href="<%= raw @event.gcal_url %>" title="Add to Google Calendar">+ Google Calendar</a>
+        
+          <% end %>
+        </div>
+        <h6>About the Organizer</h6>
+        <h3>
+          <%=  @event.organizer %>
+        </h3>
+        <a href="<%= raw @event.organizer_url %>" target="_blank">
+          <%= @event.organizer_url %></a>
+      </div>
     </div>
-    <!--col-->
   </div>
-  <!--row-->
+</div>
+<div class="container mb-5">
   <article class="card mt-3r page type-page status-publish hentry">
     <div class="card-body">
       <!-- Event header -->

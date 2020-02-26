@@ -117,6 +117,8 @@ section {
 }
 
 .event-card-image-wrapper {
+  width: 8rem;
+  flex-shrink: 0;
 }
 
 .event-card img {
