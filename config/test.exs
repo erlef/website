@@ -12,3 +12,9 @@ config :erlef, Erlef.Mailer, adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :erlef, Erlef.Data.Repo,
+  database: "erlef_website_test",
+  pool: Ecto.Adapters.SQL.Sandbox,
+  migration_primary_key: [id: :uuid, type: :binary_id],
+  migration_timestamps: [type: :utc_datetime]

@@ -17,7 +17,7 @@ defmodule ErlefWeb.PlugAttack do
   end
 
   rule "throttle by ip", conn do
-    allow conn
+    allow(conn)
   end
 
   def block_action(conn, _data, _opts) do
