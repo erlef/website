@@ -44,6 +44,8 @@ config :erlef, :slack_invite_config, %{
 
 config :erlef, :wild_apricot_base_api_url, "https://api.wildapricot.org"
 config :erlef, :wild_apricot_base_auth_url, "https://oauth.wildapricot.org"
+config :erlef,
+  ecto_repos: [Erlef.Data.Repo]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

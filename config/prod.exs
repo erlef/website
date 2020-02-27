@@ -21,6 +21,14 @@ config :erlef, env: :prod
 
 config :erlef, ErlefWeb.Endpoint, force_ssl: [hsts: true, rewrite_on: [:x_forwarded_proto]]
 
+config :erlef,
+       Erlef.Data.Repo,
+       url: System.get_env("DATABASE_URL"),
+       pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+       migration_primary_key: [id: :uuid, type: :binary_id],
+       migration_timestamps: [type: :utc_datetime],
+       ssl: true
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
