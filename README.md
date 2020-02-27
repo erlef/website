@@ -2,11 +2,11 @@
 
 ## Prerequisites
 
- A `.tool-versions` file is provided in this repo for [asdf](https://asdf-vm.com/) users. 
+ A `.tool-versions` file is provided in this repo for [asdf](https://asdf-vm.com/) users.
 
  - Erlang/OTP 22
  - Elixir 1.9
- - NodeJS v12 
+ - NodeJS v12
 
 ## Up and running
 
@@ -51,10 +51,10 @@ In this example to preview the rendered markdown on the local instance of the si
 ---
 Post excerpt goes here. This is a short description of the what the post is about.
 ---
-This is where the body of the post goes. 
+This is where the body of the post goes.
 
 ## Standard markdown and GFM supported.
- See [Earmark Docs](https://hexdocs.pm/earmark/1.3.2/Earmark.html) for details. 
+ See [Earmark Docs](https://hexdocs.pm/earmark/1.3.2/Earmark.html) for details.
 
 ```
 
@@ -62,7 +62,7 @@ This is where the body of the post goes.
 
  The following groups can be used with the eef.gen.post command:
 
- - building 
+ - building
  - education
  - marketing
  - proposal
@@ -70,3 +70,10 @@ This is where the body of the post goes.
  - sponsorship
  - security
  - documentation
+
+## Development
+
+### Getting around in dev mode
+- copy .env-example to .env-local and source the file
+- you may login in as an regular user in dev using member@erlef.test and any password
+- you may login in as an admin in dev using admin@erlef.test and any password

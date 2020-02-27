@@ -1,7 +1,19 @@
-    <aside class="col-md-4 blog-sidebar">
-      <div class="p-4 mb-3 bg-light rounded">
-        <h4 class="font-italic">About <%= @name %></h4>
-        <p class="mb-0"><%= @description %></p>
-      </div>
-    </aside>
-
+<aside class="col-lg-4 blog-sidebar">
+  <div class="mb-5">
+    <h6>Learn More</h6>
+    <h4>About the <%= @name %></h4>
+    <p class="mb-0">
+      <%= @description %>
+    </p>
+  </div>
+  <div class="mb-5">
+    <h6>Media Inquiries</h6>
+    <h4>Journalists and other media professionals</h4>
+    <p class="mb-0">
+      For press kits, interviews or publish about us please contact one of the members of our team:
+    </p>
+    <ul class="mt-3">
+      <li>John Doe: <a href="#">email@erlef.org</a></li>
+    </ul>
+  </div>
+</aside>

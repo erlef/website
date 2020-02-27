@@ -1,4 +1,8 @@
 defmodule Erlef.Captcha do
+  @moduledoc """
+  Erlef.Captcha - Captcha related verification functions
+  """
+
   def verify_recaptcha(response) do
     body = URI.encode_query(response: response, secret: System.get_env("RECAPTCHA_SECRET_KEY"))
 
@@ -7,17 +11,18 @@ defmodule Erlef.Captcha do
       {"Accept", "application/json"}
     ]
 
-    url = "https://www.google.com/recaptcha/api/siteverify"
-
     secret = System.get_env("RECAPTCHA_SECRET_KEY")
 
-    {:ok, 200, _, ref} = :hackney.post(url, headers, body, timeout: 5000, secret: secret)
+    opts = [timeout: 5000, secret: secret]
 
-    {:ok, body} = :hackney.body(ref)
+    case Erlef.HTTP.perform(:post, recaptcha_url(), headers, body, opts) do
+      {:ok, %{body: %{"success" => true}}} ->
+        {:ok, :verified}
 
-    case Jason.decode(body) do
-      {:ok, %{"success" => true}} -> {:ok, :verified}
-      _ -> {:error, "Invalid recaptcha response"}
+      _err ->
+        {:error, "Invalid recaptcha response"}
     end
   end
+
+  defp recaptcha_url, do: System.get_env("RECAPTCHA_URL")
 end

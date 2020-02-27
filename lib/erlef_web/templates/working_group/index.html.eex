@@ -1,47 +1,35 @@
-<div class="container">
-    <article class="card mt-3r page type-page status-publish hentry">
-        <div class="card-body">
-            <!-- .entry-header -->
-
-            <div class="entry-content">
-                <h1>WORKING GROUPS</h1>
-                <div class="row">
-                    <div class="col-md-8">
-                      <div class="statement">
-                        In order to meet the needs of the ecosystem, the EEF sponsors Working
-                        Groups to solve specific challenges faced by users of BEAM technology. Areas of particular
-                        interest include documentation, interoperability, and performance.
-                      </div>
-                      <div class="statement">
-                        Anyone may start a Working Group. To apply, please copy and fill out the Proposal
-                        Template, then email wg@erlef.org introducing yourself and the Group.  Please
-                        include a link to the Proposal in this email.  You can check out the Proposals of
-                        current Working Groups on their homepages below to see examples of successful proposals.
-                      </div>
-                      <div class="statement">
-                        We will get back to you with next steps!
-                      </div>
-                        <div class="statement"><a href="/wg-proposal-template">Working Group Proposal Template</a></div>
-                        <div class="statement">List of Active Working Groups</div>
-                        <ul>
-                          <%= for group <- @working_groups do %>
-                            <li><a href="/wg/<%= group.slug %>"><%= group.name %></a></li>
-                          <% end %>
-                        </ul>
-                    </div>
-                    <div class="col-sm">
-                        <p class="align-items-end"><img class="justify-content-end"
-                                src="<%= Routes.static_path(@conn, "/images/leaves2.png") %>" width="300"
-                                height="300" /></p>
-                    </div>
-
-                </div>
-
-            </div>
-            <!-- .entry-content -->
-        </div>
-        <!-- /.card-body -->
-
-    </article>
+<div class="py-3">
+  <div class="container">
+    <h1 class="display-4 font-weight-bold">Working Groups</h1>
+    <p class="lead">
+      In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology. Areas of particular interest include documentation, interoperability, and performance.
+    </p>
+  </div>
+</div>
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-lg-8 pr-5">
+      <h3>Active Working Groups</h3>
+      <ul class="list-unstyled">
+        <%= for group <- @working_groups do %>
+        <li>
+          <h4><a href="/wg/<%= group.slug %>">
+              <%= group.name %></a></h4>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-lg-4">
+      <h6>Participating</h6>
+      <h4>If you want to start a Working Group</h4>
+      <p>Do you have an idea for a working group? Anyone can start on by following these steps:</p>
+      <ul>
+        <li>Fill out the Proposal Template: <a class="d-block" href="/wg-proposal-template">Proposal Template</a></li>
+        <li>Email the proposal to: <a class="d-block" href="#">wg@erlef.org</a></li>
+      </ul>
+      <h4 class="mt-5">If you want to help</h4>
+      <p>Lorem Ipsum</p>
+    </div>
+  </div>
 </div>
 <!-- /.container -->

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/admin.css") %>">
+
+  </head>
+
+  <body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <body>
+    <%= render "header.html", conn: @conn, current_user: @current_user %>
+     <%= render "sidebar.html", conn: @conn, current_user: @current_user %>
+
+     <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <!-- put bread crumbs here -->
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+            <div class="container-fluid">
+              <%= render @view_module, @view_template, assigns %>
+     </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      <p>Sidebar content</p>
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+    <%= render "footer.html", conn: @conn, current_user: @current_user %>
+
+</div>
+<!-- ./wrapper -->
+
+    <script src="<%= Routes.static_path(@conn, "/js/admin.js") %>"></script>
+</div>
+  </body>
+</html>

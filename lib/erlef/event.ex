@@ -18,6 +18,8 @@ defmodule Erlef.Event do
     field(:gmap_embed_url, :string)
     field(:organizer, :string)
     field(:organizer_url, :string)
+    field(:organizer_brand_color, :string)
+    field(:organizer_brand_logo, :string)
     field(:venue_name, :string)
     field(:venue_url, :string)
     field(:venue_territory, :string)
@@ -36,7 +38,7 @@ defmodule Erlef.Event do
   @required_fields ~w(title slug datetime start end organizer organizer_url excerpt body excerpt_html body_html)a
 
   @optional_fields ~w(gcal_url gmap_embed_url venue_url venue_name venue_country venue_address1
-      venue_address2 venue_city venue_postal_code venue_territory venue_gmap_url offset event_url)a
+      venue_address2 venue_city venue_postal_code venue_territory venue_gmap_url offset event_url organizer_brand_logo organizer_brand_color)a
 
   def changeset(struct, params \\ %{}) do
     struct

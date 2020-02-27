@@ -1,29 +1,64 @@
-<div id="content" class="site-content">
-    <section class="jumbotron text-center eco-jumbotron border-bottom text-white">
-        <div class="jumbo-overlay">
-            <div class="container">
-                <h1 class="jumbotron-heading">Erlang Ecosystem Foundation</h1>
-                <p class="lead">The Erlang Ecosystem Foundation is a new non-profit organization dedicated to furthering the state of the art for Erlang, Elixir, LFE, and other technologies based on the BEAM. Our goal is to increase the adoption of this sophisticated platform among forward-thinking organizations. With member-supported Working Groups actively contributing to libraries, tools, and documentation used regularly by individuals and companies relying on the stability and versatility of the ecosystem, we actively invest in critical pieces of technical infrastructure to support our users in their efforts to build the next generation of advanced, reliable, realtime applications.
-                </p>
-
+<div id="content" class="site-content bg-brand">
+  <section class="py-5 bg-brand">
+    <div class="container">
+      <div class="row align-items-stretch">
+        <div class="col-lg-6 py-5">
+          <div style="position: relative; z-index: 100">
+            <h1 class="mb-4 h3 font-weight-normal text-white">Erlang Ecosystem Foundation</h1>
+            <h2 class="text-white font-weight-bold mb-4 display-4">Supporting the next generation of advanced, reliable, realtime applications</h2>
+            <p class="lead text-white">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 100 members who embrace the foundations' collaborative Working Group model, and community-building events.</p>
+            <p class="lead text-white">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
+            <a class="h3" href="#">Join Now →</a>
+          </div>
+        </div>
+        <div class="offset-lg-1 col-lg-5">
+          <div class="d-flex flex-column h-100 py-0 py-md-5" style="position: relative; z-index: 100;">
+            <h5 class="py-2 text-white font-weight-bold">Upcoming Events</h5>
+            <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+              <div style="background-color: #ff0160; width: 6rem;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
+                <img src="/images/code-sync.svg" class="img-fluid d-block mx-auto">
+              </div>
               <div>
-                <%= raw subscribe_form() %>
-              </div> 
-            <!-- / Mailchimp -->
-        </div>
-    </section>
-
-    <section class="main-content">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-
-                    <p>The Erlang Software Foundation’s goal is to grow and support a diverse community around the Erlang and Elixir Ecosystem, encouraging the continued development of technologies and open source projects based on/around its runtime and languages</p>
-
-                </div>
+                <h4><a class="text-dark font-weight-bold" href="#">Code BEAM SF 2020</a></h4>
+                <h5 class="mb-0">5-6 March</h5>
+              </div>
             </div>
+            <!--event-card-->
+            <div class="event-card rounded bg-white my-2 d-flex align-items-center">
+              <div style="background-color: #235185; width: 6rem;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
+                <img src="/images/lonestar-elixir.svg" class="img-fluid d-block mx-auto">
+              </div>
+              <div>
+                <h4><a class="text-dark font-weight-bold" href="#">Lonestar Elixir 2020</a></h4>
+                <h5 class="mb-0">5-6 March</h5>
+              </div>
+            </div>
+            <a class="h4 py-2" href="#">View All Events →</a>
+          </div>
+          <%= right_svg_hero() do %>
+          <img class="gradient-mask-right h-100" src="/images/crowd.jpg">
+          <% end %>
         </div>
-    </section>
-
+      </div>
+    </div>
+  </section>
+  <section class="pt-5">
+    <div class="container">
+      <h3 class="mb-4 text-white">Latest from the EEF</h3>
+      <%= render(ErlefWeb.LayoutView, "twitter_feed.html", assigns) %>
+    </div>
+  </section>
+  <!--hero-->
+  <section class="latest-news py-5 mb-5 bg-white">
+    <%= render(ErlefWeb.LayoutView, "news_feed.html", assigns) %>
+  </section>
+  <section>
+    <%= render(ErlefWeb.LayoutView, "working_groups.html", assigns) %>
+  </section>
+  <section class="py-5 text-white">
+    <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
+  </section>
+  <!--hero-->
+  <!-- / Mailchimp -->
 </div>
 <!-- #page -->

@@ -1,4 +1,7 @@
-defmodule ErlefWeb.PlugAttack do
+defmodule ErlefWeb.Plug.Attack do
+  @moduledoc """
+  Erlef.Plug.Attack - rate limiting rules
+  """
   use PlugAttack
   import Plug.Conn
 

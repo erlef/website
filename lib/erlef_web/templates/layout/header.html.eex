@@ -1,61 +1,61 @@
-    <nav class="navbar navbar-expand-md navbar-light border mb-0">
-        <a class="navbar-brand" href="/">
-       <img src="<%=  Routes.static_path(@conn, "/images/eef-logo-transparent.png") %>" width="75" height="75" alt="">
-      </a>
+<nav class="navbar navbar-expand-md navbar-light py-4 mb-0">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="<%=  Routes.static_path(@conn, "/images/eef-logo.svg") %>" alt="EEF Logo" width="120px">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav navbar-right ml-auto" style="">
+        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="https://members.erlef.org/join-us" class="nav-link">Join Us!</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sponsors</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/sponsors/" class="nav-link">Sponsors</a>
+            <a class="dropdown-item" href="/become-a-sponsor/">Become a sponsor!</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="/wg/" class="nav-link">Working Groups</a></li>
+        <li class="nav-item"><a href="/stipends/" class="nav-link">Stipends</a></li>
+        <li class="nav-item"><a href="/news/" class="nav-link">News</a></li>
+        <li class="nav-item"><a href="/events/" class="nav-link">Events</a></li>
+        <li class="nav-item"><a href="/academic-papers/" class="nav-link">Academic Papers</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/board_members/" class="nav-link">Board Members</a>
+            <a class="dropdown-item" href="/contact/" class="nav-link">Contact</a>
+            <a class="dropdown-item" href="/bylaws/">Bylaws</a>
+            <a class="dropdown-item" href="/faq/">FAQ</a>
+          </div>
+        </li>
 
-        <div class="site-branding-text">
-            <h2 class="site-title h3 mb-0">
-            <a href="/" rel="home" class="navbar-brand mb-0">
-              Erlang Ecosystem Foundation
-            </a>
-        </h2>
-            <p class="site-description mb-0">Supporting the BEAM community</p>
-        </div>
+        <%= if logged_in?(assigns) do %>
+          <%= if is_admin?(assigns) do %>
+            <li class="nav-item"><a href="/admin" class="nav-link">Admin</a></li>
+          <% end %>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" 
-                                                     data-target="#navbarCollapse" 
-                                                     aria-controls="navbarCollapse" 
-                                                     aria-expanded="false" 
-                                                     aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-right ml-auto" style="">
-          
-              <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                
-                <li class="nav-item"><a href="https://members.erlef.org/join-us" class="nav-link">Join Us!</a></li>
-
-                 <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sponsors</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                        <a class="dropdown-item" href="/sponsors/" class="nav-link">Sponsors</a>
-                        <a class="dropdown-item" href="/become-a-sponsor/">Become a sponsor!</a>
-                    </div>
-                 </li>
-
-                <li class="nav-item"><a href="/wg/" class="nav-link">Working Groups</a></li>
-
-                <li class="nav-item"><a href="/stipends/" class="nav-link">Stipends</a></li>
-
-                <li class="nav-item"><a href="/news/" class="nav-link">News</a></li>
-                <li class="nav-item"><a href="/events/" class="nav-link">Events</a></li>
-                <li class="nav-item"><a href="/academic-papers/" class="nav-link">Academic Papers</a></li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                        <a class="dropdown-item" href="/board_members/" class="nav-link">Board Members</a>
-                        <a class="dropdown-item" href="/contact/" class="nav-link">Contact</a>
-                        <a class="dropdown-item" href="/bylaws/">Bylaws</a>
-                        <a class="dropdown-item" href="/faq/">FAQ</a>
-                    </div>
-                </li>
-
-            </ul>
-
-        </div>
-    </nav>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <%= @current_user.username %>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li role="separator" class="divider"></li>
+            <a class="dropdown-item" target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Membership details</a>
+            <li class="dropdown-item">
+              <%= form_tag(Routes.session_path(@conn, :delete)) do %>
+                <button type="submit" class="btn btn-link nav-link">Log out</button>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+        <% else %>
+          <li><a class="nav-link" href="<%= Routes.session_path(@conn, :show) %>">Log in</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

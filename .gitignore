@@ -38,3 +38,5 @@ npm-debug.log
 .elixir_ls/
 
 .DS_STORE
+
+.env-local
