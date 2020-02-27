@@ -37,9 +37,12 @@ defmodule Erlef.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.4.13"},
+      {:phoenix_ecto, "~> 4.1"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_html, "~> 2.14"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:ecto_sql, "~> 3.1"},
+      {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.17.4"},
       {:jason, "~> 1.1", override: true},
       {:plug_cowboy, "~> 2.1"},

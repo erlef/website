@@ -71,3 +71,10 @@ config :erlef, Erlef.Mailer, adapter: Swoosh.Adapters.Local
 config :erlef, env: :dev
 
 config :swoosh, preview_port: 4001
+
+config :erlef, Erlef.Data.Repo,
+  database: "erlef_website_dev",
+  migration_primary_key: [id: :uuid, type: :binary_id],
+  migration_timestamps: [type: :utc_datetime],
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
