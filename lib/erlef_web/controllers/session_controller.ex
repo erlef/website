@@ -2,20 +2,23 @@ defmodule ErlefWeb.SessionController do
   use ErlefWeb, :controller
   action_fallback ErlefWeb.FallbackController
 
+  @spec show(Plug.Conn.t(), map()) :: no_return()
   def show(conn, _params) do
-    redirect(conn, external: Erlef.Session.login_uri())
+    uri = Erlef.Session.login_uri()
+    redirect(conn, external: uri)
   end
 
   def create(conn, %{
         "code" => auth_code,
         "state" => state
       }) do
-    with {:ok, session} <- Erlef.Session.login(auth_code, state) do
-      conn
-      |> configure_session(renew: true)
-      |> put_session("member_session", session)
-      |> redirect(to: "/")
-    else
+    case Erlef.Session.login(auth_code, state) do
+      {:ok, session} ->
+        conn
+        |> configure_session(renew: true)
+        |> put_session("member_session", session)
+        |> redirect(to: "/")
+
       _ ->
         create(conn, nil)
     end

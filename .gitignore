@@ -40,3 +40,7 @@ npm-debug.log
 .DS_STORE
 
 .env-local
+
+# Ignore plts
+/priv/plts/erlef.plt
+/priv/plts/erlef.plt.hash
