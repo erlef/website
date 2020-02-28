@@ -96,16 +96,17 @@ defmodule Erlef.Session do
   end
 
   # TODO: Speed this up by caching the admin token in Erlef.Config
-  @spec is_admin(integer(), integer()) :: boolean()
+  @spec is_admin(integer(), integer()) :: boolean() | {:error, term()}
   def is_admin(aid, uid) do
     with {:ok, %{"access_token" => api_token}} <- Erlef.WildApricot.get_api_token() do
       Erlef.WildApricot.is_admin(api_token, aid, uid)
     end
   end
 
-  @spec login(String.t(), String.t()) :: {:ok, t()} | {:error, term()}
+  @spec login_uri() :: no_return()
   def login_uri(), do: Erlef.WildApricot.gen_login_uri()
 
+  @spec login(String.t(), String.t()) :: {:ok, t()} | {:error, term()}
   def login(code, state) do
     case Erlef.WildApricot.login(code, state) do
       {:ok, data} ->

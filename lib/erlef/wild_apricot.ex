@@ -5,14 +5,15 @@ defmodule Erlef.WildApricot do
 
   @wa_member_login "https://erlangecosystemfoundation.wildapricot.org"
 
-  def gen_login_uri(),
-    do:
-      :hackney_url.make_url(@wa_member_login, "/sys/login/OAuthLogin", [
-        {"client_Id", client_id()},
-        {"state", 12345},
-        {"scope", "auto"},
-        {"redirect_uri", "https://erlef.com/login"}
-      ])
+  @spec gen_login_uri() :: no_return()
+  def gen_login_uri() do
+    :hackney_url.make_url(@wa_member_login, "/sys/login/OAuthLogin", [
+      {"client_Id", client_id()},
+      {"state", 12_345},
+      {"scope", "auto"},
+      {"redirect_uri", "https://erlef.com/login"}
+    ])
+  end
 
   @spec login(String.t(), String.t()) :: {:ok, map()} | {:error, term()}
   def login(code, _password) do
