@@ -3,14 +3,12 @@
 @import url("https://use.typekit.net/kyy4ydn.css");
 
 
-:root {
 
-}
 
 
 html,
 body {
-  font-family: canada-type-gibson, sans-serif;
+    font-family: canada-type-gibson, sans-serif;
 }
 
 h1,
@@ -19,125 +17,131 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
+    font-weight: 400;
 }
 
-a {
 
-}
 
 section {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 
 .img-inverted {
-  filter: invert(1);
+    filter: invert(1);
 }
 
 .img-align-center {
-  transform: translateY(-25%);
+    transform: translateY(-25%);
 }
 
 .font-weight-bold {
-  font-weight: 500 !important;
+    font-weight: 500 !important;
 }
 
 .btn-primary {
-  border-color: var(--primary);
-  background: var(--primary);
+    border-color: var(--primary);
+    background: var(--primary);
 }
 
 .btn-primary.active {
-  background: #444;
+    background: #444;
 }
 
 .bg-brand-light {
-  background: var(--light);
+    background: var(--light);
 }
 
 .bg-brand {
-  background-color: var(--dark);
+    background-color: var(--dark);
 }
 
 .avatar {
-  width: 48px;
-  height: 48px;
-  overflow: hidden;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
 }
 
 .avatar-large {
-  width: 160px;
-  height: 160px;
-  overflow: hidden;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
 
-  background: #444;
+    background: #444;
 }
 
 .clip-svg {
-  -webkit-clip-path: url(#myClip);
-  clip-path: url(#myClip);
+    -webkit-clip-path: url(#myClip);
+            clip-path: url(#myClip);
 }
 
 .clip-svg-hero {
-  position: absolute;
-  top: 0;
-  z-index: 0;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+
+    height: 100%;
 }
 
 .clip-svg-cta {
-  position: absolute;
-  top: 10%;
-  z-index: 0;
-  height: 100%;
+    position: absolute;
+    top: 10%;
+    z-index: 0;
+
+    height: 100%;
 }
 
 .gradient-mask-right {
-  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
-  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+            mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
 }
 
 .gradient-mask-left {
-  -webkit-mask-image: linear-gradient(270deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
-  mask-image: linear-gradient(270deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(270deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+            mask-image: linear-gradient(270deg, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
 }
 
 .right-bleed {
-  display: none;
+    display: none;
 }
 
 .left-bleed {
-  display: none;
+    display: none;
 }
 
 .event-card {
-  z-index: 100;
-  position: relative;
+    position: relative;
+    z-index: 100;
+
+    background: red !important;
 }
 
 .event-card-image-wrapper {
-  width: 8rem;
-  flex-shrink: 0;
+    width: 8rem;
+
+    flex-shrink: 0;
 }
 
-.event-card img {
-  height: 4rem;
-  width: auto;
+.event-card-image {
+    width: auto;
+    height: 4rem;
 }
+
 
 @media (min-width: 768px) {
-  .right-bleed {
-    display: block;
-    margin-right: calc(-50vw / 2);
-    overflow: hidden;
-    left: 0;
-  }
+    .right-bleed {
+        left: 0;
 
-  .left-bleed {
-    display: block;
-    right: 0;
-    margin-left: calc(-50vw / 2);
-    overflow: hidden;
-  }
+        display: block;
+        margin-right: calc(-50vw / 2);
+        overflow: hidden;
+    }
+
+    .left-bleed {
+        right: 0;
+
+        display: block;
+        margin-left: calc(-50vw / 2);
+        overflow: hidden;
+    }
 }
