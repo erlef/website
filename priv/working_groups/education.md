@@ -14,7 +14,7 @@
       "name": "Francesco Cesarini"
     },
     {
-      "image": "members/fred-hebert.jpg",
+      "image": "members/fred-hebert.png",
       "name": "Fred Hebert"
     },
     {

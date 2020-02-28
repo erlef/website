@@ -36,7 +36,7 @@ mix eef.gen.post education missing-rug --author "The Dude" --title "It tied the 
 Now you may open up the created file and edit the metadata and author the content of your post with your favorite editor.
 
 In this example to preview the rendered markdown on the local instance of the site one would visit
-`http://localhost:4000/blogs/education/missing-rug`
+`http://localhost:4000/news/education/missing-rug`
 
 ### post file format
 
@@ -61,7 +61,8 @@ This is where the body of the post goes.
 
  The following groups can be used with the eef.gen.post command:
 
- - building 
+ - eef
+ - building
  - education
  - marketing
  - proposal
