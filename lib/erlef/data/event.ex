@@ -1,6 +1,6 @@
 defmodule Erlef.Data.Event do
   @moduledoc """
-  Erlef.Event schema
+  Erlef.Data.Event schema
   """
 
   use Ecto.Schema
