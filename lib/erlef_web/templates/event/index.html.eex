@@ -29,7 +29,7 @@
     <div class="col-lg-8 pr-5">
       <div class="event-card rounded border bg-white my-2 d-flex align-items-stretch">
         <div style="background-color: #A91F91;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
-          <img src="/images/fosdem_circle.png" class="img-fluid d-block mx-auto">
+          <img src="/images/fosdem_circle.png" class="img-fluid d-block mx-auto event-card-image">
         </div>
         <div class="py-4 pr-4">
           <h3><a class="text-dark font-weight-bold" href="#">Beam Fosdem</a></h3>
@@ -41,7 +41,7 @@
       <!--event-card-->
       <div class="event-card rounded border bg-white  my-2 d-flex align-items-stretch">
         <div style="background-color: #235185;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
-          <img src="/images/lonestar-elixir.svg" class="img-fluid d-block mx-auto">
+          <img src="/images/lonestar-elixir.svg" class="img-fluid d-block mx-auto event-card-image">
         </div>
         <div class="py-4 pr-4">
           <h3><a class="text-dark font-weight-bold" href="#">Lonestar Elixir 2020</a></h3>
