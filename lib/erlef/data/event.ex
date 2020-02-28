@@ -11,7 +11,6 @@ defmodule Erlef.Data.Event do
   schema "events" do
   end
 
-
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, required_fields() ++ optional_fields())
@@ -19,10 +18,8 @@ defmodule Erlef.Data.Event do
   end
 
   defp required_fields do
-
   end
 
   defp optional_fields do
-
   end
 end

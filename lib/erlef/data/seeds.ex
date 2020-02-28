@@ -8,4 +8,3 @@ defmodule Erlef.Data.Seeds do
     end
   end
 end
-

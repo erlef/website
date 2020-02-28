@@ -21,5 +21,4 @@ defmodule Erlef.Data.EventType do
   defp required_fields do
     [:name, :detail]
   end
-
 end
