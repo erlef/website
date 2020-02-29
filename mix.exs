@@ -55,7 +55,10 @@ defmodule Erlef.MixProject do
       {:dialyxir, "~> 1.0.0-rc.7", only: [:dev, :test], runtime: false},
       {:credo, "~> 1.2.2", only: [:dev, :test], runtime: false},
       {:etso, "~> 0.1.1"},
-      {:plug_attack, "~> 0.4.2"}
+      {:plug_attack, "~> 0.4.2"},
+      {:ex_machina, "~> 2.3", only: :test},
+      {:faker, "~> 0.13.0", only: :test},
+      {:elixir_uuid, "~> 1.2"},
     ]
   end
 
