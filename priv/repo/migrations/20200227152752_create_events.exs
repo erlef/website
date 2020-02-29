@@ -33,6 +33,6 @@ defmodule Erlef.Data.Repo.Migrations.CreateEvents do
       timestamps()
     end
 
-    create unique_index("event", [:title])
+    create unique_index("events", [:title])
   end
 end
