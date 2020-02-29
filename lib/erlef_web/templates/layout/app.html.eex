@@ -36,6 +36,7 @@
   <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <%= csrf_meta_tag() %>
   <script src="<%= Routes.static_path(@conn, "/js/app.js") %>
   ">
   </script>

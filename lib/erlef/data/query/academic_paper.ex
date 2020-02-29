@@ -14,7 +14,7 @@ defmodule Erlef.Data.Query.AcademicPaper do
   def all(repo \\ Repo) do
     from(p in AcademicPaper,
       where: is_nil(p.deleted_at),
-      order_by: [p.published_at, p.title]
+      order_by: [p.original_publish_date, p.title]
     ) |> repo.all()
   end
 
@@ -37,7 +37,7 @@ defmodule Erlef.Data.Query.AcademicPaper do
     from(p in AcademicPaper,
       where: is_nil(p.deleted_at),
       where: not is_nil(p.published_at),
-      order_by: [p.published_at, p.title]
+      order_by: [p.original_publish_date, p.title]
     ) |> repo.all()
   end
 
@@ -49,7 +49,7 @@ defmodule Erlef.Data.Query.AcademicPaper do
     from(p in AcademicPaper,
       where: is_nil(p.deleted_at),
       where: is_nil(p.published_at),
-      order_by: [p.title]
+      order_by: [p.original_publish_date, p.title]
     ) |> repo.all()
   end
 

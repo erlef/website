@@ -13,6 +13,7 @@ defmodule Erlef.Data.Schema.AcademicPaper do
     pay_wall?: :boolean | nil,
     description: String.t() | nil,
     technologies: {:array, String.t()} | nil,
+    original_publish_date: Date.t() | nil,
     published_at: :utc_datetime | nil,
     deleted_at: :utc_datetime | nil
   }
@@ -28,6 +29,7 @@ defmodule Erlef.Data.Schema.AcademicPaper do
     pay_wall?
     description
     technologies
+    original_publish_date
     published_at
     deleted_at
   |a
@@ -42,9 +44,11 @@ defmodule Erlef.Data.Schema.AcademicPaper do
     field(:pay_wall?, :boolean)
     field(:description, :string)
     field(:technologies, {:array, :string})
+    field(:original_publish_date, :date)
 
     field(:published_at, :utc_datetime)
     field(:deleted_at, :utc_datetime)
+
     timestamps()
   end
 

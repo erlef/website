@@ -23,6 +23,8 @@ defmodule ErlefWeb do
 
       import Plug.Conn
       import ErlefWeb.Gettext
+      import Phoenix.LiveView.Controller
+
       alias ErlefWeb.Router.Helpers, as: Routes
 
       defp recaptcha_site_key, do: System.get_env("RECAPTCHA_SITE_KEY")
@@ -44,6 +46,8 @@ defmodule ErlefWeb do
       import ErlefWeb.ErrorHelpers
       import ErlefWeb.Gettext
       import ErlefWeb.HTML
+      import Phoenix.LiveView.Helpers
+
       alias ErlefWeb.Router.Helpers, as: Routes
 
       def render_shared(template, assigns \\ []) do
@@ -66,6 +70,7 @@ defmodule ErlefWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 

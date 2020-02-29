@@ -10,6 +10,7 @@ defmodule Erlef.Data.Repo.Migrations.CreateAcademicPapers do
       add(:pay_wall?, :boolean, default: false)
       add(:description, :text)
       add(:technologies, {:array, :string})
+      add(:original_publish_date, :date)
 
       add(:published_at, :utc_datetime)
       add(:deleted_at, :utc_datetime)
