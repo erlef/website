@@ -1,4 +1,8 @@
 defmodule Erlef.Release do
+  @moduledoc """
+  Erlef.Release - release tasks for Erlef app
+  """
+
   def migrate do
     load_app()
 

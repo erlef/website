@@ -1,4 +1,8 @@
 defmodule Erlef.Data.Seeds do
+  @moduledoc """
+  Erlef.Data.Seeds - database seed related functions
+  """
+
   alias Erlef.Data.Repo
 
   def insert(schema, data_set) do
