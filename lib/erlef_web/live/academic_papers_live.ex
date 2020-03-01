@@ -1,4 +1,7 @@
 defmodule ErlefWeb.AcademicPapersLive do
+  @moduledoc """
+  Live view for academic papers. Handles the filtering event
+  """
   use Phoenix.LiveView
 
   alias Erlef.Data.Query.AcademicPaper, as: Query
