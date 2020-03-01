@@ -4,9 +4,20 @@ defmodule ErlefWeb.AcademicPaperControllerTest do
   @endpoint ErlefWeb.Endpoint
 
   setup do
-    beam = insert_list(3, :academic_papers, %{technologies: ["BEAM"], published_at: DateTime.utc_now()})
-    erlang = insert_list(2, :academic_papers, %{technologies: ["Erlang"], published_at: DateTime.utc_now()})
-    elixir = insert_list(1, :academic_papers, %{technologies: ["Elixir"], published_at: DateTime.utc_now()})
+    beam =
+      insert_list(3, :academic_papers, %{technologies: ["BEAM"], published_at: DateTime.utc_now()})
+
+    erlang =
+      insert_list(2, :academic_papers, %{
+        technologies: ["Erlang"],
+        published_at: DateTime.utc_now()
+      })
+
+    elixir =
+      insert_list(1, :academic_papers, %{
+        technologies: ["Elixir"],
+        published_at: DateTime.utc_now()
+      })
 
     {:ok, %{academic_papers: beam ++ erlang ++ elixir}}
   end
@@ -26,14 +37,17 @@ defmodule ErlefWeb.AcademicPaperControllerTest do
   end
 
   test "GET /academic-papers live view filtering", %{conn: conn, academic_papers: academic_papers} do
-    {:ok, view, html} = live_isolated(conn, ErlefWeb.AcademicPapersLive, session: %{"academic_papers" => academic_papers})
+    {:ok, view, html} =
+      live_isolated(conn, ErlefWeb.AcademicPapersLive,
+        session: %{"academic_papers" => academic_papers}
+      )
 
     # Inital page load
     assert 6 ==
-      html
-      |> Floki.parse_document!()
-      |> Floki.find(".event-card")
-      |> Enum.count()
+             html
+             |> Floki.parse_document!()
+             |> Floki.find(".event-card")
+             |> Enum.count()
 
     # Filters after page load
     assert 3 == count_event_cards(view, "BEAM")
@@ -49,5 +63,4 @@ defmodule ErlefWeb.AcademicPaperControllerTest do
     |> Floki.find(".event-card")
     |> Enum.count()
   end
-
 end
