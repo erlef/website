@@ -6,7 +6,6 @@ defmodule Erlef.EventTest do
     test "when params are valid" do
       params = %{
         title: "Event Title",
-        slug: "This should be generated",
         excerpt: "Short description",
         description: "Full description",
         start: Date.utc_today(),
@@ -19,7 +18,38 @@ defmodule Erlef.EventTest do
       cs = Event.submission_changeset(%Event{}, params)
       assert cs.valid?
       assert cs.errors == []
-      assert cs.changes.title == "event-title"
+      assert cs.changes == Map.put(params, :slug, "event-title")
+    end
+
+    test "when optional params are valid" do
+      params = %{
+        title: "Event Title",
+        excerpt: "Short description",
+        description: "Full description",
+        start: Date.utc_today(),
+        end: Date.utc_today(),
+        submitted_by: 123,
+        url: "https://foo.bar/",
+        organizer: "Organizer",
+        organizer_brand_color: "#12345",
+        organizer_brand_logo: "eh...",
+        organizer_url: "https://some.where/",
+        venue_address1: "123 Street",
+        venue_address2: "Campus A",
+        venue_address3: "Building B",
+        venue_city: "City",
+        venue_territory: "State",
+        venue_country: "Country",
+        venue_postal_code: "12345-1234",
+        venue_gmap_embed_url: "https://map.url/",
+        venue_name: "Venue name",
+        venue_url: "https://venue.url/"
+      }
+
+      cs = Event.submission_changeset(%Event{}, params)
+      assert cs.valid?
+      assert cs.errors == []
+      assert cs.changes == Map.put(params, :slug, "event-title")
     end
 
     test "when params are invalid" do

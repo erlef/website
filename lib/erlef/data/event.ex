@@ -109,7 +109,7 @@ defmodule Erlef.Data.Event do
   end
 
   defp maybe_generate_slug(%{changes: %{title: title}, errors: []} = set) do
-    put_change(set, :title, Slug.slugify(title))
+    put_change(set, :slug, Slug.slugify(title))
   end
 
   defp maybe_generate_slug(set), do: set
