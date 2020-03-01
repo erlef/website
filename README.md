@@ -14,6 +14,8 @@
   * Install Node.js dependencies with `cd assets && npm install`
   * Run `mix do ecto.create, ecto.migrate` to setup the local database
   * Start Phoenix endpoint with `mix phx.server`
+  * Load seed data
+    - run `mix run priv/repo/academic_papers.exs`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 

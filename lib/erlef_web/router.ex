@@ -15,7 +15,7 @@ defmodule ErlefWeb.Router do
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
-    plug :fetch_flash
+    plug :fetch_live_flash
     plug :protect_from_forgery
     plug ErlefWeb.Plug.Attack
     plug ErlefWeb.Plug.Session
@@ -48,7 +48,7 @@ defmodule ErlefWeb.Router do
     post "/logout", SessionController, :delete
 
     get "/", PageController, :index
-    get "/academic-papers", PageController, :academic_papers
+    get "/academic-papers", AcademicPaperController, :index
     get "/bylaws", PageController, :bylaws
     get "/board_members", PageController, :board_members
     get "/contact", PageController, :contact

@@ -1,0 +1,17 @@
+<div class="py-3">
+    <div class="container">
+        <h1 class="display-4 font-weight-bold">Academic Papers</h1>
+        <p class="lead">
+            Papers are organized chronologically. We attempt to
+            show the BEAM related tech highlighted for each paper.
+        </p>
+    </div>
+</div>
+
+<%= live_render(@conn, ErlefWeb.AcademicPapersLive, session: %{"academic_papers" => @academic_papers}) %>
+
+<section class="py-5 text-white bg-dark">
+    <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
+</section>
+
+</div>
