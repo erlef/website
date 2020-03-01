@@ -9,7 +9,6 @@ use Mix.Config
 
 # Configures the endpoint
 config :erlef, ErlefWeb.Endpoint,
-  url: [host: "localhost"],
   secret_key_base: "oVk/4INcsrNqubFeQp+ITcuCKloeA6gCqo/hHzHDSW4xwYt1bZQss6jLFcXpBNEU",
   render_errors: [view: ErlefWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Erlef.PubSub, adapter: Phoenix.PubSub.PG2],
