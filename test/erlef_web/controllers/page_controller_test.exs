@@ -42,9 +42,4 @@ defmodule ErlefWeb.PageControllerTest do
     conn = get(conn, Routes.page_path(conn, :contact))
     assert html_response(conn, 200) =~ "Sign up for our newsletter to stay informed"
   end
-
-  test "GET /academic-papers", %{conn: conn} do
-    conn = get(conn, Routes.page_path(conn, :academic_papers))
-    assert html_response(conn, 200) =~ "Academic Papers"
-  end
 end
