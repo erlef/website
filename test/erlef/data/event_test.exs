@@ -9,8 +9,8 @@ defmodule Erlef.EventTest do
         slug: "This should be generated",
         excerpt: "Short description",
         description: "Full description",
-        start: DateTime.utc_now(),
-        end: DateTime.utc_now(),
+        start: Date.utc_today(),
+        end: Date.utc_today(),
         submitted_by: 123,
         url: "https://foo.bar/",
         organizer: "Organizer"
