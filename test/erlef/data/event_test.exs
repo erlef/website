@@ -11,7 +11,6 @@ defmodule Erlef.EventTest do
         description: "Full description",
         start: DateTime.utc_now(),
         end: DateTime.utc_now(),
-        offset: "UTC+1",
         submitted_by: 123,
         url: "https://foo.bar/",
         organizer: "Organizer"
@@ -30,7 +29,6 @@ defmodule Erlef.EventTest do
       exp_errors = [
         {:end, {"can't be blank", [validation: :required]}},
         {:excerpt, {"can't be blank", [validation: :required]}},
-        {:offset, {"can't be blank", [validation: :required]}},
         {:organizer, {"can't be blank", [validation: :required]}},
         {:slug, {"can't be blank", [validation: :required]}},
         {:start, {"can't be blank", [validation: :required]}},
@@ -51,7 +49,6 @@ defmodule Erlef.EventTest do
         {:description, {"can't be blank", [validation: :required]}},
         {:end, {"can't be blank", [validation: :required]}},
         {:excerpt, {"can't be blank", [validation: :required]}},
-        {:offset, {"can't be blank", [validation: :required]}},
         {:organizer, {"can't be blank", [validation: :required]}},
         {:slug, {"can't be blank", [validation: :required]}},
         {:start, {"can't be blank", [validation: :required]}},

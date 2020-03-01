@@ -11,17 +11,16 @@ defmodule Erlef.Data.Event do
     field(:approved, :boolean, default: false)
     field(:approved_by, :integer)
     field(:description, :string)
-    field(:end, :utc_datetime)
+    field(:end, :date)
     field(:excerpt, :string)
     field(:gcal_url, :string)
     field(:gmap_embed_url, :string)
-    field(:offset, :string)
     field(:organizer, :string)
     field(:organizer_brand_color, :string)
     field(:organizer_brand_logo, :string)
     field(:organizer_url, :string)
     field(:slug, :string)
-    field(:start, :utc_datetime)
+    field(:start, :date)
     field(:submitted_by, :integer)
     field(:title, :string)
     field(:url, :string)
@@ -41,7 +40,6 @@ defmodule Erlef.Data.Event do
     :description,
     :end,
     :excerpt,
-    :offset,
     :organizer,
     :slug,
     :start,
