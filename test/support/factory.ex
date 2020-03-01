@@ -10,7 +10,7 @@ defmodule Erlef.Factory do
     %AcademicPaper{
       id: UUID.uuid4(),
       title: sequence(:title, &"Cool Title #{&1}"),
-      author: "#{Faker.Name.first_name} #{Faker.Name.last_name}",
+      author: "#{Faker.Name.first_name()} #{Faker.Name.last_name()}",
       language: "English",
       url: sequence(:url, &"https://example.com/paper_#{&1}"),
       technologies: ["BEAM"]

@@ -5,7 +5,6 @@ defmodule ErlefWeb.AcademicPaperController do
 
   action_fallback ErlefWeb.FallbackController
 
-
   def index(conn, _params) do
     render(conn, :index, academic_papers: Query.published())
   end

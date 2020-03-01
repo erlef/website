@@ -30,7 +30,12 @@ defmodule Erlef.Data.Query.AcademicPaperTest do
     test "returns active published academic papers" do
       insert_list(3, :academic_papers)
       insert_list(2, :academic_papers, %{published_at: DateTime.utc_now()})
-      deleted = insert(:academic_papers, %{published_at: DateTime.utc_now(), deleted_at: DateTime.utc_now()})
+
+      deleted =
+        insert(:academic_papers, %{
+          published_at: DateTime.utc_now(),
+          deleted_at: DateTime.utc_now()
+        })
 
       academic_papers = Query.published(Repo)
 
@@ -81,11 +86,11 @@ defmodule Erlef.Data.Query.AcademicPaperTest do
       assert {:error, %Ecto.Changeset{errors: errors}} = Query.create(%{})
 
       assert errors == [
-        title: {"can't be blank", [validation: :required]},
-        author: {"can't be blank", [validation: :required]},
-        language: {"can't be blank", [validation: :required]},
-        url: {"can't be blank", [validation: :required]}
-      ]
+               title: {"can't be blank", [validation: :required]},
+               author: {"can't be blank", [validation: :required]},
+               language: {"can't be blank", [validation: :required]},
+               url: {"can't be blank", [validation: :required]}
+             ]
     end
 
     test "returns the created academic paper on success" do
@@ -93,7 +98,8 @@ defmodule Erlef.Data.Query.AcademicPaperTest do
         title: "Fear and Loathing on the Campaign Trail in ’72",
         author: "Hunter S. Thompson",
         language: "English",
-        url: "https://www.rollingstone.com/culture/culture-news/fear-and-loathing-on-the-campaign-trail-in-72-204428/",
+        url:
+          "https://www.rollingstone.com/culture/culture-news/fear-and-loathing-on-the-campaign-trail-in-72-204428/",
         technologies: ["BEAM"]
       }
 
@@ -116,14 +122,14 @@ defmodule Erlef.Data.Query.AcademicPaperTest do
 
     test "returns error if the required fields are not set", %{academic_paper: academic_paper} do
       assert {:error, %Ecto.Changeset{errors: errors}} =
-        Query.update(academic_paper, %{title: nil, author: nil, language: nil, url: nil})
+               Query.update(academic_paper, %{title: nil, author: nil, language: nil, url: nil})
 
       assert errors == [
-        title: {"can't be blank", [validation: :required]},
-        author: {"can't be blank", [validation: :required]},
-        language: {"can't be blank", [validation: :required]},
-        url: {"can't be blank", [validation: :required]}
-      ]
+               title: {"can't be blank", [validation: :required]},
+               author: {"can't be blank", [validation: :required]},
+               language: {"can't be blank", [validation: :required]},
+               url: {"can't be blank", [validation: :required]}
+             ]
     end
 
     test "returns the updated academic paper on success", %{academic_paper: academic_paper} do
@@ -131,7 +137,8 @@ defmodule Erlef.Data.Query.AcademicPaperTest do
         title: "Fear and Loathing on the Campaign Trail in ’72",
         author: "Hunter S. Thompson",
         language: "Spanish",
-        url: "https://www.rollingstone.com/culture/culture-news/fear-and-loathing-on-the-campaign-trail-in-72-204428/",
+        url:
+          "https://www.rollingstone.com/culture/culture-news/fear-and-loathing-on-the-campaign-trail-in-72-204428/",
         technologies: ["Erlang", "Elixir"]
       }
 
@@ -147,8 +154,12 @@ defmodule Erlef.Data.Query.AcademicPaperTest do
 
     test "prevent delete in updates", %{academic_paper: academic_paper} do
       delete_error = {:invalid_operation, "use delete/1 for the delete operation"}
-      assert {:error, delete_error} == Query.update(academic_paper, %{deleted_at: DateTime.utc_now()})
-      assert {:error, delete_error} == Query.update(academic_paper, %{"deleted_at" => DateTime.utc_now()})
+
+      assert {:error, delete_error} ==
+               Query.update(academic_paper, %{deleted_at: DateTime.utc_now()})
+
+      assert {:error, delete_error} ==
+               Query.update(academic_paper, %{"deleted_at" => DateTime.utc_now()})
     end
   end
 

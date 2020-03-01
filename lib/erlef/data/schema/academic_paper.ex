@@ -5,18 +5,18 @@ defmodule Erlef.Data.Schema.AcademicPaper do
   use Erlef.Data.Schema
 
   @type t :: %__MODULE__{
-    id: binary(),
-    title: String.t(),
-    author: String.t(),
-    language: String.t(),
-    url: String.t(),
-    pay_wall?: :boolean | nil,
-    description: String.t() | nil,
-    technologies: {:array, String.t()} | nil,
-    original_publish_date: Date.t() | nil,
-    published_at: :utc_datetime | nil,
-    deleted_at: :utc_datetime | nil
-  }
+          id: binary(),
+          title: String.t(),
+          author: String.t(),
+          language: String.t(),
+          url: String.t(),
+          pay_wall?: :boolean | nil,
+          description: String.t() | nil,
+          technologies: {:array, String.t()} | nil,
+          original_publish_date: Date.t() | nil,
+          published_at: :utc_datetime | nil,
+          deleted_at: :utc_datetime | nil
+        }
 
   @required_fields ~w|
     title
