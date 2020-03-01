@@ -61,6 +61,7 @@ defmodule Erlef.MixProject do
       {:floki, ">= 0.0.0", only: :test},
       {:faker, "~> 0.13.0", only: :test},
       {:elixir_uuid, "~> 1.2"}
+      {:slugify, "~> 1.2"}
     ]
   end
 
