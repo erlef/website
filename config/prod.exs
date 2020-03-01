@@ -1,8 +1,15 @@
 use Mix.Config
 
 config :erlef, ErlefWeb.Endpoint,
-  url: [host: "erlef.org", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  check_origin: [
+    "//erlef.com",
+    "//erlef.com",
+    "//erlef.org",
+    "//erlef.org",
+    "//" <> System.get_env("APP_NAME") <> ".gigalixirapp.com"
+  ]
 
 # Do not print debug messages in production
 config :logger, level: :info
