@@ -28,6 +28,7 @@ config :phoenix, :json_library, Jason
 config :erlef, :repo_imports, [
   {"/posts/**/*.md", Erlef.Blog},
   {"/events/**/*.md", Erlef.Event},
+  {"/events/**/*.md", Erlef.Data.Event},
   {"/working_groups/**/*.md", Erlef.WorkingGroup}
 ]
 

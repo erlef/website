@@ -62,6 +62,7 @@ defmodule Erlef.Data.Event do
     field(:approved, :boolean, default: false)
     field(:approved_by, :integer)
     field(:approved_at, :utc_datetime)
+    timestamps()
   end
 
   @required_fields [
@@ -90,6 +91,15 @@ defmodule Erlef.Data.Event do
     :venue_name,
     :venue_url
   ]
+
+  @spec changeset(t(), map()) :: Ecto.Changeset.t()
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, @required_fields ++ @optional_fields ++ [:approved_by])
+    |> validate_required(@required_fields ++ [:approved_by])
+    |> unique_constraint(:title)
+    |> maybe_generate_slug()
+  end
 
   @spec submission_changeset(t(), map()) :: Ecto.Changeset.t()
   def submission_changeset(struct, params \\ %{}) do

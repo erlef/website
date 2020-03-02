@@ -1,5 +1,5 @@
 {
-  "title": "Erlang & Elixir Paris meetup",
+  "title": "Erlang & Elixir Paris meetup-2019-10",
   "slug": "erlang-elixir-paris-meetup-10-2019",
   "start": "2019-10-08T17:00:00.000000Z",
   "end": "2019-10-08T19:00:00.000007Z",
