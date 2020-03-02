@@ -101,6 +101,12 @@ defmodule Erlef.Data.Event do
     |> maybe_generate_slug()
   end
 
+  @spec changeset(t(), map()) :: Ecto.Changeset.t()
+  def new_changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, @required_fields ++ @optional_fields ++ [:approved_by])
+  end
+
   @spec submission_changeset(t(), map()) :: Ecto.Changeset.t()
   def submission_changeset(struct, params \\ %{}) do
     struct

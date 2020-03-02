@@ -36,6 +36,7 @@ defmodule Erlef.Session do
 
   @data_map %{
     "account_id" => :account_id,
+    "member_id" => :member_id,
     "access_token" => :access_token,
     "refresh_token" => :refresh_token,
     "username" => :username,
@@ -159,12 +160,18 @@ defmodule Erlef.Session do
 
   @spec refresh(t()) :: {:ok, t()} | {:error, term()}
   def refresh(%{refresh_token: refresh_token}) do
-    case Erlef.WildApricot.user_refresh(refresh_token) do
-      {:ok, data} ->
-        {:ok, new(data)}
+    case Erlef.is_env?(:dev) do
+      true ->
+        login(:dev)
 
-      err ->
-        err
+      false ->
+        case Erlef.WildApricot.user_refresh(refresh_token) do
+          {:ok, data} ->
+            {:ok, new(data)}
+
+          err ->
+            err
+        end
     end
   end
 
