@@ -1,0 +1,14 @@
+<div class="py-3">
+<%= form_for @conn, Routes.event_submission_path(@conn, :create), [], fn f -> %>
+  <%= text_input f, :title %>
+  <%= text_input f, :excerpt %>
+  <%= text_input f, :description %>
+  <%= date_input f, :start %>
+  <%= date_input f, :end %>
+  <%= text_input f, :organizer %>
+  <%= text_input f, :url %>
+  <%= hidden_input f, :submitted_by, value:  assigns.user.member_id %>
+  <%= submit "Submit" %>
+<% end %>
+</div>
+<!-- /.container -->

@@ -3,13 +3,30 @@ defmodule Erlef.Session do
   Erlef.Session - Session handler and session serializer/deserializer
   """
 
-  @enforce_keys [:account_id, :access_token, :refresh_token, :username, :expires_at, :is_admin]
-  defstruct [:account_id, :access_token, :refresh_token, :username, :expires_at, :is_admin]
+  @enforce_keys [
+    :account_id,
+    :member_id,
+    :access_token,
+    :refresh_token,
+    :username,
+    :expires_at,
+    :is_admin
+  ]
+  defstruct [
+    :account_id,
+    :member_id,
+    :access_token,
+    :refresh_token,
+    :username,
+    :expires_at,
+    :is_admin
+  ]
 
   @type auth_data() :: map()
 
   @type t() :: %__MODULE__{
           account_id: integer(),
+          member_id: integer(),
           access_token: String.t(),
           refresh_token: String.t(),
           username: String.t(),
@@ -40,6 +57,7 @@ defmodule Erlef.Session do
       truth when is_boolean(truth) ->
         %__MODULE__{
           account_id: aid,
+          member_id: uid,
           access_token: access_token,
           refresh_token: refresh_token,
           username: username,

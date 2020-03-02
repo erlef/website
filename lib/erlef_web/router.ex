@@ -33,6 +33,10 @@ defmodule ErlefWeb.Router do
     plug ErlefWeb.Plug.RequiresAdmin
   end
 
+  pipeline :session_required do
+    plug ErlefWeb.Plug.Authz
+  end
+
   if Erlef.is_env?(:dev) do
     scope "/dev" do
       pipe_through [:browser]
@@ -71,5 +75,10 @@ defmodule ErlefWeb.Router do
       pipe_through [:admin_required]
       get "/", EventController, :index
     end
+  end
+
+  scope "/", ErlefWeb do
+    pipe_through [:browser, :session_required]
+    resources "/event_submissions", EventSubmissionController, only: [:index, :show, :create]
   end
 end
