@@ -1,21 +1,23 @@
-    <div class="container py-5">
-      <div class="row mb-5">
-        <div class="col-md-8">
-          <h2 class="text-white display-4 font-weight-bold">What does the EEF do?</h2>
-          <p class="lead text-white">In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology.</p>
-        </div>
-      </div>
-      <div class="row">
+<div class="container py-5">
+    <div class="row">
         <%= for group <- @working_groups do %>
-        <div class="col-md-4 mb-5">
-          <h3 class="font-weight-bold"><a href="/wg/<%= group.slug %>">
-              <%= group.name %></a></h3>
-          <p class="text-white">Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.</p>
-          <a href="/wg/<%= group.slug %>">
-            Learn More →</a>
-        </div>
+            <div class="col-md-4 mb-5">
+                <h3 class="font-weight-bold"><a href="/wg/<%= group.slug %>">
+                    <%= group.name %></a></h3>
+                <p class="text-white"><%=  group.description %></p>
+                <a href="/wg/<%= group.slug %>">
+                    Learn More →</a>
+            </div>
         <% end %>
-      </div>
-      <!--row-->
+        <div class="col-md-4 mb-5">
+            <h3 class="font-weight-bold text-white">Participating</h3>
+            <p class="text-white">Do you have an idea for a working group? Anyone can start one by following these steps:</p>
+            <ul>
+                <li class="text-white">Fill out the Proposal Template: <a class="d-block" href="/wg-proposal-template">Proposal Template</a></li>
+                <li class="text-white">Email the proposal to: <a class="d-block" href="#">wg@erlef.org</a></li>
+            </ul>
+        </div>
     </div>
+    <!--row-->
+</div>
 
