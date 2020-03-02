@@ -1,6 +1,16 @@
 defmodule ErlefWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :erlef
 
+  @session_options [
+    store: :cookie,
+    key: "_erlef_key",
+    serializer: Erlef.Session,
+    encryption_salt: "41SM3UP3NgSUTzLOqCqF0r2pJBn54JuOy9+cZswJuiQi5pnCIIwJfEYO7DP3/QqR",
+    signing_salt: "pSnWMnUh"
+  ]
+
+  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
+
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phx.digest
@@ -33,12 +43,7 @@ defmodule ErlefWeb.Endpoint do
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
-  plug Plug.Session,
-    store: :cookie,
-    key: "_erlef_key",
-    serializer: Erlef.Session,
-    encryption_salt: "41SM3UP3NgSUTzLOqCqF0r2pJBn54JuOy9+cZswJuiQi5pnCIIwJfEYO7DP3/QqR",
-    signing_salt: "pSnWMnUh"
+  plug Plug.Session, @session_options
 
   plug ErlefWeb.Router
 end

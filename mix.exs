@@ -36,11 +36,12 @@ defmodule Erlef.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.4.13"},
+      {:phoenix, "~> 1.4.14"},
       {:phoenix_ecto, "~> 4.1"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_html, "~> 2.14"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:phoenix_live_view, "~> 0.8.1"},
       {:ecto_sql, "~> 3.1"},
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.17.4"},
@@ -55,7 +56,12 @@ defmodule Erlef.MixProject do
       {:dialyxir, "~> 1.0.0-rc.7", only: [:dev, :test], runtime: false},
       {:credo, "~> 1.2.2", only: [:dev, :test], runtime: false},
       {:etso, "~> 0.1.1"},
-      {:plug_attack, "~> 0.4.2"}
+      {:plug_attack, "~> 0.4.2"},
+      {:ex_machina, "~> 2.3", only: :test},
+      {:floki, ">= 0.0.0", only: :test},
+      {:faker, "~> 0.13.0", only: :test},
+      {:elixir_uuid, "~> 1.2"},
+      {:slugify, "~> 1.2"}
     ]
   end
 

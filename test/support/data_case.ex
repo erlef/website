@@ -8,6 +8,8 @@ defmodule Erlef.DataCase do
     quote do
       use ExUnit.Case, unquote(opts)
 
+      import Erlef.Factory
+
       alias Erlef.Data.Repo
 
       setup _tags do

@@ -8,6 +8,7 @@
   "dependencies": {
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
+    "phoenix_live_view": "file:../deps/phoenix_live_view",
     "moment": "2.24.0",
     "bootstrap": "4.4.1",
     "popper.js": "1.16.1",

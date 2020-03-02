@@ -6,30 +6,10 @@
     </p>
   </div>
 </div>
-<div class="container mb-5">
-  <div class="row">
-    <div class="col-lg-8 pr-5">
-      <h3>Active Working Groups</h3>
-      <ul class="list-unstyled">
-        <%= for group <- @working_groups do %>
-        <li>
-          <h4><a href="/wg/<%= group.slug %>">
-              <%= group.name %></a></h4>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="col-lg-4">
-      <h6>Participating</h6>
-      <h4>If you want to start a Working Group</h4>
-      <p>Do you have an idea for a working group? Anyone can start on by following these steps:</p>
-      <ul>
-        <li>Fill out the Proposal Template: <a class="d-block" href="/wg-proposal-template">Proposal Template</a></li>
-        <li>Email the proposal to: <a class="d-block" href="#">wg@erlef.org</a></li>
-      </ul>
-      <h4 class="mt-5">If you want to help</h4>
-      <p>Lorem Ipsum</p>
-    </div>
-  </div>
+
+<div id="content" class="site-content bg-brand">
+    <section>
+        <%= render(ErlefWeb.LayoutView, "working_groups.html", assigns) %>
+    </section>
 </div>
 <!-- /.container -->

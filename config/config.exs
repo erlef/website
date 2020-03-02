@@ -9,10 +9,12 @@ use Mix.Config
 
 # Configures the endpoint
 config :erlef, ErlefWeb.Endpoint,
-  url: [host: "localhost"],
   secret_key_base: "oVk/4INcsrNqubFeQp+ITcuCKloeA6gCqo/hHzHDSW4xwYt1bZQss6jLFcXpBNEU",
   render_errors: [view: ErlefWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Erlef.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Erlef.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [
+    signing_salt: "Rz9o2n4vSG7hVWhCaqcF2IxvUURVFV8B"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -26,6 +28,7 @@ config :phoenix, :json_library, Jason
 config :erlef, :repo_imports, [
   {"/posts/**/*.md", Erlef.Blog},
   {"/events/**/*.md", Erlef.Event},
+  {"/events/**/*.md", Erlef.Data.Event},
   {"/working_groups/**/*.md", Erlef.WorkingGroup}
 ]
 

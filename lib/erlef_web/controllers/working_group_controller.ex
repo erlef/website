@@ -1,5 +1,6 @@
 defmodule ErlefWeb.WorkingGroupController do
   use ErlefWeb, :controller
+
   alias Erlef.{Blog, Posts, WorkingGroup}
 
   action_fallback ErlefWeb.FallbackController
