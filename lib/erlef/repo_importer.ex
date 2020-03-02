@@ -44,9 +44,36 @@ defmodule Erlef.Repo.Importer do
     Process.monitor(repo_pid)
   end
 
+  defp import_resources({path, Erlef.Data.Event}) do
+    Erlef.Data.Repo.transaction(fn ->
+      Enum.each(files_to_changesets({path, Erlef.Data.Event}), fn set ->
+        {:ok, _inserted} = Erlef.Data.Repo.insert(set, on_conflict: :nothing)
+      end)
+    end)
+  end
+
   defp import_resources(resource) do
     Enum.each(files_to_changesets(resource), fn set ->
       {:ok, _inserted} = Erlef.Repo.insert(set)
+    end)
+  end
+
+  @map_keys %{
+    "body_html" => "description",
+    "excerpt_html" => "excerpt",
+    "event_url" => "url",
+    "gmap_embed_url" => "venue_gmap_embed_url"
+  }
+  defp files_to_changesets({path, Erlef.Data.Event}) do
+    Enum.map(find_files(path), fn f ->
+      params =
+        Enum.reduce(@map_keys, parse_post(f), fn {k, v}, acc ->
+          Map.put_new(acc, v, acc[k])
+        end)
+
+      params2 = Map.merge(params, %{"submitted_by" => 0, "approved_by" => 0})
+
+      Erlef.Data.Event.changeset(struct(Erlef.Data.Event), params2)
     end)
   end
 
