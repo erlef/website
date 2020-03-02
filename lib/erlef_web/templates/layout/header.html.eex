@@ -33,11 +33,7 @@
         </li>
 
         <%= if logged_in?(assigns) do %>
-          <%= if is_admin?(assigns) do %>
-            <li class="nav-item"><a href="/admin" class="nav-link">Admin</a></li>
-          <% end %>
-
-        <li class="dropdown">
+             <li class="dropdown">
           <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
             <%= @current_user.username %>
             <b class="caret"></b>
@@ -45,12 +41,18 @@
           <ul class="dropdown-menu">
             <li role="separator" class="divider"></li>
             <a class="dropdown-item" target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Membership details</a>
+
+          <%= if is_admin?(assigns) do %>
+            <a href="/admin" class="dropdown-item">Administration</a>
+          <% end %>
+
+
             <li class="dropdown-item">
               <%= form_tag(Routes.session_path(@conn, :delete)) do %>
                 <button type="submit" class="btn btn-link nav-link">Log out</button>
               <% end %>
             </li>
-          </ul>
+         </ul>
         </li>
         <% else %>
           <li><a class="nav-link" href="<%= Routes.session_path(@conn, :show) %>">Log in</a></li>

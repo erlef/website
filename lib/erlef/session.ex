@@ -124,9 +124,23 @@ defmodule Erlef.Session do
   @spec login_uri() :: no_return()
   def login_uri(), do: Erlef.WildApricot.gen_login_uri()
 
-  @spec login(String.t(), String.t()) :: {:ok, t()} | {:error, term()}
-  def login(code, state) do
-    case Erlef.WildApricot.login(code, state) do
+  @spec login(String.t()) :: {:ok, t()} | {:error, term()}
+  def login(:dev) do
+    session = %__MODULE__{
+      account_id: 12345,
+      member_id: 12345,
+      access_token: "dev_token",
+      refresh_token: "dev_token",
+      username: "Admin",
+      expires_at: expires_at(1800),
+      is_admin: true
+    }
+
+    {:ok, session}
+  end
+
+  def login(code) do
+    case Erlef.WildApricot.login(code) do
       {:ok, data} ->
         {:ok, new(data)}
 

@@ -4,15 +4,11 @@ defmodule ErlefWeb.SessionController do
 
   @spec show(Plug.Conn.t(), map()) :: no_return()
   def show(conn, _params) do
-    uri = Erlef.Session.login_uri()
-    redirect(conn, external: uri)
+    maybe_redirect(conn)
   end
 
-  def create(conn, %{
-        "code" => auth_code,
-        "state" => state
-      }) do
-    case Erlef.Session.login(auth_code, state) do
+  def create(conn, %{"code" => auth_code}) do
+    case Erlef.Session.login(auth_code) do
       {:ok, session} ->
         conn
         |> configure_session(renew: true)
@@ -36,5 +32,21 @@ defmodule ErlefWeb.SessionController do
     conn
     |> delete_session("member_session")
     |> redirect(to: "/")
+  end
+
+  defp maybe_redirect(conn) do
+    case Erlef.is_env?(:dev) do
+      true ->
+        {:ok, session} = Erlef.Session.login(:dev)
+
+        conn
+        |> configure_session(renew: true)
+        |> put_session("member_session", session)
+        |> redirect(to: "/")
+
+      false ->
+        uri = Erlef.Session.login_uri()
+        redirect(conn, external: uri)
+    end
   end
 end
