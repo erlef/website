@@ -63,7 +63,9 @@ defmodule Erlef.MixProject do
       {:elixir_uuid, "~> 1.2"},
       {:slugify, "~> 1.2"},
       {:extwitter, "~> 0.12.0"},
-      {:oauther, "1.1.1"}
+      {:oauther, "1.1.1"},
+      {:ex_aws, "~> 2.1"},
+      {:ex_aws_s3, "~> 2.0"}
     ]
   end
 
