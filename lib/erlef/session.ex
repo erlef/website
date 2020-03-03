@@ -125,7 +125,7 @@ defmodule Erlef.Session do
   @spec login_uri() :: no_return()
   def login_uri(), do: Erlef.WildApricot.gen_login_uri()
 
-  @spec login(String.t()) :: {:ok, t()} | {:error, term()}
+  @spec login(any()) :: {:ok, t()} | {:error, term()}
   def login(:dev) do
     session = %__MODULE__{
       account_id: 12_345,

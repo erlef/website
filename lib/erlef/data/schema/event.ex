@@ -7,7 +7,7 @@ defmodule Erlef.Data.Schema.Event do
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           title: String.t(),
-          event_type_id: Ecto.UUID.t() | nil,
+          event_type_id: Ecto.UUID.t(),
           excerpt: String.t(),
           description: String.t(),
           slug: String.t(),
@@ -105,13 +105,11 @@ defmodule Erlef.Data.Schema.Event do
     |> maybe_generate_slug()
   end
 
-  @spec changeset(t(), map()) :: Ecto.Changeset.t()
   def new_changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @all_fields ++ [:approved_by])
   end
 
-  @spec submission_changeset(t(), map()) :: Ecto.Changeset.t()
   def submission_changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @all_fields)
