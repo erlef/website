@@ -1,4 +1,5 @@
 defmodule ErlefWeb.EventSubmissionControllerTest do
+  @moduledoc false
   use ErlefWeb.ConnCase
 
   test "GET /event_submissions", %{conn: conn} do
