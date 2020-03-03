@@ -23,7 +23,7 @@ defmodule Erlef.MixProject do
   def application do
     [
       mod: {Erlef.Application, []},
-      extra_applications: [:logger, :runtime_tools, :swoosh, :plug_attack]
+      extra_applications: [:logger, :runtime_tools, :swoosh, :plug_attack, :extwitter]
     ]
   end
 
@@ -61,7 +61,8 @@ defmodule Erlef.MixProject do
       {:floki, ">= 0.0.0", only: :test},
       {:faker, "~> 0.13.0", only: :test},
       {:elixir_uuid, "~> 1.2"},
-      {:slugify, "~> 1.2"}
+      {:slugify, "~> 1.2"},
+      {:extwitter, "~> 0.12.0"}
     ]
   end
 
