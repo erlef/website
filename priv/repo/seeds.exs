@@ -1,3 +1,5 @@
+Application.ensure_all_started(:erlef)
+
 event_types = [
   %{name: "conference"},
   %{name: "training"},
@@ -6,10 +8,17 @@ event_types = [
 ]
 
 Erlef.Data.Seeds.insert(Erlef.Data.Schema.EventType, event_types)
-now = DateTime.to_naive(DateTime.truncate(DateTime.utc_now(), :second))
+
+%{id: conf_id} = Erlef.Data.Schema.EventType.get(:conference)
+%{id: meetup_id} = Erlef.Data.Schema.EventType.get(:meetup)
+%{id: hackathon_id} = Erlef.Data.Schema.EventType.get(:hackathon)
+
+now = DateTime.truncate(DateTime.utc_now(), :second)
+
 
 events = [
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -41,6 +50,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -72,6 +82,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -103,6 +114,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: hackathon_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -133,6 +145,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -164,6 +177,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -195,6 +209,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -226,6 +241,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: meetup_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -258,6 +274,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -288,7 +305,7 @@ events = [
     inserted_at: now,
     updated_at: now
   },
-  %{
+  %{event_type_id: meetup_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -321,6 +338,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -352,6 +370,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -383,6 +402,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -414,6 +434,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,
@@ -445,6 +466,7 @@ events = [
     updated_at: now
   },
   %{
+    event_type_id: conf_id,
     approved: true,
     approved_at: ~U[2020-03-02 17:03:01Z],
     approved_by: 0,

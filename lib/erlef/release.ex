@@ -3,6 +3,14 @@ defmodule Erlef.Release do
   Erlef.Release - release tasks for Erlef app
   """
 
+
+  def seed do
+    load_app()
+    priv_dir =  :code.priv_dir(:erlef) |> List.to_string
+    seeds = priv_dir <> "/repo/seeds.exs"
+    Code.require_file(seeds)
+  end
+
   def migrate do
     load_app()
 
