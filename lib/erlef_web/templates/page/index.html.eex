@@ -23,7 +23,7 @@
                                     <h4>
                                         <%= link(event.title, to: event.url, class: "text-dark font-weight-bold") %>
                                     </h4>
-                                    <h5 class="mb-0">5-6 March</h5>
+                                    <h5 class="mb-0"><%= event_dates(event.start, event.end) %></h5>
                                 </div>
                             </div>
                         <% end %>

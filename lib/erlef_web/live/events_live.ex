@@ -6,8 +6,14 @@ defmodule ErlefWeb.EventsLive do
 
   alias Erlef.Data.Query.Event, as: Query
 
-  def mount(_params, %{"events" => events}, socket),
-    do: {:ok, assign(socket, :events, events)}
+  def mount(_params, %{"events" => events}, socket) do
+    socket =
+      socket
+      |> assign(:events, events)
+      |> assign(:filter, "")
+
+    {:ok, socket}
+  end
 
   def render(assigns) do
     ErlefWeb.EventView.render("_events.html", assigns)
