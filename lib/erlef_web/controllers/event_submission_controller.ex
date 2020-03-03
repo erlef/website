@@ -13,8 +13,6 @@ defmodule ErlefWeb.EventSubmissionController do
         |> redirect(to: "/")
 
       {:error, changeset} ->
-        IO.inspect(changeset)
-
         render(conn, "new.html",
           changeset: %{changeset | action: :insert},
           event_types: event_types()

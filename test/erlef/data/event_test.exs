@@ -17,7 +17,6 @@ defmodule Erlef.EventTest do
       }
 
       cs = Event.submission_changeset(%Event{}, params)
-      IO.inspect(cs.errors)
       assert cs.valid?
       assert cs.errors == []
 
