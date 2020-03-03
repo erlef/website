@@ -2,13 +2,12 @@ defmodule Erlef.Data.Schema.Event do
   @moduledoc """
   Erlef.Data.Schema.Event schema
   """
-
   use Erlef.Data.Schema
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           title: String.t(),
-          event_type_id: Ecto.UUID.t(),
+          event_type_id: Ecto.UUID.t() | nil,
           excerpt: String.t(),
           description: String.t(),
           slug: String.t(),
@@ -35,7 +34,36 @@ defmodule Erlef.Data.Schema.Event do
           approved_at: DateTime.t() | nil
         }
 
-  @primary_key {:id, :binary_id, autogenerate: true}
+  @required_fields [
+    :title,
+    :excerpt,
+    :description,
+    :start,
+    :end,
+    :organizer,
+    :url,
+    :submitted_by
+  ]
+
+  @optional_fields [
+    :event_type_id,
+    :organizer_brand_color,
+    :organizer_brand_logo,
+    :organizer_url,
+    :venue_address1,
+    :venue_address2,
+    :venue_address3,
+    :venue_city,
+    :venue_territory,
+    :venue_country,
+    :venue_postal_code,
+    :venue_gmap_embed_url,
+    :venue_name,
+    :venue_url
+  ]
+
+  @all_fields @required_fields ++ @optional_fields
+
   schema "events" do
     field(:title, :string)
     field(:slug, :string)
@@ -62,43 +90,16 @@ defmodule Erlef.Data.Schema.Event do
     field(:approved, :boolean, default: false)
     field(:approved_by, :integer)
     field(:approved_at, :utc_datetime)
-    timestamps()
 
     belongs_to(:event_type, Erlef.Data.Schema.EventType)
+
+    timestamps()
   end
-
-  @required_fields [
-    :title,
-    :excerpt,
-    :description,
-    :start,
-    :end,
-    :organizer,
-    :url,
-    :submitted_by,
-    :event_type_id
-  ]
-
-  @optional_fields [
-    :organizer_brand_color,
-    :organizer_brand_logo,
-    :organizer_url,
-    :venue_address1,
-    :venue_address2,
-    :venue_address3,
-    :venue_city,
-    :venue_territory,
-    :venue_country,
-    :venue_postal_code,
-    :venue_gmap_embed_url,
-    :venue_name,
-    :venue_url
-  ]
 
   @spec changeset(t(), map()) :: Ecto.Changeset.t()
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_fields ++ @optional_fields ++ [:approved_by, :approved_at])
+    |> cast(params, @all_fields ++ [:approved_by, :approved_at])
     |> validate_required(@required_fields ++ [:approved_by, :approved_at])
     |> unique_constraint(:title)
     |> maybe_generate_slug()
@@ -107,13 +108,13 @@ defmodule Erlef.Data.Schema.Event do
   @spec changeset(t(), map()) :: Ecto.Changeset.t()
   def new_changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_fields ++ @optional_fields ++ [:approved_by])
+    |> cast(params, @all_fields ++ [:approved_by])
   end
 
   @spec submission_changeset(t(), map()) :: Ecto.Changeset.t()
   def submission_changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_fields ++ @optional_fields)
+    |> cast(params, @all_fields)
     |> validate_required(@required_fields)
     |> maybe_generate_slug()
     |> post_process_description()

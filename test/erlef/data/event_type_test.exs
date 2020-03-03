@@ -1,5 +1,6 @@
 defmodule Erlef.EventTypeTest do
   use Erlef.DataCase
+
   alias Erlef.Data.Schema.EventType
 
   describe "changeset/2" do

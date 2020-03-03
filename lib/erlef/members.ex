@@ -2,15 +2,17 @@ defmodule Erlef.Members do
   @moduledoc """
   Erlef.Members context module
   """
+  alias Erlef.Data.Schema.Event
+  alias Erlef.Data.Repo
 
-  def new_event, do: Erlef.Data.Schema.Event.new_changeset(%Erlef.Data.Schema.Event{}, %{})
+  def new_event, do: Event.new_changeset(%Event{}, %{})
 
   def submit_event(params) do
-    cs = Erlef.Data.Schema.Event.submission_changeset(%Erlef.Data.Schema.Event{}, params)
+    cs = Event.submission_changeset(%Event{}, params)
 
     case cs.valid? do
       true ->
-        Erlef.Data.Repo.insert(cs)
+        Repo.insert(cs)
 
       false ->
         {:error, cs}

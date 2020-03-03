@@ -1,5 +1,6 @@
 defmodule Erlef.EventTest do
   use Erlef.DataCase
+
   alias Erlef.Data.Schema.Event
 
   describe "submission_submission_changeset/2" do

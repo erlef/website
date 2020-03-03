@@ -2,7 +2,6 @@ defmodule Erlef.Data.Schema.EventType do
   @moduledoc """
   Erlef.Data.Schema.EventType schema
   """
-
   use Ecto.Schema
   import Ecto.Changeset
 
