@@ -3,9 +3,7 @@ defmodule ErlefWeb.EventSubmissionController do
   action_fallback ErlefWeb.FallbackController
 
   def create(conn, %{"event" => params}) do
-    organizer_brand_logo = File.read!(params["organizer_brand_logo"].path)
-
-    case Erlef.Members.submit_event(Map.put(params, "organizer_brand_logo", organizer_brand_logo)) do
+    case Erlef.Members.submit_event(maybe_read_file_param(params)) do
       {:ok, _event} ->
         conn
         |> put_flash(
@@ -15,15 +13,31 @@ defmodule ErlefWeb.EventSubmissionController do
         |> redirect(to: "/")
 
       {:error, changeset} ->
-        render(conn, "index.html", changeset: %{changeset | action: :insert})
+        render(conn, "new.html",
+          changeset: %{changeset | action: :insert},
+          event_types: event_types()
+        )
     end
   end
 
-  def index(conn, _params) do
-    render(conn, changeset: Erlef.Members.new_event())
+  def new(conn, _params) do
+    render(conn, changeset: Erlef.Members.new_event(), event_types: event_types())
   end
 
-  def show(conn, _params) do
-    render(conn)
+  defp maybe_read_file_param(params) do
+    case params["organizer_brand_logo"] do
+      %Plug.Upload{} = upload ->
+        organizer_brand_logo = File.read!(upload.path)
+        Map.put(params, "organizer_brand_logo", organizer_brand_logo)
+
+      _ ->
+        params
+    end
+  end
+
+  defp event_types do
+    Erlef.Data.Schema.EventType
+    |> Erlef.Data.Repo.all()
+    |> Enum.map(fn x -> [key: x.name, value: x.id] end)
   end
 end

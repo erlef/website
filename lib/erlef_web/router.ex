@@ -79,6 +79,6 @@ defmodule ErlefWeb.Router do
 
   scope "/", ErlefWeb do
     pipe_through [:browser, :session_required]
-    resources "/event_submissions", EventSubmissionController, only: [:index, :show, :create]
+    resources "/event_submissions", EventSubmissionController, only: [:new, :show, :create]
   end
 end

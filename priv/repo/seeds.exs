@@ -1,9 +1,11 @@
 event_types = [
-  %{name: "Conference", detail: "Conference Event"},
-  %{name: "Training", detail: "Training Event"}
+  %{name: "conference"},
+  %{name: "training"},
+  %{name: "meetup"},
+  %{name: "hackathon"}
 ]
 
-Erlef.Data.Seeds.insert(Erlef.Data.EventType, event_types)
+Erlef.Data.Seeds.insert(Erlef.Data.Schema.EventType, event_types)
 now = DateTime.to_naive(DateTime.truncate(DateTime.utc_now(), :second))
 
 events = [
@@ -475,4 +477,4 @@ events = [
   }
 ]
 
-Erlef.Data.Seeds.insert(Erlef.Data.Event, events)
+Erlef.Data.Seeds.insert(Erlef.Data.Schema.Event, events)

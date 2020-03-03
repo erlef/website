@@ -1,6 +1,6 @@
-defmodule Erlef.Data.EventType do
+defmodule Erlef.Data.Schema.EventType do
   @moduledoc """
-  Erlef.Data.EventType schema
+  Erlef.Data.Schema.EventType schema
   """
 
   use Ecto.Schema
@@ -9,16 +9,11 @@ defmodule Erlef.Data.EventType do
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "event_types" do
     field(:name, :string)
-    field(:detail, :string)
   end
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, required_fields())
-    |> validate_required(required_fields())
-  end
-
-  defp required_fields do
-    [:name, :detail]
+    |> cast(params, [:name])
+    |> validate_required([:name])
   end
 end

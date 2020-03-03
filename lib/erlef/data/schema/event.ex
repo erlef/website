@@ -1,14 +1,14 @@
-defmodule Erlef.Data.Event do
+defmodule Erlef.Data.Schema.Event do
   @moduledoc """
-  Erlef.Data.Event schema
+  Erlef.Data.Schema.Event schema
   """
 
-  use Ecto.Schema
-  import Ecto.Changeset
+  use Erlef.Data.Schema
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           title: String.t(),
+          event_type_id: Ecto.UUID.t(),
           excerpt: String.t(),
           description: String.t(),
           slug: String.t(),
@@ -63,6 +63,8 @@ defmodule Erlef.Data.Event do
     field(:approved_by, :integer)
     field(:approved_at, :utc_datetime)
     timestamps()
+
+    belongs_to(:event_type, Erlef.Data.Schema.EventType)
   end
 
   @required_fields [
@@ -73,7 +75,8 @@ defmodule Erlef.Data.Event do
     :end,
     :organizer,
     :url,
-    :submitted_by
+    :submitted_by,
+    :event_type_id
   ]
 
   @optional_fields [
