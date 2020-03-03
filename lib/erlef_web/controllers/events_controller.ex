@@ -1,15 +1,15 @@
 defmodule ErlefWeb.EventController do
   use ErlefWeb, :controller
+
+  alias Erlef.Data.Query.Event, as: Query
+
   action_fallback ErlefWeb.FallbackController
 
-  alias Erlef.{Event, Posts}
-
   def index(conn, _params) do
-    render(conn)
+    render(conn, :index, events: Query.approved())
   end
 
-  def show(conn, %{"id" => id}) do
-    {:ok, event} = Posts.get_by_slug(Event, id)
-    render(conn, event: event)
+  def show(conn, %{"slug" => slug}) do
+    render(conn, event: Query.get_by_slug(slug))
   end
 end

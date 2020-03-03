@@ -15,7 +15,6 @@ Erlef.Data.Seeds.insert(Erlef.Data.Schema.EventType, event_types)
 
 now = DateTime.truncate(DateTime.utc_now(), :second)
 
-
 events = [
   %{
     event_type_id: conf_id,

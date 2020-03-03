@@ -1,80 +1,14 @@
 <div class="py-3">
-  <div class="container">
-    <h1 class="display-4 font-weight-bold">Events</h1>
-    <p class="lead">
-      The EEF participates in many events related to the BEAM Community.
-    </p>
-  </div>
-</div>
-<div class="bg-dark mb-5">
-  <div class="container">
-    <ul class="nav bg-dark nav-pills mb-2 py-3 h5 font-weight-normal">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">All Events</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Conferences</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Talks</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Meetups</a>
-      </li>
-    </ul>
-  </div>
-</div>
-<div class="container mb-5">
-  <div class="row">
-    <div class="col-lg-8 pr-5">
-      <div class="event-card rounded border bg-white my-2 d-flex align-items-stretch">
-        <div style="background-color: #A91F91;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
-          <img src="/images/fosdem_circle.png" class="img-fluid d-block mx-auto event-card-image">
-        </div>
-        <div class="py-4 pr-4">
-          <h3><a class="text-dark font-weight-bold" href="#">Beam Fosdem</a></h3>
-          <h5 class="mb-0">February 1 @ 10:30:00 - February 1 @ 13:30:00</h5>
-          <p class="mb-0 mt-3">At FOSDEM 2020 we’re having the 1st edition of a Devroom completely dedicated to the BEAM (and all languages running on it). FOSDEM is an annual conference about free and open source software, attended by over 5000 developers and open-source enthusiasts from all over the world.</p>
-          <a class="h5 mt-4 d-block" href="beam-fosdem-2020">Learn More →</a>
-        </div>
-      </div>
-      <!--event-card-->
-      <div class="event-card rounded border bg-white  my-2 d-flex align-items-stretch">
-        <div style="background-color: #235185;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
-          <img src="/images/lonestar-elixir.svg" class="img-fluid d-block mx-auto event-card-image">
-        </div>
-        <div class="py-4 pr-4">
-          <h3><a class="text-dark font-weight-bold" href="#">Lonestar Elixir 2020</a></h3>
-          <h5 class="mb-0">February 1 @ 10:30:00 - February 1 @ 13:30:00</h5>
-          <p class="mb-0 mt-3">At FOSDEM 2020 we’re having the 1st edition of a Devroom completely dedicated to the BEAM (and all languages running on it). FOSDEM is an annual conference about free and open source software, attended by over 5000 developers and open-source enthusiasts from all over the world.</p>
-          <a class="h5 mt-4 d-block" href="lonestar-elixir-2020">Learn More →</a>
-        </div>
-      </div>
-      <!--event-card-->
-      <div class="event-card rounded border bg-white  my-2 d-flex align-items-stretch">
-        <div style="background-color: #ff0160;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
-          <img src="/images/code-sync.svg" class="img-fluid d-block mx-auto">
-        </div>
-        <div class="py-4 pr-4">
-          <h3><a class="text-dark font-weight-bold" href="#">Code BEAM SF 2020</a></h3>
-          <h5 class="mb-0">February 1 @ 10:30:00 - February 1 @ 13:30:00</h5>
-          <p class="mb-0 mt-3">Learn from 50+ cutting-edge talks and our in-depth training program, how BEAM languages are revolutionising areas like IoT, Blockchain, Fintech, Security, Machine Learning and more.</p>
-          <a class="h5 mt-4 d-block" href="code-beam-sf-2020">Learn More →</a>
-        </div>
-      </div>
-      <!--event-card-->
+    <div class="container">
+        <h1 class="display-4 font-weight-bold">Events</h1>
+        <p class="lead">
+            The EEF participates in many events related to the BEAM Community.
+        </p>
     </div>
-    <div class="col-lg-4">
-      <h6>Promote your Event</h6>
-      <h4>If you want to list an event</h4>
-      <p>If you know about a related event that is not yet listed here or that you run on your own, contact us at <a href="mailto:">events@erlef.org</a></p>
-    </div>
-    <!--col-->
-  </div>
-  <!--col-->
 </div>
+
+<%= live_render(@conn, ErlefWeb.EventsLive, session: %{"events" => @events}) %>
+
 <section class="py-5 text-white bg-dark">
-  <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
+    <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
 </section>
-</div>
-<!-- /.container -->
