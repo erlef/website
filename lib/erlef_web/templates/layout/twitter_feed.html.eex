@@ -1,49 +1,50 @@
+<% [tweet|tweets] = @tweets %>
 <div class="row py-2 py-lg-0 align-items-stretch">
   <div class="py-lg-5 col-lg-4">
     <div class="event-card h-100 rounded bg-white">
       <div class="p-4 d-flex flex-column h-100">
         <div class="d-flex align-items-center mb-3">
-          <div class="avatar rounded-circle mr-2 border"><img class="img-fluid" src="/images/members/adolfo-neto.jpg"></div>
-          <div class="font-weight-bold">Pablo Costas <a href="#">@pablocostas</a></div>
+            <div class="avatar rounded-circle mr-2 border"><img class="img-fluid" src="<%= tweet.avatar %>"></div>
+            <div class="font-weight-bold">
+                <%= tweet.name %>
+                <a href="https://twitter.com/<%= tweet.screen_name %>">@<%= tweet.screen_name %></a>
+            </div>
         </div>
-        <p>Hey,
-          @TheErlef
-          has been accepted into this year's Google Summer of Code!</p>
-        <div class="text-muted mt-auto small">Feb 25</div>
+        <p><%= tweet.text %></p>
+        <div class="text-muted mt-auto small">
+            <%= tweet.posted_date %>
+            <span style="float: right">
+                <%= link("See tweet...", to: "https://twitter.com/#{tweet.screen_name}/status/#{tweet.id}") %>
+            </span>
+        </div>
       </div>
     </div>
     <!--event-card-->
     <%= left_svg_hero(style: "min-height: 800px;") do %>
-    <img class="gradient-mask-left img-align-center h-100" src="/images/crowd.jpg">
+        <img class="gradient-mask-left img-align-center h-100" src="/images/crowd.jpg">
     <% end %>
   </div>
-  <div class="py-lg-5 col-lg-4">
-    <div class="event-card h-100 rounded bg-white">
-      <div class="p-4 d-flex flex-column h-100">
-        <div class="d-flex align-items-center mb-3">
-          <div class="avatar rounded-circle mr-2 border"><img class="img-fluid" src="/images/members/adolfo-neto.jpg"></div>
-          <div class="font-weight-bold">Pablo Costas <a href="#">@pablocostas</a></div>
-        </div>
-        <p>Just given my last undergrad lecture at
-          @UniKentComp
-          … language processing in #erlang (with #haskell and #ocaml versions available too)</p>
-        <div class="text-muted mt-auto small">Feb 25</div>
+  <%= for tweet <- tweets do %>
+      <div class="py-lg-5 col-lg-4">
+          <div class="event-card h-100 rounded bg-white">
+              <div class="p-4 d-flex flex-column h-100">
+                  <div class="d-flex align-items-center mb-3">
+                      <div class="avatar rounded-circle mr-2 border"><img class="img-fluid" src="<%= tweet.avatar %>"></div>
+                      <div class="font-weight-bold">
+                          <%= tweet.name %>
+                          <a href="https://twitter.com/<%= tweet.screen_name %>">@<%= tweet.screen_name %></a>
+                      </div>
+                  </div>
+                  <p><%= tweet.text %></p>
+                  <div class="text-muted mt-auto small">
+                      <%= tweet.posted_date %>
+                      <span style="float: right">
+                          <%= link("See tweet...", to: "https://twitter.com/#{tweet.screen_name}/status/#{tweet.id}") %>
+                      </span>
+                  </div>
+              </div>
+          </div>
+          <!--event-card-->
       </div>
-    </div>
-    <!--event-card-->
-  </div>
-  <div class="py-lg-5 col-lg-4">
-    <div class="event-card h-100 rounded bg-white">
-      <div class="p-4 d-flex flex-column h-100">
-        <div class="d-flex align-items-center mb-3">
-          <div class="avatar rounded-circle mr-2 border"><img class="img-fluid" src="/images/members/adolfo-neto.jpg"></div>
-          <div class="font-weight-bold">Pablo Costas <a href="#">@pablocostas</a></div>
-        </div>
-        <p>@TheErlef
- In 2005 I wrote edids, Erlang Distributed Intrusion Detection system. It ran on machines around the Internet, communicating over SSL through firewalls. ‘Buddies’ were notified of misbehaving IPs. One day I’ll rework it to run on current Erlang release.</p>
-        <div class="text-muted mt-auto small">Feb 25</div>
-      </div>
-    </div>
-    <!--event-card-->
-  </div>
+  <% end %>
 </div>

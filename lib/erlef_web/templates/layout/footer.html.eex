@@ -7,6 +7,35 @@
             <img src="<%=  Routes.static_path(@conn, "/images/eef-logo.svg") %>" width="100" alt="">
           </h2>
           <p class="">Supporting the BEAM community</p>
+        </div>
+        <!--col-->
+        <div class="col-lg-3">
+          <h6 class="text-uppercase text-muted">About the EEF</h6>
+          <ul class="list-unstyled ">
+            <li class="list-item">
+              <a target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Membership details</a>
+            </li>
+            <li class="list-item"><a href="https://members.erlef.org/join-us">Join us!</a></li>
+            <li class="list-item"><a href="/sponsors/">Sponsors</a></li>
+            <li class="list-item"><a href="/become-a-sponsor/">Become a sponsor!</a></li>
+            <li class="list-item"><a href="/wg/">Working Groups</a></li>
+            <li class="list-item"><a href="/stipends">Stipends</a></li>
+            <li class="list-item"><a href="/bylaws">Bylaws</a></li>
+            <li class="list-item"><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h6 class="text-uppercase text-muted">Stay Up-to-Date</h6>
+          <ul class="list-unstyled">
+            <li class="list-item"><a href="/news">News</a></li>
+            <li class="list-item"><a href="/events">Events</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h6 class="text-uppercase text-muted">Get in Touch</h6>
+          <ul class="list-unstyled">
+            <li class="list-item"><a href="/contact">Contact Us</a></li>
+          </ul>
           <div class="row">
             <div class="col-sm-3 pb-2">
               <span><a href="mailto:eef@erlef.org"><i class="far fa-lg fa-envelope fa-2x"></i></a></span>
@@ -18,24 +47,6 @@
               <span><a href="https://github.com/erlef"><i class="fab fa-lg fa-github fa-2x"></i></a></span>
             </div>
           </div>
-        </div>
-        <!--col-->
-        <div class="col-lg-9">
-          <ul class="list-inline">
-            <li class="list-inline-item">
-              <a target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Membership details</a>
-            </li>
-            <li class="list-inline-item"><a href="https://members.erlef.org/join-us">Join us!</a></li>
-            <li class="list-inline-item"><a href="/sponsors/">Sponsors</a></li>
-            <li class="list-inline-item"><a href="/become-a-sponsor/">Become a sponsor!</a></li>
-            <li class="list-inline-item"><a href="/wg/">Working Groups</a></li>
-            <li class="list-inline-item"><a href="/stipends">Stipends</a></li>
-            <li class="list-inline-item"><a href="/news">News</a></li>
-            <li class="list-inline-item"><a href="/events">Events</a></li>
-            <li class="list-inline-item"><a href="/contact">Contact</a></li>
-            <li class="list-inline-item"><a href="/bylaws">Bylaws</a></li>
-            <li class="list-inline-item"><a href="/faq">FAQ</a></li>
-          </ul>
         </div>
       </div>
       <!-- /.row -->
