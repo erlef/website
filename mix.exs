@@ -62,7 +62,8 @@ defmodule Erlef.MixProject do
       {:faker, "~> 0.13.0", only: :test},
       {:elixir_uuid, "~> 1.2"},
       {:slugify, "~> 1.2"},
-      {:extwitter, "~> 0.12.0"}
+      {:extwitter, "~> 0.12.0"},
+      {:oauther, "1.1.1"}
     ]
   end
 
