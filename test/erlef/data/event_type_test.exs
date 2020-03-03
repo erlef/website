@@ -1,21 +1,20 @@
 defmodule Erlef.EventTypeTest do
   use Erlef.DataCase
-  alias Erlef.Data.EventType
+  alias Erlef.Data.Schema.EventType
 
   describe "changeset/2" do
     test "when params are valid" do
-      cs = EventType.changeset(%EventType{}, %{name: "foo", detail: "bar"})
+      cs = EventType.changeset(%EventType{}, %{name: "foo"})
       assert cs.valid? == true
       assert cs.errors == []
     end
 
     test "when params are invalid" do
-      cs = EventType.changeset(%EventType{}, %{name: 1, detail: %{}})
+      cs = EventType.changeset(%EventType{}, %{name: 1})
       assert cs.valid? == false
 
       assert cs.errors == [
-               {:name, {"is invalid", [type: :string, validation: :cast]}},
-               {:detail, {"is invalid", [type: :string, validation: :cast]}}
+               {:name, {"is invalid", [type: :string, validation: :cast]}}
              ]
     end
 
@@ -24,8 +23,7 @@ defmodule Erlef.EventTypeTest do
       assert cs.valid? == false
 
       assert cs.errors == [
-               {:name, {"can't be blank", [validation: :required]}},
-               {:detail, {"can't be blank", [validation: :required]}}
+               {:name, {"can't be blank", [validation: :required]}}
              ]
     end
   end

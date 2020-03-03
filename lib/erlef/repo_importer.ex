@@ -50,25 +50,6 @@ defmodule Erlef.Repo.Importer do
     end)
   end
 
-  @map_keys %{
-    "body_html" => "description",
-    "excerpt_html" => "excerpt",
-    "event_url" => "url",
-    "gmap_embed_url" => "venue_gmap_embed_url"
-  }
-  defp files_to_changesets({path, Erlef.Data.Event}) do
-    Enum.map(find_files(path), fn f ->
-      params =
-        Enum.reduce(@map_keys, parse_post(f), fn {k, v}, acc ->
-          Map.put_new(acc, v, acc[k])
-        end)
-
-      params2 = Map.merge(params, %{"submitted_by" => 0, "approved_by" => 0})
-
-      Erlef.Data.Event.changeset(struct(Erlef.Data.Event), params2)
-    end)
-  end
-
   defp files_to_changesets({path, schema}) do
     Enum.map(find_files(path), fn f ->
       schema.changeset(struct(schema), parse_post(f))

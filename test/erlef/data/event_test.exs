@@ -1,6 +1,6 @@
 defmodule Erlef.EventTest do
   use Erlef.DataCase
-  alias Erlef.Data.Event
+  alias Erlef.Data.Schema.Event
 
   describe "submission_submission_changeset/2" do
     test "when params are valid" do
@@ -12,10 +12,12 @@ defmodule Erlef.EventTest do
         end: Date.utc_today(),
         submitted_by: 123,
         url: "https://foo.bar/",
-        organizer: "Organizer"
+        organizer: "Organizer",
+        event_type_id: Ecto.UUID.generate()
       }
 
       cs = Event.submission_changeset(%Event{}, params)
+      IO.inspect(cs.errors)
       assert cs.valid?
       assert cs.errors == []
 
@@ -28,6 +30,7 @@ defmodule Erlef.EventTest do
     test "when optional params are valid" do
       params = %{
         title: "Event Title",
+        event_type_id: Ecto.UUID.generate(),
         excerpt: "Short description",
         description: "Full description",
         start: Date.utc_today(),
@@ -71,6 +74,7 @@ defmodule Erlef.EventTest do
         {:organizer, {"can't be blank", [validation: :required]}},
         {:url, {"can't be blank", [validation: :required]}},
         {:submitted_by, {"can't be blank", [validation: :required]}},
+        {:event_type_id, {"can't be blank", [validation: :required]}},
         {:title, {"is invalid", [{:type, :string}, {:validation, :cast}]}},
         {:description, {"is invalid", [type: :string, validation: :cast]}}
       ]
@@ -90,7 +94,8 @@ defmodule Erlef.EventTest do
         {:end, {"can't be blank", [validation: :required]}},
         {:organizer, {"can't be blank", [validation: :required]}},
         {:url, {"can't be blank", [validation: :required]}},
-        {:submitted_by, {"can't be blank", [validation: :required]}}
+        {:submitted_by, {"can't be blank", [validation: :required]}},
+        {:event_type_id, {"can't be blank", [validation: :required]}}
       ]
 
       assert exp_errors == cs.errors
