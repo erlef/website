@@ -15,10 +15,8 @@ defmodule ErlefWeb.StipendController do
         Erlef.StipendMail.submission_copy(proposal) |> Erlef.Mailer.send()
         render(conn)
 
-      {:error, errors} ->
-        conn
-        |> put_flash(:error, errors)
-        |> render("index.html", params: params)
+      {:error, errs} ->
+        render(conn, "index.html", params: params, errors: errs)
     end
   end
 end
