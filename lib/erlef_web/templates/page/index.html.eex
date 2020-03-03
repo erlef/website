@@ -14,26 +14,21 @@
                 <div class="offset-lg-1 col-lg-5">
                     <div class="d-flex flex-column h-100 py-0 py-md-5" style="position: relative; z-index: 100;">
                         <h5 class="py-2 text-white font-weight-bold">Upcoming Events</h5>
-                        <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
-                            <div style="background-color: #ff0160; width: 6rem;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
-                                <img src="/images/code-sync.svg" class="img-fluid d-block mx-auto event-card-image">
+                        <%= for event <- @events do %>
+                            <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
+                                <div style="background-color: <%= event.organizer_brand_color %>; width: 6rem;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
+                                    <img src="<%= event.organizer_brand_logo %>" class="img-fluid d-block mx-auto event-card-image">
+                                </div>
+                                <div>
+                                    <h4>
+                                        <%= link(event.title, to: event.url, class: "text-dark font-weight-bold") %>
+                                    </h4>
+                                    <h5 class="mb-0">5-6 March</h5>
+                                </div>
                             </div>
-                            <div>
-                                <h4><a class="text-dark font-weight-bold" href="#">Code BEAM SF 2020</a></h4>
-                                <h5 class="mb-0">5-6 March</h5>
-                            </div>
-                        </div>
-                        <!--event-card-->
-                        <div class="event-card rounded bg-white my-2 d-flex align-items-center">
-                            <div style="background-color: #235185; width: 6rem;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
-                                <img src="/images/lonestar-elixir.svg" class="img-fluid d-block mx-auto event-card-image">
-                            </div>
-                            <div>
-                                <h4><a class="text-dark font-weight-bold" href="#">Lonestar Elixir 2020</a></h4>
-                                <h5 class="mb-0">5-6 March</h5>
-                            </div>
-                        </div>
-                        <a class="h4 py-2" href="#">View All Events →</a>
+                        <% end %>
+
+                        <a class="h4 py-2" href="/events">View All Events →</a>
                     </div>
                     <%= right_svg_hero() do %>
                         <img class="gradient-mask-right h-100" src="/images/crowd.jpg">

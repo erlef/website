@@ -1,0 +1,69 @@
+<div class="bg-dark mb-5">
+  <div class="container">
+    <ul class="nav bg-dark nav-pills mb-2 py-3 h5 font-weight-normal">
+      <li class="nav-item">
+        <div class="nav-link active" phx-click="filter" phx-value-filter="ALL" style="cursor: pointer;">All Events</div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link" phx-click="filter" phx-value-filter="conference" style="cursor: pointer; color: white;">Conferences</div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link" phx-click="filter" phx-value-filter="training" style="cursor: pointer; color: white;">Training</div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link" phx-click="filter" phx-value-filter="hackathon" style="cursor: pointer; color: white;">Hackathons</div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link" phx-click="filter" phx-value-filter="meetup" style="cursor: pointer; color: white;">Meetups</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-lg-8 pr-5">
+
+      <%= for event <- @events do %>
+        <div class="event-card rounded border bg-white my-2 d-flex align-items-stretch">
+          <div style="background-color: <%= event.organizer_brand_color %>;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
+            <img src="<%= event.organizer_brand_logo %>" class="img-fluid d-block mx-auto event-card-image">
+          </div>
+          <div class="py-4 pr-4">
+            <h3>
+                <%= link(event.title, to: event.url, class: "text-dark font-weight-bold") %>
+            </h3>
+            <h5 class="mb-0"><%= event_dates(event.start, event.end) %></h5>
+            <p class="mb-0 mt-3">
+              <%= raw(event.description) %>
+            </p>
+            <a class="h5 mt-4 d-block" href="<%= event.url %>">Learn More →</a>
+          </div>
+        </div>
+      <% end %>
+
+      <%= if @events == [] do %>
+        <div class="event-card rounded border bg-white my-2 d-flex align-items-stretch">
+          <div class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
+          </div>
+          <div class="py-4 pr-4">
+            <h3>
+              Currently no <%= @filter %>s scheduled 
+            </h3>
+            <p class="mb-0 mt-3">
+              New events are always being added so check back soon!
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+      <div class="col-lg-4" style="float: right;">
+        <h6>Promote your Event</h6>
+        <h4>If you want to list an event</h4>
+        <p>If you know about a related event that is not yet listed here or that you run on your own, contact us at <a href="mailto:">events@erlef.org</a></p>
+      </div>
+      <!--col-->
+    </div>
+    <!--col-->
+  </div>

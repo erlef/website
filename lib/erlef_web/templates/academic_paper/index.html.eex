@@ -13,5 +13,3 @@
 <section class="py-5 text-white bg-dark">
     <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
 </section>
-
-</div>
