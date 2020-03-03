@@ -22,6 +22,7 @@ defmodule Erlef.SessionTest do
       assert %Erlef.Session{
                access_token: _,
                account_id: 12_345,
+               member_id: 12_345,
                expires_at: _,
                is_admin: true,
                refresh_token: _,
@@ -47,6 +48,7 @@ defmodule Erlef.SessionTest do
       assert %Erlef.Session{
                access_token: _,
                account_id: 54_321,
+               member_id: 54_321,
                expires_at: _,
                is_admin: false,
                refresh_token: _,
@@ -59,6 +61,7 @@ defmodule Erlef.SessionTest do
     session = %Erlef.Session{
       access_token: "HiuWUvqcMMuY-4AlJ5rM2ZqSbeo-",
       account_id: 54_321,
+      member_id: 54_321,
       expires_at: "2020-02-23 18:51:18.548936Z",
       is_admin: false,
       refresh_token: "rt_2020-02-23_JoR0ez-SYAFjcOIkgO-5HqHWt9E-",
@@ -74,6 +77,7 @@ defmodule Erlef.SessionTest do
     session = %{
       "access_token" => "HiuWUvqcMMuY-4AlJ5rM2ZqSbeo-",
       "account_id" => 54_321,
+      "member_id" => 54_321,
       "expires_at" => "2020-02-23 18:51:18.548936Z",
       "is_admin" => false,
       "refresh_token" => "rt_2020-02-23_JoR0ez-SYAFjcOIkgO-5HqHWt9E-",
@@ -83,6 +87,7 @@ defmodule Erlef.SessionTest do
     assert Erlef.Session.normalize(session) == %Erlef.Session{
              access_token: "HiuWUvqcMMuY-4AlJ5rM2ZqSbeo-",
              account_id: 54_321,
+             member_id: 54_321,
              expires_at: "2020-02-23 18:51:18.548936Z",
              is_admin: false,
              refresh_token: "rt_2020-02-23_JoR0ez-SYAFjcOIkgO-5HqHWt9E-",
@@ -90,29 +95,31 @@ defmodule Erlef.SessionTest do
            }
   end
 
-  test "login/2" do
+  test "login/1" do
     assert {:ok,
             %Erlef.Session{
               access_token: _,
               account_id: 12_345,
+              member_id: 12_345,
               expires_at: _,
               is_admin: true,
               refresh_token: _,
               username: "starbelly"
-            }} = Erlef.Session.login("starbelly", "hunter42")
+            }} = Erlef.Session.login("starbelly")
   end
 
   test "logout/1" do
-    assert {:ok, session} = Erlef.Session.login("starbelly", "hunter42")
+    assert {:ok, session} = Erlef.Session.login("starbelly")
     assert :ok = Erlef.Session.logout(session)
   end
 
   test "should_refresh/1" do
-    assert {:ok, session} = Erlef.Session.login("starbelly", "hunter42")
+    assert {:ok, session} = Erlef.Session.login("starbelly")
 
     session = %Erlef.Session{
       access_token: "HiuWUvqcMMuY-4AlJ5rM2ZqSbeo-",
       account_id: 54_321,
+      member_id: 54_321,
       expires_at: "2020-02-23 18:51:18.548936Z",
       is_admin: false,
       refresh_token: "rt_2020-02-23_JoR0ez-SYAFjcOIkgO-5HqHWt9E-",
@@ -124,6 +131,7 @@ defmodule Erlef.SessionTest do
     session = %Erlef.Session{
       access_token: "HiuWUvqcMMuY-4AlJ5rM2ZqSbeo-",
       account_id: 54_321,
+      member_id: 54_321,
       expires_at: DateTime.to_string(Timex.shift(DateTime.utc_now(), minutes: 100)),
       is_admin: false,
       refresh_token: "rt_2020-02-23_JoR0ez-SYAFjcOIkgO-5HqHWt9E-",
@@ -137,6 +145,7 @@ defmodule Erlef.SessionTest do
     session = %Erlef.Session{
       access_token: "HiuWUvqcMMuY-4AlJ5rM2ZqSbeo-",
       account_id: 54_321,
+      member_id: 54_321,
       expires_at: "2020-02-23 18:51:18.548936Z",
       is_admin: false,
       refresh_token: "rt_2020-02-23_JoR0ez-SYAFjcOIkgO-5HqHWt9E-",
@@ -148,6 +157,7 @@ defmodule Erlef.SessionTest do
     session = %Erlef.Session{
       access_token: "HiuWUvqcMMuY-4AlJ5rM2ZqSbeo-",
       account_id: 54_321,
+      member_id: 54_321,
       expires_at: DateTime.to_string(Timex.shift(DateTime.utc_now(), minutes: 100)),
       is_admin: false,
       refresh_token: "rt_2020-02-23_JoR0ez-SYAFjcOIkgO-5HqHWt9E-",
@@ -161,6 +171,7 @@ defmodule Erlef.SessionTest do
     session = %Erlef.Session{
       access_token: "HiuWUvqcMMuY-4AlJ5rM2ZqSbeo-",
       account_id: 12_345,
+      member_id: 12_345,
       expires_at: DateTime.to_string(Timex.shift(DateTime.utc_now(), minutes: 100)),
       is_admin: false,
       refresh_token: "rt_2020-02-23_JoR0ez-SYAFjcOIkgO-5HqHWt9E-",
@@ -171,6 +182,7 @@ defmodule Erlef.SessionTest do
             %Erlef.Session{
               access_token: _,
               account_id: 12_345,
+              member_id: 12_345,
               expires_at: _,
               is_admin: true,
               refresh_token: _,

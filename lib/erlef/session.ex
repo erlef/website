@@ -3,13 +3,30 @@ defmodule Erlef.Session do
   Erlef.Session - Session handler and session serializer/deserializer
   """
 
-  @enforce_keys [:account_id, :access_token, :refresh_token, :username, :expires_at, :is_admin]
-  defstruct [:account_id, :access_token, :refresh_token, :username, :expires_at, :is_admin]
+  @enforce_keys [
+    :account_id,
+    :member_id,
+    :access_token,
+    :refresh_token,
+    :username,
+    :expires_at,
+    :is_admin
+  ]
+  defstruct [
+    :account_id,
+    :member_id,
+    :access_token,
+    :refresh_token,
+    :username,
+    :expires_at,
+    :is_admin
+  ]
 
   @type auth_data() :: map()
 
   @type t() :: %__MODULE__{
           account_id: integer(),
+          member_id: integer(),
           access_token: String.t(),
           refresh_token: String.t(),
           username: String.t(),
@@ -19,6 +36,7 @@ defmodule Erlef.Session do
 
   @data_map %{
     "account_id" => :account_id,
+    "member_id" => :member_id,
     "access_token" => :access_token,
     "refresh_token" => :refresh_token,
     "username" => :username,
@@ -40,6 +58,7 @@ defmodule Erlef.Session do
       truth when is_boolean(truth) ->
         %__MODULE__{
           account_id: aid,
+          member_id: uid,
           access_token: access_token,
           refresh_token: refresh_token,
           username: username,
@@ -106,9 +125,23 @@ defmodule Erlef.Session do
   @spec login_uri() :: no_return()
   def login_uri(), do: Erlef.WildApricot.gen_login_uri()
 
-  @spec login(String.t(), String.t()) :: {:ok, t()} | {:error, term()}
-  def login(code, state) do
-    case Erlef.WildApricot.login(code, state) do
+  @spec login(String.t()) :: {:ok, t()} | {:error, term()}
+  def login(:dev) do
+    session = %__MODULE__{
+      account_id: 12_345,
+      member_id: 12_345,
+      access_token: "dev_token",
+      refresh_token: "dev_token",
+      username: "Admin",
+      expires_at: expires_at(1800),
+      is_admin: true
+    }
+
+    {:ok, session}
+  end
+
+  def login(code) do
+    case Erlef.WildApricot.login(code) do
       {:ok, data} ->
         {:ok, new(data)}
 
@@ -127,12 +160,18 @@ defmodule Erlef.Session do
 
   @spec refresh(t()) :: {:ok, t()} | {:error, term()}
   def refresh(%{refresh_token: refresh_token}) do
-    case Erlef.WildApricot.user_refresh(refresh_token) do
-      {:ok, data} ->
-        {:ok, new(data)}
+    case Erlef.is_env?(:dev) do
+      true ->
+        login(:dev)
 
-      err ->
-        err
+      false ->
+        case Erlef.WildApricot.user_refresh(refresh_token) do
+          {:ok, data} ->
+            {:ok, new(data)}
+
+          err ->
+            err
+        end
     end
   end
 

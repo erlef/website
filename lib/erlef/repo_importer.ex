@@ -44,14 +44,6 @@ defmodule Erlef.Repo.Importer do
     Process.monitor(repo_pid)
   end
 
-  defp import_resources({path, Erlef.Data.Event}) do
-    Erlef.Data.Repo.transaction(fn ->
-      Enum.each(files_to_changesets({path, Erlef.Data.Event}), fn set ->
-        {:ok, _inserted} = Erlef.Data.Repo.insert(set, on_conflict: :nothing)
-      end)
-    end)
-  end
-
   defp import_resources(resource) do
     Enum.each(files_to_changesets(resource), fn set ->
       {:ok, _inserted} = Erlef.Repo.insert(set)

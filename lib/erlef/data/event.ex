@@ -46,7 +46,7 @@ defmodule Erlef.Data.Event do
     field(:end, :date)
     field(:organizer, :string)
     field(:organizer_brand_color, :string, default: "#235185")
-    field(:organizer_brand_logo, :string)
+    field(:organizer_brand_logo, :binary)
     field(:organizer_url, :string)
     field(:venue_name, :string)
     field(:venue_address1, :string)
@@ -95,10 +95,16 @@ defmodule Erlef.Data.Event do
   @spec changeset(t(), map()) :: Ecto.Changeset.t()
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_fields ++ @optional_fields ++ [:approved_by])
-    |> validate_required(@required_fields ++ [:approved_by])
+    |> cast(params, @required_fields ++ @optional_fields ++ [:approved_by, :approved_at])
+    |> validate_required(@required_fields ++ [:approved_by, :approved_at])
     |> unique_constraint(:title)
     |> maybe_generate_slug()
+  end
+
+  @spec changeset(t(), map()) :: Ecto.Changeset.t()
+  def new_changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, @required_fields ++ @optional_fields ++ [:approved_by])
   end
 
   @spec submission_changeset(t(), map()) :: Ecto.Changeset.t()
@@ -107,6 +113,7 @@ defmodule Erlef.Data.Event do
     |> cast(params, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
     |> maybe_generate_slug()
+    |> post_process_description()
   end
 
   @spec approval_changeset(t(), map()) :: Ecto.Changeset.t()
@@ -115,7 +122,7 @@ defmodule Erlef.Data.Event do
     |> cast(params, [:approved_by])
     |> validate_required([:approved_by])
     |> put_change(:approved, true)
-    |> put_change(:approved_at, DateTime.utc_now())
+    |> put_change(:approved_at, DateTime.truncate(DateTime.utc_now(), :second))
   end
 
   defp maybe_generate_slug(%{changes: %{title: title}, errors: []} = set) do
@@ -123,4 +130,11 @@ defmodule Erlef.Data.Event do
   end
 
   defp maybe_generate_slug(set), do: set
+
+  defp post_process_description(%{changes: %{description: description}, errors: []} = set) do
+    {:ok, html, _} = Earmark.as_html(description)
+    put_change(set, :description, html)
+  end
+
+  defp post_process_description(set), do: set
 end
