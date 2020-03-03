@@ -42,11 +42,11 @@ defmodule Erlef.Data.Schema.Event do
     :end,
     :organizer,
     :url,
-    :submitted_by
+    :submitted_by,
+    :event_type_id
   ]
 
   @optional_fields [
-    :event_type_id,
     :organizer_brand_color,
     :organizer_brand_logo,
     :organizer_url,
