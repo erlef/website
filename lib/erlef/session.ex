@@ -128,8 +128,8 @@ defmodule Erlef.Session do
   @spec login(String.t()) :: {:ok, t()} | {:error, term()}
   def login(:dev) do
     session = %__MODULE__{
-      account_id: 12345,
-      member_id: 12345,
+      account_id: 12_345,
+      member_id: 12_345,
       access_token: "dev_token",
       refresh_token: "dev_token",
       username: "Admin",
