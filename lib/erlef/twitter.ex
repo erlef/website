@@ -19,12 +19,13 @@ defmodule Erlef.Twitter do
   end
 
   @screen_name "TheErlef"
+  @client Application.get_env(:erlef, :twitter_client, ExTwitter)
 
   @doc """
   Returns the 3 most recent tweets for the EEF twitter account
   """
   @spec latest_tweets(client :: Atom.t()) :: [Tweet.t()]
-  def latest_tweets(client \\ ExTwitter) do
+  def latest_tweets(client \\ @client) do
     [
       screen_name: @screen_name,
       count: 3
