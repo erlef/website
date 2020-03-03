@@ -8,8 +8,6 @@ defmodule ErlefWeb.Plug.Authz do
   def init(opts), do: opts
 
   def call(conn, _opts) do
-    session = get_session(conn, :member_session)
-
     case get_session(conn, :member_session) do
       nil ->
         conn

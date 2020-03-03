@@ -1,58 +1,154 @@
 <div class="py-3">
   <div class="container">
- <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
-    </div>
-  <% end %>
+    <%= if @changeset.action do %>
+      <div class="alert alert-danger">
+        <p>Oops, something went wrong! Please check the errors below.</p>
+      </div>
+    <% end %>
 
-    <%= form_for @changeset, Routes.event_submission_path(@conn, :create), [], fn f -> %>
-
+    <%= form_for @changeset, Routes.event_submission_path(@conn, :create), [multipart: true], fn f -> %>
       <div class="form-group">
-        <%= label f, :title %>
-        <%= email_input f, :title, class: "form-control" %>
+
+        <%= label f, :title, "Event Title" %>
+        <%= text_input f, :title, class: "form-control", placeholder: "Event Title" %>
         <%= error_tag f, :title %>
       </div>
 
+
       <div class="form-group">
-        <%= label f, :excerpt %>
-        <%= text_input f, :excerpt, class: "form-control" %>
+        <%= label f, :excerpt, "Excerpt" %>
+        <%= text_input f, :excerpt, class: "form-control", placeholder: "Excerpt" %>
+        <small class="form-text text-muted">
+          Brief description about the event
+        </small>
         <%= error_tag f, :excerpt %>
       </div>
 
       <div class="form-group">
         <%= label f, :description %>
-        <%= text_input f, :description, class: "form-control" %>
+        <%= textarea f, :description, class: "form-control", placeholder: "Full description" %>
         <%= error_tag f, :description %>
-      </div>
-
-      <div class="form-group">
-        <%= label f, :start %>
-        <%= date_input f, :start, class: "form-control" %>
-        <%= error_tag f, :start %>
-      </div>
-
-      <div class="form-group">
-        <%= label f, :end %>
-        <%= date_input f, :end, class: "form-control" %>
-        <%= error_tag f, :end %>
-      </div>
-
-      <div class="form-group">
-        <%= label f, :organizer %>
-        <%= text_input f, :organizer, class: "form-control" %>
-        <%= error_tag f, :organizer %>
+        <small class="form-text text-muted">
+          Full description about the event. Markdown supported
+        </small>
       </div>
 
 
+      <div class="form-row">
+        <div class="col-md-4 mb-2">
+          <%= label f, :start, "Event Start" %>
+          <%= date_input f, :start, class: "form-control", required: true %>
+          <%= error_tag f, :start %>
+        </div>
+
+        <div class="col-md-4 mb-2">
+          <%= label f, :end, "Event End" %>
+          <%= date_input f, :end, class: "form-control", required: true%>
+          <%= error_tag f, :end %>
+        </div>
+      </div>
+
       <div class="form-group">
-        <%= label f, :url %>
-        <%= url_input f, :url, class: "form-control" %>
+        <%= label f, :url, "Event URL" %>
+        <%= url_input f, :url, class: "form-control", placeholder: "Event URL" %>
         <%= error_tag f, :url %>
       </div>
 
+
+      <div class="form-row">
+        <div class="col-md-4 mb-2">
+          <%= label f, :organizer, "Organizer" %>
+          <%= text_input f, :organizer, class: "form-control", placeholder: "Organizer" %>
+          <%= error_tag f, :organizer %>
+        </div>
+
+        <div class="col-md-4 mb-2">
+          <%= label f, :organizer_brand_color, "Organizer Brand Color" %>
+          <%= color_input f, :organizer_brand_color, value: "#235185", class: "form-control" %>
+          <%= error_tag f, :organizer_brand_color %>
+        </div>
+
+
+        <div class="col-md-4 mb-2">
+          <%= label f, :organizer_brand_logo, "Organizer Brand Logo" %>
+          <%= file_input f, :organizer_brand_logo, class: "form-control" %>
+          <small class="form-text text-muted">
+            Event Organization logos must be 192x192
+          </small>
+          <%= error_tag f, :organizer_brand_logo %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :organizer_url, "Organizer URL" %>
+        <%= url_input f, :organizer_url, class: "form-control", placeholder: "Organizer URL" %>
+        <%= error_tag f, :organizer_url %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :venue_name, "Venue Name" %>
+        <%= text_input f, :venue_name, class: "form-control" %>
+        <%= error_tag f, :venue_name %>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-4 mb-2">
+          <%= label f, :venue_address1, "Venue address 1" %>
+          <%= text_input f, :venue_address1, class: "form-control", placeholder: "Venue Address 1" %>
+          <%= error_tag f, :venue_address1 %>
+        </div>
+        <div class="col-md-4 mb-2">
+          <%= label f, :venue_address2, "Venue address 2" %>
+          <%= text_input f, :venue_address2, class: "form-control", placeholder: "Venue Address 2" %>
+          <%= error_tag f, :venue_address2 %>
+        </div>
+
+        <div class="col-md-4 mb-2">
+          <%= label f, :venue_address3, "Venue address 3" %>
+          <%= text_input f, :venue_address3, class: "form-control", placeholder: "Venue Address 3" %>
+          <%= error_tag f, :venue_address3 %>
+        </div>
+
+
+        <div class="col-md-3 mb-3">
+          <%= label f, :venue_city, "Venue City" %>
+          <%= text_input f, :venue_city, class: "form-control", placeholder: "City" %>
+          <%= error_tag f, :venue_city %>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <%= label f, :venue_territory, "Venue State/Territory" %>
+          <%= text_input f, :venue_territory, class: "form-control", placeholder: "Venue State/Territory" %>
+          <%= error_tag f, :venue_territory %>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <%= label f, :venue_country, "Venue Country" %>
+          <%= text_input f, :venue_country, class: "form-control", placeholder: "Venue Country" %>
+          <%= error_tag f, :venue_country %>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <%= label f, :venue_postal_code, "Venue Postal Code" %>
+          <%= text_input f, :venue_postal_code, class: "form-control", placeholder: "Venue Postal Code" %>
+          <%= error_tag f, :venue_postal_code %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :venue_url, "Venue URL" %>
+        <%= url_input f, :venue_url, class: "form-control", placeholder: "Venue URL" %>
+        <%= error_tag f, :venue_url %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :venue_gmap_embed_url, "Venue Google Map URL" %>
+        <%= url_input f, :venue_gmap_embed_url, class: "form-control", placeholder: "Venue Google Map URL" %>
+        <%= error_tag f, :venue_gmap_embed_url %>
+      </div>
+
       <%= hidden_input f, :submitted_by, value: assigns.current_user.member_id %>
-      <%= submit "Submit" %>
+      <%= submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
   <!-- /.container -->

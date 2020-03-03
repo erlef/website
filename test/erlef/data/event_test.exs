@@ -18,7 +18,11 @@ defmodule Erlef.EventTest do
       cs = Event.submission_changeset(%Event{}, params)
       assert cs.valid?
       assert cs.errors == []
-      assert cs.changes == Map.put(params, :slug, "event-title")
+
+      assert cs.changes ==
+               params
+               |> Map.put(:slug, "event-title")
+               |> Map.put(:description, "<p>Full description</p>\n")
     end
 
     test "when optional params are valid" do
@@ -49,7 +53,11 @@ defmodule Erlef.EventTest do
       cs = Event.submission_changeset(%Event{}, params)
       assert cs.valid?
       assert cs.errors == []
-      assert cs.changes == Map.put(params, :slug, "event-title")
+
+      assert cs.changes ==
+               params
+               |> Map.put(:slug, "event-title")
+               |> Map.put(:description, "<p>Full description</p>\n")
     end
 
     test "when params are invalid" do
