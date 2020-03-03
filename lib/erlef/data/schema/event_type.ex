@@ -16,4 +16,8 @@ defmodule Erlef.Data.Schema.EventType do
     |> cast(params, [:name])
     |> validate_required([:name])
   end
+
+  def get(type) do
+    Erlef.Data.Repo.get_by!(__MODULE__, name: Atom.to_string(type))
+  end
 end
