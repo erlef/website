@@ -1,13 +1,17 @@
 defmodule Erlef.Events do
   @moduledoc false
 
+  alias Erlef.Data.Query.Event, as: Query
+  alias Erlef.Data.Schema.Event
+  alias Erlef.Data.Repo
+
   @spec approve(Ecto.UUID.t(), map()) ::
           {:ok, Erlef.Data.Schema.Event} | {:error, Ecto.Changeset.t()}
   def approve(id, params) do
-    event = Erlef.Data.Query.Event.get(id)
+    event = Query.get(id)
 
     event
-    |> Erlef.Data.Schema.Event.approval_changeset(params)
-    |> Erlef.Data.Repo.update()
+    |> Event.approval_changeset(params)
+    |> Repo.update()
   end
 end

@@ -12,7 +12,8 @@ defmodule ErlefWeb.Admin.EventController do
 
   def show(conn, %{"id" => id}) do
     event = Query.get(id)
-    render(conn, changeset: Event.new_changeset(event, %{}), event: event)
+    name = Erlef.Members.get_display_name(50_769_064)
+    render(conn, changeset: Event.new_changeset(event, %{}), event: %{event | submitted_by: name})
   end
 
   def approve(conn, %{"id" => id, "event" => params}) do

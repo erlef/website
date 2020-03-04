@@ -76,6 +76,19 @@ defmodule Erlef.WildApricot do
     get(uri, headers)
   end
 
+  @spec get_contact(String.t(), integer(), integer()) :: {:ok, map()} | {:error, term()}
+  def get_contact(token, aid, uid) do
+    uri = api_url() <> "/accounts/#{aid}/contacts/#{uid}"
+
+    headers = [
+      {"User-Agent", "erlef_app"},
+      {"Accept", "application/json"},
+      {"Authorization", "Bearer #{token}"}
+    ]
+
+    get(uri, headers)
+  end
+
   @spec is_admin(String.t(), integer(), integer()) :: boolean()
   def is_admin(token, aid, id) do
     uri = api_url() <> "/accounts/#{aid}/contacts/#{id}"

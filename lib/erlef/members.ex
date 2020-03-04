@@ -20,4 +20,11 @@ defmodule Erlef.Members do
         {:error, cs}
     end
   end
+
+  def get_display_name(uid) do
+    aid = System.get_env("WA_ACCOUNT_ID")
+    {:ok, %{"access_token" => token}} = Erlef.WildApricot.get_api_token()
+    {:ok, %{"DisplayName" => name}} = Erlef.WildApricot.get_contact(token, aid, uid)
+    name
+  end
 end

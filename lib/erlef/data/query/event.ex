@@ -10,9 +10,9 @@ defmodule Erlef.Data.Query.Event do
   @doc """
   Returns a event given a valid id
   """
-  @spec get(id :: Ecto.UUID.t()) :: Event.t() | nil
-  def get(id) do
-    Repo.get(Event, id)
+  @spec get(id :: Ecto.UUID.t(), repo :: Ecto.Repo.t()) :: Event.t() | nil
+  def get(id, repo \\ Repo) do
+    repo.get(Event, id)
   end
 
   @doc """
@@ -55,14 +55,12 @@ defmodule Erlef.Data.Query.Event do
     |> repo.all()
   end
 
-  @spec approved() :: [Event.t()]
-  def unapproved_count() do
-    q =
-      from(p in Event,
-        where: p.approved == false,
-        select: count(p.id)
-      )
-
-    Repo.one(q)
+  @spec approved(repo :: Ecto.Repo.t()) :: [Event.t()]
+  def unapproved_count(repo \\ Repo) do
+    from(p in Event,
+      where: p.approved == false,
+      select: count(p.id)
+    )
+    |> repo.one()
   end
 end

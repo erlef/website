@@ -1,4 +1,5 @@
 <div class="card-body">
+  <h3>Submitted by : <b><%= @event.submitted_by %></b> on <%= DateTime.to_date(@event.inserted_at) %></h3>
   <%= form_for @changeset, Routes.admin_event_path(@conn, :approve, @event.id), [], fn f -> %>
 
     <div class="event-card rounded border bg-white my-2 d-flex align-items-stretch">
