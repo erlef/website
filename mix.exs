@@ -64,7 +64,8 @@ defmodule Erlef.MixProject do
       {:extwitter, "~> 0.12.0"},
       {:oauther, "1.1.1"},
       {:ex_aws, "~> 2.1"},
-      {:ex_aws_s3, "~> 2.0"}
+      {:ex_aws_s3, "~> 2.0"},
+      {:sobelow, "~> 0.10.1", only: [:dev, :test]}
     ]
   end
 
