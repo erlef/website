@@ -8,7 +8,7 @@ defmodule Erlef.Factory do
 
   def academic_papers_factory do
     %AcademicPaper{
-      id: UUID.uuid4(),
+      id: Ecto.UUID.generate(),
       title: sequence(:title, &"Cool Title #{&1}"),
       author: "#{Faker.Name.first_name()} #{Faker.Name.last_name()}",
       language: "English",

@@ -60,7 +60,6 @@ defmodule Erlef.MixProject do
       {:ex_machina, "~> 2.3", only: :test},
       {:floki, ">= 0.0.0", only: :test},
       {:faker, "~> 0.13.0", only: :test},
-      {:elixir_uuid, "~> 1.2"},
       {:slugify, "~> 1.2"},
       {:extwitter, "~> 0.12.0"},
       {:oauther, "1.1.1"},
