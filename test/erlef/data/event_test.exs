@@ -7,7 +7,6 @@ defmodule Erlef.EventTest do
     test "when params are valid" do
       params = %{
         title: "Event Title",
-        excerpt: "Short description",
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
@@ -31,7 +30,6 @@ defmodule Erlef.EventTest do
       params = %{
         title: "Event Title",
         event_type_id: Ecto.UUID.generate(),
-        excerpt: "Short description",
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
@@ -39,18 +37,7 @@ defmodule Erlef.EventTest do
         url: "https://foo.bar/",
         organizer: "Organizer",
         organizer_brand_color: "#12345",
-        organizer_brand_logo: "eh...",
-        organizer_url: "https://some.where/",
-        venue_address1: "123 Street",
-        venue_address2: "Campus A",
-        venue_address3: "Building B",
-        venue_city: "City",
-        venue_territory: "State",
-        venue_country: "Country",
-        venue_postal_code: "12345-1234",
-        venue_gmap_embed_url: "https://map.url/",
-        venue_name: "Venue name",
-        venue_url: "https://venue.url/"
+        organizer_brand_logo: "eh..."
       }
 
       cs = Event.submission_changeset(%Event{}, params)
@@ -68,7 +55,6 @@ defmodule Erlef.EventTest do
       refute cs.valid?
 
       exp_errors = [
-        {:excerpt, {"can't be blank", [validation: :required]}},
         {:start, {"can't be blank", [validation: :required]}},
         {:end, {"can't be blank", [validation: :required]}},
         {:organizer, {"can't be blank", [validation: :required]}},
@@ -88,7 +74,6 @@ defmodule Erlef.EventTest do
 
       exp_errors = [
         {:title, {"can't be blank", [validation: :required]}},
-        {:excerpt, {"can't be blank", [validation: :required]}},
         {:description, {"can't be blank", [validation: :required]}},
         {:start, {"can't be blank", [validation: :required]}},
         {:end, {"can't be blank", [validation: :required]}},
@@ -106,7 +91,6 @@ defmodule Erlef.EventTest do
     test "when params are valid" do
       event = %Event{
         slug: "This should be generated",
-        excerpt: "Short description",
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
@@ -129,7 +113,6 @@ defmodule Erlef.EventTest do
     test "when params are invalid" do
       event = %Event{
         slug: "This should be generated",
-        excerpt: "Short description",
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),

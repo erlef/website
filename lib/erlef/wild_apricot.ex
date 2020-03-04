@@ -76,6 +76,20 @@ defmodule Erlef.WildApricot do
     get(uri, headers)
   end
 
+  @spec get_contact(String.t(), integer()) :: {:ok, map()} | {:error, term()}
+  def get_contact(token, uid) do
+    aid = account_id()
+    uri = api_url() <> "/accounts/#{aid}/contacts/#{uid}"
+
+    headers = [
+      {"User-Agent", "erlef_app"},
+      {"Accept", "application/json"},
+      {"Authorization", "Bearer #{token}"}
+    ]
+
+    get(uri, headers)
+  end
+
   @spec is_admin(String.t(), integer(), integer()) :: boolean()
   def is_admin(token, aid, id) do
     uri = api_url() <> "/accounts/#{aid}/contacts/#{id}"
@@ -98,6 +112,8 @@ defmodule Erlef.WildApricot do
     headers = [{"Content-Type", "application/x-www-form-urlencoded"}]
     post(headers, body, [basic_api_auth()])
   end
+
+  defp account_id(), do: System.get_env("WA_ACCOUNT_ID")
 
   defp get(uri, headers) do
     case Erlef.HTTP.perform(:get, uri, headers, "", []) do
