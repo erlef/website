@@ -45,7 +45,7 @@ defmodule Erlef.Data.Query.Event do
   @doc """
   Returns all unapproved events
   """
-  @spec approved(repo :: Ecto.Repo.t()) :: [Event.t()]
+  @spec unapproved(repo :: Ecto.Repo.t()) :: [Event.t()]
   def unapproved(repo \\ Repo) do
     from(p in Event,
       where: p.approved == false,
