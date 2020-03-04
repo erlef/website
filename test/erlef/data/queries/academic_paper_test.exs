@@ -63,7 +63,7 @@ defmodule Erlef.Data.Query.AcademicPaperTest do
 
   describe "get/1" do
     test "returns nil if record is not found" do
-      refute Query.get(UUID.uuid4(), Repo)
+      refute Query.get(Ecto.UUID.generate(), Repo)
     end
 
     test "returns active academic paper with a valid id" do
@@ -180,7 +180,8 @@ defmodule Erlef.Data.Query.AcademicPaperTest do
     end
 
     test "returns an error if the record is not found" do
-      assert {:error, :no_record_found} = Query.delete(%AcademicPaper{id: UUID.uuid4()}, Repo)
+      assert {:error, :no_record_found} =
+               Query.delete(%AcademicPaper{id: Ecto.UUID.generate()}, Repo)
     end
   end
 end
