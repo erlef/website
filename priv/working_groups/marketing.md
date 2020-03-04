@@ -18,7 +18,7 @@
       "name": "Miriam Pena"
     },
     {
-      "image": "members/maxim-fedorov.png",
+      "image": "members/maxim-fedorov.jpg",
       "name": "Maxim Fedorov"
     },
     {
@@ -46,7 +46,7 @@
       "name": "Ghislaine Guerin"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "members/matt-mckinney.jpg",
       "name": "Matt McKinney"
     }
   ],
