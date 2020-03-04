@@ -1,24 +1,24 @@
 <div class="card-body">
-    <%= form_for @changeset, Routes.admin_event_path(@conn, :approve, @event.id), [], fn f -> %>
+  <%= form_for @changeset, Routes.admin_event_path(@conn, :approve, @event.id), [], fn f -> %>
 
-      <div class="event-card rounded border bg-white my-2 d-flex align-items-stretch">
-          <div style="background-color: <%= @event.organizer_brand_color %>;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
-            <img src="<%= @event.organizer_brand_logo %>" class="img-fluid d-block mx-auto event-card-image">
-          </div>
-          <div class="py-4 pr-4">
-            <h3>
-                <%= link(@event.title, to: @event.url, class: "text-dark font-weight-bold") %>
-            </h3>
-            <h5 class="mb-0"><%= event_dates(@event.start, @event.end) %></h5>
-            <p class="mb-0 mt-3">
-              <%= raw(@event.description) %>
-            </p>
-            <a class="h5 mt-4 d-block" href="<%= @event.url %>" target="_blank">Learn More →</a>
-          </div>
-        </div>
+    <div class="event-card rounded border bg-white my-2 d-flex align-items-stretch">
+      <div style="background-color: <%= @event.organizer_brand_color %>;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
+        <img src="<%= @event.organizer_brand_logo %>" class="img-fluid d-block mx-auto event-card-image">
+      </div>
+      <div class="py-4 pr-4">
+        <h3>
+          <%= link(@event.title, to: @event.url, class: "text-dark font-weight-bold") %>
+        </h3>
+        <h5 class="mb-0"><%= event_dates(@event.start, @event.end) %></h5>
+        <p class="mb-0 mt-3">
+        <%= raw(@event.description) %>
+        </p>
+        <a class="h5 mt-4 d-block" href="<%= @event.url %>" target="_blank">Learn More →</a>
+      </div>
+    </div>
 
-  <%= hidden_input f, :approved_by, value: assigns.current_user.member_id %>
-  <%= submit "Submit", class: "btn btn-primary" %>
+    <%= hidden_input f, :approved_by, value: assigns.current_user.member_id %>
+    <%= submit "Approve", class: "btn btn-primary" %>
 
-<% end %>
+  <% end %>
 </div>
