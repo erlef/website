@@ -1,19 +1,25 @@
-<div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-gradient-warning">
-              <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Unapproved Events</span>
-                <span class="info-box-number">42</span>
-
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
-                </div>
-                <span class="progress-description">
-                  70% Increase in 30 Days
-                </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Unapproved events</h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body p-0">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th style="width: 10px">#</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for event <- @unapproved_events do %>
+          <tr>
+            <td><%= link(event.id, to: Routes.admin_event_path(@conn, :show, event.id))  %></td>
+            <td><%= event.title %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.card-body -->
+</div>

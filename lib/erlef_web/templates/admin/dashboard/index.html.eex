@@ -1,0 +1,13 @@
+<div class="col-md-3 col-sm-6 col-12">
+  <div class="info-box bg-gradient-warning">
+    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>
+
+    <div class="info-box-content">
+      <span class="info-box-text">Unapproved Events</span>
+      <span class="info-box-number"><%= @unapproved_event_count %></span>
+      <%= link("Click to review", to: Routes.admin_event_path(@conn, :index)) %>
+    </div>
+    <!-- /.info-box-content -->
+  </div>
+  <!-- /.info-box -->
+</div>

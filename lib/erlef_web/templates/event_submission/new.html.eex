@@ -35,15 +35,6 @@ span.help-block {
 
 
       <div class="form-group">
-        <%= label f, :excerpt, "* Excerpt" %>
-        <%= text_input f, :excerpt, class: "form-control", required: true, placeholder: "Excerpt" %>
-        <small class="form-text text-muted">
-          Brief description about the event
-        </small>
-        <%= error_tag f, :excerpt %>
-      </div>
-
-      <div class="form-group">
         <%= label f, :description, "* Description"%>
         <%= textarea f, :description, class: "form-control", required: true, placeholder: "Full description" %>
         <%= error_tag f, :description %>
@@ -96,79 +87,6 @@ span.help-block {
           </small>
           <%= error_tag f, :organizer_brand_logo %>
         </div>
-      </div>
-
-      <div class="form-group">
-        <%= label f, :organizer_url, "Organizer URL" %>
-        <%= url_input f, :organizer_url, class: "form-control", placeholder: "Organizer URL" %>
-        <%= error_tag f, :organizer_url %>
-      </div>
-
-      <div class="form-group">
-        <%= label f, :venue_name, "Venue Name" %>
-        <%= text_input f, :venue_name, class: "form-control" %>
-        <%= error_tag f, :venue_name %>
-      </div>
-
-      <div class="form-row">
-        <div class="col-md-4 mb-2">
-          <%= label f, :venue_address1, "Venue address 1" %>
-          <%= text_input f, :venue_address1, class: "form-control", placeholder: "Venue Address 1" %>
-          <%= error_tag f, :venue_address1 %>
-        </div>
-        <div class="col-md-4 mb-2">
-          <%= label f, :venue_address2, "Venue address 2" %>
-          <%= text_input f, :venue_address2, class: "form-control", placeholder: "Venue Address 2" %>
-          <%= error_tag f, :venue_address2 %>
-        </div>
-
-        <div class="col-md-4 mb-2">
-          <%= label f, :venue_address3, "Venue address 3" %>
-          <%= text_input f, :venue_address3, class: "form-control", placeholder: "Venue Address 3" %>
-          <%= error_tag f, :venue_address3 %>
-        </div>
-
-
-        <div class="col-md-3 mb-3">
-          <%= label f, :venue_city, "Venue City" %>
-          <%= text_input f, :venue_city, class: "form-control", placeholder: "City" %>
-          <%= error_tag f, :venue_city %>
-        </div>
-
-        <div class="col-md-3 mb-3">
-          <%= label f, :venue_territory, "Venue State/Territory" %>
-          <%= text_input f, :venue_territory, class: "form-control", placeholder: "Venue State/Territory" %>
-          <%= error_tag f, :venue_territory %>
-        </div>
-
-        <div class="col-md-3 mb-3">
-          <%= label f, :venue_country, "Venue Country" %>
-          <%= text_input f, :venue_country, class: "form-control", placeholder: "Venue Country" %>
-          <%= error_tag f, :venue_country %>
-        </div>
-
-        <div class="col-md-3 mb-3">
-          <%= label f, :venue_postal_code, "Venue Postal Code" %>
-          <%= text_input f, :venue_postal_code, class: "form-control", placeholder: "Venue Postal Code" %>
-          <%= error_tag f, :venue_postal_code %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <%= label f, :venue_url, "Venue URL" %>
-        <%= url_input f, :venue_url, class: "form-control", placeholder: "Venue URL" %>
-        <%= error_tag f, :venue_url %>
-        <small class="form-text text-muted">
-          A link to the venue's site
-        </small>
-      </div>
-
-      <div class="form-group">
-        <%= label f, :venue_gmap_embed_url, "Venue Google Map URL" %>
-        <%= url_input f, :venue_gmap_embed_url, class: "form-control", placeholder: "Venue Google Map URL" %>
-        <%= error_tag f, :venue_gmap_embed_url %>
-        <small class="form-text text-muted">
-          Example: https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13050.701471366605...</small>
       </div>
 
       <%= hidden_input f, :submitted_by, value: assigns.current_user.member_id %>

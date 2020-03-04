@@ -75,7 +75,9 @@ defmodule ErlefWeb.Router do
 
     scope "/admin", Admin, as: :admin do
       pipe_through [:admin_required]
-      get "/", EventController, :index
+      get "/", DashboardController, :index
+      resources "/events", EventController, only: [:index, :show]
+      put "/events/:id", EventController, :approve
     end
   end
 
