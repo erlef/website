@@ -8,13 +8,15 @@ defmodule ErlefWeb.EventSubmissionController do
         conn
         |> put_flash(
           :success,
-          "<h3>Thanks! 😁 Your event will be reviewed by an admin shortly...</h3>"
+          "<h3 class='text-center'>Thanks! 😁 Your event will be reviewed by an admin shortly...</h3>"
         )
         |> redirect(to: "/")
 
       {:error, changeset} ->
+        changes = %{changeset.changes | description: params["description"]}
+
         render(conn, "new.html",
-          changeset: %{changeset | action: :insert},
+          changeset: %{changeset | changes: changes, action: :insert},
           event_types: event_types()
         )
     end
