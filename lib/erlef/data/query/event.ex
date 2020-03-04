@@ -55,7 +55,7 @@ defmodule Erlef.Data.Query.Event do
     |> repo.all()
   end
 
-  @spec approved(repo :: Ecto.Repo.t()) :: [Event.t()]
+  @spec unapproved_count(repo :: Ecto.Repo.t()) :: [Event.t()]
   def unapproved_count(repo \\ Repo) do
     from(p in Event,
       where: p.approved == false,
