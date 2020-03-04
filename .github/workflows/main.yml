@@ -60,6 +60,34 @@ jobs:
       - name: format
         run: MIX_ENV=test mix format --check-formatted
 
+  sobelow:
+    name: Sobelow
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup
+        uses: actions/setup-elixir@v1
+        with:
+          otp-version: 22.2.6
+          elixir-version: 1.10.1
+      - name: restore-deps
+        uses: actions/cache@v1
+        with:
+          path: deps
+          key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
+          restore-keys: |
+            ${{ runner.os }}-mix-
+      - name: restore-build
+        uses: actions/cache@v1
+        with:
+          path: _build
+          key: ${{ runner.os }}-build-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+      - name: format
+        run: MIX_ENV=test mix sobelow --skip
   credo:
     name: Credo
     runs-on: ubuntu-latest
