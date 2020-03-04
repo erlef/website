@@ -1,18 +1,27 @@
 defmodule ErlefWeb.Admin.EventController do
   use ErlefWeb, :controller
   action_fallback ErlefWeb.FallbackController
-
-  alias Erlef.{Event, Posts}
+  alias Erlef.Data.Schema.Event
+  alias Erlef.Data.Query.Event, as: Query
+  alias Erlef.Events
 
   def index(conn, _params) do
-    render(conn,
-      gcal_api_key: System.get_env("GCAL_API_KEY"),
-      gcal_id: System.get_env("GCAL_ID")
-    )
+    events = Erlef.Data.Query.Event.unapproved()
+    render(conn, unapproved_events: events)
   end
 
   def show(conn, %{"id" => id}) do
-    {:ok, event} = Posts.get_by_slug(Event, id)
-    render(conn, event: event)
+    event = Query.get(id)
+    render(conn, changeset: Event.new_changeset(event, %{}), event: event)
+  end
+
+  def approve(conn, %{"id" => id, "event" => params}) do
+    case Events.approve(id, params) do
+      {:ok, _} ->
+        redirect(conn, to: "/admin/events")
+
+      {:error, cs} ->
+        render(conn, changeset: cs, event: cs.data)
+    end
   end
 end
