@@ -7,22 +7,26 @@ defmodule Erlef.WildApricot do
 
   @spec gen_login_uri() :: no_return()
   def gen_login_uri() do
+    domain = erlef_domain()
+
     :hackney_url.make_url(@wa_member_login, "/sys/login/OAuthLogin", [
       {"client_Id", client_id()},
       {"scope", "auto"},
-      {"redirect_uri", "https://erlef.org/login"}
+      {"redirect_uri", "https://#{domain}/login"}
     ])
   end
 
   @spec login(String.t()) :: {:ok, map()} | {:error, term()}
   def login(code) do
+    domain = erlef_domain()
+
     body =
       {:form,
        [
          {"grant_type", "authorization_code"},
          {"client_id", client_id()},
          {"code", code},
-         {"redirect_uri", "https://erlef.org/login"},
+         {"redirect_uri", "https://#{domain}/login"},
          {"scope", "auto"}
        ]}
 
@@ -170,4 +174,7 @@ defmodule Erlef.WildApricot do
   defp base_api_url, do: Application.get_env(:erlef, :wild_apricot_base_api_url)
   defp auth_url, do: base_auth_url() <> "/auth/token"
   defp api_url(), do: base_api_url() <> "/v2.1"
+
+  defp erlef_domain, do: System.get_env("ERLEF_DOMAIN")
+
 end
