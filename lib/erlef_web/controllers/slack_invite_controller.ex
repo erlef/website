@@ -6,7 +6,7 @@ defmodule ErlefWeb.SlackInviteController do
   @supported_teams Application.get_env(:erlef, :slack_teams)
 
   def index(conn, %{"team" => team}) when team in @supported_teams do
-    render(conn, team: team, created: false, recaptcha_site_key: recaptcha_site_key())
+    render(conn, team: team, created: false)
   end
 
   def index(conn, _params) do
@@ -18,9 +18,8 @@ defmodule ErlefWeb.SlackInviteController do
     |> redirect(to: "/")
   end
 
-  def create(conn, %{"email" => email, "g-recaptcha-response" => recaptcha_token, "team" => team}) do
+  def create(conn, %{"email" => email, "team" => team}) do
     with {:ok, :valid} <- validate_email(email),
-         {:ok, :verified} <- Erlef.Captcha.verify_recaptcha(recaptcha_token),
          {:ok, :invited} <- Erlef.SlackInvite.invite(email, team: team) do
       conn
       |> put_flash(:success, success_msg())
@@ -31,8 +30,7 @@ defmodule ErlefWeb.SlackInviteController do
         |> put_flash(:error, error)
         |> render("index.html",
           created: false,
-          team: team,
-          recaptcha_site_key: recaptcha_site_key()
+          team: team
         )
     end
   end

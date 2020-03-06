@@ -26,8 +26,6 @@ defmodule ErlefWeb do
       import Phoenix.LiveView.Controller
 
       alias ErlefWeb.Router.Helpers, as: Routes
-
-      defp recaptcha_site_key, do: System.get_env("RECAPTCHA_SITE_KEY")
     end
   end
 
