@@ -10,7 +10,7 @@ defmodule Erlef.WildApricot do
     :hackney_url.make_url(@wa_member_login, "/sys/login/OAuthLogin", [
       {"client_Id", client_id()},
       {"scope", "auto"},
-      {"redirect_uri", "https://erlef.com/login"}
+      {"redirect_uri", "https://erlef.org/login"}
     ])
   end
 
@@ -22,7 +22,7 @@ defmodule Erlef.WildApricot do
          {"grant_type", "authorization_code"},
          {"client_id", client_id()},
          {"code", code},
-         {"redirect_uri", "https://erlef.com/login"},
+         {"redirect_uri", "https://erlef.org/login"},
          {"scope", "auto"}
        ]}
 
