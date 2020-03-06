@@ -9,7 +9,7 @@ config :erlef, :board_members, [
   %{image: "members/fred-hebert.png", name: "Fred Hebert"},
   %{image: "members/miriam-pena.jpg", name: "Miriam Pena"},
   %{image: "members/alistair-woodman.png", name: "Alistair Woodman"},
-  %{image: "members/profile-placeholder.png", name: "Maxim Fedorov"},
+  %{image: "members/maxim-fedorov.jpg", name: "Maxim Fedorov"},
   %{image: "members/kenneth-lundin.jpg", name: "Kenneth Lundin"},
   %{image: "members/peer-stritzinger.jpg", name: "Peer Stritzinger"}
 ]
