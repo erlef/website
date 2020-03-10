@@ -38,7 +38,7 @@
       "name": "Ben Marx"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "members/magdalena-pokorska.jpg",
       "name": "Magdalena Pokorska"
     },
     {
@@ -48,6 +48,10 @@
     {
       "image": "members/matt-mckinney.jpg",
       "name": "Matt McKinney"
+    },
+    {
+      "image": "members/beau-heubach.jpg",
+      "name": "Beau Heubach"
     }
   ],
   "name": "Marketing",

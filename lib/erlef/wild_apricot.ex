@@ -176,5 +176,4 @@ defmodule Erlef.WildApricot do
   defp api_url(), do: base_api_url() <> "/v2.1"
 
   defp erlef_domain, do: System.get_env("ERLEF_DOMAIN")
-
 end
