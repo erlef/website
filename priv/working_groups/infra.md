@@ -3,7 +3,7 @@
   "email": "infra@erlef.org",
   "formed": "2019-10-31",
   "gcal_url": null,
-  "github": "https://github.com/erlef/infra",
+  "github": "erlef/infra",
   "members": [
     {
       "image": "members/peer-stritzinger.jpg",
@@ -27,7 +27,6 @@
     }
   ],
   "name": "Infrastructure",
-  "primary_contact_method": "email",
   "slug": "infra"
 }
 ---

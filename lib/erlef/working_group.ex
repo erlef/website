@@ -10,7 +10,6 @@ defmodule Erlef.WorkingGroup do
     field(:name, :string)
     field(:slug, :string)
     field(:description, :string)
-    field(:primary_contact_method, :string)
     field(:email, :string)
     field(:github, :string)
     field(:gcal_url, :string)
@@ -28,7 +27,7 @@ defmodule Erlef.WorkingGroup do
   end
 
   @required_fields ~w(name slug description email github gcal_url formed
-    primary_contact_method body body_html excerpt excerpt_html)a
+    body body_html excerpt excerpt_html)a
 
   def changeset(struct, params \\ %{}) do
     struct
