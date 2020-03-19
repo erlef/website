@@ -23,7 +23,6 @@
     }
   ],
   "name": "Language Interoperability ",
-  "primary_contact_method": "email",
   "slug": "language-interop"
 }
 ---

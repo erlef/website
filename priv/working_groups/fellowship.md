@@ -23,7 +23,6 @@
     }
   ],
   "name": "Fellowship",
-  "primary_contact_method": "email",
   "slug": "fellowship"
 }
 ---

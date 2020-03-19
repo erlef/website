@@ -55,7 +55,6 @@
     }
   ],
   "name": "Marketing",
-  "primary_contact_method": "email",
   "slug": "marketing"
 }
 ---
