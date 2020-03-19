@@ -318,7 +318,7 @@ defmodule ErlefWeb.StipendView do
 
   def country_select(form) do
     select(form, :country, @country_data,
-      class: "selectpicker form-control",
+      class: "form-control",
       "data-live-search": "true"
     )
   end
