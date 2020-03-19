@@ -3,7 +3,7 @@
   "email": null,
   "formed": "2019-04-30",
   "gcal_url": "https://calendar.google.com/calendar?cid=N25nZ2RiNWhuZnFwODI4b2FwaTExOWprZXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
-  "github": "https://github.com/erlef/eef-observability-wg",
+  "github": "erlef/eef-observability-wg",
   "members": [
     {
       "image": "members/tristan-sloughter.jpg",
@@ -51,7 +51,6 @@
     }
   ],
   "name": "Observability",
-  "primary_contact_method": "github",
   "slug": "observability"
 }
 ---

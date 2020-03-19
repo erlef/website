@@ -1,12 +1,11 @@
 {
   "name": "Security",
-  "primary_contact_method": "email",
   "slug": "security",
   "description": "The mission of the Security Working Group is to identify security issues, and provide solutions, develop guidance, standards, technical mechanisms and documentation.",
   "email": "security@erlef.org",
   "formed": "2019-04-30",
   "gcal_url": null,
-  "github": "https://github.com/erlef/security-wg",
+  "github": "erlef/security-wg",
   "members": [
     {
       "image": "members/bram-verburg.jpg",

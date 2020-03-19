@@ -3,7 +3,7 @@
   "email": "documentation@erlef.org",
   "formed": "2019-07-23",
   "gcal_url": null,
-  "github": null,
+  "github": "erlef/documentation-wg",
   "members": [
     {
       "image": "members/jose-valim.jpg",
@@ -31,7 +31,6 @@
     }
   ],
   "name": "Documentation",
-  "primary_contact_method": "email",
   "slug": "documentation"
 }
 ---
@@ -94,5 +93,6 @@ instruct and push them towards writing documentation of great quality.
 - Fred Hebert (Rebar3)
 - László Bácsi (ExDoc)
 - Mariano Guerra (Efene)
+- Wojtek Mach (ExDoc)
 
 -------

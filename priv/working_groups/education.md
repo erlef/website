@@ -67,7 +67,6 @@
     }
   ],
   "name": "Education, Training, & Adoption",
-  "primary_contact_method": "email",
   "slug": "education"
 }
 ---
