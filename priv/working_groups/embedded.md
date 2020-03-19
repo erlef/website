@@ -27,7 +27,6 @@
     }
   ],
   "name": "Embedded Systems",
-  "primary_contact_method": "email",
   "slug": "embedded-systems"
 }
 ---

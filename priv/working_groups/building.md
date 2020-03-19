@@ -3,7 +3,7 @@
   "email": null,
   "formed": "2019-04-30",
   "gcal_url": null,
-  "github": "https://github.com/erlef/eef-build-and-packaging-wg",
+  "github": "erlef/eef-build-and-packaging-wg",
   "members": [
     {
       "image": "members/tristan-sloughter.jpg",
@@ -63,7 +63,6 @@
     }
   ],
   "name": "Building and Packaging",
-  "primary_contact_method": "github",
   "slug": "building"
 }
 ---

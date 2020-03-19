@@ -27,7 +27,6 @@
     }
   ],
   "name": "Sponsorship",
-  "primary_contact_method": "email",
   "slug": "sponsorship"
 }
 ---
