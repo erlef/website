@@ -40,6 +40,26 @@
     {
       "image": "members/profile-placeholder.png",
       "name": "Justin Wood"
+    },
+    {
+      "image": "members/jose-valim.jpg",
+      "name": "José Valim"
+    },
+    {
+      "image": "members/profile-placeholder.png",
+      "name": "Thomas Depierre"
+    },
+    {
+      "image": "members/adam-lindberg.jpg",
+      "name": "Adam Lindberg"
+    },
+    {
+      "image": "members/maxim-fedorov.jpg",
+      "name": "Maxim Fedorov"
+    },
+    {
+      "image": "members/profile-placeholder.png",
+      "name": "John Hogberg"
     }
   ],
   "name": "Building and Packaging",
