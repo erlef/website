@@ -10,7 +10,7 @@ defmodule Erlef.Storage do
 
     case ExAws.request(operation) do
       {:ok, _} ->
-        {:ok, "https://event-org-images.s3.us-east-2.amazonaws.com/#{filename}"}
+        {:ok, "https://event-org-images.ewr1.vultrobjects.com/#{filename}"}
 
       err ->
         err
