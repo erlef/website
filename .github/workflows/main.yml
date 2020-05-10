@@ -1,5 +1,12 @@
 name: CI
-on: [pull_request]
+on:
+  push:
+    branches: master
+  pull_request:
+    branches: master
+env:
+  otp-version: 22.2.6
+  elixir-version: 1.10.1
 jobs:
   build:
     name: Build
@@ -10,8 +17,8 @@ jobs:
       - name: setup
         uses: actions/setup-elixir@v1
         with:
-          otp-version: 22.2.6
-          elixir-version: 1.10.1
+          otp-version: ${{ env.otp-version }}
+          elixir-version: ${{ env.elixir-version }}
       - name: restore-deps
         uses: actions/cache@v1
         with:
@@ -41,8 +48,8 @@ jobs:
       - name: setup
         uses: actions/setup-elixir@v1
         with:
-          otp-version: 22.2.6
-          elixir-version: 1.10.1
+          otp-version: ${{ env.otp-version }}
+          elixir-version: ${{ env.elixir-version }}
       - name: restore-deps
         uses: actions/cache@v1
         with:
@@ -70,8 +77,8 @@ jobs:
       - name: setup
         uses: actions/setup-elixir@v1
         with:
-          otp-version: 22.2.6
-          elixir-version: 1.10.1
+          otp-version: ${{ env.otp-version }}
+          elixir-version: ${{ env.elixir-version }}
       - name: restore-deps
         uses: actions/cache@v1
         with:
@@ -98,8 +105,8 @@ jobs:
       - name: setup
         uses: actions/setup-elixir@v1
         with:
-          otp-version: 22.2.6
-          elixir-version: 1.10.1
+          otp-version: ${{ env.otp-version }}
+          elixir-version: ${{ env.elixir-version }}
       - name: restore-deps
         uses: actions/cache@v1
         with:
@@ -127,8 +134,8 @@ jobs:
       - name: setup
         uses: actions/setup-elixir@v1
         with:
-          otp-version: 22.2.6
-          elixir-version: 1.10.1
+          otp-version: ${{ env.otp-version }}
+          elixir-version: ${{ env.elixir-version }}
       - name: restore-deps
         uses: actions/cache@v1
         with:
@@ -147,7 +154,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: priv/plts
-          key: ${{ runner.os }}-erlef-dialyzer-22.2.6-1.10.1-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
+          key: ${{ runner.os }}-erlef-dialyzer-${{ env.otp-version }}-${{ env.elixir-version }}-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
           restore-keys: |
             ${{ runner.os }}-erlef-dialyzer-
       - name: dialyze
@@ -176,8 +183,8 @@ jobs:
       - name: setup
         uses: actions/setup-elixir@v1
         with:
-          otp-version: 22.2.6
-          elixir-version: 1.10.1
+          otp-version: ${{ env.otp-version }}
+          elixir-version: ${{ env.elixir-version }}
       - name: restore-deps
         uses: actions/cache@v1
         with:
