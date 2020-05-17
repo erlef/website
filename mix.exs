@@ -53,7 +53,7 @@ defmodule Erlef.MixProject do
       {:swoosh, "~> 0.24.4"},
       {:phoenix_swoosh, "~> 0.2.0"},
       {:gen_smtp, "~> 0.15.0"},
-      {:dialyxir, "~> 1.0.0-rc.7", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:credo, "~> 1.2.2", only: [:dev, :test], runtime: false},
       {:etso, "~> 0.1.1"},
       {:plug_attack, "~> 0.4.2"},
@@ -116,6 +116,7 @@ defmodule Erlef.MixProject do
         {Credo.Check.Refactor.MapInto, false},
         {Credo.Check.Warning.LazyLogging, false}
       ],
+      plt_core_path: "priv/plts",
       plt_file: {:no_warn, "priv/plts/erlef.plt"}
     ]
   end

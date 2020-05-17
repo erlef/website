@@ -7,11 +7,12 @@
  - Erlang/OTP 22
  - Elixir 1.9
  - NodeJS v12
+ - Yarn
 
 ## Up and running
 
   * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `cd assets && npm install`
+  * Install Node.js dependencies with `cd assets && yarn`
   * Run `mix do ecto.create, ecto.migrate` to setup the local database
   * Start Phoenix endpoint with `mix phx.server`
   * Load seed data
