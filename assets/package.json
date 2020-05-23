@@ -12,7 +12,7 @@
     "moment": "2.24.0",
     "bootstrap": "4.4.1",
     "popper.js": "1.16.1",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "bootstrap-select": "1.13.12",
     "admin-lte": "^3.0"
   },
