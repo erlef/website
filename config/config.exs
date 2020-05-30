@@ -11,7 +11,7 @@ use Mix.Config
 config :erlef, ErlefWeb.Endpoint,
   secret_key_base: "oVk/4INcsrNqubFeQp+ITcuCKloeA6gCqo/hHzHDSW4xwYt1bZQss6jLFcXpBNEU",
   render_errors: [view: ErlefWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Erlef.PubSub, adapter: Phoenix.PubSub.PG2],
+  pubsub_server: Erlef.PubSub,
   live_view: [
     signing_salt: "Rz9o2n4vSG7hVWhCaqcF2IxvUURVFV8B"
   ]

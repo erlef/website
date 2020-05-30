@@ -21,6 +21,12 @@
             </p>
           </a>
         </li>
+        <li class="nav-item"> 
+            <a href="/admin/dashboard" class="nav-link">
+                <i class="fas fa-tachometer-alt"></i>
+                <p>Dashboard</p>
+            </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
