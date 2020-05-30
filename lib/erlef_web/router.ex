@@ -1,5 +1,6 @@
 defmodule ErlefWeb.Router do
   use ErlefWeb, :router
+  import Phoenix.LiveDashboard.Router
 
   @trusted_sources ~w(www.google.com www.googletagmanager.com  www.google-analytics.com
     fonts.gstatic.com www.gstatic.com fonts.googleapis.com use.fontawesome.com
@@ -78,6 +79,7 @@ defmodule ErlefWeb.Router do
       get "/", DashboardController, :index
       resources "/events", EventController, only: [:index, :show]
       put "/events/:id", EventController, :approve
+      live_dashboard "/dashboard"
     end
   end
 

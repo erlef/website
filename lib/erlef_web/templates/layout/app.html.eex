@@ -49,7 +49,7 @@
       <%=raw flash %>
     </div>
     <% end %>
-    <%= render @view_module, @view_template, assigns %>
+    <%= @inner_content %>
   </main>
   <%= render "footer.html", assigns %>
   <svg height="0" width="0" viewBox="0 0 864 563">
