@@ -1,12 +1,15 @@
 name: CI
+
 on:
   push:
     branches: master
   pull_request:
     branches: master
 env:
-  otp-version: 22.2.6
-  elixir-version: 1.10.1
+  otp-version: 22.3.4.1
+  elixir-version: 1.10.3
+  MIX_ENV: test
+
 jobs:
   build:
     name: Build
@@ -24,19 +27,15 @@ jobs:
         with:
           path: deps
           key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
       - name: restore-build
         uses: actions/cache@v1
         with:
           path: _build
           key: ${{ runner.os }}-build-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-build-
       - name: deps.get
-        run: MIX_ENV=test mix deps.get
+        run: mix deps.get
       - name: compile
-        run: MIX_ENV=test mix compile --warnings-as-errors
+        run: mix compile --warnings-as-errors
 
   format:
     name: Format
@@ -55,17 +54,13 @@ jobs:
         with:
           path: deps
           key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
       - name: restore-build
         uses: actions/cache@v1
         with:
           path: _build
           key: ${{ runner.os }}-build-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-build-
       - name: format
-        run: MIX_ENV=test mix format --check-formatted
+        run: mix format --check-formatted
 
   sobelow:
     name: Sobelow
@@ -84,17 +79,13 @@ jobs:
         with:
           path: deps
           key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
       - name: restore-build
         uses: actions/cache@v1
         with:
           path: _build
           key: ${{ runner.os }}-build-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-build-
       - name: format
-        run: MIX_ENV=test mix sobelow --skip
+        run: mix sobelow --skip
   credo:
     name: Credo
     runs-on: ubuntu-latest
@@ -112,17 +103,13 @@ jobs:
         with:
           path: deps
           key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
       - name: restore-build
         uses: actions/cache@v1
         with:
           path: _build
           key: ${{ runner.os }}-build-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-build-
       - name: credo
-        run: MIX_ENV=test mix credo
+        run: mix credo
 
   dialyzer:
     needs: build
@@ -141,25 +128,18 @@ jobs:
         with:
           path: deps
           key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
       - name: restore-build
         uses: actions/cache@v1
         with:
           path: _build
           key: ${{ runner.os }}-build-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-build-
       - name: restore-plts
         uses: actions/cache@v1
         with:
           path: priv/plts
           key: ${{ runner.os }}-erlef-dialyzer-${{ env.otp-version }}-${{ env.elixir-version }}-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-erlef-dialyzer-
       - name: dialyze
-        run: |
-          MIX_ENV=test mix dialyzer
+        run: mix dialyzer
 
   test:
     needs: build
@@ -190,16 +170,10 @@ jobs:
         with:
           path: deps
           key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
       - name: restore-build
         uses: actions/cache@v1
         with:
           path: _build
           key: ${{ runner.os }}-build-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-build-
       - name: test
-        env:
-          RECAPTCHA_URL: http://127.0.0.1:9998/recaptcha/api/siteverify
-        run: MIX_ENV=test mix test
+        run: mix test
