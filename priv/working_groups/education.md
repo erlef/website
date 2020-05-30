@@ -64,6 +64,26 @@
     {
       "image": "members/adolfo-neto.jpg",
       "name": "Adolfo Neto"
+    },
+    {
+      "image": "members/johnny-winn.jpeg",
+      "name": "Johnny Winn"
+    },
+    {
+      "image": "members/raphael-vidal.jpeg",
+      "name": "Raphael Vidal"
+    },
+    {
+      "image": "members/annette-bieniusa.jpeg",
+      "name": "Annette Bieniusa"
+    },
+    {
+      "image": "members/bruno-azenha.jpeg",
+      "name": "Bruno Azenha Gonçalves"
+    },
+    {
+      "image": "members/eric-douglas.jpeg",
+      "name": "Eric Douglas"
     }
   ],
   "name": "Education, Training, & Adoption",
