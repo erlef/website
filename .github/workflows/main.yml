@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: master
+    branches: develop
   pull_request:
-    branches: master
+    branches: develop
 env:
   otp-version: 22.3.4.1
   elixir-version: 1.10.3
