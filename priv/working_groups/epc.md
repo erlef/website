@@ -40,7 +40,7 @@ External Process Communication, Interoperability and Robustness
 ## Mission Statement
 
 The mission of the working group is to facilitate and standardize interfaces and best practices for 
-interoperability with programming languages outside of languages targetting the BEAM.  We believe 
+interoperability with programming languages outside of languages targeting the BEAM.  We believe 
 that the efforts of the group will work towards facilitating the adoption of forward-looking 
 technologies, promotion of the Erlang community as a good citizen in the broader technology ecosystem, 
 and reduction of the barrier for adoption of BEAM-based solutions.
