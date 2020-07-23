@@ -47,7 +47,7 @@ and reduction of the barrier for adoption of BEAM-based solutions.
 
 ### Background
 
-Interfacing with other languages is a common practice to harness efficiency or to provide extensability which 
+Interfacing with other languages is a common practice to harness efficiency or to provide extensibility which 
 cannot be realized by the Erlang VM alone.  There are two ways to achieve interoperability:  Ports and NIFs. 
 Ports are more safe and robust than NIFs due to protection by OS process segregation.  On the other hand, 
 NIFs have the potential to be more efficient than Ports, especially in the context of high performance computing, 
@@ -68,7 +68,7 @@ Currently, there are several solutions created by our community that interface w
 but there are not necessarily guidelines or best practices for the creation of these solutions, a process to 
 review them, or a formalized way to guide interested developers to help out with these solutions.  
 
-Objectives of the working group are to survey current strategies, to support exploration and experimention for 
+Objectives of the working group are to survey current strategies, to support exploration and experimentation for 
 new best practices, to craft standards for evaluating different approaches, and to help balance exploration 
 with reduction of community fragmentation and reduplicated effort. 
 
