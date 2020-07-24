@@ -18,7 +18,7 @@
       "name": "Graham Leva"
     },
     {
-      "image": "members/isaac-yonemoto.png",
+      "image": "members/isaac-yonemoto.jpg",
       "name": "Isaac Yonemoto"
     },
     {
