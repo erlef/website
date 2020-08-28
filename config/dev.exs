@@ -75,7 +75,7 @@ config :swoosh, preview_port: 4001
 config :erlef, Erlef.Data.Repo,
   database: "erlef_website_dev",
   username: "postgres",
-  password: "postgres", 
+  password: "postgres",
   migration_primary_key: [id: :uuid, type: :binary_id],
   migration_timestamps: [type: :utc_datetime],
   show_sensitive_data_on_connection_error: true,
