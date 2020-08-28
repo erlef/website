@@ -1,14 +1,13 @@
 use Mix.Config
 
 config :erlef, ErlefWeb.Endpoint,
-  url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443],
+  url: [host: "erlef.org", port: 443],
   cache_static_manifest: "priv/static/cache_manifest.json",
   check_origin: [
     "//erlef.com",
     "//erlef.com",
     "//erlef.org",
-    "//erlef.org",
-    "//" <> System.get_env("APP_NAME") <> ".gigalixirapp.com"
+    "//erlef.org"
   ]
 
 # Do not print debug messages in production
@@ -26,11 +25,11 @@ config :erlef, Erlef.Mailer,
 
 config :erlef, env: :prod
 
-config :erlef, ErlefWeb.Endpoint, force_ssl: [hsts: true, rewrite_on: [:x_forwarded_proto]]
-
 config :erlef,
        Erlef.Data.Repo,
-       url: System.get_env("DATABASE_URL"),
+       database: System.get_env("DATABASE"),
+       username: System.get_env("DATABASE_USER"),
+       password: System.get_env("DATABASE_PASSWORD"),
        pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
        migration_primary_key: [id: :uuid, type: :binary_id],
        migration_timestamps: [type: :utc_datetime],
