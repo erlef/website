@@ -5,7 +5,7 @@ defmodule Erlef.Storage do
   @spec upload_event_org_image(String.t(), binary(), Keyword.t()) ::
           {:ok, String.t()} | {:error, term()}
   def upload_event_org_image(filename, binary, opts \\ []) do
-    new_opts = [{:content_type, MIME.from_path(filename)}] ++ opts
+    new_opts = [{:content_type, MIME.from_path(filename)}, {:acl, :public_read}] ++ opts
     operation = S3.put_object("event-org-images", filename, binary, new_opts)
 
     case ExAws.request(operation) do
