@@ -11,7 +11,7 @@ function show_form() {
 
   <div id="congrats" class="d-none">
     <h3>Congrats!</h3>
-    <p>Expect a copy of your stipend proposal coming from eef-stipend-submissions@beam.eco</p>
+    <p>Expect a copy of your stipend proposal coming from notifications@erlef.org</p>
   </div>
 
   <main id="main_content" role="main" class="mt-3">

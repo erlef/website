@@ -16,7 +16,7 @@ defmodule Erlef.StipendMail do
     email =
       new()
       |> to({"eef-stipends", "eef-stipends@googlegroups.com"})
-      |> from({"EEF Stipend Submissions", "eef-stipend-submissions@beam.eco"})
+      |> from({"EEF Stipend Submissions", "notifications@erlef.org"})
       |> subject("EEF Stipend Proposal Submission #{subject_suffix}")
 
     new_email = attach_files(email, proposal.files)
@@ -27,7 +27,7 @@ defmodule Erlef.StipendMail do
     email =
       new()
       |> to({full_name(proposal), proposal.email_address})
-      |> from({"EEF Stipend Submissions", "eef-stipend-submissions@beam.eco"})
+      |> from({"EEF Stipend Submissions", "notifications@erlef.org"})
       |> subject("EEF Stipend Proposal Copy")
 
     new_email = attach_files(email, proposal.files)
