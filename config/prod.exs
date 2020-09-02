@@ -15,9 +15,8 @@ config :logger, level: :info
 
 config :erlef, Erlef.Mailer,
   adapter: Swoosh.Adapters.SMTP,
-  relay: "mail.privateemail.com",
+  relay: "smtp.fastmail.com",
   ssl: true,
-  tls: :if_available,
   auth: :always,
   port: 465,
   retries: 2,
