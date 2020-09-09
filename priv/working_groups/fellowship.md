@@ -20,7 +20,11 @@
     {
       "image": "members/kenneth-lundin.jpg",
       "name": "Kenneth Lundin"
-    }
+    },
+    {
+      "image": "members/miriam-pena.jpg",
+      "name": "Miriam Pena"
+    } 
   ],
   "name": "Fellowship",
   "slug": "fellowship"
