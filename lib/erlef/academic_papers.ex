@@ -156,6 +156,12 @@ defmodule Erlef.AcademicPapers do
           "Elemental: An Open-Source Wireless Hardware and Software Platform for Building Energy and Indoor Environmental Monitoring and Control",
         tags: "Elixir, Nerves",
         date: Date.new(2019, 9, 18)
+      },
+      %{
+        link: "https://www.info.ucl.ac.be/~pvr/Neirinckx_47311500_Bastin_81031400_2020.pdf",
+        name: "Sensor fusion at the extreme edge of an internet of things network",
+        tags: "Elixir, Nerves, Phoenix",
+        date: Date.new(2020, 8, 16)
       }
     ]
   end
