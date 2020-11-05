@@ -20,6 +20,7 @@ defmodule ErlefWeb.EventsLive do
   end
 
   def handle_event("filter", %{"filter" => "ALL"}, socket) do
+    socket = assign(socket, :filter, "")
     {:noreply, assign(socket, :events, Query.approved())}
   end
 

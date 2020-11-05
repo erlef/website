@@ -130,7 +130,7 @@ section {
 }
 
 
-div.blog-post > table { 
+div.blog-post > table {
    width: 100%;
    border-collapse: collapse;
 }
@@ -168,4 +168,15 @@ div.blost-post > th {
         margin-left: calc(-50vw / 2);
         overflow: hidden;
     }
+}
+
+.nav-events {
+  .nav-link {
+    cursor: pointer;
+    color: white;
+
+    .active {
+      color: black;
+    }
+  }
 }

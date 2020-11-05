@@ -1,20 +1,20 @@
 <div class="bg-dark mb-5">
   <div class="container">
-    <ul class="nav bg-dark nav-pills mb-2 py-3 h5 font-weight-normal">
+    <ul class="nav bg-dark nav-pills mb-2 py-3 h5 font-weight-normal nav-events">
       <li class="nav-item">
-        <div class="nav-link active" phx-click="filter" phx-value-filter="ALL" style="cursor: pointer;">All Events</div>
+        <div class="nav-link <%= active_class(@filter, "") %>" phx-click="filter" phx-value-filter="ALL">All Events</div>
       </li>
       <li class="nav-item">
-        <div class="nav-link" phx-click="filter" phx-value-filter="conference" style="cursor: pointer; color: white;">Conferences</div>
+        <div class="nav-link <%= active_class(@filter, "conference") %>" phx-click="filter" phx-value-filter="conference">Conferences</div>
       </li>
       <li class="nav-item">
-        <div class="nav-link" phx-click="filter" phx-value-filter="training" style="cursor: pointer; color: white;">Training</div>
+        <div class="nav-link <%= active_class(@filter, "training") %>" phx-click="filter" phx-value-filter="training">Training</div>
       </li>
       <li class="nav-item">
-        <div class="nav-link" phx-click="filter" phx-value-filter="hackathon" style="cursor: pointer; color: white;">Hackathons</div>
+      <div class="nav-link <%= active_class(@filter, "hackathon") %>" phx-click="filter" phx-value-filter="hackathon">Hackathons</div>
       </li>
       <li class="nav-item">
-        <div class="nav-link" phx-click="filter" phx-value-filter="meetup" style="cursor: pointer; color: white;">Meetups</div>
+        <div class="nav-link <%= active_class(@filter, "meetup") %>" phx-click="filter" phx-value-filter="meetup">Meetups</div>
       </li>
     </ul>
   </div>
