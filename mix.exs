@@ -39,7 +39,7 @@ defmodule Erlef.MixProject do
       {:credo, "~> 1.5.1", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:earmark, "~> 1.4.10", override: true},
-      {:ecto_sql, "~> 3.5.3"}, 
+      {:ecto_sql, "~> 3.5.3"},
       {:etso, "~> 0.1.2"},
       {:ex_aws, "~> 2.1.6"},
       {:ex_aws_s3, "~> 2.0.2"},
@@ -50,7 +50,7 @@ defmodule Erlef.MixProject do
       {:floki, ">= 0.0.0", only: :test},
       {:gen_smtp, "~> 1.0.1", override: true},
       {:gettext, "~> 0.18.2"},
-      {:jason, "~> 1.2.1", override: true}, 
+      {:jason, "~> 1.2.1", override: true},
       {:oauther, "1.1.1"},
       {:phoenix, "~> 1.5.6"},
       {:phoenix_ecto, "~> 4.2.1"},
@@ -60,13 +60,13 @@ defmodule Erlef.MixProject do
       {:phoenix_live_view, "~> 0.14.8"},
       {:phoenix_swoosh, "~> 0.3.2"},
       {:phoenix_pubsub, "~> 2.0.0"},
-      {:plug_attack, "~> 0.4.2"}, 
+      {:plug_attack, "~> 0.4.2"},
       {:plug_cowboy, "~> 2.4.1"},
       {:postgrex, ">= 0.0.0"},
       {:ranch, "~> 1.7.1", override: true},
       {:slugify, "~> 1.3.1"},
       {:sobelow, "~> 0.10.5", only: [:dev, :test]},
-      {:swoosh, "~> 1.1.0"}, 
+      {:swoosh, "~> 1.1.0"},
       {:timex, "~> 3.6.2"}
     ]
   end
