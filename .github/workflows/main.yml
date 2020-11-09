@@ -6,8 +6,8 @@ on:
   pull_request:
     branches: develop
 env:
-  otp-version: 23.1.2
-  elixir-version: 1.12.2
+  otp-version: '23.1.2'
+  elixir-version: '1.11.2'
   MIX_ENV: test
 
 jobs:
