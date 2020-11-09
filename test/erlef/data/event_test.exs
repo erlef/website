@@ -23,7 +23,7 @@ defmodule Erlef.EventTest do
       assert cs.changes ==
                params
                |> Map.put(:slug, "event-title")
-               |> Map.put(:description, "<p>Full description</p>\n")
+               |> Map.put(:description, "<p>\nFull description</p>\n")
     end
 
     test "when optional params are valid" do
@@ -47,7 +47,7 @@ defmodule Erlef.EventTest do
       assert cs.changes ==
                params
                |> Map.put(:slug, "event-title")
-               |> Map.put(:description, "<p>Full description</p>\n")
+               |> Map.put(:description, "<p>\nFull description</p>\n")
     end
 
     test "when params are invalid" do
