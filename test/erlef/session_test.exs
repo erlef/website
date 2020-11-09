@@ -114,8 +114,6 @@ defmodule Erlef.SessionTest do
   end
 
   test "should_refresh/1" do
-    assert {:ok, session} = Erlef.Session.login("starbelly")
-
     session = %Erlef.Session{
       access_token: "HiuWUvqcMMuY-4AlJ5rM2ZqSbeo-",
       account_id: 54_321,
