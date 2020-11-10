@@ -9,7 +9,7 @@ defmodule ErlefWeb.Router do
     licensebuttons.net i.creativecommons.org platform.twitter.com
     pbs.twimg.com syndication.twitter.com use.typekit.net p.typekit.net
     event-org-images.ewr1.vultrobjects.com 
-    scripts.simpleanalyticscdn.com queue.simpleanalyticscdn.com erlef.matomo.cloud 
+    erlef.matomo.cloud 
   )
 
   @default_source Enum.join(@trusted_sources, " ")
