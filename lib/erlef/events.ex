@@ -39,7 +39,7 @@ defmodule Erlef.Events do
   @spec new_event(map()) :: Changeset.t()
   def new_event(params), do: Event.new_changeset(%Event{}, params)
 
-  @spec submit(params :: map()) :: {:ok, Event.t()} | {:error, Changeset.t()}
+  @spec submit(params :: map()) :: {:ok, Event.t()} | {:error, term()}
   def submit(params) do
     with {:ok, event_params} <- maybe_upload_org_image(params),
          %Changeset{} = cs <- Event.new_submission(event_params),
