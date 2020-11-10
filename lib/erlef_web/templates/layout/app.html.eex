@@ -31,9 +31,26 @@
   <meta name="theme-color" content="#ffffff">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <%= csrf_meta_tag() %>
-  <script src="<%= Routes.static_path(@conn, "/js/app.js") %>
-  ">
-  </script>
+  <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+
+
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://erlef.matomo.cloud/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.src='https://erlef.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
 </head>
 
 <body>
@@ -62,6 +79,9 @@
 
 <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""/></noscript>
+<noscript>
+  <img src="https://erlef.matomo.cloud/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" />
+</noscript>
 </body>
 
 </html>
