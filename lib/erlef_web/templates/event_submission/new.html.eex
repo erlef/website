@@ -14,6 +14,12 @@ span.help-block {
       </div>
     <% end %>
 
+    <%= if @error do %>
+      <div class="alert alert-danger">
+        <p><%= @error %></p>
+      </div>
+    <% end %>
+
     <p>
     Fields prefixed with <b>*</b> are required
     </p>
@@ -33,7 +39,6 @@ span.help-block {
         </div>
       </div>
 
-
       <div class="form-group">
         <%= label f, :description, "* Description"%>
         <%= textarea f, :description, class: "form-control", required: true, placeholder: "Full description" %>
@@ -42,7 +47,6 @@ span.help-block {
           Full description about the event. Markdown supported
         </small>
       </div>
-
 
       <div class="form-row">
         <div class="col-md-4 mb-2">
@@ -64,7 +68,6 @@ span.help-block {
         <%= error_tag f, :url %>
       </div>
 
-
       <div class="form-row">
         <div class="col-md-4 mb-2">
           <%= label f, :organizer, "* Organizer" %>
@@ -81,9 +84,10 @@ span.help-block {
 
         <div class="col-md-4 mb-2">
           <%= label f, :organizer_brand_logo, "Organizer Brand Logo" %>
-          <%= file_input f, :organizer_brand_logo, class: "form-control" %>
+          <%= file_input f, :organizer_brand_logo, class: "form-control", accept: ".jpg, .jpeg, .png" %>
           <small class="form-text text-muted">
-            Event Organization logos must be 192x192
+            Event Organization logos must be 192x192. An SVG must be emailed to 
+            <a href="mailto:infra@erlef.org?SUBJECT=Organization Event SVG">infra@erlef.org</a>
           </small>
           <%= error_tag f, :organizer_brand_logo %>
         </div>
