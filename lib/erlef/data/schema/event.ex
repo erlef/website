@@ -74,8 +74,17 @@ defmodule Erlef.Data.Schema.Event do
     |> cast(params, @all_fields ++ [:approved_by])
   end
 
-  def submission_changeset(struct, params \\ %{}) do
-    struct
+  def submission_changeset(%__MODULE__{} = event, params \\ %{}) do
+    event
+    |> cast(params, @all_fields)
+    |> validate_required(@required_fields)
+    |> unique_constraint(:title)
+    |> maybe_generate_slug()
+    |> post_process_description()
+  end
+
+  def new_submission(params \\ %{}) do
+    %__MODULE__{}
     |> cast(params, @all_fields)
     |> validate_required(@required_fields)
     |> unique_constraint(:title)
