@@ -74,8 +74,6 @@
     </defs>
   </svg>
 
-<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""/></noscript>
 <noscript>
   <img src="https://erlef.matomo.cloud/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" />
 </noscript>
