@@ -2,14 +2,13 @@ defmodule ErlefWeb.Router do
   use ErlefWeb, :router
   import Phoenix.LiveDashboard.Router
 
-  @trusted_sources ~w(www.google.com www.googletagmanager.com  www.google-analytics.com
-    fonts.gstatic.com www.gstatic.com fonts.googleapis.com use.fontawesome.com
+  @trusted_sources ~w(use.fontawesome.com
     stackpath.bootstrapcdn.com use.fontawesome.com platform.twitter.com
     code.jquery.com platform.twitter.com syndication.twitter.com
     syndication.twitter.com/settings cdn.syndication.twimg.com
     licensebuttons.net i.creativecommons.org platform.twitter.com
-    pbs.twimg.com syndication.twitter.com www.googleapis.com use.typekit.net p.typekit.net
-    event-org-images.s3.us-east-2.amazonaws.com event-org-images.ewr1.vultrobjects.com 
+    pbs.twimg.com syndication.twitter.com use.typekit.net p.typekit.net
+    event-org-images.ewr1.vultrobjects.com 
     scripts.simpleanalyticscdn.com queue.simpleanalyticscdn.com erlef.matomo.cloud 
   )
 
