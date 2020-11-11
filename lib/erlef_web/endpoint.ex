@@ -5,6 +5,7 @@ defmodule ErlefWeb.Endpoint do
     store: :cookie,
     key: "_erlef_key",
     serializer: Erlef.Session,
+    same_site: "Strict",
     encryption_salt: "41SM3UP3NgSUTzLOqCqF0r2pJBn54JuOy9+cZswJuiQi5pnCIIwJfEYO7DP3/QqR",
     signing_salt: "pSnWMnUh"
   ]
