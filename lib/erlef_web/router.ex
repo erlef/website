@@ -3,7 +3,7 @@ defmodule ErlefWeb.Router do
   import Phoenix.LiveDashboard.Router
 
   @trusted_sources ~w(
-    platform.twitter.com syndication.twitter.com
+    use.fontawesome.com platform.twitter.com syndication.twitter.com
     syndication.twitter.com/settings cdn.syndication.twimg.com
     licensebuttons.net i.creativecommons.org
     pbs.twimg.com use.typekit.net p.typekit.net
