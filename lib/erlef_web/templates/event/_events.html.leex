@@ -48,7 +48,11 @@
           </div>
           <div class="py-4 pr-4">
             <h3>
-              Currently no <%= @filter %>s scheduled
+              <%= if @filter == "" do %>
+                Currently no events scheduled
+              <% else %>
+                Currently no <%= @filter || "event" %>s scheduled
+              <% end %>
             </h3>
             <p class="mb-0 mt-3">
               New events are always being added so check back soon!
