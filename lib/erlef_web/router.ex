@@ -2,14 +2,12 @@ defmodule ErlefWeb.Router do
   use ErlefWeb, :router
   import Phoenix.LiveDashboard.Router
 
-  @trusted_sources ~w(use.fontawesome.com
-    stackpath.bootstrapcdn.com use.fontawesome.com platform.twitter.com
-    code.jquery.com platform.twitter.com syndication.twitter.com
+  @trusted_sources ~w(
+    platform.twitter.com syndication.twitter.com
     syndication.twitter.com/settings cdn.syndication.twimg.com
-    licensebuttons.net i.creativecommons.org platform.twitter.com
-    pbs.twimg.com syndication.twitter.com use.typekit.net p.typekit.net
-    event-org-images.ewr1.vultrobjects.com 
-    erlef.matomo.cloud 
+    licensebuttons.net i.creativecommons.org
+    pbs.twimg.com use.typekit.net p.typekit.net
+    event-org-images.ewr1.vultrobjects.com erlef.matomo.cloud 
   )
 
   @default_source Enum.join(@trusted_sources, " ")
