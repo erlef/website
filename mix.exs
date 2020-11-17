@@ -45,7 +45,7 @@ defmodule Erlef.MixProject do
       {:ex_aws_s3, "~> 2.0.2"},
       {:ex_machina, "~> 2.4.0", only: :test},
       {:excoveralls, "~> 0.13.0"},
-      {:extwitter, "~> 0.12.0"},
+      {:extwitter, "~> 0.12.2"},
       {:faker, "~> 0.16.0", only: :test},
       {:floki, ">= 0.0.0", only: :test},
       {:gen_smtp, "~> 1.0.1", override: true},
@@ -65,8 +65,8 @@ defmodule Erlef.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:ranch, "~> 1.7.1", override: true},
       {:slugify, "~> 1.3.1"},
-      {:sobelow, "~> 0.10.5", only: [:dev, :test]},
-      {:swoosh, "~> 1.1.0"},
+      {:sobelow, "~> 0.10.6", only: [:dev, :test]},
+      {:swoosh, "~> 1.1.1"},
       {:timex, "~> 3.6.2"}
     ]
   end
