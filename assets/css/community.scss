@@ -1,0 +1,26 @@
+#community { 
+    font-family: "open sans",Helvetica,Arial,sans-serif
+}
+
+.community-card {
+    min-height: 300px;
+    .card-header { 
+        min-height: 4rem;
+
+        .community-icon { 
+            vertical-align: middle;
+            max-height:32px;
+            max-width:32px;
+            margin-right:0.5rem;
+        }
+
+        .community-name {
+            display:inline-block;
+        }
+    }
+
+    .card-body { 
+        font-size: 0.9rem;
+    }
+
+}

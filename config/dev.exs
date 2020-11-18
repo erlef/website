@@ -51,6 +51,8 @@ config :erlef, ErlefWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
+      ~r"lib/erlef/community.ex$",
+      ~r"lib/erlef/community/.*(ex)$",
       ~r"lib/erlef_web/{live,views}/.*(ex)$",
       ~r"lib/erlef_web/templates/.*(eex)$"
     ]

@@ -7,7 +7,7 @@ defmodule ErlefWeb.Router do
     syndication.twitter.com/settings cdn.syndication.twimg.com
     licensebuttons.net i.creativecommons.org
     pbs.twimg.com use.typekit.net p.typekit.net
-    event-org-images.ewr1.vultrobjects.com erlef.matomo.cloud 
+    event-org-images.ewr1.vultrobjects.com erlef.matomo.cloud cdn.rawgit.com
   )
 
   @default_source Enum.join(@trusted_sources, " ")
@@ -55,6 +55,7 @@ defmodule ErlefWeb.Router do
     get "/academic-papers", AcademicPaperController, :index
     get "/bylaws", PageController, :bylaws
     get "/board_members", PageController, :board_members
+    get "/community", PageController, :community
     get "/contact", PageController, :contact
     get "/faq", PageController, :faq
     get "/sponsors", PageController, :sponsors
