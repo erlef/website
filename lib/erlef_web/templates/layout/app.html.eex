@@ -1,80 +1,85 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>Erlang Ecosystem Foundation - Supporting the BEAM community</title>
-  <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-  <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
-  <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/images/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-  <%= csrf_meta_tag() %>
-  <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Erlang Ecosystem Foundation - Supporting the BEAM community</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <%= csrf_meta_tag() %>
+    <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
 
 
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(["setDoNotTrack", true]);
-  _paq.push(["disableCookies"]);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://erlef.matomo.cloud/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.src='https://erlef.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
-</head>
-
-<body>
-  <%= render "header.html", assigns %>
-  <main role="main">
-    <%= if flash = get_flash(@conn, :error) do %>
-    <div class="alert alert-danger" role="alert">
-      <%=raw flash %>
-    </div>
+    <%= if Erlef.is_env?(:prod) do %>
+      <!-- Matomo -->
+      <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+_paq.push(["setDoNotTrack", true]);
+_paq.push(["disableCookies"]);
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+  var u="https://erlef.matomo.cloud/";
+  _paq.push(['setTrackerUrl', u+'matomo.php']);
+  _paq.push(['setSiteId', '1']);
+  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+  g.type='text/javascript'; g.async=true; g.src='https://erlef.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+})();
+      </script>
+      <!-- End Matomo Code -->
     <% end %>
-    <%= if flash = get_flash(@conn, :success) do %>
-    <div class="alert alert-success" role="alert">
-      <%=raw flash %>
-    </div>
-    <% end %>
-    <%= @inner_content %>
-  </main>
-  <%= render "footer.html", assigns %>
-  <svg height="0" width="0" viewBox="0 0 864 563">
-    <defs>
+  </head>
+
+  <body>
+    <%= render "header.html", assigns %>
+    <main role="main">
+      <%= if flash = get_flash(@conn, :error) do %>
+        <div class="alert alert-danger" role="alert">
+          <%=raw flash %>
+        </div>
+      <% end %>
+      <%= if flash = get_flash(@conn, :success) do %>
+        <div class="alert alert-success" role="alert">
+          <%=raw flash %>
+        </div>
+      <% end %>
+      <%= @inner_content %>
+    </main>
+    <%= render "footer.html", assigns %>
+    <svg height="0" width="0" viewBox="0 0 864 563">
+      <defs>
       <clipPath id="myClip" transform="scale(0.001157407407 0.001776198934)" clipPathUnits="objectBoundingBox">
-        <path d="M80.14 0h775.738a8 8 0 017.931 9.044l-72.017 547a8 8 0 01-7.931 6.956H8.122a8 8 0 01-7.931-9.044l72.017-547A8 8 0 0180.139 0z" />
+      <path d="M80.14 0h775.738a8 8 0 017.931 9.044l-72.017 547a8 8 0 01-7.931 6.956H8.122a8 8 0 01-7.931-9.044l72.017-547A8 8 0 0180.139 0z" />
       </clipPath>
-    </defs>
-  </svg>
+      </defs>
+    </svg>
 
-<noscript>
-  <img src="https://erlef.matomo.cloud/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" />
-</noscript>
-</body>
 
+    <%= if Erlef.is_env?(:prod) do %>
+      <noscript>
+        <img src="https://erlef.matomo.cloud/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" />
+      </noscript>
+    <% end %>
+
+  </body>
 </html>
