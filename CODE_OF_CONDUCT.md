@@ -30,7 +30,7 @@ Examples of unacceptable behavior by participants include:
  address, without explicit permission
 * Other conduct which could reasonably be considered inappropriate in a
  professional setting
-* Assert comparative or superlative differences of one product, project, 
+* Asserting comparative or superlative differences of one product, project, 
   company or individual over another
 
 ## Our Responsibilities
