@@ -66,7 +66,7 @@ defmodule Erlef.Community.Languages do
       icon: "/images/community/languages/ephp.svg",
       logo: nil,
       about:
-        "Bragful provides PHP over Erlang, interpreted and written in 100% Erlang. Bragful can easily be integrated into web site projects as a PHP extension language for your server, embedded system(s), and  Erlang and Elixir applications."
+        "Bragful provides PHP over Erlang, interpreted and written in 100% Erlang. Bragful can easily be integrated into web site projects as a PHP extension language for your server, embedded system(s), or Erlang and Elixir applications."
     },
     %{
       name: "Fika",
@@ -74,7 +74,7 @@ defmodule Erlef.Community.Languages do
       icon: nil,
       logo: "/images/community/languages/fika.svg",
       about:
-        "Fika is a modern programming language for the web. It is statically typed, functional and runs on the BEAM. Fika is designed to be a beginner-friendly, safe and productive language for building web applications with a delightful developer experience."
+        "Fika is a modern programming language for the web. It a is statically typed, functional and runs on the BEAM. Fika is designed to be a beginner-friendly, safe and productive language for building web applications with a delightful developer experience."
     },
     %{
       name: "Gleam",
