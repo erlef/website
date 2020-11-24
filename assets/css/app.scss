@@ -1,12 +1,11 @@
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
 @import url("https://use.typekit.net/kyy4ydn.css");
-
-
-
-
+@import "../static/vendored/css/bootstrap-toc.css";
+@import "community";
 
 html,
+
 body {
     font-family: canada-type-gibson, sans-serif;
 }
@@ -179,4 +178,35 @@ div.blost-post > th {
       color: black;
     }
   }
+}
+
+/* TOC plugin css */
+
+nav[data-toggle="toc"] {
+    top: 2rem;
+}
+
+nav[data-toggle="toc"] .nav-link.active, nav[data-toggle="toc"] .nav-link.active:focus, nav[data-toggle="toc"] .nav-link.active:hover { 
+    color: black;
+    border-left: 2px solid black;
+}
+
+nav[data-toggle="toc"] .nav > li > a:hover,
+nav[data-toggle="toc"] .nav > li > a:focus {
+    color: black;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid black;
+}
+
+@media (max-width: 768px) {
+    nav[data-toggle="toc"] {
+        top: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    nav[data-toggle="toc"] .nav .active .nav {
+        display: block;
+    }
+
 }

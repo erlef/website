@@ -83,3 +83,40 @@ This is where the body of the post goes.
 - copy .env-example to .env-local and source the file
 - you may login in as an regular user in dev using member@erlef.test and any password
 - you may login in as an admin in dev using admin@erlef.test and any password
+
+### Contributing to the community section of the site
+
+All data for the community page of the site can be found in [lib/erlef/community](lib/erlef/community).
+
+Before proceeding please:
+
+   - Carefully review our [Code of Conduct](CODE_OF_CONDUCT.md) before submitting sections or entries for a 
+     section.
+   - Note than an `about` value for sections of the page that make use of cards can have no more than 240 characters and
+   optimally have no less than 200 characters.
+
+#### Adding an entry to an existing section
+
+  To add an entry to an existing section simply find the relevant module in  [lib/erlef/community](lib/erlef/community)
+  and add a new entry in the form of a map. 
+
+#### Adding a new section or sub-section 
+
+  - Create a new module with a name that reflects the section of the site (e.g, languages, platforms, etc.) within
+    the [lib/erlef/community](lib/erlef/community) directory. 
+    
+    - See [lib/erlef/community/languages.ex](lib/erlef/community/languages.ex) as an example. 
+
+  - Update [lib/erlef/community.ex](lib/erlef/community.ex) to make use of the new module.
+
+  - Add the new section or sub-section
+    to [lib/erlef_web/templates/page/community.html.eex](lib/erlef_web/templates/page/community.html.eex).
+    
+    - Note that both `<h1>` and `<h2>` tags within this file will automatically end up within the TOC component on the 
+      page. Deeper nesting is not supported. See existing sections for examples.
+
+    - The layout for what you're adding may depend on the type of section and there are are no hard rules around how
+      something should be displayed. If you're unsure or need feedback please reach out to us in an issue or as 
+      part of a pull request.
+
+  - Commit your changes and open up a new pull request using the Community Section pull request template 🎉

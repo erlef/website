@@ -33,6 +33,10 @@ defmodule ErlefWeb.PageController do
 
   def bylaws(conn, _params), do: render(conn)
 
+  def community(conn, _params) do
+    render(conn, community: Erlef.Community.all())
+  end
+
   def sponsor_info(conn, _params), do: render(conn, "become_a_sponsor.html")
 
   def contact(conn, _params), do: render(conn)
