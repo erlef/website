@@ -36,7 +36,6 @@ defmodule Erlef.Community.Languages do
       about:
         "Cuneiform is functional programming language for large-scale data analysis which easily integrates with foreign tools and libraries and scales to large clusters and clouds."
     },
-
     %{
       name: "Elixir",
       link: "https://elixir-lang.org/",
@@ -74,7 +73,8 @@ defmodule Erlef.Community.Languages do
       link: "https://github.com/rvirding/erlog",
       icon: nil,
       logo: nil,
-      about: "Erlog is a Prolog interpreter implemented in Erlang and integrated with the Erlang runtime system. It is a subset of the Prolog standard. An Erlog shell (REPL) is also included."
+      about:
+        "Erlog is a Prolog interpreter implemented in Erlang and integrated with the Erlang runtime system. It is a subset of the Prolog standard. An Erlog shell (REPL) is also included."
     },
     %{
       name: "Fika",
