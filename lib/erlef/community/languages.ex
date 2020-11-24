@@ -37,14 +37,6 @@ defmodule Erlef.Community.Languages do
         "Cuneiform is functional programming language for large-scale data analysis which easily integrates with foreign tools and libraries and scales to large clusters and clouds."
     },
     %{
-      name: "Erlang",
-      link: "https://erlang.org/",
-      icon: "/images/community/languages/erlang.svg",
-      logo: nil,
-      about:
-        "Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability with built-in support for concurrency, distribution and fault tolerance."
-    },
-    %{
       name: "Elixir",
       link: "https://elixir-lang.org/",
       icon: nil,
@@ -67,6 +59,22 @@ defmodule Erlef.Community.Languages do
       logo: nil,
       about:
         "Bragful provides PHP over Erlang, interpreted and written in 100% Erlang. Bragful can easily be integrated into web site projects as a PHP extension language for your server, embedded system(s), or Erlang and Elixir applications."
+    },
+    %{
+      name: "Erlang",
+      link: "https://erlang.org/",
+      icon: "/images/community/languages/erlang.svg",
+      logo: nil,
+      about:
+        "Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability with built-in support for concurrency, distribution and fault tolerance."
+    },
+    %{
+      name: "Erlog",
+      link: "https://github.com/rvirding/erlog",
+      icon: nil,
+      logo: nil,
+      about:
+        "Erlog is a Prolog interpreter implemented in Erlang and integrated with the Erlang runtime system. It is a subset of the Prolog standard. An Erlog shell (REPL) is also included."
     },
     %{
       name: "Fika",

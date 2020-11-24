@@ -15,6 +15,7 @@ defmodule Erlef.CommunityTest do
         "Elchemy",
         "Elixir",
         "Erlang",
+        "Erlog",
         "Fika",
         "Gleam",
         "Hamler",
