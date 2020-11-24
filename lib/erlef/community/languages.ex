@@ -113,7 +113,7 @@ defmodule Erlef.Community.Languages do
       link: "https://github.com/rvirding/luerl",
       icon: "/images/community/languages/luerl.svg",
       about:
-        "Luerl is an implementation of standard Lua 5.3 written in Erlang/OTP.. Lua is a powerful, efficient, lightweight, embeddable scripting language common in games, IoT devices, AI bots, machine learning and scientific computing research.",
+        "Luerl is an implementation of standard Lua 5.3 written in Erlang/OTP. Lua is a powerful, efficient, lightweight, embeddable scripting language common in games, IoT devices, AI bots, machine learning and scientific computing research.",
       logo: nil
     },
     %{
