@@ -106,7 +106,7 @@ defmodule Erlef.Community.Languages do
       icon: "/images/community/languages/lfe.svg",
       logo: nil,
       about:
-        "LFE is a Lisp-2+ written for the Erlang VM, providing 100% compatibility with Core Erlang. LFE is a serious Lisp for building scalable, distributed applications -- like the Erlang software that powers 40% of the world's telecommunications."
+        "LFE is a Lisp-2+ written for the Erlang VM, providing 100% compatibility with Core Erlang. LFE is a serious Lisp for building scalable, distributed applications—like the Erlang software that powers 40% of the world's telecommunications."
     },
     %{
       name: "Luerl",
