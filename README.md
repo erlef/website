@@ -90,10 +90,10 @@ All data for the community page of the site can be found in [lib/erlef/community
 
 Before proceeding please:
 
-   - Carefully review our [Code of Conduct](CODE_OF_CONDUCT.md) before submitting sections or entries for a 
-     section.
-   - Note than an `about` value for sections of the page that make use of cards can have no more than 240 characters and
-   optimally have no less than 200 characters.
+   -  Stick to facts about entries you add and avoid asserting comparative or superlative differences of one product, 
+      project, company or individual over another.
+   -  Note than an `about` value for sections of the page that make use of cards can have no more than 240 characters and
+      optimally have no less than 200 characters.
 
 #### Adding an entry to an existing section
 
