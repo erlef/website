@@ -1,4 +1,4 @@
-- [ ] I acknowledge my contribution to the community section of the website does not assert comparative or superlative differences of one product, project, company or individual over another. 
+- [ ] I acknowledge my contribution to the website does not assert comparative or superlative differences of one product, project, company or individual over another.
 
 # Screenshots
 
