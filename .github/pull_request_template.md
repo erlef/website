@@ -1,8 +1,8 @@
 ---
-name: Community Page Contribution
-about: For contributions to the community page on the website
+name: 
+about: 
 title: ''
-labels: Community Page
+labels: ''
 assignees: ''
 
 ---
@@ -11,4 +11,4 @@ assignees: ''
 
 # Screenshots
 
-Please attach screenshots and/or gifs of any visible changes to the community page here.
+Please attach screenshots and/or gifs of any visible changes to pages here.
