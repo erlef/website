@@ -69,6 +69,10 @@ section {
     background: #444;
 }
 
+.twitter-avatar {
+    overflow: hidden;
+}
+
 .clip-svg {
     -webkit-clip-path: url(#myClip);
             clip-path: url(#myClip);
