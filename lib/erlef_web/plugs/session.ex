@@ -21,7 +21,8 @@ defmodule ErlefWeb.Plug.Session do
       false ->
         conn
         |> maybe_refresh_token(session)
-        |> assign(:current_user, session)
+        |> assign(:current_session, session)
+        |> assign(:current_user, session.member)
     end
   end
 

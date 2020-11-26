@@ -1,7 +1,7 @@
 defmodule Erlef.EventTest do
   use Erlef.DataCase
 
-  alias Erlef.Data.Schema.Event
+  alias Erlef.Schema.Event
 
   describe "submission_submission_changeset/2" do
     test "when params are valid" do

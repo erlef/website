@@ -11,7 +11,7 @@ defmodule ErlefWeb.Plug.RequiresAdmin do
     session = get_session(conn, :member_session)
 
     case Erlef.Session.normalize(session) do
-      %{is_admin: true} ->
+      %{member: %{is_app_admin?: true}} ->
         conn
 
       _ ->

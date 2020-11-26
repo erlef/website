@@ -5,6 +5,16 @@ defmodule Erlef.WildApricot do
 
   @wa_member_login "https://erlangecosystemfoundation.wildapricot.org"
 
+  #   @member_levels ["Basic Membership", "Annual Supporting Membership", "Board", "Fellow",
+  #  "Managing and Contributing", "Lifetime Supporting Membership"]
+
+  @paid_member_levels [
+    "Annual Supporting Membership",
+    "Lifetime Supporting Membership",
+    "Board",
+    "Fellow"
+  ]
+
   @spec gen_login_uri() :: no_return()
   def gen_login_uri() do
     domain = erlef_domain()
@@ -108,6 +118,24 @@ defmodule Erlef.WildApricot do
     body |> get_groups() |> in_admin?()
   end
 
+  def is_paying_member?(contact) do
+    contact["MembershipLevel"]["Name"] in @paid_member_levels
+  end
+
+  def list_members(token) do
+    aid = account_id()
+    uri = api_url() <> "/accounts/#{aid}/contacts"
+
+    headers = [
+      {"User-Agent", "erlef_app"},
+      {"Accept", "application/json"},
+      {"Authorization", "Bearer #{token}"}
+    ]
+
+    {:ok, %{"ResultUrl" => url}} = get(uri, headers)
+    get(url, headers)
+  end
+
   def get_api_token do
     body =
       {:form,
@@ -117,7 +145,7 @@ defmodule Erlef.WildApricot do
     post(headers, body, [basic_api_auth()])
   end
 
-  defp account_id(), do: System.get_env("WA_ACCOUNT_ID")
+  defp account_id(), do: config_get(:account_id)
 
   defp get(uri, headers) do
     case Erlef.HTTP.perform(:get, uri, headers, "", []) do
@@ -164,16 +192,21 @@ defmodule Erlef.WildApricot do
 
   defp basic_client_auth, do: {:basic_auth, {client_id(), client_secret()}}
 
-  defp api_key, do: System.get_env("WAPI_API_KEY")
+  defp api_key, do: config_get(:api_key)
 
-  defp client_id, do: System.get_env("WAPI_CLIENT_ID")
+  defp client_id, do: config_get(:client_id)
 
-  defp client_secret, do: System.get_env("WAPI_CLIENT_SECRET")
+  defp client_secret, do: config_get(:client_secret)
 
-  defp base_auth_url, do: Application.get_env(:erlef, :wild_apricot_base_auth_url)
-  defp base_api_url, do: Application.get_env(:erlef, :wild_apricot_base_api_url)
+  defp base_auth_url, do: config_get(:base_auth_url)
+  defp base_api_url, do: config_get(:base_api_url)
   defp auth_url, do: base_auth_url() <> "/auth/token"
   defp api_url(), do: base_api_url() <> "/v2.1"
 
-  defp erlef_domain, do: System.get_env("ERLEF_DOMAIN")
+  defp erlef_domain, do: Application.get_env(:erlef, :domain)
+
+  defp config_get(key) do
+    props = Application.get_env(:erlef, :wild_apricot)
+    Keyword.get(props, key)
+  end
 end

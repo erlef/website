@@ -1,4 +1,5 @@
 <% now = Date.utc_today() %>
+<% IO.inspect(@events) %>
 <%= for event <- @events  do %>
     <% date = DateTime.to_date(event.start) %>
     <%= if Timex.after?(date, now) do %>

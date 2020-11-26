@@ -2,9 +2,9 @@ defmodule Erlef.Events do
   @moduledoc false
 
   alias Ecto.{Changeset, UUID}
-  alias Erlef.Data.Query.Event, as: Query
-  alias Erlef.Data.Schema.{Event, EventType}
-  alias Erlef.Data.Repo
+  alias Erlef.Query.Event, as: Query
+  alias Erlef.Schema.{Event, EventType}
+  alias Erlef.Repo
 
   @spec approve(UUID.t(), map()) :: {:ok, Event.t()} | {:error, Changeset.t()}
   def approve(id, params) do
@@ -18,7 +18,7 @@ defmodule Erlef.Events do
   @spec event_types() :: [Keyword.t()]
   def event_types do
     EventType
-    |> Erlef.Data.Repo.all()
+    |> Repo.all()
     |> Enum.map(fn x -> [key: x.name, value: x.id] end)
   end
 

@@ -1,8 +1,8 @@
-defmodule Erlef.Data.Schema.AcademicPaper do
+defmodule Erlef.Publications.AcademicPaper do
   @moduledoc """
   Schema module for academic papers
   """
-  use Erlef.Data.Schema
+  use Erlef.Schema
 
   @type t :: %__MODULE__{
           id: binary(),

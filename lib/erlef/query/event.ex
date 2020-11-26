@@ -1,11 +1,11 @@
-defmodule Erlef.Data.Query.Event do
+defmodule Erlef.Query.Event do
   @moduledoc """
   Module for the event queries
   """
   import Ecto.Query, only: [from: 2]
 
-  alias Erlef.Data.Schema.Event
-  alias Erlef.Data.Repo
+  alias Erlef.Schema.Event
+  alias Erlef.Repo
 
   @doc """
   Returns a event given a valid id

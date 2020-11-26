@@ -1,6 +1,6 @@
-defmodule Erlef.Repo.Importer do
+defmodule Erlef.Repo.ETS.Importer do
   @moduledoc """
-    Erlef.Repo.Importer - handles importing markdown files into the ETS repo
+    Erlef.Repo.ETS.Importer - handles importing markdown files into the ETS repo
   """
 
   use GenServer
@@ -40,33 +40,13 @@ defmodule Erlef.Repo.Importer do
   end
 
   defp monitor_repo do
-    repo_pid = Process.whereis(Erlef.Repo)
+    repo_pid = Process.whereis(Erlef.Repo.ETS)
     Process.monitor(repo_pid)
   end
 
   defp import_resources(resource) do
     Enum.each(files_to_changesets(resource), fn set ->
-      {:ok, _inserted} = Erlef.Repo.insert(set)
-    end)
-  end
-
-  @map_keys %{
-    "body_html" => "description",
-    "excerpt_html" => "excerpt",
-    "event_url" => "url",
-    "gmap_embed_url" => "venue_gmap_embed_url"
-  }
-
-  defp files_to_changesets({path, Erlef.Data.Schema.Event}) do
-    Enum.map(find_files(path), fn f ->
-      params =
-        Enum.reduce(@map_keys, parse_post(f), fn {k, v}, acc ->
-          Map.put_new(acc, v, acc[k])
-        end)
-
-      params2 = Map.merge(params, %{"submitted_by" => 0, "approved_by" => 0})
-
-      Erlef.Data.Schema.Event.changeset(struct(Erlef.Data.Schema.Event), params2)
+      {:ok, _inserted} = Erlef.Repo.ETS.insert(set)
     end)
   end
 

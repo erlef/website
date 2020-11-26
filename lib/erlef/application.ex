@@ -10,14 +10,12 @@ defmodule Erlef.Application do
     children = [
       # Start the endpoint when the application starts
       Erlef.Repo,
-      Erlef.Repo.Importer,
-      Erlef.Data.Repo,
+      Erlef.Repo.ETS,
+      Erlef.Repo.ETS.Importer,
       {Phoenix.PubSub, name: Erlef.PubSub},
       ErlefWeb.Endpoint,
-      {PlugAttack.Storage.Ets, name: MyApp.PlugAttack.Storage, clean_period: 60_000}
-      # Starts a worker by calling: Erlef.Worker.start_link(arg)
-      # {Erlef.Worker, arg}
-    ]
+      {PlugAttack.Storage.Ets, name: MyApp.PlugAttack.Storage, clean_period: 60_000},
+    ] ++ children_for(Application.get_env(:erlef, :env))
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -31,4 +29,10 @@ defmodule Erlef.Application do
     ErlefWeb.Endpoint.config_change(changed, removed)
     :ok
   end
+
+  defp children_for(env) when env in [:dev, :test] do
+    [Erlef.Test.WildApricot]
+  end
+
+  defp children_for(_), do: []
 end

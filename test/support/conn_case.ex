@@ -31,10 +31,10 @@ defmodule ErlefWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Erlef.Data.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Erlef.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Erlef.Data.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Erlef.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

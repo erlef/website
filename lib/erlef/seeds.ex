@@ -1,9 +1,9 @@
-defmodule Erlef.Data.Seeds do
+defmodule Erlef.Seeds do
   @moduledoc """
-  Erlef.Data.Seeds - database seed related functions
+  Erlef.Seeds - database seed related functions
   """
 
-  alias Erlef.Data.Repo
+  alias Erlef.Repo
 
   def insert(schema, data_set) do
     case Repo.insert_all(schema, data_set, on_conflict: :nothing) do

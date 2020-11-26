@@ -55,11 +55,6 @@ defmodule ErlefWeb do
       def logged_in?(assigns) do
         !!assigns[:current_user]
       end
-
-      def is_admin?(assigns) do
-        user = assigns[:current_user]
-        user.is_admin || false
-      end
     end
   end
 

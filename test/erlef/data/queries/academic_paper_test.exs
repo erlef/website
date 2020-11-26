@@ -1,11 +1,11 @@
-defmodule Erlef.Data.Query.AcademicPaperTest do
+defmodule Erlef.Publications.QueryTest do
   @moduledoc """
   Tests for the AcademicPaper Query module
   """
   use Erlef.DataCase
 
-  alias Erlef.Data.Query.AcademicPaper, as: Query
-  alias Erlef.Data.Schema.AcademicPaper
+  alias Erlef.Publications.Query
+  alias Erlef.Publications.AcademicPaper
 
   describe "all/0" do
     test "returns an empty list when no academic papers are present" do

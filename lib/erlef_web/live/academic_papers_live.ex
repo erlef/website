@@ -4,7 +4,7 @@ defmodule ErlefWeb.AcademicPapersLive do
   """
   use Phoenix.LiveView
 
-  alias Erlef.Data.Query.AcademicPaper, as: Query
+  alias Erlef.Publications
 
   def mount(_params, %{"academic_papers" => academic_papers}, socket),
     do: {:ok, assign(socket, :academic_papers, academic_papers)}
@@ -14,11 +14,11 @@ defmodule ErlefWeb.AcademicPapersLive do
   end
 
   def handle_event("filter", %{"filter" => "ALL"}, socket) do
-    {:noreply, assign(socket, :academic_papers, Query.published())}
+    {:noreply, assign(socket, :academic_papers, Publications.all())}
   end
 
   def handle_event("filter", %{"filter" => filter}, socket) do
-    academic_papers = Query.published() |> Enum.filter(&(filter in &1.technologies))
+    academic_papers = Enum.filter(Publications.all(), &(filter in &1.technologies))
     {:noreply, assign(socket, :academic_papers, academic_papers)}
   end
 end

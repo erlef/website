@@ -6,7 +6,7 @@ defmodule ErlefWeb.PageController do
     Posts,
     WorkingGroup,
     Twitter,
-    Data.Query.Event
+    Query.Event
   }
 
   action_fallback ErlefWeb.FallbackController
@@ -51,8 +51,4 @@ defmodule ErlefWeb.PageController do
   end
 
   def wg_proposal_template(conn, _params), do: render(conn, "wg-proposal-template.html")
-
-  def academic_papers(conn, _params) do
-    render(conn, academic_papers: Erlef.AcademicPapers.all())
-  end
 end

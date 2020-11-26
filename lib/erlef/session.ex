@@ -9,17 +9,16 @@ defmodule Erlef.Session do
     :access_token,
     :refresh_token,
     :username,
-    :expires_at,
-    :is_admin
+    :expires_at
   ]
   defstruct [
     :account_id,
+    :member,
     :member_id,
     :access_token,
     :refresh_token,
     :username,
-    :expires_at,
-    :is_admin
+    :expires_at
   ]
 
   @type auth_data() :: map()
@@ -30,8 +29,7 @@ defmodule Erlef.Session do
           access_token: String.t(),
           refresh_token: String.t(),
           username: String.t(),
-          expires_at: String.t(),
-          is_admin: boolean()
+          expires_at: String.t()
         }
 
   @data_map %{
@@ -40,8 +38,7 @@ defmodule Erlef.Session do
     "access_token" => :access_token,
     "refresh_token" => :refresh_token,
     "username" => :username,
-    "expires_at" => :expires_at,
-    "is_admin" => :is_admin
+    "expires_at" => :expires_at
   }
 
   @spec new(map()) :: t()
@@ -53,22 +50,17 @@ defmodule Erlef.Session do
     } = data
 
     {:ok, %{"Id" => uid, "DisplayName" => username}} = Erlef.WildApricot.me(access_token, aid)
+    {:ok, member} = Erlef.Accounts.get_member(uid)
 
-    case is_admin(aid, uid) do
-      truth when is_boolean(truth) ->
-        %__MODULE__{
-          account_id: aid,
-          member_id: uid,
-          access_token: access_token,
-          refresh_token: refresh_token,
-          username: username,
-          expires_at: expires_at(expires_in),
-          is_admin: truth
-        }
-
-      err ->
-        err
-    end
+    %__MODULE__{
+      account_id: aid,
+      member: member,
+      member_id: uid,
+      access_token: access_token,
+      refresh_token: refresh_token,
+      username: username,
+      expires_at: expires_at(expires_in)
+    }
   end
 
   @spec normalize(map()) :: t() | nil
@@ -86,11 +78,16 @@ defmodule Erlef.Session do
         end
       end)
 
-    struct(__MODULE__, normal)
+    {:ok, member} = Erlef.Accounts.get_member(normal.member_id)
+    struct(__MODULE__, Map.put(normal, :member, member))
   end
 
   def encode(%{"member_session" => session = %__MODULE__{}} = data) do
-    map = Map.from_struct(session)
+    map =
+      session
+      |> Map.from_struct()
+      |> Map.delete(:member)
+
     updated = Map.put(data, "member_session", map)
     Jason.encode(updated)
   end
@@ -114,32 +111,10 @@ defmodule Erlef.Session do
     end
   end
 
-  # TODO: Speed this up by caching the admin token in Erlef.Config
-  @spec is_admin(integer(), integer()) :: boolean() | {:error, term()}
-  def is_admin(aid, uid) do
-    with {:ok, %{"access_token" => api_token}} <- Erlef.WildApricot.get_api_token() do
-      Erlef.WildApricot.is_admin(api_token, aid, uid)
-    end
-  end
-
   @spec login_uri() :: no_return()
   def login_uri(), do: Erlef.WildApricot.gen_login_uri()
 
   @spec login(any()) :: {:ok, t()} | {:error, term()}
-  def login(:dev) do
-    session = %__MODULE__{
-      account_id: 12_345,
-      member_id: 12_345,
-      access_token: "dev_token",
-      refresh_token: "dev_token",
-      username: "Admin",
-      expires_at: expires_at(1800),
-      is_admin: true
-    }
-
-    {:ok, session}
-  end
-
   def login(code) do
     case Erlef.WildApricot.login(code) do
       {:ok, data} ->

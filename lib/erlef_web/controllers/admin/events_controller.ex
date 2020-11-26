@@ -1,19 +1,23 @@
 defmodule ErlefWeb.Admin.EventController do
   use ErlefWeb, :controller
   action_fallback ErlefWeb.FallbackController
-  alias Erlef.Data.Schema.Event
-  alias Erlef.Data.Query.Event, as: Query
+  alias Erlef.Schema.Event
+  alias Erlef.Query.Event, as: Query
   alias Erlef.Events
 
   def index(conn, _params) do
-    events = Erlef.Data.Query.Event.unapproved()
+    events = Erlef.Query.Event.unapproved()
     render(conn, unapproved_events: events)
   end
 
   def show(conn, %{"id" => id}) do
     event = Query.get(id)
-    name = Erlef.Members.get_display_name(50_769_064)
-    render(conn, changeset: Event.new_changeset(event, %{}), event: %{event | submitted_by: name})
+    member = Erlef.Accounts.get_member(event.submitted_by)
+
+    render(conn,
+      changeset: Event.new_changeset(event, %{}),
+      event: %{event | submitted_by: member}
+    )
   end
 
   def approve(conn, %{"id" => id, "event" => params}) do

@@ -2,9 +2,9 @@ defmodule Erlef.Factory do
   @moduledoc """
   Factory module for database test support
   """
-  use ExMachina.Ecto, repo: Erlef.Data.Repo
+  use ExMachina.Ecto, repo: Erlef.Repo
 
-  alias Erlef.Data.Schema.AcademicPaper
+  alias Erlef.Publications.AcademicPaper
 
   def academic_papers_factory do
     %AcademicPaper{

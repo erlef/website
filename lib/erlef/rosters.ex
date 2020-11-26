@@ -1,6 +1,6 @@
 defmodule Erlef.Rosters do
   @moduledoc """
-  Erlef.Members
+  Erlef.Rosters
   """
 
   def get("board") do

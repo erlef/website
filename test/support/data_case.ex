@@ -10,7 +10,7 @@ defmodule Erlef.DataCase do
 
       import Erlef.Factory
 
-      alias Erlef.Data.Repo
+      alias Erlef.Repo
 
       setup _tags do
         :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)

@@ -1,7 +1,7 @@
-defmodule Erlef.Data.Schema.AcademicPaperTest do
+defmodule Erlef.Publications.AcademicPaperTest do
   use ExUnit.Case
 
-  alias Erlef.Data.Schema.AcademicPaper
+  alias Erlef.Publications.AcademicPaper
 
   @test_data %{
     title: "Fear and Loathing on the Campaign Trail in ’72",

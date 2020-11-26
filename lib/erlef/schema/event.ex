@@ -1,8 +1,8 @@
-defmodule Erlef.Data.Schema.Event do
+defmodule Erlef.Schema.Event do
   @moduledoc """
-  Erlef.Data.Schema.Event schema
+  Erlef.Schema.Event schema
   """
-  use Erlef.Data.Schema
+  use Erlef.Schema
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
@@ -34,6 +34,7 @@ defmodule Erlef.Data.Schema.Event do
   ]
 
   @optional_fields [
+    :id,
     :organizer_brand_color,
     :organizer_brand_logo
   ]
@@ -55,7 +56,7 @@ defmodule Erlef.Data.Schema.Event do
     field(:approved_by, :integer)
     field(:approved_at, :utc_datetime)
 
-    belongs_to(:event_type, Erlef.Data.Schema.EventType)
+    belongs_to(:event_type, Erlef.Schema.EventType)
 
     timestamps()
   end

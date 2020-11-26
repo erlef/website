@@ -1,11 +1,11 @@
-defmodule Erlef.Data.Query.AcademicPaper do
+defmodule Erlef.Publications.Query do
   @moduledoc """
   Module for the academic paper queries
   """
   import Ecto.Query, only: [from: 2]
 
-  alias Erlef.Data.Schema.AcademicPaper
-  alias Erlef.Data.Repo
+  alias Erlef.Publications.AcademicPaper
+  alias Erlef.Repo
 
   @doc """
   Returns all active academic papers. Used for admin functionality

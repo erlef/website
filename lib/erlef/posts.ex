@@ -4,21 +4,21 @@ defmodule Erlef.Posts do
   """
 
   import Ecto.Query
-  alias Erlef.Repo
+  alias Erlef.Repo.ETS
 
   def all(schema) do
-    schema |> Repo.all()
+    schema |> ETS.all()
   end
 
   def get_by_slug(schema, slug) do
-    case Repo.get_by(schema, slug: slug) do
+    case ETS.get_by(schema, slug: slug) do
       %{slug: ^slug} = post -> {:ok, post}
       _ -> {:error, :not_found}
     end
   end
 
   def get_by_category(schema, cat) do
-    schema |> where([x], x.category == ^cat) |> Repo.all()
+    schema |> where([x], x.category == ^cat) |> ETS.all()
   end
 
   def sort_by_datetime(posts) do

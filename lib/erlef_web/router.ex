@@ -73,6 +73,10 @@ defmodule ErlefWeb.Router do
 
     resources "/slack-invite/:team", SlackInviteController, only: [:create, :index]
 
+    scope "/members", Members, as: :members do
+      resources "/profile", ProfileController, only: [:show], singleton: true
+    end
+
     scope "/admin", Admin, as: :admin do
       pipe_through [:admin_required]
       get "/", DashboardController, :index

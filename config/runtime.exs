@@ -4,17 +4,6 @@ import Config
 
 # TODO: Refactor so that this is only required in staging/prod
 
-config :extwitter, :oauth,
-  consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
-  consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET"),
-  access_token: System.get_env("TWITTER_ACCESS_TOKEN"),
-  access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET")
-
-# TODO: Refactor so that this is only required in staging/prod
-config :ex_aws,
-  access_key_id: [System.get_env("VULTR_ACCESS_KEY_ID"), :instance_role],
-  secret_access_key: [System.get_env("VULTR_SECRET_KEY_ID"), :instance_role]
-
 if Application.get_env(:erlef, :env) == :prod do
   secret_key_base =
     System.get_env("SECRET_KEY_BASE") ||
@@ -73,7 +62,7 @@ if Application.get_env(:erlef, :env) == :prod do
     ]
 
   config :erlef,
-         Erlef.Data.Repo,
+         Erlef.Repo,
          database: database,
          username: database_user,
          password: database_password,
@@ -81,6 +70,8 @@ if Application.get_env(:erlef, :env) == :prod do
          migration_primary_key: [id: :uuid, type: :binary_id],
          migration_timestamps: [type: :utc_datetime],
          ssl: false
+
+  config :erlef, :domain, domain
 
   smtp_relay_host =
     System.get_env("SMTP_RELAY_HOST") ||
@@ -96,4 +87,46 @@ if Application.get_env(:erlef, :env) == :prod do
     port: 465,
     retries: 2,
     no_mx_lookups: false
+
+  config :extwitter, :oauth,
+    consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
+    consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET"),
+    access_token: System.get_env("TWITTER_ACCESS_TOKEN"),
+    access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET")
+
+  config :ex_aws,
+    access_key_id: [System.get_env("VULTR_ACCESS_KEY_ID"), :instance_role],
+    secret_access_key: [System.get_env("VULTR_SECRET_KEY_ID"), :instance_role]
+
+  wapi_account_id =
+    System.get_env("WA_ACCOUNT_ID") ||
+      raise """
+      environment variable WA_ACCOUNT_ID is missing"
+      """
+
+  wapi_api_key =
+    System.get_env("WAPI_API_KEY") ||
+      raise """
+      environment variable WAPI_API_KEY is missing"
+      """
+
+  wapi_client_id =
+    System.get_env("WAPI_CLIENT_ID") ||
+      raise """
+      environment variable WAPI_CLIENT_ID is missing"
+      """
+
+  wapi_client_secret =
+    System.get_env("WAPI_CLIENT_SECRET") ||
+      raise """
+      environment variable WAPI_CLIENT_SECRET is missing
+      """
+
+  config :erlef, :wild_apricot,
+    base_api_url: "https://api.wildapricot.org",
+    base_auth_url: "https://oauth.wildapricot.org",
+    account_id: wapi_account_id,
+    api_key: wapi_api_key,
+    client_id: wapi_client_id,
+    client_secret: wapi_client_secret
 end

@@ -1,12 +1,12 @@
-defmodule Erlef.Data.Schema do
+defmodule Erlef.Schema do
   @moduledoc """
   Imports all functionality for an ecto schema
 
   ### Usage
 
   ```
-  defmodule Erlef.Data.Schema.MySchema do
-    use Erlef.Data.Schema
+  defmodule Erlef.Schema.MySchema do
+    use Erlef.Schema
 
     schema "my_schemas" do
     # Fields

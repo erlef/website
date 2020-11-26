@@ -9,7 +9,7 @@ defmodule ErlefWeb.SessionControllerTest do
   describe "GET /login" do
     test "as a member", %{conn: conn} do
       params = %{
-        "code" => 12_345,
+        "code" => "basic_member",
         "state" => 12_345
       }
 
@@ -23,7 +23,7 @@ defmodule ErlefWeb.SessionControllerTest do
     @tag :only
     test "as an admin", %{conn: conn} do
       params = %{
-        "code" => 12_345,
+        "code" => "admin",
         "state" => 12_345
       }
 
@@ -47,8 +47,8 @@ defmodule ErlefWeb.SessionControllerTest do
   describe "POST /logout" do
     test "as a member", %{conn: conn} do
       params = %{
-        "code" => 12_345,
-        "state" => 12_345
+        "code" => "basic_member",
+        "state" => 12_345_67
       }
 
       conn = get(conn, Routes.session_path(conn, :create), params)
@@ -65,7 +65,7 @@ defmodule ErlefWeb.SessionControllerTest do
 
     test "as an admin", %{conn: conn} do
       params = %{
-        "code" => 12_345,
+        "code" => "admin",
         "state" => 12_345
       }
 

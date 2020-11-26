@@ -1,0 +1,11 @@
+<div class="container">
+  <ul class="list-unstyled">
+    <li><strong>Name:</strong> <%= @current_user.display_name %></li>
+  </ul>
+
+  <p class="ml-5">
+    <a target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Click here</a>
+    to view more manage your memberships details and subscription. 
+  </p>
+
+</div>

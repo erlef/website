@@ -4,7 +4,7 @@ defmodule ErlefWeb.EventsLive do
   """
   use Phoenix.LiveView
 
-  alias Erlef.Data.Query.Event, as: Query
+  alias Erlef.Query.Event, as: Query
 
   def mount(_params, %{"events" => events}, socket) do
     socket =

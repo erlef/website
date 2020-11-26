@@ -18,7 +18,17 @@ config :logger, level: :warn
 
 config :erlef, :twitter_client, Erlef.ExTwitterTest
 
-config :erlef, Erlef.Data.Repo,
+config :erlef, :domain, "localhost"
+
+config :erlef, :wild_apricot,
+  base_api_url: "http://127.0.0.1:9999",
+  base_auth_url: "http://127.0.0.1:9999",
+  account_id: "account_id",
+  api_key: "api_key",
+  client_id: "client_id",
+  client_secret: "client_secret"
+
+config :erlef, Erlef.Repo,
   database: "erlef_website_test",
   username: "postgres",
   password: "postgres",

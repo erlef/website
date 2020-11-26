@@ -1,7 +1,7 @@
 defmodule ErlefWeb.EventController do
   use ErlefWeb, :controller
 
-  alias Erlef.Data.Query.Event, as: Query
+  alias Erlef.Query.Event, as: Query
 
   action_fallback ErlefWeb.FallbackController
 

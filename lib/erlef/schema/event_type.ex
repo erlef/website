@@ -1,6 +1,6 @@
-defmodule Erlef.Data.Schema.EventType do
+defmodule Erlef.Schema.EventType do
   @moduledoc """
-  Erlef.Data.Schema.EventType schema
+  Erlef.Schema.EventType schema
   """
   use Ecto.Schema
   import Ecto.Changeset
@@ -17,6 +17,6 @@ defmodule Erlef.Data.Schema.EventType do
   end
 
   def get(type) do
-    Erlef.Data.Repo.get_by!(__MODULE__, name: Atom.to_string(type))
+    Erlef.Repo.get_by!(__MODULE__, name: Atom.to_string(type))
   end
 end
