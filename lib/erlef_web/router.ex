@@ -56,6 +56,7 @@ defmodule ErlefWeb.Router do
     get "/community", PageController, :community
     get "/contact", PageController, :contact
     get "/faq", PageController, :faq
+    get "/fellows", PageController, :fellows
     get "/sponsors", PageController, :sponsors
     get "/become-a-sponsor", PageController, :sponsor_info
     get "/wg-proposal-template", PageController, :wg_proposal_template
