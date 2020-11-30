@@ -7,15 +7,16 @@ defmodule Erlef.Application do
 
   def start(_type, _args) do
     # List all child processes to be supervised
-    children = [
-      # Start the endpoint when the application starts
-      Erlef.Repo,
-      Erlef.Repo.ETS,
-      Erlef.Repo.ETS.Importer,
-      {Phoenix.PubSub, name: Erlef.PubSub},
-      ErlefWeb.Endpoint,
-      {PlugAttack.Storage.Ets, name: MyApp.PlugAttack.Storage, clean_period: 60_000},
-    ] ++ children_for(Application.get_env(:erlef, :env))
+    children =
+      [
+        # Start the endpoint when the application starts
+        Erlef.Repo,
+        Erlef.Repo.ETS,
+        Erlef.Repo.ETS.Importer,
+        {Phoenix.PubSub, name: Erlef.PubSub},
+        ErlefWeb.Endpoint,
+        {PlugAttack.Storage.Ets, name: MyApp.PlugAttack.Storage, clean_period: 60_000}
+      ] ++ children_for(Application.get_env(:erlef, :env))
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

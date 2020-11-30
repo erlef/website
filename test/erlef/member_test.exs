@@ -72,13 +72,6 @@ defmodule Erlef.MemberTest do
         "Value" => "2020-11-27T10:39:57-08:00"
       },
       %{
-        "FieldName" => "Administrator role",
-        "SystemCode" => "AdminRole",
-        "Value" => [
-          %{"Id" => 42, "Label" => "Account administrator (Full access)"}
-        ]
-      },
-      %{
         "FieldName" => "Notes",
         "SystemCode" => "Notes",
         "Value" =>
@@ -94,7 +87,7 @@ defmodule Erlef.MemberTest do
         "SystemCode" => "SubscriptionSource",
         "Value" => []
       },
-      %{"FieldName" => "User ID", "SystemCode" => "MemberId", "Value" => 12_345_678},
+      %{"FieldName" => "User ID", "SystemCode" => "MemberId", "Value" => "basic_member"},
       %{
         "FieldName" => "First name",
         "SystemCode" => "FirstName",
@@ -147,7 +140,7 @@ defmodule Erlef.MemberTest do
       %{
         "FieldName" => "Membership level ID",
         "SystemCode" => "MembershipLevelId",
-        "Value" => 1_234_567
+        "Value" => "1234567"
       },
       %{
         "FieldName" => "Access to profile by others",
@@ -185,8 +178,7 @@ defmodule Erlef.MemberTest do
         "FieldName" => "Group participation",
         "SystemCode" => "Groups",
         "Value" => [
-          %{"Id" => 123_456, "Label" => "WG Marketing"},
-          %{"Id" => 654_321, "Label" => "Website Admin"}
+          %{"Id" => "654321", "Label" => "Website Admin"}
         ]
       },
       %{
@@ -218,13 +210,13 @@ defmodule Erlef.MemberTest do
       }
     ],
     "FirstName" => "Joe",
-    "Id" => 12_34_567,
+    "Id" => "fellow_member",
     "IsAccountAdministrator" => true,
     "LastName" => "Armstrong",
     "MembershipEnabled" => true,
     "MembershipLevel" => %{
-      "Id" => 1_058_346,
-      "Name" => "Fellow",
+      "Id" => "1234567",
+      "Name" => "Basic Membership",
       "Url" => "https://api.wildapricot.org/v2.1/accounts/010101/MembershipLevels/1234567"
     },
     "Organization" => "",

@@ -34,6 +34,7 @@ defmodule ErlefWeb.SessionController do
     |> redirect(to: "/")
   end
 
+  @spec maybe_redirect(any()) :: no_return()
   defp maybe_redirect(conn) do
     uri = Erlef.Session.login_uri()
     redirect(conn, external: uri)

@@ -48,7 +48,7 @@ defmodule ErlefWeb.SessionControllerTest do
     test "as a member", %{conn: conn} do
       params = %{
         "code" => "basic_member",
-        "state" => 12_345_67
+        "state" => "1234567"
       }
 
       conn = get(conn, Routes.session_path(conn, :create), params)

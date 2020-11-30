@@ -1,4 +1,6 @@
 defmodule Erlef.Test.WildApricot.Data do
+  @moduledoc false
+
   def contact_data(specified) do
     new = Map.merge(default_contact_data(), specified)
 

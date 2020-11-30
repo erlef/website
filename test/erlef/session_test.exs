@@ -10,7 +10,7 @@ defmodule Erlef.SessionTest do
           %{
             "AccountId" => "account_id",
             "AvailableScopes" => ["contacts_me", "account_view"],
-            "SecurityProfileId" => 12_345_67
+            "SecurityProfileId" => "42"
           }
         ],
         "access_token" => "basic_member",

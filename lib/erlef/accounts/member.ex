@@ -1,4 +1,6 @@
 defmodule Erlef.Accounts.Member do
+  @moduledoc false
+
   # Member levels we consider to be "paid" members.
   @paid_member_levels [
     "Annual Supporting Membership",

@@ -13,7 +13,7 @@ defmodule Erlef.Test.WildApricot do
     "Id" => "admin",
     "LastName" => "Admin",
     "MembershipLevel" => %{
-      "Id" => 12345,
+      "Id" => "1234567",
       "Name" => "Admin Admin",
       "Url" => "https://api.wildapricot.org/v2.1/accounts/010101/MembershipLevels/1234567"
     },
@@ -23,7 +23,7 @@ defmodule Erlef.Test.WildApricot do
         "FieldName" => "Group participation",
         "SystemCode" => "Groups",
         "Value" => [
-          %{"Id" => 654_321, "Label" => "Website Admin"}
+          %{"Id" => "654321", "Label" => "Website Admin"}
         ]
       }
     ]
@@ -36,7 +36,7 @@ defmodule Erlef.Test.WildApricot do
     "LastName" => "Member",
     "Id" => "basic_member",
     "MembershipLevel" => %{
-      "Id" => 1234,
+      "Id" => "1234567",
       "Name" => "Basic Membership",
       "Url" => "https://api.wildapricot.org/v2.1/accounts/010101/MembershipLevels/1234567"
     }
@@ -49,7 +49,7 @@ defmodule Erlef.Test.WildApricot do
     "Id" => "annual_member",
     "LastName" => "Supporting Member",
     "MembershipLevel" => %{
-      "Id" => 12_345_67,
+      "Id" => "1234567",
       "Name" => "Annual Supporting Membership",
       "Url" => "https://api.wildapricot.org/v2.1/accounts/010101/MembershipLevels/1234567"
     }
@@ -62,7 +62,7 @@ defmodule Erlef.Test.WildApricot do
     "Id" => "lifetime_member",
     "LastName" => "Supporting Member",
     "MembershipLevel" => %{
-      "Id" => 12_345_67,
+      "Id" => "1234567",
       "Name" => "Lifetime Supporting Membership",
       "Url" => "https://api.wildapricot.org/v2.1/accounts/010101/MembershipLevels/1234567"
     }
@@ -75,7 +75,7 @@ defmodule Erlef.Test.WildApricot do
     "Id" => "fellow_member",
     "LastName" => "Member",
     "MembershipLevel" => %{
-      "Id" => 12_345_67,
+      "Id" => "1234567",
       "Name" => "Fellow",
       "Url" => "https://api.wildapricot.org/v2.1/accounts/010101/MembershipLevels/1234567"
     }
@@ -88,7 +88,7 @@ defmodule Erlef.Test.WildApricot do
     "Id" => "fellow_member",
     "LastName" => "Member",
     "MembershipLevel" => %{
-      "Id" => 12_345_67,
+      "Id" => "1234567",
       "Name" => "Fellow",
       "Url" => "https://api.wildapricot.org/v2.1/accounts/010101/MembershipLevels/1234567"
     }
@@ -140,7 +140,7 @@ defmodule Erlef.Test.WildApricot do
         %{
           "AccountId" => "account_id",
           "AvailableScopes" => ["contacts_me", "account_view"],
-          "SecurityProfileId" => 42_42_42
+          "SecurityProfileId" => "42"
         }
       ],
       "access_token" => code,
@@ -180,7 +180,7 @@ defmodule Erlef.Test.WildApricot do
             "account_view",
             "membership_levels_view"
           ],
-          "SecurityProfileId" => 42_42_42
+          "SecurityProfileId" => "42"
         }
       ],
       "access_token" => "3dOo4f-KEg3D9t3nBDzSjbyjCTo-",

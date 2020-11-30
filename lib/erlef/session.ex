@@ -135,18 +135,12 @@ defmodule Erlef.Session do
 
   @spec refresh(t()) :: {:ok, t()} | {:error, term()}
   def refresh(%{refresh_token: refresh_token}) do
-    case Erlef.is_env?(:dev) do
-      true ->
-        login(:dev)
+    case Erlef.WildApricot.user_refresh(refresh_token) do
+      {:ok, data} ->
+        {:ok, new(data)}
 
-      false ->
-        case Erlef.WildApricot.user_refresh(refresh_token) do
-          {:ok, data} ->
-            {:ok, new(data)}
-
-          err ->
-            err
-        end
+      err ->
+        err
     end
   end
 
