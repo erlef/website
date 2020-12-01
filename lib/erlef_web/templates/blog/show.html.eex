@@ -1,14 +1,31 @@
 <main role="main" class="container mt-4">
   <div class="row">
-    <div class="col-md-12 blog-main">
+    <div class="col-lg-8 blog-main">
       <div class="blog-post">
         <h2 class="blog-post-title"><%= @post.title %></h2>
-        <p class="blog-post-meta">
-          <%= byline(@post) %><br />
-          Posted in <%= @post.category %>
-        </p>
+        <div class="blog-post-meta">
+          <%= byline(@post) %>
+          <div class="mt-1">
+            <%= posted_in(@post, @working_group) %>
+          </div>
+          <div class="row mt-1">
+            <div class="col">
+              <span class="mr-1">Tags</span>
+              <%= for t <- @post.tags do %>
+                <span style="font-size: 0.8rem;">
+                  <%= link(to: Routes.blog_path(ErlefWeb.Endpoint, :tags, t), class: "blog-tag badge badge-pill badge-primary") do %>
+                    <i class="fas fa-tag mr-1 mt-1"></i><%= t %>
+                  <% end %>
+                </span>
+              <% end %>
+            </div>
+          </div>
+        </div>
         <%= raw @post.body_html %>
       </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <%= render(ErlefWeb.BlogView, "recent_posts.html", latest_news: @latest_news, all_tags: @all_tags) %>
     </div>
   </div>
 </main>

@@ -1,0 +1,20 @@
+<div class="container mt-4">
+  <h1 class="display-4 font-weight-bold">Posts with tag <%= @tag %> found</h1>
+  <div class="row">
+    <div class="col-lg-8">
+      <%= for p <- @posts do %> 
+        <div class="card shadow-sm mb-2">
+          <div class="card-body">
+            <h5 class="card-title"><%= p.title %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= byline(p) %></h6>
+            <p class="card-text"><%= p.excerpt %></p>
+            <a href="/blog/<%= p.category %>/<%= p.slug %>" class="card-link">Read more</a>
+          </div>
+        </div>
+        <% end %>
+    </div>
+    <div class="col-md-4 mb-4">
+      <%= render(ErlefWeb.BlogView, "recent_posts.html", latest_news: @latest_posts, all_tags: @all_tags) %>
+    </div>
+  </div>
+</div>

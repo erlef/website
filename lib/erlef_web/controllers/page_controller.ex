@@ -2,9 +2,8 @@ defmodule ErlefWeb.PageController do
   use ErlefWeb, :controller
 
   alias Erlef.{
-    Blog,
-    Posts,
-    WorkingGroup,
+    Blogs,
+    Groups,
     Twitter,
     Query.Event
   }
@@ -12,14 +11,10 @@ defmodule ErlefWeb.PageController do
   action_fallback ErlefWeb.FallbackController
 
   def index(conn, _params) do
-    latest_news =
-      Blog
-      |> Posts.all()
-      |> Posts.sort_by_datetime()
-      |> Enum.take(3)
+    latest_news = Blogs.latest_posts()
 
     render(conn,
-      working_groups: Posts.all(WorkingGroup),
+      working_groups: Groups.all_working_groups(),
       latest_news: latest_news,
       tweets: Twitter.latest_tweets(),
       events: Event.approved() |> Enum.take(3)

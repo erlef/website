@@ -2,6 +2,7 @@ defmodule Erlef.Publications.Query do
   @moduledoc """
   Module for the academic paper queries
   """
+
   import Ecto.Query, only: [from: 2]
 
   alias Erlef.Publications.AcademicPaper

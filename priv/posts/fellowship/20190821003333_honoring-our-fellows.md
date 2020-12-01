@@ -3,6 +3,7 @@
   "author": "Francesco Cesarini",
   "slug": "honoring-our-fellows",
   "category": "fellowship",
+  "tags": ["fellowship"],
   "datetime": "2019-08-21T00:33:33.753534Z"
 }
 ---

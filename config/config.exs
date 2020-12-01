@@ -26,9 +26,9 @@ config :phoenix, :json_library, Jason
 
 # paths are implicitly priv
 config :erlef, :repo_imports, [
-  {"/posts/**/*.md", Erlef.Blog},
+  {"/posts/**/*.md", Erlef.Blogs.Post},
   {"/events/**/*.md", Erlef.Event},
-  {"/working_groups/**/*.md", Erlef.WorkingGroup}
+  {"/working_groups/**/*.md", Erlef.Groups.WorkingGroup}
 ]
 
 import_config "members.exs"

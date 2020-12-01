@@ -6,37 +6,37 @@
   "formed": "2019-04-30",
   "gcal_url": null,
   "github": "erlef/security-wg",
-  "members": [
+  "volunteers": [
     {
-      "image": "members/bram-verburg.jpg",
+      "image": "volunteers/bram-verburg.jpg",
       "name": "Bram Verburg"
     },
     {
-      "image": "members/maxim-fedorov.jpg",
+      "image": "volunteers/maxim-fedorov.jpg",
       "name": "Maxim Fedorov"
     },
     {
-      "image": "members/alexandre-rodrigues.png",
+      "image": "volunteers/alexandre-rodrigues.png",
       "name": "Alexandre Rodrigues"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "volunteers/profile-placeholder.png",
       "name": "Hans Nilsson"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "volunteers/profile-placeholder.png",
       "name": "Peter Dimitrov"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "volunteers/profile-placeholder.png",
       "name": "Griffin Byatt"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "volunteers/profile-placeholder.png",
       "name": "Duncan Sparrell"
     },
     {
-      "image": "members/drew-varner.jpg",
+      "image": "volunteers/drew-varner.jpg",
       "name": "Drew Varner"
     }
   ]

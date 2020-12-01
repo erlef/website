@@ -69,11 +69,15 @@ module.exports = (env, options) => ({
             filename: '../css/[name].css',
             chunkFilename: "../css/[name].css"
         }),
+        new  CopyWebpackPlugin([{
+            from: 'node_modules/@fortawesome/fontawesome-free/webfonts',
+            to: '../css/fonts'
+        }]), 
         new CopyWebpackPlugin([{
             from: 'static/',
             to: '../'
         }]),
-        new webpack.ProvidePlugin({
+       new webpack.ProvidePlugin({
           $: "jquery",
           jQuery: "jquery",
           "window.jQuery": "jquery",
@@ -88,7 +92,7 @@ module.exports = (env, options) => ({
           Scrollspy: "exports-loader?Scrollspy!bootstrap/js/dist/scrollspy",
           Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
           Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
-          Util: "exports-loader?Util!bootstrap/js/dist/util",
+          Util: "exports-loader?Util!bootstrap/js/dist/util"
         })
     ]
 });

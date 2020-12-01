@@ -3,6 +3,7 @@
   "author": "EEF",
   "slug": "time-is-running-out",
   "category": "eef",
+  "tags": ["eef"],
   "datetime": "2019-07-17T22:24:21.605755Z"
 }
 ---

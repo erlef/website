@@ -7,7 +7,6 @@ import "phoenix_html"
 import $ from "jquery"
 import "bootstrap";
 import "../static/vendored/js/bootstrap-toc.js"
-import '../node_modules/@fortawesome/fontawesome-free/js/all.js'
 
 import {Socket} from "phoenix"
 import LiveSocket from "phoenix_live_view"

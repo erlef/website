@@ -93,6 +93,7 @@ defmodule Mix.Tasks.Eef.Gen.Post do
     "author": "<%= @author %>",
     "slug": "<%= @slug %>",
     "category": "<%= @category %>",
+    "tags": ["<%= @category %>"],
     "datetime": "<%= DateTime.to_iso8601(@datetime) %>"
   }
   ---

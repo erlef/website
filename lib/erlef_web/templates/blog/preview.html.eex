@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-md-8 blog-main">
       <div class="blog-post">
-        <h2 class="blog-post-title"><%= link @post.title, to: Routes.news_path(ErlefWeb.Endpoint, :show, @topic, @post.slug) %></h2>
+        <h2 class="blog-post-title"><%= link @post.title, to: Routes.blog_path(ErlefWeb.Endpoint, :show, @topic, @post.slug) %></h2>
         <p class="blog-post-meta"><%= byline(@post) %></p>
         <%= raw @post.excerpt %>
         <p>
-          <%= link "Read more...", to: Routes.news_path(ErlefWeb.Endpoint, :show, @topic, @post.slug) %>
+          <%= link "Read more...", to: Routes.blog_path(ErlefWeb.Endpoint, :show, @topic, @post.slug) %>
         </p>
       </div>
     </div>

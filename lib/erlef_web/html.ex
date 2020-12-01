@@ -4,6 +4,10 @@ defmodule ErlefWeb.HTML do
   """
   import Phoenix.HTML.Tag
 
+  def to_date_string(date_time) do
+    Calendar.strftime(date_time, "%B, %d, %Y, %H:%M:%S UTC")
+  end
+
   def right_svg_hero(f_opts, opts) when is_list(f_opts) do
     right_svg_hero(f_opts ++ opts)
   end

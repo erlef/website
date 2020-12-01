@@ -8,24 +8,13 @@
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <!-- Sidebar user panel (optional) -->
-    <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-        <li class="nav-item has-treeview menu-open">
-          <a href="/admin" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
-            <p>
-              Event Review
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-        </li>
         <li class="nav-item"> 
-            <a href="/admin/dashboard" class="nav-link">
-                <i class="fas fa-tachometer-alt"></i>
-                <p>Dashboard</p>
-            </a>
+          <a href="/admin/dashboard" class="nav-link active">
+            <i class="fas fa-tachometer-alt"></i>
+            <p>Dashboard</p>
+          </a>
         </li>
       </ul>
     </nav>

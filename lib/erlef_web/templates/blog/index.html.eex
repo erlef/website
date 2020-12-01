@@ -7,20 +7,6 @@
       </p>
     </div>
   </div>
-  <!--
-  <div class="nav-scroller py-1 mb-1">
-    <nav class="nav d-flex justify-content-between">
-      <%= link("EEF", to: "/news", class: "p-2 text-muted") %>
-      <%= link("Building", to: "/news/building", class: "p-2 text-muted") %>
-      <%= link("Documentation", to: "/news/documentation", class: "p-2 text-muted") %>
-      <%= link("Education", to: "/news/education", class: "p-2 text-muted") %>
-      <%= link("Fellowship", to: "/news/fellowship", class: "p-2 text-muted") %>
-      <%= link("Marketing", to: "/news/marketing", class: "p-2 text-muted") %>
-      <%= link("Observability", to: "/news/observability", class: "p-2 text-muted") %>
-      <%= link("Security", to: "/news/security", class: "p-2 text-muted") %>
-    </nav>
-  </div>
-  -->
   <%= if @posts != [] do %>
   <% post1 = Enum.at(@posts, 0) %>
   <%= unless is_nil(post1) do %>
@@ -34,7 +20,7 @@
           <h1 class="display-4">
             <%= post1.title %>
           </h1>
-          <%= link("Continuing Reading", to: Routes.news_path(@conn, :show, @topic, post1.slug), class: "stretched") %>
+          <%= link("Continuing Reading", to: Routes.blog_path(@conn, :show, @topic, post1.slug), class: "stretched") %>
           <p class="lead my-3">
             <%= post1.excerpt %>
           </p>
@@ -80,7 +66,7 @@
             <h6 class="text-uppercase text-muted">
               <%= post.category %>
             </h6>
-            <%= link(to: Routes.news_path(@conn, :show, @topic, post.slug), class: "post-title") do %>
+            <%= link(to: Routes.blog_path(@conn, :show, @topic, post.slug), class: "post-title") do %>
             <h3 class="text-dark">
               <%= post.title %>
             </h3>

@@ -2,14 +2,15 @@ defmodule Erlef.Test.WildApricot.Data do
   @moduledoc false
 
   def contact_data(specified) do
-    new = Map.merge(default_contact_data(), specified)
+    default = default_contact_data()
+
+    new = Map.merge(default, specified)
 
     case Map.has_key?(specified, "FieldValues") do
       true ->
-        res = List.myers_difference(new["FieldValues"], specified["FieldValues"])
-        del_list = Keyword.get(res, :del, [])
-        new_fv = Enum.reject(new["FieldValues"], fn v -> v in del_list end)
-        Map.put(new, "FieldValues", new_fv ++ Keyword.get(res, :ins, []))
+        specified_fields = Enum.map(specified["FieldValues"], & &1["FieldName"])
+        without = Enum.reject(default["FieldValues"], &(&1["FieldName"] in specified_fields))
+        Map.put(new, "FieldValues", specified["FieldValues"] ++ without)
 
       false ->
         new
@@ -211,17 +212,22 @@ defmodule Erlef.Test.WildApricot.Data do
         %{"FieldName" => "City", "SystemCode" => "custom-11072784", "Value" => nil},
         %{"FieldName" => "Zip", "SystemCode" => "custom-11072785", "Value" => nil},
         %{
-          "FieldName" => "has_mail_alias",
+          "FieldName" => "has_email_alias",
           "SystemCode" => "custom-12523891",
           "Value" => nil
         },
         %{
-          "FieldName" => "has_mail_box",
+          "FieldName" => "has_email_box",
           "SystemCode" => "custom-12523892",
           "Value" => nil
         },
         %{
-          "FieldName" => "erlef_mail_address",
+          "FieldName" => "erlef_email_address",
+          "SystemCode" => "custom-12523894",
+          "Value" => nil
+        },
+        %{
+          "FieldName" => "erlef_app_id",
           "SystemCode" => "custom-12523894",
           "Value" => nil
         }

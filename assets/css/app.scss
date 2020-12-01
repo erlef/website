@@ -2,7 +2,10 @@
 @import "~bootstrap/scss/bootstrap";
 @import url("https://use.typekit.net/kyy4ydn.css");
 @import "../static/vendored/css/bootstrap-toc.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "community";
+@import "blogs";
+@import "events";
 
 html,
 
@@ -112,49 +115,6 @@ section {
     display: none;
 }
 
-.event-card {
-    position: relative;
-    z-index: 100;
-}
-
-.event-card-image-wrapper {
-    width: 8rem;
-
-    flex-shrink: 0;
-}
-
-.event-card-image {
-    width: auto;
-    height: 4rem;
-}
-
-.event-card-list-image {
-    width: auto;
-}
-
-
-div.blog-post > table {
-   width: 100%;
-   border-collapse: collapse;
-}
-
-div.blog-post > td, th {
-  border: 0.0625rem solid #ddd;
-  padding: 0.5rem;
-}
-
-div.blog-post tr:nth-child(even){background-color: #f2f2f2;}
-
-div.blog-post tr:hover {background-color: #ddd;}
-
-div.blost-post > th {
-  padding-top: 0.725rem;
-  padding-bottom: 0.725rem;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-
 @media (min-width: 768px) {
     .right-bleed {
         left: 0;
@@ -171,17 +131,6 @@ div.blost-post > th {
         margin-left: calc(-50vw / 2);
         overflow: hidden;
     }
-}
-
-.nav-events {
-  .nav-link {
-    cursor: pointer;
-    color: white;
-
-    .active {
-      color: black;
-    }
-  }
 }
 
 /* TOC plugin css */

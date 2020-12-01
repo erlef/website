@@ -4,25 +4,25 @@
   "formed": "2019-04-30",
   "gcal_url": null,
   "github": null,
-  "members": [
+  "volunteers": [
     {
-      "image": "members/francesco-cesarini.jpg",
+      "image": "volunteers/francesco-cesarini.jpg",
       "name": "Francesco Cesarini"
     },
     {
-      "image": "members/sebastian-strollo.jpg",
+      "image": "volunteers/sebastian-strollo.jpg",
       "name": "Sebastian Strollo"
     },
     {
-      "image": "members/benoit-chesneau.jpg",
+      "image": "volunteers/benoit-chesneau.jpg",
       "name": "Benoit Chesneau"
     },
     {
-      "image": "members/alistair-woodman.png",
+      "image": "volunteers/alistair-woodman.png",
       "name": "Alistair Woodman"
     },
     {
-      "image": "members/peer-stritzinger.jpg",
+      "image": "volunteers/peer-stritzinger.jpg",
       "name": "Peer Stritzinger"
     }
   ],

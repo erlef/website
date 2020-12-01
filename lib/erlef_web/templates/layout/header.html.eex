@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light py-4 mb-0">
+<nav class="navbar navbar-expand-md navbar-light py-4 mb-0" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
   <div class="container">
     <a class="navbar-brand" href="/">
       <img src="<%=  Routes.static_path(@conn, "/images/eef-logo.svg") %>" alt="EEF Logo" width="120px">
@@ -64,7 +64,7 @@
               <%= link("Basic", to: "/login?code=basic_member", class: "dropdown-item nav-link") %>
               <%= link("Annual Supporting Member", to: "/login?code=annual_member", class: "dropdown-item nav-link") %>
               <%= link("Lifetime Member", to: "/login?code=lifetime_member", class: "dropdown-item nav-link") %>
-              <%= link("Fellow", to: "/login?code=fellow", class: "dropdown-item nav-link") %>
+              <%= link("Fellow", to: "/login?code=fellow_member", class: "dropdown-item nav-link") %>
               <%= link("Admin", to: "/login?code=admin", class: "dropdown-item nav-link") %> 
             </div>
           </li>

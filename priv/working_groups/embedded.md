@@ -4,25 +4,25 @@
   "formed": "2019-08-09",
   "gcal_url": null,
   "github": null,
-  "members": [
+  "volunteers": [
     {
-      "image": "members/peer-stritzinger.jpg",
+      "image": "volunteers/peer-stritzinger.jpg",
       "name": "Peer Stritzinger"
     },
     {
-      "image": "members/adam-lindberg.jpg",
+      "image": "volunteers/adam-lindberg.jpg",
       "name": "Adam Lindberg"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "volunteers/profile-placeholder.png",
       "name": "Frank Hunleth"
     },
     {
-      "image": "members/justin-schneck.jpg",
+      "image": "volunteers/justin-schneck.jpg",
       "name": "Justin Schneck"
     },
     {
-      "image": "members/hideki-takase.jpg",
+      "image": "volunteers/hideki-takase.jpg",
       "name": "Hideki Takase"
     }
   ],

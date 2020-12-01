@@ -4,29 +4,29 @@
   "formed": "2019-07-23",
   "gcal_url": null,
   "github": "erlef/documentation-wg",
-  "members": [
+  "volunteers": [
     {
-      "image": "members/jose-valim.jpg",
+      "image": "volunteers/jose-valim.jpg",
       "name": "José Valim"
     },
     {
-      "image": "members/fred-hebert.png",
+      "image": "volunteers/fred-hebert.png",
       "name": "Fred Hebert"
     },
     {
-      "image": "members/kenneth-lundin.jpg",
+      "image": "volunteers/kenneth-lundin.jpg",
       "name": "Kenneth Lundin"
     },
     {
-      "image": "members/mariano-guerra.jpg",
+      "image": "volunteers/mariano-guerra.jpg",
       "name": "Mariano Guerra"
     },
     {
-      "image": "members/radek-szymczyszyn.jpg",
+      "image": "volunteers/radek-szymczyszyn.jpg",
       "name": "Radosław Szymczyszyn"
     },
     {
-      "image": "members/laszlo-bacsi.png",
+      "image": "volunteers/laszlo-bacsi.png",
       "name": "László Bácsi"
     }
   ],

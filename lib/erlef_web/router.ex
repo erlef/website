@@ -24,8 +24,6 @@ defmodule ErlefWeb.Router do
       "content-security-policy" =>
         " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}; connect-src 'self' https://www.erlef.org https://erlef.org wss://erlef.org wss://www.erlef.org ws://erlef.org ws://www.erlef.org"
     }
-
-    plug ErlefWeb.Plug.Events
   end
 
   pipeline :admin_required do
@@ -62,9 +60,15 @@ defmodule ErlefWeb.Router do
     get "/become-a-sponsor", PageController, :sponsor_info
     get "/wg-proposal-template", PageController, :wg_proposal_template
 
+    # NOTE: News routes are still in place for links that may be out there.
+    # Please use blog routes. 
     get "/news", BlogController, :index, as: :news
     get "/news/:topic", BlogController, :index, as: :news
     get "/news/:topic/:id", BlogController, :show, as: :news
+
+    get "/blog/tags/:tag", BlogController, :tags, as: :blog
+    get "/blog/:topic", BlogController, :index, as: :blog
+    get "/blog/:topic/:id", BlogController, :show, as: :blog
 
     get "/events/:slug", EventController, :show
     get "/events", EventController, :index
@@ -74,13 +78,18 @@ defmodule ErlefWeb.Router do
     resources "/slack-invite/:team", SlackInviteController, only: [:create, :index]
 
     scope "/members", Members, as: :members do
+      pipe_through [:session_required]
       resources "/profile", ProfileController, only: [:show], singleton: true
+      resources "/email_requests", EmailRequestController
     end
 
     scope "/admin", Admin, as: :admin do
       pipe_through [:admin_required]
       get "/", DashboardController, :index
       resources "/events", EventController, only: [:index, :show]
+      resources "/email_requests", EmailRequestController, only: [:index, :show]
+      post "/email_requests/assign", EmailRequestController, :assign
+      post "/email_requests/complete", EmailRequestController, :complete
       put "/events/:id", EventController, :approve
       live_dashboard "/dashboard"
     end

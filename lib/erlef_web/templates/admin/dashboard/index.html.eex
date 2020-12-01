@@ -1,13 +1,10 @@
-<div class="col-md-3 col-sm-6 col-12">
-  <div class="info-box bg-gradient-warning">
-    <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>
+<div class="row">
 
-    <div class="info-box-content">
-      <span class="info-box-text">Unapproved Events</span>
-      <span class="info-box-number"><%= @unapproved_event_count %></span>
-      <%= link("Click to review", to: Routes.admin_event_path(@conn, :index)) %>
-    </div>
-    <!-- /.info-box-content -->
-  </div>
-  <!-- /.info-box -->
+  <%= small_info_box(@unapproved_event_count, 
+                    "Unapproved Events", 
+                    "fa-calendar-alt",  
+                      Routes.admin_event_path(@conn, :index), 
+                      "warning") 
+  %>
+  <%= small_info_box(@outstanding_email_requests_count, "Email Requests", "fa-envelope",  Routes.admin_email_request_path(@conn, :index)) %>
 </div>

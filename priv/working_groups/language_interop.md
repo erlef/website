@@ -4,21 +4,21 @@
   "formed": "2020-02-01",
   "gcal_url": null,
   "github": null,
-  "members": [
+  "volunteers": [
     {
-      "image": "members/profile-placeholder.png",
+      "image": "volunteers/profile-placeholder.png",
       "name": "Robert Virding"
     },
     {
-      "image": "members/jose-valim.jpg",
+      "image": "volunteers/jose-valim.jpg",
       "name": "José Valim"
     },
     {
-      "image": "members/kenneth-lundin.jpg",
+      "image": "volunteers/kenneth-lundin.jpg",
       "name": "Kenneth Lundin"
     },
     {
-      "image": "members/mariano-guerra.jpg",
+      "image": "volunteers/mariano-guerra.jpg",
       "name": "Mariano Guerra"
     }
   ],

@@ -27,5 +27,10 @@ defmodule Erlef.EventTypeTest do
                {:name, {"can't be blank", [validation: :required]}}
              ]
     end
+
+    test "get/1" do
+      EventType.changeset(%EventType{}, %{name: "conference"}) |> Repo.insert!()
+      EventType.get(:conference)
+    end
   end
 end

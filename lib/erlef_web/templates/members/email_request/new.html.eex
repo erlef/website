@@ -1,0 +1,65 @@
+<div class="container mb-2">
+  <h1>Erlef Request Form</h1>
+  <hr/>
+
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+        <p>Oops, something went wrong! Please check the errors below.</p>
+      </div>
+  <% end %>
+
+  <%= if @error do %>
+    <div class="alert alert-danger">
+      <p><%= @error %></p>
+    </div>
+  <% end %>
+
+  <%= form_for @changeset, Routes.members_email_request_path(@conn, :create), [autocomplete: "off", multipart: true], fn f -> %>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Email Type</legend>
+        <div class="col-sm-2">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="email_request[type]" value="email_alias" checked>
+            <label class="form-check-label" for="type">
+              Alias
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="email_request[type]" value="email_box">
+            <label class="form-check-label" for="type">
+              Mailbox
+            </label>
+          </div>
+
+        </div>
+
+        <div class="col-sm-4">
+
+          <small class="form-text text-muted">
+            You may choose either alias or mailbox. Choosing an alias will forward email sent to your new erlef.org address to <%= @current_user.email %>, while choosing the mail box option will create an entirely new email account.
+          </small>
+        </div>
+      </div>
+
+    </fieldset>
+
+    <hr/>
+    <div class="form-group row">
+      <%= label f, :email, "Email username", class: "col-sm-2 col-form-label"%>
+      <div class="col-sm-2">
+        <%= text_input(f, :username, placeholder: "Username", class: "form-control", pattern: "[A-Za-z0-9\._]+" ) %>
+        <%= error_tag f, :username %>
+      </div>
+
+      <div class="col-sm-4">
+        <small class="form-text text-muted">
+          Alpha, numeric, <strong>.</strong> (dot), and <strong>_</strong> (underscore) characters are allowed. We recommend using <strong>firstname.lastname</strong>. In the event that an address is taken an admin will reach out to. Please refrain from general names (e.g., elixir, erlang, hex), names belonging to others, or any offensive terms. 
+        </small> 
+      </div>
+    </div>
+
+    <hr/>
+    <%= submit "Submit", class: "btn-primary" %> 
+  <% end %>
+</div>

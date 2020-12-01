@@ -1,4 +1,4 @@
-Erlef.Test.WildApricot.start()
+Application.ensure_started(Erlef.WildApricot.Cache)
 ExUnit.start()
 Faker.start()
 

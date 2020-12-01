@@ -1,4 +1,4 @@
-defmodule Erlef.WorkingGroup do
+defmodule Erlef.Groups.WorkingGroup do
   @moduledoc """
   Erlef.WorkingGroup schema
   """
@@ -19,7 +19,7 @@ defmodule Erlef.WorkingGroup do
     field(:excerpt_html, :string)
     field(:formed, :date)
 
-    embeds_many(:members, Member, primary_key: false) do
+    embeds_many(:volunteers, Volunteer, primary_key: false) do
       field(:id, :integer)
       field(:name, :string)
       field(:image, :string)
@@ -32,7 +32,7 @@ defmodule Erlef.WorkingGroup do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @required_fields)
-    |> cast_embed(:members, with: &member_changeset/2)
+    |> cast_embed(:volunteers, with: &member_changeset/2)
   end
 
   defp member_changeset(schema, params) do

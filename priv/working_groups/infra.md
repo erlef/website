@@ -4,25 +4,25 @@
   "formed": "2019-10-31",
   "gcal_url": null,
   "github": "erlef/infra",
-  "members": [
+  "volunteers": [
     {
-      "image": "members/peer-stritzinger.jpg",
+      "image": "volunteers/peer-stritzinger.jpg",
       "name": "Peer Stritzinger"
     },
     {
-      "image": "members/bryan-paxton.jpg",
+      "image": "volunteers/bryan-paxton.jpg",
       "name": "Bryan Paxton"
     },
     {
-      "image": "members/benoit-chesneau.jpg",
+      "image": "volunteers/benoit-chesneau.jpg",
       "name": "Benoit Chesneau"
     },
     {
-      "image": "members/alistair-woodman.png",
+      "image": "volunteers/alistair-woodman.png",
       "name": "Alistair Woodman"
     },
     {
-      "image": "members/maxim-fedorov.jpg",
+      "image": "volunteers/maxim-fedorov.jpg",
       "name": "Maxim Fedorov"
     }
   ],

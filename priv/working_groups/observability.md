@@ -4,49 +4,49 @@
   "formed": "2019-04-30",
   "gcal_url": "https://calendar.google.com/calendar?cid=N25nZ2RiNWhuZnFwODI4b2FwaTExOWprZXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
   "github": "erlef/eef-observability-wg",
-  "members": [
+  "volunteers": [
     {
-      "image": "members/tristan-sloughter.jpg",
+      "image": "volunteers/tristan-sloughter.jpg",
       "name": "Tristan Sloughter"
     },
     {
-      "image": "members/lukasz-niemier.jpg",
+      "image": "volunteers/lukasz-niemier.jpg",
       "name": "Łukasz Niemier"
     },
     {
-      "image": "members/vince-foley.png",
+      "image": "volunteers/vince-foley.png",
       "name": "Vince Foley"
     },
     {
-      "image": "members/ilya-khaprov.jpg",
+      "image": "volunteers/ilya-khaprov.jpg",
       "name": "Ilya Khaprov"
     },
     {
-      "image": "members/bryan-naegele.png",
+      "image": "volunteers/bryan-naegele.png",
       "name": "Bryan Naegele"
     },
     {
-      "image": "members/greg-mefford.jpg",
+      "image": "volunteers/greg-mefford.jpg",
       "name": "Greg Mefford"
     },
     {
-      "image": "members/arkadiusz-gil.jpg",
+      "image": "volunteers/arkadiusz-gil.jpg",
       "name": "Arkadiusz Gil"
     },
     {
-      "image": "members/zachary-daniel.jpg",
+      "image": "volunteers/zachary-daniel.jpg",
       "name": "Zach Daniel"
     },
     {
-      "image": "members/mark-allen.jpg",
+      "image": "volunteers/mark-allen.jpg",
       "name": "Mark Allen"
     },
     {
-      "image": "members/andrew-thompson.jpg",
+      "image": "volunteers/andrew-thompson.jpg",
       "name": "Andrew Thompson"
     },
     {
-      "image": "members/jose-valim.jpg",
+      "image": "volunteers/jose-valim.jpg",
       "name": "José Valim"
     }
   ],

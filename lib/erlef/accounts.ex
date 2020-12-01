@@ -14,9 +14,7 @@ defmodule Erlef.Accounts do
    - fellow
    - board
   """
-  def get_member(uid) do
-    {:ok, %{"access_token" => token}} = Erlef.WildApricot.get_api_token()
-    {:ok, contact} = Erlef.WildApricot.get_contact(token, uid)
-    {:ok, Erlef.Accounts.Member.from_contact(contact)}
-  end
+
+  defdelegate get_member(id), to: Erlef.Accounts.Member, as: :get
+  defdelegate update_member(member, params), to: Erlef.Accounts.Member, as: :update
 end

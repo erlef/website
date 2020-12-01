@@ -2,7 +2,8 @@
   "title": "2020 Fellowship Nominations",
   "author": "Francesco Cesarini",
   "slug": "2020-fellowship-nominations",
-  "category": "Fellowship",
+  "tags": ["eef", "board", "elections"],
+  "category": "fellowship",
   "datetime": "2020-07-01T10:31:44.921505Z"
 }
 ---

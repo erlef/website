@@ -4,85 +4,85 @@
   "formed": "2019-06-15",
   "gcal_url": null,
   "github": null,
-  "members": [
+  "volunteers": [
     {
-      "image": "members/brujo-benavides.png",
+      "image": "volunteers/brujo-benavides.png",
       "name": "Brujo Benavides"
     },
     {
-      "image": "members/francesco-cesarini.jpg",
+      "image": "volunteers/francesco-cesarini.jpg",
       "name": "Francesco Cesarini"
     },
     {
-      "image": "members/fred-hebert.png",
+      "image": "volunteers/fred-hebert.png",
       "name": "Fred Hebert"
     },
     {
-      "image": "members/miriam-pena.jpg",
+      "image": "volunteers/miriam-pena.jpg",
       "name": "Miriam Pena"
     },
     {
-      "image": "members/peer-stritzinger.jpg",
+      "image": "volunteers/peer-stritzinger.jpg",
       "name": "Peer Stritzinger"
     },
     {
-      "image": "members/simon-thompson.jpg",
+      "image": "volunteers/simon-thompson.jpg",
       "name": "Simon Thompson"
     },
     {
-      "image": "members/jeff-grunewald.jpg",
+      "image": "volunteers/jeff-grunewald.jpg",
       "name": "Jeff Grunewald"
     },
     {
-      "image": "members//anna-neyzberg.jpg",
+      "image": "volunteers//anna-neyzberg.jpg",
       "name": "Anna Neyzberg"
     },
     {
-      "image": "members/laura-castro.jpg",
+      "image": "volunteers/laura-castro.jpg",
       "name": "Laura M. Castro"
     },
     {
-      "image": "members/mrinal-wadhwa.png",
+      "image": "volunteers/mrinal-wadhwa.png",
       "name": "Mrinal Wadhwa"
     },
     {
-      "image": "members/ben-marx.jpg",
+      "image": "volunteers/ben-marx.jpg",
       "name": "Ben Marx"
     },
     {
-      "image": "members/alistair-woodman.png",
+      "image": "volunteers/alistair-woodman.png",
       "name": "Alistair Woodman"
     },
     {
-      "image": "members/paulo-d-gonzalez.png",
+      "image": "volunteers/paulo-d-gonzalez.png",
       "name": "Paulo D. Gonzalez"
     },
     {
-      "image": "members/norberto-ortigoza.jpg",
+      "image": "volunteers/norberto-ortigoza.jpg",
       "name": "Norberto Ortigoza"
     },
     {
-      "image": "members/adolfo-neto.jpg",
+      "image": "volunteers/adolfo-neto.jpg",
       "name": "Adolfo Neto"
     },
     {
-      "image": "members/johnny-winn.jpeg",
+      "image": "volunteers/johnny-winn.jpeg",
       "name": "Johnny Winn"
     },
     {
-      "image": "members/raphael-vidal.jpeg",
+      "image": "volunteers/raphael-vidal.jpeg",
       "name": "Raphael Vidal"
     },
     {
-      "image": "members/annette-bieniusa.jpeg",
+      "image": "volunteers/annette-bieniusa.jpeg",
       "name": "Annette Bieniusa"
     },
     {
-      "image": "members/bruno-azenha.jpeg",
+      "image": "volunteers/bruno-azenha.jpeg",
       "name": "Bruno Azenha Gonçalves"
     },
     {
-      "image": "members/eric-douglas.jpeg",
+      "image": "volunteers/eric-douglas.jpeg",
       "name": "Eric Douglas"
     }
   ],

@@ -4,25 +4,25 @@
   "formed": "2020-06-29",
   "gcal_url": null,
   "github": null,
-  "members": [
+  "volunteers": [
     {
-      "image": "members/susumu-yamazaki.jpg",
+      "image": "volunteers/susumu-yamazaki.jpg",
       "name": "Susumu Yamazaki"
     },
     {
-      "image": "members/akash-hiremath.jpg",
+      "image": "volunteers/akash-hiremath.jpg",
       "name": "Akash Hiremath"
     },
     {
-      "image": "members/graham-leva.jpg",
+      "image": "volunteers/graham-leva.jpg",
       "name": "Graham Leva"
     },
     {
-      "image": "members/isaac-yonemoto.jpg",
+      "image": "volunteers/isaac-yonemoto.jpg",
       "name": "Isaac Yonemoto"
     },
     {
-      "image": "members/hideki-takase.jpg",
+      "image": "volunteers/hideki-takase.jpg",
       "name": "Hideki Takase"
     }
   ],

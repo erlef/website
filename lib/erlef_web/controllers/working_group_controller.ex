@@ -1,13 +1,13 @@
 defmodule ErlefWeb.WorkingGroupController do
   use ErlefWeb, :controller
 
-  alias Erlef.{Blog, Posts, WorkingGroup}
+  alias Erlef.{Blogs, Groups}
 
   action_fallback ErlefWeb.FallbackController
 
   def index(conn, _params) do
     groups =
-      Posts.all(WorkingGroup)
+      Groups.all_working_groups()
       |> Enum.reject(fn wg -> wg.slug == "eef" end)
       |> sort_by_formation()
 
@@ -15,11 +15,11 @@ defmodule ErlefWeb.WorkingGroupController do
   end
 
   def show(conn, %{"id" => slug}) do
-    {:ok, wg} = Posts.get_by_slug(WorkingGroup, slug)
+    {:ok, wg} = Groups.get_working_group_by_slug(slug)
 
     render(conn,
       wg: wg,
-      blog_posts: Posts.get_by_category(Blog, slug),
+      blog_posts: Blogs.get_posts_by_category(slug),
       topic: slug
     )
   end

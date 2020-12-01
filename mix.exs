@@ -13,7 +13,11 @@ defmodule Erlef.MixProject do
       preferred_cli_env: [coveralls: :test, "coveralls.html": :test],
       deps: deps(),
       aliases: aliases(),
-      dialyzer: dialyzer_opts()
+      dialyzer: dialyzer_opts(),
+      name: "MyApp",
+      source_url: "https://github.com/erlef/website",
+      homepage_url: "https://erlef.org/",
+      docs: docs()
     ]
   end
 
@@ -68,7 +72,8 @@ defmodule Erlef.MixProject do
       {:slugify, "~> 1.3.1"},
       {:sobelow, "~> 0.10.6", only: [:dev, :test]},
       {:swoosh, "~> 1.1.1"},
-      {:timex, "~> 3.6.2"}
+      {:timex, "~> 3.6.2"},
+      {:ex_doc, "~> 0.23", only: :dev, runtime: false}
     ]
   end
 
@@ -87,6 +92,14 @@ defmodule Erlef.MixProject do
         "test"
       ],
       "eef.gen.newsletter": [&gen_newsletter/1]
+    ]
+  end
+
+  def docs do
+    [
+      main: "Erlef",
+      logo: "assets/static/images/eef-avatar.png",
+      extras: ["README.md"]
     ]
   end
 

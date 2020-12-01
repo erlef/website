@@ -4,66 +4,66 @@
   "formed": "2019-04-30",
   "gcal_url": null,
   "github": "erlef/eef-build-and-packaging-wg",
-  "members": [
+  "volunteers": [
     {
-      "image": "members/tristan-sloughter.jpg",
+      "image": "volunteers/tristan-sloughter.jpg",
       "name": "Tristan Sloughter"
     },
     {
-      "image": "members/fred-hebert.png",
+      "image": "volunteers/fred-hebert.png",
       "name": "Fred Hebert"
     },
     {
-      "image": "members/bryan-paxton.jpg",
+      "image": "volunteers/bryan-paxton.jpg",
       "name": "Bryan Paxton"
     },
     {
-      "image": "members/todd-resudek.jpg",
+      "image": "volunteers/todd-resudek.jpg",
       "name": "Todd Resudek"
     },
     {
-      "image": "members/randy-thompson.jpg",
+      "image": "volunteers/randy-thompson.jpg",
       "name": "Randy Thompson"
     },
     {
-      "image": "members/wojtek-mach.jpg",
+      "image": "volunteers/wojtek-mach.jpg",
       "name": "Wojtek Mach"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "volunteers/profile-placeholder.png",
       "name": "Ivan Glushkov"
     },
     {
-      "image": "members/andrea-leopardi.jpg",
+      "image": "volunteers/andrea-leopardi.jpg",
       "name": "Andrea Leopardi"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "volunteers/profile-placeholder.png",
       "name": "Justin Wood"
     },
     {
-      "image": "members/jose-valim.jpg",
+      "image": "volunteers/jose-valim.jpg",
       "name": "José Valim"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "volunteers/profile-placeholder.png",
       "name": "Thomas Depierre"
     },
     {
-      "image": "members/adam-lindberg.jpg",
+      "image": "volunteers/adam-lindberg.jpg",
       "name": "Adam Lindberg"
     },
     {
-      "image": "members/maxim-fedorov.jpg",
+      "image": "volunteers/maxim-fedorov.jpg",
       "name": "Maxim Fedorov"
     },
     {
-      "image": "members/profile-placeholder.png",
+      "image": "volunteers/profile-placeholder.png",
       "name": "John Hogberg"
     }
   ],
   "name": "Building and Packaging",
-  "slug": "building"
+  "slug": "building-and-packaging"
 }
 ---
 EEF Building & Packaging Working Group

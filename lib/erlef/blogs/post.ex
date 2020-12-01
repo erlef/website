@@ -1,4 +1,4 @@
-defmodule Erlef.Blog do
+defmodule Erlef.Blogs.Post do
   @moduledoc """
   Erlef.Blog schema
   """
@@ -16,12 +16,24 @@ defmodule Erlef.Blog do
     field(:excerpt_html, :string, default: "")
     field(:body, :string)
     field(:body_html, :string, default: "")
+    field(:tags, {:array, :string}, default: [])
   end
 
-  @required_fields ~w(excerpt excerpt_html body body_html excerpt_html author slug category datetime title)a
+  @required_fields [
+    :excerpt,
+    :excerpt_html,
+    :body,
+    :body_html,
+    :excerpt_html,
+    :author,
+    :slug,
+    :category,
+    :datetime,
+    :title
+  ]
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_fields)
+    |> cast(params, @required_fields ++ [:tags])
   end
 end

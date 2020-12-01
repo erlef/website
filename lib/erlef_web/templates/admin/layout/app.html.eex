@@ -34,8 +34,8 @@
 
     <!-- Main content -->
     <div class="content">
-            <div class="container-fluid">
-              <%= render @view_module, @view_template, assigns %>
+      <div class="container-fluid">
+         <%= @inner_content %>
      </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
@@ -51,7 +51,8 @@
     </div>
   </aside>
   <!-- /.control-sidebar -->
-    <%= render "footer.html", conn: @conn, current_user: @current_user %>
+
+  <%= render "footer.html", conn: @conn, current_user: @current_user %>
 
 </div>
 <!-- ./wrapper -->

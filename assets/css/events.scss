@@ -1,0 +1,30 @@
+.event-card {
+    position: relative;
+    z-index: 100;
+}
+
+.event-card-image-wrapper {
+    width: 8rem;
+
+    flex-shrink: 0;
+}
+
+.event-card-image {
+    width: auto;
+    height: 4rem;
+}
+
+.event-card-list-image {
+    width: auto;
+}
+
+.nav-events {
+  .nav-link {
+    cursor: pointer;
+    color: white;
+
+    .active {
+      color: black;
+    }
+  }
+}

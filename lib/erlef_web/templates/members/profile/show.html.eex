@@ -1,11 +1,71 @@
-<div class="container">
-  <ul class="list-unstyled">
-    <li><strong>Name:</strong> <%= @current_user.display_name %></li>
-  </ul>
+<div class="container mt-4">
+  <div class="row"> 
+    <div class="col-sm-2">
+      <nav id="profile-toc" class="sticky-top"></nav>
+    </div>
 
-  <p class="ml-5">
-    <a target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Click here</a>
-    to view more manage your memberships details and subscription. 
-  </p>
+    <div class="col">
+      <h1>General</h1>
+      <ul class="list-unstyled">
+        <li><strong>Name:</strong> <%= @current_user.display_name %></li>
+        <li><strong>Email:</strong> <%= @current_user.email %></li>
+        <li><strong>Member since:</strong> <%= member_since(@current_user) %></li>
+        <li><strong>Member level:</strong> <%= member_level(@current_user) %></li>
+        <li>
 
+      </ul>
+
+      <hr class="mb-4"/>
+      <h1>Requests</h1>
+      <%= if @current_user.is_paying? && not @current_user.has_email_address? && not @has_email_request do %> 
+        <div class="alert alert-info" role="alert">
+          You are eligible for a erlef.org email address or alias. 
+          <%= link("Click here to opt in", to: Routes.members_email_request_path(@conn, :new)) %>
+        </div>
+      <% end %>
+
+      <%= if @has_email_request do %>
+        <h2>Email Request</h2>
+        <p>You submitted a request for an erlef.org address. Details are below :
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Requested name</th>
+              <th>Submitted on</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><%= humanize(@email_request.type) %></td>
+              <td><%= humanize(@email_request.status) %></td>
+              <td><%= @email_request.username %></td>
+              <td><%= to_date_string(@email_request.inserted_at) %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+
+      <hr class="mb-4"/>
+      <h1 class="mb-4">Member Settings</h1>
+      <p>
+      <a target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Click here</a>
+      to view more manage your memberships details and subscription. 
+      </p>
+    </div>
+  </div>
 </div>
+
+<script>
+  $(function() {
+    var navSelector = "#profile-toc";
+    var $myNav = $(navSelector);
+    Toc.init($myNav);
+    $("body").scrollspy({
+      target: navSelector,
+      offset: 10
+    });
+  });
+</script>

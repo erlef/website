@@ -1,0 +1,42 @@
+.blog-post-meta { 
+    margin-bottom: 1.25rem;
+    color: #999;
+    font-size:0.9rem;
+}
+
+.blog-tag { 
+  font-size: 0.9rem;
+  width: auto;
+  font-weight: 400;
+  margin-bottom: 0.2rem;
+}
+
+.blog-tag > i { 
+    font-size: 0.7rem;
+}
+
+.recent-posts-widget { 
+    padding:1rem;
+}
+
+div.blog-post > table {
+   width: 100%;
+   border-collapse: collapse;
+}
+
+div.blog-post > td, th {
+  border: 0.0625rem solid #ddd;
+  padding: 0.5rem;
+}
+
+div.blog-post tr:nth-child(even){background-color: #f2f2f2;}
+
+div.blog-post tr:hover {background-color: #ddd;}
+
+div.blost-post > th {
+  padding-top: 0.725rem;
+  padding-bottom: 0.725rem;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}

@@ -53,16 +53,25 @@ _paq.push(['enableLinkTracking']);
   <body>
     <%= render "header.html", assigns %>
     <main role="main">
+      <div class="container mt-2">
+        <%= if flash = get_flash(@conn, :info) do %>
+          <div class="alert alert-info" role="alert">
+            <%= raw flash %>
+          </div>
+      <% end %>
+
       <%= if flash = get_flash(@conn, :error) do %>
         <div class="alert alert-danger" role="alert">
-          <%=raw flash %>
+          <%= raw flash %>
         </div>
       <% end %>
+
       <%= if flash = get_flash(@conn, :success) do %>
         <div class="alert alert-success" role="alert">
-          <%=raw flash %>
+          <%= raw flash %>
         </div>
       <% end %>
+      </div>
       <%= @inner_content %>
     </main>
     <%= render "footer.html", assigns %>

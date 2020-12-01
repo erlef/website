@@ -14,6 +14,7 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
+        <a href="/" alt="Go back to the main site">
           <i class="fas fa-sign-out-alt"></i>
         </a>
     </ul>

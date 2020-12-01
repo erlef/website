@@ -7,21 +7,12 @@ defmodule Erlef.Application do
 
   def start(_type, _args) do
     # List all child processes to be supervised
-    children =
-      [
-        # Start the endpoint when the application starts
-        Erlef.Repo,
-        Erlef.Repo.ETS,
-        Erlef.Repo.ETS.Importer,
-        {Phoenix.PubSub, name: Erlef.PubSub},
-        ErlefWeb.Endpoint,
-        {PlugAttack.Storage.Ets, name: MyApp.PlugAttack.Storage, clean_period: 60_000}
-      ] ++ children_for(Application.get_env(:erlef, :env))
-
+    # children =
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
+    env = Application.get_env(:erlef, :env)
     opts = [strategy: :one_for_one, name: Erlef.Supervisor]
-    Supervisor.start_link(children, opts)
+    Supervisor.start_link(children(env), opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
@@ -31,9 +22,26 @@ defmodule Erlef.Application do
     :ok
   end
 
-  defp children_for(env) when env in [:dev, :test] do
-    [Erlef.Test.WildApricot]
+  defp children(env) do
+    children_for(env)
   end
 
-  defp children_for(_), do: []
+  defp base_children() do
+    [
+      Erlef.Repo,
+      Erlef.Repo.ETS,
+      Erlef.Repo.ETS.Importer,
+      {Phoenix.PubSub, name: Erlef.PubSub},
+      ErlefWeb.Endpoint,
+      {PlugAttack.Storage.Ets, name: MyApp.PlugAttack.Storage, clean_period: 60_000}
+    ]
+  end
+
+  # The WildApricot model and cache server must be started first in dev/test
+  defp children_for(env) when env in [:dev, :test] do
+    [Erlef.Test.WildApricot, Erlef.WildApricot.Cache] ++ base_children()
+  end
+
+  # The WildApricot Cache server should be started last when not in dev/test
+  defp children_for(_), do: base_children() ++ [Erlef.WildApricot.Cache]
 end
