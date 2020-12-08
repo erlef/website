@@ -3,7 +3,6 @@ defmodule Erlef.Members.EmailRequest do
   Erlef.Schema.Event schema
   """
   use Erlef.Schema
-  # import Ecto.Enum
 
   @derive {Jason.Encoder, only: [:id, :type, :username, :status, :submitted_by, :assigned_to]}
   @type t :: %__MODULE__{
