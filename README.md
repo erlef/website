@@ -78,9 +78,9 @@ This is where the body of the post goes.
 ## Development
 
 ### Getting around in dev mode
-- copy .env-example to .env-local and source the file
-- you may login in as an regular user in dev using member@erlef.test and any password
-- you may login in as an admin in dev using admin@erlef.test and any password
+- No extra configuration is needed to getting up and running in dev mode. Simply start up the app after
+  initializing the database and login. 
+- You may login in with different personas in dev mode using the `Login as` dropdown menu. 
 
 ### Contributing to the community section of the site
 
