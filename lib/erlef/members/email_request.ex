@@ -50,10 +50,12 @@ defmodule Erlef.Members.EmailRequest do
     struct
     |> cast(params, @all_fields)
     |> validate_required(@required_fields)
+    |> validate_format(:username, ~r/^[A-Za-z0-9\._]+\Z/)
+    |> validate_length(:username, min: 1, max: 40)
     |> maybe_add_log_entry()
   end
 
-  defp maybe_add_log_entry(%{data: %{id: id}} = cs) when is_nil(id) do
+  defp maybe_add_log_entry(%{data: %{id: nil}} = cs) do
     cs
   end
 
