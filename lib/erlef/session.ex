@@ -168,11 +168,19 @@ defmodule Erlef.Session do
     end
   end
 
+  defp maybe_put_uuid(%Member{id: ""} = member) do
+    put_uuid(member)
+  end
+
   defp maybe_put_uuid(%Member{id: nil} = member) do
+    put_uuid(member)
+  end
+
+  defp maybe_put_uuid(member), do: member
+
+  defp put_uuid(member) do
     uuid = Ecto.UUID.generate()
     Accounts.update_member(member, %{id: uuid})
     %{member | id: uuid}
   end
-
-  defp maybe_put_uuid(member), do: member
 end
