@@ -5,6 +5,26 @@ defmodule Erlef.Factory do
   use ExMachina.Ecto, repo: Erlef.Repo
 
   alias Erlef.Publications.AcademicPaper
+  alias Erlef.Schema.Event
+  alias Erlef.Schema.EventType
+
+  def event_type_factory do
+    %EventType{
+      name: Faker.Lorem.word()
+    }
+  end
+
+  def event_factory do
+    %Event{
+      title: Faker.Lorem.sentence(),
+      description: Faker.Lorem.paragraph(),
+      start: Date.utc_today(),
+      end: Date.utc_today(),
+      organizer: Faker.Company.name(),
+      url: Faker.Internet.url(),
+      submitted_by: :crypto.rand_uniform(1, 42)
+    }
+  end
 
   def academic_papers_factory do
     %AcademicPaper{
