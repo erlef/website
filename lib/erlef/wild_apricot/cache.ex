@@ -61,7 +61,7 @@ defmodule Erlef.WildApricot.Cache do
     {:noreply, state}
   end
 
-  def handle_continue(_, state), do: {:noreply, state}
+  def handle_info(_, state), do: {:noreply, state}
 
   # Private
   # We ran into an error initially trying to fetch the token, try again
