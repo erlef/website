@@ -86,7 +86,9 @@ if Application.get_env(:erlef, :env) == :prod do
     auth: :always,
     port: 465,
     retries: 2,
-    no_mx_lookups: false
+    no_mx_lookups: false,
+    username: {:system, "SMTP_USER"},
+    password: {:system, "SMTP_PASSWORD"}
 
   config :extwitter, :oauth,
     consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
