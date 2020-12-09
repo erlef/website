@@ -22,7 +22,7 @@ defmodule ErlefWeb.Router do
 
     plug :put_secure_browser_headers, %{
       "content-security-policy" =>
-        " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}; connect-src 'self' https://www.erlef.org https://erlef.org wss://erlef.org wss://www.erlef.org ws://erlef.org ws://www.erlef.org"
+        " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}; connect-src 'self' https://www.erlef.org https://erlef.org wss://erlef.org wss://www.erlef.org ws://erlef.org ws://www.erlef.org  https://erlef.matomo.cloud"
     }
   end
 
