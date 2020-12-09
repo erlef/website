@@ -26,7 +26,8 @@ defmodule Erlef.Accounts.Member do
     "Annual Supporting Membership",
     "Lifetime Supporting Membership",
     "Board",
-    "Fellow"
+    "Fellow",
+    "Managing and Contributing"
   ]
 
   # The following is used to map wildapricot fields to normalized atoms for use
