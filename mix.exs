@@ -43,7 +43,7 @@ defmodule Erlef.MixProject do
     [
       {:credo, "~> 1.5.2", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0.0", only: [:dev, :test], runtime: false},
-      {:earmark, "~> 1.4.10", override: true},
+      {:earmark, "~> 1.4.13", override: true},
       {:ecto_sql, "~> 3.5.3"},
       {:etso, "~> 0.1.2"},
       {:ex_aws, "~> 2.1.6"},
