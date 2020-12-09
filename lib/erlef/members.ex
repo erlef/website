@@ -7,6 +7,8 @@ defmodule Erlef.Members do
   alias Erlef.Members.EmailRequest
   alias Erlef.Members.EmailRequestNotification
   alias Erlef.Mailer
+  alias Erlef.Admins
+
   import Ecto.Query
 
   def new_email_request(params \\ %{}) do
@@ -14,9 +16,19 @@ defmodule Erlef.Members do
   end
 
   def create_email_request(params) do
-    params
-    |> new_email_request()
-    |> Repo.insert()
+    result =
+      params
+      |> new_email_request()
+      |> Repo.insert()
+
+    case result do
+      {:ok, _} ->
+        Admins.notify(:new_email_request)
+        result
+
+      err ->
+        err
+    end
   end
 
   def get_email_request(id), do: Repo.get(EmailRequest, id)

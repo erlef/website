@@ -29,6 +29,7 @@ defmodule Erlef.MembersTest do
              })
 
     assert ^req = Members.get_email_request(req.id)
+    assert_email_sent(Erlef.Admins.Notifications.new(:new_email_request, %{}))
   end
 
   test "outstanding_email_requests/0", %{member: member} do
