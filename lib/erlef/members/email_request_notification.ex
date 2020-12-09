@@ -38,7 +38,7 @@ defmodule Erlef.Members.EmailRequestNotification do
 
     We are glad to inform you that the erlef.org mail account you requested has been created.
 
-    You may login to https://fastmail.com/login using your new email address and the following credentials :
+    You may login at https://fastmail.com/login using your new email address and the following credentials :
 
     username : #{member.erlef_email_address} 
     password : #{password}
