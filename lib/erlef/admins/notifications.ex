@@ -14,7 +14,7 @@ defmodule Erlef.Admins.Notifications do
     """
 
     new()
-    |> to({"Infrastructure Requests", "infra-requests@erlef.org"})
+    |> to({"Infrastructure Requests", "infra.requests@erlef.org"})
     |> from({"Erlef Notifications", "notifications@erlef.org"})
     |> subject("A new email request was created")
     |> text_body(msg)
