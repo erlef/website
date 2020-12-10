@@ -1,4 +1,6 @@
 defmodule Erlef.Fellows do
+  @moduledoc false
+
   @fellows [
     %{
       name: "Bjarne Däcker",
