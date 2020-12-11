@@ -38,6 +38,10 @@ defmodule ErlefWeb.PageController do
 
   def faq(conn, _params), do: render(conn)
 
+  def fellows(conn, _params) do
+    render(conn, fellows: Erlef.Fellows.all())
+  end
+
   def sponsors(conn, _params) do
     %{true: founding_sponsors, false: sponsors} =
       Erlef.Rosters.get("sponsors") |> Enum.group_by(fn {_k, x} -> x.founding_sponsor == true end)

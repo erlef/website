@@ -38,4 +38,32 @@ defmodule ErlefWeb.PageView do
     </div>
     """
   end
+
+  def fellows_card_wall(items) do
+    ~E"""
+     <div class="row">
+    <%= for i <- items do %>
+
+      <div class="ml-1 mr-1">
+      <h2 style="text-decoration:underline;"><%= i.name %></h2>
+      <div class="col-sm-14 mb-4">
+        <div class="card" style="">
+          <div class="row no-gutters">
+            <div class="col-sm-5" style="">
+                <img class="card-img" src="<%= i.avatar %>" alt="<%= i.name %>">
+            </div>
+      
+            <div class="col-sm-7">
+              <div class="card-body">
+                <p class="card-text"><%= i.about %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <% end %>
+    </div>
+    """
+  end
 end

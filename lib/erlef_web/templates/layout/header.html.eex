@@ -17,12 +17,22 @@
             <a class="dropdown-item" href="/become-a-sponsor/">Become a sponsor!</a>
           </div>
         </li>
+
+        <li class="nav-item"><a href="/fellows/" class="nav-link">Fellows</a></li>
         <li class="nav-item"><a href="/wg/" class="nav-link">Working Groups</a></li>
         <li class="nav-item"><a href="/stipends/" class="nav-link">Stipends</a></li>
         <li class="nav-item"><a href="/news/" class="nav-link">News</a></li>
         <li class="nav-item"><a href="/community/" class="nav-link">Community</a></li>
-        <li class="nav-item"><a href="/academic-papers/" class="nav-link">Academic Papers</a></li>
         <li class="nav-item"><a href="/events/" class="nav-link">Events</a></li>
+ 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+            data-toggle="dropdown">Resources</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a href="/academic-papers/" class="nav-link">Academic Papers</a>
+            </div>
+        </li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

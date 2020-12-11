@@ -1,0 +1,44 @@
+<div id="fellows" class="container">
+  <div>
+    <h1 data-toc-skip="true" style="margin-left:1rem;">Fellows</h1>
+    <p style="margin-left:1rem;">
+    What is a fellow? Those whom have made extraordinary contributions to our community. 
+    Without some of which there would be no community or even Erlang/OTP at all. Thus our fellows are 
+    to be celebrated and honored. Without further ado, we present our fellows.
+    </p> 
+    <p style="margin-left:1rem;">See the <%= link("Fellowship Working Group", to: Routes.working_group_path(@conn, :show, "fellowship")) %> for more information</p>
+  </div>
+
+  <hr/>
+
+  <div class="row"> 
+    <div class="col-sm-2">
+      <nav id="fellows-toc" class="sticky-top"></nav>
+    </div>
+
+    <div class="col-sm-10 pb-5"> 
+      <%= fellows_card_wall(Enum.shuffle(@fellows)) %>
+    </div>  
+  </div>
+</div>
+
+<script>
+  $( ".card" ).hover(
+    function() {
+      $(this).addClass('shadow-lg').css('cursor', 'pointer'); 
+    }, function() {
+      $(this).removeClass('shadow-lg');
+    }
+  );
+
+$(function() {
+  var navSelector = "#fellows-toc";
+  var $myNav = $(navSelector);
+  Toc.init($myNav);
+
+  $("body").scrollspy({
+    target: navSelector,
+    offset: 120
+  });
+});
+</script>
