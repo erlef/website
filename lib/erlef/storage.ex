@@ -10,10 +10,20 @@ defmodule Erlef.Storage do
 
     case ExAws.request(operation) do
       {:ok, _} ->
-        {:ok, "https://event-org-images.ewr1.vultrobjects.com/#{filename}"}
+        {:ok, image_url(filename)}
 
       err ->
         err
+    end
+  end
+
+  defp image_url(filename) do
+    case Erlef.in_env?([:dev, :test]) do
+      true ->
+        "http://127.0.0.1:9998/event-org-images/#{filename}"
+
+      false ->
+        "https://event-org-images.ewr1.vultrobjects.com/#{filename}"
     end
   end
 end

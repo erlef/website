@@ -28,6 +28,16 @@ config :erlef, :wild_apricot,
   client_id: "client_id",
   client_secret: "client_secret"
 
+config :ex_aws,
+  access_key_id: ["access_key_id", :instance_role],
+  secret_access_key: ["secret_access_key", :instance_role],
+  s3: [
+    scheme: "http://",
+    region: "New Jersey",
+    host: "127.0.0.1",
+    port: 9998
+  ]
+
 config :erlef, Erlef.Repo,
   database: "erlef_website_test",
   username: "postgres",

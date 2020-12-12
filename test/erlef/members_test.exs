@@ -29,6 +29,7 @@ defmodule Erlef.MembersTest do
              })
 
     assert ^req = Members.get_email_request(req.id)
+    assert ^req = Members.get_email_request_by_member(member)
     assert_email_sent(Erlef.Admins.Notifications.new(:new_email_request, %{}))
   end
 

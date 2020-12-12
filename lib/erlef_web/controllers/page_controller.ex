@@ -2,10 +2,10 @@ defmodule ErlefWeb.PageController do
   use ErlefWeb, :controller
 
   alias Erlef.{
+    Community,
     Blogs,
     Groups,
-    Twitter,
-    Query.Event
+    Twitter
   }
 
   action_fallback ErlefWeb.FallbackController
@@ -17,7 +17,7 @@ defmodule ErlefWeb.PageController do
       working_groups: Groups.all_working_groups(),
       latest_news: latest_news,
       tweets: Twitter.latest_tweets(),
-      events: Event.approved() |> Enum.take(3)
+      events: Community.approved_events() |> Enum.take(3)
     )
   end
 
@@ -29,7 +29,7 @@ defmodule ErlefWeb.PageController do
   def bylaws(conn, _params), do: render(conn)
 
   def community(conn, _params) do
-    render(conn, community: Erlef.Community.all())
+    render(conn, community: Erlef.Community.all_resources())
   end
 
   def sponsor_info(conn, _params), do: render(conn, "become_a_sponsor.html")

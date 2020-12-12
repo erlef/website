@@ -15,12 +15,12 @@ event_types = [
   }
 ]
 
-Erlef.Seeds.insert(Erlef.Schema.EventType, event_types)
+Erlef.Seeds.insert(Erlef.Community.EventType, event_types)
 
-%{id: conf_id} = Erlef.Schema.EventType.get(:conference)
-%{id: meetup_id} = Erlef.Schema.EventType.get(:meetup)
-%{id: _hackathon_id} = Erlef.Schema.EventType.get(:hackathon)
-%{id: _training_id} = Erlef.Schema.EventType.get(:training)
+%{id: conf_id} = Erlef.Community.EventType.get(:conference)
+%{id: meetup_id} = Erlef.Community.EventType.get(:meetup)
+%{id: _hackathon_id} = Erlef.Community.EventType.get(:hackathon)
+%{id: _training_id} = Erlef.Community.EventType.get(:training)
 
 now = DateTime.truncate(DateTime.utc_now(), :second)
 
@@ -424,4 +424,4 @@ events = [
   },
 ]
 
-Erlef.Seeds.insert(Erlef.Schema.Event, events)
+Erlef.Seeds.insert(Erlef.Community.Event, events)

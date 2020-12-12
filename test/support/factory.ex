@@ -5,8 +5,8 @@ defmodule Erlef.Factory do
   use ExMachina.Ecto, repo: Erlef.Repo
 
   alias Erlef.Publications.AcademicPaper
-  alias Erlef.Schema.Event
-  alias Erlef.Schema.EventType
+  alias Erlef.Community.Event
+  alias Erlef.Community.EventType
 
   def event_type_factory do
     %EventType{

@@ -4,7 +4,7 @@ defmodule ErlefWeb.EventsLive do
   """
   use Phoenix.LiveView
 
-  alias Erlef.Query.Event, as: Query
+  alias Erlef.Community
 
   def mount(_params, %{"events" => events}, socket) do
     socket =
@@ -21,11 +21,11 @@ defmodule ErlefWeb.EventsLive do
 
   def handle_event("filter", %{"filter" => "ALL"}, socket) do
     socket = assign(socket, :filter, "")
-    {:noreply, assign(socket, :events, Query.approved())}
+    {:noreply, assign(socket, :events, Community.approved_events())}
   end
 
   def handle_event("filter", %{"filter" => filter}, socket) do
-    events = Query.approved() |> Enum.filter(&(&1.event_type.name == filter))
+    events = Community.approved_events() |> Enum.filter(&(&1.event_type.name == filter))
 
     socket =
       socket

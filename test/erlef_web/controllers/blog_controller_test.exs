@@ -9,10 +9,18 @@ defmodule ErlefWeb.BlogControllerTest do
   test "GET /news/:topic", %{conn: conn} do
     conn = get(conn, Routes.blog_path(conn, :index, "fellowship"))
     assert html_response(conn, 200) =~ "members for a fellowship role"
+
+    # Deprecated, but kept in place for backwards compat
+    conn = get(conn, Routes.news_path(conn, :index, "fellowship"))
+    assert html_response(conn, 200) =~ "members for a fellowship role"
   end
 
   test "GET /news/:topic/:id", %{conn: conn} do
     conn = get(conn, Routes.blog_path(conn, :show, "fellowship", "honoring-our-fellows"))
+    assert html_response(conn, 200) =~ "The First Fellows"
+
+    # Deprecated, but kept in place for backwards compat
+    conn = get(conn, Routes.news_path(conn, :show, "fellowship", "honoring-our-fellows"))
     assert html_response(conn, 200) =~ "The First Fellows"
   end
 

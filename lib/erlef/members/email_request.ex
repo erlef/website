@@ -1,6 +1,6 @@
 defmodule Erlef.Members.EmailRequest do
   @moduledoc """
-  Erlef.Schema.Event schema
+  Erlef.Members.EmailRequest
   """
   use Erlef.Schema
 

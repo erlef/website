@@ -30,5 +30,11 @@ defmodule ErlefWeb.ViewHelpersTest do
       date = ~D[2020-12-06]
       assert "December 06, 2020" == Helper.event_dates(date, nil)
     end
+
+    test "when start_date and end_date are strings" do
+      start_date = "December 06, 2020"
+      end_date = "December 07, 2020"
+      assert "#{start_date} - #{end_date}" == Helper.event_dates(start_date, end_date)
+    end
   end
 end

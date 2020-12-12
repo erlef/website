@@ -8,9 +8,14 @@ defmodule ErlefWeb.Router do
     licensebuttons.net i.creativecommons.org
     pbs.twimg.com use.typekit.net p.typekit.net
     event-org-images.ewr1.vultrobjects.com erlef.matomo.cloud cdn.rawgit.com
+    127.0.0.1:9998
   )
 
-  @default_source Enum.join(@trusted_sources, " ")
+  if Erlef.in_env?([:dev, :test]) do 
+    @default_source Enum.join(@trusted_sources ++ ["127.0.0.1:9998"], " ")
+  else
+    @default_source Enum.join(@trusted_sources, " ")
+  end
 
   pipeline :browser do
     plug :accepts, ["html"]

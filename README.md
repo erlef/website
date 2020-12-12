@@ -84,7 +84,7 @@ This is where the body of the post goes.
 
 ### Contributing to the community section of the site
 
-All data for the community page of the site can be found in [lib/erlef/community](lib/erlef/community).
+All resources data for the community page of the site can be found in [priv/data/community](priv/data/community).
 
 Before proceeding please:
 
@@ -95,17 +95,15 @@ Before proceeding please:
 
 #### Adding an entry to an existing section
 
-  To add an entry to an existing section simply find the relevant module in  [lib/erlef/community](lib/erlef/community)
-  and add a new entry in the form of a map. 
+  To add an entry to an existing section simply find the relevant `.exs` file in  [priv/data/community](priv/data/community) and add a new entry. That's it!
 
 #### Adding a new section or sub-section 
 
-  - Create a new module with a name that reflects the section of the site (e.g, languages, platforms, etc.) within
-    the [lib/erlef/community](lib/erlef/community) directory. 
+  - Create a new `.exs` file in [priv/data/community](priv/data/community) with a name that reflects the section of the site (e.g, languages, platforms, etc.) 
     
-    - See [lib/erlef/community/languages.ex](lib/erlef/community/languages.ex) as an example. 
+    - See [priv/data/community/languages.exs](priv/data/community/languages.exs) as an example. 
 
-  - Update [lib/erlef/community.ex](lib/erlef/community.ex) to make use of the new module.
+  - A new function should be able after you recompile `Erlef.Community.Resources` with the base name of the file you added prefixed with `all_` (e.g., `all_languages`). Likewise it will also be available in the main data map returned by the `all/0` function.
 
   - Add the new section or sub-section
     to [lib/erlef_web/templates/page/community.html.eex](lib/erlef_web/templates/page/community.html.eex).

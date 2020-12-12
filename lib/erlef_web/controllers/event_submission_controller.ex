@@ -1,11 +1,11 @@
 defmodule ErlefWeb.EventSubmissionController do
   use ErlefWeb, :controller
-  alias Erlef.Events
+  alias Erlef.Community
 
   action_fallback ErlefWeb.FallbackController
 
   def create(conn, %{"event" => params}) do
-    case Events.submit(params) do
+    case Community.submit_event(params) do
       {:ok, _event} ->
         conn
         |> put_flash(
@@ -20,18 +20,22 @@ defmodule ErlefWeb.EventSubmissionController do
         render(conn, "new.html",
           error: nil,
           changeset: %{changeset | changes: changes, action: :insert},
-          event_types: Events.event_types()
+          event_types: Community.event_types()
         )
 
       err ->
-        err_str = Events.format_error(err)
-        cs = Events.new_event(params)
-        types = Events.event_types()
+        err_str = Community.format_error(err)
+        cs = Community.new_event(params)
+        types = Community.event_types()
         render(conn, "new.html", changeset: cs, event_types: types, error: err_str)
     end
   end
 
   def new(conn, _params) do
-    render(conn, error: nil, changeset: Events.new_event(), event_types: Events.event_types())
+    render(conn,
+      error: nil,
+      changeset: Community.new_event(),
+      event_types: Community.event_types()
+    )
   end
 end

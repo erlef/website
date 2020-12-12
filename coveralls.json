@@ -1,6 +1,7 @@
 {
   "skip_files": [
     "test",
+    "lib/erlef/release.ex",
     "lib/erlef_web.ex",
     "lib/erlef/application.ex",
     "lib/erlef_web/endpoint.ex",

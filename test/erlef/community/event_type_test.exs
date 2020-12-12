@@ -1,7 +1,7 @@
 defmodule Erlef.EventTypeTest do
   use Erlef.DataCase
 
-  alias Erlef.Schema.EventType
+  alias Erlef.Community.EventType
 
   describe "changeset/2" do
     test "when params are valid" do

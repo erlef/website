@@ -27,7 +27,8 @@ config :erlef, ErlefWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/erlef/community.ex$",
+      ~r"priv/data/community/.*(exs)$",
+      ~r"priv/data/.*(exs)$",
       ~r"lib/erlef/community/.*(ex)$",
       ~r"lib/erlef_web/{live,views}/.*(ex)$",
       ~r"lib/erlef_web/templates/.*(eex)$"
@@ -84,4 +85,10 @@ config :extwitter, :oauth,
 
 config :ex_aws,
   access_key_id: ["access_key_id", :instance_role],
-  secret_access_key: ["secret_access_key", :instance_role]
+  secret_access_key: ["secret_access_key", :instance_role],
+  s3: [
+    scheme: "http://",
+    region: "New Jersey",
+    host: "127.0.0.1",
+    port: 9998
+  ]

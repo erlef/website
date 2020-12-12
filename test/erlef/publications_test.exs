@@ -1,4 +1,4 @@
-defmodule Erlef.Publications.QueryTest do
+defmodule Erlef.PublicationsTest do
   @moduledoc """
   Tests for the AcademicPaper Query module
   """

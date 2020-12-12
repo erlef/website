@@ -1,8 +1,9 @@
-defmodule Erlef.Schema.Event do
+defmodule Erlef.Community.Event do
   @moduledoc """
-  Erlef.Schema.Event schema
+  Erlef.Community.Event schema
   """
   use Erlef.Schema
+  alias Erlef.Community.EventType
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
@@ -56,18 +57,9 @@ defmodule Erlef.Schema.Event do
     field(:approved_by, Ecto.UUID)
     field(:approved_at, :utc_datetime)
 
-    belongs_to(:event_type, Erlef.Schema.EventType)
+    belongs_to(:event_type, EventType)
 
     timestamps()
-  end
-
-  @spec changeset(t(), map()) :: Ecto.Changeset.t()
-  def changeset(struct, params \\ %{}) do
-    struct
-    |> cast(params, @all_fields ++ [:approved_by, :approved_at])
-    |> validate_required(@required_fields ++ [:approved_by, :approved_at])
-    |> unique_constraint(:title)
-    |> maybe_generate_slug()
   end
 
   def new_changeset(struct, params \\ %{}) do

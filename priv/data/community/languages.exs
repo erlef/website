@@ -1,17 +1,4 @@
-defmodule Erlef.Community.Languages do
-  @moduledoc """
-  This module provides a roster of active languages in the Erlang Ecosystem. 
-
-  Note that we differentiate between icon and logo with the following semantics : 
-
-    -  An icon is said to be an image that does not include the name of the language it is representing. 
-    -  A logo is an image that clearly displays both the icon and name of the language it represents. 
-
-  These semantics are in place so that pages and views can determine whether to display the icon and name of the entry 
-  or just the logo itself. 
-  """
-
-  @langs [
+[
     %{
       name: "Caramel",
       link: "https://caramel.abstractmachines.dev/",
@@ -149,6 +136,3 @@ defmodule Erlef.Community.Languages do
         "Rufus is a statically typed language that aims to provide Erlang semantics, with a developer experience that supports teams working together to build and operate fault-tolerant distributed systems."
     }
   ]
-
-  def all, do: @langs
-end

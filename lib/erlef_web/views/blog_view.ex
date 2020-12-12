@@ -21,7 +21,4 @@ defmodule ErlefWeb.BlogView do
 
     "#{month} #{day}, #{year} by #{author}"
   end
-
-  def category(nil), do: "Uncategorized"
-  def category(%{name: name}), do: name
 end

@@ -14,7 +14,7 @@ defmodule Erlef.MixProject do
       deps: deps(),
       aliases: aliases(),
       dialyzer: dialyzer_opts(),
-      name: "MyApp",
+      name: "Erlef",
       source_url: "https://github.com/erlef/website",
       homepage_url: "https://erlef.org/",
       docs: docs()
@@ -97,7 +97,7 @@ defmodule Erlef.MixProject do
 
   def docs do
     [
-      main: "Erlef",
+      main: "readme",
       logo: "assets/static/images/eef-avatar.png",
       extras: ["README.md"]
     ]
