@@ -93,7 +93,7 @@ span.help-block {
         </div>
       </div>
 
-      <%= hidden_input f, :submitted_by, value: assigns.current_user.member_id %>
+      <%= hidden_input f, :submitted_by, value: assigns.current_user.id %>
       <%= submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>

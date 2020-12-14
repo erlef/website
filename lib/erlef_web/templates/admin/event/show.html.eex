@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <%= hidden_input f, :approved_by, value: assigns.current_user.member_id %>
+    <%= hidden_input f, :approved_by, value: assigns.current_user.id %>
     <%= submit "Approve", class: "btn btn-primary" %>
 
   <% end %>
