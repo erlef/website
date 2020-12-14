@@ -21,8 +21,9 @@ defmodule Erlef.EventsTest do
     cs = Event.submission_changeset(%Event{}, p)
     event = Repo.insert!(cs)
 
-    assert {:ok, %Event{approved_by: 12_345}} =
-             Events.approve(event.id, %{approved_by: 12_345, approved_at: DateTime.utc_now()})
+    uuid = Ecto.UUID.generate()
+    assert {:ok, %Event{approved_by: ^uuid}} =
+             Events.approve(event.id, %{approved_by: uuid, approved_at: DateTime.utc_now()})
   end
 
   test "format_error/1" do

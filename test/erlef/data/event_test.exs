@@ -10,7 +10,7 @@ defmodule Erlef.EventTest do
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
-        submitted_by: 123,
+        submitted_by: Ecto.UUID.generate(),
         url: "https://foo.bar/",
         organizer: "Organizer",
         event_type_id: Ecto.UUID.generate()
@@ -33,7 +33,7 @@ defmodule Erlef.EventTest do
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
-        submitted_by: 123,
+        submitted_by: Ecto.UUID.generate(),
         url: "https://foo.bar/",
         organizer: "Organizer",
         organizer_brand_color: "#12345",
@@ -94,13 +94,13 @@ defmodule Erlef.EventTest do
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
-        submitted_by: 123,
+        submitted_by: Ecto.UUID.generate(),
         url: "https://foo.bar/",
         organizer: "Organizer"
       }
 
       params = %{
-        approved_by: 123
+        approved_by: Ecto.UUID.generate()
       }
 
       cs = Event.approval_changeset(event, params)
@@ -116,7 +116,7 @@ defmodule Erlef.EventTest do
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
-        submitted_by: 123,
+        submitted_by: Ecto.UUID.generate(),
         url: "https://foo.bar/",
         organizer: "Organizer"
       }
@@ -127,7 +127,7 @@ defmodule Erlef.EventTest do
 
       cs = Event.approval_changeset(event, params)
       refute cs.valid?
-      assert cs.errors == [{:approved_by, {"is invalid", [type: :integer, validation: :cast]}}]
+      assert cs.errors == [{:approved_by, {"is invalid", [type: Ecto.UUID, validation: :cast]}}]
     end
   end
 end

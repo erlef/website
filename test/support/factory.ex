@@ -22,7 +22,7 @@ defmodule Erlef.Factory do
       end: Date.utc_today(),
       organizer: Faker.Company.name(),
       url: Faker.Internet.url(),
-      submitted_by: :crypto.rand_uniform(1, 42)
+      submitted_by: Ecto.UUID.generate()
     }
   end
 

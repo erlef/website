@@ -16,9 +16,9 @@ defmodule Erlef.Schema.Event do
           organizer: String.t(),
           organizer_brand_color: String.t(),
           organizer_brand_logo: String.t() | nil,
-          submitted_by: integer(),
+          submitted_by: Ecto.UUID.t(),
           approved: boolean() | nil,
-          approved_by: integer() | nil,
+          approved_by: Ecto.UUID.t() | nil,
           approved_at: DateTime.t() | nil
         }
 
@@ -51,9 +51,9 @@ defmodule Erlef.Schema.Event do
     field(:organizer, :string)
     field(:organizer_brand_color, :string, default: "#235185")
     field(:organizer_brand_logo, :binary)
-    field(:submitted_by, :integer)
+    field(:submitted_by, Ecto.UUID)
     field(:approved, :boolean, default: false)
-    field(:approved_by, :integer)
+    field(:approved_by, Ecto.UUID)
     field(:approved_at, :utc_datetime)
 
     belongs_to(:event_type, Erlef.Schema.EventType)
