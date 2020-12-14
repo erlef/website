@@ -53,7 +53,6 @@ _paq.push(['enableLinkTracking']);
   <body>
     <%= render "header.html", assigns %>
     <main role="main">
-      <div class="container mt-2">
         <%= if flash = get_flash(@conn, :info) do %>
           <div class="alert alert-info" role="alert">
             <%= raw flash %>
@@ -71,8 +70,11 @@ _paq.push(['enableLinkTracking']);
           <%= raw flash %>
         </div>
       <% end %>
-      </div>
-      <%= @inner_content %>
+      <%= unless @conn.request_path == "/" do %>
+        <div class="mt-3">
+        </div>
+      <% end %>
+        <%= @inner_content %>
     </main>
     <%= render "footer.html", assigns %>
     <svg height="0" width="0" viewBox="0 0 864 563">
