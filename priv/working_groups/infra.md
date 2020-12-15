@@ -15,7 +15,8 @@
     },
     {
       "image": "volunteers/benoit-chesneau.jpg",
-      "name": "Benoit Chesneau"
+      "name": "Benoit Chesneau",
+      "is_chair": true
     },
     {
       "image": "volunteers/alistair-woodman.png",

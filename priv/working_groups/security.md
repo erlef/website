@@ -13,7 +13,8 @@
     },
     {
       "image": "volunteers/maxim-fedorov.jpg",
-      "name": "Maxim Fedorov"
+      "name": "Maxim Fedorov",
+      "is_chair": true
     },
     {
       "image": "volunteers/alexandre-rodrigues.png",

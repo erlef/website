@@ -19,7 +19,8 @@
     },
     {
       "image": "volunteers/miriam-pena.jpg",
-      "name": "Miriam Pena"
+      "name": "Miriam Pena",
+      "is_chair": true
     },
     {
       "image": "volunteers/peer-stritzinger.jpg",

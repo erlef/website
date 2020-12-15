@@ -7,7 +7,8 @@
   "volunteers": [
     {
       "image": "volunteers/tristan-sloughter.jpg",
-      "name": "Tristan Sloughter"
+      "name": "Tristan Sloughter",
+      "is_chair": true
     },
     {
       "image": "volunteers/fred-hebert.png",

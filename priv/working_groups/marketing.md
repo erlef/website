@@ -22,12 +22,9 @@
       "name": "Maxim Fedorov"
     },
     {
-      "image": "volunteers/desmond-bowe.png",
-      "name": "Desmond Bowe"
-    },
-    {
       "image": "volunteers/profile-placeholder.png",
-      "name": "Johnny Winn"
+      "name": "Johnny Winn",
+      "is_chair": true
     },
     {
       "image": "volunteers/amos-king.png",

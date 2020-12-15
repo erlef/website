@@ -7,7 +7,8 @@
   "volunteers": [
     {
       "image": "volunteers/susumu-yamazaki.jpg",
-      "name": "Susumu Yamazaki"
+      "name": "Susumu Yamazaki",
+      "is_chair": true
     },
     {
       "image": "volunteers/akash-hiremath.jpg",

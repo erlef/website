@@ -7,7 +7,8 @@
   "volunteers": [
     {
       "image": "volunteers/peer-stritzinger.jpg",
-      "name": "Peer Stritzinger"
+      "name": "Peer Stritzinger",
+      "is_chair": true
     },
     {
       "image": "volunteers/adam-lindberg.jpg",

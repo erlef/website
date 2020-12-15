@@ -7,7 +7,8 @@
   "volunteers": [
     {
       "image": "volunteers/francesco-cesarini.jpg",
-      "name": "Francesco Cesarini"
+      "name": "Francesco Cesarini",
+      "is_chair": true
     },
     {
       "image": "volunteers/sebastian-strollo.jpg",

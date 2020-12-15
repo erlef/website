@@ -7,7 +7,8 @@
   "volunteers": [
     {
       "image": "volunteers/jose-valim.jpg",
-      "name": "José Valim"
+      "name": "José Valim",
+      "is_chair": true
     },
     {
       "image": "volunteers/fred-hebert.png",

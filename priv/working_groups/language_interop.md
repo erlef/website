@@ -19,7 +19,8 @@
     },
     {
       "image": "volunteers/mariano-guerra.jpg",
-      "name": "Mariano Guerra"
+      "name": "Mariano Guerra",
+      "is_chair": true
     }
   ],
   "name": "Language Interoperability ",
