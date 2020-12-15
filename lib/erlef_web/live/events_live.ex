@@ -25,7 +25,7 @@ defmodule ErlefWeb.EventsLive do
   end
 
   def handle_event("filter", %{"filter" => filter}, socket) do
-    events = Community.approved_events() |> Enum.filter(&(&1.event_type.name == filter))
+    events = Community.approved_events() |> Enum.filter(&(Atom.to_string(&1.type) == filter))
 
     socket =
       socket

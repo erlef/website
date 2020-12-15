@@ -13,7 +13,7 @@ defmodule Erlef.EventTest do
         submitted_by: Ecto.UUID.generate(),
         url: "https://foo.bar/",
         organizer: "Organizer",
-        event_type_id: Ecto.UUID.generate()
+        type: :meetup
       }
 
       cs = Event.submission_changeset(%Event{}, params)
@@ -29,7 +29,6 @@ defmodule Erlef.EventTest do
     test "when optional params are valid" do
       params = %{
         title: "Event Title",
-        event_type_id: Ecto.UUID.generate(),
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
@@ -37,7 +36,8 @@ defmodule Erlef.EventTest do
         url: "https://foo.bar/",
         organizer: "Organizer",
         organizer_brand_color: "#12345",
-        organizer_brand_logo: "eh..."
+        organizer_brand_logo: "eh...",
+        type: :conference
       }
 
       cs = Event.submission_changeset(%Event{}, params)
@@ -60,7 +60,7 @@ defmodule Erlef.EventTest do
         {:organizer, {"can't be blank", [validation: :required]}},
         {:url, {"can't be blank", [validation: :required]}},
         {:submitted_by, {"can't be blank", [validation: :required]}},
-        {:event_type_id, {"can't be blank", [validation: :required]}},
+        {:type, {"can't be blank", [validation: :required]}},
         {:title, {"is invalid", [{:type, :string}, {:validation, :cast}]}},
         {:description, {"is invalid", [type: :string, validation: :cast]}}
       ]
@@ -80,7 +80,7 @@ defmodule Erlef.EventTest do
         {:organizer, {"can't be blank", [validation: :required]}},
         {:url, {"can't be blank", [validation: :required]}},
         {:submitted_by, {"can't be blank", [validation: :required]}},
-        {:event_type_id, {"can't be blank", [validation: :required]}}
+        {:type, {"can't be blank", [validation: :required]}}
       ]
 
       assert exp_errors == cs.errors
@@ -96,7 +96,8 @@ defmodule Erlef.EventTest do
         end: Date.utc_today(),
         submitted_by: Ecto.UUID.generate(),
         url: "https://foo.bar/",
-        organizer: "Organizer"
+        organizer: "Organizer",
+        type: :hackathon
       }
 
       params = %{
@@ -118,7 +119,8 @@ defmodule Erlef.EventTest do
         end: Date.utc_today(),
         submitted_by: Ecto.UUID.generate(),
         url: "https://foo.bar/",
-        organizer: "Organizer"
+        organizer: "Organizer",
+        type: :eh
       }
 
       params = %{

@@ -5,26 +5,22 @@ defmodule Erlef.CommunityTest do
   alias Erlef.Community.Event
 
   test "event_types/0" do
-    insert(:event_type, %{name: "meetup"})
-    assert [[{:key, "meetup"}, {:value, _}]] = Community.event_types()
+    assert [:conference, :training, :meetup, :hackathon] = Community.event_types()
   end
 
   test "submit/1" do
-    type = insert(:event_type, %{name: "meetup"})
-
     logo = %Plug.Upload{
       path: "assets/static/images/android-icon-36x36.png",
       filename: "android-icon-36x36.png"
     }
 
-    p = string_params_for(:event, event_type_id: type.id)
+    p = string_params_for(:event, type: :hackathon)
     p = Map.put(p, "organizer_brand_logo", logo)
     assert {:ok, %Event{}} = Community.submit_event(p)
   end
 
   test "approve/2" do
-    type = insert(:event_type, %{name: "meetup"})
-    p = params_for(:event, %{event_type_id: type.id})
+    p = params_for(:event, %{type: :meetup})
     cs = Event.submission_changeset(%Event{}, p)
     event = Repo.insert!(cs)
 
@@ -46,8 +42,7 @@ defmodule Erlef.CommunityTest do
   end
 
   test "get_event/1" do
-    type = insert(:event_type, %{name: "meetup"})
-    p = params_for(:event, %{event_type_id: type.id})
+    p = params_for(:event, %{type: :training})
     cs = Event.submission_changeset(%Event{}, p)
     event = Repo.insert!(cs)
 
@@ -56,8 +51,7 @@ defmodule Erlef.CommunityTest do
   end
 
   test "get_event_by_slug/1" do
-    type = insert(:event_type, %{name: "meetup"})
-    p = params_for(:event, %{title: "foo bar", event_type_id: type.id})
+    p = params_for(:event, %{title: "foo bar", type: :meetup})
     cs = Event.submission_changeset(%Event{}, p)
     event = Repo.insert!(cs)
 

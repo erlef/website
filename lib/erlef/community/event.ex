@@ -3,12 +3,11 @@ defmodule Erlef.Community.Event do
   Erlef.Community.Event schema
   """
   use Erlef.Schema
-  alias Erlef.Community.EventType
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
+          type: atom() | String.t(),
           title: String.t(),
-          event_type_id: Ecto.UUID.t(),
           description: String.t(),
           slug: String.t(),
           url: :uri_string.uri_string(),
@@ -31,7 +30,7 @@ defmodule Erlef.Community.Event do
     :organizer,
     :url,
     :submitted_by,
-    :event_type_id
+    :type
   ]
 
   @optional_fields [
@@ -43,6 +42,7 @@ defmodule Erlef.Community.Event do
   @all_fields @required_fields ++ @optional_fields
 
   schema "events" do
+    field(:type, Ecto.Enum, values: [:conference, :training, :meetup, :hackathon])
     field(:title, :string)
     field(:slug, :string)
     field(:description, :string)
@@ -56,8 +56,6 @@ defmodule Erlef.Community.Event do
     field(:approved, :boolean, default: false)
     field(:approved_by, Ecto.UUID)
     field(:approved_at, :utc_datetime)
-
-    belongs_to(:event_type, EventType)
 
     timestamps()
   end
@@ -93,6 +91,8 @@ defmodule Erlef.Community.Event do
     |> put_change(:approved, true)
     |> put_change(:approved_at, DateTime.truncate(DateTime.utc_now(), :second))
   end
+
+  def types, do: Ecto.Enum.values(__MODULE__, :type)
 
   defp maybe_generate_slug(%{changes: %{title: title}, errors: []} = set) do
     put_change(set, :slug, Slug.slugify(title))

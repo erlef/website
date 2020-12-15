@@ -5,11 +5,12 @@ defmodule Erlef.Community do
 
   alias Ecto.{Changeset, UUID}
   alias Erlef.Community.Query
-  alias Erlef.Community.{Event, EventType}
+  alias Erlef.Community.Event
   alias Erlef.Repo
   alias Erlef.Community.Resources
 
   defdelegate approved_events(), to: Query
+  defdelegate event_types(), to: Event, as: :types
   defdelegate get_event(id), to: Query
   defdelegate get_event_by_slug(slug), to: Query
   defdelegate unapproved_events(), to: Query
@@ -32,13 +33,6 @@ defmodule Erlef.Community do
   end
 
   def change_event(event), do: Erlef.Community.Event.new_changeset(event)
-
-  @spec event_types() :: [Keyword.t()]
-  def event_types do
-    EventType
-    |> Repo.all()
-    |> Enum.map(fn x -> [key: x.name, value: x.id] end)
-  end
 
   @spec format_error(any()) :: String.t()
   def format_error({:error, :unsupported_org_file_type}) do

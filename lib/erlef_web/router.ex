@@ -11,7 +11,7 @@ defmodule ErlefWeb.Router do
     127.0.0.1:9998
   )
 
-  if Erlef.in_env?([:dev, :test]) do 
+  if Erlef.in_env?([:dev, :test]) do
     @default_source Enum.join(@trusted_sources ++ ["127.0.0.1:9998"], " ")
   else
     @default_source Enum.join(@trusted_sources, " ")

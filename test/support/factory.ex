@@ -6,13 +6,6 @@ defmodule Erlef.Factory do
 
   alias Erlef.Publications.AcademicPaper
   alias Erlef.Community.Event
-  alias Erlef.Community.EventType
-
-  def event_type_factory do
-    %EventType{
-      name: Faker.Lorem.word()
-    }
-  end
 
   def event_factory do
     %Event{

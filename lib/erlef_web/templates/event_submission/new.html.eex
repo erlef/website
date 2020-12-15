@@ -33,9 +33,9 @@ span.help-block {
         </div>
 
         <div class="form-group" style="margin-top:2em; margin-left: 1.5rem;">
-          <%= label f, :event_type_id, "* Event Type" %>
-          <%= select(f, :event_type_id, @event_types, required: true, style: "margin-left:1em;") %>
-          <%= error_tag f, :event_type_id %>
+          <%= label f, :type, "* Event Type" %>
+          <%= select(f, :type, @event_types, required: true, style: "margin-left:1em;") %>
+          <%= error_tag f, :type %>
         </div>
       </div>
 

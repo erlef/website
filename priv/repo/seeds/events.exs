@@ -1,26 +1,5 @@
 Application.ensure_all_started(:erlef)
 
-event_types = [
-  %{
-    name: "conference"
-  },
-  %{
-    name: "training"
-  },
-  %{
-    name: "meetup"
-  },
-  %{
-    name: "hackathon"
-  }
-]
-
-Erlef.Seeds.insert(Erlef.Community.EventType, event_types)
-
-%{id: conf_id} = Erlef.Community.EventType.get(:conference)
-%{id: meetup_id} = Erlef.Community.EventType.get(:meetup)
-%{id: _hackathon_id} = Erlef.Community.EventType.get(:hackathon)
-%{id: _training_id} = Erlef.Community.EventType.get(:training)
 
 now = DateTime.truncate(DateTime.utc_now(), :second)
 
@@ -31,7 +10,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Code Elixir LDN is a one-day, one track conference bringing together the Elixir community to share, learn and be inspired. The conference is suitable for all levels of programming experience and all team members, from developers to CTOs and above.</p>\n<p>Attend Code Elixir LDN, meet like-minded professionals, find opportunities with companies using Elixir, grow your career, knowledge, contacts and team.</p>\n<p>Code Elixir LDN actively encourages diversity in the Elixir community</p>\n",
     end: ~D[2019-07-18],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "Code Sync Ltd",
     organizer_brand_color: "#235185",
@@ -49,7 +28,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>For the first time we’re bringing Code BEAM Lite to Budapest, financial center of Hungary. Code BEAM Lite conferences, are community lead conferences that strive to engage the local Erlang and Elixir ecosystem by bringing together developers to share knowledge &amp; ideas, learn from each other and inspire them to invent the future.</p>\n",
     end: ~D[2019-09-20],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "Code Sync Ltd ",
     organizer_brand_color: "#235185",
@@ -67,7 +46,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>ElixirConf® JP 2019 demonstrates business examples using Elixir, Web services / subscription business / energy utilization platform / technology and development know-how to realize IoT with Elixir, and future industrial base and economy. See <a href=\"https://fukuokaex.fun\">https://fukuokaex.fun</a>/ for details.</p>\n",
     end: ~D[2019-09-07],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "Kyushu International Elixir Federation (KIEF)",
     organizer_brand_color: "#235185",
@@ -85,7 +64,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Spawnfest is an annual 48 hour free online development competition in which teams of skilled developers from around the world get exactly one weekend to create the best BEAM-based applications they can.</p>\n",
     end: ~D[2019-09-22],
-    event_type_id: meetup_id,
+    type: :meetup,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "SpawnFest",
     organizer_brand_color: "#235185",
@@ -103,7 +82,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Join us for another fantastic conference in Berlin. Develop your understanding\nof the key concepts around Erlang, Elixir and the BEAM. Discover new\nframeworks and learn new libraries. Network with others through\nthe ‘hallway track,’ make new contacts and have fun! </p>\n",
     end: ~D[2019-10-11],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "Code Sync Ltd ",
     organizer_brand_color: "#235185",
@@ -121,7 +100,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Gig City Elixir is a different kind of programming conference in beautiful Chattanooga, Tennessee. We will focus on sessions that are different from what you’re used to seeing, with a variety of talk lengths and formats that will open more learning channels than ever before.</p>\n<p>One of the best speaker lineups at any 2019 programming conference will teach you the foundational techniques you’ll need to succeed in today’s programming industry. You’ll learn to use functional programming concepts that will make you a better programmer, regardless of the languages and tools you use at work today.</p>\n",
     end: ~D[2019-10-19],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "GigCity Elixir ",
     organizer_brand_color: "#235185",
@@ -139,7 +118,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Lonestar Elixir is a 2-day single track conference (with one extra day of training). Come for the Elixir knowledge. Stay for the parties and social mixing of Elixir enthusiasts.</p>\n<h3>Conference</h3>\n<p>Conference on 2/27-2/28 @\nAlamo Drafthouse\n1120 S Lamar Blvd, Austin, TX 78704</p>\n<h3>Training</h3>\n<p>Training on 2/29 @\nThe Capital Factory\n701 Brazos St., Austin, Texas 78701</p>\n",
     end: ~D[2020-02-29],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "Lonestar Elixir",
     organizer_brand_color: "#235185",
@@ -157,7 +136,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Pour démarrer l’autonne, nous serons hébergé chez Stuart: <a href=\"https://stuart.com\">https://stuart.com</a> (merci à eux!). Une fois encore ce sera un meetup commun avec le meetup Elixir.</p>\n<p>Proposez nous un sujet ici : <a href=\"https://tinyurl.com/erlang-paris\">https://tinyurl.com/erlang-paris</a></p>\n<p>Au programme :</p>\n<ul>\n<li>Nicolas SAVOIS nous parlera du Pattern Actor dans Elixir.\n</li>\n<li>et votre talks a vous !\n</li>\n</ul>\n<p>Ce meetup existe grâce à vos propositions de sujet ! Proposez nous des sujets en m’envoyant un message</p>\n<p>Si vous souhaitez héberger le Meetup Erlang faites nous un message ça sera avec plaisir !</p>\n",
     end: ~D[2019-10-08],
-    event_type_id: meetup_id,
+    type: :meetup,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "Benoît C.",
     organizer_brand_color: "#235185",
@@ -175,7 +154,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Elixir Conf is one of the most popular Conferences for the Elixir Programming Language and for the first time it will be hosted in Latin America, Medellin, Colombia. It is a two day conference with workshops and a amazing list of keynote speakers with very interesting topics. Thanks to all of our sponsors, speakers and attendees that are making this event possible.</p>\n<p>The first conference day will start with a two hands-on workshops where we will learn about functional programming and how to get the most out of Erlang/OTP with RIAK Core. On the second day, keynote speakers will have the floor to share their knowledge on a variety of topics for a diverse audience; closing up with Francesco Cessarini’s keynote. </p>\n",
     end: ~D[2019-10-25],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "Elixir Conf ",
     organizer_brand_color: "#235185",
@@ -193,7 +172,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Rendez-vous l’année prochaine pour le prochain Meetup Erlang &amp; Elixir. Nous serons cette fois hébergé par Booking.com (<a href=\"https://www.booking.com\">https://www.booking.com</a>) ! Merci à eux!</p>\n<p>Au programme, deux présentations et des discussion informelles.</p>\n<p>Les présentations:</p>\n<p>Nicolas Talfer nous présentera un retour d’expérience dans le cadre d’un appel d’offres pour un opérateur de téléphonie mobile en Amérique Latine, j’ai réalisé pour Myriad un poc de S@T gateway en Elixir. L’opérateur souhaite envoyer des offres promotionnelles via des applications SIM Toolkit déployées over-the-air. Au menu : transcoding XML, utilisation des records Erlang en Elixir, manipulation de binaires et cryptographie…</p>\n<p>Florent Gallaire nous présentera Metaprogramming en Erlang et Elixir, une comparaison par l’exemple</p>\n<p>Pour le prochain meetup, proposez nous un sujet ici: <a href=\"https://tinyurl.com/erlang-paris\">https://tinyurl.com/erlang-paris</a> . Des questions, besoin d’aide pour votre présentation, n’hésitez pas à me contacter!</p>\n<p>Si vous souhaitez héberger le prochain Meetup envoyez moi un message!</p>\n<p>Pour démarrer l’autonne, nous serons hébergé chez Stuart: <a href=\"https://stuart.com\">https://stuart.com</a> (merci à eux!). Une fois encore ce sera un meetup commun avec le meetup Elixir.</p>\n",
     end: ~D[2020-01-21],
-    event_type_id: meetup_id,
+    type: :meetup,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "Benoît C.",
     organizer_brand_color: "#235185",
@@ -211,7 +190,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>At FOSDEM 2020 we’re having the 1st edition of a Devroom completely dedicated to the BEAM (and all languages running on it). FOSDEM is an annual conference about free and open source software, attended by over 5000 developers and open-source enthusiasts from all over the world.</p>\n<p>The Devroom will take place on Saturday, 1 February 2020, at ULB (Campus Solbosch), in Brussels, Belgium. Join us to enjoy interesting talks, demos and discussions about Erlang, Elixir and the wonderful BEAM!</p>\n<p>The schedule is already live – click <a href=\"https://beam-fosdem.org/schedule/\">here</a> to check it! We hope to meet you in Brussels 🇧🇪</p>\n",
     end: ~D[2020-02-01],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "BEAM FOSDEM",
     organizer_brand_color: "#A91F91",
@@ -229,7 +208,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Join us at <a href=\"https://www2.codesync.global/l/23452/2020-02-04/6w4q3s\">Code BEAM SF</a> (San Francisco, 05-06 March 2020), the only conference in North America to cover Erlang and Elixir! </p>\n<p>2020 themes include Web and APIs, Frameworks, Scalability, Reliability, Containerization (Docker, Kubernetes), and integrating third party services. Learn from 50+ cutting-edge talks and our in-depth training program, how BEAM languages are revolutionising areas like IoT, Blockchain, Fintech, Security, Machine Learning and more. </p>\n<p>If you are new to BEAM languages or an old hand and want to extend your knowledge, we offer extensive basic and advanced OTP, Erlang, and Elixir training options.</p>\n<p>A limited number of standard tickets are still available! <a href=\"https://www2.codesync.global/l/23452/2020-02-04/6w4q3x\">Book now</a>!</p>\n",
     end: ~D[2020-03-06],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "Code Sync",
     organizer_brand_color: "#ff0160",
@@ -247,7 +226,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Spawnfest is an annual 48 hour free online development competition in which teams of skilled developers from around the world get exactly one weekend to create the best BEAM-based applications they can. Participation in SpawnFest is 100% Free of Charge.</p>\n",
     end: ~D[2020-08-13],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-08-18 17:41:13Z],
     organizer: "Fiqus",
     organizer_brand_color: "#69b58e",
@@ -265,7 +244,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Code BEAM V will be the third virtual conference from our team. We’ve developed a format to ensure our virtual events offer the knowledge sharing, inspiration, networking and community experience you’d expect from any of our events.</p>\n<p>Enjoy two days of real-world, practical applications of Erlang, Elixir and the BEAM - all within the context of high-performance and massively-scalable distributed systems. Plus, take part in exclusive, ask me anything sessions with some of the people who have created and shaped Erlang, Elixir and OTP. </p>\n",
     end: ~D[2020-09-11],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-08-20 13:58:23Z],
     organizer: "Code Sync",
     organizer_brand_color: "#852337",
@@ -283,7 +262,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>We bring together a unique mix of programming language inventors, developers, innovators, researchers, and visionaries to help solve real-world problems using innovative, non-mainstream tech. This year Code Mesh goes virtual - opening up the conference to an even more exciting spectrum of speakers, attendees and partners.</p>\n<p>Code Mesh will demonstrate how thinking beyond the conventional can empower you to master the challenges of implementing distributed systems in the multicore era.</p>\n",
     end: ~D[2020-11-06],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-08-20 14:01:19Z],
     organizer: "Code Sync",
     organizer_brand_color: "#235185",
@@ -301,7 +280,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>This is our second virtual conference after hosting 400 Elixir users from around the world in June. The conference is a melting pot for new ideas and inspired thinking. It showcases the great work being done with Elixir by individuals and companies alike. To help inspire and reach new members of the community, the Erlang Ecosystem Foundation has sponsored the students of the Uni of Kaiserslauten to attend the conference and tutorials.</p>",
     end: ~D[2020-10-08],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-03-05 23:09:44Z],
     organizer: "Elixirconf EU",
     organizer_brand_color: "#235185",
@@ -319,7 +298,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Erlang and Elixir technology is at the heart of many of the world’s leading tech stacks! Join us at <a href=\"https://www2.codesync.global/l/23452/2020-02-04/6w4y9d\">Code BEAM STO</a> (Stockholm, 28-29 May 2020), the only conference in Europe to bring Erlang, Elixir, and all of the languages on the Erlang VM together! </p>\n<p>2020 themes include Web and APIs, Frameworks, Scalability, Reliability, Containerization (Docker, Kubernetes), and integrating third party services. Learn from 50+ cutting-edge talks and our in-depth training program, how BEAM languages are revolutionising areas like IoT, Blockchain, Fintech, Security, Machine Learning and more. </p>\n<p>If you are new to BEAM languages or an old hand and want to extend your knowledge, we offer extensive basic and advanced OTP, Erlang, and Elixir training options.</p>\n<p>Tickets are on sale now! <a href=\"https://www2.codesync.global/l/23452/2020-02-04/6w4ybg\">Book now</a>!</p>\n",
     end: ~D[2020-05-29],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-11-12 17:45:40Z],
     organizer: "Code Sync",
     organizer_brand_color: "#235185",
@@ -337,7 +316,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Code BEAM Lite Italy is a one-day community-driven conference aimed at discovering the future of the Erlang Ecosystems and bringing together developers to share knowledge &amp; ideas, learn from each other and be inspired to invent the future. </p>\n",
     end: ~D[2020-04-06],
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: ~U[2020-11-12 17:45:40Z],
     organizer: "Code BEAM Lite ITA",
     organizer_brand_color: "#235185",
@@ -355,7 +334,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Please join us for the virtual, online Annual General Meeting of the EEF. All members are welcome and encouraged to join. Two virtual meetings will be held to accommodate Asia Pac / EMEA and EMEA / Americas. (UTC Times are to yet be set).<br />[Under Article III of the EEF Bylaws, notice is duly given of the 2020 Annual General Meeting]</p>\n<p>Regards, the EEF Board.</p>\n",
     end: ~D[2020-09-11],
-    event_type_id: meetup_id,
+    type: :conference,
     inserted_at: ~U[2020-08-27 04:05:45Z],
     organizer: "EEF Board",
     organizer_brand_color: "#ffffff",
@@ -374,7 +353,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Please join us for the virtual, online Annual General Meeting of the EEF. All members are welcome and encouraged to join. Two virtual meetings will be held to accommodate Asia Pac / EMEA and EMEA / Americas. (UTC Times are to yet be set).<br />[Under Article III of the EEF Bylaws, notice is duly given of the 2020 Annual General Meeting]</p>\n<p>Regards, the EEF Board.</p>\n",
     end: Date.utc_today(),
-    event_type_id: meetup_id,
+    type: :meetup,
     organizer: "EEF Board",
     organizer_brand_color: "#ffffff",
     organizer_brand_logo: "https://event-org-images.ewr1.vultrobjects.com/c34f9d57-5b59-40c6-bd75-26c741557186.svg",
@@ -391,7 +370,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>Code BEAM Lite Italy is a one-day community-driven conference aimed at discovering the future of the Erlang Ecosystems and bringing together developers to share knowledge &amp; ideas, learn from each other and be inspired to invent the future. </p>\n",
     end: Date.utc_today(),
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: now,
     organizer: "Code BEAM Lite Eh?",
     organizer_brand_color: "#235185",
@@ -410,7 +389,7 @@ events = [
     approved_by: Ecto.UUID.generate(),
     description: "<p>This is our second virtual conference after hosting 400 Elixir users from around the world in June. The conference is a melting pot for new ideas and inspired thinking. It showcases the great work being done with Elixir by individuals and companies alike. To help inspire and reach new members of the community, the Erlang Ecosystem Foundation has sponsored the students of the Uni of Kaiserslauten to attend the conference and tutorials.</p>",
     end: Date.utc_today(),
-    event_type_id: conf_id,
+    type: :conference,
     inserted_at: now,
     organizer: "Elixirconf Eh?",
     organizer_brand_color: "#235185",

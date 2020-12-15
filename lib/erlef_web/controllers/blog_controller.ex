@@ -26,12 +26,14 @@ defmodule ErlefWeb.BlogController do
     descrip = "Find all the related news of the Erlang Ecosystem Foundation"
 
     params = [
-    all_tags:  Blogs.all_tags(),
+      all_tags: Blogs.all_tags(),
       latest_news: Blogs.latest_posts(),
-      topic: "eef", name: "EEF",
+      topic: "eef",
+      name: "EEF",
       description: descrip,
       posts: list("eef")
     ]
+
     render(conn, "index.html", params)
   end
 
