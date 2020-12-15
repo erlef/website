@@ -3,95 +3,104 @@
     <div class="container">
       <h1 class="display-4 font-weight-bold">Latest News</h1>
       <p class="lead">
-        <%= @description %>
+      <%= @description %>
       </p>
     </div>
   </div>
   <%= if @posts != [] do %>
-  <% post1 = Enum.at(@posts, 0) %>
-  <%= unless is_nil(post1) do %>
-  <section class="mb-5 py-5 bg-brand text-white" style="position: relative;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <h6 class="text-uppercase text-muted">
-            <%= post1.category %>
-          </h6>
-          <h1 class="display-4">
-            <%= post1.title %>
-          </h1>
-          <%= link("Continuing Reading", to: Routes.blog_path(@conn, :show, @topic, post1.slug), class: "stretched") %>
-          <p class="lead my-3">
-            <%= post1.excerpt %>
-          </p>
-          <div class="d-flex align-items-center my-4">
-            <div class="avatar mr-2 rounded-circle border">
-              <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+    <% post1 = Enum.at(@posts, 0) %>
+    <%= unless is_nil(post1) do %>
+      <section class="mb-5 py-5 bg-brand text-white" style="position: relative;">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <h6 class="text-uppercase text-muted">
+                <%= post1.category %>
+              </h6>
+              <h1 class="display-4">
+                <%= post1.title %>
+              </h1>
+              <%= link("Continuing Reading", to: Routes.blog_path(@conn, :show, @topic, post1.slug), class: "stretched") %>
+              <p class="lead my-3">
+              <%= post1.excerpt %>
+              </p>
+              <div class="d-flex align-items-center my-4">
+                <div class="avatar mr-2 rounded-circle border">
+                  <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
+                </div>
+                <div>
+                  <% month =  Timex.month_name(post1.datetime.month) %>
+                  <% day =  post1.datetime.day %>
+                  <% year = post1.datetime.year %>
+                  <% _author = post1.author %>
+                  <div>
+                    <%= month %>
+                    <%= day %>,
+                    <%= year %>
+                  </div>
+                  <div>by <a class="text-capitalize" href="#">
+                      <%= post1.author %></a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <% month =  Timex.month_name(post1.datetime.month) %>
-              <% day =  post1.datetime.day %>
-              <% year = post1.datetime.year %>
-              <% _author = post1.author %>
-              <div>
-                <%= month %>
-                <%= day %>,
-                <%= year %>
-              </div>
-              <div>by <a class="text-capitalize" href="#">
-                  <%= post1.author %></a>
-              </div>
+            <div class="col-lg-4">
+              <%= right_svg_hero() do %>
+                <img class="gradient-mask-right" style="height: 800px" src="/images/crowd.jpg">
+              <% end %>
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
-          <%= right_svg_hero() do %>
-          <img class="gradient-mask-right" style="height: 800px" src="/images/crowd.jpg">
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </section>
-  <% end %>
+      </section>
+    <% end %>
   <% end %>
   <main role="main" class="my-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 pr-5">
           <%= if Enum.empty?(@posts) do %>
-          <h1 class="mt-5">Nothing yet! Check back soon!</h1>
+            <h1 class="mt-5">Nothing yet! Check back soon!</h1>
           <% end %>
           <%= for post <- @posts do %>
-          <div class="post-preview">
-            <h6 class="text-uppercase text-muted">
-              <%= post.category %>
-            </h6>
-            <%= link(to: Routes.blog_path(@conn, :show, @topic, post.slug), class: "post-title") do %>
-            <h3 class="text-dark">
-              <%= post.title %>
-            </h3>
-            <% end %>
-            <p class="lead post-subtitle">
+            <div class="post-preview">
+              <h6 class="text-uppercase text-muted">
+                <%= post.category %>
+              </h6>
+              <%= link(to: Routes.blog_path(@conn, :show, @topic, post.slug), class: "post-title") do %>
+                <h3 class="text-dark">
+                  <%= post.title %>
+                </h3>
+              <% end %>
+              <p class="lead post-subtitle">
               <%= post.excerpt %>
-            </p>
-            <% month =  Timex.month_name(post.datetime.month) %>
-            <% day =  post.datetime.day %>
-            <% year = post.datetime.year %>
-            <% author = post.author %>
-            <p class="small">Posted by
+              </p>
+              <% month =  Timex.month_name(post.datetime.month) %>
+              <% day =  post.datetime.day %>
+              <% year = post.datetime.year %>
+              <% author = post.author %>
+              <p class="small">Posted by
               <%= author %> on
               <%= month %>
               <%= day %>,
               <%= year %>
-            </p>
-          </div>
+              </p>
+            </div>
           <% end %>
         </div>
-        <%= render ErlefWeb.BlogView, "sidebar.html", conn: @conn, name: @name, description: @description %>
+        <aside class="col-lg-4 blog-sidebar">
+          <div class="mb-4">
+            <h6>Media Inquiries</h6>
+            <h4>Journalists and other media professionals</h4>
+            <p class="mb-0">
+            For press kits, interviews or publish about us please contact 
+            the <a href="mailto:marketing@erlef.org">Marketing Working Group</a>
+            </p>
+          </div>
+          <%= render(ErlefWeb.BlogView, "recent_posts.html", latest_news: @latest_news, all_tags: @all_tags) %>
+        </aside>
       </div>
-    </div>
   </main>
   <section class="py-5 mt-5 bg-brand text-white">
     <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
   </section>
-</div>
+    </div>

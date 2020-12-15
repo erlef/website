@@ -15,7 +15,9 @@ defmodule ErlefWeb.BlogController do
           topic: topic,
           name: wg.name,
           description: wg.description,
-          posts: list(topic)
+          posts: list(topic),
+          latest_news: Blogs.latest_posts(),
+          all_tags: Blogs.all_tags()
         )
     end
   end
@@ -23,7 +25,14 @@ defmodule ErlefWeb.BlogController do
   def index(conn, _params) do
     descrip = "Find all the related news of the Erlang Ecosystem Foundation"
 
-    render(conn, "index.html", topic: "eef", name: "EEF", description: descrip, posts: list("eef"))
+    params = [
+    all_tags:  Blogs.all_tags(),
+      latest_news: Blogs.latest_posts(),
+      topic: "eef", name: "EEF",
+      description: descrip,
+      posts: list("eef")
+    ]
+    render(conn, "index.html", params)
   end
 
   def show(conn, %{"id" => id}) do
