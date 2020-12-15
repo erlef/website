@@ -24,6 +24,10 @@
     {
       "image": "volunteers/hideki-takase.jpg",
       "name": "Hideki Takase"
+    },
+    {
+      "image": "volunteers/natalia_chechina.jpg",
+      "name": "Natalia Chechina"
     }
   ],
   "name": "Embedded Systems",
