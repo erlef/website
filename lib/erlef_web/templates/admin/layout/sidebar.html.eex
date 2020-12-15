@@ -10,12 +10,13 @@
   <div class="sidebar">
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-        <li class="nav-item"> 
-          <a href="/admin/dashboard" class="nav-link active">
-            <i class="fas fa-tachometer-alt"></i>
-            <p>Dashboard</p>
-          </a>
-        </li>
+
+        <%= nav_link(to: Routes.admin_event_path(@conn, :index), name: "Events", icon: "fa-calendar-alt") %>
+
+        <%= nav_link(to: Routes.admin_email_request_path(@conn, :index), name: "Email Requests", icon: "fa-envelope") %>
+
+        <%= nav_link(to: Routes.live_dashboard_path(@conn, :home), name: "Live dashboard", icon: "fa-tachometer-alt", target: "_blank") %>
+ 
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

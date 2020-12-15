@@ -97,7 +97,7 @@ defmodule ErlefWeb.Router do
       post "/email_requests/assign", EmailRequestController, :assign
       post "/email_requests/complete", EmailRequestController, :complete
       put "/events/:id", EventController, :approve
-      live_dashboard "/dashboard"
+      live_dashboard "/live-dashboard"
     end
   end
 
