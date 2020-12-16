@@ -61,7 +61,7 @@ defmodule Erlef.MixProject do
       {:oauther, "1.1.1"},
       {:phoenix, "~> 1.5.7"},
       {:phoenix_ecto, "~> 4.2.1"},
-      {:phoenix_html, "~> 2.14.2"},
+      {:phoenix_html, "~> 2.14.3"},
       {:phoenix_live_dashboard, "~> 0.4.0"},
       {:phoenix_live_reload, "~> 1.3.0", only: :dev},
       {:phoenix_live_view, "~> 0.15.0"},
