@@ -8,12 +8,11 @@ defmodule ErlefWeb.Plug.RequiresAdmin do
   def init(opts), do: opts
 
   def call(conn, _opts) do
-    session = get_session(conn, :member_session)
-
-    case Erlef.Session.normalize(session) do
+    case get_session(conn, :member_session) do
       %{member: %{is_app_admin?: true}} ->
         conn
-
+      %{"member" => %{"is_app_admin?" => true}} ->
+          conn
       _ ->
         conn
         |> Phoenix.Controller.redirect(to: "/")
