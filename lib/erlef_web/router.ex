@@ -98,7 +98,9 @@ defmodule ErlefWeb.Router do
       post "/email_requests/assign", EmailRequestController, :assign
       post "/email_requests/complete", EmailRequestController, :complete
       put "/events/:id", EventController, :approve
-      live_dashboard "/live-dashboard", metrics: ErlefWeb.Telemetry
+      live_dashboard "/live-dashboard", 
+        metrics: ErlefWeb.Telemetry, 
+        ecto_repos: [Erlef.Repo]
     end
   end
 
