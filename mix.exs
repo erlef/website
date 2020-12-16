@@ -56,6 +56,7 @@ defmodule Erlef.MixProject do
       {:gen_smtp, "~> 1.0.1", override: true},
       {:gettext, "~> 0.18.2"},
       {:jason, "~> 1.2.1", override: true},
+      {:honeybadger, "~> 0.1"},
       {:oauther, "1.1.1"},
       {:phoenix, "~> 1.5.7"},
       {:phoenix_ecto, "~> 4.2.1"},

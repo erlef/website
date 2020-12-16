@@ -1,5 +1,6 @@
 defmodule ErlefWeb.Router do
   use ErlefWeb, :router
+  use Honeybadger.Plug
   import Phoenix.LiveDashboard.Router
 
   @trusted_sources ~w(
