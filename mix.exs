@@ -73,6 +73,8 @@ defmodule Erlef.MixProject do
       {:slugify, "~> 1.3.1"},
       {:sobelow, "~> 0.10.6", only: [:dev, :test]},
       {:swoosh, "~> 1.1.2"},
+      {:telemetry_poller, "~> 0.5"},
+      {:telemetry_metrics, "~> 0.4"},
       {:timex, "~> 3.6.2"},
       {:ex_doc, "~> 0.23", only: :dev, runtime: false}
     ]
