@@ -27,7 +27,7 @@ defmodule Erlef.MixProject do
   def application do
     [
       mod: {Erlef.Application, []},
-      extra_applications: [:logger, :runtime_tools, :swoosh, :plug_attack, :extwitter]
+      extra_applications: [:logger, :runtime_tools, :os_mon, :swoosh, :plug_attack, :extwitter]
     ]
   end
 
