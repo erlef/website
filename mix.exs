@@ -41,7 +41,7 @@ defmodule Erlef.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:credo, "~> 1.5.2", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.5.3", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:earmark, "~> 1.4.13", override: true},
       {:ecto_psql_extras, "~> 0.2"},
