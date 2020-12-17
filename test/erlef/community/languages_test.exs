@@ -3,6 +3,6 @@ defmodule Erlef.Community.LanguagesTest do
 
   describe "all/0" do
     languages = Erlef.Community.Resources.all_languages()
-    assert Enum.count(languages) == 17
+    assert Enum.count(languages) == 16
   end
 end

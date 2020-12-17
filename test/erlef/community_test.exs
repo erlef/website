@@ -94,7 +94,6 @@ defmodule Erlef.CommunityTest do
         "Fika",
         "Gleam",
         "Hamler",
-        "Joxa",
         "LFE (Lisp Flavored Erlang)",
         "Luerl",
         "OTPCL",
