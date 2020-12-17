@@ -88,14 +88,6 @@
         "Hamler is a strongly-typed language with compile-time typechecking and built-in support for concurrency and distribution and empowers industries to build the next generation of scalable, reliable, realtime applications"
     },
     %{
-      name: "Joxa",
-      link: "http://www.joxa.org/",
-      icon: nil,
-      logo: "/images/community/languages/joxa.svg",
-      about:
-        "Joxa is a small semantically clean, functional lisp. It is a general-purpose language encouraging interactive development and a functional programming style."
-    },
-    %{
       name: "LFE (Lisp Flavored Erlang)",
       link: "https://lfe.io/",
       icon: "/images/community/languages/lfe.svg",
