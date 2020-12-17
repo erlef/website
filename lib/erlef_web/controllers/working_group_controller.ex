@@ -22,9 +22,6 @@ defmodule ErlefWeb.WorkingGroupController do
         conn
         |> put_flash(:error, "Can't seem to find that group 🤔")
         |> redirect(to: Routes.working_group_path(conn, :index))
-
-      err ->
-        err
     end
   end
 
