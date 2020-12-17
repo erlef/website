@@ -1,5 +1,5 @@
 <%= for list <- Enum.chunk_every(@members, 4) do %>
-<div class="d-flex">
+<div class="d-md-flex">
   <%= for %{name: name, image: image} <- list do %>
   <div class="pr-2 mb-2">
     <div class="avatar-large rounded">
