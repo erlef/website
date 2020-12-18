@@ -75,23 +75,21 @@ defmodule Erlef.Session do
     }
   end
 
-  @spec normalize(map()) :: t() | nil
-  def normalize(nil), do: nil
+  @spec build(map()) :: t() | nil | {:error, term()}
 
-  def normalize(data) do
-    normal =
-      Enum.reduce(data, %{}, fn {k, v}, acc ->
-        case @data_map[k] do
-          nil ->
-            acc
+  def build(nil), do: nil
 
-          key ->
-            Map.put(acc, key, v)
-        end
-      end)
+  def build(data) do
+    with {:ok, normal} <- normalize(data),
+         {:ok, member} <- get_member(normal.member_id) do
+      struct(__MODULE__, Map.put(normal, :member, member))
+    else
+      {:error, :timeout} ->
+        {:error, "Timed out getting member details"}
 
-    {:ok, member} = Erlef.Accounts.get_member(normal.member_id)
-    struct(__MODULE__, Map.put(normal, :member, member))
+      err ->
+        err
+    end
   end
 
   def encode(%{"member_session" => session = %__MODULE__{}} = data) do
@@ -167,6 +165,36 @@ defmodule Erlef.Session do
       _ -> false
     end
   end
+
+  defp normalize(nil), do: nil
+
+  defp normalize(data) do
+    case Enum.all?(Map.keys(data), &is_bitstring/1) do
+      true ->
+        {:ok, do_normalize(data)}
+
+      false ->
+        {:error, :non_string_key_found}
+    end
+  end
+
+  defp do_normalize(data) do
+    Enum.reduce(data, %{}, fn {k, v}, acc ->
+      case @data_map[k] do
+        nil ->
+          acc
+
+        key ->
+          Map.put(acc, key, v)
+      end
+    end)
+  end
+
+  defp get_member(uid) when not is_nil(uid) do
+    Accounts.get_member(uid)
+  end
+
+  defp get_member(_), do: nil
 
   defp maybe_put_uuid(%Member{id: ""} = member) do
     put_uuid(member)

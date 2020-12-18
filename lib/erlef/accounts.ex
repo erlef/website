@@ -17,4 +17,5 @@ defmodule Erlef.Accounts do
 
   defdelegate get_member(id), to: Erlef.Accounts.Member, as: :get
   defdelegate update_member(member, params), to: Erlef.Accounts.Member, as: :update
+  defdelegate build_member(data), to: Erlef.Accounts.Member, as: :build
 end

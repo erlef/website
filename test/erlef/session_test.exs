@@ -55,7 +55,7 @@ defmodule Erlef.SessionTest do
     assert {:ok, ^expected} = Erlef.Session.encode(%{"member_session" => session})
   end
 
-  test "normalize/1" do
+  test "build/1" do
     session = %{
       "access_token" => "basic_member",
       "account_id" => "account_id",
@@ -65,7 +65,7 @@ defmodule Erlef.SessionTest do
       "username" => "Basic Member"
     }
 
-    assert normalized = %Erlef.Session{} = Erlef.Session.normalize(session)
+    assert normalized = %Erlef.Session{} = Erlef.Session.build(session)
     assert normalized.member
     assert normalized.access_token == "basic_member"
   end

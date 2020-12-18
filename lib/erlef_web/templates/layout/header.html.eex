@@ -59,7 +59,6 @@
                 <b class="caret"></b>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <div class="dropdown-divider"></div>
                 <%= link("Profile", to: "/members/profile", class: "dropdown-item") %>
 
                 <%= if @current_user.is_app_admin? do %>
@@ -67,7 +66,7 @@
                 <% end %>
 
                 <%= form_tag(Routes.session_path(@conn, :delete)) do %>
-                  <button type="submit" class="btn btn-link nav-link">Log out</button>
+                  <button type="submit" class="dropdown-item btn btn-link">Log out</button>
                 <% end %>
             </div>
           </li>

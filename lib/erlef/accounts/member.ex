@@ -66,8 +66,7 @@ defmodule Erlef.Accounts.Member do
   # @root_key_map Enum.filter(@str_key_map, fn {_k, v} -> is_atom(v) end)
   @field_value_key_map Enum.filter(@str_key_map, fn {_k, v} -> is_tuple(v) end)
 
-  @derive Jason.Encoder
-  defstruct [
+  @fields [
     :name,
     :email,
     :erlef_email_address,
@@ -94,6 +93,13 @@ defmodule Erlef.Accounts.Member do
     :url,
     :wild_apricot_id
   ]
+
+  @field_str_map Enum.reduce(@fields, %{}, fn k, acc ->
+                   Map.put(acc, Atom.to_string(k), k)
+                 end)
+
+  @derive Jason.Encoder
+  defstruct @fields
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t() | nil,
@@ -122,6 +128,21 @@ defmodule Erlef.Accounts.Member do
           url: String.t(),
           wild_apricot_id: integer()
         }
+
+  def build(data) do
+    normal =
+      Enum.reduce(data, %{}, fn {k, v}, acc ->
+        case @field_str_map[k] do
+          nil ->
+            acc
+
+          key ->
+            Map.put(acc, key, v)
+        end
+      end)
+
+    struct(__MODULE__, normal)
+  end
 
   @spec get(Ecto.UUID.t() | integer() | String.t()) :: {:ok, term()} | term()
   @doc """
