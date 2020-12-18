@@ -58,6 +58,12 @@ section {
     background-color: var(--dark);
 }
 
+
+nav.navbar { 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
 .avatar {
     width: 48px;
     height: 48px;
