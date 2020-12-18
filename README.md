@@ -6,9 +6,9 @@
 
  A `.tool-versions` file is provided in this repo for [asdf](https://asdf-vm.com/) users.
 
- - Erlang/OTP 22
- - Elixir 1.9
- - NodeJS v12
+ - Erlang/OTP 23
+ - Elixir 1.11
+ - NodeJS v10 (or greatter)
  - Yarn
 
 ## Up and running
