@@ -46,7 +46,7 @@
         <%= if logged_in?(assigns) do %>
              <li class="dropdown">
           <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-            <%= @current_user.display_name %>
+            <%= @current_user.name %>
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">

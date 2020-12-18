@@ -7,7 +7,7 @@
     <div class="col">
       <h1>General</h1>
       <ul class="list-unstyled">
-        <li><strong>Name:</strong> <%= @current_user.display_name %></li>
+        <li><strong>Name:</strong> <%= @current_user.name %></li>
         <li><strong>Email:</strong> <%= @current_user.email %></li>
         <li><strong>Member since:</strong> <%= member_since(@current_user) %></li>
         <li><strong>Member level:</strong> <%= member_level(@current_user) %></li>

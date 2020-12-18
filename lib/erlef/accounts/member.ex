@@ -38,7 +38,7 @@ defmodule Erlef.Accounts.Member do
   # Per the above we annotate fields that are part of the "FieldValues" list.
   @str_key_map %{
     "Archived" => {:is_archived?, :field_value},
-    "DisplayName" => :display_name,
+    "DisplayName" => :name,
     "Donor" => {:is_donor?, :field_value},
     "Email" => {:email, :field_value},
     "FirstName" => :first_name,
@@ -68,7 +68,7 @@ defmodule Erlef.Accounts.Member do
 
   @derive Jason.Encoder
   defstruct [
-    :display_name,
+    :name,
     :email,
     :erlef_email_address,
     :first_name,
@@ -97,7 +97,7 @@ defmodule Erlef.Accounts.Member do
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t() | nil,
-          display_name: String.t(),
+          name: String.t(),
           email: String.t(),
           erlef_email_address: String.t() | nil,
           first_name: String.t(),

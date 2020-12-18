@@ -5,7 +5,7 @@ defmodule Erlef.Members.EmailRequestNotification do
 
   def email_alias_created(member) do
     new()
-    |> to({member.display_name, member.email})
+    |> to({member.name, member.email})
     |> from({"Erlef Notifications", "notifications@erlef.org"})
     |> subject("Your erlef.org email alias has been created!")
     |> text_body(alias_body(member))
@@ -13,7 +13,7 @@ defmodule Erlef.Members.EmailRequestNotification do
 
   def email_box_created(member, password) do
     new()
-    |> to({member.display_name, member.email})
+    |> to({member.name, member.email})
     |> from({"Erlef Notifications", "notifications@erlef.org"})
     |> subject("Your erlef.org email account has been created!")
     |> text_body(email_box_body(member, password))
