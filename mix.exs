@@ -62,6 +62,7 @@ defmodule Erlef.MixProject do
       {:gettext, "~> 0.18.2"},
       {:jason, "~> 1.2.1", override: true},
       {:honeybadger, "~> 0.1"},
+      {:hackney, "~> 1.17.0"},
       {:oauther, "1.1.1"},
       {:phoenix, "~> 1.5.7"},
       {:phoenix_ecto, "~> 4.2.1"},
