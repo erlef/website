@@ -14,7 +14,7 @@ defmodule ErlefWeb.PageController do
     latest_news = Blogs.latest_posts()
 
     render(conn,
-      working_groups: Groups.all_working_groups(),
+      working_groups: Groups.list_working_groups(),
       latest_news: latest_news,
       tweets: Twitter.latest_tweets(),
       events: Community.approved_events() |> Enum.take(3)

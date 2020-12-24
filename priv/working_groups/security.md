@@ -21,19 +21,15 @@
       "name": "Alexandre Rodrigues"
     },
     {
-      "image": "volunteers/profile-placeholder.png",
       "name": "Hans Nilsson"
     },
     {
-      "image": "volunteers/profile-placeholder.png",
       "name": "Peter Dimitrov"
     },
     {
-      "image": "volunteers/profile-placeholder.png",
       "name": "Griffin Byatt"
     },
     {
-      "image": "volunteers/profile-placeholder.png",
       "name": "Duncan Sparrell"
     },
     {

@@ -15,7 +15,6 @@
       "name": "Adam Lindberg"
     },
     {
-      "image": "volunteers/profile-placeholder.png",
       "name": "Frank Hunleth"
     },
     {

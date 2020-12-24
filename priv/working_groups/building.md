@@ -31,7 +31,6 @@
       "name": "Wojtek Mach"
     },
     {
-      "image": "volunteers/profile-placeholder.png",
       "name": "Ivan Glushkov"
     },
     {
@@ -39,7 +38,6 @@
       "name": "Andrea Leopardi"
     },
     {
-      "image": "volunteers/profile-placeholder.png",
       "name": "Justin Wood"
     },
     {
@@ -47,7 +45,6 @@
       "name": "José Valim"
     },
     {
-      "image": "volunteers/profile-placeholder.png",
       "name": "Thomas Depierre"
     },
     {
@@ -59,7 +56,6 @@
       "name": "Maxim Fedorov"
     },
     {
-      "image": "volunteers/profile-placeholder.png",
       "name": "John Hogberg"
     }
   ],

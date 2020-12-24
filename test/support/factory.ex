@@ -6,6 +6,7 @@ defmodule Erlef.Factory do
 
   alias Erlef.Publications.AcademicPaper
   alias Erlef.Community.Event
+  alias Erlef.Groups.{WorkingGroup, WorkingGroupVolunteer, Volunteer}
 
   def event_factory do
     %Event{
@@ -27,6 +28,33 @@ defmodule Erlef.Factory do
       language: "English",
       url: sequence(:url, &"https://example.com/paper_#{&1}"),
       technologies: ["BEAM"]
+    }
+  end
+
+  def volunteer_factory do
+    %Volunteer{name: Faker.Person.name(), avatar_url: Faker.Avatar.image_url()}
+  end
+
+  def working_group_factory do
+    %WorkingGroup{
+      description: "To do things",
+      formed: Faker.Date.backward(365),
+      proposal: Faker.Markdown.headers(),
+      proposal_html: "<p>Foo</p>",
+      meta: %{
+        email: Faker.Internet.email(),
+        gcal_url: nil,
+        github: nil
+      },
+      name: Faker.Company.name(),
+      slug: Faker.Internet.slug()
+    }
+  end
+
+  def working_group_volunteer_factory do
+    %WorkingGroupVolunteer{
+      working_group: build(:working_group),
+      volunteer: build(:volunteer)
     }
   end
 end

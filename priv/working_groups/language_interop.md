@@ -6,7 +6,6 @@
   "github": null,
   "volunteers": [
     {
-      "image": "volunteers/profile-placeholder.png",
       "name": "Robert Virding"
     },
     {

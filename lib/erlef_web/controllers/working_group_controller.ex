@@ -26,7 +26,7 @@ defmodule ErlefWeb.WorkingGroupController do
   end
 
   defp all_groups() do
-    Groups.all_working_groups()
+    Groups.list_working_groups()
     |> Enum.reject(fn wg -> wg.slug == "eef" end)
     |> sort_by_formation()
   end

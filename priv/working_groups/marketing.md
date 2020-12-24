@@ -22,7 +22,6 @@
       "name": "Maxim Fedorov"
     },
     {
-      "image": "volunteers/profile-placeholder.png",
       "name": "Johnny Winn",
       "is_chair": true
     },
