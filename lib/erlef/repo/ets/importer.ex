@@ -161,7 +161,7 @@ defmodule Erlef.Repo.ETS.Importer do
       "proposal" => body_str
     }
 
-    {meta, data1} = Map.split(data0, ["email", "gcal_url", "github"])
+    {meta, _data1} = Map.split(data0, ["email", "gcal_url", "github"])
 
     {volunteers, wg} = Map.split(data0, ["volunteers"])
 
