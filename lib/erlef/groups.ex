@@ -4,7 +4,7 @@ defmodule Erlef.Groups do
   """
 
   alias Erlef.Repo
-  alias Erlef.Groups.{Volunteer, WorkingGroup, WorkingGroupVolunteer, Query}
+  alias Erlef.Groups.{Volunteer, WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer, Query}
 
   @spec list_volunteers() :: [Volunteer.t()]
   def list_volunteers(), do: Repo.all(Volunteer)
@@ -82,6 +82,14 @@ defmodule Erlef.Groups do
   def create_working_group_volunteer(attrs) do
     %WorkingGroupVolunteer{}
     |> WorkingGroupVolunteer.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @spec create_working_group_chair(map) ::
+          {:ok, WorkingGroupChair.t()} | {:error, Ecto.Changeset.t()}
+  def create_working_group_chair(attrs) do
+    %WorkingGroupChair{}
+    |> WorkingGroupChair.changeset(attrs)
     |> Repo.insert()
   end
 end
