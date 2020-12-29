@@ -15,7 +15,8 @@ defmodule ErlefWeb.WorkingGroupController do
         render(conn,
           wg: wg,
           blog_posts: Blogs.get_posts_by_category(slug),
-          topic: slug
+          topic: slug,
+          is_chair: is_chair(conn, wg)
         )
 
       {:error, :not_found} ->
@@ -23,6 +24,10 @@ defmodule ErlefWeb.WorkingGroupController do
         |> put_flash(:error, "Can't seem to find that group 🤔")
         |> redirect(to: Routes.working_group_path(conn, :index))
     end
+  end
+
+  defp is_chair(%{assigns: %{current_user: member}}, wg) do
+    Groups.is_chair?(wg, member)
   end
 
   defp all_groups() do

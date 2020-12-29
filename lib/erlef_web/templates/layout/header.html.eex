@@ -85,6 +85,8 @@
                         class: "dropdown-item nav-link") %>
               <%= link("Fellow", to: "/login?code=fellow_member", 
                         class: "dropdown-item nav-link") %>
+              <%= link("Working Group Chair", to: "/login?code=wg_chair", 
+                        class: "dropdown-item nav-link") %>
               <%= link("Admin", to: "/login?code=admin", 
                         class: "dropdown-item nav-link") %> 
             </div>
