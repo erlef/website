@@ -19,7 +19,8 @@ defmodule Erlef.Groups.Query do
   defp wg_query() do
     from(wg in WorkingGroup,
       join: v in assoc(wg, :volunteers),
-      preload: [volunteers: v]
+      join: c in assoc(wg, :chairs),
+      preload: [volunteers: v, chairs: c]
     )
   end
 end

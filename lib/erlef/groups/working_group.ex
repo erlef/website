@@ -4,7 +4,7 @@ defmodule Erlef.Groups.WorkingGroup do
   """
 
   use Erlef.Schema
-  alias Erlef.Groups.{WorkingGroupVolunteer, Volunteer}
+  alias Erlef.Groups.{WorkingGroupChair, WorkingGroupVolunteer, Volunteer}
 
   schema "working_groups" do
     field(:name, :string)
@@ -14,11 +14,18 @@ defmodule Erlef.Groups.WorkingGroup do
     field(:proposal, :string)
     field(:proposal_html, :string)
 
+    # field(:chairs, :array, virtual: true)
+
     embeds_one(:meta, Meta, primary_key: false, on_replace: :update) do
       field(:email, :string)
       field(:github, :string)
       field(:gcal_url, :string)
     end
+
+    many_to_many(:chairs, Volunteer,
+      join_through: WorkingGroupChair,
+      on_delete: :delete_all
+    )
 
     many_to_many(:volunteers, Volunteer,
       join_through: WorkingGroupVolunteer,

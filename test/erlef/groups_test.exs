@@ -2,20 +2,19 @@ defmodule Erlef.GroupsTest do
   use Erlef.DataCase
 
   alias Erlef.Groups
-  alias Erlef.Groups.{Volunteer, WorkingGroup, WorkingGroupVolunteer}
+  alias Erlef.Groups.{Volunteer, WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer}
 
   setup do
     v = insert(:volunteer)
     chair = insert(:volunteer)
     wg = insert(:working_group)
 
-    p = %{
+    c = %{
       volunteer_id: chair.id,
-      working_group_id: wg.id,
-      is_chair: true
+      working_group_id: wg.id
     }
 
-    {:ok, %WorkingGroupVolunteer{}} = Groups.create_working_group_volunteer(p)
+    {:ok, %WorkingGroupChair{}} = Groups.create_working_group_chair(c)
 
     p = %{
       volunteer_id: v.id,
@@ -38,7 +37,7 @@ defmodule Erlef.GroupsTest do
   end
 
   test "change_volunteer/2", %{chair: chair} do
-    assert %Ecto.Changeset{} = Erlef.Groups.change_volunteer(chair, %{is_chair: false})
+    assert %Ecto.Changeset{} = Erlef.Groups.change_volunteer(chair, %{name: "eh?"})
   end
 
   describe "create_volunteer/1" do
@@ -173,7 +172,7 @@ defmodule Erlef.GroupsTest do
   end
 
   test "change_working_group/2", %{working_group: wg} do
-    assert %Ecto.Changeset{} = Erlef.Groups.change_working_group(wg, %{is_chair: false})
+    assert %Ecto.Changeset{} = Erlef.Groups.change_working_group(wg, %{name: "eh?"})
   end
 
   describe "create_working_group_volunteer/1" do
