@@ -1,6 +1,19 @@
 defmodule ErlefWeb.BlogControllerTest do
   use ErlefWeb.ConnCase
 
+  setup do
+    wg =
+      build(:working_group, %{
+        name: "Fellowship",
+        slug: "fellowship",
+        description: "members for a fellowship role"
+      })
+
+    wgv = insert(:working_group_volunteer, working_group: wg)
+    insert(:working_group_chair, volunteer: wgv.volunteer, working_group: wgv.working_group)
+    [working_group: wgv.working_group]
+  end
+
   test "GET /news", %{conn: conn} do
     conn = get(conn, Routes.news_path(conn, :index))
     assert html_response(conn, 200) =~ "Find all the related news"

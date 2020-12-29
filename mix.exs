@@ -96,6 +96,7 @@ defmodule Erlef.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: [
         "compile --warnings-as-errors",
+        "ecto.drop --quiet",
         "ecto.create --quiet",
         "ecto.migrate --quiet",
         "test"

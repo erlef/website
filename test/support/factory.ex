@@ -6,7 +6,7 @@ defmodule Erlef.Factory do
 
   alias Erlef.Publications.AcademicPaper
   alias Erlef.Community.Event
-  alias Erlef.Groups.{WorkingGroup, WorkingGroupVolunteer, Volunteer}
+  alias Erlef.Groups.{WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer, Volunteer}
 
   def event_factory do
     %Event{
@@ -53,6 +53,13 @@ defmodule Erlef.Factory do
 
   def working_group_volunteer_factory do
     %WorkingGroupVolunteer{
+      working_group: build(:working_group),
+      volunteer: build(:volunteer)
+    }
+  end
+
+  def working_group_chair_factory do
+    %WorkingGroupChair{
       working_group: build(:working_group),
       volunteer: build(:volunteer)
     }
