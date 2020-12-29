@@ -32,7 +32,11 @@ defmodule Erlef.Factory do
   end
 
   def volunteer_factory do
-    %Volunteer{name: Faker.Person.name(), avatar_url: Faker.Avatar.image_url()}
+    %Volunteer{
+      member_id: Ecto.UUID.generate(),
+      name: Faker.Person.name(),
+      avatar_url: Faker.Avatar.image_url()
+    }
   end
 
   def working_group_factory do

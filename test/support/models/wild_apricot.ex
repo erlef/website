@@ -53,6 +53,26 @@ defmodule Erlef.Test.WildApricot do
     }
   }
 
+  @base_wg_chair_profile %{
+    "DisplayName" => "Working Group Chair",
+    "Email" => "wg_chair@foo.bar",
+    "FirstName" => "Working Group",
+    "LastName" => "Chair",
+    "Id" => "wg_chair",
+    "MembershipLevel" => %{
+      "Id" => "1234567",
+      "Name" => "Basic Membership",
+      "Url" => "https://api.wildapricot.org/v2.2/accounts/010101/MembershipLevels/1234567"
+    },
+    "FieldValues" => [
+      %{
+        "FieldName" => "erlef_app_id",
+        "SystemCode" => "custom-12523894",
+        "Value" => "4ad3c890-856f-4fd9-859c-ed0ef8e05a54"
+      }
+    ]
+  }
+
   @base_annual_profile %{
     "DisplayName" => "Annual Supporting Member",
     "Email" => "annual_supporting_member@foo.bar",
@@ -136,6 +156,7 @@ defmodule Erlef.Test.WildApricot do
   # Static data for each type of member used in the return from the ../me endpoint
   @stub_data_map %{
     "admin" => Erlef.Test.WildApricot.Data.contact_data(@base_admin_profile),
+    "wg_chair" => Erlef.Test.WildApricot.Data.contact_data(@base_wg_chair_profile),
     "basic_member" => Erlef.Test.WildApricot.Data.contact_data(@base_basic_profile),
     "annual_member" => Erlef.Test.WildApricot.Data.contact_data(@base_annual_profile),
     "lifetime_member" => Erlef.Test.WildApricot.Data.contact_data(@base_lifetime_profile),

@@ -32,6 +32,13 @@ defmodule Erlef.GroupsTest do
     ]
   end
 
+  test "is_chair?/2", %{volunteer: v, chair: chair, working_group: wg} do
+    assert Groups.is_chair?(wg, %Erlef.Accounts.Member{id: chair.member_id})
+    assert Groups.is_chair?(wg, chair)
+    refute Groups.is_chair?(wg, v)
+    refute Groups.is_chair?(wg, Ecto.UUID.generate())
+  end
+
   test "list_volunteers/0" do
     assert [%Volunteer{} | _] = Groups.list_volunteers()
   end

@@ -4,7 +4,22 @@ defmodule Erlef.Groups do
   """
 
   alias Erlef.Repo
+  alias Erlef.Accounts.Member
   alias Erlef.Groups.{Volunteer, WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer, Query}
+
+  def is_chair?(wg, %Volunteer{member_id: member_id}) do
+    is_chair?(wg, member_id)
+  end
+
+  def is_chair?(wg, %Member{id: member_id}) do
+    is_chair?(wg, member_id)
+  end
+
+  def is_chair?(%WorkingGroup{chairs: chairs}, member_id) when is_binary(member_id) do
+    Enum.any?(chairs, fn c -> c.member_id == member_id end)
+  end
+
+  def is_chair?(_wg, _member_or_id), do: false
 
   @spec list_volunteers() :: [Volunteer.t()]
   def list_volunteers(), do: Repo.all(Volunteer)
