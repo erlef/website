@@ -15,7 +15,9 @@ Application.ensure_all_started(:erlef)
 if Erlef.is_env?(:dev) do 
   seeds_list = [
     "events",
-    "academic_papers"
+    "academic_papers",
+    "working_groups",
+    "volunteers"
   ]
 
   for seeds <- seeds_list do
