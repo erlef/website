@@ -1,418 +1,603 @@
 wgvs = [
   %{
-    avatar_url: "volunteers/tristan-sloughter.jpg",
-    id: "4fca58f1-deeb-4fd0-8d5a-366f8b28521a",
-    member_id: nil,
-    name: "Tristan Sloughter"
+    id: "16d39588-2ea0-440a-bec3-f59858f7691c",
+    is_chair: true,
+    volunteer_id: "4a9698ea-6bb2-4331-8846-0248246ab346",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: "volunteers/fred-hebert.png",
-    id: "6a78afa0-9c23-47d3-94f4-bd385d3db8a3",
-    member_id: nil,
-    name: "Fred Hebert"
+    id: "c6dfb0c1-b57d-43a0-ab7d-2d0bcaa87e48",
+    is_chair: false,
+    volunteer_id: "8d8d7d05-cc79-445a-8e37-c56525024f7e",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: "volunteers/bryan-paxton.jpg",
-    id: "3e637a55-8e09-45fd-93fa-abcad1dea8b7",
-    member_id: nil,
-    name: "Bryan Paxton"
+    id: "15d46258-33d9-4923-84d7-b792d7d0efd9",
+    is_chair: false,
+    volunteer_id: "2641e9f6-6f2d-497d-b0ab-4f9f4d033115",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: "volunteers/todd-resudek.jpg",
-    id: "901a693c-d85f-4706-93ad-34fe41a48a63",
-    member_id: nil,
-    name: "Todd Resudek"
+    id: "41db9388-c338-4323-a41e-7486f2ce3652",
+    is_chair: false,
+    volunteer_id: "3d208e24-68dd-4d05-b2c9-e1fcbf8bb6d9",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: "volunteers/randy-thompson.jpg",
-    id: "cb0d2321-b128-4ffd-aeb0-8fcd07d7ea08",
-    member_id: nil,
-    name: "Randy Thompson"
+    id: "ad320e0e-b2da-49be-b0c4-ce4e9d600a5c",
+    is_chair: false,
+    volunteer_id: "2565fbd1-dc33-4258-93a0-358f1b0a2cfd",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: "volunteers/wojtek-mach.jpg",
-    id: "ec2b4d26-c338-476b-b81b-143b36264560",
-    member_id: nil,
-    name: "Wojtek Mach"
+    id: "252c8886-e3e2-410c-bd36-4fa37ebb5161",
+    is_chair: false,
+    volunteer_id: "72491fc9-8c24-45a9-8119-2cd12fdae830",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: nil,
-    id: "6466d2d7-021a-412b-953d-744a1864e397",
-    member_id: nil,
-    name: "Ivan Glushkov"
+    id: "64f70657-74cd-4a0c-a454-f6ae1f2d4a8d",
+    is_chair: false,
+    volunteer_id: "e2d3bf92-50ae-422f-bcda-11aa62cebc47",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: "volunteers/andrea-leopardi.jpg",
-    id: "411688e7-5a8a-4557-b66d-19032cc77b54",
-    member_id: nil,
-    name: "Andrea Leopardi"
+    id: "9d1da61d-b7c2-4a27-9a1e-11ed30f585bc",
+    is_chair: false,
+    volunteer_id: "faab4673-f41b-4784-81c2-39eaa1b3d658",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: nil,
-    id: "1250b4cd-20f0-482f-995d-3159a662a56c",
-    member_id: nil,
-    name: "Justin Wood"
+    id: "391e488c-d3cc-489f-99ff-8a1d23016f94",
+    is_chair: false,
+    volunteer_id: "29475e68-a75d-479d-8f3d-c35d2ade468b",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: "volunteers/jose-valim.jpg",
-    id: "4479a692-fcc2-4b3a-b52b-3c5c2e55ac74",
-    member_id: nil,
-    name: "José Valim"
+    id: "88e63a7e-45e3-4344-91e3-ab7b96506cd1",
+    is_chair: false,
+    volunteer_id: "affdba10-18a8-4402-9847-fe1976166dc3",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: nil,
-    id: "f1fdbbdc-7851-46d8-bcff-fd088cd07b87",
-    member_id: nil,
-    name: "Thomas Depierre"
+    id: "22c7710c-2ed8-4dcc-9adc-01e24abd8bdd",
+    is_chair: false,
+    volunteer_id: "0abe96bb-690c-4b27-b978-ff8d8772321a",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: "volunteers/adam-lindberg.jpg",
-    id: "5518359c-372f-4684-b76e-f5fc320845bb",
-    member_id: nil,
-    name: "Adam Lindberg"
+    id: "6502aa58-846b-43ba-a081-18d28049c07b",
+    is_chair: false,
+    volunteer_id: "8f22ac12-badc-4a71-80fa-4de70051ee2b",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: "volunteers/maxim-fedorov.jpg",
-    id: "6724350b-3afc-479d-ac61-eb9fd39bffe3",
-    member_id: nil,
-    name: "Maxim Fedorov"
+    id: "98892302-4bd1-4335-afbb-0ce3628e610d",
+    is_chair: false,
+    volunteer_id: "4060d400-7b66-4724-ad16-2f813a94c8f7",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: nil,
-    id: "9f8387e0-78b8-4283-b157-9bf3c3501322",
-    member_id: nil,
-    name: "John Hogberg"
+    id: "f9c4cb44-3994-4741-a1de-1f71656afa6c",
+    is_chair: false,
+    volunteer_id: "8a05166f-b2ec-466c-9f49-a4b148947d4a",
+    working_group_id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2"
   },
   %{
-    avatar_url: "volunteers/kenneth-lundin.jpg",
-    id: "4ec5ab72-9529-41b8-9921-b1fc9ee685d7",
-    member_id: nil,
-    name: "Kenneth Lundin"
+    id: "40e7a10c-a92e-46f5-b8c7-110654cf6cad",
+    is_chair: true,
+    volunteer_id: "affdba10-18a8-4402-9847-fe1976166dc3",
+    working_group_id: "8e3d6a77-1cb9-441b-8003-d0ac086d134c"
   },
   %{
-    avatar_url: "volunteers/mariano-guerra.jpg",
-    id: "ae5b0ab3-13bb-4e5d-947d-bd449558f3b1",
-    member_id: nil,
-    name: "Mariano Guerra"
+    id: "674dfab2-b117-4d3f-a82b-548e0660d627",
+    is_chair: false,
+    volunteer_id: "8d8d7d05-cc79-445a-8e37-c56525024f7e",
+    working_group_id: "8e3d6a77-1cb9-441b-8003-d0ac086d134c"
   },
   %{
-    avatar_url: "volunteers/radek-szymczyszyn.jpg",
-    id: "d99b3814-192b-4254-9caf-dc9bd95363c0",
-    member_id: nil,
-    name: "Radosław Szymczyszyn"
+    id: "5456618b-97e8-4013-8a7c-7c5978851ecb",
+    is_chair: false,
+    volunteer_id: "9c129b15-b008-4947-b98b-def281e4535d",
+    working_group_id: "8e3d6a77-1cb9-441b-8003-d0ac086d134c"
   },
   %{
-    avatar_url: "volunteers/laszlo-bacsi.png",
-    id: "18edcc29-8a51-4cde-99de-6286d568c66e",
-    member_id: nil,
-    name: "László Bácsi"
+    id: "48324409-098a-4981-830c-3ebf3c132654",
+    is_chair: false,
+    volunteer_id: "6abaa50e-7b7a-4a1f-afcf-c2ad999c97ab",
+    working_group_id: "8e3d6a77-1cb9-441b-8003-d0ac086d134c"
   },
   %{
-    avatar_url: "volunteers/brujo-benavides.png",
-    id: "017d1b61-c5b9-4352-bd08-67ff8e8ecfaf",
-    member_id: nil,
-    name: "Brujo Benavides"
+    id: "11bc53f5-0723-47a3-9c61-151adaa530cd",
+    is_chair: false,
+    volunteer_id: "8fc7330f-72ef-4aba-a57f-2a7658453ad7",
+    working_group_id: "8e3d6a77-1cb9-441b-8003-d0ac086d134c"
   },
   %{
-    avatar_url: "volunteers/francesco-cesarini.jpg",
-    id: "5393a661-7cef-4c41-a388-03397d39abc5",
-    member_id: nil,
-    name: "Francesco Cesarini"
+    id: "50778a2e-99c9-48a6-a18f-75ad3a00a297",
+    is_chair: false,
+    volunteer_id: "aa8e84d5-a63a-48bd-a5a3-c249bd8f99f1",
+    working_group_id: "8e3d6a77-1cb9-441b-8003-d0ac086d134c"
   },
   %{
-    avatar_url: "volunteers/miriam-pena.jpg",
-    id: "8e3cca17-418f-4872-b9a2-f20155593b68",
-    member_id: nil,
-    name: "Miriam Pena"
+    id: "797220d7-3164-4f24-9cc6-e24625718e97",
+    is_chair: false,
+    volunteer_id: "bdbd55e3-e8ab-41ee-9fac-746af27e7f92",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/peer-stritzinger.jpg",
-    id: "dd43f59f-37ed-4fa7-8bb0-192d991e2133",
-    member_id: nil,
-    name: "Peer Stritzinger"
+    id: "4d88615a-cc78-40b9-a3d3-ad3e885e9ee6",
+    is_chair: false,
+    volunteer_id: "589b130f-0ae5-410c-b1d1-3fcaf55d0f6f",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/simon-thompson.jpg",
-    id: "2c0a6a9e-da62-4f07-9665-82643a335e10",
-    member_id: nil,
-    name: "Simon Thompson"
+    id: "37bb7391-db8b-4826-8ccb-05a4005b6ddf",
+    is_chair: false,
+    volunteer_id: "8d8d7d05-cc79-445a-8e37-c56525024f7e",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/jeff-grunewald.jpg",
-    id: "692c67ff-ae4f-43f0-a2d5-d6a207111713",
-    member_id: nil,
-    name: "Jeff Grunewald"
+    id: "fa7affb4-4de8-4179-8412-9d229aa70f73",
+    is_chair: true,
+    volunteer_id: "305cf09b-7cc0-4a29-b02c-d47301a762fb",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers//anna-neyzberg.jpg",
-    id: "603e3428-2713-47ea-9436-c0e80a1afccb",
-    member_id: nil,
-    name: "Anna Neyzberg"
+    id: "24839521-038c-4bba-966d-72d8d5e8f687",
+    is_chair: false,
+    volunteer_id: "a3fe00bc-e734-4f84-8e72-92c5fef519e9",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/laura-castro.jpg",
-    id: "d3fddc17-9f7e-4afc-bae7-91e5dfb3e62a",
-    member_id: nil,
-    name: "Laura M. Castro"
+    id: "8da4ba9d-1dbf-4cd3-9294-1049a1007a4f",
+    is_chair: false,
+    volunteer_id: "b28e5e4a-1480-49c5-90c8-5406654c7095",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/mrinal-wadhwa.png",
-    id: "9a990a2d-5a0d-4ab0-9f80-10a16b2cc4bd",
-    member_id: nil,
-    name: "Mrinal Wadhwa"
+    id: "8226493c-93b9-47aa-9e2b-9f2ef812c8a2",
+    is_chair: false,
+    volunteer_id: "aed2f5f9-cf21-4a9f-9302-a732c980e038",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/ben-marx.jpg",
-    id: "40729412-afab-481d-b711-809c86418c6a",
-    member_id: nil,
-    name: "Ben Marx"
+    id: "52c6e458-238f-4420-9bc5-451ee9f84f1a",
+    is_chair: false,
+    volunteer_id: "f9e4d9a9-d8c1-4f99-9008-1a4a82d8821b",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/alistair-woodman.png",
-    id: "6c158842-593a-4640-b54e-66fa6a21c6e3",
-    member_id: nil,
-    name: "Alistair Woodman"
+    id: "d07d5abd-dfdf-4216-879a-fc67fa89efcd",
+    is_chair: false,
+    volunteer_id: "62fb737d-239d-4139-817c-1c907fabb273",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/paulo-d-gonzalez.png",
-    id: "448cf4a5-6487-4975-9ef5-f88ef9499635",
-    member_id: nil,
-    name: "Paulo D. Gonzalez"
+    id: "0a5e971d-f732-41e7-8c64-04449189cf8e",
+    is_chair: false,
+    volunteer_id: "9af5a1f6-2f1f-4210-8d66-4743c5f4489b",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/norberto-ortigoza.jpg",
-    id: "33803517-e219-42e3-92f9-2282c92b963d",
-    member_id: nil,
-    name: "Norberto Ortigoza"
+    id: "fd7ea3a0-0c8f-4b73-b206-09390edaaa16",
+    is_chair: false,
+    volunteer_id: "2cf7ff99-6d98-4a54-8dc6-d63c0797af0a",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/adolfo-neto.jpg",
-    id: "dd642224-79bc-4f97-af0c-42f9d37fa34f",
-    member_id: nil,
-    name: "Adolfo Neto"
+    id: "eca7faec-54b9-4abc-95d3-8476bda300ab",
+    is_chair: false,
+    volunteer_id: "c8eb633a-4acd-4f8d-8ff2-2a25892e439b",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/johnny-winn.jpeg",
-    id: "67622dbc-ebdd-4ce9-8102-0aeb07b18291",
-    member_id: nil,
-    name: "Johnny Winn"
+    id: "db223576-1195-4d6d-8ca8-a9057ca2a6f1",
+    is_chair: false,
+    volunteer_id: "dff72785-a7f3-4a12-9e10-3475924d3969",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/raphael-vidal.jpeg",
-    id: "e9eb4e6f-0497-45c0-87be-52fae04e9ee9",
-    member_id: nil,
-    name: "Raphael Vidal"
+    id: "ec6a7a6c-6f5d-4388-b366-08aac9b9922c",
+    is_chair: false,
+    volunteer_id: "9dbcf746-740d-48fa-85de-52d28b8e0f5e",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/annette-bieniusa.jpeg",
-    id: "88a5a845-ea9c-4865-842e-594b54e0fc66",
-    member_id: nil,
-    name: "Annette Bieniusa"
+    id: "5d53026b-eace-42b6-bebe-b098826e83ad",
+    is_chair: false,
+    volunteer_id: "cbb6ce77-6d02-4ab2-9211-3d59e363b557",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/bruno-azenha.jpeg",
-    id: "97ef65fe-04bc-4276-af05-834cf9017518",
-    member_id: nil,
-    name: "Bruno Azenha Gonçalves"
+    id: "d5291e35-1022-46ba-9317-ba9725bc7a03",
+    is_chair: false,
+    volunteer_id: "4bb5466e-440e-4424-b692-2e8fc42fb039",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/eric-douglas.jpeg",
-    id: "ffacfed1-408f-4e02-9f63-94f8c2beba8b",
-    member_id: nil,
-    name: "Eric Douglas"
+    id: "760b8462-0db8-4c9f-b96b-53ffe12e2ba2",
+    is_chair: false,
+    volunteer_id: "352ea96b-6420-4351-827b-bfb37ea0634b",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: nil,
-    id: "a23940cd-635d-4da1-9728-a414ac004619",
-    member_id: nil,
-    name: "Frank Hunleth"
+    id: "cc0045ed-36fb-4109-9b91-b87a1f2d9f46",
+    is_chair: false,
+    volunteer_id: "481982ea-5a7e-46ea-92a3-e0fdc95a9181",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/justin-schneck.jpg",
-    id: "c2b79418-f55e-442c-82e7-f7e60fd7ecf8",
-    member_id: nil,
-    name: "Justin Schneck"
+    id: "ded2174d-4b84-45a7-94a9-dbf635e6fc98",
+    is_chair: false,
+    volunteer_id: "0f28fdaa-4860-4f83-8c63-169982276a11",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/hideki-takase.jpg",
-    id: "868ea564-7079-4b28-9abe-0faa31d350b4",
-    member_id: nil,
-    name: "Hideki Takase"
+    id: "bc2ac457-9d96-4e4c-98b1-11ffac45083f",
+    is_chair: false,
+    volunteer_id: "d8ea3abc-d647-4475-b5dc-c1fbea1378d8",
+    working_group_id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae"
   },
   %{
-    avatar_url: "volunteers/natalia_chechina.jpg",
-    id: "f5f2d502-6e09-4260-88b2-acc8be888e30",
-    member_id: nil,
-    name: "Natalia Chechina"
+    id: "468bd952-6ea2-4e9c-85ee-e85eb19e2399",
+    is_chair: true,
+    volunteer_id: "a3fe00bc-e734-4f84-8e72-92c5fef519e9",
+    working_group_id: "73dfc610-b804-4ed7-9f5f-5a2d0a76dccf"
   },
   %{
-    avatar_url: "volunteers/susumu-yamazaki.jpg",
-    id: "4ca016b9-8395-41b7-8644-362897aefa8f",
-    member_id: nil,
-    name: "Susumu Yamazaki"
+    id: "615f3746-b980-42fe-818a-4d8053efe75e",
+    is_chair: false,
+    volunteer_id: "8f22ac12-badc-4a71-80fa-4de70051ee2b",
+    working_group_id: "73dfc610-b804-4ed7-9f5f-5a2d0a76dccf"
   },
   %{
-    avatar_url: "volunteers/akash-hiremath.jpg",
-    id: "b2f86237-4ee5-45c4-8a7b-76e029b0df4c",
-    member_id: nil,
-    name: "Akash Hiremath"
+    id: "af803127-0b8b-4c82-92a5-f8215e0e1dca",
+    is_chair: false,
+    volunteer_id: "852e7313-0fff-40fa-a4a3-f505aadcd4df",
+    working_group_id: "73dfc610-b804-4ed7-9f5f-5a2d0a76dccf"
   },
   %{
-    avatar_url: "volunteers/graham-leva.jpg",
-    id: "f0075d46-b8d3-4004-9e99-e983eb0a0285",
-    member_id: nil,
-    name: "Graham Leva"
+    id: "218c2e83-9ca5-4c61-a7f0-72326f8f85e2",
+    is_chair: false,
+    volunteer_id: "ee9779a3-e48f-4bf5-b47d-f60321ff19aa",
+    working_group_id: "73dfc610-b804-4ed7-9f5f-5a2d0a76dccf"
   },
   %{
-    avatar_url: "volunteers/isaac-yonemoto.jpg",
-    id: "74f1f848-e30e-455f-aa45-1c492f0557c8",
-    member_id: nil,
-    name: "Isaac Yonemoto"
+    id: "0475d35d-4030-442b-87d6-38ad31c3c68e",
+    is_chair: false,
+    volunteer_id: "055cbfc1-156b-4c48-b274-696176204b49",
+    working_group_id: "73dfc610-b804-4ed7-9f5f-5a2d0a76dccf"
   },
   %{
-    avatar_url: "volunteers/benoit-chesneau.jpg",
-    id: "74e997a2-74df-4869-94ce-8a40e3dd9849",
-    member_id: nil,
-    name: "Benoit Chesneau"
+    id: "aa8efa3b-352b-418b-bf65-aeb345fd987a",
+    is_chair: false,
+    volunteer_id: "68adf5c8-9564-490b-b364-cfe145ac38a6",
+    working_group_id: "73dfc610-b804-4ed7-9f5f-5a2d0a76dccf"
   },
   %{
-    avatar_url: nil,
-    id: "a1dd0eeb-6391-4563-acd8-4ad7a1e13636",
-    member_id: nil,
-    name: "Robert Virding"
+    id: "a73070f3-3340-4b3d-8448-ce69396a6b52",
+    is_chair: true,
+    volunteer_id: "dc5c56fe-52ab-479f-97ed-4fc10c3a5d35",
+    working_group_id: "d0bb4b0e-8f97-4943-bbb8-c1604a3c27ff"
   },
   %{
-    avatar_url: "volunteers/amos-king.png",
-    id: "72bf49ef-10c4-4c23-9893-09aefaab0a9d",
-    member_id: nil,
-    name: "Amos King"
+    id: "6d9dc136-2987-4e16-8878-e3087e760382",
+    is_chair: false,
+    volunteer_id: "2c95b096-91db-4da9-8633-dc118e5b434a",
+    working_group_id: "d0bb4b0e-8f97-4943-bbb8-c1604a3c27ff"
   },
   %{
-    avatar_url: "volunteers/magdalena-pokorska.jpg",
-    id: "ef03a2fb-e923-43d3-9134-cbe33cf8c873",
-    member_id: nil,
-    name: "Magdalena Pokorska"
+    id: "c6d132ad-f46c-47e2-b708-e0a2280b357b",
+    is_chair: false,
+    volunteer_id: "5f84e9dd-26b7-4f48-a4dc-6690f3ff6df2",
+    working_group_id: "d0bb4b0e-8f97-4943-bbb8-c1604a3c27ff"
   },
   %{
-    avatar_url: "volunteers/ghislaine-guerin.png",
-    id: "79380976-1cb1-47ee-89e5-db316142590a",
-    member_id: nil,
-    name: "Ghislaine Guerin"
+    id: "f99275e5-8c5e-430b-8b56-20bc6c2a3a2e",
+    is_chair: false,
+    volunteer_id: "8ecfd6ab-4c5f-42bc-adbf-9d5d54d59957",
+    working_group_id: "d0bb4b0e-8f97-4943-bbb8-c1604a3c27ff"
   },
   %{
-    avatar_url: "volunteers/matt-mckinney.jpg",
-    id: "379a522a-3816-428d-8f27-c803e9fe031c",
-    member_id: nil,
-    name: "Matt McKinney"
+    id: "a491e815-5a54-4ccc-a085-d3affe1ea890",
+    is_chair: false,
+    volunteer_id: "055cbfc1-156b-4c48-b274-696176204b49",
+    working_group_id: "d0bb4b0e-8f97-4943-bbb8-c1604a3c27ff"
   },
   %{
-    avatar_url: "volunteers/beau-heubach.jpg",
-    id: "cd7c87ae-be5c-4f92-9af5-db81b92500e7",
-    member_id: nil,
-    name: "Beau Heubach"
+    id: "a8f24e45-129a-4ebb-8d93-2919891944fe",
+    is_chair: true,
+    volunteer_id: "589b130f-0ae5-410c-b1d1-3fcaf55d0f6f",
+    working_group_id: "30ac01f5-98fd-4328-8af7-d71f0a1a573f"
   },
   %{
-    avatar_url: "volunteers/lukasz-niemier.jpg",
-    id: "b6132080-5d78-4866-87df-b95b33f6dd0f",
-    member_id: nil,
-    name: "Łukasz Niemier"
+    id: "f637428c-f7c4-4038-9609-c5812512aaae",
+    is_chair: false,
+    volunteer_id: "a62f4db4-54d7-4fa3-aa8d-b141407d7cf1",
+    working_group_id: "30ac01f5-98fd-4328-8af7-d71f0a1a573f"
   },
   %{
-    avatar_url: "volunteers/vince-foley.png",
-    id: "27fe27a7-62d6-40ce-9b1f-6b8f5978e109",
-    member_id: nil,
-    name: "Vince Foley"
+    id: "517b4076-2856-4d01-92e0-87530e5bfe17",
+    is_chair: false,
+    volunteer_id: "affdba10-18a8-4402-9847-fe1976166dc3",
+    working_group_id: "30ac01f5-98fd-4328-8af7-d71f0a1a573f"
   },
   %{
-    avatar_url: "volunteers/ilya-khaprov.jpg",
-    id: "2d6ee9f6-11f8-4f39-bc1a-de1fae2477e5",
-    member_id: nil,
-    name: "Ilya Khaprov"
+    id: "d5c940fb-658c-462f-b87b-0b26c23fc6be",
+    is_chair: false,
+    volunteer_id: "9c129b15-b008-4947-b98b-def281e4535d",
+    working_group_id: "30ac01f5-98fd-4328-8af7-d71f0a1a573f"
   },
   %{
-    avatar_url: "volunteers/bryan-naegele.png",
-    id: "ba8be955-f634-48cf-93c7-5738e96e0ce8",
-    member_id: nil,
-    name: "Bryan Naegele"
+    id: "9cd594cd-fe1a-4be7-9264-476ce7f3ae80",
+    is_chair: false,
+    volunteer_id: "305cf09b-7cc0-4a29-b02c-d47301a762fb",
+    working_group_id: "30ac01f5-98fd-4328-8af7-d71f0a1a573f"
   },
   %{
-    avatar_url: "volunteers/greg-mefford.jpg",
-    id: "b36ac104-f92f-490a-a2fe-c46ae43a2325",
-    member_id: nil,
-    name: "Greg Mefford"
+    id: "0d7ebdde-55bc-4516-84b3-0a68c2f98894",
+    is_chair: false,
+    volunteer_id: "a3fe00bc-e734-4f84-8e72-92c5fef519e9",
+    working_group_id: "91b8273b-a140-40ff-bbb2-3c3840844e54"
   },
   %{
-    avatar_url: "volunteers/arkadiusz-gil.jpg",
-    id: "4982cf5f-2b5b-4e1b-be6e-0d3f721b0e75",
-    member_id: nil,
-    name: "Arkadiusz Gil"
+    id: "6c169f2d-b7e8-4b10-b8f7-b2c23808265a",
+    is_chair: false,
+    volunteer_id: "2641e9f6-6f2d-497d-b0ab-4f9f4d033115",
+    working_group_id: "91b8273b-a140-40ff-bbb2-3c3840844e54"
   },
   %{
-    avatar_url: "volunteers/zachary-daniel.jpg",
-    id: "04f54700-cfbb-4ba6-bb66-a5c20750453b",
-    member_id: nil,
-    name: "Zach Daniel"
+    id: "9737e8da-d548-414f-bb8c-640d9105c748",
+    is_chair: true,
+    volunteer_id: "a62f4db4-54d7-4fa3-aa8d-b141407d7cf1",
+    working_group_id: "91b8273b-a140-40ff-bbb2-3c3840844e54"
   },
   %{
-    avatar_url: "volunteers/mark-allen.jpg",
-    id: "19d0db7e-460f-49f6-8561-7c64d020082d",
-    member_id: nil,
-    name: "Mark Allen"
+    id: "356b633a-1247-4602-9c6e-516984aa6428",
+    is_chair: false,
+    volunteer_id: "c8eb633a-4acd-4f8d-8ff2-2a25892e439b",
+    working_group_id: "91b8273b-a140-40ff-bbb2-3c3840844e54"
   },
   %{
-    avatar_url: "volunteers/andrew-thompson.jpg",
-    id: "a850b40d-6636-4545-b8a1-8dc9fb2807e4",
-    member_id: nil,
-    name: "Andrew Thompson"
+    id: "f75eb327-71b8-4b36-b9d8-5c6f66a977cb",
+    is_chair: false,
+    volunteer_id: "4060d400-7b66-4724-ad16-2f813a94c8f7",
+    working_group_id: "91b8273b-a140-40ff-bbb2-3c3840844e54"
   },
   %{
-    avatar_url: "volunteers/bram-verburg.jpg",
-    id: "6ebcb1db-4679-4048-ba36-3f8cffdd1bb4",
-    member_id: nil,
-    name: "Bram Verburg"
+    id: "b50303c7-d2c9-4b2a-968f-1f9384f94691",
+    is_chair: false,
+    volunteer_id: "22761e5f-abb6-4e3c-b94f-a49a860ceeec",
+    working_group_id: "b8e754bd-3b50-4d06-a9d5-ccf5f2da5a52"
   },
   %{
-    avatar_url: "volunteers/alexandre-rodrigues.png",
-    id: "6505c744-1be4-4e6f-9765-120c6bc4ab6d",
-    member_id: nil,
-    name: "Alexandre Rodrigues"
+    id: "aa891231-b4f9-4e30-81c9-5c454c5dfdfd",
+    is_chair: false,
+    volunteer_id: "affdba10-18a8-4402-9847-fe1976166dc3",
+    working_group_id: "b8e754bd-3b50-4d06-a9d5-ccf5f2da5a52"
   },
   %{
-    avatar_url: nil,
-    id: "2ade56f0-e604-4f25-9649-4a36b9dc7394",
-    member_id: nil,
-    name: "Hans Nilsson"
+    id: "758d271e-4ff8-48c3-b4de-4775a6028958",
+    is_chair: false,
+    volunteer_id: "9c129b15-b008-4947-b98b-def281e4535d",
+    working_group_id: "b8e754bd-3b50-4d06-a9d5-ccf5f2da5a52"
   },
   %{
-    avatar_url: nil,
-    id: "34363372-55d8-465b-b72a-2558c3be70ec",
-    member_id: nil,
-    name: "Peter Dimitrov"
+    id: "0f594d11-37c1-4b3b-81b5-e8da0bdf8362",
+    is_chair: true,
+    volunteer_id: "6abaa50e-7b7a-4a1f-afcf-c2ad999c97ab",
+    working_group_id: "b8e754bd-3b50-4d06-a9d5-ccf5f2da5a52"
   },
   %{
-    avatar_url: nil,
-    id: "aa76c6a4-169c-4691-86a3-ab431540688d",
-    member_id: nil,
-    name: "Griffin Byatt"
+    id: "45988eab-84ce-449b-845e-d7b464c92624",
+    is_chair: false,
+    volunteer_id: "2641e9f6-6f2d-497d-b0ab-4f9f4d033115",
+    working_group_id: "374f7386-d478-4810-9265-9efe89dac4ea"
   },
   %{
-    avatar_url: nil,
-    id: "c97a375d-c14c-4cfe-9326-c4e8cba2993e",
-    member_id: nil,
-    name: "Duncan Sparrell"
+    id: "7fa7f75b-ec70-4a85-bf81-773c7058c267",
+    is_chair: false,
+    volunteer_id: "a62f4db4-54d7-4fa3-aa8d-b141407d7cf1",
+    working_group_id: "374f7386-d478-4810-9265-9efe89dac4ea"
   },
   %{
-    avatar_url: "volunteers/drew-varner.jpg",
-    id: "07621d50-965f-4ffd-9829-b1609e4e6e98",
-    member_id: nil,
-    name: "Drew Varner"
+    id: "7e1c09f5-cfcd-4f35-b91a-247690d1e7e2",
+    is_chair: false,
+    volunteer_id: "305cf09b-7cc0-4a29-b02c-d47301a762fb",
+    working_group_id: "374f7386-d478-4810-9265-9efe89dac4ea"
   },
   %{
-    avatar_url: "volunteers/sebastian-strollo.jpg",
-    id: "f1ab60b7-921e-4d55-b31f-bfe9ad9b4f14",
-    member_id: nil,
-    name: "Sebastian Strollo"
+    id: "89256ad9-9f2d-48a7-9e98-d4ba309b19e5",
+    is_chair: false,
+    volunteer_id: "4060d400-7b66-4724-ad16-2f813a94c8f7",
+    working_group_id: "374f7386-d478-4810-9265-9efe89dac4ea"
+  },
+  %{
+    id: "ed946f68-fd26-4c91-a870-5543756d2558",
+    is_chair: true,
+    volunteer_id: "4bb5466e-440e-4424-b692-2e8fc42fb039",
+    working_group_id: "374f7386-d478-4810-9265-9efe89dac4ea"
+  },
+  %{
+    id: "4efeac62-153f-4850-b707-dc468ff61ae0",
+    is_chair: false,
+    volunteer_id: "005264af-6639-4981-81b1-b72eec701b63",
+    working_group_id: "374f7386-d478-4810-9265-9efe89dac4ea"
+  },
+  %{
+    id: "8cfd62f3-3fc5-4779-b91a-3a5fb7115475",
+    is_chair: false,
+    volunteer_id: "2cf7ff99-6d98-4a54-8dc6-d63c0797af0a",
+    working_group_id: "374f7386-d478-4810-9265-9efe89dac4ea"
+  },
+  %{
+    id: "45fefe99-4026-4175-8559-0a3abd33c008",
+    is_chair: false,
+    volunteer_id: "c97c6ca3-5907-4995-bf39-0a9c329a4ce3",
+    working_group_id: "374f7386-d478-4810-9265-9efe89dac4ea"
+  },
+  %{
+    id: "ac8a178b-f8f2-4b74-9c25-f8e19b692604",
+    is_chair: false,
+    volunteer_id: "63923553-8569-4c6a-9bbb-4997bc6cefe4",
+    working_group_id: "374f7386-d478-4810-9265-9efe89dac4ea"
+  },
+  %{
+    id: "e865a3b6-dc47-4c31-8693-a1d7360d0af6",
+    is_chair: false,
+    volunteer_id: "3902e0c8-a660-4e80-8797-a9fb9475965d",
+    working_group_id: "374f7386-d478-4810-9265-9efe89dac4ea"
+  },
+  %{
+    id: "952e6d77-b18b-4cdc-8c04-07db024e3065",
+    is_chair: false,
+    volunteer_id: "9c8671fa-5714-4efb-95ce-d83ba55bb76d",
+    working_group_id: "374f7386-d478-4810-9265-9efe89dac4ea"
+  },
+  %{
+    id: "26307c59-73a9-4522-97f3-7e1760f8b36b",
+    is_chair: true,
+    volunteer_id: "4a9698ea-6bb2-4331-8846-0248246ab346",
+    working_group_id: "61fd9be3-c96d-408d-b263-77c2b125a110"
+  },
+  %{
+    id: "744cb0b0-2814-4874-a08b-6a4e1acaa558",
+    is_chair: false,
+    volunteer_id: "ec44c3e5-e503-4646-b238-5f44a7fb6705",
+    working_group_id: "61fd9be3-c96d-408d-b263-77c2b125a110"
+  },
+  %{
+    id: "ffb90ab1-abb6-4430-a454-517ddd5bff10",
+    is_chair: false,
+    volunteer_id: "ca17f166-c032-49e6-812c-a7c9ce0e8687",
+    working_group_id: "61fd9be3-c96d-408d-b263-77c2b125a110"
+  },
+  %{
+    id: "f4fbd983-e816-49de-b1f9-2836969c287f",
+    is_chair: false,
+    volunteer_id: "1b17cab9-3c67-46db-af13-73426fe9d8fe",
+    working_group_id: "61fd9be3-c96d-408d-b263-77c2b125a110"
+  },
+  %{
+    id: "3e71b2dd-1ed4-477d-b922-90935f08926e",
+    is_chair: false,
+    volunteer_id: "307ea99d-69b8-435f-b44e-96f7e56157f3",
+    working_group_id: "61fd9be3-c96d-408d-b263-77c2b125a110"
+  },
+  %{
+    id: "44289a45-6377-475f-9b3c-10c53900e3d1",
+    is_chair: false,
+    volunteer_id: "74a920c8-cad1-4198-b8eb-ea34cb9a0d79",
+    working_group_id: "61fd9be3-c96d-408d-b263-77c2b125a110"
+  },
+  %{
+    id: "7b0dfcb0-cad5-44b0-9572-ecb34f13b0dd",
+    is_chair: false,
+    volunteer_id: "e857ef17-f14a-4f4e-99ad-2111bdeffbfc",
+    working_group_id: "61fd9be3-c96d-408d-b263-77c2b125a110"
+  },
+  %{
+    id: "83e6a349-3826-46ec-ab8f-a185b5f2d33d",
+    is_chair: false,
+    volunteer_id: "441f27f4-eb92-4655-b6bd-f1bd51cc4bc8",
+    working_group_id: "61fd9be3-c96d-408d-b263-77c2b125a110"
+  },
+  %{
+    id: "0dc3d8eb-0d65-4b4a-b3fb-e982c47c6b97",
+    is_chair: false,
+    volunteer_id: "153a6416-51d0-4b92-811e-48b8e60b8a52",
+    working_group_id: "61fd9be3-c96d-408d-b263-77c2b125a110"
+  },
+  %{
+    id: "de47dd65-7217-43a3-ae91-30f065ce48b9",
+    is_chair: false,
+    volunteer_id: "534c7df4-9777-409c-a31c-918c96c79d1e",
+    working_group_id: "61fd9be3-c96d-408d-b263-77c2b125a110"
+  },
+  %{
+    id: "937283f4-e451-4ce0-a377-504de22ae4e0",
+    is_chair: false,
+    volunteer_id: "affdba10-18a8-4402-9847-fe1976166dc3",
+    working_group_id: "61fd9be3-c96d-408d-b263-77c2b125a110"
+  },
+  %{
+    id: "aafaf920-f1b6-4ef9-86f4-ac204bca82a0",
+    is_chair: false,
+    volunteer_id: "53cc9c5d-6730-4e15-8fdf-dae7bc258478",
+    working_group_id: "d03caa1f-7f93-470d-b03b-ff7d5bdf7235"
+  },
+  %{
+    id: "5fa4594a-b8f2-404d-932d-842a101482b3",
+    is_chair: true,
+    volunteer_id: "4060d400-7b66-4724-ad16-2f813a94c8f7",
+    working_group_id: "d03caa1f-7f93-470d-b03b-ff7d5bdf7235"
+  },
+  %{
+    id: "12d4f5ba-78ae-4450-bd67-c865369ccf17",
+    is_chair: false,
+    volunteer_id: "719be561-4abc-4806-9f77-83b694275cfb",
+    working_group_id: "d03caa1f-7f93-470d-b03b-ff7d5bdf7235"
+  },
+  %{
+    id: "5acf2f56-10e6-4aa9-a9a5-5c7b095c2224",
+    is_chair: false,
+    volunteer_id: "ee6892ea-d5fc-425e-98cc-baea5a5bdb5b",
+    working_group_id: "d03caa1f-7f93-470d-b03b-ff7d5bdf7235"
+  },
+  %{
+    id: "03c39168-90a0-4895-a0f2-a2f34a31cb7f",
+    is_chair: false,
+    volunteer_id: "d5101178-aef7-420e-a70c-bd12a64076d9",
+    working_group_id: "d03caa1f-7f93-470d-b03b-ff7d5bdf7235"
+  },
+  %{
+    id: "91358b16-21dd-453d-90c4-8c7979ef98ae",
+    is_chair: false,
+    volunteer_id: "baef8df4-cfef-41cd-bbeb-a7752d3bd485",
+    working_group_id: "d03caa1f-7f93-470d-b03b-ff7d5bdf7235"
+  },
+  %{
+    id: "9e152bab-aa96-4ee3-907c-b67554263d74",
+    is_chair: false,
+    volunteer_id: "7d549c2c-b713-40d6-9a77-55b924aeedb3",
+    working_group_id: "d03caa1f-7f93-470d-b03b-ff7d5bdf7235"
+  },
+  %{
+    id: "e50dea4c-ba45-4002-ac79-0fe8bab310ad",
+    is_chair: false,
+    volunteer_id: "ace315ab-cc1e-4e09-9f33-96ad28e243e3",
+    working_group_id: "d03caa1f-7f93-470d-b03b-ff7d5bdf7235"
+  },
+  %{
+    id: "f3ccddd4-31a3-4fb4-8783-470c3abad24a",
+    is_chair: true,
+    volunteer_id: "589b130f-0ae5-410c-b1d1-3fcaf55d0f6f",
+    working_group_id: "5dcf7084-49b3-4477-a86b-523d13283497"
+  },
+  %{
+    id: "87130122-c99c-4141-a238-c51a4d995613",
+    is_chair: false,
+    volunteer_id: "e0f0666b-cbfb-43ae-9162-4bb3190af018",
+    working_group_id: "5dcf7084-49b3-4477-a86b-523d13283497"
+  },
+  %{
+    id: "552366a3-b8c7-4ac4-98cf-baa57ab432d8",
+    is_chair: false,
+    volunteer_id: "a62f4db4-54d7-4fa3-aa8d-b141407d7cf1",
+    working_group_id: "5dcf7084-49b3-4477-a86b-523d13283497"
+  },
+  %{
+    id: "efb712ca-fa3a-491a-9ada-f347ee9e4635",
+    is_chair: false,
+    volunteer_id: "c8eb633a-4acd-4f8d-8ff2-2a25892e439b",
+    working_group_id: "5dcf7084-49b3-4477-a86b-523d13283497"
+  },
+  %{
+    id: "c6bb082c-8b2d-4d29-9d84-4147d8021ea3",
+    is_chair: false,
+    volunteer_id: "a3fe00bc-e734-4f84-8e72-92c5fef519e9",
+    working_group_id: "5dcf7084-49b3-4477-a86b-523d13283497"
   }
 ]
-
-Erlef.Seeds.insert(Erlef.Groups.WorkingGroup.Volunteer, wgvs)
+Erlef.Seeds.insert(Erlef.Groups.WorkingGroupVolunteer, wgvs)
