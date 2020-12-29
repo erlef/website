@@ -1,11 +1,9 @@
-Application.ensure_all_started(:erlef)
-
 working_groups = [
   %{
     description:
       "To evolve the tools in the ecosystem related to building and deploying code, with a strong focus on interoperability between BEAM languages",
     formed: ~D[2019-04-30],
-    id: "64b62839-2c84-4a1b-8668-b271ac7222f2",
+    id: "64bbc88e-5a8a-4333-b24a-15f7a4e206d2",
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: nil,
       gcal_url: nil,
@@ -20,7 +18,7 @@ working_groups = [
     description:
       "Improve the accessibility, interoperability and quality of the documentation across projects and languages in the Erlang Ecosystem.",
     formed: ~D[2019-07-23],
-    id: "8a9f01cc-a17a-43eb-9d37-4b2f5ca6a7a5",
+    id: "8e3d6a77-1cb9-441b-8003-d0ac086d134c",
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: "documentation@erlef.org",
       gcal_url: nil,
@@ -35,7 +33,7 @@ working_groups = [
     description:
       "Facilitate, evolve education and training and consolidate educational material(s) for all BEAM languages and the BEAM itself.",
     formed: ~D[2019-06-15],
-    id: "edbcf29c-16e5-41fe-a9a4-ddab1f09468a",
+    id: "a1ddc0c8-1a9e-485f-965f-3b15edab6eae",
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: "education@erlef.org",
       gcal_url: nil,
@@ -50,7 +48,7 @@ working_groups = [
     description:
       "Standardize, improve, and promote the APIs, tooling, and infrastructure for building embedded systems and IoT devices usingErlang VMs",
     formed: ~D[2019-08-09],
-    id: "63388058-e4a0-4286-a279-7853aa66f6ea",
+    id: "73dfc610-b804-4ed7-9f5f-5a2d0a76dccf",
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: "embedded-systems@erlef.org",
       gcal_url: nil,
@@ -64,7 +62,7 @@ working_groups = [
   %{
     description: "External Process Communication, Interoperability and Robustness",
     formed: ~D[2020-06-29],
-    id: "58a5134f-8d45-4925-b334-0d781f4d1886",
+    id: "d0bb4b0e-8f97-4943-bbb8-c1604a3c27ff",
     meta: %Erlef.Groups.WorkingGroup.Meta{email: "epc@erlef.org", gcal_url: nil, github: nil},
     name: "External Process Communication, Interoperability and Robustness",
     proposal:
@@ -75,7 +73,7 @@ working_groups = [
     description:
       "To formally nominate community members for a fellowship role according to the Erlang Ecosystem Foundation bylaws.  Creating and maintaining the criteria and procedure for nomination of fellows.",
     formed: ~D[2019-04-30],
-    id: "fc2c980e-3b6f-4547-a7c5-dc9981d19d23",
+    id: "30ac01f5-98fd-4328-8af7-d71f0a1a573f",
     meta: %Erlef.Groups.WorkingGroup.Meta{email: "fellows@erlef.org", gcal_url: nil, github: nil},
     name: "Fellowship",
     proposal:
@@ -85,7 +83,7 @@ working_groups = [
   %{
     description: "Provide technical support and services to the BEAM community",
     formed: ~D[2019-10-31],
-    id: "dc089099-0043-4ad6-9c58-0a01d4d4409f",
+    id: "91b8273b-a140-40ff-bbb2-3c3840844e54",
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: "infra@erlef.org",
       gcal_url: nil,
@@ -99,7 +97,7 @@ working_groups = [
   %{
     description: "Facilitate the reuse of software components that target the Erlang Runtime.",
     formed: ~D[2020-02-01],
-    id: "b4a34885-a659-46c5-bab4-66df86aa7bff",
+    id: "b8e754bd-3b50-4d06-a9d5-ccf5f2da5a52",
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: "language-interop@erlef.org",
       gcal_url: nil,
@@ -114,7 +112,7 @@ working_groups = [
     description:
       "To evolve the tools in the ecosystem related to observability, such as metrics, distributed tracing and logging, with a strong focus on interoperability between BEAM languages.",
     formed: ~D[2019-04-30],
-    id: "43cc3430-aa65-415c-b092-da6673f3277e",
+    id: "61fd9be3-c96d-408d-b263-77c2b125a110",
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: nil,
       gcal_url:
@@ -130,7 +128,7 @@ working_groups = [
     description:
       "To expand awareness of Erlang Ecosystem and participation in its community. To promote the Erlang Ecosystem Foundation and its activities, and to increase engagement in the foundation.",
     formed: ~D[2018-10-15],
-    id: "74a9ef01-6417-48f4-8007-d1d2ace76848",
+    id: "374f7386-d478-4810-9265-9efe89dac4ea",
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: "marketing@erlef.org",
       gcal_url: nil,
@@ -145,7 +143,7 @@ working_groups = [
     description:
       "The mission of the Security Working Group is to identify security issues, and provide solutions, develop guidance, standards, technical mechanisms and documentation.",
     formed: ~D[2019-04-30],
-    id: "3ded0903-bc6e-4c8d-bd29-f74aafea7c2c",
+    id: "d03caa1f-7f93-470d-b03b-ff7d5bdf7235",
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: "security@erlef.org",
       gcal_url: nil,
@@ -159,7 +157,7 @@ working_groups = [
   %{
     description: "To approve Erlang Ecosystem Foundation Sponsor candidacy.",
     formed: ~D[2019-04-30],
-    id: "750ac2c4-7eda-44eb-bf25-c0f93f3d31b2",
+    id: "5dcf7084-49b3-4477-a86b-523d13283497",
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: "sponsorship@erlef.org",
       gcal_url: nil,
@@ -171,7 +169,6 @@ working_groups = [
     slug: "sponsorship"
   }
 ]
-
 
 with_html = Enum.map(working_groups, fn(wg) -> Map.put(wg, :proposal_html, Earmark.as_html!(wg.proposal)) end)
 Erlef.Seeds.insert(Erlef.Groups.WorkingGroup, with_html)
