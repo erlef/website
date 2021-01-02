@@ -23,6 +23,7 @@ module.exports = (env, options) => ({
     },
     output: {
         filename: '[name].js',
+        library: '[name]',
         path: path.resolve(__dirname, '../priv/static/js')
     },
     module: {
@@ -61,6 +62,13 @@ module.exports = (env, options) => ({
                         outputPath: 'fonts/'
                     }
                 }]
+            },
+            {
+        test: require.resolve('jquery'),
+        loader: 'expose-loader',
+        options: {
+          exposes: ['$', 'jQuery'],
+        }
             }
         ]
     },

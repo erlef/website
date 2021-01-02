@@ -3,7 +3,7 @@ defmodule Erlef.Groups do
   Erlef.Groups context
   """
 
-  alias Erlef.Repo
+  alias Erlef.{Repo, Storage}
   alias Erlef.Accounts.Member
 
   alias Erlef.Groups.{
@@ -11,7 +11,8 @@ defmodule Erlef.Groups do
     WorkingGroup,
     WorkingGroupChair,
     WorkingGroupVolunteer,
-    Query
+    Query,
+    Sponsor
   }
 
   def is_chair?(wg, %Volunteer{member_id: member_id}) do
@@ -118,99 +119,44 @@ defmodule Erlef.Groups do
   @spec list_board_members() :: [Volunteer.t()]
   def list_board_members(), do: Repo.all(Query.all_board_members())
 
-  alias Erlef.Groups.Sponsor
+  def list_sponsors, do: Repo.all(Sponsor)
 
-  @doc """
-  Returns the list of sponsors.
-
-  ## Examples
-
-      iex> list_sponsors()
-      [%Sponsor{}, ...]
-
-  """
-  def list_sponsors do
-    Repo.all(Sponsor)
-  end
-
-  @doc """
-  Gets a single sponsor.
-
-  Raises `Ecto.NoResultsError` if the Sponsor does not exist.
-
-  ## Examples
-
-      iex> get_sponsor!(123)
-      %Sponsor{}
-
-      iex> get_sponsor!(456)
-      ** (Ecto.NoResultsError)
-
-  """
   def get_sponsor!(id), do: Repo.get!(Sponsor, id)
 
-  @doc """
-  Creates a sponsor.
-
-  ## Examples
-
-      iex> create_sponsor(%{field: value})
-      {:ok, %Sponsor{}}
-
-      iex> create_sponsor(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
   def create_sponsor(attrs \\ %{}) do
     %Sponsor{}
-    |> Sponsor.changeset(attrs)
+    |> Sponsor.changeset(maybe_upload_image(attrs))
     |> Repo.insert()
   end
 
-  @doc """
-  Updates a sponsor.
-
-  ## Examples
-
-      iex> update_sponsor(sponsor, %{field: new_value})
-      {:ok, %Sponsor{}}
-
-      iex> update_sponsor(sponsor, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
   def update_sponsor(%Sponsor{} = sponsor, attrs) do
     sponsor
-    |> Sponsor.changeset(attrs)
+    |> Sponsor.changeset(maybe_upload_image(sponsor.name, attrs))
     |> Repo.update()
   end
 
-  @doc """
-  Deletes a sponsor.
-
-  ## Examples
-
-      iex> delete_sponsor(sponsor)
-      {:ok, %Sponsor{}}
-
-      iex> delete_sponsor(sponsor)
-      {:error, %Ecto.Changeset{}}
-
-  """
   def delete_sponsor(%Sponsor{} = sponsor) do
     Repo.delete(sponsor)
   end
 
-  @doc """
-  Returns an `%Ecto.Changeset{}` for tracking sponsor changes.
-
-  ## Examples
-
-      iex> change_sponsor(sponsor)
-      %Ecto.Changeset{data: %Sponsor{}}
-
-  """
   def change_sponsor(%Sponsor{} = sponsor, attrs \\ %{}) do
     Sponsor.changeset(sponsor, attrs)
+  end
+
+  defp maybe_upload_image(%{"name" => name} = attrs), do: maybe_upload_image(name, attrs)
+
+  defp maybe_upload_image(%{name: name} = attrs), do: maybe_upload_image(name, attrs)
+
+  defp maybe_upload_image(sponsor_name, %{"logo" => %Plug.Upload{} = upload} = params) do
+    content = File.read!(upload.path)
+    filename = sponsor_image_filename(sponsor_name, upload.content_type)
+    {:ok, url} = Storage.upload_sponsor_image(filename, content)
+    Map.put(params, "logo_url", url)
+  end
+
+  defp maybe_upload_image(_, attrs), do: attrs
+
+  defp sponsor_image_filename(sponsor_name, <<"image/", ext::binary>>) do
+    sponsor_name <> "-" <> Ecto.UUID.generate() <> "." <> ext
   end
 end

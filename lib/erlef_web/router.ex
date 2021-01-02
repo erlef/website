@@ -9,7 +9,7 @@ defmodule ErlefWeb.Router do
     licensebuttons.net i.creativecommons.org
     pbs.twimg.com use.typekit.net p.typekit.net
     event-org-images.ewr1.vultrobjects.com erlef.matomo.cloud cdn.rawgit.com
-    127.0.0.1:9998
+    127.0.0.1:9998 cdn.datatables.net
   )
 
   if Erlef.in_env?([:dev, :test]) do
@@ -98,6 +98,8 @@ defmodule ErlefWeb.Router do
       post "/email_requests/assign", EmailRequestController, :assign
       post "/email_requests/complete", EmailRequestController, :complete
       put "/events/:id", EventController, :approve
+
+      resources "/sponsors", SponsorController
 
       live_dashboard "/live-dashboard",
         metrics: ErlefWeb.Telemetry,

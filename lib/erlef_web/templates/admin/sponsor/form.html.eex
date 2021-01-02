@@ -1,0 +1,48 @@
+<div class="card card-primary">
+  <%= form_for @changeset, @action, [multipart: true], fn f -> %>
+    <div class="card-body">
+      <%= if @changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= label f, :name %>
+        <%= text_input f, :name, class: "form-control" %>
+        <%= error_tag f, :name %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :url %>
+        <%= text_input f, :url, class: "form-control" %>
+        <%= error_tag f, :url %>
+      </div>
+
+      <div class="form-group">
+        <div class="row mt-4">
+          <div class="pl-1 col-xs-1">
+            <strong><%= label f, :logo, "Logo" %></strong>
+          </div>
+
+          <%= if Map.has_key?(@conn.assigns, :sponsor) do %>
+          <div class="col-lg-2 col-md-4 col-6">
+            <img class="img-fluid img-thumbnail sponsor" alt="Current image" src="<%= @sponsor.logo_url %>"/>
+          </div>
+        <% end %>
+
+          <div class="col">
+            <%= file_input f, :logo, class: "form-control" %>
+            <small class="text-muted">Image size must be 120x120</small>
+          </div>
+        </div>
+
+        <%= error_tag f, :logo %>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <%= submit "Save", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

@@ -27,6 +27,20 @@ defmodule ErlefWeb.ConnCase do
 
       # The default endpoint for testing
       @endpoint ErlefWeb.Endpoint
+
+      def authenticated_conn(conn, username) do
+        {:ok, session} = Erlef.Session.login(username)
+        {:ok, session} = Erlef.Session.encode(%{"member_session" => session})
+        {:ok, session} = Erlef.Session.decode(session)
+
+        conn
+        |> Plug.Test.init_test_session(session)
+        |> Plug.Conn.fetch_session()
+      end
+
+      def admin_session(%{conn: conn}) do
+        [conn: authenticated_conn(conn, "admin")]
+      end
     end
   end
 

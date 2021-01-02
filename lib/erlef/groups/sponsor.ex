@@ -3,6 +3,7 @@ defmodule Erlef.Groups.Sponsor do
   use Erlef.Schema
 
   schema "sponsors" do
+    field(:logo, :string, virtual: true)
     field(:logo_url, :string)
     field(:is_founding_sponsor, :boolean, default: false)
     field(:name, :string)

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-4">
+    <h1>Sponsor - <%= "#{@sponsor.name}" %></h1>
+  </div>
+  <div class="col-sm-1 offset-sm-6">
+  <%= link "Back", to: Routes.admin_sponsor_path(@conn, :index),  class: "btn btn-primary" %>
+  </div>
+</div>
+<hr/>
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @sponsor.name %>
+  </li>
+
+  <li class="mt-4">
+    <strong>Is founding sponsor:</strong>
+    <%= @sponsor.is_founding_sponsor %>
+  </li>
+
+  <li class="mt-4">
+    <strong>Url:</strong>
+    <%= @sponsor.url %>
+  </li>
+
+  <li>
+    <div class="row mt-4">
+      <div class="pl-1 col-xs-1">
+        <strong>Logo:</strong>
+      </div>
+
+      <div class="col-lg-2 col-md-4 col-6">
+        <img class="img-fluid img-thumbnail sponsor" src="<%= @sponsor.logo_url %>"/>
+      </div>
+    </div>
+  </li>
+
+</ul>
+
+
+    <%= link "Edit", to: Routes.admin_sponsor_path(@conn, :edit, @sponsor),  class: "btn btn-primary" %>
