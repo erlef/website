@@ -211,4 +211,79 @@ defmodule Erlef.GroupsTest do
       assert cs.errors == exp
     end
   end
+
+  describe "sponsors" do
+    alias Erlef.Groups.Sponsor
+
+    @valid_attrs %{
+      logo_url: "some logo_url",
+      is_founding_sponsor: true,
+      name: "some name",
+      url: "some url"
+    }
+    @update_attrs %{
+      logo_url: "some updated logo_url",
+      is_founding_sponsor: false,
+      name: "some updated name",
+      url: "some updated url"
+    }
+    @invalid_attrs %{logo_url: nil, is_founding_sponsor: nil, name: nil, url: nil}
+
+    def sponsor_fixture(attrs \\ %{}) do
+      {:ok, sponsor} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Groups.create_sponsor()
+
+      sponsor
+    end
+
+    test "list_sponsors/0 returns all sponsors" do
+      sponsor = sponsor_fixture()
+      assert Groups.list_sponsors() == [sponsor]
+    end
+
+    test "get_sponsor!/1 returns the sponsor with given id" do
+      sponsor = sponsor_fixture()
+      assert Groups.get_sponsor!(sponsor.id) == sponsor
+    end
+
+    test "create_sponsor/1 with valid data creates a sponsor" do
+      assert {:ok, %Sponsor{} = sponsor} = Groups.create_sponsor(@valid_attrs)
+      assert sponsor.logo_url == "some logo_url"
+      assert sponsor.is_founding_sponsor == true
+      assert sponsor.name == "some name"
+      assert sponsor.url == "some url"
+    end
+
+    test "create_sponsor/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Groups.create_sponsor(@invalid_attrs)
+    end
+
+    test "update_sponsor/2 with valid data updates the sponsor" do
+      sponsor = sponsor_fixture()
+      assert {:ok, %Sponsor{} = sponsor} = Groups.update_sponsor(sponsor, @update_attrs)
+      assert sponsor.logo_url == "some updated logo_url"
+      assert sponsor.is_founding_sponsor == false
+      assert sponsor.name == "some updated name"
+      assert sponsor.url == "some updated url"
+    end
+
+    test "update_sponsor/2 with invalid data returns error changeset" do
+      sponsor = sponsor_fixture()
+      assert {:error, %Ecto.Changeset{}} = Groups.update_sponsor(sponsor, @invalid_attrs)
+      assert sponsor == Groups.get_sponsor!(sponsor.id)
+    end
+
+    test "delete_sponsor/1 deletes the sponsor" do
+      sponsor = sponsor_fixture()
+      assert {:ok, %Sponsor{}} = Groups.delete_sponsor(sponsor)
+      assert_raise Ecto.NoResultsError, fn -> Groups.get_sponsor!(sponsor.id) end
+    end
+
+    test "change_sponsor/1 returns a sponsor changeset" do
+      sponsor = sponsor_fixture()
+      assert %Ecto.Changeset{} = Groups.change_sponsor(sponsor)
+    end
+  end
 end
