@@ -4,7 +4,13 @@ defmodule Erlef.Groups.Query do
   """
 
   import Ecto.Query, only: [from: 2]
-  alias Erlef.Groups.WorkingGroup
+  alias Erlef.Groups.{Volunteer, WorkingGroup}
+
+  def all_board_members() do
+    from(v in Volunteer,
+      where: v.is_board_member == true
+    )
+  end
 
   @spec all_working_groups() :: Ecto.Query.t()
   def all_working_groups(), do: wg_query()

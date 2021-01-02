@@ -1,15 +1,15 @@
 use Mix.Config
 
 config :erlef, :board_members, [
-  %{image: "members/francesco-cesarini.jpg", name: "Francesco Cesarini"},
-  %{image: "members/jose-valim.jpg", name: "José Valim"},
-  %{image: "members/richard-carlsson.jpg", name: "Richard Carlsson"},
-  %{image: "members/sebastian-strollo.jpg", name: "Sebastian Strollo"},
-  %{image: "members/benoit-chesneau.jpg", name: "Benoit Chesneau"},
-  %{image: "members/fred-hebert.png", name: "Fred Hebert"},
-  %{image: "members/miriam-pena.jpg", name: "Miriam Pena"},
-  %{image: "members/alistair-woodman.png", name: "Alistair Woodman"},
-  %{image: "members/maxim-fedorov.jpg", name: "Maxim Fedorov"},
-  %{image: "members/kenneth-lundin.jpg", name: "Kenneth Lundin"},
-  %{image: "members/peer-stritzinger.jpg", name: "Peer Stritzinger"}
+  %{image: "volunteers/francesco-cesarini.jpg", name: "Francesco Cesarini"},
+  %{image: "volunteers/jose-valim.jpg", name: "José Valim"},
+  %{image: "volunteers/richard-carlsson.jpg", name: "Richard Carlsson"},
+  %{image: "volunteers/sebastian-strollo.jpg", name: "Sebastian Strollo"},
+  %{image: "volunteers/benoit-chesneau.jpg", name: "Benoit Chesneau"},
+  %{image: "volunteers/fred-hebert.png", name: "Fred Hebert"},
+  %{image: "volunteers/miriam-pena.jpg", name: "Miriam Pena"},
+  %{image: "volunteers/alistair-woodman.png", name: "Alistair Woodman"},
+  %{image: "volunteers/maxim-fedorov.jpg", name: "Maxim Fedorov"},
+  %{image: "volunteers/kenneth-lundin.jpg", name: "Kenneth Lundin"},
+  %{image: "volunteers/peer-stritzinger.jpg", name: "Peer Stritzinger"}
 ]

@@ -5,7 +5,14 @@ defmodule Erlef.Groups do
 
   alias Erlef.Repo
   alias Erlef.Accounts.Member
-  alias Erlef.Groups.{Volunteer, WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer, Query}
+
+  alias Erlef.Groups.{
+    Volunteer,
+    WorkingGroup,
+    WorkingGroupChair,
+    WorkingGroupVolunteer,
+    Query
+  }
 
   def is_chair?(wg, %Volunteer{member_id: member_id}) do
     is_chair?(wg, member_id)
@@ -23,7 +30,6 @@ defmodule Erlef.Groups do
 
   @spec list_volunteers() :: [Volunteer.t()]
   def list_volunteers(), do: Repo.all(Volunteer)
-
   @spec get_volunteer(Ecto.UUID.t()) :: WorkingGroup.t()
   def get_volunteer(id), do: Repo.get(Volunteer, id)
 
@@ -107,4 +113,7 @@ defmodule Erlef.Groups do
     |> WorkingGroupChair.changeset(attrs)
     |> Repo.insert()
   end
+
+  @spec list_volunteers() :: [Volunteer.t()]
+  def list_board_members(), do: Repo.all(Query.all_board_members())
 end
