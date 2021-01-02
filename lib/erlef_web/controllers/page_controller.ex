@@ -22,7 +22,7 @@ defmodule ErlefWeb.PageController do
   end
 
   def board_members(conn, _params) do
-    members = Enum.shuffle(Erlef.Rosters.get("board"))
+    members = Enum.shuffle(Groups.list_board_members())
     render(conn, members: members)
   end
 
