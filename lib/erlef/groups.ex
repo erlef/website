@@ -30,7 +30,7 @@ defmodule Erlef.Groups do
 
   @spec list_volunteers() :: [Volunteer.t()]
   def list_volunteers(), do: Repo.all(Volunteer)
-  
+
   @spec get_volunteer(Ecto.UUID.t()) :: WorkingGroup.t()
   def get_volunteer(id), do: Repo.get(Volunteer, id)
 
