@@ -44,7 +44,6 @@ defmodule ErlefWeb.HTML do
     div_tag(contents, opts)
   end
 
-  # TODO: This doesn't belong here
   def subscribe_form do
     """
      <form action="https://erlef.us20.list-manage.com/subscribe/post?u=8d8ff4d9284d463c374e574bb&amp;id=8cad7357f8"

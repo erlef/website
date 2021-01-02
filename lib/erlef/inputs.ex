@@ -3,7 +3,6 @@ defmodule Erlef.Inputs do
   Erlef.Inputs provides re-useable input validations
   """
 
-  # TODO: Expand this to check the entire spec
   def is_email(addr) when byte_size(addr) <= 254 do
     case :binary.match(addr, "@") do
       :nomatch ->
