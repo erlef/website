@@ -45,7 +45,7 @@ defmodule Erlef.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:credo, "~> 1.5.3", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.5.4", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:earmark, "~> 1.4.13", override: true},
       {:ecto_psql_extras, "~> 0.2"},
@@ -54,7 +54,7 @@ defmodule Erlef.MixProject do
       {:ex_aws, "~> 2.1.6"},
       {:ex_aws_s3, "~> 2.1.0"},
       {:ex_machina, "~> 2.4.0", only: :test},
-      {:excoveralls, "~> 0.13.0"},
+      {:excoveralls, "~> 0.13.4"},
       {:extwitter, "~> 0.12.2"},
       {:faker, "~> 0.16.0", only: :test},
       {:floki, ">= 0.0.0", only: :test},
@@ -69,7 +69,7 @@ defmodule Erlef.MixProject do
       {:phoenix_html, "~> 2.14.3"},
       {:phoenix_live_dashboard, "~> 0.4.0"},
       {:phoenix_live_reload, "~> 1.3.0", only: :dev},
-      {:phoenix_live_view, "~> 0.15.0"},
+      {:phoenix_live_view, "~> 0.15.2"},
       {:phoenix_swoosh, "~> 0.3.2"},
       {:phoenix_pubsub, "~> 2.0.0"},
       {:plug_attack, "~> 0.4.2"},
@@ -81,7 +81,7 @@ defmodule Erlef.MixProject do
       {:swoosh, "~> 1.1.2"},
       {:telemetry_poller, "~> 0.5"},
       {:telemetry_metrics, "~> 0.4"},
-      {:timex, "~> 3.6.2"},
+      {:timex, "~> 3.6.3"},
       {:ex_doc, "~> 0.23", only: :dev, runtime: false}
     ]
   end
