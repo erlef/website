@@ -9,7 +9,8 @@ vols = [
     avatar_url: "volunteers/fred-hebert.png",
     id: "8d8d7d05-cc79-445a-8e37-c56525024f7e",
     member_id: "69be5f73-fcae-4844-adbb-7de0d2d613b3",
-    name: "Fred Hebert"
+    name: "Fred Hebert",
+    is_board_member: true
   },
   %{
     avatar_url: "volunteers/bryan-paxton.jpg",
@@ -57,7 +58,8 @@ vols = [
     avatar_url: "volunteers/jose-valim.jpg",
     id: "affdba10-18a8-4402-9847-fe1976166dc3",
     member_id: "84e26a9b-ddf5-4690-97ee-742afb48a689",
-    name: "José Valim"
+    name: "José Valim",
+    is_board_member: true
   },
   %{
     avatar_url: nil,
@@ -75,7 +77,8 @@ vols = [
     avatar_url: "volunteers/maxim-fedorov.jpg",
     id: "4060d400-7b66-4724-ad16-2f813a94c8f7",
     member_id: "e9d55e5a-8337-4f31-8224-ff343013072d",
-    name: "Maxim Fedorov"
+    name: "Maxim Fedorov",
+    is_board_member: true
   },
   %{
     avatar_url: nil,
@@ -87,7 +90,8 @@ vols = [
     avatar_url: "volunteers/kenneth-lundin.jpg",
     id: "9c129b15-b008-4947-b98b-def281e4535d",
     member_id: "a1fb3069-3597-4427-9ed8-c48f7624b096",
-    name: "Kenneth Lundin"
+    name: "Kenneth Lundin",
+    is_board_member: true
   },
   %{
     avatar_url: "volunteers/mariano-guerra.jpg",
@@ -117,19 +121,22 @@ vols = [
     avatar_url: "volunteers/francesco-cesarini.jpg",
     id: "589b130f-0ae5-410c-b1d1-3fcaf55d0f6f",
     member_id: "a5c4efd3-e235-4bf4-85f5-57b18a1a0446",
-    name: "Francesco Cesarini"
+    name: "Francesco Cesarini",
+    is_board_member: true
   },
   %{
     avatar_url: "volunteers/miriam-pena.jpg",
     id: "305cf09b-7cc0-4a29-b02c-d47301a762fb",
     member_id: "9cb09897-e979-4263-82e6-310b78429dc4",
-    name: "Miriam Pena"
+    name: "Miriam Pena",
+    is_board_member: true
   },
   %{
     avatar_url: "volunteers/peer-stritzinger.jpg",
     id: "a3fe00bc-e734-4f84-8e72-92c5fef519e9",
     member_id: "8e905dc9-e7d1-45c4-9844-68a5225fb474",
-    name: "Peer Stritzinger"
+    name: "Peer Stritzinger",
+    is_board_member: true
   },
   %{
     avatar_url: "volunteers/simon-thompson.jpg",
@@ -171,7 +178,8 @@ vols = [
     avatar_url: "volunteers/alistair-woodman.png",
     id: "c8eb633a-4acd-4f8d-8ff2-2a25892e439b",
     member_id: "8b16bbfa-eeb4-4897-94a7-6a8da94ee522",
-    name: "Alistair Woodman"
+    name: "Alistair Woodman",
+    is_board_member: true
   },
   %{
     avatar_url: "volunteers/paulo-d-gonzalez.png",
@@ -273,7 +281,8 @@ vols = [
     avatar_url: "volunteers/benoit-chesneau.jpg",
     id: "a62f4db4-54d7-4fa3-aa8d-b141407d7cf1",
     member_id: "89ae528d-082c-4ebc-8ae5-22f4b1e5190d",
-    name: "Benoit Chesneau"
+    name: "Benoit Chesneau",
+    is_board_member: true
   },
   %{
     avatar_url: nil,
@@ -411,7 +420,14 @@ vols = [
     avatar_url: "volunteers/sebastian-strollo.jpg",
     id: "e0f0666b-cbfb-43ae-9162-4bb3190af018",
     member_id: "88cfbc2b-e9d8-4849-b428-4f9cfb618216",
-    name: "Sebastian Strollo"
+    name: "Sebastian Strollo",
+    is_board_member: true
+  },
+  %{
+    id: Ecto.UUID.generate(), 
+    avatar_url: "volunteers/richard-carlsson.jpg", 
+    name: "Richard Carlsson",
+    is_board_member: true
   }
   ]
 
