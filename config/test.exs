@@ -46,3 +46,8 @@ config :erlef, Erlef.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   migration_primary_key: [id: :uuid, type: :binary_id],
   migration_timestamps: [type: :utc_datetime]
+
+config :honeybadger,
+  environment_name: :test,
+  api_key: "test",
+  exclude_envs: [:test]

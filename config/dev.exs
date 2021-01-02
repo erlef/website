@@ -92,3 +92,8 @@ config :ex_aws,
     host: "127.0.0.1",
     port: 9998
   ]
+
+config :honeybadger,
+  environment_name: :dev,
+  api_key: "dev",
+  exclude_envs: [:dev]
