@@ -17,6 +17,7 @@
     "@fortawesome/fontawesome-free": "^5.15.1"
   },
   "devDependencies": {
+    "expose-loader": "1.0.3",
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.2.1",

@@ -72,4 +72,7 @@ defmodule ErlefWeb.PageView do
 
   def founding_sponsors([]), do: []
   def founding_sponsors(sponsors), do: Enum.filter(sponsors, & &1.is_founding_sponsor)
+
+  def image_path(_conn, <<"http", _rest::binary>> = url), do: url
+  def image_path(conn, path), do: Routes.static_path(conn, path)
 end
