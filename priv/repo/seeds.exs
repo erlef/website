@@ -19,7 +19,8 @@ if Erlef.is_env?(:dev) do
     "working_groups",
     "volunteers",
     "working_group_volunteers",
-    "working_group_chairs"
+    "working_group_chairs",
+    "sponsors"
   ]
 
   for seeds <- seeds_list do

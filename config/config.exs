@@ -29,8 +29,6 @@ config :erlef, :repo_imports, [
   {"/posts/**/*.md", Erlef.Blogs.Post}
 ]
 
-import_config "sponsors.exs"
-
 config :erlef, :slack_teams, ["erlanger"]
 
 config :erlef, :slack_invite_config, %{
