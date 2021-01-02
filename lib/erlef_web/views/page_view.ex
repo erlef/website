@@ -66,4 +66,10 @@ defmodule ErlefWeb.PageView do
     </div>
     """
   end
+
+  def active_sponsors([]), do: []
+  def active_sponsors(sponsors), do: Enum.filter(sponsors, &(not &1.is_founding_sponsor))
+
+  def founding_sponsors([]), do: []
+  def founding_sponsors(sponsors), do: Enum.filter(sponsors, & &1.is_founding_sponsor)
 end

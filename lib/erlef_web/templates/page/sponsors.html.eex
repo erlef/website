@@ -11,22 +11,22 @@
     <div class="col-lg-9 pr-5">
       <h3>Founding Sponsors</h3>
       <div class="row text-center text-lg-left mt-3 mb-3">
-        <%= for {name, %{url: href}} <- @founding_sponsors do %>
-        <div class="col-lg-2 col-md-4 col-6">
-          <a href="<%= href %>" class="d-block mb-2">
-            <img class="img-fluid img-thumbnail sponsor" src="<%= Routes.static_path(@conn, "/images/sponsors/#{name}-logo.png") %>" alt="">
-          </a>
-        </div>
+        <%= for %{logo_url: logo_path, url: href} <- founding_sponsors(@sponsors) do %>
+          <div class="col-lg-2 col-md-4 col-6">
+            <a href="<%= href %>" class="d-block mb-2">
+              <img class="img-fluid img-thumbnail sponsor" src="<%= Routes.static_path(@conn, logo_path) %>" alt="">
+            </a>
+          </div>
         <% end %>
       </div>
       <h3> Sponsors </h3>
       <div class="row text-center text-lg-left mt-3 mb-3">
-        <%= for {name, %{url: href}} <- @sponsors do %>
-        <div class="col-lg-2 col-md-4 col-6">
-          <a href="<%= href %>" class="d-block mb-2">
-            <img class="img-fluid img-thumbnail sponsor" src="<%= Routes.static_path(@conn, "/images/sponsors/#{name}-logo.png") %>" alt="">
-          </a>
-        </div>
+        <%= for %{logo_url: logo_path, url: href} <- active_sponsors(@sponsors) do %>
+          <div class="col-lg-2 col-md-4 col-6">
+              <a href="<%= href %>" class="d-block mb-2">
+                <img class="img-fluid img-thumbnail sponsor" src="<%= Routes.static_path(@conn, logo_path) %>" alt="">
+              </a>
+          </div>
         <% end %>
       </div>
     </div>
