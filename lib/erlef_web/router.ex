@@ -8,7 +8,7 @@ defmodule ErlefWeb.Router do
     syndication.twitter.com/settings cdn.syndication.twimg.com
     licensebuttons.net i.creativecommons.org
     pbs.twimg.com use.typekit.net p.typekit.net
-    event-org-images.ewr1.vultrobjects.com erlef.matomo.cloud cdn.rawgit.com
+    event-org-images.ewr1.vultrobjects.com sponsors.ewr1.vultrobjects.com erlef.matomo.cloud cdn.rawgit.com
     127.0.0.1:9998 cdn.datatables.net
   )
 
