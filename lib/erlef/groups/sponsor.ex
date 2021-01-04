@@ -8,12 +8,14 @@ defmodule Erlef.Groups.Sponsor do
     field(:is_founding_sponsor, :boolean, default: false)
     field(:name, :string)
     field(:url, :string)
+    field(:created_by, Ecto.UUID)
+    field(:updated_by, Ecto.UUID)
 
     timestamps()
   end
 
-  @required [:name, :url, :logo_url]
-  @optional [:is_founding_sponsor]
+  @required [:name, :url, :logo_url, :created_by]
+  @optional [:is_founding_sponsor, :updated_by]
   @permitted @required ++ @optional
 
   @doc false
@@ -21,5 +23,12 @@ defmodule Erlef.Groups.Sponsor do
     sponsor
     |> cast(attrs, @permitted)
     |> validate_required(@required)
+  end
+
+  @doc false
+  def update_changeset(sponsor, attrs) do
+    sponsor
+    |> cast(attrs, @permitted)
+    |> validate_required(@required ++ [:updated_by])
   end
 end
