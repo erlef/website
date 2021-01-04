@@ -7,13 +7,15 @@ defmodule ErlefWeb.SponsorControllerTest do
     is_founding_sponsor: true,
     logo_url: "some logo_url",
     name: "some name",
-    url: "some url"
+    url: "some url",
+    created_by: Ecto.UUID.generate()
   }
   @update_attrs %{
     is_founding_sponsor: false,
     logo_url: "some updated logo_url",
     name: "some updated name",
-    url: "some updated url"
+    url: "some updated url",
+    updated_by: Ecto.UUID.generate()
   }
   @invalid_attrs %{is_founding_sponsor: nil, logo_url: nil, name: nil, url: nil}
 

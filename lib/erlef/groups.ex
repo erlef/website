@@ -131,7 +131,7 @@ defmodule Erlef.Groups do
 
   def update_sponsor(%Sponsor{} = sponsor, attrs) do
     sponsor
-    |> Sponsor.changeset(maybe_upload_image(sponsor.name, attrs))
+    |> Sponsor.update_changeset(maybe_upload_image(sponsor.name, attrs))
     |> Repo.update()
   end
 

@@ -219,13 +219,16 @@ defmodule Erlef.GroupsTest do
       logo_url: "some logo_url",
       is_founding_sponsor: true,
       name: "some name",
-      url: "some url"
+      url: "some url",
+      created_by: Ecto.UUID.generate()
     }
+
     @update_attrs %{
       logo_url: "some updated logo_url",
       is_founding_sponsor: false,
       name: "some updated name",
-      url: "some updated url"
+      url: "some updated url",
+      updated_by: Ecto.UUID.generate()
     }
     @invalid_attrs %{logo_url: nil, is_founding_sponsor: nil, name: nil, url: nil}
 
