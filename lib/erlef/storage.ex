@@ -21,11 +21,11 @@ defmodule Erlef.Storage do
           {:ok, String.t()} | {:error, term()}
   def upload_sponsor_image(filename, binary, opts \\ []) do
     new_opts = [{:content_type, file_type(binary)}, {:acl, :public_read}] ++ opts
-    operation = S3.put_object("sponsor", filename, binary, new_opts)
+    operation = S3.put_object("sponsors", filename, binary, new_opts)
 
     case ExAws.request(operation) do
       {:ok, _} ->
-        {:ok, image_url(filename, "sponsor")}
+        {:ok, image_url(filename, "sponsors")}
 
       err ->
         err
