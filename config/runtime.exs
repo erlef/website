@@ -1,9 +1,5 @@
 import Config
 
-## General runtime config required for use in all environments
-
-# TODO: Refactor so that this is only required in staging/prod
-
 if Application.get_env(:erlef, :env) == :prod do
   secret_key_base =
     System.get_env("SECRET_KEY_BASE") ||
@@ -131,4 +127,35 @@ if Application.get_env(:erlef, :env) == :prod do
     api_key: wapi_api_key,
     client_id: wapi_client_id,
     client_secret: wapi_client_secret
+
+  gh_app_pem =
+    System.get_env("GITHUB_APP_PEM") ||
+      raise """
+      environment variable GITHUB_APP_PEM is missing.
+      """
+
+  gh_app_id =
+    System.get_env("GITHUB_APP_ID") ||
+      raise """
+      environment variable GITHUB_APP_ID is missing
+      """
+
+  gh_app_install_id =
+    System.get_env("GITHUB_APP_INSTALL_ID") ||
+      raise """
+      environment variable GITHUB_APP_INSTALL_ID is missing
+      """
+
+  config :erlef, :github,
+    app_install_id: gh_app_install_id,
+    key_pem: gh_app_pem,
+    app_id: gh_app_id
+
+  report_submission_repo =
+    System.get_env("ERLEF_REPORT_SUBMISSION_REPO") ||
+      raise """
+        environment variable ERLEF_REPORT_SUBMISSION_REPO is missing
+      """
+
+  config :erlef, :reports, report_submission_repo: report_submission_repo
 end

@@ -41,6 +41,10 @@ defmodule ErlefWeb.ConnCase do
       def admin_session(%{conn: conn}) do
         [conn: authenticated_conn(conn, "admin")]
       end
+
+      def chair_session(%{conn: conn}) do
+        [conn: authenticated_conn(conn, "wg_chair")]
+      end
     end
   end
 
