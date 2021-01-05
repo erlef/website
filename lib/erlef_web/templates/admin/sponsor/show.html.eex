@@ -36,6 +36,15 @@
     </div>
   </li>
 
+  <li class="mt-4">
+    <strong>Created by:</strong>
+    <%= @sponsor.created_by %>
+  </li>
+
+  <li class="mt-4">
+    <strong>Updated by:</strong>
+    <%= @sponsor.updated_by %>
+  </li>
 </ul>
 
 

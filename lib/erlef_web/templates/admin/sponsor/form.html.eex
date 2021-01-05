@@ -41,6 +41,13 @@
       </div>
     </div>
 
+
+    <%= if is_nil(@changeset.data.id) do  %>
+      <%= hidden_input f, :created_by, value: @current_user.id %>
+    <% else %>
+      <%= hidden_input f, :updated_by, value: @current_user.id %>
+    <% end %>
+
     <div class="card-footer">
       <%= submit "Save", class: "btn btn-primary" %>
     </div>
