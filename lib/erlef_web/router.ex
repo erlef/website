@@ -41,6 +41,11 @@ defmodule ErlefWeb.Router do
     plug ErlefWeb.Plug.Authz
   end
 
+  pipeline :working_group do
+    plug ErlefWeb.Plug.CurrentWorkingGroup
+    plug ErlefWeb.Plug.Authz.Volunteer
+  end
+
   if Erlef.is_env?(:dev) do
     scope "/dev" do
       pipe_through [:browser]
@@ -83,6 +88,11 @@ defmodule ErlefWeb.Router do
     resources "/stipends", StipendController, only: [:index, :create]
 
     resources "/slack-invite/:team", SlackInviteController, only: [:create, :index]
+
+    scope "/wg/:slug", WorkingGroup, as: :working_group do
+      pipe_through [:session_required, :working_group]
+      resources "/reports", ReportController
+    end
 
     scope "/members", Members, as: :members do
       pipe_through [:session_required]

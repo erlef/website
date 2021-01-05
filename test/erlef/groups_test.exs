@@ -289,4 +289,84 @@ defmodule Erlef.GroupsTest do
       assert %Ecto.Changeset{} = Groups.change_sponsor(sponsor)
     end
   end
+
+  describe "working_group_reports" do
+    alias Erlef.Groups.WorkingGroupReport
+
+    @valid_attrs %{type: :quarterly, content: "some content", is_private: true, meta: %{}}
+    @update_attrs %{
+      content: "some updated content",
+      is_private: false,
+      meta: %{}
+    }
+    @invalid_attrs %{content: nil, is_private: nil, meta: nil, type: nil}
+
+    def working_group_report_fixture(attrs \\ %{}) do
+      {:ok, working_group_report} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Groups.create_working_group_report()
+
+      working_group_report
+    end
+
+    test "create_working_group_report/1 with valid data creates a working_group_report", attrs do
+      p =
+        Map.merge(@valid_attrs, %{
+          working_group_id: attrs.working_group.id,
+          submitted_by_id: attrs.chair.id
+        })
+
+      assert {:ok, %WorkingGroupReport{} = working_group_report} =
+               Groups.create_working_group_report(p)
+
+      assert working_group_report.content == "some content"
+      assert working_group_report.is_private == true
+      assert working_group_report.meta == %{}
+      assert working_group_report.type == :quarterly
+    end
+
+    test "create_working_group_report/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Groups.create_working_group_report(@invalid_attrs)
+    end
+
+    test "update_working_group_report/2 with valid data updates the working_group_report",
+         attrs do
+      working_group_report =
+        working_group_report_fixture(
+          working_group_id: attrs.working_group.id,
+          submitted_by_id: attrs.chair.id
+        )
+
+      assert {:ok, %WorkingGroupReport{} = working_group_report} =
+               Groups.update_working_group_report(working_group_report, @update_attrs)
+
+      assert working_group_report.content == "some updated content"
+      assert working_group_report.is_private == false
+      assert working_group_report.meta == %{}
+    end
+
+    test "update_working_group_report/2 with invalid data returns error changeset", attrs do
+      working_group_report =
+        working_group_report_fixture(
+          working_group_id: attrs.working_group.id,
+          submitted_by_id: attrs.chair.id
+        )
+
+      assert {:error, %Ecto.Changeset{}} =
+               Groups.update_working_group_report(working_group_report, @invalid_attrs)
+
+      assert working_group_report == Groups.get_working_group_report!(working_group_report.id)
+    end
+
+    test "change_working_group_report/1 returns a working_group_report changeset", attrs do
+      working_group_report =
+        working_group_report_fixture(
+          working_group_id: attrs.working_group.id,
+          submitted_by_id: attrs.chair.id
+        )
+
+      assert %Ecto.Changeset{} = Groups.change_working_group_report(working_group_report)
+    end
+  end
 end

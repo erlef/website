@@ -5,11 +5,14 @@ defmodule Erlef.Groups do
 
   alias Erlef.{Repo, Storage}
   alias Erlef.Accounts.Member
+  require Logger
 
   alias Erlef.Groups.{
+    GitReport,
     Volunteer,
     WorkingGroup,
     WorkingGroupChair,
+    WorkingGroupReport,
     WorkingGroupVolunteer,
     Query,
     Sponsor
@@ -34,6 +37,9 @@ defmodule Erlef.Groups do
 
   @spec get_volunteer(Ecto.UUID.t()) :: WorkingGroup.t()
   def get_volunteer(id), do: Repo.get(Volunteer, id)
+
+  @spec get_volunteer_by_member_id(Ecto.UUID.t()) :: WorkingGroup.t()
+  def get_volunteer_by_member_id(member_id), do: Repo.get_by(Volunteer, member_id: member_id)
 
   @spec create_volunteer(map()) :: {:ok, Volunteer.t()} | {:error, Ecto.Changeset.t()}
   def create_volunteer(attrs) do
@@ -158,5 +164,56 @@ defmodule Erlef.Groups do
 
   defp sponsor_image_filename(sponsor_name, <<"image/", ext::binary>>) do
     sponsor_name <> "-" <> Ecto.UUID.generate() <> "." <> ext
+  end
+
+  def get_working_group_report!(id), do: Repo.get!(WorkingGroupReport, id)
+
+  def create_working_group_report(attrs \\ %{}) do
+    cs = WorkingGroupReport.changeset(%WorkingGroupReport{}, attrs)
+
+    res =
+      Ecto.Multi.new()
+      |> Ecto.Multi.insert(:report, cs)
+      |> Ecto.Multi.run(:git_report, &submit_git_report/2)
+      |> Ecto.Multi.update(:meta, fn changes ->
+        WorkingGroupReport.changeset(changes.report, %{meta: changes.git_report})
+      end)
+      |> Repo.transaction()
+
+    case res do
+      {:ok, %{report: report}} -> {:ok, report}
+      {:error, :report, cs, _changes} -> {:error, cs}
+      {:error, :meta, cs, _changes} -> {:error, cs}
+      err -> err
+    end
+  end
+
+  defp submit_git_report(repo, %{report: report}) do
+    report = repo.preload(report, [:working_group, :submitted_by])
+
+    case GitReport.submit(report) do
+      {:ok, meta} ->
+        {:ok, meta}
+
+      err ->
+        Logger.error(fn -> "Error submitting git report => #{err}" end)
+        {:error, :git_report_creation_failed}
+    end
+  end
+
+  def update_working_group_report(repo, %WorkingGroupReport{} = working_group_report, attrs) do
+    working_group_report
+    |> WorkingGroupReport.changeset(attrs)
+    |> repo.update()
+  end
+
+  def update_working_group_report(%WorkingGroupReport{} = working_group_report, attrs) do
+    working_group_report
+    |> WorkingGroupReport.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def change_working_group_report(%WorkingGroupReport{} = working_group_report, attrs \\ %{}) do
+    WorkingGroupReport.changeset(working_group_report, attrs)
   end
 end

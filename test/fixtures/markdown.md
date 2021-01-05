@@ -1,0 +1,3 @@
+# Markdown fixture
+
+:thinking:

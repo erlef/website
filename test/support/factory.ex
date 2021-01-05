@@ -50,7 +50,7 @@ defmodule Erlef.Factory do
         gcal_url: nil,
         github: nil
       },
-      name: Faker.Company.name(),
+      name: Faker.Team.name(),
       slug: Faker.Internet.slug()
     }
   end

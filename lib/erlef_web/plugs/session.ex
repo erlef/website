@@ -41,6 +41,21 @@ defmodule ErlefWeb.Plug.Session do
         |> maybe_refresh_token(session)
         |> assign(:current_session, session)
         |> assign(:current_user, session.member)
+        |> maybe_assign_volunteer(session.member)
+    end
+  end
+
+  defp maybe_assign_volunteer(conn, %{id: nil}) do
+    assign(conn, :current_volunteer, nil)
+  end
+
+  defp maybe_assign_volunteer(conn, member) do
+    case Erlef.Groups.get_volunteer_by_member_id(member.id) do
+      %Erlef.Groups.Volunteer{} = vol ->
+        assign(conn, :current_volunteer, vol)
+
+      _ ->
+        assign(conn, :current_volunteer, nil)
     end
   end
 
