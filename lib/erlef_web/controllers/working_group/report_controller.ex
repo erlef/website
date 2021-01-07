@@ -28,7 +28,7 @@ defmodule ErlefWeb.WorkingGroup.ReportController do
 
         conn
         |> put_flash(:error, "Unknown error while attempting to create working group report")
-        |> redirect(to: Routes.working_group_path(conn, :new, wg.slug))
+        |> redirect(to: Routes.working_group_report_path(conn, :new, wg.slug))
     end
   end
 
