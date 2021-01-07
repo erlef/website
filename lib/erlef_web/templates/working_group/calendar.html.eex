@@ -1,0 +1,22 @@
+
+<% parsed = URI.parse(@wg.meta.public_calendar) %>
+<% webcal = parsed.host <> parsed.path %>
+
+<div class="py-3 mb-4">
+  <div class="container">
+    <h1 class="display-4 font-weight-bold"><%= @wg.name %> Working Group</h1>
+    <h4>Public Calendar</h4>
+    <div class="row">
+      <div class="col">
+        <a href="webcal://<%= webcal %>">Subscribe</a> to this calendar
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= link "Back to #{@wg.name}", to: Routes.working_group_path(@conn, :show, @wg.slug) %>
+        </div>
+      </div>
+  </div>
+  </div>
+  <br/>
+  </br/>
+<%= calendar(@wg.meta.public_calendar) %>

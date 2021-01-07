@@ -9,7 +9,7 @@ defmodule ErlefWeb.Router do
     licensebuttons.net i.creativecommons.org
     pbs.twimg.com use.typekit.net p.typekit.net
     event-org-images.ewr1.vultrobjects.com sponsors.ewr1.vultrobjects.com erlef.matomo.cloud cdn.rawgit.com
-    127.0.0.1:9998 cdn.datatables.net
+    127.0.0.1:9998 cdn.datatables.net user.fm
   )
 
   if Erlef.in_env?([:dev, :test]) do
@@ -28,7 +28,7 @@ defmodule ErlefWeb.Router do
 
     plug :put_secure_browser_headers, %{
       "content-security-policy" =>
-        " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}; connect-src 'self' https://www.erlef.org https://erlef.org wss://erlef.org wss://www.erlef.org ws://erlef.org ws://www.erlef.org  https://erlef.matomo.cloud"
+        " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}; connect-src 'self' https://user.fm https://www.erlef.org https://erlef.org wss://erlef.org wss://www.erlef.org ws://erlef.org ws://www.erlef.org  https://erlef.matomo.cloud"
     }
   end
 
@@ -85,6 +85,9 @@ defmodule ErlefWeb.Router do
     get "/events/:slug", EventController, :show
     get "/events", EventController, :index
     resources "/wg", WorkingGroupController, only: [:index, :show]
+
+    get "/wg/:slug/calendar", WorkingGroupController, :calendar
+
     resources "/stipends", StipendController, only: [:index, :create]
 
     resources "/slack-invite/:team", SlackInviteController, only: [:create, :index]

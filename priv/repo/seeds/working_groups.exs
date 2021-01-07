@@ -52,7 +52,8 @@ working_groups = [
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: "embedded-systems@erlef.org",
       gcal_url: nil,
-      github: nil
+      github: nil,
+      public_calendar: "https://user.fm/calendar/v1-50bec56ce5326a8f031fc1ac9787c6fe/Calendar.ics"
     },
     name: "Embedded Systems",
     proposal:
