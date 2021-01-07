@@ -892,15 +892,48 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.1.tgz#ccfef6ddbe59f8fe8f694783e1d3eb88902dc5eb"
   integrity sha512-OEdH7SyC1suTdhBGW91/zBfR6qaIhThbcN8PUXtXilY4GYnSBbVqOntdHbC1vXwsDnX0Qix2m2+DSU1J51ybOQ==
 
+"@fullcalendar/bootstrap@5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/bootstrap/-/bootstrap-5.5.0.tgz#0d2a06123b1e5ccd98c3f724c3c12b09bf0abf01"
+  integrity sha512-jFU4IW4NsIi9VHtJ+LHTpTOoy7qgWPDGiZjXyp5gBwilYR+MJpEH7vJeIztaYEIpcGt2WDihlCOev9GSjz6hiQ==
+  dependencies:
+    "@fullcalendar/common" "~5.5.0"
+    tslib "^2.0.3"
+
 "@fullcalendar/bootstrap@^4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/bootstrap/-/bootstrap-4.4.0.tgz#4d77d19b4e2d3aaf518f1ade187d8e4db341d2a1"
   integrity sha512-2YYM2tPhTwNtYFBcIm4Cf/72pJ3qzRRmzGZx13mJeVYjbSOe1rn/tquff/mMDPPtfCZ4+XqXOLCzAeW7eWHGgw==
 
+"@fullcalendar/common@~5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/common/-/common-5.5.0.tgz#02509c8d96bb0bb7fcf397ccf564ed271a6cee00"
+  integrity sha512-xHsHRI2xnC4vDPdRaOkt03SGIEsmlcSTI6RVInI2PQKi3n4otgM4ej3WL4B010uT4IzrBlUvNm8HHEo/o3g8Ug==
+  dependencies:
+    ical.js "^1.4.0"
+    tslib "^2.0.3"
+
+"@fullcalendar/core@5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-5.5.0.tgz#08373ce9b68a88ea3d48caf7a682a8261d90a3c7"
+  integrity sha512-NHyrH6AP1zRRCWsK0NuY/bZFQes1UaGB2pukMv86A0Yq1BI7Y7m9u/yH7D0/ZCaNkCLVxrSlIwAOtMQxPPITdg==
+  dependencies:
+    "@fullcalendar/common" "~5.5.0"
+    preact "^10.0.5"
+    tslib "^2.0.3"
+
 "@fullcalendar/core@^4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-4.4.0.tgz#79dbc0cca836ce628a07e739a456da11ff141373"
   integrity sha512-PC4mmXHJHAlXmUEmZVnePyA8yYCOBdxBNq8yjJqedEtT1X0x36yTFz/Y0Ux6bniICZDqYtk0xoxe6jaxi++e0g==
+
+"@fullcalendar/daygrid@5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-5.5.0.tgz#48f943d070a07f88cd6f8170fb757d3038239bd6"
+  integrity sha512-O/59C3ihElLsPnkjlD1xUgAf3v7WEARXVO+wZfASKtK14Ccux2MA9mWUA1+80m9q8on7SYL36ORhrea7GKy/qQ==
+  dependencies:
+    "@fullcalendar/common" "~5.5.0"
+    tslib "^2.0.3"
 
 "@fullcalendar/daygrid@^4.4.0", "@fullcalendar/daygrid@~4.4.0":
   version "4.4.0"
@@ -911,6 +944,14 @@
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-4.4.0.tgz#fc8f8baaf5cb3533d6ce0a684d6f9952a4430685"
   integrity sha512-nGu0ZzYYlNpIhqfyv3JupteWKFETs3W1MzbRJcEZkuPncn4BooEi4A2blgHfacHAmmpaNkT84tAmhzi734MFBA==
+
+"@fullcalendar/rrule@5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/rrule/-/rrule-5.5.0.tgz#96fc019a1aaa02a45f0e75fd04992dbd8e7d6194"
+  integrity sha512-Eifzha9fu+KPZVZ7/Ff0K7yQIk6wz4LOkR749yMpzdiYFHliWHwdVaFHB3BQL2i8yI8TRbtbp0nU5f/k6F2NHA==
+  dependencies:
+    "@fullcalendar/common" "~5.5.0"
+    tslib "^2.0.3"
 
 "@fullcalendar/timegrid@^4.4.0":
   version "4.4.0"
@@ -4143,6 +4184,11 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
+ical.js@1.4.0, ical.js@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/ical.js/-/ical.js-1.4.0.tgz#fc5619dc55fe03d909bf04362aa0677f4541b9d7"
+  integrity sha512-ltHZuOFNNjcyEYbzDgjemS7LWIFh2vydJeznxQHUh3dnarbxqOYsWONYteBVAq1MEOHnwXFGN2eskZReHclnrA==
+
 icheck-bootstrap@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/icheck-bootstrap/-/icheck-bootstrap-3.0.1.tgz#60c9c9a71524e1d9dd5bd05167a62fef05cc3a1b"
@@ -4962,6 +5008,11 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+luxon@1.25.0, luxon@^1.21.3:
+  version "1.25.0"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.25.0.tgz#d86219e90bc0102c0eb299d65b2f5e95efe1fe72"
+  integrity sha512-hEgLurSH8kQRjY6i4YLey+mcKVAWXbDNlZRmM6AgWDJ1cY3atl8Ztf5wEY7VBReFbmGnwQPz7KYJblL8B2k0jQ==
 
 magic-string@0.25.1:
   version "0.25.1"
@@ -6416,6 +6467,11 @@ postcss@^8.1.4:
     nanoid "^3.1.16"
     source-map "^0.6.1"
 
+preact@^10.0.5:
+  version "10.5.9"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.5.9.tgz#8caba9288b4db1d593be2317467f8735e43cda0b"
+  integrity sha512-X4m+4VMVINl/JFQKALOCwa3p8vhMAhBvle0hJ/W44w/WWfNb2TA7RNicDV3K2dNVs57f61GviEnVLiwN+fxiIg==
+
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
@@ -6955,6 +7011,15 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+rrule@^2.6.0:
+  version "2.6.6"
+  resolved "https://registry.yarnpkg.com/rrule/-/rrule-2.6.6.tgz#70031727da4aa648ea0dcc524b6e95f565af063e"
+  integrity sha512-h6tb/hRo9SNv8xKjcvsEfdmhXvElMXsU3Yz0KmqMehUqxP6a4Qjmth2EuL1FsjdawADjajLS0eBbWfsZzn3SIw==
+  dependencies:
+    tslib "^1.10.0"
+  optionalDependencies:
+    luxon "^1.21.3"
 
 run-queue@^1.0.0, run-queue@^1.0.3:
   version "1.0.3"
@@ -7850,10 +7915,20 @@ trim-newlines@^1.0.0:
   dependencies:
     glob "^7.1.2"
 
+tslib@^1.10.0:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
+  integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
+
 tslib@^1.9.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
+
+tslib@^2.0.3:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
+  integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
 tty-browserify@0.0.0:
   version "0.0.0"

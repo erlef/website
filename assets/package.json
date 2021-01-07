@@ -14,7 +14,14 @@
     "popper.js": "1.16.1",
     "jquery": "3.5.1",
     "admin-lte": "^3.0.5",
-    "@fortawesome/fontawesome-free": "^5.15.1"
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@fullcalendar/bootstrap": "5.5.0",
+    "@fullcalendar/core": "5.5.0",
+    "@fullcalendar/daygrid": "5.5.0",
+    "@fullcalendar/rrule": "5.5.0",
+    "rrule": "^2.6.0",
+    "luxon": "1.25.0",
+    "ical.js": "1.4.0"
   },
   "devDependencies": {
     "expose-loader": "1.0.3",

@@ -3,6 +3,8 @@
 @import url("https://use.typekit.net/kyy4ydn.css");
 @import "../static/vendored/css/bootstrap-toc.css";
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+@import "../node_modules/@fullcalendar/common/main.css";
+@import "../node_modules/@fullcalendar/bootstrap/main.css";
 @import "community";
 @import "blogs";
 @import "events";
@@ -172,4 +174,8 @@ nav[data-toggle="toc"] .nav > li > a:focus {
 
 code { 
  color: #393434
+}
+
+.fc-daygrid-event { 
+  cursor: pointer;
 }

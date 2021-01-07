@@ -14,12 +14,12 @@ defmodule Erlef.Groups.WorkingGroup do
     field(:proposal, :string)
     field(:proposal_html, :string)
 
-    # field(:chairs, :array, virtual: true)
-
     embeds_one(:meta, Meta, primary_key: false, on_replace: :update) do
       field(:email, :string)
       field(:github, :string)
       field(:gcal_url, :string)
+      field(:public_calendar, :string)
+      field(:private_calendar, :string)
     end
 
     many_to_many(:chairs, Volunteer,
@@ -52,6 +52,6 @@ defmodule Erlef.Groups.WorkingGroup do
 
   defp meta_changeset(schema, params) do
     schema
-    |> cast(params, [:github, :gcal_url, :email])
+    |> cast(params, [:github, :gcal_url, :email, :public_calendar, :private_calendar])
   end
 end

@@ -9,7 +9,11 @@ defmodule ErlefWeb.WorkingGroupController do
     render(conn, working_groups: all_groups())
   end
 
-  def show(conn, %{"id" => slug}) do
+  def show(conn, %{"id" => slug}), do: render_show(conn, slug)
+
+  def calendar(conn, %{"slug" => slug}), do: render_show(conn, slug)
+
+  defp render_show(conn, slug) do
     case Groups.get_working_group_by_slug(slug) do
       {:ok, wg} ->
         render(conn,
