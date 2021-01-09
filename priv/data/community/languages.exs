@@ -69,7 +69,7 @@
       icon: nil,
       logo: "/images/community/languages/fika.svg",
       about:
-        "Fika is a modern programming language for the web. It a is statically typed, functional and runs on the BEAM. Fika is designed to be a beginner-friendly, safe and productive language for building web applications with a delightful developer experience."
+        "Fika is a modern programming language for the web. It is statically typed, functional and runs on the BEAM. Fika is designed to be a beginner-friendly, safe and productive language for building web applications with a delightful developer experience."
     },
     %{
       name: "Gleam",
