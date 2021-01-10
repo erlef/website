@@ -2,7 +2,7 @@
   <div class="row align-items-stretch">
     <div class="col-lg-5">
       <%= left_svg_hero(style: "min-height: 400px;") do %>
-      <img class="gradient-mask-left img-align-right h-100" src="/images/leaves.jpg">
+      <img class="gradient-mask-left img-align-right h-100" src="/images/leaves.jpg" alt="">
       <% end %>
     </div>
     <div class="col-lg-6 py-5 offset-lg-1">

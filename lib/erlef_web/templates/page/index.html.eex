@@ -17,7 +17,7 @@
                         <%= for event <- @events do %>
                             <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
                                 <div style="background-color: <%= event.organizer_brand_color %>; width: 6rem;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
-                                    <img src="<%= event.organizer_brand_logo %>" class="img-fluid d-block mx-auto event-card-list-image">
+                                    <img src="<%= event.organizer_brand_logo %>" class="img-fluid d-block mx-auto event-card-list-image" alt="">
                                 </div>
                                 <div>
                                     <h4>
@@ -31,7 +31,7 @@
                         <a class="h4 py-2" href="/events">View All Events →</a>
                     </div>
                     <%= right_svg_hero() do %>
-                        <img class="gradient-mask-right h-100" src="/images/crowd.jpg">
+                        <img class="gradient-mask-right h-100" src="/images/crowd.jpg" alt="">
                     <% end %>
                 </div>
             </div>

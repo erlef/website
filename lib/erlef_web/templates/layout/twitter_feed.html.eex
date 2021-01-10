@@ -4,7 +4,7 @@
     <div class="event-card h-100 rounded bg-white">
       <div class="p-4 d-flex flex-column h-100">
         <div class="d-flex align-items-center mb-3">
-            <div class="twitter-avatar rounded-circle mr-2 border"><img class="img-fluid" src="<%= tweet.avatar %>"></div>
+            <div class="twitter-avatar rounded-circle mr-2 border"><img class="img-fluid" src="<%= tweet.avatar %>" alt=""></div>
             <div class="font-weight-bold">
                 <%= tweet.name %>
                 <a href="https://twitter.com/<%= tweet.screen_name %>">@<%= tweet.screen_name %></a>
@@ -21,7 +21,7 @@
     </div>
     <!--event-card-->
     <%= left_svg_hero(style: "min-height: 800px;") do %>
-        <img class="gradient-mask-left img-align-center h-100" src="/images/crowd.jpg">
+        <img class="gradient-mask-left img-align-center h-100" src="/images/crowd.jpg" alt="">
     <% end %>
   </div>
   <%= for tweet <- tweets do %>
@@ -29,7 +29,7 @@
           <div class="event-card h-100 rounded bg-white">
               <div class="p-4 d-flex flex-column h-100">
                   <div class="d-flex align-items-center mb-3">
-                      <div class="twitter-avatar rounded-circle mr-2 border"><img class="img-fluid" src="<%= tweet.avatar %>"></div>
+                      <div class="twitter-avatar rounded-circle mr-2 border"><img class="img-fluid" src="<%= tweet.avatar %>" alt=""></div>
                       <div class="font-weight-bold">
                           <%= tweet.name %>
                           <a href="https://twitter.com/<%= tweet.screen_name %>">@<%= tweet.screen_name %></a>
