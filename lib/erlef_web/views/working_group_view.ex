@@ -35,6 +35,14 @@ defmodule ErlefWeb.WorkingGroupView do
             </div>
             <div class="row">
               <div class="col-3">
+                <strong class="location-label">Where</strong>
+              </div>
+              <div class="col">
+                <span class="location"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
                 <strong class="description-label">Description</strong>
               </div>
               <div class="col">
@@ -42,7 +50,6 @@ defmodule ErlefWeb.WorkingGroupView do
               </div>
             </div>
           </div>
-
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
