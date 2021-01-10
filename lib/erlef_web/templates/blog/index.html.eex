@@ -46,7 +46,7 @@
             </div>
             <div class="col-lg-4">
               <%= right_svg_hero() do %>
-                <img class="gradient-mask-right" style="height: 800px" src="/images/crowd.jpg">
+                <img class="gradient-mask-right" style="height: 800px" src="/images/crowd.jpg" alt="">
               <% end %>
             </div>
           </div>

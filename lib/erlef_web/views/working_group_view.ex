@@ -54,7 +54,7 @@ defmodule ErlefWeb.WorkingGroupView do
     <div class="container">
         <div id="calendar"
              data-calendar-header="true"
-             data-calendar-ics-url="<%= ics_url %>
+             data-calendar-ics-url="<%= ics_url %>"
              class="mt-5">
         </div>
     </div>
