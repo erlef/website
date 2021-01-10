@@ -6,8 +6,7 @@ import * as ICAL from 'ical.js'
 import { DateTime } from "luxon";
 
 function build_event(vevent) {
-  event = new ICAL.Event(vevent);
-  
+  event = new ICAL.Event(vevent); 
   var start = new Date(event.startDate.toUnixTime() * 1000).toISOString();
   var end = (event.endDate ? new Date(event.endDate.toUnixTime() * 1000).toISOString() : null);
 
@@ -18,6 +17,7 @@ function build_event(vevent) {
         start: start,
         end: end,
         description: event.description,
+        location: event.location,
         rrule: {
             freq: recur_rules.freq,
             interval: recur_rules.interval,
@@ -31,7 +31,8 @@ function build_event(vevent) {
         title: event.summary,
         start: start,
         end: end,
-        description: event.description
+        description: event.description,
+        location: event.location
     }
   }
 }
@@ -110,6 +111,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     $('.modal').find('.description-label').hide();
                 }
+                if (event.extendedProps.location) { 
+                    $('.modal').find('.location').text(event.extendedProps.location);
+                } else {
+                    $('.modal').find('.location-label').hide();
+                }
+ 
                 $('.modal').modal('show');
             }
         });
