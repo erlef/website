@@ -3,6 +3,7 @@ defmodule ErlefWeb.HTML do
   ErlefWeb.HTML - HTML helpers for ErlefWeb
   """
   import Phoenix.HTML.Tag
+  import Phoenix.HTML
 
   def to_date_string(date_time) do
     Calendar.strftime(date_time, "%B, %d, %Y, %H:%M:%S UTC")
@@ -67,6 +68,66 @@ defmodule ErlefWeb.HTML do
            </div>
          </div>
      </form>
+    """
+  end
+
+  def calendar(ics_url) do
+    ~E"""
+    <div class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><span class="title"></span></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body ml-1">
+            <div class="row">
+              <div class="col-3">
+                <strong>Starts</strong>
+              </div>
+              <div class="col">
+                <span class="starts-at"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <strong>Ends</strong>
+              </div>
+              <div class="col">
+                <span class="ends-at"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <strong class="location-label">Where</strong>
+              </div>
+              <div class="col">
+                <span class="location"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <strong class="description-label">Description</strong>
+              </div>
+              <div class="col">
+                <span class="description"></span>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.modal-body -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <div class="container">
+        <div id="calendar"
+             data-calendar-header="true"
+             data-calendar-ics-url="<%= ics_url %>">
+        </div>
+    </div>
     """
   end
 

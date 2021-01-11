@@ -71,6 +71,7 @@ defmodule ErlefWeb.Router do
     get "/sponsors", PageController, :sponsors
     get "/become-a-sponsor", PageController, :sponsor_info
     get "/wg-proposal-template", PageController, :wg_proposal_template
+    get "/all_calendars", PageController, :all_calendars
 
     # NOTE: News routes are still in place for links that may be out there.
     # Please use blog routes. 
