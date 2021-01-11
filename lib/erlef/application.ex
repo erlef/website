@@ -40,7 +40,16 @@ defmodule Erlef.Application do
 
   # The WildApricot model and cache server must be started first in dev/test
   defp children_for(env) when env in [:dev, :test] do
-    [Erlef.Test.WildApricot, Erlef.WildApricot.Cache, Erlef.Test.S3] ++ base_children()
+    base = [Erlef.Test.WildApricot, Erlef.WildApricot.Cache, Erlef.Test.S3] ++ base_children()
+
+    case env do
+      :dev ->
+        # Agenda must be started after the repo, but only in dev
+        base ++ [Erlef.Agenda]
+
+      :test ->
+        base
+    end
   end
 
   # The WildApricot Cache server should be started last when not in dev/test

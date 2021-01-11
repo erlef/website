@@ -945,14 +945,6 @@
   resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-4.4.0.tgz#fc8f8baaf5cb3533d6ce0a684d6f9952a4430685"
   integrity sha512-nGu0ZzYYlNpIhqfyv3JupteWKFETs3W1MzbRJcEZkuPncn4BooEi4A2blgHfacHAmmpaNkT84tAmhzi734MFBA==
 
-"@fullcalendar/rrule@5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/rrule/-/rrule-5.5.0.tgz#96fc019a1aaa02a45f0e75fd04992dbd8e7d6194"
-  integrity sha512-Eifzha9fu+KPZVZ7/Ff0K7yQIk6wz4LOkR749yMpzdiYFHliWHwdVaFHB3BQL2i8yI8TRbtbp0nU5f/k6F2NHA==
-  dependencies:
-    "@fullcalendar/common" "~5.5.0"
-    tslib "^2.0.3"
-
 "@fullcalendar/timegrid@^4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/timegrid/-/timegrid-4.4.0.tgz#c5837cfd676afff0d95535ac4cc054ed65965976"
@@ -5009,7 +5001,7 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-luxon@1.25.0, luxon@^1.21.3:
+luxon@1.25.0:
   version "1.25.0"
   resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.25.0.tgz#d86219e90bc0102c0eb299d65b2f5e95efe1fe72"
   integrity sha512-hEgLurSH8kQRjY6i4YLey+mcKVAWXbDNlZRmM6AgWDJ1cY3atl8Ztf5wEY7VBReFbmGnwQPz7KYJblL8B2k0jQ==
@@ -7012,15 +7004,6 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rrule@^2.6.0:
-  version "2.6.6"
-  resolved "https://registry.yarnpkg.com/rrule/-/rrule-2.6.6.tgz#70031727da4aa648ea0dcc524b6e95f565af063e"
-  integrity sha512-h6tb/hRo9SNv8xKjcvsEfdmhXvElMXsU3Yz0KmqMehUqxP6a4Qjmth2EuL1FsjdawADjajLS0eBbWfsZzn3SIw==
-  dependencies:
-    tslib "^1.10.0"
-  optionalDependencies:
-    luxon "^1.21.3"
-
 run-queue@^1.0.0, run-queue@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/run-queue/-/run-queue-1.0.3.tgz#e848396f057d223f24386924618e25694161ec47"
@@ -7914,11 +7897,6 @@ trim-newlines@^1.0.0:
   integrity sha512-m6s2OdQe5wgpFMC+pAJ+q9djG82O2jcHPOI6RNg1yy9rCYR+WD6Nbpl32fDpfC56nirdRy+opFa/Vk7HYhqaew==
   dependencies:
     glob "^7.1.2"
-
-tslib@^1.10.0:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
-  integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
 tslib@^1.9.0:
   version "1.13.0"

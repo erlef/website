@@ -61,6 +61,13 @@
             <%= render(ErlefWeb.LayoutView, "working_groups.html", assigns) %>
         </div>
     </section>
+
+    <section class="all_calendars">
+      <div class="mt-4 mb-2">
+        <%= calendar(Routes.page_path(@conn, :all_calendars)) %>
+      </div>
+    </section>
+
     <section class="py-5 text-white">
         <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
     </section>

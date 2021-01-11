@@ -10,6 +10,14 @@ defmodule ErlefWeb.PageController do
 
   action_fallback ErlefWeb.FallbackController
 
+  def all_calendars(conn, _params) do
+    {:ok, combined} = Erlef.Agenda.get_combined()
+
+    conn
+    |> put_resp_content_type("text/plain")
+    |> send_resp(200, combined)
+  end
+
   def index(conn, _params) do
     latest_news = Blogs.latest_posts()
 

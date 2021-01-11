@@ -7,7 +7,8 @@ working_groups = [
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: nil,
       gcal_url: nil,
-      github: "erlef/eef-build-and-packaging-wg"
+      github: "erlef/eef-build-and-packaging-wg",
+      public_calendar: "https://user.fm/calendar/v1-c0bd271bfe7a8828a4a868b2694cfd43/Building%20%26%20Packinging%20Public.ics"
     },
     name: "Building and Packaging",
     proposal:
@@ -88,7 +89,8 @@ working_groups = [
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: "infra@erlef.org",
       gcal_url: nil,
-      github: "erlef/infra"
+      github: "erlef/infra",
+      public_calendar: "https://user.fm/calendar/v1-ef278b65927fde2005be63040c195519/Infrastructure Public.ics"
     },
     name: "Infrastructure",
     proposal:
@@ -118,7 +120,8 @@ working_groups = [
       email: nil,
       gcal_url:
         "https://calendar.google.com/calendar?cid=N25nZ2RiNWhuZnFwODI4b2FwaTExOWprZXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
-      github: "erlef/eef-observability-wg"
+      github: "erlef/eef-observability-wg",
+      public_calendar: "https://user.fm/calendar/v1-15f53c735a4eefcde3bef403ff4ec8f2/Observability%20Public.ics"
     },
     name: "Observability",
     proposal:
@@ -133,7 +136,8 @@ working_groups = [
     meta: %Erlef.Groups.WorkingGroup.Meta{
       email: "marketing@erlef.org",
       gcal_url: nil,
-      github: nil
+      github: nil,
+      public_calendar: "https://user.fm/calendar/v1-d6ee2e4fc890d920e2c0c98550f2f489/Marketing%20Public.ics"
     },
     name: "Marketing",
     proposal:

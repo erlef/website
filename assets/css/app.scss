@@ -179,3 +179,12 @@ code {
 .fc-daygrid-event { 
   cursor: pointer;
 }
+
+.all_calendars { 
+    background-color: #ffffff;
+}
+
+.all_calendars .fc-header-toolbar > .fc-toolbar-chunk:nth-child(1)::before {
+  font-size: 1.75em;
+  content: 'Erlef Agenda';
+}
