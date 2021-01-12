@@ -53,5 +53,5 @@ defmodule Erlef.Application do
   end
 
   # The WildApricot Cache server should be started last when not in dev/test
-  defp children_for(_), do: base_children() ++ [Erlef.WildApricot.Cache]
+  defp children_for(_), do: base_children() ++ [Erlef.WildApricot.Cache, Erlef.Agenda]
 end
