@@ -8,7 +8,7 @@ working_groups = [
       email: nil,
       gcal_url: nil,
       github: "erlef/eef-build-and-packaging-wg",
-      public_calendar: "https://user.fm/calendar/v1-c0bd271bfe7a8828a4a868b2694cfd43/Building%20%26%20Packinging%20Public.ics"
+      public_calendar: "http://127.0.0.1:9998/calendars/building_and_packaging.ics"
     },
     name: "Building and Packaging",
     proposal:
@@ -54,7 +54,7 @@ working_groups = [
       email: "embedded-systems@erlef.org",
       gcal_url: nil,
       github: nil,
-      public_calendar: "https://user.fm/calendar/v1-50bec56ce5326a8f031fc1ac9787c6fe/Calendar.ics"
+      public_calendar: "http://127.0.0.1:9998/calendars/embedded.ics"
     },
     name: "Embedded Systems",
     proposal:
@@ -121,7 +121,7 @@ working_groups = [
       gcal_url:
         "https://calendar.google.com/calendar?cid=N25nZ2RiNWhuZnFwODI4b2FwaTExOWprZXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
       github: "erlef/eef-observability-wg",
-      public_calendar: "https://user.fm/calendar/v1-15f53c735a4eefcde3bef403ff4ec8f2/Observability%20Public.ics"
+      public_calendar: "http://127.0.0.1:9998/calendars/observability.ics"
     },
     name: "Observability",
     proposal:
@@ -137,7 +137,7 @@ working_groups = [
       email: "marketing@erlef.org",
       gcal_url: nil,
       github: nil,
-      public_calendar: "https://user.fm/calendar/v1-d6ee2e4fc890d920e2c0c98550f2f489/Marketing%20Public.ics"
+      public_calendar: "http://127.0.0.1:9998/calendars/marketing.ics"
     },
     name: "Marketing",
     proposal:

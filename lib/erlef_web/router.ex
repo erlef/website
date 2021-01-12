@@ -12,11 +12,20 @@ defmodule ErlefWeb.Router do
     127.0.0.1:9998 cdn.datatables.net user.fm
   )
 
+  @trusted_connect_sources ~w(https://user.fm https://www.erlef.org wss://erlef.org 
+    wss://www.erlef.org ws://erlef.org ws://www.erlef.org  https://erlef.matomo.cloud)
+
   if Erlef.in_env?([:dev, :test]) do
     @default_source Enum.join(@trusted_sources ++ ["127.0.0.1:9998"], " ")
+    @default_connect_source Enum.join(@trusted_connect_sources ++ ["127.0.0.1:9998"], " ")
   else
     @default_source Enum.join(@trusted_sources, " ")
+    @default_connect_source Enum.join(@trusted_sources, "")
   end
+
+  @csp " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}; connect-src 'self' #{
+         @default_connect_source
+       }"
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -25,11 +34,7 @@ defmodule ErlefWeb.Router do
     plug :protect_from_forgery
     plug ErlefWeb.Plug.Attack
     plug ErlefWeb.Plug.Session
-
-    plug :put_secure_browser_headers, %{
-      "content-security-policy" =>
-        " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}; connect-src 'self' https://user.fm https://www.erlef.org https://erlef.org wss://erlef.org wss://www.erlef.org ws://erlef.org ws://www.erlef.org  https://erlef.matomo.cloud"
-    }
+    plug :put_secure_browser_headers, %{"content-security-policy" => @csp}
   end
 
   pipeline :admin_required do
