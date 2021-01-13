@@ -23,9 +23,9 @@ defmodule ErlefWeb.Router do
     @default_connect_source Enum.join(@trusted_connect_sources, "")
   end
 
-  @csp " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}; connect-src 'self' #{
-         @default_connect_source
-       }"
+  @connect_src "connect-src 'self' #{@default_connect_source}"
+
+  @csp "default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}; #{@connect_src}"
 
   pipeline :browser do
     plug :accepts, ["html"]
