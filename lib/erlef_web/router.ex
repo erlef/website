@@ -34,7 +34,7 @@ defmodule ErlefWeb.Router do
     plug :protect_from_forgery
     plug ErlefWeb.Plug.Attack
     plug ErlefWeb.Plug.Session
-    plug :put_secure_browser_headers
+    plug :put_secure_browser_headers, %{"content-security-policy" => @csp}
   end
 
   pipeline :admin_required do
