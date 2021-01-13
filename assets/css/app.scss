@@ -189,11 +189,12 @@ code {
     content: 'Agenda';
 }
 
+tr.fc-list-day:nth-child(1) > th:nth-child(1) { 
+    z-index: 100;
+}
+ 
 @media (max-width: 600px) { 
-    tr.fc-list-day:nth-child(1) > th:nth-child(1) { 
-        z-index: 100;
-    }
-    .all_calendars .fc-header-toolbar > .fc-toolbar-chunk:nth-child(1)::before {
+   .all_calendars .fc-header-toolbar > .fc-toolbar-chunk:nth-child(1)::before {
         content: '';
     }
     .fc .fc-toolbar-title { 
