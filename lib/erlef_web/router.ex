@@ -20,7 +20,7 @@ defmodule ErlefWeb.Router do
     @default_connect_source Enum.join(@trusted_connect_sources ++ ["127.0.0.1:9998"], " ")
   else
     @default_source Enum.join(@trusted_sources, " ")
-    @default_connect_source Enum.join(@trusted_sources, "")
+    @default_connect_source Enum.join(@trusted_connect_sources, "")
   end
 
   @csp " default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}; connect-src 'self' #{
