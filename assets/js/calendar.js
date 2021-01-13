@@ -1,5 +1,6 @@
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import listPlugin from '@fullcalendar/list';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
 import * as ICAL from 'ical.js'
 import { DateTime } from "luxon";
@@ -82,12 +83,24 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks = false;
         }
 
+        let initial_view = 'dayGridMonth';
+        if (document.body.clientWidth <= 800) { 
+            initial_view = 'listMonth';
+        }
 
         let calendar = new Calendar(calendarEl, {
-            plugins: [dayGridPlugin, bootstrapPlugin],
+            plugins: [listPlugin, dayGridPlugin, bootstrapPlugin],
             navLinks: navLinks,
             themeSystem: 'bootstrap',
             timeZone: "local",
+            views: {
+                listMonth: {
+                    type: 'listWeek',
+                    duration: { days: 31 },
+                    buttonText: ''
+                }
+            },
+            initialView: initial_view,
             headerToolbar: { 
                     start: '',
                     center: 'title'
@@ -104,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             firstDay: 1,
             weekNumbers: false,
             selectable: false,
+            navLinks: false,
             weekNumberCalculation: "ISO",
             eventLimit: true,
             slotLabelFormat: 'HH:mm',
@@ -111,6 +125,14 @@ document.addEventListener('DOMContentLoaded', function() {
             nowIndicator: true,
             dayPopoverFormat: 'dddd DD/MM',
             eventSources: events,
+            windowResize: function(arg) {
+                if (document.body.clientWidth <= 800) {
+                    calendar.changeView('listMonth');
+                } else {
+                    calendar.changeView('dayGridMonth');
+                }
+
+            },
             eventClick: function (info) {
                let event = info.event; 
                let dtstart = DateTime.fromJSDate(event.start); 
