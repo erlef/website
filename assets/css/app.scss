@@ -185,6 +185,18 @@ code {
 }
 
 .all_calendars .fc-header-toolbar > .fc-toolbar-chunk:nth-child(1)::before {
-  font-size: 1.75em;
-  content: 'Erlef Agenda';
+    font-size: 1.75em;
+    content: 'Agenda';
+}
+
+@media (max-width: 600px) { 
+    tr.fc-list-day:nth-child(1) > th:nth-child(1) { 
+        z-index: 100;
+    }
+    .all_calendars .fc-header-toolbar > .fc-toolbar-chunk:nth-child(1)::before {
+        content: '';
+    }
+    .fc .fc-toolbar-title { 
+        font-size: 1.2em;
+    }
 }

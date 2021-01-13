@@ -18,6 +18,7 @@
     "@fullcalendar/bootstrap": "5.5.0",
     "@fullcalendar/core": "5.5.0",
     "@fullcalendar/daygrid": "5.5.0",
+    "@fullcalendar/list": "5.5.0",
     "luxon": "1.25.0",
     "ical.js": "1.4.0"
   },
