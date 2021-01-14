@@ -11,8 +11,10 @@ defmodule Erlef.Groups.WorkingGroup do
     field(:slug, :string)
     field(:description, :string)
     field(:formed, :date)
-    field(:proposal, :string)
-    field(:proposal_html, :string)
+    field(:charter, :string)
+    field(:charter_html, :string)
+    field(:created_by, Ecto.UUID)
+    field(:updated_by, Ecto.UUID)
 
     embeds_one(:meta, Meta, primary_key: false, on_replace: :update) do
       field(:email, :string)
@@ -35,19 +37,25 @@ defmodule Erlef.Groups.WorkingGroup do
     timestamps()
   end
 
-  @required_fields [:name, :slug, :description, :formed, :proposal]
+  @required [:name, :slug, :description, :formed, :charter]
+  @optional [:created_by, :updated_by]
+  @permitted @required ++ @optional
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_fields)
+    |> cast(params, @permitted)
     |> cast_embed(:meta, with: &meta_changeset/2)
-    |> validate_required(@required_fields)
+    |> validate_required(@required)
     |> maybe_gen_html()
   end
 
-  defp maybe_gen_html(%{changes: %{proposal: proposal}} = cs) do
-    {:ok, html, _} = Earmark.as_html(proposal)
-    put_change(cs, :proposal_html, html)
+  defp maybe_gen_html(%{changes: %{charter: charter}} = cs) do
+    charter = HtmlSanitizeEx.strip_tags(charter)
+    {:ok, html, _} = Earmark.as_html(charter)
+
+    cs
+    |> put_change(:charter, charter)
+    |> put_change(:charter_html, html)
   end
 
   defp maybe_gen_html(cs), do: cs
@@ -55,5 +63,9 @@ defmodule Erlef.Groups.WorkingGroup do
   defp meta_changeset(schema, params) do
     schema
     |> cast(params, [:github, :gcal_url, :email, :public_calendar, :private_calendar])
+    |> validate_url(:public_calendar)
+    |> validate_url(:private_calendar)
+    |> validate_url(:gcal_url)
+    |> validate_email(:email)
   end
 end

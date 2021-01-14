@@ -1,0 +1,11 @@
+<div class="row mb-2">
+  <div class="col-sm-4">
+    <h1>New Sponsor</h1>
+  </div>
+  <div class="col-md-1 offset-md-7">
+    <span><%= link "Back", to: Routes.admin_sponsor_path(@conn, :index), class: "btn btn-primary" %></span>
+  </div>
+</div>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.admin_sponsor_path(@conn, :create)) %>
+

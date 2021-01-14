@@ -7,14 +7,14 @@ defmodule ErlefWeb.WorkingGroup.ReportController do
 
   def new(conn, _params) do
     wg = conn.assigns.current_working_group
-    changeset = Groups.change_working_group_report(%WorkingGroupReport{})
+    changeset = Groups.change_wg_report(%WorkingGroupReport{})
     render(conn, "new.html", changeset: changeset, working_group: wg)
   end
 
   def create(conn, %{"working_group_report" => params}) do
     wg = conn.assigns.current_working_group
 
-    case Groups.create_working_group_report(with_default_params(conn, params)) do
+    case Groups.create_wg_report(with_default_params(conn, params)) do
       {:ok, _working_group_report} ->
         conn
         |> put_flash(:info, "Working group report created successfully.")

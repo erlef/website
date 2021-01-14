@@ -7,13 +7,14 @@ defmodule ErlefWeb.WorkingGroupReportControllerTest do
   @invalid_attrs %{content: nil, is_private: nil, meta: nil, type: nil}
 
   def fixture(:working_group_report) do
-    {:ok, working_group_report} = Groups.create_working_group_report(@create_attrs)
+    {:ok, working_group_report} = Groups.create_wg_report(@create_attrs)
     working_group_report
   end
 
   setup do
     {:ok, member} = Erlef.Accounts.get_member("wg_chair")
-    {:ok, v} = Erlef.Groups.create_volunteer(%{name: member.name, member_id: member.id})
+    opts = [audit: %{member_id: member.id}]
+    {:ok, v} = Erlef.Groups.create_volunteer(%{name: member.name, member_id: member.id}, opts)
     wgv = insert(:working_group_volunteer, volunteer: v)
     insert(:working_group_chair, volunteer: wgv.volunteer, working_group: wgv.working_group)
     [working_group: wgv.working_group]

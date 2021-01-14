@@ -1,3 +1,11 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
 @import "../node_modules/admin-lte/dist/css/adminlte.css";
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+span.help-block {
+  display: inline-block;
+  margin-top: 0.5em;
+  background-color: #ffc107;
+  border-radius: 0.3em;
+  padding: 0.3em; 
+}

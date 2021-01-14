@@ -42,8 +42,8 @@ npm-debug.log
 .env-local
 
 # Ignore plts
-/priv/plts/erlef.plt
-/priv/plts/erlef.plt.hash
+/priv/plts/
+/priv/plts/
 
 # Ignore editor files
 *.swp

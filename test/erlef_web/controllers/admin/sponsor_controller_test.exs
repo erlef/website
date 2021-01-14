@@ -1,4 +1,4 @@
-defmodule ErlefWeb.SponsorControllerTest do
+defmodule ErlefWeb.Admin.SponsorControllerTest do
   use ErlefWeb.ConnCase
 
   alias Erlef.Groups
@@ -19,8 +19,10 @@ defmodule ErlefWeb.SponsorControllerTest do
   }
   @invalid_attrs %{is_founding_sponsor: nil, logo_url: nil, name: nil, url: nil}
 
+  @audit_opts [audit: %{member_id: Ecto.UUID.generate()}]
+
   def fixture(:sponsor) do
-    {:ok, sponsor} = Groups.create_sponsor(@create_attrs)
+    {:ok, sponsor} = Groups.create_sponsor(@create_attrs, @audit_opts)
     sponsor
   end
 
@@ -84,19 +86,6 @@ defmodule ErlefWeb.SponsorControllerTest do
     test "renders errors when data is invalid", %{conn: conn, sponsor: sponsor} do
       conn = put(conn, Routes.admin_sponsor_path(conn, :update, sponsor), sponsor: @invalid_attrs)
       assert html_response(conn, 200) =~ "Edit Sponsor"
-    end
-  end
-
-  describe "delete sponsor" do
-    setup [:admin_session, :create_sponsor]
-
-    test "deletes chosen sponsor", %{conn: conn, sponsor: sponsor} do
-      conn = delete(conn, Routes.admin_sponsor_path(conn, :delete, sponsor))
-      assert redirected_to(conn) == Routes.admin_sponsor_path(conn, :index)
-
-      assert_error_sent 404, fn ->
-        get(conn, Routes.admin_sponsor_path(conn, :show, sponsor))
-      end
     end
   end
 

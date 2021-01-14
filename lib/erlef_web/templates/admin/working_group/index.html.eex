@@ -1,0 +1,34 @@
+<div class="row mb-4">
+  <h2>Working Groups</h2>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <table id="working_groups-table" class="table table-striped table-bordered dataTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Formed</th>
+          <th>Last updated at</th>
+          <th>Updated by</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for working_group <- @working_groups do %>
+          <tr>
+            <td><%= link humanize(working_group.name),  to: Routes.admin_working_group_path(@conn, :show, working_group) %></td>
+            <td><%= working_group.formed %></td>
+            <td><%= working_group.updated_at %></td>
+            <td><%= working_group.updated_by %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  $(document).ready( function () {
+    $('#working_groups-table').DataTable();
+  });
+</script>

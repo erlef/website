@@ -1,14 +1,19 @@
 <div class="row">
 
-  <%= small_info_box(@unapproved_event_count, 
+  <%= small_info_box(@resource_counts.unapproved_events_count, 
                     "Unapproved Events", 
                     "fa-calendar-alt",  
                       Routes.admin_event_path(@conn, :index), 
                       "warning") 
   %>
   
-  <%= small_info_box(@outstanding_email_requests_count, "Email Requests", "fa-envelope",  Routes.admin_email_request_path(@conn, :index)) %>
+  <%= small_info_box(@resource_counts.outstanding_email_requests_count, "Email Requests", "fa-envelope",  Routes.admin_email_request_path(@conn, :index)) %>
 
-  <%= small_info_box(42, "Sponsors", "fa-hand-holding-heart",  Routes.admin_sponsor_path(@conn, :index), "maroon") %>
+  <%= small_info_box(@resource_counts.sponsors_count, "Sponsors", "fa-hand-holding-heart",  Routes.admin_sponsor_path(@conn, :index), "maroon") %>
+
+  <%= small_info_box(@resource_counts.working_groups_count, "Working Groups", "fa-users-cog",  Routes.admin_working_group_path(@conn, :index), "teal") %>
+
+
+  <%= small_info_box(@resource_counts.volunteers_count, "Volunteers", "fa-user",  Routes.admin_volunteer_path(@conn, :index), "blue") %>
 
 </div>

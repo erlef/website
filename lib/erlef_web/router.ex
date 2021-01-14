@@ -9,7 +9,7 @@ defmodule ErlefWeb.Router do
     licensebuttons.net i.creativecommons.org
     pbs.twimg.com use.typekit.net p.typekit.net
     event-org-images.ewr1.vultrobjects.com sponsors.ewr1.vultrobjects.com erlef.matomo.cloud cdn.rawgit.com
-    127.0.0.1:9998 cdn.datatables.net user.fm
+    127.0.0.1:9998 cdn.datatables.net user.fm cdnjs.cloudflare.com uicdn.toast.com/
   )
 
   @trusted_connect_sources ~w(https://user.fm https://www.erlef.org wss://erlef.org 
@@ -119,6 +119,22 @@ defmodule ErlefWeb.Router do
       put "/events/:id", EventController, :approve
 
       resources "/sponsors", SponsorController
+
+      resources "/wg", WorkingGroupController
+
+      put "/wg/:id/chairs/:volunteer_id",
+          WorkingGroupController,
+          :create_chair
+
+      delete "/wg/:id/chairs/:volunteer_id",
+             WorkingGroupController,
+             :delete_chair
+
+      delete "/working_groups/:id/volunteers/:volunteer_id",
+             WorkingGroupController,
+             :delete_volunteer
+
+      resources "/volunteers", VolunteerController
 
       live_dashboard "/live-dashboard",
         metrics: ErlefWeb.Telemetry,

@@ -26,6 +26,10 @@ defmodule ErlefWeb do
       import Phoenix.LiveView.Controller
 
       alias ErlefWeb.Router.Helpers, as: Routes
+
+      def audit(conn) do
+        %{member_id: conn.assigns.current_user.id}
+      end
     end
   end
 

@@ -63,6 +63,7 @@ defmodule Erlef.MixProject do
       {:jason, "~> 1.2.1", override: true},
       {:joken, "~> 2.0"},
       {:honeybadger, "~> 0.1"},
+      {:html_sanitize_ex, "~> 1.4"},
       {:hackney, "~> 1.17.0"},
       {:oauther, "1.1.1"},
       {:phoenix, "~> 1.5.7"},

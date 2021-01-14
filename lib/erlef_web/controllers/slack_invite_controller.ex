@@ -44,7 +44,7 @@ defmodule ErlefWeb.SlackInviteController do
   defp success_msg, do: "<h3>Keep your 👀 peeled for an invitation email ...</h3>"
 
   defp validate_email(email) do
-    case Erlef.Inputs.is_email(email) do
+    case Erlef.Inputs.is_email?(email) do
       true -> {:ok, :valid}
       false -> {:error, :invalid_email}
     end

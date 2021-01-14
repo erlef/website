@@ -1,0 +1,61 @@
+<div class="row">
+
+  <div class="col-sm-1">
+    <%= link "Edit", to: Routes.admin_volunteer_path(@conn, :edit, @volunteer),  
+        class: "btn btn-primary" %>
+  </div>
+
+  <div class="col-sm-1 offset-sm-10">
+    <%= link "Back", to: Routes.admin_volunteer_path(@conn, :index),  class: "btn btn-primary" %>
+  </div>
+</div>
+
+<hr/>
+
+<div class="mb-1"></div>
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= "#{@volunteer.name}" %></h1>
+  </div>
+</div>
+
+<div class="mb-1"></div>
+<div class="row">
+  <div class="col">
+    <%= img_tag(image_path(@conn, @volunteer.avatar_url), height: "100", width: "100", class: "img-fluid pr-4") %>
+  </div> 
+</div>
+
+
+<div class="mb-1"></div>
+<div class="row">
+  <div class="col">
+    <b>Board member?</b>
+      <%= if @volunteer.is_board_member do %>
+        <i style="color:green;" class="far fa-check-circle fa-1x"></i>
+      <% else %>
+        false
+      <% end %>
+  </div>
+</div>
+ 
+<div class="mb-1"></div>
+<div class="row">
+  <div class="col"><b>Created at:</b> <%= @volunteer.inserted_at %></div>
+</div>
+
+<div class="mb-1"></div>
+<div class="row">
+  <div class="col"><b>Created by:</b> <%= @volunteer.created_by %></div>
+</div>
+
+<div class="mb-1"></div>
+<div class="row">
+  <div class="col"><b>Updated at:</b> <%= @volunteer.updated_at %></div>
+</div>
+
+<div class="mb-1"></div>
+<div class="row">
+  <div class="col"><b>Updated by:</b> <%= @volunteer.updated_by %></div>
+</div>
+

@@ -43,8 +43,8 @@ defmodule Erlef.Factory do
     %WorkingGroup{
       description: "To do things",
       formed: Faker.Date.backward(365),
-      proposal: Faker.Markdown.headers(),
-      proposal_html: "<p>Foo</p>",
+      charter: Faker.Markdown.headers(),
+      charter_html: "<p>Foo</p>",
       meta: %{
         email: Faker.Internet.email(),
         gcal_url: nil,

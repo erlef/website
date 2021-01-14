@@ -22,8 +22,7 @@ defmodule Erlef.Agenda do
 
       [] ->
         case get_calendars() do
-          {:error, _} = err -> err
-          ics -> {:ok, ics}
+          ics when is_binary(ics) -> {:ok, ics}
         end
     end
   end

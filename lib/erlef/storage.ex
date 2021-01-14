@@ -32,6 +32,21 @@ defmodule Erlef.Storage do
     end
   end
 
+  @spec upload_avatar_image(String.t(), binary(), Keyword.t()) ::
+          {:ok, String.t()} | {:error, term()}
+  def upload_avatar_image(filename, binary, opts \\ []) do
+    new_opts = [{:content_type, file_type(binary)}, {:acl, :public_read}] ++ opts
+    operation = S3.put_object("avatar-images", filename, binary, new_opts)
+
+    case ExAws.request(operation) do
+      {:ok, _} ->
+        {:ok, image_url(filename, "avatar-images")}
+
+      err ->
+        err
+    end
+  end
+
   defp image_url(filename, bucket) do
     case Erlef.in_env?([:dev, :test]) do
       true ->

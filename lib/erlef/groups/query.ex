@@ -4,7 +4,7 @@ defmodule Erlef.Groups.Query do
   """
 
   import Ecto.Query, only: [from: 2]
-  alias Erlef.Groups.{Volunteer, WorkingGroup}
+  alias Erlef.Groups.{Volunteer, WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer}
 
   def all_board_members() do
     from(v in Volunteer,
@@ -15,10 +15,39 @@ defmodule Erlef.Groups.Query do
   @spec all_working_groups() :: Ecto.Query.t()
   def all_working_groups(), do: wg_query()
 
-  @spec get_working_group_by_slug(slug :: String.t()) :: Ecto.Query.t()
-  def get_working_group_by_slug(slug) do
+  @spec get_wg_by_slug(slug :: String.t()) :: Ecto.Query.t()
+  def get_wg_by_slug(slug) do
     from(wg in wg_query(),
       where: wg.slug == ^slug
+    )
+  end
+
+  @spec get_wg_by_id(id :: Ecto.UUID.t()) :: Ecto.Query.t()
+  def get_wg_by_id(id) do
+    from(wg in wg_query(),
+      where: wg.id == ^id
+    )
+  end
+
+  @spec get_wg_volunteer(wg_id :: Ecto.UUID.t(), id :: Ecto.UUID.t()) :: Ecto.Query.t()
+  def get_wg_volunteer(wg_id, volunteer_id) do
+    from(wgv in WorkingGroupVolunteer,
+      join: wg in WorkingGroup,
+      on: wg.id == wgv.working_group_id,
+      join: v in Volunteer,
+      on: v.id == wgv.volunteer_id,
+      where: wgv.working_group_id == ^wg_id and wgv.volunteer_id == ^volunteer_id
+    )
+  end
+
+  @spec get_wg_chair(wg_id :: Ecto.UUID.t(), id :: Ecto.UUID.t()) :: Ecto.Query.t()
+  def get_wg_chair(wg_id, volunteer_id) do
+    from(wgc in WorkingGroupChair,
+      join: wg in WorkingGroup,
+      on: wg.id == wgc.working_group_id,
+      join: v in Volunteer,
+      on: v.id == wgc.volunteer_id,
+      where: wgc.working_group_id == ^wg_id and wgc.volunteer_id == ^volunteer_id
     )
   end
 

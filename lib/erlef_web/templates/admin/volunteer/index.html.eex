@@ -1,0 +1,41 @@
+<div class="row mb-4">
+  <span><%= link "New volunteer", to: Routes.admin_volunteer_path(@conn, :new), class: "btn btn-primary" %></span>
+</div>
+
+<div class="card">
+  <div class="card-body">
+  <table id="volunteers-table" class="table table-striped table-bordered dataTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Board member?</th>
+      <th>Last updated at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for v <- @volunteers do %>
+      <tr>
+        <td>
+          <%= img_tag(image_path(@conn, v.avatar_url), height: "100", width: "100", class: "img-fluid pr-4") %>
+          <%= link humanize(v.name),  to: Routes.admin_volunteer_path(@conn, :show, v) %>
+        </td> 
+        <td>
+          <%= if v.is_board_member do %>
+            <p><i style="color:green;" class="far fa-check-circle fa-1x"></i>
+            <span style="display:inline-block" class="mr-1">Board Member</span></p>
+          <% else %>
+          <% end %>
+        </td>
+        <td><%= v.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  </div>
+</div>
+
+<script>
+  $(document).ready( function () {
+    $('#volunteers-table').DataTable();
+  });
+</script>

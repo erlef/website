@@ -1,0 +1,43 @@
+<div class="card card-primary">
+  <%= form_for @changeset, @action, [multipart: true], fn f -> %>
+    <div class="card-body">
+      <%= if @changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= label f, :name %>
+        <%= text_input f, :name, class: "form-control" %>
+        <%= error_tag f, :name %>
+      </div>
+    </div>
+
+      <div class="form-group">
+        <div class="row mt-4">
+          <div class="pl-3 col-xs-1">
+            <strong><%= label f, :avatar_url, "Avatar" %></strong>
+          </div>
+
+          <%= if @volunteer.avatar_url do %>
+            <div class="col-lg-2 col-md-4 col-6">
+              <img class="img-fluid img-thumbnail sponsor" 
+                alt="Current image" src="<%= image_path(@conn, @volunteer.avatar_url) %>"/>
+            </div>
+          <% end %>
+
+          <div class="col">
+            <%= file_input f, :avatar, class: "form-control" %>
+            <small class="text-muted">Image size must be 120x120</small>
+          </div>
+
+        <%= error_tag f, :avatar %>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <%= submit "Save", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

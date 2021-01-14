@@ -5,33 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/admin.css") %>"> 
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/codemirror.min.css") %>">
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/toastui-editor.min.css") %>">
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/datatables.min.css") %>">
     <script src="<%= Routes.static_path(@conn, "/js/admin.js") %>"></script>
-   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/jszip-2.5.0/dt-1.10.23/b-1.6.5/b-html5-1.6.5/b-print-1.6.5/r-2.2.6/sp-1.2.2/datatables.min.css"/>
- 
-   <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/jszip-2.5.0/dt-1.10.23/b-1.6.5/b-html5-1.6.5/b-print-1.6.5/r-2.2.6/sp-1.2.2/datatables.min.js"></script>
-
+    <script src="<%= Routes.static_path(@conn, "/js/datatables.min.js") %>"></script>
   </head>
 
-  <body class="hold-transition sidebar-mini">
+  <body class="hold-transition sidebar-mini sidebar-collapse">
 <div class="wrapper">
-  <body>
     <%= render "header.html", conn: @conn, current_user: @current_user %>
      <%= render "sidebar.html", conn: @conn, current_user: @current_user %>
 
-     <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <!-- put bread crumbs here -->
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+        <%= if flash = get_flash(@conn, :info) do %>
+          <div class="alert alert-info" role="alert">
+            <%= raw flash %>
+          </div>
+      <% end %>
+
+      <%= if flash = get_flash(@conn, :error) do %>
+        <div class="alert alert-danger" role="alert">
+          <%= raw flash %>
+        </div>
+      <% end %>
+
+      <%= if flash = get_flash(@conn, :success) do %>
+        <div class="alert alert-success" role="alert">
+          <%= raw flash %>
+        </div>
+      <% end %> 
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->

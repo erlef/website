@@ -1,0 +1,185 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-home" aria-selected="true">General</a>
+    <a class="nav-item nav-link" id="nav-volunteers-tab" data-toggle="tab" href="#nav-volunteers" role="tab" aria-controls="nav-profile" aria-selected="false">Volunteers</a>
+  </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
+    <div class="row mt-4">
+      <div class="col-sm-1">
+        <%= link "Edit", to: Routes.admin_working_group_path(@conn, :edit, @working_group),  
+class: "btn btn-primary" %>
+      </div>
+      <div class="col-sm-1 offset-sm-10">
+        <%= link "Back", to: Routes.admin_working_group_path(@conn, :index),  class: "btn btn-primary" %>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="mb-1"></div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <h1><%= "#{@working_group.name}" %></h1>
+      </div>
+      <div class="col-sm-5">
+        <%= @working_group.description %>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="mb-1"></div>
+    <div class="row">
+      <div class="col"><b>Created at:</b> <%= @working_group.inserted_at %></div>
+    </div>
+
+    <div class="mb-1"></div>
+    <div class="row">
+      <div class="col"><b>Created by:</b> <%= @working_group.created_by %></div>
+    </div>
+
+    <div class="mb-1"></div>
+    <div class="row">
+      <div class="col"><b>Updated at:</b> <%= @working_group.updated_at %></div>
+    </div>
+
+    <div class="mb-1"></div>
+    <div class="row">
+      <div class="col"><b>Updated by:</b> <%= @working_group.updated_by %></div>
+    </div>
+
+    <div class="mb-1"></div>
+    <div class="row">
+      <div class="col"><b>Slug:</b> <%= @working_group.slug %></div>
+    </div>
+
+    <div class="mb-2"></div>
+    <div class="row">
+      <div class="col"><b>Formed:</b> <%= @working_group.formed %></div>
+    </div>
+
+    <div class="mb-1"></div>
+    <div class="row">
+      <div class="col"><b>Email:</b> <%= @working_group.meta.email %></div>
+    </div>
+
+    <div class="mb-1"></div>
+    <div class="row">
+      <div class="col"><b>Public Calendar:</b> <%= @working_group.meta.public_calendar %></div>
+    </div>
+
+    <div class="mb-1"></div>
+    <div class="row">
+      <div class="col"><b>Private Calendar:</b> <%= @working_group.meta.private_calendar %></div>
+    </div>
+
+    <div class="mb-1"></div>
+    <div class="row">
+      <div class="col"><b>Github Repo:</b> <%= @working_group.meta.github %></div>
+    </div>
+
+    <div class="mb-1"></div>
+    <div class="row">
+      <div class="col"><b>Google Calendar:</b> <%= @working_group.meta.gcal_url %></div>
+    </div>
+
+    <div class="mb-2"></div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#wg-charter">
+      View charter
+    </button>
+    <hr/>
+  </div>
+  <div class="tab-pane fade" id="nav-volunteers" role="tabpanel" aria-labelledby="nav-volunteers-tab">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <table id="wg-volunteers-table" class="table table-striped  dataTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Chair</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= for v <- @working_group.volunteers do %>
+                  <% is_chair? = Erlef.Groups.is_chair?(@working_group, v) %>
+                  <tr>
+                    <td>
+                      <%= img_tag("/images/#{v.avatar_url}", height: "100", width: "100", class: "img-fluid pr-4") %>
+                      <%= link v.name,  to: Routes.admin_volunteer_path(@conn, :show, @working_group) %>
+                    </td>
+
+                    <td>
+                      <%= if is_chair? do %>
+                        <i class="fas fa-chair fa-5x"></i>
+                      <% else %>
+                        <% path = Routes.admin_working_group_path(@conn, :create_chair, @working_group, v) %>
+                        <%= link("Make chair", to: path, class: "btn btn-primary", method: :put) %>
+                      <% end %>
+                    </td>
+
+                    <td>
+                      <%= if ((is_chair? and Enum.count(@working_group.chairs) == 1) || !is_chair?) do %>
+                        <button class="btn btn-warning" disabled>Remove chair</button>
+                      <% else %>
+                        <% path = Routes.admin_working_group_path(@conn, :delete_chair, @working_group, v) %>
+                        <%= link("Remove chair", to: path, class: "btn btn-warning", method: :delete) %>
+                      <% end %>
+                    </td>
+
+                    <td>
+                      <%= if is_chair? do %>
+                        <button class="btn btn-danger" disabled>Remove</button>
+                      <% else %>
+                        <% path = Routes.admin_working_group_path(@conn, :delete_volunteer, @working_group, v) %>
+                        <%= link("Remove", to: path, class: "btn btn-danger", method: :delete) %>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="wg-charter" tabindex="-1" role="dialog" aria-labelledby="wg-charter-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="wg-charter-title"><%= @working_group.name %> Working Group charter</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="height: 500px;overflow: scroll">
+          <%= raw @working_group.charter_html %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready( function () {
+    $('#wg-volunteers-table').DataTable({
+      columnDefs: [
+        {orderable: false, targets: 3}
+      ],
+      order: [[ 1, "asc" ]]
+    });
+  });
+</script>

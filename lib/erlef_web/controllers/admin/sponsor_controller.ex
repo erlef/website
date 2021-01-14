@@ -15,7 +15,7 @@ defmodule ErlefWeb.Admin.SponsorController do
   end
 
   def create(conn, %{"sponsor" => sponsor_params}) do
-    case Groups.create_sponsor(sponsor_params) do
+    case Groups.create_sponsor(sponsor_params, audit: audit(conn)) do
       {:ok, sponsor} ->
         conn
         |> put_flash(:info, "Sponsor created successfully.")
@@ -40,7 +40,7 @@ defmodule ErlefWeb.Admin.SponsorController do
   def update(conn, %{"id" => id, "sponsor" => sponsor_params}) do
     sponsor = Groups.get_sponsor!(id)
 
-    case Groups.update_sponsor(sponsor, sponsor_params) do
+    case Groups.update_sponsor(sponsor, sponsor_params, audit: audit(conn)) do
       {:ok, sponsor} ->
         conn
         |> put_flash(:info, "Sponsor updated successfully.")
@@ -49,14 +49,5 @@ defmodule ErlefWeb.Admin.SponsorController do
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", sponsor: sponsor, changeset: changeset)
     end
-  end
-
-  def delete(conn, %{"id" => id}) do
-    sponsor = Groups.get_sponsor!(id)
-    {:ok, _sponsor} = Groups.delete_sponsor(sponsor)
-
-    conn
-    |> put_flash(:info, "Sponsor deleted successfully.")
-    |> redirect(to: Routes.admin_sponsor_path(conn, :index))
   end
 end
