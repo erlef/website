@@ -119,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
             selectable: false,
             navLinks: false,
             weekNumberCalculation: "ISO",
-            eventLimit: true,
             slotLabelFormat: 'HH:mm',
             weekends: true,
             nowIndicator: true,
