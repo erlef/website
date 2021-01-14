@@ -10,6 +10,7 @@ defmodule Erlef.Groups.WorkingGroupChair do
   schema "working_group_chairs" do
     belongs_to(:working_group, WorkingGroup, on_replace: :delete)
     belongs_to(:volunteer, Volunteer, on_replace: :delete)
+    timestamps()
   end
 
   @required_fields [:working_group_id, :volunteer_id]

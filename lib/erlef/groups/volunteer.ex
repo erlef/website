@@ -15,6 +15,8 @@ defmodule Erlef.Groups.Volunteer do
       join_through: Erlef.Groups.WorkingGroupVolunteer,
       on_delete: :delete_all
     )
+
+    timestamps()
   end
 
   @required_fields [:name]
