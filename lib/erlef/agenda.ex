@@ -21,7 +21,10 @@ defmodule Erlef.Agenda do
         {:ok, ics}
 
       [] ->
-        get_calendars()
+        case get_calendars() do
+          {:error, _} = err -> err
+          ics -> {:ok, ics}
+        end
     end
   end
 
