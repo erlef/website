@@ -104,7 +104,6 @@ defmodule Erlef.GroupsTest do
     description: "To do things",
     formed: "2019-04-30",
     charter: "Foo",
-    charter_html: "<p>Foo</p>",
     meta: %{
       email: "local-282@erlef.org",
       gcal_url: nil,
@@ -148,8 +147,20 @@ defmodule Erlef.GroupsTest do
 
   describe "update_working_group/2" do
     test "when attrs are valid", %{working_group: wg} do
-      assert {:ok, %WorkingGroup{}} =
-               Groups.update_working_group(wg, @valid_wg_attrs, @audit_opts)
+      existing_charter = wg.charter
+
+      assert {:ok, %WorkingGroup{} = wg} =
+               Groups.update_working_group(
+                 wg,
+                 Map.put(@valid_wg_attrs, :charter, "bar"),
+                 @audit_opts
+               )
+
+      wg = Groups.get_working_group!(wg.id)
+
+      assert wg.charter == "bar"
+
+      assert [%{charter: ^existing_charter}] = wg.charter_versions
     end
 
     test "when attrs are invalid", %{working_group: wg} do

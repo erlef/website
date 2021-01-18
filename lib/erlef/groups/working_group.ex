@@ -24,6 +24,12 @@ defmodule Erlef.Groups.WorkingGroup do
       field(:private_calendar, :string)
     end
 
+    embeds_many(:charter_versions, CharterVersion) do
+      field(:charter, :string)
+      field(:updated_by, Ecto.UUID)
+      timestamps()
+    end
+
     many_to_many(:chairs, Volunteer,
       join_through: WorkingGroupChair,
       on_delete: :delete_all
@@ -37,6 +43,8 @@ defmodule Erlef.Groups.WorkingGroup do
     timestamps()
   end
 
+  alias Erlef.Groups.WorkingGroup.CharterVersion
+
   @required [:name, :slug, :description, :formed, :charter]
   @optional [:created_by, :updated_by]
   @permitted @required ++ @optional
@@ -47,6 +55,7 @@ defmodule Erlef.Groups.WorkingGroup do
     |> cast_embed(:meta, with: &meta_changeset/2)
     |> validate_required(@required)
     |> maybe_gen_html()
+    |> maybe_save_charter_version(params)
   end
 
   defp maybe_gen_html(%{changes: %{charter: charter}} = cs) do
@@ -59,6 +68,22 @@ defmodule Erlef.Groups.WorkingGroup do
   end
 
   defp maybe_gen_html(cs), do: cs
+
+  defp maybe_save_charter_version(%{data: %{id: nil}} = cs, _params), do: cs
+
+  defp maybe_save_charter_version(cs, %{"updated_by" => updated_by}) do
+    maybe_save_charter_version(cs, %{updated_by: updated_by})
+  end
+
+  defp maybe_save_charter_version(%{changes: %{charter: _charter}} = cs, %{updated_by: updated_by}) do
+    versions = cs.data.charter_versions || []
+
+    ver = %CharterVersion{charter: cs.data.charter, updated_by: updated_by}
+
+    put_embed(cs, :charter_versions, [ver | versions])
+  end
+
+  defp maybe_save_charter_version(cs, _params), do: cs
 
   defp meta_changeset(schema, params) do
     schema
