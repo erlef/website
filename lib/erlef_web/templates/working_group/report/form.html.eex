@@ -2,8 +2,13 @@
   <%= form_for @changeset, @action, [multipart: true], fn f -> %>
     <div class="card-body">
       <p>
-        Here you can submit a report for your working group. Please select the type of report and your report file below. 
-        For more information on working group reports see our <a href="https://github.com/erlef/reports/wiki">Reports Wiki</a>
+      Here you can submit a report for your working group. Please select the type of report and your report file below. 
+      </p>
+      <p>
+        Click <a href="https://github.com/erlef/reports/wiki/Working-Groups-Report-Template" target="_blank">here</a> to get a template for the report. 
+      </p>
+      <p>
+        For more information on working group reports see our <a href="https://github.com/erlef/reports/wiki" target="_blank">Reports Wiki</a>
       </p>
       <%= if @changeset.action do %>
         <div class="alert alert-danger">
