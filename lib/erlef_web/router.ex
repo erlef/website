@@ -56,6 +56,10 @@ defmodule ErlefWeb.Router do
     plug ErlefWeb.Plug.Authz.Volunteer
   end
 
+  pipeline :chair_required do
+    plug ErlefWeb.Plug.Authz.Chair
+  end
+
   if Erlef.is_env?(:dev) do
     scope "/dev" do
       pipe_through [:browser]
@@ -95,7 +99,8 @@ defmodule ErlefWeb.Router do
 
     get "/events/:slug", EventController, :show
     get "/events", EventController, :index
-    resources "/wg", WorkingGroupController, only: [:index, :show, :edit, :update]
+
+    resources "/wg", WorkingGroupController, only: [:index, :show], param: "slug"
 
     get "/wg/:slug/calendar", WorkingGroupController, :calendar
 
@@ -106,6 +111,26 @@ defmodule ErlefWeb.Router do
     scope "/wg/:slug", WorkingGroup, as: :working_group do
       pipe_through [:session_required, :working_group]
       resources "/reports", ReportController
+    end
+
+    scope "/wg/:slug/settings", WorkingGroup, as: :working_group do
+      pipe_through [:session_required, :working_group, :chair_required]
+
+      get "/edit", SettingsController, :edit
+
+      put "/", SettingsController, :update
+
+      put "/chairs/:volunteer_id",
+          SettingsController,
+          :create_chair
+
+      delete "/chairs/:volunteer_id",
+             SettingsController,
+             :delete_chair
+
+      delete "/volunteers/:volunteer_id",
+             SettingsController,
+             :delete_volunteer
     end
 
     scope "/members", Members, as: :members do
@@ -153,6 +178,10 @@ defmodule ErlefWeb.Router do
     scope "/members/:id", Member, as: :member do
       resources "/working_groups", WorkingGroupController, only: [:index]
     end
+  end
+
+  scope "/", ErlefWeb do
+    pipe_through [:session_required, :working_group]
   end
 
   scope "/", ErlefWeb do

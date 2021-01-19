@@ -59,6 +59,14 @@ defmodule ErlefWeb do
       def logged_in?(assigns) do
         !!assigns[:current_user]
       end
+
+      def image_path(_conn, <<"http", _rest::binary>> = url), do: url
+
+      def image_path(conn, <<"volunteers", _rest::binary>> = path) do
+        Routes.static_path(conn, "/images/" <> path)
+      end
+
+      def image_path(conn, path), do: Routes.static_path(conn, path)
     end
   end
 

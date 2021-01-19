@@ -1,0 +1,172 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-home" aria-selected="true">General</a>
+    <a class="nav-item nav-link" id="nav-volunteers-tab" data-toggle="tab" href="#nav-volunteers" role="tab" aria-controls="nav-profile" aria-selected="false">Volunteers</a>
+  </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab"> 
+    <div class="card card-primary">
+      <%= form_for @changeset, @action, [multipart: true], fn f -> %>
+        <div class="card-body">
+          <%= if @changeset.action do %>
+            <div class="alert alert-danger">
+              <p>Oops, something went wrong! Please check the errors below.</p>
+            </div>
+          <% end %>
+
+          <div class="form-row mb-3">
+            <%= inputs_for f, :meta, fn fm -> %>
+              <div class="col-sm-6">
+                <%= label fm, :email %>
+                <%= email_input fm, :email, class: "form-control" %>
+                <%= error_tag fm, :email %>
+              </div>
+
+              <div class="col-sm-6">
+              <%= label fm, :github %>
+              <%= text_input fm, :github, class: "form-control" %>
+              <small class="form-text text-muted">
+                 This field should only be the repository name for your working groups vs a url
+              </small>
+              <%= error_tag fm, :github %>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="mb-1"></div>
+
+        <div class="form-group">
+          <%= label f, :description %>
+          <%= textarea f, :description, class: "form-control" %>
+          <%= error_tag f, :description %>
+        </div>
+
+        <div class="form-group">
+          <%= label f, :charter %>
+          <%= hidden_input f, :charter, class: "form-control" %>
+          <%= error_tag f, :charter %>
+          <div id="charter-editor"></div>
+        </div>
+
+      <div>
+        <%= submit "Save", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="nav-volunteers" role="tabpanel" aria-labelledby="nav-volunteers-tab">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <table id="wg-volunteers-table" class="table table-striped  dataTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Chair</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= for v <- @wg.volunteers do %>
+                  <% is_chair? = Erlef.Groups.is_chair?(@wg, v) %>
+                  <tr>
+                    <td>
+                      <% path = v.avatar_url || "volunteers/profile-placeholder.png" %>
+                      <%= img_tag(image_path(@conn, path), height: "100", width: "100", class: "img-fluid pr-4") %>
+                      <%= v.name %>
+                    </td>
+
+                    <td>
+                      <%= if is_chair? do %>
+                        <i class="fas fa-chair fa-5x"></i>
+                      <% else %>
+                        <% path = Routes.working_group_settings_path(@conn, :create_chair, @wg.slug, v) %>
+                        <%= link("Make chair", to: path, class: "btn btn-primary", method: :put) %>
+                      <% end %>
+                    </td>
+
+                    <td>
+                      <%= if ((is_chair? and Enum.count(@wg.chairs) == 1) || !is_chair?) do %>
+                        <button class="btn btn-warning" disabled>Remove chair</button>
+                      <% else %>
+                        <% path = Routes.working_group_settings_path(@conn, :delete_chair, @wg.slug, v) %>
+                        <%= link("Remove chair", to: path, class: "btn btn-warning", method: :delete) %>
+                      <% end %>
+                    </td>
+
+                    <td>
+                      <%= if is_chair? do %>
+                        <button class="btn btn-danger" disabled>Remove</button>
+                      <% else %>
+                        <% path = Routes.working_group_settings_path(@conn, :delete_volunteer, @wg.slug, v) %>
+                        <%= link("Remove", to: path, class: "btn btn-danger", method: :delete) %>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="<%= Routes.static_path(@conn, "/js/toastui-editor-all.min.js") %>"></script> 
+<script>
+  var charter_text = document.getElementById('working_group_charter');
+  var editor = new toastui.Editor({
+    el: document.querySelector('#charter-editor'),
+    height: '500px',
+    initialEditType: 'markdown',
+    initialValue: charter_text.value,
+    previewStyle: 'vertical',
+    previewHighlight: false,
+    usageStatistics: false,
+      toolbarItems: [
+          'heading',
+          'bold',
+          'italic',
+          'strike',
+          'divider',
+          'hr',
+          'quote',
+          'divider',
+          'ul',
+          'ol',
+          'task',
+          'indent',
+          'outdent',
+          'divider',
+          'table',
+          'link',
+          'divider',
+          'code',
+          'codeblock',
+        'divider'
+      ],
+     events: {
+        change: function() {
+          charter_text.value = editor.getMarkdown();
+        }
+     }
+  });
+
+editor.getHtml();
+
+  $(document).ready( function () {
+    $('#wg-volunteers-table').DataTable({
+      columnDefs: [
+        {orderable: false, targets: 3}
+      ],
+      order: [[ 1, "asc" ]]
+    });
+  });
+</script>

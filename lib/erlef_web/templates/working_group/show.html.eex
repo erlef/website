@@ -22,7 +22,7 @@
         <div class="card-body">
           <h5 class="card-title">Working Group Tools</h5>
           <ul>
-            <li><%= link "Manage", to: Routes.working_group_path(@conn, :edit, @wg.slug) %></li>
+            <li><%= link "Manage", to: Routes.working_group_settings_path(@conn, :edit, @wg.slug) %></li>
             <li><%= link "Submit a report", to: Routes.working_group_report_path(@conn, :new, @wg.slug) %></li>
           </ul>
         </div>

@@ -28,9 +28,11 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/datatables.min.css") %>">
     <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-
-
+    <script src="<%= Routes.static_path(@conn, "/js/datatables.min.js") %>"></script>
+ 
+  
     <%= if Erlef.is_env?(:prod) do %>
       <!-- Matomo -->
       <script type="text/javascript">

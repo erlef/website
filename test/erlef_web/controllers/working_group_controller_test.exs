@@ -46,7 +46,7 @@ defmodule ErlefWeb.WorkingGroupControllerTest do
     test "renders errors when data is invalid", %{conn: conn, working_group: wg} do
       conn =
         put(conn, Routes.working_group_path(conn, :update, wg.slug),
-          working_group: %{charter: nil, description: 12345}
+          working_group: %{charter: nil, description: 12_345}
         )
 
       assert html_response(conn, 200) =~ wg.name

@@ -1,7 +1,5 @@
 defmodule ErlefWeb.Plug.API.Auth do
-  @moduledoc """
-  ErlefWeb.Plug.RequiresAdmin - Redirects a conn unless the user is an admin
-  """
+  @moduledoc false
 
   import Plug.Conn
 
