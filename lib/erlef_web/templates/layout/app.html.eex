@@ -11,6 +11,8 @@
     <%= csrf_meta_tag() %>
     <title>Erlang Ecosystem Foundation - Supporting the BEAM community</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/codemirror.min.css") %>">
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/toastui-editor.min.css") %>">
     <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
     <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">

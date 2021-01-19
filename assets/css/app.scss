@@ -201,3 +201,11 @@ tr.fc-list-day:nth-child(1) > th:nth-child(1) {
         font-size: 1.2em;
     }
 }
+
+span.help-block {
+  display: inline-block;
+  margin-top: 0.5em;
+  background-color: #ffc107;
+  border-radius: 0.2em;
+  padding: 0.1em; 
+}

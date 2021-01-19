@@ -16,6 +16,20 @@
       </div>
     </div>
     <div class="col-lg-4">
+
+    <%= if @is_chair do %>
+      <div class="card my-4 shadow-sm rounded">
+        <div class="card-body">
+          <h5 class="card-title">Working Group Tools</h5>
+          <ul>
+            <li><%= link "Manage", to: Routes.working_group_path(@conn, :edit, @wg.slug) %></li>
+            <li><%= link "Submit a report", to: Routes.working_group_report_path(@conn, :new, @wg.slug) %></li>
+          </ul>
+        </div>
+      </div>
+      <hr/>
+    <% end %>
+    
       <%= if @wg.meta.public_calendar do %>
         <div class="mb-4">
           View or Subscribe to our <%= link "calendar", to: Routes.working_group_path(@conn, :calendar, @wg.slug) %>
@@ -37,20 +51,8 @@
       <p>Feel free to subscribe to our <a href="<%= raw @wg.meta.gcal_url %>" title="Add to Google Calendar">Google Calendar</a>
         to keep track of upcoming meetings </p>
     <% end %>
-    </div>
-    <hr/>
 
-    <%= if @is_chair do %>
-      <div class="card my-4 shadow-sm rounded">
-        <div class="card-body">
-          <h5 class="card-title">Working Group Tools</h5>
-        
-          <%= link "Submit a report", to: Routes.working_group_report_path(@conn, :new, @wg.slug) %> 
-        </div>
-      </div>
-    <% end %>
-
-    <%= unless Enum.empty?(@blog_posts) do %>
+      <%= unless Enum.empty?(@blog_posts) do %>
       <div class="card my-4 shadow-sm rounded" style="padding:1rem;">
         <div class="mb-1">Recent posts</div>
         <%= for post <- @blog_posts do %>
