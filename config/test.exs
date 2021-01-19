@@ -51,3 +51,5 @@ config :honeybadger,
   environment_name: :test,
   api_key: "test",
   exclude_envs: [:test]
+
+config :erlef, api_key: "key"

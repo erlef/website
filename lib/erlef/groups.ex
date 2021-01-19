@@ -55,7 +55,9 @@ defmodule Erlef.Groups do
   def get_volunteer!(id), do: Repo.get!(Volunteer, id)
 
   @spec get_volunteer_by_member_id(Ecto.UUID.t()) :: WorkingGroup.t()
-  def get_volunteer_by_member_id(member_id), do: Repo.get_by(Volunteer, member_id: member_id)
+  def get_volunteer_by_member_id(member_id) do
+    Repo.one(Query.get_volunteer_by_member_id(member_id))
+  end
 
   @spec change_volunteer(Volunteer.t(), map()) :: Ecto.Changeset.t()
   def change_volunteer(%Volunteer{} = vol, attrs \\ %{}) do

@@ -158,4 +158,12 @@ if Application.get_env(:erlef, :env) == :prod do
       """
 
   config :erlef, :reports, report_submission_repo: report_submission_repo
+
+  api_key =
+    System.get_env("API_KEY") ||
+      raise """
+      environment variable API_KEY is missing"
+      """
+
+  config :erlef, api_key: api_key
 end

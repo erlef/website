@@ -51,6 +51,16 @@ defmodule Erlef.Groups.Query do
     )
   end
 
+  @spec get_volunteer_by_member_id(Ecto.UUID.t()) :: Volunteer.t()
+  def get_volunteer_by_member_id(id) do
+    from(v in Volunteer,
+      join: wg in assoc(v, :working_groups),
+      join: wgc in assoc(wg, :chairs),
+      where: v.member_id == ^id,
+      preload: [working_groups: {wg, chairs: wgc}]
+    )
+  end
+
   defp wg_query() do
     from(wg in WorkingGroup,
       join: v in assoc(wg, :volunteers),

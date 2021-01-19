@@ -27,6 +27,11 @@ defmodule ErlefWeb.Router do
 
   @csp "default-src 'self' 'unsafe-eval' 'unsafe-inline' data: #{@default_source}; #{@connect_src}"
 
+  pipeline :api do
+    plug :accepts, ["json"]
+    plug ErlefWeb.Plug.API.Auth
+  end
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -139,6 +144,14 @@ defmodule ErlefWeb.Router do
       live_dashboard "/live-dashboard",
         metrics: ErlefWeb.Telemetry,
         ecto_repos: [Erlef.Repo]
+    end
+  end
+
+  scope "/api/v1", ErlefWeb.API.V1, as: :api_v1 do
+    pipe_through :api
+
+    scope "/members/:id", Member, as: :member do
+      resources "/groups", WorkingGroupController, only: [:index]
     end
   end
 

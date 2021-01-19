@@ -97,3 +97,5 @@ config :honeybadger,
   environment_name: :dev,
   api_key: "dev",
   exclude_envs: [:dev]
+
+config :erlef, api_key: "key"
