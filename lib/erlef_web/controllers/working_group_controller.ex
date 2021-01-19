@@ -12,44 +12,42 @@ defmodule ErlefWeb.WorkingGroupController do
   def show(conn, %{"id" => slug}), do: render_show(conn, slug)
 
   def edit(conn, %{"id" => slug}) do
-        case Groups.get_working_group_by_slug(slug) do
-          {:ok, wg} ->
-            case is_chair(conn, wg) do
-              true -> 
-                changeset = Groups.change_working_group(wg)
+    with {:ok, wg} <- Groups.get_working_group_by_slug(slug),
+         {:is_chair, true} <- {:is_chair, is_chair(conn, wg)} do
+      render(conn, "edit.html",
+        wg: wg,
+        changeset: Groups.change_working_group(wg),
+        is_chair: is_chair(conn, wg)
+      )
+    else
+      {:is_chair, false} ->
+        redirect(conn, to: Routes.working_group_path(conn, :show, slug))
 
-                render(conn, "edit.html",
-                wg: wg,
-                changeset: changeset,
-                is_chair: is_chair(conn, wg)
-                )
-              false ->
-                redirect(conn, to: Routes.working_group_path(conn, :show, wg.slug))
-            end
-
-          {:error, :not_found} ->
-            conn
-            |> put_flash(:error, "Can't seem to find that group 🤔")
-            |> redirect(to: Routes.working_group_path(conn, :index))
-        end
+      {:error, :not_found} ->
+        not_found(conn)
+    end
   end
 
   def update(conn, %{"id" => slug, "working_group" => params}) do
-    {:ok, wg} = Groups.get_working_group_by_slug(slug)
-    case is_chair(conn, wg) do
-      true ->
-        case Groups.update_working_group(wg, params, audit: audit(conn)) do
-          {:ok, wg} ->
-            conn
-            |> put_flash(:info, "Working group updated successfully.")
-            |> redirect(to: Routes.working_group_path(conn, :show, wg.slug))
+    with {:ok, wg} <- Groups.get_working_group_by_slug(slug),
+         {:is_chair, true} <- {:is_chair, is_chair(conn, wg)},
+         {:ok, wg} <- Groups.update_working_group(wg, params, audit: audit(conn)) do
+      conn
+      |> put_flash(:info, "Working group updated successfully.")
+      |> redirect(to: Routes.working_group_path(conn, :show, wg.slug))
+    else
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "edit.html",
+          wg: changeset.data,
+          changeset: changeset,
+          is_chair: is_chair(conn, changeset.data)
+        )
 
-          {:error, %Ecto.Changeset{} = changeset} ->
-            render(conn, "edit.html", wg: wg, changeset: changeset, is_chair: is_chair(conn, wg))
-        end
+      {:error, :not_found} ->
+        not_found(conn)
 
-      false ->
-        redirect(conn, to: Routes.working_group_path(conn, :show, wg.slug))
+      {:is_chair, false} ->
+        redirect(conn, to: Routes.working_group_path(conn, :show, slug))
     end
   end
 
@@ -66,9 +64,7 @@ defmodule ErlefWeb.WorkingGroupController do
         )
 
       {:error, :not_found} ->
-        conn
-        |> put_flash(:error, "Can't seem to find that group 🤔")
-        |> redirect(to: Routes.working_group_path(conn, :index))
+        not_found(conn)
     end
   end
 
@@ -80,6 +76,12 @@ defmodule ErlefWeb.WorkingGroupController do
     Groups.list_working_groups()
     |> Enum.reject(fn wg -> wg.slug == "eef" end)
     |> sort_by_formation()
+  end
+
+  defp not_found(conn) do
+    conn
+    |> put_flash(:error, "Can't seem to find that group 🤔")
+    |> redirect(to: Routes.working_group_path(conn, :index))
   end
 
   defp sort_by_formation(groups) do

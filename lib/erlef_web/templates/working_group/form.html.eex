@@ -9,15 +9,18 @@
 
       <div class="form-row mb-3">
         <%= inputs_for f, :meta, fn fm -> %>
-            <div class="col-sm-3">
+            <div class="col-sm-6">
               <%= label fm, :email %>
               <%= email_input fm, :email, class: "form-control" %>
               <%= error_tag fm, :email %>
             </div>
 
-          <div class="col-sm-3 col-sm-offset-6">
+          <div class="col-sm-6">
            <%= label fm, :github %>
-            <%= text_input fm, :github, class: "form-control" %>
+           <%= text_input fm, :github, class: "form-control" %>
+           <small class="form-text text-muted">
+             This field should only be the repository name for your working groups vs a url
+           </small>
            <%= error_tag fm, :github %>
         </div>
       </div>
@@ -38,7 +41,7 @@
         <div id="charter-editor"></div>
       </div>
 
-    <div class="card-footer">
+    <div>
       <%= submit "Save", class: "btn btn-primary" %>
     </div>
   <% end %>
