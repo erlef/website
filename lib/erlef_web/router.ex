@@ -151,7 +151,7 @@ defmodule ErlefWeb.Router do
     pipe_through :api
 
     scope "/members/:id", Member, as: :member do
-      resources "/groups", WorkingGroupController, only: [:index]
+      resources "/working_groups", WorkingGroupController, only: [:index]
     end
   end
 
