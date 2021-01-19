@@ -29,7 +29,7 @@ defmodule ErlefWeb.Plug.API.Auth do
         false
 
       [key] ->
-        String.trim(key) == Application.get_env(:erlef, :api_key)
+        Plug.Crypto.secure_compare(String.trim(key), Application.get_env(:erlef, :api_key))
     end
   end
 end
