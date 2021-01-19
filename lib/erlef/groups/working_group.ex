@@ -75,12 +75,15 @@ defmodule Erlef.Groups.WorkingGroup do
     maybe_save_charter_version(cs, %{updated_by: updated_by})
   end
 
-  defp maybe_save_charter_version(%{changes: %{charter: _charter}} = cs, %{updated_by: updated_by}) do
-    versions = cs.data.charter_versions || []
-
-    ver = %CharterVersion{charter: cs.data.charter, updated_by: updated_by}
-
-    put_embed(cs, :charter_versions, [ver | versions])
+  defp maybe_save_charter_version(%{changes: %{charter: charter}} = cs, %{updated_by: updated_by}) do
+    case charter == cs.data.charter do 
+      true -> 
+        cs
+      false -> 
+        versions = cs.data.charter_versions || []
+        ver = %CharterVersion{charter: cs.data.charter, updated_by: updated_by}
+        put_embed(cs, :charter_versions, [ver | versions])
+    end
   end
 
   defp maybe_save_charter_version(cs, _params), do: cs
