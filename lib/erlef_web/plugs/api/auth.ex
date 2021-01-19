@@ -22,9 +22,6 @@ defmodule ErlefWeb.Plug.API.Auth do
 
   defp valid_api_key?(conn) do
     case get_req_header(conn, "x-api-key") do
-      nil ->
-        false
-
       [] ->
         false
 
