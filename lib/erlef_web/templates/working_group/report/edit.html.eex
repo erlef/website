@@ -1,0 +1,12 @@
+<div class="container mb-4">
+
+<div class="row mb-2">
+  <div class="col-sm-6">
+    <h2>Editing</h2>
+  </div>
+  <div class="col-md-1 offset-md-5">
+  <span><%= link "Back", to: Routes.working_group_report_path(@conn, :show, @working_group.slug, @wg_report.id), class: "btn btn-primary" %></span>
+  </div>
+</div>
+<%= render "form.html", Map.put(assigns, :action, Routes.working_group_report_path(@conn, :update, @working_group.slug, @wg_report.id)) %>
+</div>

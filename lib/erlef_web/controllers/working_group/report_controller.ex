@@ -11,6 +11,13 @@ defmodule ErlefWeb.WorkingGroup.ReportController do
     render(conn, "new.html", changeset: changeset, working_group: wg)
   end
 
+  def edit(conn, %{"id" => id}) do
+    wg = conn.assigns.current_working_group
+    wg_report = Groups.get_wg_report_for_member!(id, conn.assigns.current_user.id)
+    changeset = Groups.change_wg_report(wg_report)
+    render(conn, "edit.html", changeset: changeset, working_group: wg, wg_report: wg_report)
+  end
+
   def index(conn, _params) do
     wg_reports = Groups.list_wg_reports_by_member_id(conn.assigns.current_user.id)
     render(conn, "index.html", wg_reports: wg_reports)
@@ -18,7 +25,12 @@ defmodule ErlefWeb.WorkingGroup.ReportController do
 
   def show(conn, %{"id" => id}) do
     wg_report = Groups.get_wg_report_for_member!(id, conn.assigns.current_user.id)
-    render(conn, "show.html", wg_report: wg_report, content: Earmark.as_html!(wg_report.content))
+
+    render(conn, "show.html",
+      wg: conn.assigns.current_working_group,
+      wg_report: wg_report,
+      content: Earmark.as_html!(wg_report.content)
+    )
   end
 
   def create(conn, %{"working_group_report" => params}) do
@@ -42,6 +54,24 @@ defmodule ErlefWeb.WorkingGroup.ReportController do
     end
   end
 
+  def update(conn, %{"id" => id, "working_group_report" => params}) do
+    wg = conn.assigns.current_working_group
+    wg_report = Groups.get_wg_report_for_member!(id, conn.assigns.current_user.id)
+
+    case Groups.update_wg_report(
+           wg_report,
+           Map.put(params, "member_id", conn.assigns.current_user.id)
+         ) do
+      {:ok, report} ->
+        conn
+        |> put_flash(:info, "Working group report successfully updated.")
+        |> redirect(to: Routes.working_group_report_path(conn, :show, wg.slug, report.id))
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "new.html", changeset: changeset, working_group: wg)
+    end
+  end
+
   defp with_default_params(conn, %{"file" => %Plug.Upload{} = file} = params) do
     params =
       params
@@ -55,7 +85,8 @@ defmodule ErlefWeb.WorkingGroup.ReportController do
     default = %{
       "working_group_id" => conn.assigns.current_working_group.id,
       "submitted_by_id" => conn.assigns.current_volunteer.id,
-      "member_id" => conn.assigns.current_user.id
+      "member_id" => conn.assigns.current_user.id,
+      "status" => :open
     }
 
     Map.merge(params, default)

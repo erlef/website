@@ -257,15 +257,31 @@ defmodule Erlef.Groups do
 
   ### Working Group Reports ###
 
+  @spec list_wg_reports_by_member_id(Ecto.UUID.t()) :: [WorkingGroupReport.t()]
+  def list_wg_reports_by_member_id(member_id) do
+    Repo.all(Query.get_wg_report_by_member_id(member_id))
+  end
+
   @spec get_wg_report!(Ecto.UUID.t()) :: WorkingGroupReport.t()
   def get_wg_report!(id), do: Repo.get!(WorkingGroupReport, id)
 
+  @spec get_wg_report_for_member!(Ecto.UUID.t(), Ecto.UUID.t()) :: WorkingGroupReport.t()
   def get_wg_report_for_member!(id, member_id) do
-    Repo.get_by!(WorkingGroupReport, id: id, member_id: member_id)
-  end
+    wg_report = Repo.get_by!(WorkingGroupReport, id: id, member_id: member_id)
 
-  def list_wg_reports_by_member_id(member_id) do
-    Repo.all(Query.get_wg_report_by_member_id(member_id))
+    case GitReport.get_status(wg_report) do
+      {:ok, _status} ->
+        wg_report
+
+      {:changed, status} ->
+        wg_report
+        |> WorkingGroupReport.changeset(%{status: status})
+        |> Repo.update!()
+
+      {:error, _} = err ->
+        Logger.error(fn -> "Error getting report status : #{err}" end)
+        raise "Error getting report status"
+    end
   end
 
   @spec create_wg_report(map(), Keyword.t()) ::
@@ -302,10 +318,26 @@ defmodule Erlef.Groups do
 
   @spec update_wg_report(WorkingGroupReport.t(), map()) ::
           {:ok, WorkingGroupReport.t()} | {:error, Ecto.Changeset.t()}
-  def update_wg_report(%WorkingGroupReport{} = working_group_report, attrs) do
-    working_group_report
-    |> WorkingGroupReport.changeset(attrs)
-    |> Repo.update()
+  def update_wg_report(%WorkingGroupReport{} = wg_report, attrs) do
+    cs = WorkingGroupReport.update_changeset(wg_report, attrs)
+
+    case cs.valid? do
+      true ->
+        Repo.transaction(fn ->
+          case GitReport.update(Ecto.Changeset.apply_changes(cs)) do
+            {:ok, meta} ->
+              wg_report
+              |> WorkingGroupReport.update_changeset(Map.put(attrs, "meta", meta))
+              |> Repo.update!()
+
+            err ->
+              err
+          end
+        end)
+
+      false ->
+        {:error, cs}
+    end
   end
 
   def change_wg_report(%WorkingGroupReport{} = working_group_report, attrs \\ %{}) do

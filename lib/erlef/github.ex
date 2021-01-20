@@ -81,6 +81,25 @@ defmodule Erlef.Github do
     post("/repos/#{args.owner}/#{args.repo}/pulls", headers, args, [])
   end
 
+  @spec update_branch(String.t(), map()) :: {:ok, term()} | {:error, term()}
+  def update_branch(token, args) do
+    res =
+      update_ref(token, %{
+        owner: args.owner,
+        repo: args.repo,
+        ref: "refs/heads/#{args.name}",
+        sha: args.sha
+      })
+
+    case res do
+      {:ok, %{"object" => branch}} ->
+        {:ok, branch}
+
+      err ->
+        err
+    end
+  end
+
   @spec get_main_last_commit(String.t(), map()) :: {:ok, term} | {:error, term()}
   def get_main_last_commit(token, args) do
     headers = token_auth_headers(token)
@@ -88,6 +107,24 @@ defmodule Erlef.Github do
     case get("/repos/#{args.owner}/#{args.repo}/branches/main", headers, []) do
       {:ok, %{"commit" => last_commit}} ->
         {:ok, last_commit}
+
+      err ->
+        err
+    end
+  end
+
+  def get_pr(token, args) do
+    headers = token_auth_headers(token)
+    get("/repos/#{args.owner}/#{args.repo}/pulls/#{args.number}", headers, [])
+  end
+
+  def get_pr_status(token, args) do
+    case get_pr(token, args) do
+      {:ok, pr} ->
+        case pr["merged"] do
+          true -> {:ok, :accepted}
+          false -> {:ok, :open}
+        end
 
       err ->
         err
@@ -109,6 +146,11 @@ defmodule Erlef.Github do
     post("/repos/#{args.owner}/#{args.repo}/git/trees", headers, args, [])
   end
 
+  defp update_ref(token, args) do
+    headers = token_auth_headers(token)
+    patch("/repos/#{args.owner}/#{args.repo}/git/#{args.ref}", headers, args, [])
+  end
+
   defp get(path, headers, opts) do
     case Erlef.HTTP.perform(:get, "https://api.github.com#{path}", headers, "", opts) do
       {:ok, %{body: body}} ->
@@ -121,6 +163,16 @@ defmodule Erlef.Github do
 
   defp post(path, headers, body, opts) do
     case Erlef.HTTP.perform(:post, "https://api.github.com#{path}", headers, body, opts) do
+      {:ok, %{body: body}} ->
+        {:ok, body}
+
+      err ->
+        err
+    end
+  end
+
+  defp patch(path, headers, body, opts) do
+    case Erlef.HTTP.perform(:patch, "https://api.github.com#{path}", headers, body, opts) do
       {:ok, %{body: body}} ->
         {:ok, body}
 

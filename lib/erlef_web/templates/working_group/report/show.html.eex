@@ -1,6 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-1 offset-sm-11">
+    <%= if @wg_report.status == :open do %>
+    <div class="col-sm-1">
+      <%= link("Edit", to: Routes.working_group_report_path(@conn, :edit, @current_working_group.slug, @wg_report.id)) %>
+    </div>
+  <% end %>
+ 
+    <div class="col-sm-1 offset-sm-10">
       <%= link("Go back", to: Routes.working_group_report_path(@conn, :index, @current_working_group.slug)) %>
     </div>
   </div>
@@ -12,6 +18,7 @@
     <div class="col-sm-2"><b>Private:</b> <%= humanize(@wg_report.is_private) %></div>
     <div class="col-sm-3"><b>Submitted on:</b> <%= long_date(@wg_report.inserted_at) %></div>
     <div class="col-sm-3"><b>Updated on:</b> <%= long_date(@wg_report.updated_at) %></div>
+    <div class="col-sm-2"><b>Status:</b> <%= humanize(@wg_report.status) %></div>
   </div>
 
   <div class="mb-3"></div>

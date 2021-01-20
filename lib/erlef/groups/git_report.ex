@@ -1,9 +1,32 @@
 defmodule Erlef.Groups.GitReport do
   @moduledoc false
 
+  # n.b, 
+  # This is the initial implementation of a concept called GitReport. 
+  # This however is not a good abstraction. A proper absaction would would not be confined to reports.
+  # More features of the app will make use git for submitting and updating files and a 
+  # proper abstraction should emerge after more cases. Make it work! :tm:
+
   alias Erlef.Groups.WorkingGroupReport
 
   alias Erlef.Github
+
+  def get_status(%WorkingGroupReport{} = report) do
+    args = %{
+      report: report,
+      repo: report_repo(report),
+      pull_number: report_pull_number(report)
+    }
+
+    with {:ok, state} <- to_state(args),
+         {:ok, state} <- get_token(state),
+         {:ok, state} <- get_pr_status(state) do
+      case state.pull_request_status == report.status do
+        true -> {:ok, report.status}
+        false -> {:changed, state.pull_request_status}
+      end
+    end
+  end
 
   def submit(%WorkingGroupReport{} = report) do
     case Erlef.is_env?(:prod) do
@@ -20,6 +43,40 @@ defmodule Erlef.Groups.GitReport do
         }
 
         create(args)
+
+      false ->
+        # N.B, a sub-sequent PR must be done to support faking github in order
+        # to avoid this temp hack
+        {:ok, %{}}
+    end
+  end
+
+  def update(%WorkingGroupReport{} = report) do
+    case Erlef.is_env?(:prod) do
+      true ->
+        args = %{
+          files: report_to_existing_files(report),
+          repo: report_repo(report),
+          message: report.update_message,
+          branch_name: branch_name(report),
+          from: branch_name(report),
+          author: report_author(report),
+          last_commit_sha: report_last_commit(report),
+          pull_number: report_pull_number(report)
+        }
+
+        case do_update(args) do
+          {:ok, state} ->
+            meta =
+              report.meta
+              |> put_in(["source", "pull_request"], state.pull_request)
+              |> put_in(["source", "branch"], state.branch)
+
+            {:ok, meta}
+
+          err ->
+            err
+        end
 
       false ->
         # N.B, a sub-sequent PR must be done to support faking github in order
@@ -49,6 +106,41 @@ defmodule Erlef.Groups.GitReport do
       }
 
       {:ok, meta}
+    end
+  end
+
+  defp do_update(args) do
+    with {:ok, state} <- to_state(args),
+         {:ok, state} <- get_token(state),
+         {:ok, state} <- create_files(state),
+         {:ok, state} <- create_commit(state),
+         {:ok, state} <- update_branch(state),
+         {:ok, state} <- get_pr(state) do
+      {:ok, state}
+    end
+  end
+
+  defp get_pr(state) do
+    p = %{owner: state.owner, repo: state.repo, number: state.pull_number}
+
+    case Github.get_pr(state.token, p) do
+      {:ok, pr} ->
+        {:ok, set(state, :pull_request, pr)}
+
+      err ->
+        err
+    end
+  end
+
+  defp get_pr_status(state) do
+    p = %{owner: state.owner, repo: state.repo, number: state.pull_number}
+
+    case Github.get_pr_status(state.token, p) do
+      {:ok, status} ->
+        {:ok, set(state, :pull_request_status, status)}
+
+      err ->
+        err
     end
   end
 
@@ -130,11 +222,28 @@ defmodule Erlef.Groups.GitReport do
     p = %{
       owner: state.owner,
       repo: state.repo,
-      name: state.branch_name,
+      name: state.from,
       sha: state.commit_sha
     }
 
     case Github.create_branch(state.token, p) do
+      {:ok, branch} ->
+        {:ok, set(state, :branch, branch)}
+
+      err ->
+        err
+    end
+  end
+
+  defp update_branch(state) do
+    p = %{
+      owner: state.owner,
+      repo: state.repo,
+      name: state.from,
+      sha: state.commit_sha
+    }
+
+    case Github.update_branch(state.token, p) do
       {:ok, branch} ->
         {:ok, set(state, :branch, branch)}
 
@@ -165,9 +274,13 @@ defmodule Erlef.Groups.GitReport do
 
   defp timestamp(dt), do: Calendar.strftime(dt, "%Y-%m-%d-%H%M%S")
 
+  defp branch_name(%{meta: %{"source" => %{"params" => %{"from" => from}}}}), do: from
+
   defp branch_name(report) do
     "#{report.working_group.slug}-#{report.type}-report-#{timestamp(report.inserted_at)}"
   end
+
+  defp report_author(%{meta: %{"source" => %{"params" => %{"author" => author}}}}), do: author
 
   defp report_author(report) do
     %{name: report.submitted_by.name, email: "erlef.bot@erlef.org"}
@@ -191,10 +304,9 @@ defmodule Erlef.Groups.GitReport do
   end
 
   defp report_to_files(report) do
-    today = Date.utc_today() |> Date.to_string()
     slug = report.working_group.slug
     ts = timestamp(report.inserted_at)
-    path = "reports/quarterly/#{today}/#{slug}-#{ts}.md"
+    path = "reports/#{slug}/quarterly/#{slug}-#{ts}.md"
 
     [
       %{
@@ -202,6 +314,25 @@ defmodule Erlef.Groups.GitReport do
         path: path
       }
     ]
+  end
+
+  defp report_to_existing_files(report) do
+    [file] = report.meta["source"]["params"]["files"]
+
+    [
+      %{
+        content: report.content,
+        path: file["path"]
+      }
+    ]
+  end
+
+  defp report_pull_number(report) do
+    report.meta["source"]["pull_request"]["number"]
+  end
+
+  defp report_last_commit(%{meta: %{"source" => %{"branch" => %{"sha" => sha}}}}) do
+    sha
   end
 
   defp set(state, key, val), do: Map.put(state, key, val)
@@ -213,7 +344,6 @@ defmodule Erlef.Groups.GitReport do
           args
           |> set(:owner, owner)
           |> set(:repo, gh_repo)
-          |> set(:branch_name, args.from)
 
         {:ok, state}
 
