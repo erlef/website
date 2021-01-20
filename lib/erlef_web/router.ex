@@ -13,7 +13,7 @@ defmodule ErlefWeb.Router do
   )
 
   @trusted_connect_sources ~w(https://user.fm https://www.erlef.org wss://erlef.org 
-    wss://www.erlef.org ws://erlef.org ws://www.erlef.org  https://erlef.matomo.cloud)
+    wss://www.erlef.org ws://erlef.org ws://www.erlef.org  https://erlef.matomo.cloud https://raw.githubusercontent.com)
 
   if Erlef.in_env?([:dev, :test]) do
     @default_source Enum.join(@trusted_sources ++ ["127.0.0.1:9998"], " ")
@@ -109,7 +109,7 @@ defmodule ErlefWeb.Router do
     resources "/slack-invite/:team", SlackInviteController, only: [:create, :index]
 
     scope "/wg/:slug", WorkingGroup, as: :working_group do
-      pipe_through [:session_required, :working_group]
+      pipe_through [:session_required, :working_group, :chair_required]
       resources "/reports", ReportController
     end
 

@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"><h3>Reports</h3></div>
+    <div class="col-sm-1 offset-sm-10">
+      <%= link("Go back", to: Routes.working_group_path(@conn, :show, @current_working_group.slug)) %>
+    </div>
+  </div>
+
+  <div class="mb-3"></div>
+
+  <div class="card">
+    <div class="card-body">
+      <table id="wg-reports-table" class="table table-striped  dataTable">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Private</th>
+            <th>Submitted on</th>
+            <th>Updated on</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= for r <- @wg_reports do %>
+            <tr>
+              <td><%= humanize(r.type) %></td>
+              <td><%= humanize(r.is_private) %></td>
+              <td><%= r.inserted_at %></td>
+              <td><%= r.updated_at %></td>
+              <td><%= link("View", to: Routes.working_group_report_path(@conn, :show, @current_working_group.slug, r.id), class: "btn btn-primary") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="mb-3"></div>
+
+</div>
+
+<script>
+  $(document).ready( function () {
+    $('#wg-reports-table').DataTable({
+      columnDefs: [
+        {orderable: false, targets: 4}
+      ],
+      order: [[ 2, "asc" ]]
+    });
+  });
+</script>

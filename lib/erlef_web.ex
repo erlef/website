@@ -49,6 +49,7 @@ defmodule ErlefWeb do
       import ErlefWeb.Gettext
       import ErlefWeb.HTML
       import Phoenix.LiveView.Helpers
+      import ErlefWeb.ViewHelpers
 
       alias ErlefWeb.Router.Helpers, as: Routes
 

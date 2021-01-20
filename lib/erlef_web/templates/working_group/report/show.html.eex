@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1 offset-sm-11">
+      <%= link("Go back", to: Routes.working_group_report_path(@conn, :index, @current_working_group.slug)) %>
+    </div>
+  </div>
+
+  <div class="mb-3"></div>
+
+  <div class="row">
+    <div class="col-sm-2"><b>Type:</b> <%= humanize(@wg_report.type) %></div>
+    <div class="col-sm-2"><b>Private:</b> <%= humanize(@wg_report.is_private) %></div>
+    <div class="col-sm-3"><b>Submitted on:</b> <%= long_date(@wg_report.inserted_at) %></div>
+    <div class="col-sm-3"><b>Updated on:</b> <%= long_date(@wg_report.updated_at) %></div>
+  </div>
+
+  <div class="mb-3"></div>
+  <div class="card">
+    <div class="card-header">
+    Report
+  </div>
+    <div class="card-body">
+      <p class="card-text">
+        <%= raw @content %>
+      </p>
+    </div>
+  </div>
+  <div class="mb-3"></div>
+</div>

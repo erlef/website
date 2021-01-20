@@ -17,7 +17,7 @@ defmodule ErlefWeb.WorkingGroup.ReportControllerTest do
     {:ok, v} = Erlef.Groups.create_volunteer(%{name: member.name, member_id: member.id}, opts)
     wgv = insert(:working_group_volunteer, volunteer: v)
     insert(:working_group_chair, volunteer: wgv.volunteer, working_group: wgv.working_group)
-    [working_group: wgv.working_group]
+    [chair: member, working_group: wgv.working_group]
   end
 
   describe "new working_group_report" do
@@ -32,7 +32,7 @@ defmodule ErlefWeb.WorkingGroup.ReportControllerTest do
   describe "create working_group_report" do
     setup :chair_session
 
-    test "redirects to show when data is valid", %{conn: conn, working_group: wg} do
+    test "redirects to show when data is valid", %{conn: conn, working_group: wg, chair: chair} do
       upload = %Plug.Upload{path: "test/fixtures/markdown.md", filename: "markdown.md"}
 
       conn =
@@ -40,8 +40,11 @@ defmodule ErlefWeb.WorkingGroup.ReportControllerTest do
           working_group_report: Map.put(@create_attrs, :file, upload)
         )
 
+      [report] = Groups.list_wg_reports_by_member_id(chair.id)
       assert %{slug: _slug} = redirected_params(conn)
-      assert redirected_to(conn) == Routes.working_group_path(conn, :show, wg.slug)
+
+      assert redirected_to(conn) ==
+               Routes.working_group_report_path(conn, :show, wg.slug, report.id)
     end
 
     test "renders errors when data is invalid", %{conn: conn, working_group: wg} do

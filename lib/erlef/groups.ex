@@ -260,7 +260,11 @@ defmodule Erlef.Groups do
   @spec get_wg_report!(Ecto.UUID.t()) :: WorkingGroupReport.t()
   def get_wg_report!(id), do: Repo.get!(WorkingGroupReport, id)
 
-  def get_wg_report_by_member_id(member_id) do
+  def get_wg_report_for_member!(id, member_id) do
+    Repo.get_by!(WorkingGroupReport, id: id, member_id: member_id)
+  end
+
+  def list_wg_reports_by_member_id(member_id) do
     Repo.all(Query.get_wg_report_by_member_id(member_id))
   end
 

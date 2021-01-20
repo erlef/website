@@ -24,6 +24,7 @@
           <ul>
             <li><%= link "Manage", to: Routes.working_group_settings_path(@conn, :edit, @wg.slug) %></li>
             <li><%= link "Submit a report", to: Routes.working_group_report_path(@conn, :new, @wg.slug) %></li>
+            <li><%= link "View your reports", to: Routes.working_group_report_path(@conn, :index, @wg.slug) %></li>
           </ul>
         </div>
       </div>

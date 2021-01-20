@@ -11,14 +11,24 @@ defmodule ErlefWeb.WorkingGroup.ReportController do
     render(conn, "new.html", changeset: changeset, working_group: wg)
   end
 
+  def index(conn, _params) do
+    wg_reports = Groups.list_wg_reports_by_member_id(conn.assigns.current_user.id)
+    render(conn, "index.html", wg_reports: wg_reports)
+  end
+
+  def show(conn, %{"id" => id}) do
+    wg_report = Groups.get_wg_report_for_member!(id, conn.assigns.current_user.id)
+    render(conn, "show.html", wg_report: wg_report, content: Earmark.as_html!(wg_report.content))
+  end
+
   def create(conn, %{"working_group_report" => params}) do
     wg = conn.assigns.current_working_group
 
     case Groups.create_wg_report(with_default_params(conn, params)) do
-      {:ok, _working_group_report} ->
+      {:ok, report} ->
         conn
         |> put_flash(:info, "Working group report created successfully.")
-        |> redirect(to: Routes.working_group_path(conn, :show, wg.slug))
+        |> redirect(to: Routes.working_group_report_path(conn, :show, wg.slug, report.id))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset, working_group: wg)
