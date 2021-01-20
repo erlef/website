@@ -122,7 +122,7 @@ class: "btn btn-primary" %>
                         <i class="fas fa-chair fa-5x"></i>
                       <% else %>
                         <% path = Routes.admin_working_group_path(@conn, :create_chair, @working_group, v) %>
-                        <%= link("Make chair", to: path, class: "btn btn-primary", method: :put) %>
+                        <%= link("Make chair", to: path, class: "btn btn-primary", method: :put, data: [confirm: "Are you sure?"]) %>
                       <% end %>
                     </td>
 
@@ -131,7 +131,7 @@ class: "btn btn-primary" %>
                         <button class="btn btn-warning" disabled>Remove chair</button>
                       <% else %>
                         <% path = Routes.admin_working_group_path(@conn, :delete_chair, @working_group, v) %>
-                        <%= link("Remove chair", to: path, class: "btn btn-warning", method: :delete) %>
+                        <%= link("Remove chair", to: path, class: "btn btn-warning", method: :delete, data: [confirm: "Are you sure?"]) %>
                       <% end %>
                     </td>
 
@@ -140,7 +140,7 @@ class: "btn btn-primary" %>
                         <button class="btn btn-danger" disabled>Remove</button>
                       <% else %>
                         <% path = Routes.admin_working_group_path(@conn, :delete_volunteer, @working_group, v) %>
-                        <%= link("Remove", to: path, class: "btn btn-danger", method: :delete) %>
+                        <%= link("Remove", to: path, class: "btn btn-danger", method: :delete, data: [confirm: "Are you sure?"]) %>
                       <% end %>
                     </td>
                   </tr>

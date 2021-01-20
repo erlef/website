@@ -87,7 +87,7 @@
                         <i class="fas fa-chair fa-5x"></i>
                       <% else %>
                         <% path = Routes.working_group_settings_path(@conn, :create_chair, @wg.slug, v) %>
-                        <%= link("Make chair", to: path, class: "btn btn-primary", method: :put) %>
+                        <%= link("Make chair", to: path, class: "btn btn-primary", method: :put, data: [confirm: "Are you sure?"]) %>
                       <% end %>
                     </td>
 
@@ -96,7 +96,7 @@
                         <button class="btn btn-warning" disabled>Remove chair</button>
                       <% else %>
                         <% path = Routes.working_group_settings_path(@conn, :delete_chair, @wg.slug, v) %>
-                        <%= link("Remove chair", to: path, class: "btn btn-warning", method: :delete) %>
+                        <%= link("Remove chair", to: path, class: "btn btn-warning", method: :delete, data: [confirm: "Are you sure?"]) %>
                       <% end %>
                     </td>
 
@@ -105,7 +105,7 @@
                         <button class="btn btn-danger" disabled>Remove</button>
                       <% else %>
                         <% path = Routes.working_group_settings_path(@conn, :delete_volunteer, @wg.slug, v) %>
-                        <%= link("Remove", to: path, class: "btn btn-danger", method: :delete) %>
+                        <%= link("Remove", to: path, class: "btn btn-danger", method: :delete, data: [confirm: "Are you sure?"]) %>
                       <% end %>
                     </td>
                   </tr>
