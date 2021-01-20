@@ -21,35 +21,4 @@ defmodule ErlefWeb.WorkingGroupControllerTest do
     name = wg.name
     assert html_response(conn, 200) =~ name
   end
-
-  describe "edit working_group" do
-    setup :chair_session
-
-    test "renders form for editing for chosen working_group", %{conn: conn, working_group: wg} do
-      conn = get(conn, Routes.working_group_path(conn, :edit, wg.slug))
-      assert html_response(conn, 200) =~ wg.name
-    end
-  end
-
-  describe "update working_group" do
-    setup :chair_session
-
-    test "redirects when data is valid", %{conn: conn, working_group: wg} do
-      conn =
-        put(conn, Routes.working_group_path(conn, :update, wg.slug),
-          working_group: %{charter: "# charter", description: "description"}
-        )
-
-      assert redirected_to(conn) == Routes.working_group_path(conn, :show, wg.slug)
-    end
-
-    test "renders errors when data is invalid", %{conn: conn, working_group: wg} do
-      conn =
-        put(conn, Routes.working_group_path(conn, :update, wg.slug),
-          working_group: %{charter: nil, description: 12_345}
-        )
-
-      assert html_response(conn, 200) =~ wg.name
-    end
-  end
 end

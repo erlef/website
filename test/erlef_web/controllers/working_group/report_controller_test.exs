@@ -1,4 +1,4 @@
-defmodule ErlefWeb.WorkingGroupReportControllerTest do
+defmodule ErlefWeb.WorkingGroup.ReportControllerTest do
   use ErlefWeb.ConnCase
 
   alias Erlef.Groups
@@ -40,7 +40,7 @@ defmodule ErlefWeb.WorkingGroupReportControllerTest do
           working_group_report: Map.put(@create_attrs, :file, upload)
         )
 
-      assert %{id: _id} = redirected_params(conn)
+      assert %{slug: _slug} = redirected_params(conn)
       assert redirected_to(conn) == Routes.working_group_path(conn, :show, wg.slug)
     end
 
