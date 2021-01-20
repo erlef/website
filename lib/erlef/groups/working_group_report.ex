@@ -10,12 +10,13 @@ defmodule Erlef.Groups.WorkingGroupReport do
     field(:content, :string)
     field(:is_private, :boolean, default: true)
     field(:meta, :map)
+    field(:member_id, Ecto.UUID)
     belongs_to(:submitted_by, Volunteer)
     belongs_to(:working_group, WorkingGroup)
     timestamps()
   end
 
-  @required [:type, :content, :submitted_by_id, :working_group_id]
+  @required [:type, :content, :member_id, :submitted_by_id, :working_group_id]
   @optional [:is_private, :meta]
   @permitted @required ++ @optional
 

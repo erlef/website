@@ -271,7 +271,13 @@ defmodule Erlef.GroupsTest do
   describe "working_group_reports" do
     alias Erlef.Groups.WorkingGroupReport
 
-    @valid_attrs %{type: :quarterly, content: "some content", is_private: true, meta: %{}}
+    @valid_attrs %{
+      type: :quarterly,
+      content: "some content",
+      is_private: true,
+      meta: %{},
+      member_id: Ecto.UUID.generate()
+    }
     @update_attrs %{
       content: "some updated content",
       is_private: false,

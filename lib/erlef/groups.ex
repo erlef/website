@@ -260,6 +260,10 @@ defmodule Erlef.Groups do
   @spec get_wg_report!(Ecto.UUID.t()) :: WorkingGroupReport.t()
   def get_wg_report!(id), do: Repo.get!(WorkingGroupReport, id)
 
+  def get_wg_report_by_member_id(member_id) do
+    Repo.all(Query.get_wg_report_by_member_id(member_id))
+  end
+
   @spec create_wg_report(map(), Keyword.t()) ::
           {:ok, WorkingGroupReport.t()} | {:error, Ecto.Changeset.t()} | {:error, term()}
   def create_wg_report(attrs, _opts \\ []) do

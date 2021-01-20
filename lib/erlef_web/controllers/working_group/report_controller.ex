@@ -44,7 +44,8 @@ defmodule ErlefWeb.WorkingGroup.ReportController do
   defp with_default_params(conn, params) do
     default = %{
       "working_group_id" => conn.assigns.current_working_group.id,
-      "submitted_by_id" => conn.assigns.current_volunteer.id
+      "submitted_by_id" => conn.assigns.current_volunteer.id,
+      "member_id" => conn.assigns.current_user.id
     }
 
     Map.merge(params, default)

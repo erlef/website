@@ -4,7 +4,14 @@ defmodule Erlef.Groups.Query do
   """
 
   import Ecto.Query, only: [from: 2]
-  alias Erlef.Groups.{Volunteer, WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer}
+
+  alias Erlef.Groups.{
+    Volunteer,
+    WorkingGroup,
+    WorkingGroupChair,
+    WorkingGroupReport,
+    WorkingGroupVolunteer
+  }
 
   def all_board_members() do
     from(v in Volunteer,
@@ -58,6 +65,13 @@ defmodule Erlef.Groups.Query do
       join: wgc in assoc(wg, :chairs),
       where: v.member_id == ^id,
       preload: [working_groups: {wg, chairs: wgc}]
+    )
+  end
+
+  @spec get_wg_report_by_member_id(Ecto.UUID.t()) :: Volunteer.t()
+  def get_wg_report_by_member_id(id) do
+    from(r in WorkingGroupReport,
+      where: r.member_id == ^id
     )
   end
 
