@@ -53,7 +53,7 @@ defmodule ErlefWeb.Router do
 
   pipeline :working_group do
     plug ErlefWeb.Plug.CurrentWorkingGroup
-    plug ErlefWeb.Plug.Authz.Volunteer
+    # plug ErlefWeb.Plug.Authz.Volunteer
   end
 
   pipeline :chair_required do
