@@ -161,6 +161,10 @@ defmodule Erlef.WildApricot do
     post(headers, body, [basic_api_auth()])
   end
 
+  def valid_account_id?(acct_id) do
+    acct_id == account_id()
+  end
+
   defp account_id(), do: config_get(:account_id)
 
   defp get(uri, headers, opts \\ []) do

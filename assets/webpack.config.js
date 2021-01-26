@@ -64,12 +64,13 @@ module.exports = (env, options) => ({
                 }]
             },
             {
-        test: require.resolve('jquery'),
-        loader: 'expose-loader',
-        options: {
-          exposes: ['$', 'jQuery'],
-        }
-            }
+                test: require.resolve('jquery'),
+                loader: 'expose-loader',
+                options: {
+                exposes: ['$', 'jQuery'],
+            },
+
+          }
         ]
     },
     plugins: [

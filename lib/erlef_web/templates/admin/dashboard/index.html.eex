@@ -16,4 +16,6 @@
 
   <%= small_info_box(@resource_counts.volunteers_count, "Volunteers", "fa-user",  Routes.admin_volunteer_path(@conn, :index), "blue") %>
 
+  <%= small_info_box(@resource_counts.apps_count, "Apps", "fa-rocket",  Routes.admin_app_path(@conn, :index), "red") %>
+
 </div>

@@ -17,7 +17,8 @@ defmodule Erlef.Admins do
     (select count(id) from working_groups), 
     (select count(id) from sponsors),
     (select count(id) from events where events.approved = false), 
-    (select count(id) from member_email_requests where member_email_requests.status != 'complete')
+    (select count(id) from member_email_requests where member_email_requests.status != 'complete'),
+    (select count(id) from apps)
     """
 
     %{
@@ -27,7 +28,8 @@ defmodule Erlef.Admins do
           working_group_count,
           sponsors_count,
           unapproved_events_count,
-          outstanding_email_requests_count
+          outstanding_email_requests_count,
+          apps_count
         ]
       ]
     } = Ecto.Adapters.SQL.query!(Erlef.Repo, q)
@@ -37,7 +39,8 @@ defmodule Erlef.Admins do
       working_groups_count: working_group_count,
       sponsors_count: sponsors_count,
       unapproved_events_count: unapproved_events_count,
-      outstanding_email_requests_count: outstanding_email_requests_count
+      outstanding_email_requests_count: outstanding_email_requests_count,
+      apps_count: apps_count
     }
   end
 end

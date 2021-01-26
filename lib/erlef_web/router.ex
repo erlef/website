@@ -145,6 +145,13 @@ defmodule ErlefWeb.Router do
     scope "/admin", Admin, as: :admin do
       pipe_through [:admin_required]
       get "/", DashboardController, :index
+
+      resources "/apps", AppController
+
+      scope "/apps/:app_id", App, as: :app do
+        resources "/keys", KeyController, only: [:create, :delete]
+      end
+
       resources "/events", EventController, only: [:index, :show]
       resources "/email_requests", EmailRequestController, only: [:index, :show]
       post "/email_requests/assign", EmailRequestController, :assign
@@ -181,6 +188,8 @@ defmodule ErlefWeb.Router do
     scope "/members/:id", Member, as: :member do
       resources "/working_groups", WorkingGroupController, only: [:index]
     end
+
+    post "/webhooks/:app_name", WebhookController, :handle_post
   end
 
   scope "/", ErlefWeb do

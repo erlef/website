@@ -20,10 +20,13 @@ defmodule Erlef.Schema do
 
   defmacro __using__(_opts) do
     quote do
+      alias __MODULE__
       use Ecto.Schema
 
+      import Ecto
       import Ecto.Changeset
       import Erlef.Schema
+      import Ecto.Query, only: [from: 1, from: 2]
 
       @primary_key {:id, :binary_id, autogenerate: true}
       @foreign_key_type :binary_id

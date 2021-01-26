@@ -6,6 +6,9 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
+config :erlef,
+  secret: "UFxcBGAa6OnsKUezTOCmSDg+yr2K9Dmd8Lq9EM/vZalBsoaUmlWjmmwWFmJ6EItl"
+
 config :erlef, ErlefWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,

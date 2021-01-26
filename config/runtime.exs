@@ -8,6 +8,13 @@ if Application.get_env(:erlef, :env) == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
+  erlef_secret =
+    System.get_env("SECRET") ||
+      raise """
+      environment variable SECRET is missing.
+      You can generate one by calling: mix phx.gen.secret
+      """
+
   url_port =
     System.get_env("URL_PORT") ||
       raise """
@@ -45,6 +52,8 @@ if Application.get_env(:erlef, :env) == :prod do
       """
 
   pool_size = String.to_integer(System.get_env("POOL_SIZE") || "10")
+
+  config :erlef, secret: erlef_secret
 
   config :erlef, ErlefWeb.Endpoint,
     http: [:inet6, port: port],
