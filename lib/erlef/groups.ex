@@ -327,7 +327,7 @@ defmodule Erlef.Groups do
           case GitReport.update(Ecto.Changeset.apply_changes(cs)) do
             {:ok, meta} ->
               wg_report
-              |> WorkingGroupReport.update_changeset(Map.put(attrs, "meta", meta))
+              |> WorkingGroupReport.update_changeset(put_meta(attrs, meta))
               |> Repo.update!()
 
             err ->
@@ -365,6 +365,16 @@ defmodule Erlef.Groups do
   end
 
   defp maybe_upload_image(_, attrs), do: attrs
+
+  defp put_meta(attrs, meta) do
+    case all_atoms_map?(attrs) do
+      true ->
+        Map.put(attrs, :meta, meta)
+
+      false ->
+        Map.put(attrs, "meta", meta)
+    end
+  end
 
   defp sponsor_image_filename(sponsor_name, <<"image/", ext::binary>>) do
     sponsor_name <> "-" <> Ecto.UUID.generate() <> "." <> ext

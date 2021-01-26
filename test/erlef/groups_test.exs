@@ -276,14 +276,17 @@ defmodule Erlef.GroupsTest do
       content: "some content",
       is_private: true,
       meta: %{},
-      member_id: Ecto.UUID.generate()
+      member_id: Ecto.UUID.generate(),
+      status: :open
     }
     @update_attrs %{
       content: "some updated content",
       is_private: false,
-      meta: %{}
+      meta: %{},
+      status: :accepted,
+      update_message: "Update message"
     }
-    @invalid_attrs %{content: nil, is_private: nil, meta: nil, type: nil}
+    @invalid_attrs %{content: nil, is_private: nil, meta: nil, type: nil, status: :eh?}
 
     def working_group_report_fixture(attrs \\ %{}) do
       {:ok, working_group_report} =

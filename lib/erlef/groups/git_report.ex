@@ -81,7 +81,7 @@ defmodule Erlef.Groups.GitReport do
       false ->
         # N.B, a sub-sequent PR must be done to support faking github in order
         # to avoid this temp hack
-        {:ok, %{}}
+        {:ok, report.meta}
     end
   end
 
