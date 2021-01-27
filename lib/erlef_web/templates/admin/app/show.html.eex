@@ -26,6 +26,11 @@
       </li>
 
       <li class="mt-4">
+        <strong>Enabled:</strong>
+        <%= humanize(@app.enabled) %>
+      </li>
+
+      <li class="mt-4">
         <strong>Client ID:</strong>
         <%= @app.client_id %>
       </li>
@@ -111,7 +116,7 @@
           <div class="form-group row">
             <%= label f, :type, class: "col-sm-2 col-form-label" %>
             <div class="col-sm-2">
-              <%= select f, :type, [{"Webhook", "webhook"}], required: true, class: "form-control" %>
+              <%= select f, :type, [{"API (Read-only)", "api_read_only"}, {"Webhook", "webhook"}], required: true, class: "form-control" %>
             </div>
             <%= error_tag f, :type %>
           </div>

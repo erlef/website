@@ -13,6 +13,12 @@
         <%= error_tag f, :name %>
       </div>
 
+      <div class="form-check">
+        <%= checkbox f, :enabled, class: "form-check-input" %>
+        <%= label f, :enabled, class: "form-check-label" %>
+        <%= error_tag f, :enabled %>
+      </div>
+
     </div>
 
     <div class="card-footer">

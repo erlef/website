@@ -6,7 +6,7 @@ defmodule ErlefWeb.API.V1.WebhookControllerTest do
   @audit_opts [audit: %{member_id: Ecto.UUID.generate()}]
 
   setup %{conn: conn} do
-    {:ok, app} = Integrations.create_app(%{name: "Some app"}, @audit_opts)
+    {:ok, app} = Integrations.create_app(%{name: "Some app", enabled: true}, @audit_opts)
 
     {:ok, app_key} =
       Integrations.create_app_key(app, %{name: "Some key", type: :webhook}, @audit_opts)

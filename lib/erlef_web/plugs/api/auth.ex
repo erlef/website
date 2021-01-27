@@ -26,7 +26,10 @@ defmodule ErlefWeb.Plug.API.Auth do
         try_basic(conn)
 
       [key] ->
-        Erlef.Crypto.compare(String.trim(key), Application.get_env(:erlef, :api_key))
+        case app_key_auth(String.trim(key), conn) do
+          :ok -> true
+          _ -> false
+        end
     end
   end
 
@@ -45,6 +48,14 @@ defmodule ErlefWeb.Plug.API.Auth do
     case app_key_auth(app_client_id, key, conn) do
       :ok -> true
       _ -> false
+    end
+  end
+
+  defp app_key_auth(key, conn) do
+    case Integrations.Auth.by_key(key, :api_read_only, usage_info(conn)) do
+      :ok -> :ok
+      :error -> {:error, :key}
+      :revoked -> {:error, :revoked_key}
     end
   end
 

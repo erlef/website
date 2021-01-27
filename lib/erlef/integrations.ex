@@ -47,11 +47,23 @@ defmodule Erlef.Integrations do
     |> Repo.update()
   end
 
+  def find_key(key_id, type) do
+    from(
+      k in AppKey,
+      join: a in assoc(k, :app),
+      where: k.key_id == ^key_id and k.type == ^type and a.enabled == true,
+      preload: [app: a]
+    )
+    |> Repo.one()
+  end
+
   def find_key(client_id, key_id, type) do
     from(
       k in AppKey,
       join: a in assoc(k, :app),
-      where: k.key_id == ^key_id and a.client_id == ^client_id and k.type == ^type,
+      where:
+        k.key_id == ^key_id and a.client_id == ^client_id and k.type == ^type and
+          a.enabled == true,
       preload: [app: a]
     )
     |> Repo.one()

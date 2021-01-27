@@ -25,6 +25,27 @@ defmodule Erlef.Integrations.Auth do
     end
   end
 
+  def by_key(app_secret, type, usage_info) do
+    our_secret = Application.get_env(:erlef, :secret)
+
+    <<key_id::binary-size(32), secret::binary-size(32)>> =
+      :crypto.mac(:hmac, :sha3_256, our_secret, app_secret)
+      |> Base.encode16(case: :lower)
+
+    with %AppKey{} = key <- Integrations.find_key(key_id, type),
+         true <- Crypto.compare(key.secret, secret),
+         {:revoked, false} <- {:revoked, AppKey.revoked?(key)},
+         %AppKey{} <- update_last_use(key, usage_info(usage_info)) do
+      :ok
+    else
+      {:revoked, true} ->
+        :revoked
+
+      _ ->
+        :error
+    end
+  end
+
   defp update_last_use(key, usage_info) do
     Integrations.update_app_key_last_used(key, usage_info(usage_info))
   end

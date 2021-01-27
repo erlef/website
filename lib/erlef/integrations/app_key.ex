@@ -7,7 +7,7 @@ defmodule Erlef.Integrations.AppKey do
 
   schema "app_keys" do
     field(:name, :string)
-    field(:type, Ecto.Enum, values: [:webhook])
+    field(:type, Ecto.Enum, values: [:webhook, :api_read_only])
     field(:app_secret, :string, virtual: true)
     field(:key_id, :string)
     field(:secret, :string)
