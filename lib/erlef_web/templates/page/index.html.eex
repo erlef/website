@@ -63,6 +63,13 @@
     </section>
 
     <section class="all_calendars">
+      <% full_url = ErlefWeb.Endpoint.url()  <> Routes.page_path(@conn, :all_calendars) %>
+      <% parsed = URI.parse(full_url) %>
+      <% webcal = parsed.host <> parsed.path %>
+
+      <div class="col text-center mt-2">
+        <a href="webcal://<%= webcal %>">Subscribe</a> to this calendar
+      </div>
       <div class="mt-4 mb-2">
         <%= calendar(Routes.page_path(@conn, :all_calendars)) %>
       </div>

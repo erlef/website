@@ -42,6 +42,10 @@ defmodule ErlefWeb.Router do
     plug :put_secure_browser_headers, %{"content-security-policy" => @csp}
   end
 
+  pipeline :calendar do
+    plug :accepts, ["ics", "ifb"]
+  end
+
   pipeline :admin_required do
     plug :put_layout, {ErlefWeb.Admin.LayoutView, "app.html"}
     plug ErlefWeb.Plug.RequiresAdmin
@@ -85,7 +89,6 @@ defmodule ErlefWeb.Router do
     get "/sponsors", PageController, :sponsors
     get "/become-a-sponsor", PageController, :sponsor_info
     get "/wg-proposal-template", PageController, :wg_proposal_template
-    get "/all_calendars", PageController, :all_calendars
 
     # NOTE: News routes are still in place for links that may be out there.
     # Please use blog routes. 
@@ -182,6 +185,11 @@ defmodule ErlefWeb.Router do
 
   scope "/", ErlefWeb do
     pipe_through [:session_required, :working_group]
+  end
+
+  scope "/calenders", ErlefWeb do
+    pipe_through :calendar
+    get "/all.ics", PageController, :all_calendars
   end
 
   scope "/", ErlefWeb do
