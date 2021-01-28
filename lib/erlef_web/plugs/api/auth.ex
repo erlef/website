@@ -67,11 +67,38 @@ defmodule ErlefWeb.Plug.API.Auth do
     end
   end
 
-  defp usage_info(%{remote_ip: remote_ip} = conn) do
+  defp usage_info(conn) do
     %{
-      ip: remote_ip,
+      ip: remote_ip(conn),
       used_at: DateTime.utc_now(),
       user_agent: get_req_header(conn, "user-agent")
     }
+  end
+
+  defp remote_ip(conn) do
+    case get_req_header(conn, "x-forwarded-for") do
+      [] ->
+        parse_ip(conn.remote_ip)
+
+      [source] ->
+        parse_ip(source)
+    end
+  end
+
+
+  defp parse_ip(nil), do: "Unknown - nil"
+
+  defp parse_ip(source) when is_tuple(source) do
+    to_string(:inet.ntoa(source))
+  end
+
+  defp parse_ip(source) do
+    case :inet.parse_strict_address(to_charlist(source)) do
+      {:ok, ip} ->
+        to_string(:inet.ntoa(ip))
+
+      _ ->
+        "unknown - #{source}"
+    end
   end
 end
