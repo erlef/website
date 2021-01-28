@@ -196,9 +196,15 @@ defmodule ErlefWeb.Router do
     pipe_through [:session_required, :working_group]
   end
 
-  scope "/calenders", ErlefWeb do
+  scope "/calendars", ErlefWeb do
     pipe_through :calendar
     get "/all.ics", PageController, :all_calendars
+  end
+
+  # Need to leave this typo in place for a bit
+  scope "/", ErlefWeb, as: :old do
+    pipe_through :calendar
+    get "/calenders/all.ics", PageController, :all_calendars
   end
 
   scope "/", ErlefWeb do
