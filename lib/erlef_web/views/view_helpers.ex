@@ -8,6 +8,19 @@ defmodule ErlefWeb.ViewHelpers do
 
   def long_date(other), do: other
 
+  def current_path_segment(conn) do
+    [current | _] =
+      conn
+      |> path_info()
+      |> Enum.reverse()
+
+    current
+  end
+
+  def path_info(conn) do
+    URI.decode_query(conn.request_path) |> Map.keys() |> hd |> String.split("/", trim: true)
+  end
+
   def event_dates(%Date{} = start_date, nil),
     do: Timex.format!(start_date, "%B %d, %Y", :strftime)
 

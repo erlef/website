@@ -19,32 +19,32 @@ defmodule ErlefWeb.Admin.AppController do
       {:ok, app} ->
         conn
         |> put_flash(:info, "App created successfully.")
-        |> redirect(to: Routes.admin_app_path(conn, :show, app))
+        |> redirect(to: Routes.admin_app_path(conn, :show, app.slug))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    app = Integrations.get_app_with_keys!(id)
+  def show(conn, %{"slug" => slug}) do
+    app = Integrations.get_app_by_slug!(slug)
     render(conn, "show.html", app: app, key_changeset: AppKey.changeset(%AppKey{}, %{}))
   end
 
-  def edit(conn, %{"id" => id}) do
-    app = Integrations.get_app!(id)
+  def edit(conn, %{"slug" => slug}) do
+    app = Integrations.get_app_by_slug!(slug)
     changeset = App.changeset(app, %{})
     render(conn, "edit.html", app: app, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "app" => app_params}) do
-    app = Integrations.get_app!(id)
+  def update(conn, %{"slug" => slug, "app" => app_params}) do
+    app = Integrations.get_app_by_slug!(slug)
 
     case Integrations.update_app(app, app_params, audit: audit(conn)) do
       {:ok, app} ->
         conn
         |> put_flash(:info, "App updated successfully.")
-        |> redirect(to: Routes.admin_app_path(conn, :show, app))
+        |> redirect(to: Routes.admin_app_path(conn, :show, app.slug))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", app: app, changeset: changeset)

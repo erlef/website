@@ -95,7 +95,6 @@ defmodule Erlef.Integrations.AppKey do
       from(
         a in App,
         left_join: k in assoc(a, :keys),
-        where: is_nil(k.revoked_at),
         select: k.name
       )
       |> changeset.repo.all

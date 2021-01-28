@@ -85,9 +85,6 @@ defmodule ErlefWeb.Plug.API.Auth do
     end
   end
 
-
-  defp parse_ip(nil), do: "Unknown - nil"
-
   defp parse_ip(source) when is_tuple(source) do
     to_string(:inet.ntoa(source))
   end

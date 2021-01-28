@@ -14,7 +14,7 @@
   <tbody>
     <%= for app <- @apps do %>
       <tr>
-        <td><%= link humanize(app.name),  to: Routes.admin_app_path(@conn, :show, app) %></td>
+        <td><%= link humanize(app.name),  to: Routes.admin_app_path(@conn, :show, app.slug) %></td>
         <td><%= humanize(app.enabled) %></td>
       </tr>
     <% end %>

@@ -3,10 +3,10 @@
     <h1>Edit App - <%= @app.name %></h1>
   </div>
   <div class="col-md-1 offset-md-7">
-  <span><%= link "Back", to: Routes.admin_app_path(@conn, :index), class: "btn btn-primary" %></span>
+  <span><%= link "Back", to: Routes.admin_app_path(@conn, :show, @app.slug), class: "btn btn-primary" %></span>
   </div>
 </div>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.admin_app_path(@conn, :update, @app)) %>
+<%= render "form.html", Map.put(assigns, :action, Routes.admin_app_path(@conn, :update, @app.slug)) %>
 
 

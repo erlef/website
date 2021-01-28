@@ -7,18 +7,6 @@
 
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
-    <div class="row mt-4">
-      <div class="col-sm-1">
-        <%= link "Edit", to: Routes.admin_working_group_path(@conn, :edit, @working_group),  
-class: "btn btn-primary" %>
-      </div>
-      <div class="col-sm-1 offset-sm-10">
-        <%= link "Back", to: Routes.admin_working_group_path(@conn, :index),  class: "btn btn-primary" %>
-      </div>
-    </div>
-
-    <hr/>
-
     <div class="mb-1"></div>
 
     <div class="row">
@@ -89,9 +77,19 @@ class: "btn btn-primary" %>
 
     <div class="mb-2"></div>
 
+    <div class="row">
+      <div class="col-sm-2">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#wg-charter">
       View charter
     </button>
+      </div>
+
+      <div class="col-sm-1 offset-sm-9">
+        <%= link "Edit", to: Routes.admin_working_group_path(@conn, :edit, @working_group),  
+class: "btn btn-primary" %>
+      </div>
+    </div>
+
     <hr/>
   </div>
 

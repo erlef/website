@@ -26,14 +26,17 @@ defmodule ErlefWeb.Admin.AppKeyTest do
     setup [:admin_session, :create_app_key]
 
     test "redirects to show when data is valid", %{conn: conn, app: app} do
-      conn = post(conn, Routes.admin_app_key_path(conn, :create, app), app_key: @create_attrs)
+      conn =
+        post(conn, Routes.admin_app_key_path(conn, :create, app.slug), app_key: @create_attrs)
 
-      assert redirected_to(conn) == Routes.admin_app_path(conn, :show, app)
+      assert redirected_to(conn) == Routes.admin_app_key_path(conn, :index, app.slug)
     end
 
     test "renders errors when data is invalid", %{conn: conn, app: app} do
-      conn = post(conn, Routes.admin_app_key_path(conn, :create, app), app_key: @invalid_attrs)
-      assert redirected_to(conn) == Routes.admin_app_path(conn, :show, app)
+      conn =
+        post(conn, Routes.admin_app_key_path(conn, :create, app.slug), app_key: @invalid_attrs)
+
+      assert redirected_to(conn) == Routes.admin_app_key_path(conn, :index, app.slug)
     end
   end
 
@@ -41,9 +44,9 @@ defmodule ErlefWeb.Admin.AppKeyTest do
     setup [:admin_session, :create_app_key]
 
     test "redirects to show when data is valid", %{conn: conn, app: app, app_key: app_key} do
-      conn = delete(conn, Routes.admin_app_key_path(conn, :delete, app, app_key.id))
+      conn = delete(conn, Routes.admin_app_key_path(conn, :delete, app.slug, app_key.id))
 
-      assert redirected_to(conn) == Routes.admin_app_path(conn, :show, app)
+      assert redirected_to(conn) == Routes.admin_app_key_path(conn, :index, app.slug)
     end
 
     # This will raise currently

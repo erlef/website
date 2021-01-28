@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-body p-0">
+    <ul class="nav nav-pills flex-column">
+    <%= for {id, {name, path, icon_class}} <- app_settings(@conn, @app) do %>
+      <li class="nav-item <%= selected_setting(@conn, id) %>">
+        <a href="<%= path %>" class="nav-link">
+          <i class="<%= icon_class %>"></i>
+            <%= name %>
+        </a>
+      </li>
+    <% end %> 
+    </ul>
+  </div>
+</div>

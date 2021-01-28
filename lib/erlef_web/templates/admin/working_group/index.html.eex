@@ -1,7 +1,3 @@
-<div class="row mb-4">
-  <h2>Working Groups</h2>
-</div>
-
 <div class="card">
   <div class="card-body">
     <table id="working_groups-table" class="table table-striped table-bordered dataTable">

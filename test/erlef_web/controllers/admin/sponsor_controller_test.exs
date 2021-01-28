@@ -68,7 +68,7 @@ defmodule ErlefWeb.Admin.SponsorControllerTest do
 
     test "renders form for editing chosen sponsor", %{conn: conn, sponsor: sponsor} do
       conn = get(conn, Routes.admin_sponsor_path(conn, :edit, sponsor))
-      assert html_response(conn, 200) =~ "Edit Sponsor"
+      assert html_response(conn, 200) =~ "Sponsor - #{sponsor.name}"
     end
   end
 
@@ -85,7 +85,7 @@ defmodule ErlefWeb.Admin.SponsorControllerTest do
 
     test "renders errors when data is invalid", %{conn: conn, sponsor: sponsor} do
       conn = put(conn, Routes.admin_sponsor_path(conn, :update, sponsor), sponsor: @invalid_attrs)
-      assert html_response(conn, 200) =~ "Edit Sponsor"
+      assert html_response(conn, 200) =~ "Sponsor - #{sponsor.name}"
     end
   end
 

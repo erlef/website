@@ -4,11 +4,13 @@ defmodule ErlefWeb.Admin.AppTest do
   alias Erlef.Integrations
 
   @create_attrs %{
-    name: "App name"
+    name: "App name",
+    slug: "app-name"
   }
 
   @update_attrs %{
-    name: "some updated name"
+    name: "some updated name",
+    slug: "some-updated-name"
   }
 
   @invalid_attrs %{name: nil}
@@ -36,7 +38,7 @@ defmodule ErlefWeb.Admin.AppTest do
       conn: conn,
       app: app
     } do
-      conn = get(conn, Routes.admin_app_path(conn, :edit, app))
+      conn = get(conn, Routes.admin_app_path(conn, :edit, app.slug))
       assert html_response(conn, 200) =~ app.name
     end
   end
@@ -45,18 +47,18 @@ defmodule ErlefWeb.Admin.AppTest do
     setup [:admin_session, :create_app]
 
     test "redirects when data is valid", %{conn: conn, app: app} do
-      conn = put(conn, Routes.admin_app_path(conn, :update, app), app: @update_attrs)
+      conn = put(conn, Routes.admin_app_path(conn, :update, app.slug), app: @update_attrs)
 
-      assert redirected_to(conn) == Routes.admin_app_path(conn, :show, app)
+      assert redirected_to(conn) == Routes.admin_app_path(conn, :show, @update_attrs.slug)
 
-      conn = get(conn, Routes.admin_app_path(conn, :show, app))
-      assert html_response(conn, 200) =~ "App - #{@update_attrs.name}"
+      conn = get(conn, Routes.admin_app_path(conn, :show, @update_attrs.slug))
+      assert html_response(conn, 200) =~ "App #{@update_attrs.name}"
     end
 
     test "renders errors when data is invalid", %{conn: conn, app: app} do
-      conn = put(conn, Routes.admin_app_path(conn, :update, app), app: @invalid_attrs)
+      conn = put(conn, Routes.admin_app_path(conn, :update, app.slug), app: @invalid_attrs)
 
-      assert html_response(conn, 200) =~ "App - #{app.name}"
+      assert html_response(conn, 200) =~ "App #{app.name}"
     end
   end
 

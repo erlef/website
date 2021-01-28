@@ -13,60 +13,67 @@
   </head>
 
   <body class="hold-transition sidebar-mini sidebar-collapse">
-<div class="wrapper">
-    <%= render "header.html", conn: @conn, current_user: @current_user %>
-     <%= render "sidebar.html", conn: @conn, current_user: @current_user %>
+    <div class="wrapper">
+      <%= render "header.html", conn: @conn, current_user: @current_user %>
+      <%= render "sidebar.html", conn: @conn, current_user: @current_user %>
 
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <%= if flash = get_flash(@conn, :info) do %>
-          <div class="alert alert-info" role="alert">
-            <%= raw flash %>
+      <div class="content-wrapper">
+        <div class="content-header">
+          <div class="container-fluid">
+            <%= if flash = get_flash(@conn, :info) do %>
+              <div class="alert alert-info" role="alert">
+                <%= raw flash %>
+              </div>
+            <% end %>
+
+            <%= if flash = get_flash(@conn, :error) do %>
+              <div class="alert alert-danger" role="alert">
+                <%= raw flash %>
+              </div>
+            <% end %>
+
+            <%= if flash = get_flash(@conn, :success) do %>
+              <div class="alert alert-success" role="alert">
+                <%= raw flash %>
+              </div>
+            <% end %>
+            <div class="row">
+              <div class="col-sm-6">
+                <h3><%= @view_module.title(@conn) %></h3>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <% current = current_path_segment(@conn) %>
+                  <%= for {part, path} <- bread_crumbs(@conn) do %>
+                    <%= if part == current do %>
+                      <li class="breadcrumb-item active"><%= breadcrumb_name(part) %></li>
+                    <% else %>
+                      <li class="breadcrumb-item"><a href="<%= path %>"><%= breadcrumb_name(part) %></a></li>
+                    <% end %>
+                  <% end %>
+                </ol>
+              </div>
+            </div>
           </div>
-      <% end %>
-
-      <%= if flash = get_flash(@conn, :error) do %>
-        <div class="alert alert-danger" role="alert">
-          <%= raw flash %>
         </div>
-      <% end %>
 
-      <%= if flash = get_flash(@conn, :success) do %>
-        <div class="alert alert-success" role="alert">
-          <%= raw flash %>
+        <div class="content">
+          <div class="container-fluid">
+            <%= @inner_content %>
+          </div>
         </div>
-      <% end %> 
-      </div><!-- /.container-fluid -->
+      </div>
+
+      <aside class="control-sidebar control-sidebar-dark">
+        <div class="p-3">
+          <h5>Title</h5>
+          <p>Sidebar content</p>
+        </div>
+      </aside>
+
+      <%= render "footer.html", conn: @conn, current_user: @current_user %>
+
     </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-         <%= @inner_content %>
-     </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <%= render "footer.html", conn: @conn, current_user: @current_user %>
-
-</div>
-<!-- ./wrapper -->
-</div>
   </body>
-
 </html>

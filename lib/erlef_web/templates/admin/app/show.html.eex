@@ -1,140 +1,46 @@
-    <div class="row">
-      <div class="col-sm-4">
-        <h1>App - <%= @app.name %></h1>
-      </div>
-      <div class="col-sm-1 offset-sm-6">
-        <%= link "Back", to: Routes.admin_app_path(@conn, :index),  class: "btn btn-primary" %>
-      </div>
+  <div class="row">  
+    <div class="col-sm-2">
+      <%= render ErlefWeb.Admin.AppView, "_sidebar.html", assigns %>
     </div>
+    <!-- /.col -->
+    <div class="col-md-10">
+      <div class="card card-primary card-outline">
+        <div class="card-header">
+          <h3 class="card-title">App <%= @app.name %> - General settings</h3>
+            <%= link "Edit", to: Routes.admin_app_path(@conn, :edit, @app.slug),  class: "float-right btn btn-primary" %>
 
-    <div class="mb-2"></div>
+        </div>  
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+           <div class="mb-2"></div>
+          <ul>
+            <li>
+            <strong>Name:</strong>
+              <%= @app.name %>
+            </li>
 
-<nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-home" aria-selected="true">General</a>
-    <a class="nav-item nav-link" id="nav-keys-tab" data-toggle="tab" href="#nav-keys" role="tab" aria-controls="nav-profile" aria-selected="false">Keys</a>
-  </div>
-</nav>
+            <li class="mt-4">
+              <strong>Enabled:</strong>
+              <%= humanize(@app.enabled) %>
+            </li>
 
-<div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab"> 
-  <div class="mb-2"></div>
-    <ul>
-      <li>
-        <strong>Name:</strong>
-        <%= @app.name %>
-      </li>
+            <li class="mt-4">
+              <strong>Client ID:</strong>
+              <%= @app.client_id %>
+            </li>
 
-      <li class="mt-4">
-        <strong>Enabled:</strong>
-        <%= humanize(@app.enabled) %>
-      </li>
+            <li class="mt-4">
+              <strong>Created by:</strong>
+              <%= @app.created_by %>
+            </li>
 
-      <li class="mt-4">
-        <strong>Client ID:</strong>
-        <%= @app.client_id %>
-      </li>
-
-      <li class="mt-4">
-        <strong>Created by:</strong>
-        <%= @app.created_by %>
-      </li>
-
-      <li class="mt-4">
-        <strong>Updated by:</strong>
-        <%= @app.updated_by %>
-      </li>
-    </ul>
-    <%= link "Edit", to: Routes.admin_app_path(@conn, :edit, @app),  class: "btn btn-primary" %>
-  </div>
-
-  <div class="tab-pane fade" id="nav-keys" role="tabpanel" aria-labelledby="nav-keys-tab">  
-    <div class="card">
-      <div class="card-body">
-        <table id="app-keys-table" class="table table-striped table-bordered dataTable">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Created by</th>
-              <th>Last Used</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= for key <- Enum.filter(@app.keys, &(is_nil(&1.revoked_at))) do %>
-              <tr>
-                <td><%= key.name %></td>
-                <td><%= humanize(key.type) %></td>
-                <td><%= key.created_by %></td>
-                <td>
-                  <small>
-                    <%= if last_used = key.last_used do %>
-                      <a
-                        tabindex="0"
-                        role="button"
-                        data-toggle="popover"
-                        data-trigger="focus"
-                        data-placement="bottom"
-                        title="Last used"
-                        data-content="<strong>Used at:</strong> <%= last_used.used_at %><br><strong>IP:</strong> <%= last_used.ip %><br><strong>User agent:</strong> <%= last_used.user_agent %>">
-                        <%= long_date(last_used.used_at) %> ...
-                      </a>
-                   <% end %>
-                  </small>
-                </td>
-
-                <td>
-                  <% path = Routes.admin_app_key_path(@conn, :delete, @app, key) %>       
-                  <%= link("Revoke", to: path, class: "btn btn-warning", method: :delete, data: [confirm: "Are you sure?"]) %>
-                </td>
-                <td><button class="btn btn-danger">Revoke</button></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div class="container">
-      <div class="card card-secondary">
-        <h5 class="card-header">New key</h5>
-        <div class="card-body">
-        <%= form_for @key_changeset, Routes.admin_app_key_path(@conn, :create, @app), fn f -> %>
-          <%= if @key_changeset.action do %>
-            <div class="alert alert-danger">
-              <p>Oops, something went wrong! Please check the errors below.</p>
-            </div>
-          <% end %>
-
-
-          <div class="form-group row">
-           <%= label f, :name, class: "col-sm-2 col-form-label" %>
-           <div class="col-sm-2">
-             <%= text_input f, :name, required: true %>
-           </div>
-          </div>
-
-          <div class="form-group row">
-            <%= label f, :type, class: "col-sm-2 col-form-label" %>
-            <div class="col-sm-2">
-              <%= select f, :type, [{"API (Read-only)", "api_read_only"}, {"Webhook", "webhook"}], required: true, class: "form-control" %>
-            </div>
-            <%= error_tag f, :type %>
-          </div>
+            <li class="mt-4">
+              <strong>Updated by:</strong>
+              <%= @app.updated_by %>
+            </li>
+          </ul>
         </div>
-
-        <div class="card-footer">
-          <%= submit "Generate", class: "btn btn-primary" %>
-        </div>
-        <% end %>
-      </div>
-      </div>
+      </div>    
     </div>
   </div>
-</div>
 
-<script>
-  $(document).ready( function () {
-    $('#app-keys-table').DataTable();
-  });
-
-</script>

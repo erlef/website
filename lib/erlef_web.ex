@@ -61,6 +61,8 @@ defmodule ErlefWeb do
         !!assigns[:current_user]
       end
 
+      def image_path(conn, nil), do: ""
+
       def image_path(_conn, <<"http", _rest::binary>> = url), do: url
 
       def image_path(conn, <<"volunteers", _rest::binary>> = path) do

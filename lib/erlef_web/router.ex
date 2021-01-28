@@ -146,10 +146,10 @@ defmodule ErlefWeb.Router do
       pipe_through [:admin_required]
       get "/", DashboardController, :index
 
-      resources "/apps", AppController
+      resources "/apps", AppController, param: "slug"
 
-      scope "/apps/:app_id", App, as: :app do
-        resources "/keys", KeyController, only: [:create, :delete]
+      scope "/apps/:slug", App, as: :app do
+        resources "/keys", KeyController, only: [:create, :delete, :index]
       end
 
       resources "/events", EventController, only: [:index, :show]

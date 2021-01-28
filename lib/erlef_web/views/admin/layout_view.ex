@@ -19,4 +19,16 @@ defmodule ErlefWeb.Admin.LayoutView do
       </li>
     """
   end
+
+  def bread_crumbs(conn) do
+    {res, _} =
+      Enum.reduce(path_info(conn), {[], []}, fn seg, {acc, so_far} ->
+        {[{seg, "/" <> Enum.join(Enum.reverse([seg | so_far]), "/")} | acc], [seg | so_far]}
+      end)
+
+    Enum.reverse(res)
+  end
+
+  def breadcrumb_name("admin"), do: "dashboard"
+  def breadcrumb_name(name), do: name
 end

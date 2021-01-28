@@ -13,6 +13,7 @@ defmodule Erlef.Integrations do
 
   def get_app!(id), do: Repo.get!(App, id)
 
+  def get_app_by_slug!(slug), do: Repo.one!(App.get_by_slug(slug))
   def get_app_with_keys!(id), do: Repo.one!(App.get_with_keys(id))
 
   def create_app(attrs \\ %{}, audit: audit) do

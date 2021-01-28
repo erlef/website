@@ -1,6 +1,8 @@
 defmodule ErlefWeb.Admin.DashboardView do
   use ErlefWeb, :view
 
+  def title(_), do: "Dashboard"
+
   def small_info_box(title, about, icon, link, box_type \\ "info") do
     ~E"""
     <div class="col-lg-3 col-6">
