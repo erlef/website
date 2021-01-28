@@ -29,7 +29,7 @@ defmodule Erlef.Integrations.App do
   def get_with_keys(id) do
     from(a in __MODULE__,
       left_join: k in assoc(a, :keys),
-      where: a.id == ^id and is_nil(k.revoked_at),
+      where: a.id == ^id,
       preload: [keys: k]
     )
   end

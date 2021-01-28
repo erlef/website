@@ -62,7 +62,7 @@
             </tr>
           </thead>
           <tbody>
-            <%= for key <- @app.keys do %>
+            <%= for key <- Enum.filter(@app.keys, &(is_nil(&1.revoked_at))) do %>
               <tr>
                 <td><%= key.name %></td>
                 <td><%= humanize(key.type) %></td>
