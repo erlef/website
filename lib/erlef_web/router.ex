@@ -105,6 +105,11 @@ defmodule ErlefWeb.Router do
 
     resources "/wg", WorkingGroupController, only: [:index, :show], param: "slug"
 
+    scope "/wg/:slug/", WorkingGroup, as: :working_group do
+      pipe_through [:working_group]
+      get "/content/:page", ContentController, :show
+    end
+
     get "/wg/:slug/calendar", WorkingGroupController, :calendar
 
     resources "/stipends", StipendController, only: [:index, :create]

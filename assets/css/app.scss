@@ -209,3 +209,17 @@ span.help-block {
   border-radius: 0.2em;
   padding: 0.1em; 
 }
+
+.embedded-card div.card-header {  padding: 0.40rem 0.90rem !important };
+
+div.card-body.legend { font-size: 0.9em !important;}
+
+.legend .row { padding-bottom: 0.3em; }
+
+.legend .row:nth-of-type(even) div {
+  background-color: #f7f7f7;
+}
+
+.legend .row:nth-of-type(odd) div {
+    background: #ffffff;
+}

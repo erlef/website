@@ -1,0 +1,69 @@
+<%= if @is_chair do %>
+  <div class="card">
+    <div class="card-body p-0">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <%= link to: Routes.working_group_settings_path(@conn, :edit, @wg.slug), class: "nav-link" do %>
+            <i class="fas fa-cogs"></i> Manage
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link to: Routes.working_group_report_path(@conn, :new, @wg.slug), class: "nav-link" do %>
+            <i class="fas fa-file-alt"></i> Submit a report
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link to: Routes.working_group_report_path(@conn, :index, @wg.slug), class: "nav-link" do %>
+            <i class="fas fa-folder-open"></i> View your reports
+          <% end %>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<%= if contents = ErlefWeb.WorkingGroupView.content(@wg.slug) do %>
+  <div class="card my-4 shadow-sm rounded" style="padding:1rem;">
+    <h5 class="card-title">Content</h5>
+    <%= for {name, page} <- contents do %>
+    <%= link name, to: Routes.working_group_content_path(@conn, :show, @wg.slug, page) %>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="card my-4 shadow-sm rounded" style="padding:1rem;"> 
+  <div class="card-body p-0">
+    <%= if @wg.meta.public_calendar do %>
+      <div class="mb-2">
+        View our <%= link "calendar", to: Routes.working_group_path(@conn, :calendar, @wg.slug) %>
+      </div>
+    <% end %>
+    <hr/>
+    <p>You can reach us:</p>
+    <ul>
+      <%= if @wg.meta.email do %>
+        <li>By e-mail: <a href="mailto:<%= @wg.meta.email %>"><%= @wg.meta.email %></a></li>
+      <% end %>
+      <%= if @wg.meta.github do %>
+        <li>On GitHub: <a href="https://github.com/<%= @wg.meta.github %>"><%= @wg.meta.github %></a></li>
+      <% end %>
+    </ul>
+    <%= if @wg.meta.gcal_url do %>
+      <p>Feel free to subscribe to our <a href="<%= raw @wg.meta.gcal_url %>" title="Add to Google Calendar">Google Calendar</a> to keep track of upcoming meetings </p>
+    <% end %>
+  </div>
+</div>
+
+<%= unless Enum.empty?(@blog_posts) do %>
+  <div class="card my-4 shadow-sm rounded" style="padding:1rem;">
+    <div class="mb-1">Recent posts</div>
+    <%= for post <- @blog_posts do %>
+      <div class="padding-left:1em;">
+        <%= render(ErlefWeb.BlogView, "list_preview.html", post: post, topic: @topic) %>
+      </div>
+    <% end %> 
+    </div>
+  </div>
+<% end %>
+</div>
