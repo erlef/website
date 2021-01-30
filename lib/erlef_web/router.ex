@@ -29,6 +29,7 @@ defmodule ErlefWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug ErlefWeb.Plug.RemoteAddr
     plug ErlefWeb.Plug.API.Auth
   end
 
@@ -38,6 +39,7 @@ defmodule ErlefWeb.Router do
     plug :fetch_live_flash
     plug :protect_from_forgery
     plug ErlefWeb.Plug.Attack
+    plug ErlefWeb.Plug.RemoteAddr
     plug ErlefWeb.Plug.Session
     plug :put_secure_browser_headers, %{"content-security-policy" => @csp}
   end

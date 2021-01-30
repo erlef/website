@@ -52,15 +52,16 @@ defmodule ErlefWeb.Plug.API.Auth do
   end
 
   defp app_key_auth(key, conn) do
-    case Integrations.Auth.by_key(key, :api_read_only, usage_info(conn)) do
-      :ok -> :ok
-      :error -> {:error, :key}
-      :revoked -> {:error, :revoked_key}
-    end
+    do_key_auth(key, :api_read_only, conn)
   end
 
   defp app_key_auth(app_client_id, key, conn) do
-    case Integrations.Auth.by_key(app_client_id, key, :webhook, usage_info(conn)) do
+    opts = [client_id: app_client_id]
+    do_key_auth(key, :webhook, conn, opts)
+  end
+
+  defp do_key_auth(key, type, conn, opts \\ []) do
+    case Integrations.Auth.by_key(key, type, usage_info(conn), opts) do
       :ok -> :ok
       :error -> {:error, :key}
       :revoked -> {:error, :revoked_key}
@@ -69,33 +70,9 @@ defmodule ErlefWeb.Plug.API.Auth do
 
   defp usage_info(conn) do
     %{
-      ip: remote_ip(conn),
+      ip: conn.private.remote_ip,
       used_at: DateTime.utc_now(),
       user_agent: get_req_header(conn, "user-agent")
     }
-  end
-
-  defp remote_ip(conn) do
-    case get_req_header(conn, "x-forwarded-for") do
-      [] ->
-        parse_ip(conn.remote_ip)
-
-      [source] ->
-        parse_ip(source)
-    end
-  end
-
-  defp parse_ip(source) when is_tuple(source) do
-    to_string(:inet.ntoa(source))
-  end
-
-  defp parse_ip(source) do
-    case :inet.parse_strict_address(to_charlist(source)) do
-      {:ok, ip} ->
-        to_string(:inet.ntoa(ip))
-
-      _ ->
-        "unknown - #{source}"
-    end
   end
 end
