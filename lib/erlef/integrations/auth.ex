@@ -7,14 +7,14 @@ defmodule Erlef.Integrations.Auth do
   def by_key(app_secret, type, usage_info, opts \\ []) do
     maybe_client_id = Keyword.get(opts, :client_id, nil)
 
-    with {key_id, secret} <- hash_message(app_secret),
-         %AppKey{} = key <- find_key(type, key_id, maybe_client_id),
-         true <- Crypto.compare(key.secret, secret),
-         {:revoked, false} <- {:revoked, AppKey.revoked?(key)},
-         %AppKey{} <- update_last_use(key, usage_info(usage_info)) do
+    with {:ok, {key_id, secret}} <- hash_secret(app_secret),
+         {:ok, key} <- find_key(type, key_id, maybe_client_id),
+         {:ok, key} <- check_secret(key, secret),
+         {:ok, key} <- check_revoked(key),
+         {:ok, _key} <- update_last_use(key, usage_info(usage_info)) do
       :ok
     else
-      {:revoked, true} ->
+      {:error, :revoked} ->
         :revoked
 
       _ ->
@@ -22,18 +22,44 @@ defmodule Erlef.Integrations.Auth do
     end
   end
 
+  defp check_secret(key, secret) do
+    case Crypto.compare(key.secret, secret) do
+      true ->
+        {:ok, key}
+
+      false ->
+        {:error, :bad_secret}
+    end
+  end
+
+  defp check_revoked(key) do
+    case AppKey.revoked?(key) do
+      true ->
+        {:error, :revoked}
+
+      false ->
+        {:ok, key}
+    end
+  end
+
   defp find_key(type, key_id, nil) do
-    Integrations.find_key(key_id, type)
+    case Integrations.find_key(key_id, type) do
+      %AppKey{} = key -> {:ok, key}
+      _ -> {:error, :app_key_not_found}
+    end
   end
 
   defp find_key(type, key_id, client_id) do
-    Integrations.find_key(client_id, key_id, type)
+    case Integrations.find_key(client_id, key_id, type) do
+      %AppKey{} = key -> {:ok, key}
+      _ -> {:error, :app_key_not_found}
+    end
   end
 
-  defp hash_message(message) do
+  defp hash_secret(message) do
     case Crypto.hmac_encode(secret_key(), message) do
       <<key_id::binary-size(32), secret::binary-size(32)>> ->
-        {key_id, secret}
+        {:ok, {key_id, secret}}
 
       _ ->
         {:error, :unrecoverable}
@@ -41,7 +67,10 @@ defmodule Erlef.Integrations.Auth do
   end
 
   defp update_last_use(key, usage_info) do
-    Integrations.update_app_key_last_used(key, usage_info(usage_info))
+    case Integrations.update_app_key_last_used(key, usage_info(usage_info)) do
+      %AppKey{} -> {:ok, key}
+      err -> err
+    end
   end
 
   defp usage_info(info) do
