@@ -103,23 +103,16 @@
             <div class="col"><b>Summary</b></div>
             <div class="col-sm-8">
               <p>
-              Linux based solution with a wide range of Elixir libraries designed for 
-              embedded development and being productive. Speeding up the start of your 
-              next embedded Linux project
+              Tooling, libraries, and runtime for building robust embedded systems on the BEAM across a 
+              variety of hardware
               </p>
-            </div>
-          </div>
-          <div class="row ">
-            <div class="col"><b>Target hardware</b></div>
-            <div class="col-sm-8">
-              <p>microprocessors: AArch32, AArch64,X86-64, GRiSP-2 boards</p>
             </div>
           </div>
 
           <div class="row ">
-            <div class="col"><b>Target Operation System</b></div>
+            <div class="col"><b>Target hardware</b></div>
             <div class="col-sm-8">
-              <p>Custom Linux kernel based distribution made with buildroo</p>
+              <p>Official support for Raspberry Pi and Beaglebone boards. Custom hardware supported via an integration with the Buildroot project</p>
             </div>
           </div>
 
@@ -127,7 +120,7 @@
             <div class="col"><b>Target user group</b></div>
             <div class="col-sm-8">
               <p>
-              embedded application, custom hardware, makers, IoT, Linux embedded developers
+              Embedded systems and industrial IoT developers as well as hobbyists and makers
               </p>
             </div>
           </div>
@@ -136,7 +129,7 @@
             <div class="col"><b>Supported BEAM languages</b></div>
             <div class="col-sm-8">
               <p>
-              Primary focussed on Elixir and supports Erlang as well
+                Erlang, Elixir, and LFE
               </p>
             </div>
           </div>
@@ -151,23 +144,28 @@
           </div>
 
           <div class="row ">
-            <div class="col"><b>Source Code</b></div>
+            <div class="col"><b>Description</b></div>
             <div class="col-sm-8">
               <p>
-              <a href="https://github.com/nerves-project">https://github.com/nerves-project</a>
-              </p>
+              Nerves integrates with Elixir’s mix build tool to provide a familiar development experience that generates complete firmware images that can be used locally or distributed securely to many devices via NervesHub. Nerves uses the Linux kernel for hardware support and Buildroot for integration with non-Erlang applications and services.</p>
             </div>
           </div>
 
-          <div class="row ">
-            <div class="col"><b>Description</b></div>
+          <div class="row"> 
+            <div class="col"><b>Where to start</b></div>
             <div class="col-sm-8">
-              Nerves Project is a mix of three parts:
-              <ul>
-                <li>Platform, a custom minimal linux based distribution</li>
-                <li>Framework, a set of ready-to-go Elixir libraries</li>
-                <li>Tooling, command line tools supporting the most common tasks for handling embedded projects</li>
-              </ul>
+              <li><a href="https://hexdocs.pm/nerves/getting-started.html">Documentation</a></li>
+              <li><a href="https://github.com/nerves-project/nerves_examples">Example projects</a></li>
+              <li><a href="https://github.com/elixir-circuits/circuits_quickstart">Elixir Circuits quick start</a></li>
+            </div>
+          </div>
+
+          <div class="row"> 
+            <div class="col"><b>Used by</b></div>
+            <div class="col-sm-8">
+              <p>
+              FarmBot, Bowery Farming, SmartRent, Schneider Electric, RosePoint Navigation, Interstate Batteries, Le Tote, Very Possible
+              </p>
             </div>
           </div>
         </div> <!-- /.card-body -->
