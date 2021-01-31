@@ -1,8 +1,7 @@
-<%= for list <- Enum.chunk_every(@members, 4) do %>
-<div class="d-md-flex">
-  <%= for %{name: name, avatar_url: image} <- list do %>
-    <% src_url = image || "volunteers/profile-placeholder.png" %>
-  <div class="pr-2 mb-2">
+<div class="row">
+<%= for %{name: name, avatar_url: image} <- @members do %>
+  <div class="col-xs-6 pr-1 pl-1">
+  <% src_url = image || "volunteers/profile-placeholder.png" %>
     <div class="avatar-large rounded">
       <img class="img-fluid" src="/images/<%= src_url %>" alt="<%= name %>">
     </div>
@@ -10,5 +9,4 @@
   </div>
   <% end %>
 </div>
-<% end %>
 

@@ -4,5 +4,5 @@
     </p>
       <%= raw @wg.charter_html %>
       <div class="mt-5">
-        <%= render_shared "gallery.html", members: Enum.shuffle(@wg.volunteers) %>
+        <%= render_shared "gallery.html", Map.put(assigns, :members, Enum.shuffle(@wg.volunteers)) %>
       </div>
