@@ -26,6 +26,10 @@ defmodule Erlef.GroupsTest do
     ]
   end
 
+  test "get_working_group/1", %{working_group: wg} do
+    assert Groups.get_working_group(wg.id)
+  end
+
   test "is_chair?/2", %{volunteer: v, chair: chair, working_group: wg} do
     assert Groups.is_chair?(wg, %Erlef.Accounts.Member{id: chair.member_id})
     assert Groups.is_chair?(wg, chair)

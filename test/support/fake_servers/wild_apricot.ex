@@ -168,6 +168,16 @@ defmodule Erlef.Test.WildApricot do
   plug Plug.Parsers, parsers: [:urlencoded, :json], json_decoder: Jason
   plug(:dispatch)
 
+  def get_contact(id) do
+    case :ets.lookup(__MODULE__, id) do
+      [{_id, contact}] ->
+        {:ok, contact}
+
+      _ ->
+        {:error, :not_found}
+    end
+  end
+
   def child_spec(opts) do
     %{
       id: __MODULE__,
