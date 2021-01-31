@@ -1,263 +1,248 @@
-<div class="container  mb-2">
-  <div class="mb-1">
-    <%= link "Back to Embedded Systems", to: Routes.working_group_path(@conn, :show, @wg.slug) %>
+<div class="mb-1">
+  <%= link "Back to Embedded Systems", to: Routes.working_group_path(@conn, :show, @wg.slug) %>
+</div>
+<h1 class="display-5 font-weight-bold">BEAM on Embedded Landscape 2020</h1>
+<div class="card embedded-card shadow-sm">
+  <div class="card-header d-flex align-items-center"> 
+    <img style="height:32px;" src="/images/community/platforms/grisp.svg" class="svg">
   </div>
 
-  <div class="row">
-    <div class="col-lg-9 pr-5">
-      <div class="row">
-        <div class="col">
-          <h1 class="display-5 font-weight-bold">BEAM on Embedded Landscape 2020</h1>
-        </div>
-      </div>
-      <div class="card embedded-card shadow-sm">
-        <div class="card-header d-flex align-items-center"> 
-          <img style="height:32px;" src="/images/community/platforms/grisp.svg" class="svg">
-        </div>
-
-        <div class="card-body legend">
-          <div class="row">
-            <div class="col"><b>Project name</b></div>
-            <div class="col-sm-8">GRiSP</div>
-          </div>
-          <div class="row">
-            <div class="col"><b>Summary</b></div>
-            <div class="col-sm-8">
-              <p>Hardware and software solution targeting running Erlang on bare metal. As a central point the Grisp board runs an Erlang-based custom operation system design for minimal overhead and maximum ease-of-use.
-              </p>
-            </div>
-          </div>
-          <div class="row ">
-            <div class="col"><b>Target hardware</b></div>
-            <div class="col-sm-8">
-              <p>GRiSP 1 microcontroller: AArch32 based. GRiSP 2 microprocessor: AArch32 based</p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Target Operation System</b></div>
-            <div class="col-sm-8">
-              <p>RTEMS, https://www.rtems.org</p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Target user group</b></div>
-            <div class="col-sm-8">
-              <p>
-              embedded application, custom hardware, makers, IoT, embedded projects for real time applications
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Supported BEAM languages</b></div>
-            <div class="col-sm-8">
-              <p>
-              Erlang and Elixir
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Homepage</b></div>
-            <div class="col-sm-8">
-              <p>
-              <a href="https://www.grisp.org/">https://www.grisp.org/</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Source Control</b></div>
-            <div class="col-sm-8">
-              <p>
-              <a href="https://github.com/grisp/">https://github.com/grisp/</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Description</b></div>
-            <div class="col-sm-8">
-              <p>
-              GRiSP project makes it easy to write Erlang embedded applications without having to write one line of C code. The GRiSP board offers I/O expandable interfaces, wifi and ethernet connectivity.
-              On the software side, GRiSP uses RTEMS as an Unikernel library integrated with the Erlang Run Time System in a single image. Making GRiSP very suitable to run hard real time applications. As the project grows and the need for writing C code to handle special device drivers becomes true, GRiSP provides a powerful mechanism to integrate the C code with Erlang and still suitable for running real time application.
-              </p>
-            </div>
-          </div>
-        </div> <!-- /.card-body -->
-      </div>
-      <div class="mb-2"></div>
-      <div class="card embedded-card shadow-sm">
-        <div class="card-header d-flex align-items-center"> 
-          <img style="height:32px;" src="/images/community/platforms/nerves.svg" class="svg">
-        </div>
-
-        <div class="card-body legend">
-          <div class="row ">
-            <div class="col"><b>Project name</b></div>
-            <div class="col-sm-8">Nerves</div>
-          </div>
-          <div class="row ">
-            <div class="col"><b>Summary</b></div>
-            <div class="col-sm-8">
-              <p>
-              Tooling, libraries, and runtime for building robust embedded systems on the BEAM across a 
-              variety of hardware
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Target hardware</b></div>
-            <div class="col-sm-8">
-              <p>Official support for Raspberry Pi and Beaglebone boards. Custom hardware supported via an integration with the Buildroot project</p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Target user group</b></div>
-            <div class="col-sm-8">
-              <p>
-              Embedded systems and industrial IoT developers as well as hobbyists and makers
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Supported BEAM languages</b></div>
-            <div class="col-sm-8">
-              <p>
-                Erlang, Elixir, and LFE
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Homepage</b></div>
-            <div class="col-sm-8">
-              <p>
-              <a href="https://www.nerves-project.org/">https://www.nerves-project.org/</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Description</b></div>
-            <div class="col-sm-8">
-              <p>
-              Nerves integrates with Elixir’s mix build tool to provide a familiar development experience that generates complete firmware images that can be used locally or distributed securely to many devices via NervesHub. Nerves uses the Linux kernel for hardware support and Buildroot for integration with non-Erlang applications and services.</p>
-            </div>
-          </div>
-
-          <div class="row"> 
-            <div class="col"><b>Where to start</b></div>
-            <div class="col-sm-8">
-              <li><a href="https://hexdocs.pm/nerves/getting-started.html">Documentation</a></li>
-              <li><a href="https://github.com/nerves-project/nerves_examples">Example projects</a></li>
-              <li><a href="https://github.com/elixir-circuits/circuits_quickstart">Elixir Circuits quick start</a></li>
-            </div>
-          </div>
-
-          <div class="row"> 
-            <div class="col"><b>Used by</b></div>
-            <div class="col-sm-8">
-              <p>
-              FarmBot, Bowery Farming, SmartRent, Schneider Electric, RosePoint Navigation, Interstate Batteries, Le Tote, Very Possible
-              </p>
-            </div>
-          </div>
-        </div> <!-- /.card-body -->
-      </div> <!-- /.card -->
-
-      <div class="mb-2"></div>
-      <div class="card embedded-card shadow-sm">
-        <div class="card-header d-flex align-items-center">
-          <h3>meta-erlang</h3>
-        </div>
-
-        <div class="card-body legend">
-          <div class="row ">
-            <div class="col"><b>Project name</b></div>
-            <div class="col-sm-8">meta-erlang</div>
-          </div>
-          <div class="row ">
-            <div class="col"><b>Summary</b></div>
-            <div class="col-sm-8">
-              <p>
-
-              Linux microprocessor based on any hardware supported by Yocto Project and Openembedded where Erlang Runtime System (ERTS) is able to run. meta-erlang is a layer with together with other layers from YP/OE, offers a complete solution when designing and implementing embedded linux projects.
-
-              </p>
-            </div>
-          </div>
-          <div class="row ">
-            <div class="col"><b>Target hardware</b></div>
-            <div class="col-sm-8">
-              <p>
-              microprocessors: AArch32, AArch64, X86, X86-64. Any supported combination between Yocto Project/Openembedded BSP and Erlang
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Target Operation System</b></div>
-            <div class="col-sm-8">
-              <p>Custom linux kernel base distribution made with YP/OE.</p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Target user group</b></div>
-            <div class="col-sm-8">
-              <p>
-              Custom hardware and embedded projects
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Supported BEAM languages</b></div>
-            <div class="col-sm-8">
-              <p>
-              Erlang and Elixir
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Homepage</b></div>
-            <div class="col-sm-8">
-              <p>
-              <a href="https://meta-erlang.github.io/">https://meta-erlang.github.io/</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Source Control</b></div>
-            <div class="col-sm-8">
-              <p>
-              <a href="https://github.com/meta-erlang/">https://github.com/meta-erlang/</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="row ">
-            <div class="col"><b>Description</b></div>
-            <div class="col-sm-8">
-              <p>
-              Yocto Project is a ten years-old project from Linux Foundation that brings best practices, tools, and code that enable the creation of Linux distributions. YP is organized based on many sorts of layers and meta-erlang is one of them. The meta-erlang aim is to bring Erlang Ecosystem for the YP/OE projects, providing up-to-date Erlang and Elixir versions, example application, documentation, tools to help creating applications for embedded projects and common application written in Erlang/Elixir like databases, message brokers and web servers tested and ready to run on embedded Linux. 
-              </p>
-            </div>
-          </div>
-        </div> <!-- /.card-body -->
-      </div> <!-- /.card -->
-
-    </div> <!-- /.col -->
-    <div class="col-sm-3">
-      <%= render ErlefWeb.WorkingGroupView, "_sidebar.html", assigns %>
+  <div class="card-body legend">
+    <div class="row">
+      <div class="col"><b>Project name</b></div>
+      <div class="col-sm-8">GRiSP</div>
     </div>
-  </div> <!-- row -->
-</div> <!-- /.container -->
+    <div class="row">
+      <div class="col"><b>Summary</b></div>
+      <div class="col-sm-8">
+        <p>Hardware and software solution targeting running Erlang on bare metal. As a central point the Grisp board runs an Erlang-based custom operation system design for minimal overhead and maximum ease-of-use.
+        </p>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col"><b>Target hardware</b></div>
+      <div class="col-sm-8">
+        <p>GRiSP 1 microcontroller: AArch32 based. GRiSP 2 microprocessor: AArch32 based</p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Target Operation System</b></div>
+      <div class="col-sm-8">
+        <p>RTEMS, https://www.rtems.org</p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Target user group</b></div>
+      <div class="col-sm-8">
+        <p>
+        embedded application, custom hardware, makers, IoT, embedded projects for real time applications
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Supported BEAM languages</b></div>
+      <div class="col-sm-8">
+        <p>
+        Erlang and Elixir
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Homepage</b></div>
+      <div class="col-sm-8">
+        <p>
+        <a href="https://www.grisp.org/">https://www.grisp.org/</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Source Control</b></div>
+      <div class="col-sm-8">
+        <p>
+        <a href="https://github.com/grisp/">https://github.com/grisp/</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Description</b></div>
+      <div class="col-sm-8">
+        <p>
+        GRiSP project makes it easy to write Erlang embedded applications without having to write one line of C code. The GRiSP board offers I/O expandable interfaces, wifi and ethernet connectivity.
+        On the software side, GRiSP uses RTEMS as an Unikernel library integrated with the Erlang Run Time System in a single image. Making GRiSP very suitable to run hard real time applications. As the project grows and the need for writing C code to handle special device drivers becomes true, GRiSP provides a powerful mechanism to integrate the C code with Erlang and still suitable for running real time application.
+        </p>
+      </div>
+    </div>
+  </div> <!-- /.card-body -->
+</div>
+<div class="mb-2"></div>
+<div class="card embedded-card shadow-sm">
+  <div class="card-header d-flex align-items-center"> 
+    <img style="height:32px;" src="/images/community/platforms/nerves.svg" class="svg">
+  </div>
+
+  <div class="card-body legend">
+    <div class="row ">
+      <div class="col"><b>Project name</b></div>
+      <div class="col-sm-8">Nerves</div>
+    </div>
+    <div class="row ">
+      <div class="col"><b>Summary</b></div>
+      <div class="col-sm-8">
+        <p>
+        Tooling, libraries, and runtime for building robust embedded systems on the BEAM across a 
+        variety of hardware
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Target hardware</b></div>
+      <div class="col-sm-8">
+        <p>Official support for Raspberry Pi and Beaglebone boards. Custom hardware supported via an integration with the Buildroot project</p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Target user group</b></div>
+      <div class="col-sm-8">
+        <p>
+        Embedded systems and industrial IoT developers as well as hobbyists and makers
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Supported BEAM languages</b></div>
+      <div class="col-sm-8">
+        <p>
+        Erlang, Elixir, and LFE
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Homepage</b></div>
+      <div class="col-sm-8">
+        <p>
+        <a href="https://www.nerves-project.org/">https://www.nerves-project.org/</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Description</b></div>
+      <div class="col-sm-8">
+        <p>
+        Nerves integrates with Elixir’s mix build tool to provide a familiar development experience that generates complete firmware images that can be used locally or distributed securely to many devices via NervesHub. Nerves uses the Linux kernel for hardware support and Buildroot for integration with non-Erlang applications and services.</p>
+      </div>
+    </div>
+
+    <div class="row"> 
+      <div class="col"><b>Where to start</b></div>
+      <div class="col-sm-8">
+        <li><a href="https://hexdocs.pm/nerves/getting-started.html">Documentation</a></li>
+        <li><a href="https://github.com/nerves-project/nerves_examples">Example projects</a></li>
+        <li><a href="https://github.com/elixir-circuits/circuits_quickstart">Elixir Circuits quick start</a></li>
+      </div>
+    </div>
+
+    <div class="row"> 
+      <div class="col"><b>Used by</b></div>
+      <div class="col-sm-8">
+        <p>
+        FarmBot, Bowery Farming, SmartRent, Schneider Electric, RosePoint Navigation, Interstate Batteries, Le Tote, Very Possible
+        </p>
+      </div>
+    </div>
+  </div> <!-- /.card-body -->
+</div> <!-- /.card -->
+
+<div class="mb-2"></div>
+<div class="card embedded-card shadow-sm">
+  <div class="card-header d-flex align-items-center">
+    <h3>meta-erlang</h3>
+  </div>
+
+  <div class="card-body legend">
+    <div class="row ">
+      <div class="col"><b>Project name</b></div>
+      <div class="col-sm-8">meta-erlang</div>
+    </div>
+    <div class="row ">
+      <div class="col"><b>Summary</b></div>
+      <div class="col-sm-8">
+        <p>
+
+        Linux microprocessor based on any hardware supported by Yocto Project and Openembedded where Erlang Runtime System (ERTS) is able to run. meta-erlang is a layer with together with other layers from YP/OE, offers a complete solution when designing and implementing embedded linux projects.
+
+        </p>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col"><b>Target hardware</b></div>
+      <div class="col-sm-8">
+        <p>
+        microprocessors: AArch32, AArch64, X86, X86-64. Any supported combination between Yocto Project/Openembedded BSP and Erlang
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Target Operation System</b></div>
+      <div class="col-sm-8">
+        <p>Custom linux kernel base distribution made with YP/OE.</p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Target user group</b></div>
+      <div class="col-sm-8">
+        <p>
+        Custom hardware and embedded projects
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Supported BEAM languages</b></div>
+      <div class="col-sm-8">
+        <p>
+        Erlang and Elixir
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Homepage</b></div>
+      <div class="col-sm-8">
+        <p>
+        <a href="https://meta-erlang.github.io/">https://meta-erlang.github.io/</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Source Control</b></div>
+      <div class="col-sm-8">
+        <p>
+        <a href="https://github.com/meta-erlang/">https://github.com/meta-erlang/</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col"><b>Description</b></div>
+      <div class="col-sm-8">
+        <p>
+        Yocto Project is a ten years-old project from Linux Foundation that brings best practices, tools, and code that enable the creation of Linux distributions. YP is organized based on many sorts of layers and meta-erlang is one of them. The meta-erlang aim is to bring Erlang Ecosystem for the YP/OE projects, providing up-to-date Erlang and Elixir versions, example application, documentation, tools to help creating applications for embedded projects and common application written in Erlang/Elixir like databases, message brokers and web servers tested and ready to run on embedded Linux. 
+        </p>
+      </div>
+    </div>
+  </div> <!-- /.card-body -->
+</div> <!-- /.card -->

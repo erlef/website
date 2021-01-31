@@ -1,6 +1,8 @@
 defmodule ErlefWeb.WorkingGroup.ContentController do
   use ErlefWeb, :controller
 
+  plug :put_layout, :wg
+
   alias Erlef.{Blogs, Groups}
 
   action_fallback ErlefWeb.FallbackController

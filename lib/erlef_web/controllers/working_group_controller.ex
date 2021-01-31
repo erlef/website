@@ -1,12 +1,16 @@
 defmodule ErlefWeb.WorkingGroupController do
   use ErlefWeb, :controller
 
+  plug :put_layout, :wg
+
   alias Erlef.{Blogs, Groups}
 
   action_fallback ErlefWeb.FallbackController
 
   def index(conn, _params) do
-    render(conn, working_groups: all_groups())
+    conn
+    |> put_layout(:app)
+    |> render(working_groups: all_groups())
   end
 
   def show(conn, %{"slug" => slug}), do: render_show(conn, slug)

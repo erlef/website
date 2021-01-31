@@ -77,7 +77,7 @@ _paq.push(['enableLinkTracking']);
         <div class="mt-3">
         </div>
       <% end %>
-        <%= @inner_content %>
+        <%= Map.get(assigns, :inner_layout) || @inner_content %>
     <%= render "footer.html", assigns %>
     <svg height="0" width="0" viewBox="0 0 864 563">
       <defs>

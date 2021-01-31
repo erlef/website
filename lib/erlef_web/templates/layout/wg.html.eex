@@ -1,0 +1,15 @@
+<%= render_layout "app.html", assigns do %>
+<div class="py-3 mb-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 pr-5">
+        <%= @inner_content %>
+      </div>
+      <div class="col-lg-4">
+        <%= render ErlefWeb.WorkingGroupView, "_sidebar.html", assigns %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
