@@ -50,12 +50,10 @@
         </div>
       </div>
       <!-- /.row -->
-    </div>
-  </section>
-  <div class="row" style="display: none;">
-    <div class="col col-sm-4">
-      <img src="<%=  Routes.static_path(@conn, "/images/eef-logo-transparent-inverted.png") %>" width="80" height="40" alt="">
-      is an <a href="https://www.ow2.org/view/Membership_Joining/Associate_Organizations">
+  <div class="row">
+    <div class="col-lg-3 offset-lg-3">
+      <h6 class="text-muted">Associate Organizations</h6>
+      <a href="https://www.ow2.org/view/Membership_Joining/Associate_Organizations">
         <svg version="1.1" id="Final_HIGHT" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60px" height="20px" viewBox="0 0 1084 300" enable-background="new 0 0 1084 300" xml:space="preserve">
           <g>
             <g>
@@ -91,7 +89,9 @@
     c0-48.553-17.363-68.313-84.246-68.313h-93.891c-64.307,0-91.09,15.176-91.09,61.158v26.839h67.292V109.466z" />
             <polygon fill="#FF6600" points="348.557,85.068 330.996,30.96 246.359,30.96 279.503,133.074  " />
           </g>
-        </svg></a> associate organization
+        </svg></a>
     </div>
   </div>
+    </div>
+  </section>
 </footer>
