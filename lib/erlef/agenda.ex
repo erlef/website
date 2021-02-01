@@ -6,12 +6,16 @@ defmodule Erlef.Agenda do
   # 2 minutes
   @check_interval 120_000
 
+  require Logger
+
   use GenServer
+  alias Erlef.Agenda.Parser
 
   # Client
   @spec start_link(Keyword.t()) :: :ignore | {:error, term()} | {:ok, pid()}
-  def start_link(_opts) do
-    GenServer.start_link(__MODULE__, {sys_now(), @check_interval})
+  def start_link(opts) do
+    check_interval = Keyword.get(opts, :check_interval, @check_interval)
+    GenServer.start_link(__MODULE__, {sys_now(), check_interval})
   end
 
   @spec get_combined() :: {:ok, String.t()} | {:error, term()}
@@ -35,7 +39,7 @@ defmodule Erlef.Agenda do
 
   @impl true
   def handle_continue(:init, state) do
-    _tid = :ets.new(__MODULE__, [:named_table, :protected, {:write_concurrency, true}])
+    _tid = :ets.new(__MODULE__, ets_acl())
     :ets.insert(__MODULE__, {:all, get_calendars()})
     schedule_check(state)
     {:noreply, state}
@@ -68,62 +72,15 @@ defmodule Erlef.Agenda do
         {:ok, res} ->
           [res.body | acc]
 
-        _ ->
+        err ->
+          if Erlef.in_env?([:dev, :prod]) do 
+            Logger.error(fn -> "Error getting feed #{l} : #{inspect(err)}" end)
+          end
           acc
       end
     end)
-    |> Enum.map(&split_and_trim/1)
-    |> combine_all()
+    |> Parser.combine(name: "ErlEF Public Calendars")
   end
-
-  defp split_and_trim(ics_str),
-    do: Enum.map(String.split(ics_str, "\n"), fn s -> String.trim(s) end)
-
-  defp combine_all(cals) do
-    cals
-    |> Enum.flat_map(&get_events_and_timezones/1)
-    |> Enum.flat_map(fn x -> x end)
-    |> Enum.reverse()
-    |> Enum.join("\n")
-    |> wrap()
-  end
-
-  defp wrap(body) do
-    """
-    BEGIN:VCALENDAR
-    VERSION:2.0
-    CALSCALE:GREGORIAN
-    METHOD:PUBLISH
-    PRODID:-//Erlef/1.0/EN
-    X-WR-CALNAME:ErlEF Public Calendars
-    #{body}
-    END:VCALENDAR
-    """
-  end
-
-  defp get_events_and_timezones(lines), do: get_events_and_timezones(lines, [])
-
-  defp get_events_and_timezones([], acc), do: acc
-
-  defp get_events_and_timezones([<<"BEGIN:VTIMEZONE">> = line | lines], acc) do
-    {lines, timezone} = collect_timezone(lines, [line])
-    get_events_and_timezones(lines, [timezone | acc])
-  end
-
-  defp get_events_and_timezones([<<"BEGIN:VEVENT">> = line | lines], acc) do
-    {lines, event} = collect_event(lines, [line])
-    get_events_and_timezones(lines, [event | acc])
-  end
-
-  defp get_events_and_timezones([_ | lines], acc), do: get_events_and_timezones(lines, acc)
-
-  defp collect_event([<<"END:VEVENT">> = line | lines], acc), do: {lines, [line | acc]}
-
-  defp collect_event([line | lines], acc), do: collect_event(lines, [line | acc])
-
-  defp collect_timezone([<<"END:VTIMEZONE">> = line | lines], acc), do: {lines, [line | acc]}
-
-  defp collect_timezone([line | lines], acc), do: collect_timezone(lines, [line | acc])
 
   defp schedule_check({start, interval}) do
     :erlang.send_after(next_check(start, interval), self(), :check)
@@ -135,5 +92,15 @@ defmodule Erlef.Agenda do
 
   defp next_check(start, interval) do
     interval - rem(sys_now() - start, interval)
+  end
+
+  defp ets_acl() do
+    case Erlef.is_env?(:test) do
+      true ->
+        [:named_table, :public, {:write_concurrency, true}]
+
+      false ->
+        [:named_table, :protected, {:write_concurrency, true}]
+    end
   end
 end

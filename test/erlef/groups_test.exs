@@ -27,7 +27,8 @@ defmodule Erlef.GroupsTest do
   end
 
   test "get_working_group/1", %{working_group: wg} do
-    assert Groups.get_working_group(wg.id)
+    assert %WorkingGroup{} = Groups.get_working_group(wg.id)
+    refute Groups.get_working_group(Ecto.UUID.generate())
   end
 
   test "is_chair?/2", %{volunteer: v, chair: chair, working_group: wg} do

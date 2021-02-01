@@ -5,11 +5,13 @@ defmodule Erlef.AccountsTest do
 
   test "get_member/1" do
     {:ok, _member} = Accounts.get_member("basic_member")
+    {:error, :not_found} = Accounts.get_member("does_not_exist")
   end
 
   test "build_member/1" do
     {:ok, contact} = Erlef.Test.WildApricot.get_contact("admin")
     assert %Accounts.Member{} = Accounts.build_member(contact)
+    assert %Accounts.Member{} = Accounts.build_member(%{})
   end
 
   test "update_member/2" do

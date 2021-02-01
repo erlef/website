@@ -34,7 +34,7 @@ defmodule Erlef.Application do
       ErlefWeb.Telemetry,
       {Phoenix.PubSub, name: Erlef.PubSub},
       ErlefWeb.Endpoint,
-      {PlugAttack.Storage.Ets, name: MyApp.PlugAttack.Storage, clean_period: 60_000}
+      {PlugAttack.Storage.Ets, name: Erlef.PlugAttack.Storage, clean_period: 60_000}
     ]
   end
 
