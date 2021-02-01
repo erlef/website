@@ -51,8 +51,8 @@
       </div>
       <!-- /.row -->
   <div class="row">
-    <div class="col-lg-3 offset-lg-3">
-      <h6 class="text-muted">Associate Organizations</h6>
+    <div class="col-lg-3 offset-lg-3 mt-2">
+      <h6 class="text-muted text-uppercase">Associate Organizations</h6>
       <a href="https://www.ow2.org/view/Membership_Joining/Associate_Organizations">
         <svg version="1.1" id="Final_HIGHT" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60px" height="20px" viewBox="0 0 1084 300" enable-background="new 0 0 1084 300" xml:space="preserve">
           <g>
