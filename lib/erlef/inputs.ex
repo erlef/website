@@ -18,9 +18,9 @@ defmodule Erlef.Inputs do
 
   """
   def is_email?(addr) when byte_size(addr) <= 254 do
-    case :binary.split(addr, "@") do
+    case String.split(addr, "@") do
       [local, domain] when byte_size(local) <= 64 and byte_size(domain) <= 190 ->
-        case :binary.split(domain, ".") do
+        case String.split(domain, ".") do
           [_part1, _part2 | _rest] -> true
           _ -> false
         end
