@@ -15,7 +15,7 @@ defmodule ErlefWeb.Plug.Attack do
     throttle(conn.remote_ip,
       period: 60_000,
       limit: 5,
-      storage: {PlugAttack.Storage.Ets, MyApp.PlugAttack.Storage}
+      storage: {PlugAttack.Storage.Ets, Erlef.PlugAttack.Storage}
     )
   end
 
