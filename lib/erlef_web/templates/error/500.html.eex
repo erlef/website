@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <%= csrf_meta_tag() %>
+    <title>Erlang Ecosystem Foundation - Supporting the BEAM community</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-1">
+          <div class="mt-3"></div>
+          <a href="/" alt="">  
+            <img src="<%=  Routes.static_path(@conn, "/images/eef-logo.svg") %>" style="max-height:100px;max-width:100px;" alt="EEF Logo" >
+          </a>
+        </div>
+        <div class="col-lg-10 mt-5"> 
+          <div class="py-4 text-center">
+            <h1 class="headline text-danger">500</h1>
+            <h2><i class="fas fa-exclamation-triangle text-danger"></i> Oops! Something went wrong.</h2>
+            <p>We will work on fixing this as soon as possible.</p>
+            <p>Please reach out to us via one of the methods below for expedited help : </p>
+            <dl>
+              <dd><em>Open an issue on</em> <a href="https://github.com/erlef/website" alt="Github"><i class="fab fa-github"></i> Github</a></dd>
+              <dd class="mr-3"><em>Send us an Email</em> <a href="mailto:infra@erlef.org"><i class="mr-1 ml-1 fas fa-envelope"></i>infra@erlef.org</a></dd>
+            </dl>
+              <a class="btn btn-primary" href="/">Return to main site</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

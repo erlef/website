@@ -39,7 +39,7 @@ defmodule ErlefWeb.BlogControllerTest do
 
   test "GET /news/:topic does not exist", %{conn: conn} do
     conn = get(conn, Routes.blog_path(conn, :index, "eh"))
-    assert html_response(conn, 404) =~ "Not Found"
+    assert html_response(conn, 404) =~ "Oops! Page not found"
   end
 
   test "GET /blog/tags/eef", %{conn: conn} do
