@@ -16,11 +16,11 @@ defmodule Erlef.Test.WildApricot do
     "DisplayName" => "Admin",
     "Email" => "admin@foo.bar",
     "FirstName" => "Admin",
-    "Id" => "admin",
+    "Id" => 0,
     "LastName" => "Admin",
     "MembershipLevel" => %{
       "Id" => "1234567",
-      "Name" => "Admin Admin",
+      "Name" => "Basic Membership",
       "Url" => "https://api.wildapricot.org/v2.2/accounts/010101/MembershipLevels/1234567"
     },
     "IsAccountAdministrator" => true,
@@ -43,9 +43,9 @@ defmodule Erlef.Test.WildApricot do
   @base_basic_profile %{
     "DisplayName" => "Basic Member",
     "Email" => "basic_member@foo.bar",
-    "FirstName" => "Basic",
+    "FirstName" => "Basic Member",
     "LastName" => "Member",
-    "Id" => "basic_member",
+    "Id" => 1,
     "MembershipLevel" => %{
       "Id" => "1234567",
       "Name" => "Basic Membership",
@@ -58,10 +58,10 @@ defmodule Erlef.Test.WildApricot do
     "Email" => "wg_chair@foo.bar",
     "FirstName" => "Working Group",
     "LastName" => "Chair",
-    "Id" => "wg_chair",
+    "Id" => 2,
     "MembershipLevel" => %{
       "Id" => "1234567",
-      "Name" => "Basic Membership",
+      "Name" => "Managing and Contributing",
       "Url" => "https://api.wildapricot.org/v2.2/accounts/010101/MembershipLevels/1234567"
     },
     "FieldValues" => [
@@ -77,7 +77,7 @@ defmodule Erlef.Test.WildApricot do
     "DisplayName" => "Annual Supporting Member",
     "Email" => "annual_supporting_member@foo.bar",
     "FirstName" => "Annual",
-    "Id" => "annual_member",
+    "Id" => 3,
     "LastName" => "Supporting Member",
     "MembershipLevel" => %{
       "Id" => "1234567",
@@ -97,7 +97,7 @@ defmodule Erlef.Test.WildApricot do
     "DisplayName" => "Lifetime Supporting Member",
     "Email" => "life_supporting_member@foo.bar",
     "FirstName" => "Lifetime",
-    "Id" => "lifetime_member",
+    "Id" => 4,
     "LastName" => "Supporting Member",
     "MembershipLevel" => %{
       "Id" => "1234567",
@@ -117,7 +117,7 @@ defmodule Erlef.Test.WildApricot do
     "DisplayName" => "Lifetime Member",
     "Email" => "lifetime_member@foo.bar",
     "FirstName" => "Lifetime",
-    "Id" => "lifetime_member",
+    "Id" => 5,
     "LastName" => "Member",
     "MembershipLevel" => %{
       "Id" => "1234567",
@@ -137,7 +137,7 @@ defmodule Erlef.Test.WildApricot do
     "DisplayName" => "Fellow Member",
     "Email" => "fellow@foo.bar",
     "FirstName" => "Fellow",
-    "Id" => "fellow_member",
+    "Id" => 6,
     "LastName" => "Member",
     "MembershipLevel" => %{
       "Id" => "1234567",
@@ -196,7 +196,13 @@ defmodule Erlef.Test.WildApricot do
 
   def start(ref \\ __MODULE__) do
     _tid = :ets.new(__MODULE__, [:named_table, :public, {:write_concurrency, true}])
-    Enum.each(@stub_data_map, fn {k, v} -> true = :ets.insert(__MODULE__, {k, v}) end)
+
+    Enum.each(@stub_data_map, fn {k, v} ->
+      true = :ets.insert(__MODULE__, {k, v})
+      true = :ets.insert(__MODULE__, {v["Id"], v})
+      true = :ets.insert(__MODULE__, {Integer.to_string(v["Id"]), v})
+    end)
+
     Plug.Cowboy.http(__MODULE__, [], ref: ref, port: 9999)
   end
 

@@ -5,6 +5,7 @@ defmodule Erlef.Factory do
 
   alias Erlef.Repo
   alias Erlef.Publications.AcademicPaper
+  alias Erlef.Accounts.Member
   alias Erlef.Community.Event
   alias Erlef.Groups.{WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer, Volunteer}
 
@@ -28,6 +29,23 @@ defmodule Erlef.Factory do
       language: "English",
       url: Faker.Internet.url(),
       technologies: ["BEAM"]
+    }
+  end
+
+  def build(:member) do
+    %Member{
+      deactivated_at: nil,
+      has_email_address: false,
+      has_email_alias: false,
+      is_app_admin: false,
+      is_archived: false,
+      is_donor: false,
+      member_since: ~D[2019-05-30],
+      membership_enabled: true,
+      membership_level: :basic,
+      roles: [],
+      suspended_member: false,
+      terms_of_use_accepted: true
     }
   end
 
@@ -85,6 +103,12 @@ defmodule Erlef.Factory do
     for _i <- 1..n do
       insert!(factory_name, attributes)
     end
+  end
+
+  def insert_member!(name) do
+    {:ok, contact} = Erlef.Test.WildApricot.get_contact(name)
+    params = Erlef.Accounts.to_member_params(contact, %{from: :wildapricot})
+    insert!(:member, params)
   end
 
   def params_for(factory_name, attributes \\ []) do

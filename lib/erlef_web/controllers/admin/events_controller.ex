@@ -10,7 +10,7 @@ defmodule ErlefWeb.Admin.EventController do
 
   def show(conn, %{"id" => id}) do
     event = Community.get_event(id)
-    {:ok, member} = Accounts.get_member(event.submitted_by)
+    member = Accounts.get_member!(event.submitted_by)
 
     render(conn,
       changeset: Erlef.Community.change_event(event),

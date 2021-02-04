@@ -12,7 +12,7 @@ defmodule ErlefWeb.WorkingGroup.ReportControllerTest do
   end
 
   setup do
-    {:ok, member} = Erlef.Accounts.get_member("wg_chair")
+    member = insert_member!("wg_chair")
     opts = [audit: %{member_id: member.id}]
     {:ok, v} = Erlef.Groups.create_volunteer(%{name: member.name, member_id: member.id}, opts)
     wgv = insert!(:working_group_volunteer, volunteer: v)

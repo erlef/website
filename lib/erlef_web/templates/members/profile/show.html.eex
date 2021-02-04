@@ -17,7 +17,7 @@
 
       <hr class="mb-4"/>
       <h1>Requests</h1>
-      <%= if @current_user.is_paying? && not @current_user.has_email_address? && not @has_email_request do %> 
+      <%= if is_paying?(@current_user) && not @current_user.has_email_address && not @has_email_request do %> 
         <div class="alert alert-info" role="alert">
           You are eligible for a erlef.org email address or alias. 
           <%= link("Click here to opt in", to: Routes.members_email_request_path(@conn, :new)) %>

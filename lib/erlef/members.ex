@@ -8,6 +8,7 @@ defmodule Erlef.Members do
   alias Erlef.Members.EmailRequestNotification
   alias Erlef.Mailer
   alias Erlef.Admins
+  alias Erlef.Accounts.Member
 
   import Ecto.Query
 
@@ -107,9 +108,9 @@ defmodule Erlef.Members do
           %{erlef_email_address: email, has_email_box?: false, has_email_alias?: true}
       end
 
-    case Erlef.Accounts.get_member(req.submitted_by) do
-      {:ok, member} ->
-        Erlef.Accounts.update_member(member, update)
+    case Erlef.Accounts.get_member!(req.submitted_by) do
+      %Member{} = member ->
+        Erlef.Accounts.update_member(member, update, update_external: true)
 
       err ->
         err

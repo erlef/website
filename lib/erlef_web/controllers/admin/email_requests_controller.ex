@@ -10,7 +10,7 @@ defmodule ErlefWeb.Admin.EmailRequestController do
 
   def show(conn, %{"id" => id}) do
     req = Members.get_email_request(id)
-    {:ok, member} = Erlef.Accounts.get_member(req.submitted_by)
+    member = Erlef.Accounts.get_member!(req.submitted_by)
 
     req = cast_assigned_to(req, conn)
 
@@ -55,7 +55,7 @@ defmodule ErlefWeb.Admin.EmailRequestController do
         %{req | assigned_to: conn.assigns.current_user}
 
       _not_current_user ->
-        {:ok, member} = Erlef.Accounts.get_member(req.assigned_to)
+        member = Erlef.Accounts.get_member!(req.assigned_to)
         %{req | assigned_to: member}
     end
   end

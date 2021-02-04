@@ -10,7 +10,7 @@ defmodule ErlefWeb.Members.ProfileViewTest do
   end
 
   test "member_level/1" do
-    member = %Member{membership_level: %{"Name" => "level"}}
-    assert "level" == ProfileView.member_level(member)
+    member = %Member{membership_level: :basic}
+    assert "Basic Membership" == ProfileView.member_level(member)
   end
 end

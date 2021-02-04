@@ -15,6 +15,19 @@ defmodule Erlef.Session do
     :expires_at,
     :erlef_app_id
   ]
+
+  @derive {Jason.Encoder,
+           only: [
+             :access_token,
+             :account_id,
+             :erlef_app_id,
+             :expires_at,
+             :member_id,
+             :refresh_token,
+             :username,
+             :wildapricot_id
+           ]}
+
   defstruct [
     :account_id,
     :member,
@@ -23,7 +36,8 @@ defmodule Erlef.Session do
     :refresh_token,
     :username,
     :expires_at,
-    :erlef_app_id
+    :erlef_app_id,
+    :wildapricot_id
   ]
 
   @type auth_data() :: map()
@@ -31,7 +45,7 @@ defmodule Erlef.Session do
   @type t() :: %__MODULE__{
           account_id: String.t(),
           member_id: String.t(),
-          member: Erlef.Accounts.Member.t(),
+          member: Member.t(),
           access_token: String.t(),
           refresh_token: String.t(),
           username: String.t(),
@@ -49,39 +63,13 @@ defmodule Erlef.Session do
     "erlef_app_id" => :erlef_app_id
   }
 
-  @spec new(map()) :: t()
-  def new(%{"expires_in" => expires_in} = data) do
-    %{
-      "Permissions" => [%{"AccountId" => aid} | _],
-      "access_token" => token,
-      "refresh_token" => refresh_token
-    } = data
-
-    {:ok, %{"Id" => uid, "DisplayName" => username}} = Erlef.WildApricot.me(aid, token)
-
-    {:ok, member} = Erlef.Accounts.get_member(uid)
-
-    member = maybe_put_uuid(member)
-
-    %__MODULE__{
-      account_id: aid,
-      member: member,
-      member_id: uid,
-      erlef_app_id: member.id,
-      access_token: token,
-      refresh_token: refresh_token,
-      username: username,
-      expires_at: expires_at(expires_in)
-    }
-  end
-
   @spec build(map()) :: t() | nil | {:error, term()}
 
   def build(nil), do: nil
 
   def build(data) do
     with {:ok, normal} <- normalize(data),
-         {:ok, member} <- get_member(normal.member_id) do
+         %Member{} = member <- get_member(normal.member_id) do
       struct(__MODULE__, Map.put(normal, :member, member))
     else
       {:error, :timeout} ->
@@ -90,18 +78,6 @@ defmodule Erlef.Session do
       err ->
         err
     end
-  end
-
-  def encode(%{"member_session" => session = %__MODULE__{}} = data) do
-    map =
-      session
-      |> Map.from_struct()
-      |> Map.delete(:member)
-
-    member = Map.from_struct(session.member)
-
-    updated = Map.put(data, "member_session", Map.put(map, :member, member))
-    Jason.encode(updated)
   end
 
   def encode(val), do: Jason.encode(val)
@@ -130,7 +106,7 @@ defmodule Erlef.Session do
   def login(code) do
     case Erlef.WildApricot.login(code) do
       {:ok, data} ->
-        {:ok, new(data)}
+        {:ok, init_session(data)}
 
       {:error, %{"error_description" => "No account can be accessed with specified credentials."}} ->
         {:error, "Invalid login"}
@@ -149,7 +125,7 @@ defmodule Erlef.Session do
   def refresh(%{refresh_token: refresh_token}) do
     case Erlef.WildApricot.refresh(refresh_token) do
       {:ok, data} ->
-        {:ok, new(data)}
+        {:ok, init_session(data)}
 
       err ->
         err
@@ -163,6 +139,35 @@ defmodule Erlef.Session do
     case Timex.diff(dt, DateTime.utc_now(), :minutes) do
       n when n < 15 -> true
       _ -> false
+    end
+  end
+
+  defp init_session(%{"expires_in" => expires_in} = data) do
+    %{
+      "Permissions" => [%{"AccountId" => aid} | _],
+      "access_token" => token,
+      "refresh_token" => refresh_token
+    } = data
+
+    with {:ok, %{"Id" => uid}} <- Erlef.WildApricot.me(aid, token),
+         {:ok, contact} <- Erlef.WildApricot.get_contact(uid),
+         member <- Accounts.get_member_by_external_id(uid),
+         {:ok, member} <- maybe_create_member(member, contact),
+         {:ok, member} <- maybe_update_member(member, contact) do
+      %__MODULE__{
+        account_id: aid,
+        member: member,
+        wildapricot_id: uid,
+        member_id: member.id,
+        erlef_app_id: member.id,
+        access_token: token,
+        refresh_token: refresh_token,
+        username: member.name,
+        expires_at: expires_at(expires_in)
+      }
+    else
+      _err ->
+        :error
     end
   end
 
@@ -190,25 +195,21 @@ defmodule Erlef.Session do
     end)
   end
 
-  defp get_member(uid) when not is_nil(uid) do
-    Accounts.get_member(uid)
-  end
+  defp get_member(uid) when not is_nil(uid), do: Accounts.get_member(uid)
 
   defp get_member(_), do: nil
 
-  defp maybe_put_uuid(%Member{id: ""} = member) do
-    put_uuid(member)
+  defp maybe_create_member(nil, contact) do
+    params = Accounts.to_member_params(contact, %{from: :wildapricot})
+    create_member(params)
   end
 
-  defp maybe_put_uuid(%Member{id: nil} = member) do
-    put_uuid(member)
+  defp maybe_create_member(member, _), do: {:ok, member}
+
+  defp maybe_update_member(member, contact) do
+    params = Accounts.to_member_params(contact, %{from: :wildapricot})
+    Accounts.update_member(member, params)
   end
 
-  defp maybe_put_uuid(member), do: member
-
-  defp put_uuid(member) do
-    uuid = Ecto.UUID.generate()
-    Accounts.update_member(member, %{id: uuid})
-    %{member | id: uuid}
-  end
+  defp create_member(params), do: Accounts.create_member(params)
 end

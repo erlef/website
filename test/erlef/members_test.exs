@@ -1,13 +1,14 @@
 defmodule Erlef.MembersTest do
   use Erlef.DataCase
 
+  alias Erlef.Accounts
   alias Erlef.Members
   alias Erlef.Members.EmailRequest
   import Swoosh.TestAssertions
 
-  setup_all do
-    {:ok, member} = Erlef.Accounts.get_member("annual_member")
-    {:ok, admin} = Erlef.Accounts.get_member("admin")
+  setup do
+    member = insert_member!("annual_member")
+    admin = insert_member!("admin")
     [member: member, admin: admin]
   end
 
@@ -89,8 +90,9 @@ defmodule Erlef.MembersTest do
                  submitted_by: member.id
                })
 
+      member = Accounts.get_member!(member.id)
+      member = %{member | erlef_email_address: "starbelly@erlef.org"}
       assert Members.complete_email_request(%{id: req.id, password: "hunter42"})
-      {:ok, member} = Erlef.Accounts.get_member("annual_member")
       assert_email_sent(Members.EmailRequestNotification.email_box_created(member, "hunter42"))
     end
   end

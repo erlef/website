@@ -50,7 +50,7 @@ defmodule ErlefWeb.Router do
 
   pipeline :admin_required do
     plug :put_layout, {ErlefWeb.Admin.LayoutView, "app.html"}
-    plug ErlefWeb.Plug.RequiresAdmin
+    plug ErlefWeb.Plug.Authz.Admin
   end
 
   pipeline :session_required do
@@ -59,7 +59,6 @@ defmodule ErlefWeb.Router do
 
   pipeline :working_group do
     plug ErlefWeb.Plug.CurrentWorkingGroup
-    # plug ErlefWeb.Plug.Authz.Volunteer
   end
 
   pipeline :chair_required do

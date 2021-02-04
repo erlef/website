@@ -3,7 +3,7 @@ defmodule ErlefWeb.WorkingGroupControllerTest do
 
   setup do
     # Get existing wg_chair member from wildapricot fake server
-    {:ok, chair} = Erlef.Accounts.get_member("wg_chair")
+    chair = insert_member!("wg_chair")
     volunteer = insert!(:volunteer, member_id: chair.id)
     wg = insert!(:working_group)
     insert!(:working_group_volunteer, volunteer: volunteer, working_group: wg)

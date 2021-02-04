@@ -32,10 +32,16 @@ if Erlef.is_env?(:dev) do
   end
 
   # Add wg_chair as chair of all working groups for dev/test purposes
-  {:ok, admin} = Accounts.get_member("admin")
-  {:ok, member} = Accounts.get_member("wg_chair")
+  {:ok, admin_contact} = Erlef.Test.WildApricot.get_contact("admin")
+  params = Accounts.Member.params_from_contact(admin_contact)
+  {:ok, admin} = Accounts.create_member(params)
+
+  {:ok, wg_chair_contact} = Erlef.Test.WildApricot.get_contact("wg_chair")
+  params = Accounts.Member.params_from_contact(wg_chair_contact)
+  {:ok, wg_chair} = Accounts.create_member(params)
+
   audit_data = %{member_id: admin.id} 
-  {:ok, v} = Groups.create_volunteer(%{name: member.name, member_id: member.id}, audit: audit_data) 
+  {:ok, v} = Groups.create_volunteer(%{name: wg_chair.name, member_id: wg_chair.id}, audit: audit_data) 
   for wg <- Groups.list_working_groups() do 
     Groups.create_wg_volunteer(wg, v, audit: audit_data)
     Groups.create_wg_chair(wg, v, audit: audit_data)

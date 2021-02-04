@@ -61,7 +61,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-dropdown">
                 <%= link("Profile", to: "/members/profile", class: "dropdown-item") %>
 
-                <%= if @current_user.is_app_admin? do %>
+                <%= if @current_user.is_app_admin do %>
                   <a href="/admin" class="dropdown-item">Administration</a>
                 <% end %>
 

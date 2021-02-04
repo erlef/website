@@ -7,8 +7,8 @@ defmodule ErlefWeb.WorkingGroup.SettingsControllerTest do
 
   setup do
     v = insert!(:volunteer)
-    {:ok, member} = Erlef.Accounts.get_member("wg_chair")
-    {:ok, admin} = Erlef.Accounts.get_member("admin")
+    member = insert_member!("wg_chair")
+    admin = insert_member!("admin")
     chair = insert!(:volunteer, member_id: member.id)
     wg = insert!(:working_group)
     audit_opts = [audit: %{member_id: admin.id}]
