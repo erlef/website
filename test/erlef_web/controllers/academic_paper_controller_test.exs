@@ -5,18 +5,18 @@ defmodule ErlefWeb.AcademicPaperControllerTest do
 
   setup do
     beam =
-      insert_list(3, :academic_papers, %{technologies: ["BEAM"], published_at: DateTime.utc_now()})
+      insert_list!(3, :academic_paper, %{technologies: ["BEAM"], published_at: datetime_utc_now()})
 
     erlang =
-      insert_list(2, :academic_papers, %{
+      insert_list!(2, :academic_paper, %{
         technologies: ["Erlang"],
-        published_at: DateTime.utc_now()
+        published_at: datetime_utc_now()
       })
 
     elixir =
-      insert_list(1, :academic_papers, %{
+      insert_list!(1, :academic_paper, %{
         technologies: ["Elixir"],
-        published_at: DateTime.utc_now()
+        published_at: datetime_utc_now()
       })
 
     {:ok, %{academic_papers: beam ++ erlang ++ elixir}}

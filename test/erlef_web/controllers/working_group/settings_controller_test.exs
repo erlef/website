@@ -6,11 +6,11 @@ defmodule ErlefWeb.WorkingGroup.SettingsControllerTest do
   alias Erlef.Repo
 
   setup do
-    v = insert(:volunteer)
+    v = insert!(:volunteer)
     {:ok, member} = Erlef.Accounts.get_member("wg_chair")
     {:ok, admin} = Erlef.Accounts.get_member("admin")
-    chair = insert(:volunteer, member_id: member.id)
-    wg = insert(:working_group)
+    chair = insert!(:volunteer, member_id: member.id)
+    wg = insert!(:working_group)
     audit_opts = [audit: %{member_id: admin.id}]
 
     {:ok, %WorkingGroupChair{}} = Groups.create_wg_chair(wg, chair, audit_opts)
@@ -29,10 +29,10 @@ defmodule ErlefWeb.WorkingGroup.SettingsControllerTest do
   #   setup do
   #     # Get existing wg_chair member from wildapricot fake server
   #     {:ok, chair} = Erlef.Accounts.get_member("wg_chair")
-  #     volunteer = insert(:volunteer, member_id: chair.id)
-  #     wg = insert(:working_group)
-  #     insert(:working_group_volunteer, volunteer: volunteer, working_group: wg)
-  #     insert(:working_group_chair, volunteer: volunteer, working_group: wg)
+  #     volunteer = insert!(:volunteer, member_id: chair.id)
+  #     wg = insert!(:working_group)
+  #     insert!(:working_group_volunteer, volunteer: volunteer, working_group: wg)
+  #     insert!(:working_group_chair, volunteer: volunteer, working_group: wg)
   #     [chair: chair, volunteer: volunteer, working_group: wg]
   #   end
 

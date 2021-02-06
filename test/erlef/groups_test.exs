@@ -7,9 +7,9 @@ defmodule Erlef.GroupsTest do
   @audit_opts [audit: %{member_id: Ecto.UUID.generate()}]
 
   setup do
-    v = insert(:volunteer)
-    chair = insert(:volunteer)
-    wg = insert(:working_group)
+    v = insert!(:volunteer)
+    chair = insert!(:volunteer)
+    wg = insert!(:working_group)
 
     audit_params = [audit: %{member_id: chair.id}]
 

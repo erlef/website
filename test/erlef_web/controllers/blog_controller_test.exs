@@ -9,8 +9,8 @@ defmodule ErlefWeb.BlogControllerTest do
         description: "members for a fellowship role"
       })
 
-    wgv = insert(:working_group_volunteer, working_group: wg)
-    insert(:working_group_chair, volunteer: wgv.volunteer, working_group: wgv.working_group)
+    wgv = insert!(:working_group_volunteer, working_group: wg)
+    insert!(:working_group_chair, volunteer: wgv.volunteer, working_group: wgv.working_group)
     [working_group: wgv.working_group]
   end
 

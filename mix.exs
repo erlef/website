@@ -53,7 +53,6 @@ defmodule Erlef.MixProject do
       {:etso, "~> 0.1.2"},
       {:ex_aws, "~> 2.1.6"},
       {:ex_aws_s3, "~> 2.1.0"},
-      {:ex_machina, "~> 2.4.0", only: :test},
       {:excoveralls, "~> 0.13.4"},
       {:extwitter, "~> 0.12.2"},
       {:faker, "~> 0.16.0", only: :test},

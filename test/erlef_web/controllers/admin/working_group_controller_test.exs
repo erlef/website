@@ -35,9 +35,9 @@ defmodule ErlefWeb.Admin.WorkingGroupControllerTest do
   }
 
   setup do
-    v = insert(:volunteer)
-    chair = insert(:volunteer)
-    wg = insert(:working_group)
+    v = insert!(:volunteer)
+    chair = insert!(:volunteer)
+    wg = insert!(:working_group)
     {:ok, admin} = Erlef.Accounts.get_member("admin")
 
     audit_opts = [audit: %{member_id: admin.id}]
