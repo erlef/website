@@ -6,10 +6,10 @@ defmodule ErlefWeb.API.V1.Member.WorkingGroupsControllerTest do
   alias Erlef.Groups.{WorkingGroupVolunteer, WorkingGroupChair}
 
   setup %{conn: conn} do
-    v = insert(:volunteer)
-    chair = insert(:volunteer)
-    wg1 = insert(:working_group)
-    wg2 = insert(:working_group)
+    v = insert!(:volunteer)
+    chair = insert!(:volunteer)
+    wg1 = insert!(:working_group)
+    wg2 = insert!(:working_group)
 
     audit_params = [audit: %{member_id: chair.id}]
 

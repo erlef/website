@@ -13,8 +13,8 @@ defmodule Erlef.PublicationsTest do
     end
 
     test "returns active academic papers" do
-      insert_list(3, :academic_papers)
-      deleted = insert(:academic_papers, %{deleted_at: DateTime.utc_now()})
+      insert_list!(3, :academic_paper)
+      deleted = insert!(:academic_paper, %{deleted_at: datetime_utc_now()})
       academic_papers = Query.all(Repo)
 
       assert 3 = Enum.count(academic_papers)
@@ -28,13 +28,13 @@ defmodule Erlef.PublicationsTest do
     end
 
     test "returns active published academic papers" do
-      insert_list(3, :academic_papers)
-      insert_list(2, :academic_papers, %{published_at: DateTime.utc_now()})
+      insert_list!(3, :academic_paper)
+      insert_list!(2, :academic_paper, %{published_at: datetime_utc_now()})
 
       deleted =
-        insert(:academic_papers, %{
-          published_at: DateTime.utc_now(),
-          deleted_at: DateTime.utc_now()
+        insert!(:academic_paper, %{
+          published_at: datetime_utc_now(),
+          deleted_at: datetime_utc_now()
         })
 
       academic_papers = Query.published(Repo)
@@ -50,9 +50,9 @@ defmodule Erlef.PublicationsTest do
     end
 
     test "returns active unpublished academic papers" do
-      insert_list(3, :academic_papers)
-      insert_list(2, :academic_papers, %{published_at: DateTime.utc_now()})
-      deleted = insert(:academic_papers, %{deleted_at: DateTime.utc_now()})
+      insert_list!(3, :academic_paper)
+      insert_list!(2, :academic_paper, %{published_at: datetime_utc_now()})
+      deleted = insert!(:academic_paper, %{deleted_at: datetime_utc_now()})
 
       academic_papers = Query.unpublished(Repo)
 
@@ -68,14 +68,14 @@ defmodule Erlef.PublicationsTest do
 
     test "returns active academic paper with a valid id" do
       title = "Fear & Loathing on the Campaign Trail '72"
-      academic_paper = insert(:academic_papers, %{title: title})
+      academic_paper = insert!(:academic_paper, %{title: title})
 
       assert found = Query.get(academic_paper.id, Repo)
       assert title == found.title
     end
 
     test "returns nil for inactive academic paper with a valid id" do
-      academic_paper = insert(:academic_papers, %{deleted_at: DateTime.utc_now()})
+      academic_paper = insert!(:academic_paper, %{deleted_at: datetime_utc_now()})
 
       refute Query.get(academic_paper.id, Repo)
     end
@@ -117,7 +117,7 @@ defmodule Erlef.PublicationsTest do
 
   describe "update/1" do
     setup do
-      {:ok, academic_paper: insert(:academic_papers)}
+      {:ok, academic_paper: insert!(:academic_paper)}
     end
 
     test "returns error if the required fields are not set", %{academic_paper: academic_paper} do
@@ -165,7 +165,7 @@ defmodule Erlef.PublicationsTest do
 
   describe "delete/1" do
     setup do
-      {:ok, academic_paper: insert(:academic_papers)}
+      {:ok, academic_paper: insert!(:academic_paper)}
     end
 
     test "returns the deleted academic paper on success", %{academic_paper: academic_paper} do

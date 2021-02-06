@@ -2,13 +2,13 @@ defmodule Erlef.Factory do
   @moduledoc """
   Factory module for database test support
   """
-  use ExMachina.Ecto, repo: Erlef.Repo
 
+  alias Erlef.Repo
   alias Erlef.Publications.AcademicPaper
   alias Erlef.Community.Event
   alias Erlef.Groups.{WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer, Volunteer}
 
-  def event_factory do
+  def build(:event) do
     %Event{
       title: Faker.Lorem.sentence(),
       description: Faker.Lorem.paragraph(),
@@ -20,18 +20,18 @@ defmodule Erlef.Factory do
     }
   end
 
-  def academic_papers_factory do
+  def build(:academic_paper) do
     %AcademicPaper{
       id: Ecto.UUID.generate(),
-      title: sequence(:title, &"Cool Title #{&1}"),
+      title: Faker.Lorem.sentence(),
       author: "#{Faker.Person.first_name()} #{Faker.Person.last_name()}",
       language: "English",
-      url: sequence(:url, &"https://example.com/paper_#{&1}"),
+      url: Faker.Internet.url(),
       technologies: ["BEAM"]
     }
   end
 
-  def volunteer_factory do
+  def build(:volunteer) do
     %Volunteer{
       member_id: Ecto.UUID.generate(),
       name: Faker.Person.name(),
@@ -39,7 +39,7 @@ defmodule Erlef.Factory do
     }
   end
 
-  def working_group_factory do
+  def build(:working_group) do
     %WorkingGroup{
       description: "To do things",
       formed: Faker.Date.backward(365),
@@ -55,17 +55,54 @@ defmodule Erlef.Factory do
     }
   end
 
-  def working_group_volunteer_factory do
+  def build(:working_group_volunteer) do
     %WorkingGroupVolunteer{
       working_group: build(:working_group),
       volunteer: build(:volunteer)
     }
   end
 
-  def working_group_chair_factory do
+  def build(:working_group_chair) do
     %WorkingGroupChair{
       working_group: build(:working_group),
       volunteer: build(:volunteer)
     }
+  end
+
+  def build(factory_name, attributes) do
+    factory_name |> build() |> struct!(attributes)
+  end
+
+  def datetime_utc_now() do
+    DateTime.truncate(DateTime.utc_now(), :second)
+  end
+
+  def insert!(factory_name, attributes \\ []) do
+    factory_name |> build(attributes) |> Repo.insert!()
+  end
+
+  def insert_list!(n, factory_name, attributes \\ []) do
+    for _i <- 1..n do
+      insert!(factory_name, attributes)
+    end
+  end
+
+  def params_for(factory_name, attributes \\ []) do
+    factory_name
+    |> build(attributes)
+    |> Map.from_struct()
+    |> Map.delete(:__meta__)
+  end
+
+  def string_params_for(factory_name, attributes \\ []) do
+    factory_name
+    |> params_for(attributes)
+    |> to_string_keyed_map()
+  end
+
+  defp to_string_keyed_map(atom_map) do
+    Enum.reduce(atom_map, %{}, fn {k, v}, acc ->
+      Map.put(acc, Atom.to_string(k), v)
+    end)
   end
 end

@@ -11,21 +11,21 @@ defmodule Erlef.AgendaTest do
   setup do
     # Set check interval to half a second
     wg0 =
-      insert(:working_group,
+      insert!(:working_group,
         meta: %{public_calendar: "http://127.0.0.1:9998/calendars/observability.ics"}
       )
 
-    wg1 = insert(:working_group)
+    wg1 = insert!(:working_group)
 
     # Bad setup
-    wg2 = insert(:working_group, %{meta: %{public_calendar: "http://127.0.0.1:9998/calendars"}})
+    wg2 = insert!(:working_group, %{meta: %{public_calendar: "http://127.0.0.1:9998/calendars"}})
 
-    _v = insert(:working_group_volunteer, working_group: wg0)
-    _v = insert(:working_group_volunteer, working_group: wg1)
-    _v = insert(:working_group_volunteer, working_group: wg2)
-    _c = insert(:working_group_chair, working_group: wg0)
-    _c = insert(:working_group_chair, working_group: wg1)
-    _c = insert(:working_group_chair, working_group: wg2)
+    _v = insert!(:working_group_volunteer, working_group: wg0)
+    _v = insert!(:working_group_volunteer, working_group: wg1)
+    _v = insert!(:working_group_volunteer, working_group: wg2)
+    _c = insert!(:working_group_chair, working_group: wg0)
+    _c = insert!(:working_group_chair, working_group: wg1)
+    _c = insert!(:working_group_chair, working_group: wg2)
     :ok
   end
 
