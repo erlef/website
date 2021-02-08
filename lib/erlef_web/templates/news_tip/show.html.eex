@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <h1>News tip</h1>
+    </div>
+    <div class="col-sm-2 offset-sm-6">
+       <span><%= link "Back to yours news tips", to: Routes.news_tip_path(@conn, :index) %></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <strong>Type:</strong>
+      <p>
+        <%= @news_tip.type %>
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <strong>Who:</strong>
+  <p>
+    <%= @news_tip.who %>
+  </p>
+  </div>
+
+  <div>
+    <strong>What:</strong>
+    <p><%= @news_tip.what %></p>
+  </div>
+
+  <div>
+    <strong>When:</strong>
+    <p><%= @news_tip.at_when %></p>
+  </div>
+
+  <div>
+    <strong>Where:</strong>
+    <p><%= @news_tip.at_where %></p>
+  </div>
+
+  <div>
+    <strong>Why:</strong>
+    <p><%= @news_tip.why %> </p>
+  </div>
+
+  <div>
+    <strong>How:</strong>
+    <p><%= @news_tip.how %></p>
+  </div>
+
+  <div>
+    <strong>Additional info:</strong>
+    <p><%= @news_tip.additional_info %></p>
+  </div>
+  
+</div>

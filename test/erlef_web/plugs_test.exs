@@ -40,7 +40,7 @@ defmodule ErlefWeb.PlugsTest do
       conn = Authz.call(conn, [])
       assert redirected_to(conn) == Routes.page_path(conn, :index)
 
-      assert get_flash(conn, :error) =~
+      assert get_flash(conn, :notice) =~
                "The resource you requested requires that you are logged in"
     end
   end

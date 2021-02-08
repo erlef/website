@@ -1,0 +1,4 @@
+<div class="container">
+  <h1>Submit a news tip</h1>
+  <%= render "form.html", Map.put(assigns, :action, Routes.news_tip_path(@conn, :create)) %>
+</div>

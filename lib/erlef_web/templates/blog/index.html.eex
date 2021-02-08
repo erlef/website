@@ -5,6 +5,11 @@
       <p class="lead">
       <%= @description %>
       </p>
+      <%= if logged_in?(assigns) do %>
+        <%= link("Submit a news tip", to: Routes.news_tip_path(@conn, :new)) %>
+      <% else %>
+      <p>Do you have news to share? <a href="https://members.erlef.org/join-us">Join us</a> and submit a        news tip</a>.</p>
+    <% end %>
     </div>
   </div>
   <%= if @posts != [] do %>
@@ -96,6 +101,11 @@
             the <a href="mailto:marketing@erlef.org">Marketing Working Group</a>
             </p>
           </div>
+
+          <p>
+            <%= link("Submit a news tip", to: Routes.news_tip_path(@conn, :new), class: "mb-2") %>
+          </p>
+
           <%= render(ErlefWeb.BlogView, "recent_posts.html", latest_news: @latest_news, all_tags: @all_tags) %>
         </aside>
       </div>

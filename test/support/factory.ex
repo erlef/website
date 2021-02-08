@@ -8,6 +8,22 @@ defmodule Erlef.Factory do
   alias Erlef.Accounts.Member
   alias Erlef.Community.Event
   alias Erlef.Groups.{WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer, Volunteer}
+  alias Erlef.News.NewsTip
+
+  def build(:news_tip) do
+    %NewsTip{
+      type: :announcement,
+      status: :queued,
+      who: Faker.Lorem.sentence(),
+      what: Faker.Lorem.paragraph(),
+      at_where: Faker.Lorem.sentence(),
+      at_when: Faker.Lorem.sentence(),
+      why: Faker.Lorem.paragraph(),
+      how: Faker.Lorem.paragraph(),
+      supporting_documents: [%{url: Faker.Internet.url(), mime: "image/png"}],
+      additional_info: Faker.Lorem.sentence()
+    }
+  end
 
   def build(:event) do
     %Event{
@@ -34,6 +50,10 @@ defmodule Erlef.Factory do
 
   def build(:member) do
     %Member{
+      name: "#{Faker.Person.first_name()} #{Faker.Person.last_name()}",
+      first_name: Faker.Person.first_name(),
+      last_name: Faker.Person.last_name(),
+      email: Faker.Internet.email(),
       deactivated_at: nil,
       has_email_address: false,
       has_email_alias: false,
@@ -45,7 +65,8 @@ defmodule Erlef.Factory do
       membership_level: :basic,
       roles: [],
       suspended_member: false,
-      terms_of_use_accepted: true
+      terms_of_use_accepted: true,
+      external: %{source: :wildapricot, id: :rand.uniform(10_000)}
     }
   end
 

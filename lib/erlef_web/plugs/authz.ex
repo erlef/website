@@ -18,7 +18,7 @@ defmodule ErlefWeb.Plug.Authz do
 
   defp redirect(conn) do
     conn
-    |> Phoenix.Controller.put_flash(:error, error_msg())
+    |> Phoenix.Controller.put_flash(:notice, error_msg())
     |> Phoenix.Controller.redirect(to: "/")
     |> Plug.Conn.halt()
   end

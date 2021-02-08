@@ -38,6 +38,11 @@ defmodule ErlefWeb.ConnCase do
         |> Plug.Conn.fetch_session()
       end
 
+      def basic_session(%{conn: conn}) do
+        member = insert_member!("basic_member")
+        [current_user: member, conn: authenticated_conn(conn, "basic_member")]
+      end
+
       def admin_session(%{conn: conn}) do
         [conn: authenticated_conn(conn, "admin")]
       end

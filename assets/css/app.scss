@@ -256,3 +256,8 @@ div.card-body.legend { font-size: 0.9em !important;}
 .legend .row:nth-of-type(odd) div {
     background: #ffffff;
 }
+
+label.required:after {
+  content:"*";
+  color:red;
+}

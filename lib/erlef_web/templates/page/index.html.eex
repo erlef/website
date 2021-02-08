@@ -37,14 +37,14 @@
             </div>
         </div>
     </section>
-    <section class="pt-5">
+    <section class="py-0">
         <div class="container">
             <h3 class="mb-4 text-white">Latest news</h3>
             <%= render(ErlefWeb.LayoutView, "twitter_feed.html", assigns) %>
         </div>
     </section>
     <!--hero-->
-    <section class="latest-news py-5 mb-5 bg-white">
+    <section class="latest-news pt-3 mb-5 bg-white">
         <%= render(ErlefWeb.LayoutView, "news_feed.html", assigns) %>
     </section>
     <section>

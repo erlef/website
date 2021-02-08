@@ -1,0 +1,37 @@
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <h5>My news tips</h5>
+    </div>
+    <div class="col-sm-2 offset-sm-6"> 
+      <span><%= link "Submit a new tip", to: Routes.news_tip_path(@conn, :new) %></span>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Type</th>
+        <th>Who</th>
+        <th>Status</th>
+        <th>Submitted on</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for {news_tip, n} <- Enum.with_index(@news_tips) do %>
+        <tr>
+          <td><%= n + 1 %></td>
+          <td><%= news_tip.type %></td>
+          <td><%= news_tip.who %></td>
+          <td><%= humanize(news_tip.status) %></td>
+          <td><%= long_date(news_tip.inserted_at) %></td>
+          <td>
+            <span><%= link "Show", to: Routes.news_tip_path(@conn, :show, news_tip) %></span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

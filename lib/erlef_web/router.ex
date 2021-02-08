@@ -101,6 +101,11 @@ defmodule ErlefWeb.Router do
     get "/blog/:topic", BlogController, :index, as: :blog
     get "/blog/:topic/:id", BlogController, :show, as: :blog
 
+    scope "/submissions" do
+      pipe_through [:session_required]
+      resources "/news", NewsTipController
+    end
+
     get "/events/:slug", EventController, :show
     get "/events", EventController, :index
 
