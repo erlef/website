@@ -195,7 +195,11 @@ defmodule Erlef.Session do
     end)
   end
 
-  defp get_member(uid) when not is_nil(uid), do: Accounts.get_member(uid)
+  defp get_member(nil), do: nil
+
+  defp get_member(id) when is_integer(id), do: Accounts.get_member_by_external_id(id)
+
+  defp get_member(uid) when is_binary(uid), do: Accounts.get_member(uid)
 
   defp get_member(_), do: nil
 
