@@ -33,11 +33,11 @@ if Erlef.is_env?(:dev) do
 
   # Add wg_chair as chair of all working groups for dev/test purposes
   {:ok, admin_contact} = Erlef.Test.WildApricot.get_contact("admin")
-  params = Accounts.Member.params_from_contact(admin_contact)
+  params = Accounts.to_member_params(admin_contact, %{from: :wildapricot})
   {:ok, admin} = Accounts.create_member(params)
 
   {:ok, wg_chair_contact} = Erlef.Test.WildApricot.get_contact("wg_chair")
-  params = Accounts.Member.params_from_contact(wg_chair_contact)
+  params = Accounts.to_member_params(wg_chair_contact, %{from: :wildapricot})
   {:ok, wg_chair} = Accounts.create_member(params)
 
   audit_data = %{member_id: admin.id} 
