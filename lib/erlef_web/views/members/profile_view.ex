@@ -6,8 +6,7 @@ defmodule ErlefWeb.Members.ProfileView do
   def is_paying?(member), do: Member.is_paying?(member)
 
   def member_since(member) do
-    {:ok, dt, _offset} = DateTime.from_iso8601(member.member_since)
-    Calendar.strftime(dt, "%B, %d, %Y")
+    Calendar.strftime(member.since, "%B, %d, %Y")
   end
 
   def member_level(member) do
