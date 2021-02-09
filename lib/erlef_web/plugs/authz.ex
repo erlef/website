@@ -4,20 +4,23 @@ defmodule ErlefWeb.Plug.Authz do
   """
 
   import Plug.Conn
+  alias Erlef.Accounts.Member
 
   def init(opts), do: opts
 
   def call(conn, _opts) do
-    case get_session(conn, :member_session) do
-      nil ->
-        conn
-        |> Phoenix.Controller.put_flash(:error, error_msg())
-        |> Phoenix.Controller.redirect(to: "/")
-        |> Plug.Conn.halt()
-
-      _ ->
-        conn
+    case {get_session(conn, :member_session), Map.get(conn.assigns, :current_user)} do
+      {_, nil} -> redirect(conn)
+      {nil, _} -> redirect(conn)
+      {%{}, %Member{}} -> conn
     end
+  end
+
+  defp redirect(conn) do
+    conn
+    |> Phoenix.Controller.put_flash(:error, error_msg())
+    |> Phoenix.Controller.redirect(to: "/")
+    |> Plug.Conn.halt()
   end
 
   defp error_msg do
