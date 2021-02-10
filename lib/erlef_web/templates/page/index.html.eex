@@ -39,7 +39,7 @@
     </section>
     <section class="pt-5">
         <div class="container">
-            <h3 class="mb-4 text-white">Latest from the EEF</h3>
+            <h3 class="mb-4 text-white">Latest news</h3>
             <%= render(ErlefWeb.LayoutView, "twitter_feed.html", assigns) %>
         </div>
     </section>
@@ -52,9 +52,9 @@
         <div class="container">
             <div class="row mb-6">
                 <div class="col-md-12">
-                    <h2 class="text-white display-4 font-weight-bold">What does the EEF do?</h2>
+                    <h2 class="text-white display-4 font-weight-bold">What does the Erlang Ecosystem Foundation do?</h2>
                     <p class="lead text-white">
-                        In order to meet the needs of the ecosystem, the EEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology. Areas of particular interest include documentation, interoperability, and performance.
+                        In order to meet the needs of the ecosystem, the ErlEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology. Areas of particular interest include documentation, interoperability, and performance.
                     </p>
                 </div>
             </div>
@@ -76,9 +76,6 @@
     </section>
 
     <section class="py-5 text-white">
-        <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
+      <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
     </section>
-    <!--hero-->
-    <!-- / Mailchimp -->
 </div>
-<!-- #page -->

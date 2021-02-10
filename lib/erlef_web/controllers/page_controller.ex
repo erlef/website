@@ -51,7 +51,11 @@ defmodule ErlefWeb.PageController do
   end
 
   def sponsors(conn, _params) do
-    render(conn, sponsors: Groups.list_sponsors())
+    render(conn)
+  end
+
+  def founding_sponsors(conn, _params) do
+    render(conn)
   end
 
   def wg_proposal_template(conn, _params), do: render(conn, "wg-proposal-template.html")

@@ -13,14 +13,9 @@ defmodule ErlefWeb.PageControllerTest do
     assert html_response(conn, 200) =~ "Bylaws of the"
   end
 
-  test "GET /become-a-sponsor", %{conn: conn} do
-    conn = get(conn, Routes.page_path(conn, :sponsor_info))
-    assert html_response(conn, 200) =~ "Become a sponsor!"
-  end
-
   test "GET /sponsors", %{conn: conn} do
     conn = get(conn, Routes.page_path(conn, :sponsors))
-    assert html_response(conn, 200) =~ "Interested in becoming a sponsor?"
+    assert html_response(conn, 200) =~ "Become a sponsor!"
   end
 
   test "GET /board_members", %{conn: conn} do

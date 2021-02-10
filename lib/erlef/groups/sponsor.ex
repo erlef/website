@@ -3,6 +3,7 @@ defmodule Erlef.Groups.Sponsor do
   use Erlef.Schema
 
   schema "sponsors" do
+    field(:active, :boolean, default: true)
     field(:logo, :string, virtual: true)
     field(:logo_url, :string)
     field(:is_founding_sponsor, :boolean, default: false)
@@ -15,7 +16,7 @@ defmodule Erlef.Groups.Sponsor do
   end
 
   @required [:name, :url, :logo_url, :created_by]
-  @optional [:is_founding_sponsor, :updated_by]
+  @optional [:active, :is_founding_sponsor, :updated_by]
   @permitted @required ++ @optional
 
   @doc false

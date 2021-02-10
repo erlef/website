@@ -5,6 +5,12 @@
     <strong>Name:</strong>
     <%= @sponsor.name %>
   </li>
+  
+  <li>
+    <strong>Active:</strong>
+    <%= humanize(@sponsor.active) %>
+  </li>
+
 
   <li class="mt-4">
     <strong>Is founding sponsor:</strong>

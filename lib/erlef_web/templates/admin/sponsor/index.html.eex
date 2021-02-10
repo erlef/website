@@ -4,26 +4,28 @@
 
 <div class="card">
   <div class="card-body">
-  <table id="sponsors-table" class="table table-striped table-bordered dataTable">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Is founding sponsor</th>
-      <th>Url</th>
-      <th>Logo url</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= for sponsor <- @sponsors do %>
-      <tr>
-        <td><%= link humanize(sponsor.name),  to: Routes.admin_sponsor_path(@conn, :show, sponsor) %></td>
-        <td><%= sponsor.is_founding_sponsor %></td>
-        <td><%= sponsor.url %></td>
-        <td><%= sponsor.logo_url %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table id="sponsors-table" class="table table-striped table-bordered dataTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Active</th>
+          <th>Is founding sponsor</th>
+          <th>Url</th>
+          <th>Logo url</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for sponsor <- @sponsors do %>
+          <tr>
+            <td><%= link humanize(sponsor.name),  to: Routes.admin_sponsor_path(@conn, :show, sponsor) %></td>
+            <td><%= humanize(sponsor.active) %></td>
+            <td><%= sponsor.is_founding_sponsor %></td>
+            <td><%= sponsor.url %></td>
+            <td><%= sponsor.logo_url %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 

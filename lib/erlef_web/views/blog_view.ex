@@ -17,7 +17,7 @@ defmodule ErlefWeb.BlogView do
     month = Timex.month_name(post.datetime.month)
     day = post.datetime.day
     year = post.datetime.year
-    author = post.author
+    author = author_name(post.author)
 
     "#{month} #{day}, #{year} by #{author}"
   end

@@ -1,6 +1,19 @@
 defmodule ErlefWeb.ViewHelpers do
   @moduledoc "View Helpers"
 
+  def author_name("eef"), do: "ErlEF"
+
+  def author_name(name), do: name
+
+  def blog_tag_name("eef"), do: "announcements"
+  def blog_tag_name(name), do: name
+
+  def active_sponsors([]), do: []
+  def active_sponsors(sponsors), do: Enum.filter(sponsors, &(not &1.is_founding_sponsor))
+
+  def founding_sponsors([]), do: []
+  def founding_sponsors(sponsors), do: Enum.filter(sponsors, & &1.is_founding_sponsor)
+
   def long_date(nil), do: ""
 
   def long_date(%DateTime{} = datetime),

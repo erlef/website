@@ -24,16 +24,7 @@ defmodule ErlefWeb.AcademicPaperControllerTest do
 
   test "GET /academic-papers", %{conn: conn} do
     conn = get(conn, Routes.academic_paper_path(conn, :index))
-
-    html =
-      conn
-      |> html_response(200)
-      |> Floki.parse_document!()
-
-    assert "Academic Papers" ==
-             html
-             |> Floki.find("h1")
-             |> Floki.text()
+    html_response(conn, 200)
   end
 
   test "GET /academic-papers live view filtering", %{conn: conn, academic_papers: academic_papers} do

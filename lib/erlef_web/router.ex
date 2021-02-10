@@ -42,6 +42,7 @@ defmodule ErlefWeb.Router do
     plug ErlefWeb.Plug.RemoteAddr
     plug ErlefWeb.Plug.Session
     plug :put_secure_browser_headers, %{"content-security-policy" => @csp}
+    plug ErlefWeb.Plug.Sponsors
   end
 
   pipeline :calendar do
@@ -88,6 +89,7 @@ defmodule ErlefWeb.Router do
     get "/faq", PageController, :faq
     get "/fellows", PageController, :fellows
     get "/sponsors", PageController, :sponsors
+    get "/founding-sponsors", PageController, :founding_sponsors
     get "/become-a-sponsor", PageController, :sponsor_info
     get "/wg-proposal-template", PageController, :wg_proposal_template
 

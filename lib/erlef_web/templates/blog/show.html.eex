@@ -14,7 +14,7 @@
               <%= for t <- @post.tags do %>
                 <span style="font-size: 0.8rem;">
                   <%= link(to: Routes.blog_path(ErlefWeb.Endpoint, :tags, t), class: "blog-tag badge badge-pill badge-primary") do %>
-                    <i class="fas fa-tag mr-1 mt-1"></i><%= t %>
+                    <i class="fas fa-tag mr-1 mt-1"></i><%= blog_tag_name(t) %>
                   <% end %>
                 </span>
               <% end %>

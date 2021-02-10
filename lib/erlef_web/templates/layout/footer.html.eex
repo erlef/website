@@ -1,4 +1,25 @@
-<footer id="colophon" class="site-footer border-top text-center bg-white py-5">
+<footer id="colophon" class="site-footer border-top text-center bg-white py-4">
+     <%= unless @conn.request_path == "/sponsors" do %>
+  <h1 class="display-5 font-weight-bold">Sponsors</h1>
+  Click <%= link("here", to: Routes.page_path(@conn, :sponsors)) %> learn more about sponsors and becoming a sponsor.
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 pr-5">
+        <div class="row text-centertext-lg-left mt-3 mb-3">
+          <%= for %{logo_url: logo_path, url: href} <- @sponsors do %>
+            <div class="col-lg-1">
+              <a href="<%= href %>" class="d-block mb-2">
+                <img class="img-fluid h-100 img-thumbnail sponsor" src="<%= image_path(@conn, logo_path) %>" alt="">
+              </a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+<% end %>
+<div class="mb-4"></div>
   <section class="footer-widgets text-left">
     <div class="container">
       <div class="row">
@@ -6,7 +27,7 @@
           <span>
             <img src="<%=  Routes.static_path(@conn, "/images/eef-logo.svg") %>" width="100" alt="">
           </span>
-          <p class="">Supporting the BEAM community</p>
+          <p>Supporting the BEAM community</p>
         </div>
         <!--col-->
         <div class="col-lg-3">
