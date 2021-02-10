@@ -27,7 +27,7 @@ defmodule ErlefWeb.SlackInviteController do
     else
       {:error, error} ->
         conn
-        |> put_flash(:error, error)
+        |> put_flash(:error, format_error(error))
         |> render("index.html",
           created: false,
           team: team
@@ -49,4 +49,10 @@ defmodule ErlefWeb.SlackInviteController do
       false -> {:error, :invalid_email}
     end
   end
+
+  defp format_error(:invalid_email) do
+    "Invalid email Address"
+  end
+
+  defp format_error(error), do: error
 end
