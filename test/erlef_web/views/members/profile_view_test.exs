@@ -5,7 +5,7 @@ defmodule ErlefWeb.Members.ProfileViewTest do
   alias Erlef.Accounts.Member
 
   test "member_since/1" do
-    member = %Member{member_since: "2019-05-30T08:29:02-07:00"}
+    member = %Member{member_since: ~D[2019-05-30]}
     assert "May, 30, 2019" == ProfileView.member_since(member)
   end
 

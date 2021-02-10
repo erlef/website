@@ -23,10 +23,11 @@ defmodule ErlefWeb.PlugsTest do
       conn =
         conn
         |> init_test_session(%{member_session: session()})
+        |> fetch_flash()
         |> fetch_session()
 
       conn = Authz.call(conn, [])
-      assert conn.state == :unset
+      assert conn.state == :sent
     end
 
     test "when conn does not have a member_session", %{conn: conn} do
