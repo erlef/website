@@ -36,7 +36,7 @@ defmodule Erlef.StipendProposal do
     "report" => {:report, {:binary, 5000}}
   }
 
-  defstruct Map.values(@string_key_map)
+  defstruct Enum.map(@string_key_map, fn {_k, {f, _}} -> f end)
 
   def from_map(params) do
     kept = Map.take(params, Map.keys(@string_key_map))

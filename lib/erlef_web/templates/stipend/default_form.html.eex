@@ -301,6 +301,9 @@
   </div>
 
 
+  <%= hidden_input(f, :type, value: @type) %>
+
+
   <button id="submit_form" class="btn btn-primary mt-2" type="submit">Submit</button>
   <div id="submit_error" class="alert alert-danger d-none">
 

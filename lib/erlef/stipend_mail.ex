@@ -38,14 +38,16 @@ defmodule Erlef.StipendMail do
   defp attach_files(email, []), do: email
 
   defp attach_files(email, files) do
-    Enum.reduce(files, email, fn f, acc ->
-      case f do
-        %Plug.Upload{} ->
-          attachment(acc, f)
+    only_plugs =
+      Enum.filter(files, fn f ->
+        case f do
+          %Plug.Upload{} -> true
+          _ -> false
+        end
+      end)
 
-        _ ->
-          acc
-      end
+    Enum.reduce(only_plugs, email, fn f, acc ->
+      attachment(acc, f)
     end)
   end
 

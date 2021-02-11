@@ -61,7 +61,8 @@ defmodule ErlefWeb.StipendControllerTest do
         region: "Maine",
         report: "How I plan on reporting expenses...",
         twitter: "https://twitter.com/foo",
-        website: "https://epic-site.org/"
+        website: "https://epic-site.org/",
+        type: "devel_work"
       }
 
       upload = %Plug.Upload{path: "test/support/sample.pdf", filename: "sample.pdf"}

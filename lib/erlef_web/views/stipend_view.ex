@@ -321,11 +321,17 @@ defmodule ErlefWeb.StipendView do
       form,
       :stipend_type,
       @types,
-      selected:
-        Enum.find(@types, fn t -> Keyword.get(t, :type) == type end) |> Keyword.get(:value),
+      selected: selected(type),
       id: "stipend_type",
       class: "form-control"
     )
+  end
+
+  defp selected(type) do
+    case Enum.find(@types, fn t -> Keyword.get(t, :type) == type end) do
+      nil -> 0
+      v -> v
+    end
   end
 
   def payment_method_select(form) do

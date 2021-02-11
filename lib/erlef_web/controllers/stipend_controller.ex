@@ -28,7 +28,7 @@ defmodule ErlefWeb.StipendController do
         render(conn)
 
       {:error, errs} ->
-        render(conn, "index.html", params: params, errors: errs)
+        render(conn, "form.html", type: params["type"], params: params, errors: errs)
     end
   end
 end
