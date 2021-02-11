@@ -114,6 +114,8 @@ defmodule ErlefWeb.Router do
     get "/wg/:slug/calendar", WorkingGroupController, :calendar
 
     resources "/stipends", StipendController, only: [:index, :create]
+    get "/stipends/faq", StipendController, :faq
+    get "/stipends/form", StipendController, :form
 
     resources "/slack-invite/:team", SlackInviteController, only: [:create, :index]
 

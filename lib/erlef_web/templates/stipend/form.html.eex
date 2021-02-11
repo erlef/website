@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Stipend request process</h2>
+  <hr />
+  <div class="row">
+    <%= render( "sidebar.html", assigns) %>
+
+    <div class="col-sm-10 mb-2">
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane active show" id="form" role="tabpanel"
+                                           aria-labelledby="pills-contact-tab">
+          <%= if @type == "devel_work" do %>
+            <%= render("devel_form.html", assigns) %>
+          <%= else %>
+            <%= render("default_form.html", assigns) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelector("#stipend_type").addEventListener("change", function(e) {
+    var type = this.options[this.selectedIndex].getAttribute("data-type");
+    window.location = "/stipends/form?type=" + type;
+
+    var required = this.options[this.selectedIndex].getAttribute("data-requires-coc");
+    var show = "#" + type;
+    $(".active-stipend-type-help").removeClass("active-stipend-type-help").addClass("d-none");
+    $(show).addClass("active-stipend-type-help").removeClass("d-none");
+    if (required == "true" || required == true) {
+      $("#coc_input").prop("required", true);
+      $("#coc_link").removeClass("d-none");
+    } else {
+      $("#coc_link").addClass("d-none");
+      $('#coc_input').removeAttr('required');
+    }
+  });
+
+
+$(document).ready(function() { 
+  var show = "#" + "<%= @type %>";
+  $(show).addClass("active-stipend-type-help").removeClass("d-none");
+});
+
+</script>

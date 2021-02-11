@@ -6,6 +6,18 @@ defmodule ErlefWeb.StipendController do
     render(conn, errors: [], params: %{})
   end
 
+  def faq(conn, _params) do
+    render(conn, errors: [], params: %{})
+  end
+
+  def form(conn, %{"type" => type}) do
+    render(conn, errors: [], params: %{}, type: type)
+  end
+
+  def form(conn, _params) do
+    render(conn, errors: [], params: %{}, type: "default")
+  end
+
   def create(%{private: %{phoenix_format: "html"}} = conn, params) do
     files = params["files"] || []
 

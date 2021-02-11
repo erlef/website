@@ -1,0 +1,161 @@
+<div class="container">
+  <h2>Stipend request process</h2>
+  <hr />
+  <div class="row">
+    <%= render( "sidebar.html", assigns) %>
+    <div class="col-sm-10 mb-2">
+      <h2>FAQ</h2>
+      <div class="faq-nav">
+        <div class="tab-content" id="faq-tab-content">
+          <div class="tab-pane show active" id="tab1" role="tabpanel"
+                                                      aria-labelledby="tab1">
+            <div class="accordion" id="accordion-tab-1">
+              <div class="card">
+                <div class="card-header" id="accordion-tab-1-heading-1">
+                  <h5>
+                    <button class="btn btn-link" type="button"
+                                                 data-toggle="collapse"
+                                                 data-target="#accordion-tab-1-content-1"
+                                                 aria-expanded="false"
+                                                 aria-controls="accordion-tab-1-content-1"> When
+                                                 should I submit my stipend request?</button>
+                  </h5>
+                </div>
+                <div class="collapse show" id="accordion-tab-1-content-1"
+                                           aria-labelledby="accordion-tab-1-heading-1"
+                                           data-parent="#accordion-tab-1">
+                  <div class="card-body">
+                    We recommend that stipend requests be submitted at least
+                    12 weeks before the funding is needed.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="accordion-tab-1-heading-2">
+                  <h5>
+                    <button class="btn btn-link" type="button"
+                                                 data-toggle="collapse"
+                                                 data-target="#accordion-tab-1-content-2"
+                                                 aria-expanded="false"
+                                                 aria-controls="accordion-tab-1-content-2">What stipend
+                                                 can I ask for organizing a
+                                                 conference?</button>
+                  </h5>
+                </div>
+                <div class="collapse" id="accordion-tab-1-content-2"
+                                      aria-labelledby="accordion-tab-1-heading-2"
+                                      data-parent="#accordion-tab-1">
+                  <div class="card-body">
+                    <p>The maximum conference stipend size is typically
+                    around 10 USD per
+                    attendee. We prefer to help new events get
+                    established in their community
+                    and we encourage them to apply for different funding
+                    local options as well.
+                    Bigger conferences might be assigned a lower amount
+                    per attendee.
+                    Educational programs run within the conference
+                    should request a separate
+                    budget.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="accordion-tab-1-heading-3">
+                  <h5>
+                    <button class="btn btn-link" type="button"
+                                                 data-toggle="collapse"
+                                                 data-target="#accordion-tab-1-content-3"
+                                                 aria-expanded="false"
+                                                 aria-controls="accordion-tab-1-content-3">
+                      I am organizing a workshop. What stipend can I ask
+                      for?
+                    </button>
+                  </h5>
+                </div>
+                <div class="collapse" id="accordion-tab-1-content-3"
+                                      aria-labelledby="accordion-tab-1-heading-3"
+                                      data-parent="#accordion-tab-1">
+                  <div class="card-body">
+                    <p>Our maximum educational program stipend size is
+                    typically USD 25 per
+                    student, provided the students each receive at least
+                    6 hours of BEAM
+                    languages instruction as part of it, however we are
+                    open to
+                    review this amount on a case by case basis. Please
+                    note that
+                    subsequent requests for workshops in the same area
+                    may be
+                    funded at a lower rate to encourage sustainable,
+                    long-term
+                    relationships with local sponsors.</p>
+                    <p>When submitting your workshop stipend request, it
+                    helps us to see a brief budget as this example:</p>
+                    <table class="table">
+                      <thead>
+                        <th>Items</th>
+                        <th>Unit Cost</th>
+                        <th>Quantity</th>
+                        <th>Total Cost</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Lunch and drinks</td>
+                          <td>9</td>
+                          <td>50</td>
+                          <td>450</td>
+                        </tr>
+                        <tr>
+                          <td>Travel expenses</td>
+                          <td>20</td>
+                          <td>3</td>
+                          <td>60</td>
+                        </tr>
+                        <tr>
+                          <td>Hotel expenses</td>
+                          <td>50</td>
+                          <td>2</td>
+                          <td>100</td>
+                        </tr>
+                        <tr>
+                          <td>Total</td>
+                          <td></td>
+                          <td></td>
+                          <td>610</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header" id="accordion-tab-1-heading-4">
+                  <h5><button class="btn btn-link" type="button"
+                                                   data-toggle="collapse"
+                                                   data-target="#accordion-tab-1-content-4"
+                                                   aria-expanded="false"
+                                                   aria-controls="accordion-tab-1-content-4">
+                      Is there a maximum stipend size that can be
+                      awarded?</button>
+                  </h5>
+                </div>
+                <div class="collapse" id="accordion-tab-1-content-4"
+                                      aria-labelledby="accordion-tab-1-heading-4"
+                                      data-parent="#accordion-tab-1">
+                  <div class="card-body">
+                    <p>There is no maximum, however bear in mind that the
+                    foundation has a limited budget and we reserve the
+                    right of giving a stipend smaller than requested, let
+                    us know if this is a problem for you.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

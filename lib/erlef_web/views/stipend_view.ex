@@ -250,57 +250,79 @@ defmodule ErlefWeb.StipendView do
     {"Zimbabwe", "Zimbabwe"}
   ]
 
-  def stipend_type_select(form) do
+  @types [
+    [
+      key: "Development Work",
+      value: "Development Work",
+      type: "devel_work",
+      "data-type": "devel_work",
+      "data-requires-coc": "false"
+    ],
+    [
+      key: "Conference",
+      value: "conference",
+      type: "conference",
+      "data-type": "conference",
+      "data-requires-coc": "true"
+    ],
+    [
+      key: "Event Site Subscription",
+      value: "Event Site Subscription",
+      type: "event_site_sub",
+      "data-type": "event_site_sub",
+      "data-requires-coc": "false"
+    ],
+    [
+      key: "Kids Coding Camp",
+      value: "Kids Coding Camp",
+      type: "kids_camp",
+      "data-type": "kids_camp",
+      "data-requires-coc": "false"
+    ],
+    [
+      key: "Sprint",
+      type: "sprint",
+      value: "Sprint",
+      "data-type": "sprint",
+      "data-requires-coc": "false"
+    ],
+    [
+      key: "Training Program",
+      value: "Training Program",
+      type: "training",
+      "data-type": "training",
+      "data-requires-coc": "false"
+    ],
+    [
+      key: "Workshop-Education",
+      value: "Workshop-Education",
+      type: "workshop-edu",
+      "data-type": "workshop-edu",
+      "data-requires-coc": "true"
+    ],
+    [
+      key: "Workshop-Women",
+      value: "Workshop-Women",
+      type: "workshop-women",
+      "data-type": "workshop-women",
+      "data-requires-coc": "true"
+    ],
+    [
+      key: "Other",
+      value: "Other",
+      type: "other",
+      "data-type": "other",
+      "data-requires-coc": "false"
+    ]
+  ]
+
+  def stipend_type_select(form, type) do
     select(
       form,
       :stipend_type,
-      [
-        [key: "--", value: "", "data-type": "none", "data-requires-coc": "false"],
-        [
-          key: "Conference",
-          value: "conference",
-          "data-type": "conference",
-          "data-requires-coc": "true"
-        ],
-        [
-          key: "Development Work",
-          value: "Development Work",
-          "data-type": "devel_work",
-          "data-requires-coc": "false"
-        ],
-        [
-          key: "Event Site Subscription",
-          value: "Event Site Subscription",
-          "data-type": "event_site_sub",
-          "data-requires-coc": "false"
-        ],
-        [
-          key: "Kids Coding Camp",
-          value: "Kids Coding Camp",
-          "data-type": "kids_camp",
-          "data-requires-coc": "false"
-        ],
-        [key: "Sprint", value: "Sprint", "data-type": "sprint", "data-requires-coc": "false"],
-        [
-          key: "Training Program",
-          value: "Training Program",
-          "data-type": "training",
-          "data-requires-coc": "false"
-        ],
-        [
-          key: "Workshop-Education",
-          value: "Workshop-Education",
-          "data-type": "workshop-edu",
-          "data-requires-coc": "true"
-        ],
-        [
-          key: "Workshop-Women",
-          value: "Workshop-Women",
-          "data-type": "workshop-women",
-          "data-requires-coc": "true"
-        ],
-        [key: "Other", value: "Other", "data-type": "other", "data-requires-coc": "false"]
-      ],
+      @types,
+      selected:
+        Enum.find(@types, fn t -> Keyword.get(t, :type) == type end) |> Keyword.get(:value),
       id: "stipend_type",
       class: "form-control"
     )

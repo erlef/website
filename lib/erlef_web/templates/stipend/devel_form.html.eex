@@ -1,0 +1,236 @@
+<h2>Stipend Proposal Form</h2>
+
+
+<%= unless @errors == [] do %>
+  <div class="alert alert-danger mt-3">
+    <strong>Errors : </strong>
+    <ul>
+      <% errs = Enum.reduce(@errors, "", fn(err, acc) -> acc <> "<li>#{err}</li>" end) %>
+      <%= raw errs %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @conn, Routes.stipend_path(@conn, :create), [id: "stipend_form", multipart: true], fn f -> %>
+
+  <div class="form-row mb-2">
+    <div class="col-md-3 mb-3">
+      <label for="stipend_type">* Stipend Type</label>
+      <%= stipend_type_select(f, @type) %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <p id=""></p>
+      <p id="devel_work" class="alert info">
+      Develop a Beam languages-based open source program or library.
+      </p>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-3 mb-3">
+
+
+      <label for="first_name">* First name</label>
+
+      <%= text_input(f, :first_name, class: "form-control", maxlength: 50, required: true, placeholder: "First name") %>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="last_name">* Last name</label>
+      <%= text_input(f, :last_name, class: "form-control", maxlength: 50, required: true, placeholder: "Last name") %>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="nick_name">* Nick Name</label>
+      <div class="input-group">
+        <%= text_input(f, :nick_name, class: "form-control", maxlength: 50, required: true, placeholder: "Nick name") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <label for="email_address">* Email address</label>
+      <%= text_input(f, :email_address, class: "form-control", maxlength: 50, required: true, placeholder: "Email address") %>
+    </div>
+
+
+    <div class="col-md-3 mb-3">
+      <label for="phone_number">* Phone Number</label>
+      <%= telephone_input(f, :phone_number, class: "form-control", maxlength: 50, required: true, placeholder: "Phone number") %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <label for="org_name">Organization Name</label>
+
+      <%= text_input(f, :org_name, class: "form-control", maxlength: 50, placeholder: "Organization name") %>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-2 mb-3">
+      <label for="city">* City</label>
+
+      <%= text_input(f, :city, class: "form-control", maxlength: 85, required: true, placeholder: "City") %>
+
+    </div>
+    <div class="col-md-2 mb-3">
+      <label
+        for="region">* Region</label>
+
+      <%= text_input(f, :region, class: "form-control", maxlength: 50, required: true, placeholder: "Region") %>
+
+      <small class="text-muted">(e.g., state or province)</small>
+    </div>
+    <div class="col-md-2 mb-3">
+      <label for="postal_code">* Postal Code</label>
+      <%= text_input(f, :postal_code, class: "form-control", maxlength: 10, required: true, placeholder: "Postal code") %>
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <label for="country">* Country</label>
+      <%= country_select(f) %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <label for="twitter">Twitter Handle</label>
+
+      <%= text_input(f, :twitter, class: "form-control", maxlength: 50,  placeholder: "Twitter Handle") %>
+
+    </div>
+
+
+    <div class="col-md-3 mb-3">
+      <label for="linkedin">LinkedIn</label>
+      <%= text_input(f, :linkedin, class: "form-control", maxlength: 50,  placeholder: "LinkedIn") %>
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <label for="website">WebSite</label>
+
+      <%= text_input(f, :website, class: "form-control", maxlength: 50,  placeholder: "Website") %>
+    </div>
+  </div>
+
+  <div class="mb-2">
+    <label for="files">Optional File attachment(s) : </label>
+    <small class="text-muted">Maximum upload size in total limited to 8MB</small>
+    <div>
+      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+    </div>
+
+    <div>
+      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+    </div>
+
+    <div>
+      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+    </div>
+
+    <div>
+      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+    </div>
+
+    <div>
+      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+    </div>
+  </div>
+
+  <div class="form-row mb-2">
+    <div class="col-md-9 mb-6">
+      <label for="purpose">* Intended product of the project</label>
+
+      <small>
+        <p class="other-stipend form-text alert alert-info">
+        In a couple of sentences, please, explain what you want to produce by the end of the project.
+        </p>
+
+      </small>
+      <%= textarea(f, :intended_product, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
+    </div>
+  </div>
+
+  <div class="form-row mb-2">
+    <div class="col-md-9 mb-6">
+      <label for="purpose">* Purpose</label>
+
+      <small>
+        <p class="other-stipend form-text alert alert-info">
+        In a paragraph or two, please, explain why you want to conduct this project and who will benefit from it.
+        </p>
+      </small>
+      <%= textarea(f, :purpose, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
+    </div>
+  </div>
+
+
+  <div class="form-row mb-2">
+    <div class="col-md-9 mb-6">
+      <label for="purpose">* Development Plan</label>
+
+      <small>
+        <p class="other-stipend form-text alert alert-info">
+        In a couple of paragraphs, please, explain who will do the job and for how long, what development stages you 
+        envision.
+        </p>
+      </small>
+      <%= textarea(f, :devel_plan, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
+    </div>
+  </div>
+
+  <div class="form-row mb-2">
+    <div class="col-md-9 mb-6">
+      <label for="report">* Dissemination</label>
+      <p class="form-text alert alert-info">
+      Please, explain how you intend to inform the public about the project results, e.g. blog posts, conference talks, papers.
+      </p>
+      <%= textarea(f, :report, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
+    </div>
+  </div>
+
+
+  <div class="form-row mb-2">
+    <div class="col-md-9 mb-6">
+      <label for="report">* Delivery</label>
+      <p class="form-text alert alert-info">
+      Please, explain how you intend to deliver the project results
+      </p>
+      <%= textarea(f, :delivery_method, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
+    </div>
+  </div>
+
+  <div class="form-row mb-2">
+    <div class="col-md-3 mb-6">
+      <label for="stipend_amount">* Amount (USD)</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">$</span>
+        </div>
+
+        <%= number_input(f, :stipend_amount, class: "form-control currency", maxlength: 6, required: true, placeholder: "0.00", step: "1.00") %>
+
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-2">
+      <label for="payment_method">Preferred payment
+        method</label>
+
+      <%= payment_method_select(f) %>
+      <small id="payment_method_help"
+             class="form-text text-muted">We can do checks only within
+             the US. If the request is for $500 or less, PayPal is
+             suggested.</small>
+    </div>
+
+  </div>
+
+
+  <button id="submit_form" class="btn btn-primary mt-2" type="submit">Submit</button>
+  <div id="submit_error" class="alert alert-danger d-none">
+
+  </div>
+<% end %>

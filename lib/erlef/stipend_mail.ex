@@ -39,7 +39,13 @@ defmodule Erlef.StipendMail do
 
   defp attach_files(email, files) do
     Enum.reduce(files, email, fn f, acc ->
-      attachment(acc, f)
+      case f do
+        %Plug.Upload{} ->
+          attachment(acc, f)
+
+        _ ->
+          acc
+      end
     end)
   end
 

@@ -3,7 +3,13 @@
 <p>Please find below a copy of your stipend proposal submission</p>
 <% end %>
 <h2>Stipend Proposal</h2>
-  <div>    
+
+  <div class="row">
+  <strong>Stipend Type</strong> : <%= @proposal.stipend_type %>
+  </div>
+  <br/>
+
+  <div class="row">    
     <strong>First name</strong> : <%= @proposal.first_name %>
   </div>
   <br/>
@@ -32,10 +38,12 @@
   </div>
   <br/>
 
-  <div class="row">
-  <strong>Organization Email</strong> : <%= @proposal.org_email %>
-  </div>
-  <br/>
+  <%= unless @proposal.stipend_type == "Development Work" do %>
+    <div class="row">
+      <strong>Organization Email</strong> : <%= @proposal.org_email %>
+    </div>
+    <br/>
+  <% end %>
 
   <div class="row">
   <strong>City</strong> : <%= @proposal.city %>
@@ -72,23 +80,58 @@
   </div>
   <br/>
 
+  <%= if @proposal.stipend_type == "Development Work" do %>
+    <div class="row">
+    <strong>Intended product of project</strong> : <p> <%= @proposal.intended_product %></p>
+    </div>
+    <br/>
+  <% else %>
+    <div class="row">
+    <strong>Bio</strong> : <p> <%= @proposal.bio %></p>
+    </div>
+    <br/>
+  <% end %>
+    
   <div class="row">
-  <strong>Bio</strong> : <p> <%= @proposal.bio %></p>
+    <strong>Purpose</strong> <p> <%= @proposal.purpose %> </p>
   </div>
   <br/>
 
-  <div class="row">
-  <strong>Stipend Type</strong> : <%= @proposal.stipend_type %>
-  </div>
-  <br/>
+  <%= if @proposal.stipend_type == "Development Work" do %>
+    <div class="row">
+      <strong>Development Plan</strong> <p> <%= @proposal.devel_plan %> </p>
+    </div>
+    <br/>
+  <% else %>
+    <div class="row">
+      <strong>Code of Conduct link</strong> : <%=  @proposal.code_of_conduct_link %>
+    </div>
+    <br/>
+  <% end %>
+
+  <%= if @proposal.stipend_type == "Development Work" do %>
+    <div class="row">
+      <strong>Dissemination</strong> : <%= @proposal.report %>
+    </div>
+    <br/>
+  <% end %>
+
+  <%= if @proposal.stipend_type == "Development Work" do %>
+    <div class="row">
+      <strong>Delivery Method</strong> : <%= @proposal.delivery_method %>
+    </div>
+    <br/>
+  <% end %>
+
+  <%= unless @proposal.stipend_type == "Development Work" do %>
+    <div class="row">
+        <strong>Report</strong> : <%= @proposal.report %>
+    </div>
+    <br/>
+  <% end %>
 
   <div class="row">
-  <strong>Code of Conduct link</strong> : <%=  @proposal.code_of_conduct_link %>
-  </div>
-  <br/>
-
-  <div class="row">
-  <strong>Stipend Amount</strong> : <%= @proposal.stipend_amount %>
+  <strong>Stipend Amount (USD)</strong> : <%= @proposal.stipend_amount %>
   </div>
   <br/>
 
@@ -97,16 +140,10 @@
   </div>
   <br/>
 
-  <div class="row">
-  <strong>Purpose</strong> <p> <%= @proposal.purpose %> </p>
-  </div>
-  <br/>
+  <%= unless @proposal.stipend_type == "Development Work" do %>
+    <div class="row">
+    <strong>Beneficiaries</strong> : <%= @proposal.beneficiaries %>
+    </div>
+   <br/>
+  <% end %>
 
-  <div class="row">
-  <strong>Beneficiaries</strong> : <%= @proposal.beneficiaries %>
-  </div>
-  <br/>
-
-  <div class="row">
-      <strong>Report</strong> : <%= @proposal.report %>
-  </div>
