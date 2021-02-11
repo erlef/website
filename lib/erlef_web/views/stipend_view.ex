@@ -330,7 +330,7 @@ defmodule ErlefWeb.StipendView do
   defp selected(type) do
     case Enum.find(@types, fn t -> Keyword.get(t, :type) == type end) do
       nil -> 0
-      v -> v
+      v -> Keyword.get(v, :value)
     end
   end
 
