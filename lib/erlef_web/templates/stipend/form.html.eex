@@ -10,7 +10,7 @@
                                            aria-labelledby="pills-contact-tab">
           <%= if @type == "devel_work" do %>
             <%= render("devel_form.html", assigns) %>
-          <%= else %>
+          <% else %>
             <%= render("default_form.html", assigns) %>
           <% end %>
         </div>
