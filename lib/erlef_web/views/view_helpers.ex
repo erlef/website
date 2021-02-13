@@ -9,10 +9,52 @@ defmodule ErlefWeb.ViewHelpers do
   def blog_tag_name(name), do: name
 
   def active_sponsors([]), do: []
-  def active_sponsors(sponsors), do: Enum.filter(sponsors, &(not &1.is_founding_sponsor))
+
+  def active_sponsors(sponsors) do
+    sponsors
+    |> Enum.filter(& &1.active)
+    |> Enum.shuffle()
+  end
+
+  def active_sponsors([]), do: []
+
+  def active_sponsors(sponsors) do
+    sponsors
+    |> Enum.filter(& &1.active)
+    |> Enum.shuffle()
+  end
+
+  def active_and_founding_sponsors([]), do: []
+
+  def active_and_founding_sponsors(sponsors) do
+    sponsors
+    |> Enum.filter(&(&1.active and &1.is_founding_sponsor))
+    |> Enum.shuffle()
+  end
+
+  def active_non_founding_sponsors([]), do: []
+
+  def active_non_founding_sponsors(sponsors) do
+    sponsors
+    |> Enum.filter(&(&1.active and not &1.is_founding_sponsor))
+    |> Enum.shuffle()
+  end
+
+  def founding_non_active_sponsors([]), do: []
+
+  def founding_non_active_sponsors(sponsors) do
+    sponsors
+    |> Enum.filter(&(not &1.active and &1.is_founding_sponsor))
+    |> Enum.shuffle()
+  end
 
   def founding_sponsors([]), do: []
-  def founding_sponsors(sponsors), do: Enum.filter(sponsors, & &1.is_founding_sponsor)
+
+  def founding_sponsors(sponsors) do
+    sponsors
+    |> Enum.filter(& &1.is_founding_sponsor)
+    |> Enum.shuffle()
+  end
 
   def long_date(nil), do: ""
 

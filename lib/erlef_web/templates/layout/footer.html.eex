@@ -2,19 +2,25 @@
      <%= unless @conn.request_path == "/sponsors" do %>
   <h1 class="display-5 font-weight-bold">Sponsors</h1>
   Click <%= link("here", to: Routes.page_path(@conn, :sponsors)) %> learn more about sponsors and becoming a sponsor.
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 pr-5">
-        <div class="row text-centertext-lg-left mt-3 mb-3">
-          <%= for %{logo_url: logo_path, url: href} <- @sponsors do %>
+        <div class="row text-center text-lg-left mt-3 mb-3">
+          <%= for %{logo_url: logo_path, url: href} <- active_and_founding_sponsors(@sponsors) do %>
             <div class="col-lg-1">
-              <a href="<%= href %>" class="d-block mb-2">
-                <img class="img-fluid h-100 img-thumbnail sponsor" src="<%= image_path(@conn, logo_path) %>" alt="">
-              </a>
-            </div>
-          <% end %>
+            <a href="<%= href %>" class="d-block mb-2">
+              <img class="img-fluid img-thumbnail sponsor" src="<%= image_path(@conn, logo_path) %>" alt="">
+            </a>
+          </div>
+        <% end %>
+      <%= for %{logo_url: logo_path, url: href} <- active_non_founding_sponsors(@sponsors) do %>
+        <div class="col">
+          <a href="<%= href %>" class="d-block mb-2">
+            <img class="img-fluid img-thumbnail sponsor" src="<%= image_path(@conn, logo_path) %>" alt="">
+          </a>
         </div>
-      </div>
+      <% end %>
+    </div> 
     </div>
   </div>
   <hr/>
