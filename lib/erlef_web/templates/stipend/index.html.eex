@@ -46,7 +46,7 @@
           organizer and/or city that are stipended within a given year. </p>
 
           <p>
-          If you want to apply for a stipend, fill out the form <a href="#" onclick="show_form();">here</a>.
+          If you want to apply for a stipend, fill out the form <a href="/stipends/form?type=devel_work">here</a>.
           If you have any questions please reach out to
           <a href="mailto:stipends@erlef.org">stipends@erlef.org</a>
           </p>

@@ -39,9 +39,9 @@
       <%= text_input(f, :last_name, class: "form-control", maxlength: 50, required: true, placeholder: "Last name") %>
     </div>
     <div class="col-md-3 mb-3">
-      <label for="nick_name">* Nick Name</label>
+      <label for="nick_name">Nick Name</label>
       <div class="input-group">
-        <%= text_input(f, :nick_name, class: "form-control", maxlength: 50, required: true, placeholder: "Nick name") %>
+        <%= text_input(f, :nick_name, class: "form-control", maxlength: 50, placeholder: "Nick name") %>
       </div>
     </div>
   </div>
@@ -54,8 +54,8 @@
 
 
     <div class="col-md-3 mb-3">
-      <label for="phone_number">* Phone Number</label>
-      <%= telephone_input(f, :phone_number, class: "form-control", maxlength: 50, required: true, placeholder: "Phone number") %>
+      <label for="phone_number">Phone Number</label>
+      <%= telephone_input(f, :phone_number, class: "form-control", maxlength: 50, placeholder: "Phone number") %>
     </div>
   </div>
 
@@ -77,9 +77,9 @@
     </div>
     <div class="col-md-2 mb-3">
       <label
-        for="region">* Region</label>
+        for="region">Region</label>
 
-      <%= text_input(f, :region, class: "form-control", maxlength: 50, required: true, placeholder: "Region") %>
+      <%= text_input(f, :region, class: "form-control", maxlength: 50, placeholder: "Region") %>
 
       <small class="text-muted">(e.g., state or province)</small>
     </div>
@@ -112,30 +112,6 @@
       <label for="website">WebSite</label>
 
       <%= text_input(f, :website, class: "form-control", maxlength: 50,  placeholder: "Website") %>
-    </div>
-  </div>
-
-  <div class="mb-2">
-    <label for="files">Optional File attachment(s) : </label>
-    <small class="text-muted">Maximum upload size in total limited to 8MB</small>
-    <div>
-      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-    </div>
-
-    <div>
-      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-    </div>
-
-    <div>
-      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-    </div>
-
-    <div>
-      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
-    </div>
-
-    <div>
-      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
     </div>
   </div>
 
@@ -199,6 +175,30 @@
       Please, explain how you intend to deliver the project results
       </p>
       <%= textarea(f, :delivery_method, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label for="files">Optional File attachment(s) : </label>
+    <small class="text-muted">Maximum upload size in total limited to 8MB</small>
+    <div>
+      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+    </div>
+
+    <div>
+      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+    </div>
+
+    <div>
+      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+    </div>
+
+    <div>
+      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
+    </div>
+
+    <div>
+      <%= file_input(f, "files[]", accept: "image/png, image/jpeg, application/pdf") %>
     </div>
   </div>
 
