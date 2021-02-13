@@ -16,14 +16,6 @@ defmodule ErlefWeb.ViewHelpers do
     |> Enum.shuffle()
   end
 
-  def active_sponsors([]), do: []
-
-  def active_sponsors(sponsors) do
-    sponsors
-    |> Enum.filter(& &1.active)
-    |> Enum.shuffle()
-  end
-
   def active_and_founding_sponsors([]), do: []
 
   def active_and_founding_sponsors(sponsors) do

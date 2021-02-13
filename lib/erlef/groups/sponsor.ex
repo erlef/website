@@ -30,6 +30,6 @@ defmodule Erlef.Groups.Sponsor do
   def update_changeset(sponsor, attrs) do
     sponsor
     |> cast(attrs, @permitted)
-    |> validate_required(@required ++ [:updated_by])
+    |> validate_required([:is_founding_sponsor, :updated_by])
   end
 end
