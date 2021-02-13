@@ -54,7 +54,7 @@ defmodule ErlefWeb.PageController do
     render(conn)
   end
 
-  def founding_sponsors(conn, _params) do
+  def past_founding_sponsors(conn, _params) do
     render(conn)
   end
 
