@@ -38,8 +38,8 @@
       <div class="mb-2">
         View our <%= link "calendar", to: Routes.working_group_path(@conn, :calendar, @wg.slug) %>
       </div>
+       <hr/>
     <% end %>
-    <hr/>
     <p>You can reach us:</p>
     <ul>
       <%= if @wg.meta.email do %>
