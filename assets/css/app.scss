@@ -231,6 +231,10 @@ tr.fc-list-day:nth-child(1) > th:nth-child(1) {
     }
 }
 
+.borderless { 
+    border: none !important;
+}
+
 span.help-block {
   display: inline-block;
   margin-top: 0.5em;

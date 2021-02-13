@@ -9,14 +9,14 @@
           <%= for %{logo_url: logo_path, url: href} <- active_and_founding_sponsors(@sponsors) do %>
             <div class="col-lg-1 col-md-3 col-sm-4">
               <a href="<%= href %>" class="d-block mb-2">
-                <img class="img-fluid img-thumbnail sponsor" src="<%= image_path(@conn, logo_path) %>" alt="">
+                <img class="img-fluid img-thumbnail borderless sponsor" src="<%= image_path(@conn, logo_path) %>" alt="">
               </a>
             </div>
           <% end %>
           <%= for %{logo_url: logo_path, url: href} <- active_non_founding_sponsors(@sponsors) do %>
             <div class="col-lg-1 col-md-3 col-sm-4">
                   <a href="<%= href %>" class="d-block mb-2">
-                    <img class="mx-auto d-block img-half-size img-fluid img-thumbnail sponsor" src="<%= image_path(@conn, logo_path) %>" alt="">
+                    <img class="mx-auto d-block img-half-size img-fluid img-thumbnail borderless sponsor" src="<%= image_path(@conn, logo_path) %>" alt="">
                   </a>
             </div>
           <% end %>
