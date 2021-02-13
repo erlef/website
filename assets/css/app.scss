@@ -200,6 +200,35 @@ tr.fc-list-day:nth-child(1) > th:nth-child(1) {
     .fc .fc-toolbar-title { 
         font-size: 1.2em;
     }
+
+    .img-half-size { 
+        width: 50%;
+    }
+}
+
+
+@media (min-width: 375px) {
+    .img-half-size { 
+        width: 50%;
+    }
+}
+
+@media (min-width: 576px) {
+    .img-half-size { 
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .img-half-size { 
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .img-third-size { 
+        width: 70%;
+    }
 }
 
 span.help-block {
