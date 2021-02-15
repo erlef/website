@@ -28,6 +28,7 @@
           <% end %>
         </div>
 
+        <hr/>
         <div class="mb-5"></div>
 
         <h1>Become a sponsor!</h1>      
@@ -62,6 +63,13 @@
           </tbody>
         </table>
       </div>
+      <hr/>
+      <h1>Founding Sponsors</h1>
+      <ul>
+        <%= for %{name: name} <- active_and_founding_sponsors(@sponsors) do %>
+        <li><%= name %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

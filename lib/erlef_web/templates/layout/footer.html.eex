@@ -1,6 +1,6 @@
 <footer id="colophon" class="site-footer border-top text-center bg-white py-4">
      <%= unless @conn.request_path == "/sponsors" do %>
-  <h1 class="display-5 font-weight-bold">Sponsors</h1>
+  <h5 class="display-5 font-weight-bold">Sponsors</h5>
   Click <%= link("here", to: Routes.page_path(@conn, :sponsors)) %> learn more about sponsors and becoming a sponsor.
   <div class="container-fluid">
     <div class="row">
