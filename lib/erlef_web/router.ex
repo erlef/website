@@ -89,8 +89,6 @@ defmodule ErlefWeb.Router do
     get "/faq", PageController, :faq
     get "/fellows", PageController, :fellows
     get "/sponsors", PageController, :sponsors
-    get "/past-founding-sponsors", PageController, :past_founding_sponsors
-    get "/become-a-sponsor", PageController, :sponsor_info
     get "/wg-proposal-template", PageController, :wg_proposal_template
 
     # NOTE: News routes are still in place for links that may be out there.
