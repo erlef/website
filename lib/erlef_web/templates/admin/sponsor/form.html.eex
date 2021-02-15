@@ -15,9 +15,9 @@
 
       <div class="form-group">
         <div class="form-check">
-        <%= checkbox f, :name, class: "form-check-input form-control" %>
+        <%= checkbox f, :active, class: "form-check-input form-control" %>
         <%= label f, :active, class: "form-check-label"%>
-        <%= error_tag f, :name %>
+        <%= error_tag f, :active %>
         </div>
       </div>
 
