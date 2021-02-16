@@ -1,26 +1,31 @@
 <footer id="colophon" class="site-footer border-top text-center bg-white py-4">
      <%= unless @conn.request_path == "/sponsors" do %>
-  <h5 class="display-5 font-weight-bold">Sponsors</h5>
-  Click <%= link("here", to: Routes.page_path(@conn, :sponsors)) %> learn more about sponsors and becoming a sponsor.
-  <div class="container-fluid">
+       <div class="row">
+        <div class="col-lg-12">
+          <h5 class="display-5 d-inline font-weight-bold">Our Sponsors</h5>        </div>
+       </div>
+      <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 pr-5">
-        <div class="row text-center text-lg-left mt-3 mb-3">
+        <div class="row text-center text-lg-left mt-3 mb-0">
           <%= for %{logo_url: logo_path, url: href} <- active_and_founding_sponsors(@sponsors) do %>
             <div class="col-lg-1 col-md-3 col-sm-4">
-              <a href="<%= href %>" class="d-block mb-2">
-                <img class="img-fluid img-thumbnail borderless sponsor" src="<%= image_path(@conn, logo_path) %>" alt="">
+              <a href="<%= href %>" class="d-block">
+                <img class="img-fluid img-thumbnail borderless sponsor mb-1" src="<%= image_path(@conn, logo_path) %>" alt="">
               </a>
             </div>
           <% end %>
           <%= for %{logo_url: logo_path, url: href} <- active_non_founding_sponsors(@sponsors) do %>
             <div class="col-lg-1 col-md-3 col-sm-4">
-              <a href="<%= href %>" class="d-block mb-2">
-                <img class="img-fluid img-thumbnail borderless sponsor" src="<%= image_path(@conn, logo_path) %>" alt="">
+              <a href="<%= href %>" class="d-block">
+                <img class="img-fluid img-thumbnail borderless sponsor mb-1" src="<%= image_path(@conn, logo_path) %>" alt="">
               </a>
             </div>
           <% end %>
+
         </div>
+
+      <p class="mb-0">Interested in becoming a sponsor? <%= link("Click here to learn more", to: Routes.page_path(@conn, :sponsors), class: "ml-1") %>.</p>
       </div> 
     </div>
   </div>
