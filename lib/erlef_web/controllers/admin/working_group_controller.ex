@@ -2,6 +2,7 @@ defmodule ErlefWeb.Admin.WorkingGroupController do
   use ErlefWeb, :controller
 
   alias Erlef.Groups
+  alias Erlef.Groups.WorkingGroup
 
   def index(conn, _params) do
     working_groups = Groups.list_working_groups()
@@ -26,7 +27,7 @@ defmodule ErlefWeb.Admin.WorkingGroupController do
       {:ok, working_group} ->
         conn
         |> put_flash(:info, "working_group updated successfully.")
-        |> redirect(to: Routes.admin_working_group_path(conn, :show, working_group))
+        |> redirect(to: redirect_path(conn, working_group))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", working_group: working_group, changeset: changeset)
@@ -107,5 +108,13 @@ defmodule ErlefWeb.Admin.WorkingGroupController do
         |> put_flash(:info, "Volunteer successfully removed.")
         |> redirect(to: Routes.admin_working_group_path(conn, :show, wgv.working_group_id))
     end
+  end
+
+  defp redirect_path(conn, %WorkingGroup{active: false}) do
+    Routes.admin_working_group_path(conn, :index)
+  end
+
+  defp redirect_path(conn, working_group) do
+    Routes.admin_working_group_path(conn, :show, working_group)
   end
 end

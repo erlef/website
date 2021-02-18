@@ -7,6 +7,7 @@ defmodule Erlef.Groups.WorkingGroup do
   alias Erlef.Groups.{WorkingGroupChair, WorkingGroupVolunteer, Volunteer}
 
   schema "working_groups" do
+    field(:active, :boolean, default: true)
     field(:name, :string)
     field(:slug, :string)
     field(:description, :string)
@@ -46,7 +47,7 @@ defmodule Erlef.Groups.WorkingGroup do
   alias Erlef.Groups.WorkingGroup.CharterVersion
 
   @required [:name, :slug, :description, :formed, :charter]
-  @optional [:created_by, :updated_by]
+  @optional [:created_by, :updated_by, :active]
   @permitted @required ++ @optional
 
   def changeset(struct, params \\ %{}) do

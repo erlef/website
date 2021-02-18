@@ -79,6 +79,7 @@ defmodule Erlef.Groups.Query do
     from(wg in WorkingGroup,
       join: v in assoc(wg, :volunteers),
       join: c in assoc(wg, :chairs),
+      where: wg.active == true,
       preload: [volunteers: v, chairs: c]
     )
   end
