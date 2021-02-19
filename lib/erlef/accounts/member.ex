@@ -56,6 +56,8 @@ defmodule Erlef.Accounts.Member do
     field(:has_email_box, :boolean, default: false)
     field(:has_email_alias, :boolean, default: false)
     field(:has_email_address, :boolean, default: false)
+    field(:has_requested_slack_invite, :boolean, default: false)
+    field(:requested_slack_invite_at, :utc_datetime)
     field(:deactivated_at, :utc_datetime)
     embeds_one(:external, Erlef.Accounts.External, on_replace: :update)
     timestamps()
@@ -72,12 +74,14 @@ defmodule Erlef.Accounts.Member do
     :has_email_alias,
     :has_email_box,
     :has_email_address,
+    :has_requested_slack_invite,
     :is_app_admin,
     :is_archived,
     :is_donor,
     :member_since,
     :membership_enabled,
     :membership_level,
+    :requested_slack_invite_at,
     :suspended_member,
     :terms_of_use_accepted,
     :deactivated_at

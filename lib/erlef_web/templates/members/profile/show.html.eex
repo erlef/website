@@ -17,6 +17,10 @@
 
       <hr class="mb-4"/>
       <h1>Requests</h1>
+      <%= if is_paying?(@current_user) do %>
+        <h2>Erlef Email Request</h2>
+      <% end %>
+
       <%= if is_paying?(@current_user) && not @current_user.has_email_address && not @has_email_request do %> 
         <div class="alert alert-info" role="alert">
           You are eligible for a erlef.org email address or alias. 
@@ -25,8 +29,7 @@
       <% end %>
 
       <%= if @has_email_request do %>
-        <h2>Email Request</h2>
-        <p>You submitted a request for an erlef.org address. Details are below :
+        <p>You submitted a request for an erlef.org address. Details are below : </p>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -46,6 +49,14 @@
             </tr>
           </tbody>
         </table>
+      <% end %>
+
+      <h2>Erlef Slack invite</h2>
+      <p>Request an invite to the Erlef slack workspace</p>
+      <%= if @current_user.has_requested_slack_invite do %>
+        You previously requested an invite to Erlef slack on <%= long_date(@current_user.requested_slack_invite_at) %>. If you did not receive an invite or you are having related problems, please contact <a href="mailto:infra@erlef.org">infra@erlef.org</a> describing the issue you having.
+      <% else %>
+        <%= link("Send me a slack invite", to: Routes.members_slack_invite_path(@conn, :create), class: "btn btn-primary", method: :post) %>
       <% end %>
 
       <hr class="mb-4"/>

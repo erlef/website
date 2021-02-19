@@ -3,6 +3,16 @@ defmodule ErlefWeb.SlackInviteController do
 
   action_fallback ErlefWeb.FallbackController
 
+  def index(conn, %{"team" => "erlef"}) do
+    case conn.assigns.current_user do
+      %Erlef.Accounts.Member{} ->
+        redirect(conn, to: "/members/profile")
+
+      _ ->
+        render(conn, "login_required.html")
+    end
+  end
+
   def index(conn, %{"team" => team}) do
     case team in Application.get_env(:erlef, :slack_teams) do
       true ->

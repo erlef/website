@@ -109,6 +109,7 @@ defmodule ErlefWeb.Router do
     get "/events/:slug", EventController, :show
     get "/events", EventController, :index
 
+    # Working Groups
     resources "/wg", WorkingGroupController, only: [:index, :show], param: "slug"
 
     scope "/wg/:slug/", WorkingGroup, as: :working_group do
@@ -153,6 +154,7 @@ defmodule ErlefWeb.Router do
       pipe_through [:session_required]
       resources "/profile", ProfileController, only: [:show], singleton: true
       resources "/email_requests", EmailRequestController
+      resources "/slack-invite", SlackInviteController, only: [:create]
     end
 
     scope "/admin", Admin, as: :admin do
