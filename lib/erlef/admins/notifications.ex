@@ -20,7 +20,6 @@ defmodule Erlef.Admins.Notifications do
     |> text_body(msg)
   end
 
-  @spec new(notification_type(), params()) :: Swoosh.Email.t()
   def new(:new_slack_invite, %{member: member}) do
     msg = """
     A member has requested access to the Erlef slack. 
