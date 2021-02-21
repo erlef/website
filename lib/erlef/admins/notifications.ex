@@ -3,7 +3,7 @@ defmodule Erlef.Admins.Notifications do
 
   import Swoosh.Email
 
-  @type notification_type() :: :new_email_request
+  @type notification_type() :: :new_email_request | :new_slack_invite
 
   @type params() :: map()
 

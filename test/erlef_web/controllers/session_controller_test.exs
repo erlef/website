@@ -20,6 +20,20 @@ defmodule ErlefWeb.SessionControllerTest do
       assert html_response(conn, 200) =~ "Log out"
     end
 
+    test "redirects when return_to is set", %{conn: conn} do
+      params = %{
+        "code" => "basic_member",
+        "state" => 12_345
+      }
+
+      conn =
+        conn
+        |> init_test_session(%{return_to: "/members/profile"})
+        |> get(Routes.session_path(conn, :create), params)
+
+      assert "/members/profile" == redirected_to(conn, 302)
+    end
+
     @tag :only
     test "as an admin", %{conn: conn} do
       params = %{

@@ -13,7 +13,7 @@ defmodule ErlefWeb.SessionController do
         conn
         |> configure_session(renew: true)
         |> put_session("member_session", session)
-        |> redirect(to: "/")
+        |> maybe_return_to()
 
       _ ->
         create(conn, nil)
@@ -38,5 +38,17 @@ defmodule ErlefWeb.SessionController do
   defp maybe_redirect(conn) do
     uri = Erlef.Session.login_uri()
     redirect(conn, external: uri)
+  end
+
+  defp maybe_return_to(conn) do
+    case get_session(conn, :return_to) do
+      nil ->
+        redirect(conn, to: "/")
+
+      path ->
+        conn
+        |> put_session(:return_to, nil)
+        |> redirect(to: path)
+    end
   end
 end
