@@ -1,4 +1,7 @@
 <div class="container">
+  <p>
+  Below is a template for forming a working group proposal. Note that any text provided below is not intended to be part of your proposal but rather serve as an example.</p>
+
   <article class="card card mt-3r page type-page status-publish hentry">
     <div class="card-body">
       <div class="entry-content">
@@ -15,30 +18,42 @@
         <h2>Benefits to the community</h2>
   
         <ul>
-          <li>Provide</li>
+          <li>&lt; Benefit &gt;</li>
+          <li>&lt; Benefit &gt;</li>
+          <li>&lt; Benefit &gt;</li>
         </ul>
   
         <h2>Short term deliverables</h2>
   
         <ul>
-          <li>Improve</li>
+          <li>&lt; Deliverable &gt;</li>
+          <li>&lt; Deliverable &gt;</li>
+          <li>&lt; Deliverable &gt;</li>
         </ul>
   
         <h2>Long term deliverables</h2>
   
         <ul>
-          <li>Produce</li>
+          <li>&lt; Deliverable &gt;</li>
+          <li>&lt; Deliverable &gt;</li>
+          <li>&lt; Deliverable &gt;</li>
         </ul>
   
         <h2>Why does this group require the Foundation</h2>
-        
+
         <p>
-          Trust in Security Working Group as a part of foundation is necessary to
-          facilitate discussion and mitigation of sensitive issues before making a 
-          public statement.
+         &lt; Brief description of why the foundation and by extension the ecosystem
+         needs this working group.
+         &gt;
         </p>
-  
-        <h2>Initial list of volunteers</h2>
+
+        <h2>Initial list of contributors</h2>
+
+        <ul>
+          <li>&lt; Contributor &gt;</li>
+          <li>&lt; Contributor &gt;</li>
+          <li>&lt; Contributor &gt;</li>
+        </ul>
       </div>
     </div>
   </article>
