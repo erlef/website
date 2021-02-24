@@ -22,6 +22,7 @@ defmodule Erlef.NewsTest do
     @update_attrs %{
       status: :in_progress,
       note: "Requires further research",
+      operator_note: "May be spam, not clear",
       priority: 42
     }
 
@@ -98,7 +99,8 @@ defmodule Erlef.NewsTest do
         note: "Requires further research",
         priority: 42,
         status: :in_progress,
-        updated_by_id: admin.id
+        updated_by_id: admin.id,
+        operator_note: "May be spam, not clear"
       }
 
       assert news_tip_log.changes == exp

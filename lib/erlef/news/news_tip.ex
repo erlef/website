@@ -21,11 +21,18 @@ defmodule Erlef.News.NewsTip do
 
     field(:additional_info, :string)
     field(:note, :string, virtual: true)
+    field(:operator_note, :string, virtual: true)
 
     embeds_many(:supporting_documents, SupportingDocument, on_replace: :delete) do
       @derive Jason.Encoder
       field(:url, :string)
       field(:mime, :string)
+    end
+
+    embeds_many(:operator_notes, OperatorNote, on_replace: :delete) do
+      @derive Jason.Encoder
+      field(:text, :string)
+      belongs_to(:created_by, Erlef.Accounts.Member)
     end
 
     embeds_many(:notes, Note, on_replace: :delete) do
@@ -75,6 +82,7 @@ defmodule Erlef.News.NewsTip do
     :assigned_to_id,
     :status,
     :note,
+    :operator_note,
     :processed_by_id,
     :updated_by_id,
     :flags,
@@ -98,6 +106,7 @@ defmodule Erlef.News.NewsTip do
     |> cast(attrs, @update_fields)
     |> add_log()
     |> maybe_add_note()
+    |> maybe_add_operator_note()
     |> validate_required(@update_fields_required)
   end
 
@@ -126,6 +135,19 @@ defmodule Erlef.News.NewsTip do
   end
 
   defp maybe_add_note(cs), do: cs
+
+  defp maybe_add_operator_note(%{changes: %{operator_note: text, updated_by_id: member_id}} = cs) do
+    tip = cs.data
+
+    note = %Erlef.News.NewsTip.OperatorNote{
+      text: text,
+      created_by_id: member_id
+    }
+
+    put_embed(cs, :operator_notes, [note | tip.notes])
+  end
+
+  defp maybe_add_operator_note(cs), do: cs
 
   defp add_log(cs) do
     tip = cs.data
