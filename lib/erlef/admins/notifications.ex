@@ -35,8 +35,7 @@ defmodule Erlef.Admins.Notifications do
     """
 
     new()
-    |> to({"Infrastructure Working Group", "infra@erlef.org"})
-    |> bcc({"Infrastructure Requests", "infra.requests@erlef.org"})
+    |> to({"Erlef Slack Invites", "erlef-slack-invites@erlef.org"})
     |> from({"Erlef Notifications", "notifications@erlef.org"})
     |> subject("A member is requesting a new slack invite")
     |> text_body(msg)
