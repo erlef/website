@@ -3,7 +3,7 @@
   <div class="col-xs-6 pr-1 pl-1">
   <% src_url = image || "volunteers/profile-placeholder.png" %>
     <div class="avatar-large rounded">
-      <img class="img-fluid" src="<%= img_path(@conn, src_url) %>" alt="<%= name %>">
+      <img class="img-fluid" src="<%= image_path(@conn, src_url) %>" alt="<%= name %>">
     </div>
     <%= name %>
   </div>
