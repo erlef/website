@@ -38,13 +38,23 @@ function build_event(vevent) {
     }
     return recurrances;
   } else { 
-    return {
-        title: event.summary,
-        start: start,
-        end: end,
-        description: event.description,
-        location: event.location
-    }
+      if (event.startDate.isDate) {
+        return {
+            title: event.summary,
+            start: event.startDate.toJSDate(),
+            end:  event.endDate.toJSDate(),
+            description: event.description,
+            location: event.location
+        }
+     } else { 
+        return {
+          title: event.summary,
+          start: start,
+          end: end,
+          description: event.description,
+          location: event.location
+       }
+     }
   }
 }
 
