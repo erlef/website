@@ -44,7 +44,8 @@ function build_event(vevent) {
             start: event.startDate.toJSDate(),
             end:  event.endDate.toJSDate(),
             description: event.description,
-            location: event.location
+            location: event.location,
+            allDay: true
         }
      } else { 
         return {
@@ -52,7 +53,8 @@ function build_event(vevent) {
           start: start,
           end: end,
           description: event.description,
-          location: event.location
+          location: event.location,
+          allDay: false
        }
      }
   }
