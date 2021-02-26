@@ -154,12 +154,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 $('.modal').find('.starts-at').text(dtstart.toLocaleString(DateTime.DATETIME_FULL));
                 $('.modal').find('.ends-at').text(dtend.toLocaleString(DateTime.DATETIME_FULL));
                 if (event.description) { 
-                    $('.modal').find('.description').text(event.description);
+                    $('.modal').find('.description').html(event.description);
                 } else {
                     $('.modal').find('.description-label').hide();
                 }
                 if (event.extendedProps.location) { 
-                    $('.modal').find('.location').text(event.extendedProps.location);
+                    $('.modal').find('.location').html(event.extendedProps.location);
                 } else {
                     $('.modal').find('.location-label').hide();
                 }
