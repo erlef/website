@@ -14,7 +14,9 @@ function build_event(vevent) {
   var start = to_JSDate(event.startDate);
   var end = (event.endDate ? to_JSDate(event.endDate) : null);
 
-  if (event.isRecurring) {
+  let is_recurring = event.isRecurring(event);
+
+  if (is_recurring) {
     let recur_rules = event.iterator().toJSON().ruleIterators[0].rule;
     let iterator = event.iterator();
 
