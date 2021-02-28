@@ -38,6 +38,12 @@ defmodule ErlefWeb.Endpoint do
   plug Plug.RequestId
   plug Plug.Logger
 
+  # Note: This must be disabled if we switch to an env where there is no reverse proxy in front of this
+  # app.
+  if Erlef.is_env?(:prod) do
+    plug Plug.RewriteOn, [:x_forwarded_host, :x_forwarded_port, :x_forwarded_proto]
+  end
+
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
