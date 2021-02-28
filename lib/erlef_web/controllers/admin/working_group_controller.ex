@@ -4,9 +4,28 @@ defmodule ErlefWeb.Admin.WorkingGroupController do
   alias Erlef.Groups
   alias Erlef.Groups.WorkingGroup
 
+
+  def new(conn, _params) do
+    changeset = Groups.change_working_group(%WorkingGroup{})
+    render(conn, "new.html", changeset: changeset)
+  end
+
   def index(conn, _params) do
     working_groups = Groups.list_working_groups()
     render(conn, "index.html", working_groups: working_groups)
+  end
+
+  def create(conn, %{"working_group" => params}) do
+    params = Map.put(params, "formed", Date.utc_today())
+    case Groups.create_working_group(params, audit: audit(conn)) do
+      {:ok, wg} ->
+        conn
+        |> put_flash(:info, "Working Group successfully created.")
+        |> redirect(to: Routes.admin_working_group_path(conn, :show, wg))
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
   end
 
   def show(conn, %{"id" => id}) do

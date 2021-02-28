@@ -14,11 +14,13 @@
           <%= error_tag f, :name %>
         </div>
 
-        <div class="col">
-          <%= label f, :formed %>
-          <%= text_input f, :formed, class: "form-control", disabled: true %>
-          <%= error_tag f, :formed %>
-        </div>
+        <%= if @changeset.data.id do %>
+          <div class="col">
+            <%= label f, :formed %>
+            <%= text_input f, :formed, class: "form-control", disabled: true %>
+            <%= error_tag f, :formed %>
+          </div>
+        <% end %>
       </div>
 
       <div class="form-group row">

@@ -41,7 +41,7 @@ defmodule Erlef.Groups.Query do
     from(wgv in WorkingGroupVolunteer,
       join: wg in WorkingGroup,
       on: wg.id == wgv.working_group_id,
-      join: v in Volunteer,
+      left_join: v in Volunteer,
       on: v.id == wgv.volunteer_id,
       where: wgv.working_group_id == ^wg_id and wgv.volunteer_id == ^volunteer_id
     )
@@ -52,7 +52,7 @@ defmodule Erlef.Groups.Query do
     from(wgc in WorkingGroupChair,
       join: wg in WorkingGroup,
       on: wg.id == wgc.working_group_id,
-      join: v in Volunteer,
+      left_join: v in Volunteer,
       on: v.id == wgc.volunteer_id,
       where: wgc.working_group_id == ^wg_id and wgc.volunteer_id == ^volunteer_id
     )
@@ -62,7 +62,7 @@ defmodule Erlef.Groups.Query do
   def get_volunteer_by_member_id(id) do
     from(v in Volunteer,
       join: wg in assoc(v, :working_groups),
-      join: wgc in assoc(wg, :chairs),
+      left_join: wgc in assoc(wg, :chairs),
       where: v.member_id == ^id,
       preload: [working_groups: {wg, chairs: wgc}]
     )
@@ -77,8 +77,8 @@ defmodule Erlef.Groups.Query do
 
   defp wg_query() do
     from(wg in WorkingGroup,
-      join: v in assoc(wg, :volunteers),
-      join: c in assoc(wg, :chairs),
+      left_join: v in assoc(wg, :volunteers),
+      left_join: c in assoc(wg, :chairs),
       where: wg.active == true,
       preload: [volunteers: v, chairs: c]
     )
