@@ -43,10 +43,18 @@
     <p>You can reach us:</p>
     <ul>
       <%= if @wg.meta.email do %>
-        <li>By e-mail: <a href="mailto:<%= @wg.meta.email %>"><%= @wg.meta.email %></a></li>
+        <li class="mb-2">By e-mail: <a href="mailto:<%= @wg.meta.email %>"><%= @wg.meta.email %></a></li>
       <% end %>
       <%= if @wg.meta.github do %>
-        <li>On GitHub: <a href="https://github.com/<%= @wg.meta.github %>"><%= @wg.meta.github %></a></li>
+        <li class="mb-2">On GitHub: <a href="https://github.com/<%= @wg.meta.github %>"><%= @wg.meta.github %></a></li>
+      <% end %>
+      <%= if @wg.meta.erlef_slack_channel do %>
+          <%= if @current_user && @current_user.has_requested_slack_invite do %>
+            <li class="mb-2"> On Erlef Slack : <%= link "##{@wg.slug}", to: @wg.meta.erlef_slack_channel %></li>
+          <% else %>
+            <li class="mb-2"> On Erlef Slack : <%= link "##{@wg.slug}", to: Routes.slack_invite_path(@conn, :index, "erlef") %></li>
+            
+          <% end %>
       <% end %>
     </ul>
     <%= if @wg.meta.gcal_url do %>

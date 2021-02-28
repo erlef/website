@@ -53,6 +53,12 @@
          <%= error_tag fm, :github %>
         </div>
 
+         <div class="col-sm-4">
+         <%= label fm, :erlef_slack_channel %>
+         <%= text_input fm, :erlef_slack_channel, class: "form-control" %>
+         <%= error_tag fm, :erlef_slack_channel %>
+        </div>
+
       </div>
 
        <div class="form-row">
