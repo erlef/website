@@ -101,6 +101,7 @@ defmodule Erlef.Groups.WorkingGroup do
       :public_calendar,
       :private_calendar
     ])
+    |> validate_url(:slack_erlef_channel)
     |> validate_url(:public_calendar)
     |> validate_url(:private_calendar)
     |> validate_url(:gcal_url)
