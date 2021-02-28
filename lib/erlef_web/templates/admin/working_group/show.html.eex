@@ -100,7 +100,7 @@ class: "btn btn-primary" %>
           <div class="card-body">
             <div class="row">
               <div class="col text-center">
-                <button class="btn btn-primary">Add Members</button>
+                <%= link "Add Volunteers", to: Routes.admin_working_group_path(@conn, :add_volunteers, @working_group), class: "btn btn-primary" %>
               </div>
             </div>
             <table id="wg-volunteers-table" class="table table-striped  dataTable">

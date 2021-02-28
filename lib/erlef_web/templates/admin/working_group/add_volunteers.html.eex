@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <table id="wg-volunteers-table" class="table table-striped  dataTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Add</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= for v <- @volunteers do %>
+              <tr>
+                <td>
+                  <%= img_tag(image_path(@conn, v.avatar_url), height: "100", width: "100", class: "img-fluid pr-4") %>
+                  <%= link v.name,  to: Routes.admin_volunteer_path(@conn, :show, @working_group) %>
+                </td>
+
+                <td>
+                  <%= form_for @conn, Routes.admin_working_group_path(@conn, :create_wg_volunteers, @working_group), [as: :volunteer], fn f -> %>
+                    <%= hidden_input f, :id, value: v.id  %>
+                    <%= submit [class: "btn btn-primary"], do: "Add" %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $(document).ready( function () {
+    $('#wg-volunteers-table').DataTable({
+      columnDefs: [
+        {orderable: false, targets: 3}
+      ],
+      order: [[ 1, "asc" ]]
+    });
+  });
+</script>

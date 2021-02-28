@@ -4,7 +4,6 @@ defmodule ErlefWeb.Admin.WorkingGroupController do
   alias Erlef.Groups
   alias Erlef.Groups.WorkingGroup
 
-
   def new(conn, _params) do
     changeset = Groups.change_working_group(%WorkingGroup{})
     render(conn, "new.html", changeset: changeset)
@@ -17,6 +16,7 @@ defmodule ErlefWeb.Admin.WorkingGroupController do
 
   def create(conn, %{"working_group" => params}) do
     params = Map.put(params, "formed", Date.utc_today())
+
     case Groups.create_working_group(params, audit: audit(conn)) do
       {:ok, wg} ->
         conn
@@ -50,6 +50,32 @@ defmodule ErlefWeb.Admin.WorkingGroupController do
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", working_group: working_group, changeset: changeset)
+    end
+  end
+
+  def add_volunteers(conn, %{"id" => id}) do
+    wg = Groups.get_working_group!(id)
+    existing_vols = Enum.map(wg.volunteers, & &1.id)
+    vols = Enum.filter(Groups.list_volunteers(), fn v -> v.id not in existing_vols end)
+    render(conn, working_group: wg, volunteers: vols)
+  end
+
+  def create_wg_volunteers(conn, %{"id" => id, "volunteer" => %{"id" => volunteer_id}}) do
+    wg = Groups.get_working_group!(id)
+    v = Groups.get_volunteer!(volunteer_id)
+
+    case Groups.create_wg_volunteer(wg, v, audit: audit(conn)) do
+      {:ok, _vol} ->
+        conn
+        |> put_flash(:info, "Volunteer successfully added")
+        |> redirect(to: Routes.admin_working_group_path(conn, :add_volunteers, wg))
+
+      {:error, %Ecto.Changeset{}} ->
+        vols = Groups.list_volunteers()
+
+        conn
+        |> put_flash(:error, "Oops! Something went wrong...")
+        |> render("add_volunteers.html", working_group: wg, volunteers: vols)
     end
   end
 

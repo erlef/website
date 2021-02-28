@@ -178,6 +178,9 @@ defmodule ErlefWeb.Router do
 
       resources "/wg", WorkingGroupController
 
+      get "/wg/:id/volunteers", WorkingGroupController, :add_volunteers
+      post "/wg/:id/volunteers", WorkingGroupController, :create_wg_volunteers
+
       put "/wg/:id/chairs/:volunteer_id",
           WorkingGroupController,
           :create_chair
