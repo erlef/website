@@ -33,6 +33,16 @@
               <%= error_tag fm, :github %>
             </div>
           </div>
+        <div class="form-row mb-3">
+
+        <div class="col-sm-4">
+          <%= label fm, :erlef_slack_channel %>
+          <%= text_input fm, :erlef_slack_channel, class: "form-control" %>
+               <small class="form-text mt-1 text-muted">This input should be a complete uri to a slack channel on Erlef slack (e.g, https://the-eef.slack.com/archives/C091381DE)</small>
+      
+          <%= error_tag fm, :erlef_slack_channel %>
+        </div>
+      </div>
         <% end %>
 
         <div class="mb-1"></div>
