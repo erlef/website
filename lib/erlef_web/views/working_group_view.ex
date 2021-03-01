@@ -1,7 +1,7 @@
 defmodule ErlefWeb.WorkingGroupView do
   use ErlefWeb, :view
 
-  def content("embedded-systems") do
+  def content(slug) when slug in ["embedded", "embedded-systems"] do
     [
       {"BEAM on the Embedded Landscape 2020", "landscape"}
     ]
