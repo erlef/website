@@ -15,8 +15,7 @@
           <%= link "Back to #{@wg.name}", to: Routes.working_group_path(@conn, :show, @wg.slug) %>
         </div>
       </div>
+    </div>
   </div>
-  </div>
-  <br/>
-  </br/>
+</div>
 <%= calendar(@wg.meta.public_calendar) %>
