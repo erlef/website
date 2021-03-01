@@ -86,14 +86,16 @@ defmodule Erlef.Session do
 
   @spec expires_at(integer()) :: String.t()
   def expires_at(expires_in) do
-    DateTime.to_string(Timex.shift(DateTime.utc_now(), seconds: expires_in))
+    DateTime.utc_now()
+    |> DateTime.add(expires_in)
+    |> DateTime.to_string()
   end
 
   @spec expired?(t()) :: boolean()
   def expired?(%{expires_at: expires_at}) do
     {:ok, dt, _} = DateTime.from_iso8601(expires_at)
 
-    case Timex.diff(dt, DateTime.utc_now(), :seconds) do
+    case DateTime.diff(dt, DateTime.utc_now(), :second) do
       n when n <= 0 -> true
       _ -> false
     end
@@ -136,8 +138,8 @@ defmodule Erlef.Session do
   def should_refresh?(%{expires_at: expires_at}) do
     {:ok, dt, _} = DateTime.from_iso8601(expires_at)
 
-    case Timex.diff(dt, DateTime.utc_now(), :minutes) do
-      n when n < 15 -> true
+    case DateTime.diff(dt, DateTime.utc_now()) do
+      n when n < 15 * 60 -> true
       _ -> false
     end
   end

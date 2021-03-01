@@ -116,7 +116,7 @@ defmodule Erlef.SessionTest do
       access_token: "basic_member",
       account_id: "account_id",
       erlef_app_id: Ecto.UUID.generate(),
-      expires_at: DateTime.to_string(Timex.shift(DateTime.utc_now(), minutes: 100)),
+      expires_at: DateTime.to_string(DateTime.add(DateTime.utc_now(), 100 * 60)),
       member_id: member.id,
       refresh_token: "rt_basic_member",
       username: "Basic Member",

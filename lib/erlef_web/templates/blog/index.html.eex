@@ -34,7 +34,7 @@
                   <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
                 </div>
                 <div>
-                  <% month =  Timex.month_name(post1.datetime.month) %>
+                  <% month =  Calendar.strftime(post1.datetime, "%B") %>
                   <% day =  post1.datetime.day %>
                   <% year = post1.datetime.year %>
                   <% _author = post1.author %>
@@ -79,7 +79,7 @@
               <p class="lead post-subtitle">
               <%= post.excerpt %>
               </p>
-              <% month =  Timex.month_name(post.datetime.month) %>
+              <% month =  Calendar.strftime(post.datetime, "%B") %>
               <% day =  post.datetime.day %>
               <% year = post.datetime.year %>
               <% author = post.author %>

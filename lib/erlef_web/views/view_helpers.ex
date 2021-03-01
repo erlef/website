@@ -51,7 +51,7 @@ defmodule ErlefWeb.ViewHelpers do
   def long_date(nil), do: ""
 
   def long_date(%DateTime{} = datetime),
-    do: Timex.format!(datetime, "%B %d, %Y", :strftime)
+    do: Calendar.strftime(datetime, "%B %d, %Y")
 
   def long_date(other), do: other
 
@@ -69,13 +69,12 @@ defmodule ErlefWeb.ViewHelpers do
   end
 
   def event_dates(%Date{} = start_date, nil),
-    do: Timex.format!(start_date, "%B %d, %Y", :strftime)
+    do: Calendar.strftime(start_date, "%B %d, %Y")
 
   def event_dates(%Date{} = start_date, %Date{} = end_date) do
-    {:ok, year} = Timex.format(start_date, "%Y", :strftime)
-    {:ok, start_date} = Timex.format(start_date, "%B %d", :strftime)
-    {:ok, end_date} = Timex.format(end_date, "%B %d", :strftime)
-
+    year = Calendar.strftime(start_date, "%Y")
+    start_date = Calendar.strftime(start_date, "%B %d")
+    end_date = Calendar.strftime(end_date, "%B %d")
     "#{start_date} - #{end_date}, #{year}"
   end
 

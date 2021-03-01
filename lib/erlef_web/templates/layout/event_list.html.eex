@@ -1,10 +1,10 @@
 <% now = Date.utc_today() %>
 <%= for event <- @events  do %>
     <% date = DateTime.to_date(event.start) %>
-    <%= if Timex.after?(date, now) do %>
+    <%= if DateTime.compare(date, now) == :gt do %>
         <p>
-        <%  month = Timex.month_name(date.month)
-            day = Timex.day_name(Timex.weekday(date))
+        <%  month = Calendar.strftime(date, "%B")
+            day = Calendar.strftime(date, "%A")
             year = date.year
         %>
         <a href="/events/<%= event.slug %>"><%= day %>, <%= month %>, <%= date.day %> <%= year %> - <%= event.title %></a>

@@ -82,7 +82,6 @@ defmodule Erlef.MixProject do
       {:swoosh, "~> 1.1"},
       {:telemetry_poller, "~> 0.5"},
       {:telemetry_metrics, "~> 0.4"},
-      {:timex, "~> 3.6.3"},
       {:ex_doc, "~> 0.23", only: :dev, runtime: false}
     ]
   end

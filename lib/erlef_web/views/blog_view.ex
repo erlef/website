@@ -14,7 +14,7 @@ defmodule ErlefWeb.BlogView do
   end
 
   def byline(post) do
-    month = Timex.month_name(post.datetime.month)
+    month = Calendar.strftime(post.datetime, "%B")
     day = post.datetime.day
     year = post.datetime.year
     author = author_name(post.author)
