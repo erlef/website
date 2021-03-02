@@ -25,16 +25,18 @@ function build_event(vevent) {
     for (i = 0; i < 12; i++) {
         if (i === 12) { break; }
         let next = iterator.next();
-        let occurance = event.getOccurrenceDetails(next);
-        let e = {
+        if (event) { 
+            let occurance = event.getOccurrenceDetails(next);
+            let e = {
             title: event.summary,
             start: to_JSDate(occurance.startDate),
             end: (occurance.endDate ? to_JSDate(occurance.endDate) : null),
             description: event.description,
             location: event.location,
             allDay: false
+            }
+            recurrances.push(e);
         }
-        recurrances.push(e);
     }
     return recurrances;
   } else { 
