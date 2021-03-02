@@ -1,7 +1,7 @@
 <% now = Date.utc_today() %>
 <%= for event <- @events  do %>
     <% date = DateTime.to_date(event.start) %>
-    <%= if DateTime.compare(date, now) == :gt do %>
+    <%= if Date.compare(date, now) == :gt do %>
         <p>
         <%  month = Calendar.strftime(date, "%B")
             day = Calendar.strftime(date, "%A")
