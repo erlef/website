@@ -55,6 +55,13 @@ defmodule ErlefWeb.ViewHelpers do
 
   def long_date(other), do: other
 
+  def long_date_time(nil), do: ""
+
+  def long_date_time(%DateTime{} = datetime),
+    do: Calendar.strftime(datetime, "%c")
+
+  def long_date_time(other), do: other
+
   def current_path_segment(conn) do
     [current | _] =
       conn

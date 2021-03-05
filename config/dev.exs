@@ -102,3 +102,24 @@ config :honeybadger,
   exclude_envs: [:dev]
 
 config :erlef, api_key: "key"
+
+config :erlef, :conference_perks, %{
+  code_beam_v_2021: %{
+    ends: ~D[2021-03-13],
+    discount: %{
+      link: "https://foo.bar/",
+      starts: ~D[2021-03-07],
+      ends: ~D[2021-03-13]
+    },
+    keynote: %{
+      link: "https://foo.bar/",
+      starts: ~U[2021-03-11 21:30:00.000000Z],
+      ends: ~U[2021-03-11 22:30:00.000000Z]
+    },
+    bof: %{
+      link: "https://foo.bar/",
+      starts: ~U[2021-03-11 22:30:00.000000Z],
+      ends: ~U[2021-03-11 23:30:00.000000Z]
+    }
+  }
+}

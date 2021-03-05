@@ -175,4 +175,37 @@ if Application.get_env(:erlef, :env) == :prod do
       """
 
   config :erlef, api_key: api_key
+
+  discount_link =
+    System.get_env("CODE_BEAM_V_AMERICA_2021_DISCOUNT_LINK") ||
+      raise """
+      enviroment variable CODE_BEAM_V_AMERICA_2021_DISCOUNT_LINK
+      """
+
+  key_note_link =
+    System.get_env("CODE_BEAM_V_AMERICA_2021_KEYNOTE_LINK") ||
+      raise """
+      enviroment variable CODE_BEAM_V_AMERICA_2021_KEYNOTE_LINK
+      """
+
+  config :erlef, :conference_perks, %{
+    code_beam_v_2021: %{
+      ends: ~D[2021-03-13],
+      discount: %{
+        link: discount_link,
+        starts: ~D[2021-03-07],
+        ends: ~D[2021-03-13]
+      },
+      keynote: %{
+        link: key_note_link,
+        starts: ~U[2021-03-11 21:30:00.000000Z],
+        ends: ~U[2021-03-11 22:30:00.000000Z]
+      },
+      bof: %{
+        link: "https://link/",
+        starts: ~U[2021-03-11 22:30:00.000000Z],
+        ends: ~U[2021-03-11 23:30:00.000000Z]
+      }
+    }
+  }
 end

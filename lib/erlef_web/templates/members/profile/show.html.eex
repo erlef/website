@@ -59,6 +59,44 @@
         <%= link("Send me a slack invite", to: Routes.members_slack_invite_path(@conn, :create), class: "btn btn-primary", method: :post) %>
       <% end %>
 
+      <hr class="mb-4" />
+
+      <h1>Conference Perks</h1>
+      <p>From time to time we are able to offer our members discounts on tickets to conferences and other related perks.</p>
+
+      <% code_beam_perks = @conference_perks.code_beam_v_2021 %>
+      <%= if Date.compare(code_beam_perks.ends, Date.utc_today()) in [:gt, :eq] do %> 
+        <h2>Code BEAM V 2021 - America</h2>
+
+        <h3>Discount codes</h3>
+        <% code_beam_perks = @conference_perks.code_beam_v_2021 %>
+        <% discount_link = code_beam_perks.discount.link %>
+        <p>Get a 30% discount on Code Beam V 2021 tickets <a href="<%= discount_link %>">here</a>.</p>
+
+        <h3>Streaming video access</h3>
+        <%= if @video_perks_on do %>
+          <p>We are able to offer steaming video access to members for certain events at Code BEAM V America 2021, regardless of whether you have a ticket or not. Check back here starting the day of the conference up until the end of the conference for links to watch the foundation keynote live and Birds of a Feather sessions</p>
+
+        <h4>Keynote</h4>
+          <% keynote_link = code_beam_perks.keynote.link %>
+          <ul>
+            <li><b>Starts at :</b> <%= long_date_time(code_beam_perks.keynote.starts) %> UTC</li>
+            <li><b>Ends at   :</b> <%= long_date_time(code_beam_perks.keynote.starts) %> UTC</li>
+          </ul>
+          <p><a href="<%= keynote_link %>">Click here to watch the foundation keynote live</a></p>
+          
+          <h4>Birds of a Feather sessions</h4>
+          <% bof_link = code_beam_perks.bof.link %>
+          <ul>
+            <li><b>Starts at :</b> <%= long_date_time(code_beam_perks.bof.starts) %> UTC</li>
+            <li><b>Ends at   :</b> <%= long_date_time(code_beam_perks.bof.ends) %> UTC</li>
+          </ul>
+          <p><a href="<%= bof_link %>">Click here to watch and participate in Birds of Feather</a></p>
+        <% else %>
+          <p> Stay tuned. We will be providing members access to certain key events at Code BEAM 2021 V - America</p>
+        <% end %>
+      <% end %>
+
       <hr class="mb-4"/>
       <h1 class="mb-4">Member Settings</h1>
       <p>

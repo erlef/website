@@ -125,6 +125,7 @@ defmodule ErlefWeb.Router do
     get "/stipends/form", StipendController, :form
 
     resources "/slack-invite/:team", SlackInviteController, only: [:create, :index]
+    resources "/conference-perks/:conference", ConferencePerkController, only: [:index]
 
     scope "/wg/:slug", WorkingGroup, as: :working_group do
       pipe_through [:session_required, :working_group, :chair_required]
