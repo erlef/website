@@ -29,7 +29,7 @@
           <%= if @current_volunteer && @current_volunteer.avatar_url do %>
             <div class="col-lg-2 col-md-4 col-6">
               <img class="img-fluid img-thumbnail sponsor" 
-                alt="Current image" src="<%= image_path(@conn, @vcurrent_volunteer.avatar_url) %>"/>
+                alt="Current image" src="<%= image_path(@conn, @current_volunteer.avatar_url) %>"/>
             </div>
           <% end %>
 
