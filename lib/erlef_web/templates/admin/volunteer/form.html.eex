@@ -26,10 +26,10 @@
             <strong><%= label f, :avatar_url, "Avatar" %></strong>
           </div>
 
-          <%= if @current_volunteer && @current_volunteer.avatar_url do %>
+          <%= if @volunteer && @volunteer.avatar_url do %>
             <div class="col-lg-2 col-md-4 col-6">
               <img class="img-fluid img-thumbnail sponsor" 
-                alt="Current image" src="<%= image_path(@conn, @current_volunteer.avatar_url) %>"/>
+                alt="Current image" src="<%= image_path(@conn, @volunteer.avatar_url) %>"/>
             </div>
           <% end %>
 
