@@ -5,6 +5,6 @@ defmodule ErlefWeb.LayoutView do
     render(layout, Map.put(assigns, :inner_layout, content))
   end
 
-  def news_category_name("eef"), do: "Announcments"
+  def news_category_name("eef"), do: "Announcements"
   def news_category_name(name), do: humanize(name)
 end
