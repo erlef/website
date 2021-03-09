@@ -26,10 +26,6 @@ function build_event(vevent) {
         if (i === 12) { break; }
         let next = iterator.next();
         if (event && next) { 
-            console.log("event");
-            console.log(event);
-            console.log("next");
-            console.log(next);
             let occurance = event.getOccurrenceDetails(next);
             let e = {
             title: event.summary,
