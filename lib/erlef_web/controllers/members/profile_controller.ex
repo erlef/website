@@ -12,7 +12,7 @@ defmodule ErlefWeb.Members.ProfileController do
       has_email_request: has_email_request,
       email_request: email_request,
       conference_perks: conference_perks,
-      video_perks_on: false
+      video_perks_on: true
     )
   end
 end
