@@ -61,6 +61,7 @@
 
       <hr class="mb-4" />
 
+      <%= if @conference_perks_on do %>
       <h1>Conference Perks</h1>
       <p>From time to time we are able to offer our members discounts on tickets to conferences and other related perks.</p>
 
@@ -97,6 +98,7 @@
           <p> Stay tuned. We will be providing members access to certain key events at Code BEAM 2021 V - America</p>
         <% end %>
       <% end %>
+    <% end %>
 
       <hr class="mb-4"/>
       <h1 class="mb-4">Member Settings</h1>
