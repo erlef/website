@@ -55,7 +55,14 @@
             <li class="mb-2"> On Erlef Slack : <%= link "##{@wg.slug}", to: Routes.slack_invite_path(@conn, :index, "erlef") %></li>
             
           <% end %>
+        <% end %>
+  
+      <%= if @wg.meta.google_group do %>
+        <li class="mb-2"> 
+          On Google Groups : <%= link "#{@wg.slug} google group", to: @wg.meta.google_group %>
+        </li>
       <% end %>
+ 
     </ul>
     <%= if @wg.meta.gcal_url do %>
       <p>Feel free to subscribe to our <a href="<%= raw @wg.meta.gcal_url %>" title="Add to Google Calendar">Google Calendar</a> to keep track of upcoming meetings </p>
