@@ -21,6 +21,7 @@ defmodule Erlef.Groups.WorkingGroup do
       field(:email, :string)
       field(:github, :string)
       field(:gcal_url, :string)
+      field(:google_group, :string)
       field(:erlef_slack_channel, :string)
       field(:public_calendar, :string)
       field(:private_calendar, :string)
@@ -97,6 +98,7 @@ defmodule Erlef.Groups.WorkingGroup do
       :erlef_slack_channel,
       :github,
       :gcal_url,
+      :google_group,
       :email,
       :public_calendar,
       :private_calendar
@@ -105,6 +107,7 @@ defmodule Erlef.Groups.WorkingGroup do
     |> validate_url(:public_calendar)
     |> validate_url(:private_calendar)
     |> validate_url(:gcal_url)
+    |> validate_url(:google_group)
     |> validate_email(:email)
   end
 end

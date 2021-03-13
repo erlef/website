@@ -75,6 +75,11 @@
       <div class="col"><b>Google Calendar:</b> <%= @working_group.meta.gcal_url %></div>
     </div>
 
+    <div class="mb-1"></div>
+    <div class="row">
+      <div class="col"><b>Google Group:</b> <%= @working_group.meta.google_group %></div>
+    </div>
+
     <div class="mb-2"></div>
 
     <div class="row">

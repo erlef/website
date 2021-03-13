@@ -42,6 +42,15 @@
       
           <%= error_tag fm, :erlef_slack_channel %>
         </div>
+
+
+        <div class="col-sm-4">
+          <%= label fm, :google_group %>
+          <%= text_input fm, :google_group, class: "form-control" %>
+               <small class="form-text mt-1 text-muted">This input should be a complete uri to a google group (e.g, https://groups.google.com/g/eef-your-wg)</small>
+      
+          <%= error_tag fm, :google_group %>
+        </div>
       </div>
         <% end %>
 
