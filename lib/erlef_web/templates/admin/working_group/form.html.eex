@@ -67,7 +67,7 @@
         <div class="col-sm-4">
           <%= label fm, :google_group %>
           <%= text_input fm, :google_group, class: "form-control" %>
-               <small class="form-text mt-1 text-muted">This input should be a complete uri to a slack channel on Erlef slack (e.g, https://groups.google.com/g/eef-your-wg )</small>
+               <small class="form-text mt-1 text-muted">This input should be a complete uri to your google group (e.g, https://groups.google.com/g/eef-your-wg )</small>
       
           <%= error_tag fm, :google_group %>
         </div>
