@@ -5,7 +5,11 @@ defmodule ErlefWeb.EventSubmissionController do
   action_fallback ErlefWeb.FallbackController
 
   def create(conn, %{"event" => params}) do
-    case Community.submit_event(params) do
+    user = conn.assigns.current_user
+    
+    p = Map.put(params, "submitted_by_id", user.id)
+
+    case Community.submit_event(p) do
       {:ok, _event} ->
         conn
         |> put_flash(

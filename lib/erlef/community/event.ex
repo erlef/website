@@ -29,14 +29,15 @@ defmodule Erlef.Community.Event do
     :end,
     :organizer,
     :url,
-    :submitted_by,
-    :type
+    :type,
+    :submitted_by_id
   ]
 
   @optional_fields [
     :id,
     :organizer_brand_color,
-    :organizer_brand_logo
+    :organizer_brand_logo,
+    :approved_by_id
   ]
 
   @all_fields @required_fields ++ @optional_fields
@@ -52,9 +53,12 @@ defmodule Erlef.Community.Event do
     field(:organizer, :string)
     field(:organizer_brand_color, :string, default: "#235185")
     field(:organizer_brand_logo, :binary)
-    field(:submitted_by, Ecto.UUID)
-    field(:approved, :boolean, default: false)
-    field(:approved_by, Ecto.UUID)
+
+    field(:approved, :boolean)
+
+    belongs_to(:submitted_by, Erlef.Accounts.Member)
+    belongs_to(:approved_by, Erlef.Accounts.Member)
+
     field(:approved_at, :utc_datetime)
 
     timestamps()
@@ -62,7 +66,7 @@ defmodule Erlef.Community.Event do
 
   def new_changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @all_fields ++ [:approved_by])
+    |> cast(params, @all_fields)
   end
 
   def submission_changeset(%__MODULE__{} = event, params \\ %{}) do
@@ -86,8 +90,8 @@ defmodule Erlef.Community.Event do
   @spec approval_changeset(t(), map()) :: Ecto.Changeset.t()
   def approval_changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:approved_by])
-    |> validate_required([:approved_by])
+    |> cast(params, [:approved_by_id])
+    |> validate_required([:approved_by_id])
     |> put_change(:approved, true)
     |> put_change(:approved_at, DateTime.truncate(DateTime.utc_now(), :second))
   end
