@@ -36,9 +36,9 @@ defmodule ErlefWeb.Members.SlackInviteController do
 
   defp success_msg do
     """
-    Your slack invite request was successfully created. 
-    Note: There are humans behind this process and as such it can take up 
-    to 24 hours to process an invite. 
+    Your Slack invitation request was successfully created. 
+    Note: there are humans behind this process and as such it can take up 
+    to 24 hours to process it. 
     """
   end
 
