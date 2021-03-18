@@ -214,4 +214,20 @@ if Application.get_env(:erlef, :env) == :prod do
       }
     }
   }
+
+  bot_token =
+    System.get_env("ERLEF_SLACK_BOT_TOKEN") ||
+      raise """
+      enviroment variable ERLEF_SLACK_BOT_TOKEN
+      """
+
+  erlef_slack_invite_channel =
+    System.get_env("ERLEF_SLACK_INVITE_CHANNEL") ||
+      raise """
+      enviroment variable ERLEF_SLACK_INVITE_CHANNEL
+      """
+
+  config :erlef, :slack,
+    bot_token: bot_token,
+    invite_channel: erlef_slack_invite_channel
 end
