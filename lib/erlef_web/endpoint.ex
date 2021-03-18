@@ -7,7 +7,6 @@ defmodule ErlefWeb.Endpoint do
     key: "_erlef_key",
     max_age: 60 * 60 * 24 * 30,
     secure: true,
-    same_site: "strict",
     serializer: Erlef.Session,
     encryption_salt: "41SM3UP3NgSUTzLOqCqF0r2pJBn54JuOy9+cZswJuiQi5pnCIIwJfEYO7DP3/QqR",
     signing_salt: "pSnWMnUh"
