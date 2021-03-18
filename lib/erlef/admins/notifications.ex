@@ -19,5 +19,4 @@ defmodule Erlef.Admins.Notifications do
     |> subject("A new email request was created")
     |> text_body(msg)
   end
-
 end
