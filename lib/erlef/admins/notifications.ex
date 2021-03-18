@@ -20,17 +20,4 @@ defmodule Erlef.Admins.Notifications do
     |> text_body(msg)
   end
 
-  def new(:new_slack_invite, %{member: member}) do
-    msg = """
-    A member has requested access to the Erlef slack. 
-
-    Please type `/invite`, hit, then enter the members's email : #{member.email}
-
-    Then click done :tada:
-    """
-
-    if Erlef.is_env?(:prod) do
-      Erlef.SlackInvite.send_to_erlef_slack_invite_channel(msg)
-    end
-  end
 end
