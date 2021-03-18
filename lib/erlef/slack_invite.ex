@@ -25,6 +25,18 @@ defmodule Erlef.SlackInvite do
     end
   end
 
+  def send_to_erlef_slack_invite_channel(msg) do
+    token = erlef_slack_bot_token()
+
+    headers = [
+      {"Accept", "application/json"},
+      {"Content-Type", "application/json"},
+      {"Authorization", "Bearer #{token}"}
+    ]
+
+    post("chat.postMessage", headers, %{channel: erlef_slack_invite_channel(), text: msg}, [])
+  end
+
   defp map_res(res) do
     case res do
       %{"ok" => true} -> {:ok, :invited}
@@ -46,5 +58,23 @@ defmodule Erlef.SlackInvite do
 
   defp format_error(_) do
     "An unknown error has occured. Please contact infra@erlef.org for assistance"
+  end
+
+  defp post(path, headers, body, opts) do
+    case Erlef.HTTP.perform(:post, "https://slack.com/api/#{path}", headers, body, opts) do
+      {:ok, %{body: body}} ->
+        {:ok, body}
+
+      err ->
+        err
+    end
+  end
+
+  defp erlef_slack_bot_token(), do: config_get(:bot_token)
+  defp erlef_slack_invite_channel(), do: config_get(:invite_channel)
+
+  defp config_get(key) do
+    props = Application.get_env(:erlef, :slack)
+    Keyword.get(props, key)
   end
 end
