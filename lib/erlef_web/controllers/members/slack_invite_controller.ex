@@ -16,7 +16,7 @@ defmodule ErlefWeb.Members.SlackInviteController do
 
   defp process(conn, %Member{has_requested_slack_invite: false} = member) do
     with {:ok, member} <- set_slack_invite_requested(member),
-         {:ok, _} <- Admins.notify(:new_slack_invite, %{member: member}) do
+         {:ok, _} <- Admins.slack_notify(:new_slack_invite, %{member: member}) do
       conn
       |> put_flash(:info, success_msg())
       |> redirect(to: Routes.members_profile_path(conn, :show))

@@ -4,7 +4,7 @@ defmodule Erlef.Admins do
   alias Erlef.Admins.Notifications
   alias Erlef.Mailer
 
-  def notify(:new_slack_invite, %{member: member}) do
+  def slack_notify(:new_slack_invite, %{member: member}) do
     msg = """
     A member has requested access to the Erlef slack. 
 
