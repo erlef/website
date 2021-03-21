@@ -1,6 +1,6 @@
 {
   "title": "ICFP Erlang 2021 - Call for papers",
-  "author": "Annette Bieniusa",
+  "authors": ["Annette Bieniusa","Stavros Aronis"],
   "slug": "icfp-erlang-2021-call-for-papers",
   "category": "education",
   "tags": ["education", "papers", "icfp"],

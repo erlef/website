@@ -7,7 +7,7 @@ defmodule Erlef.Blogs.Post do
   import Ecto.Changeset
 
   schema "blogs" do
-    field(:author, :string)
+    field(:authors, {:array, :string})
     field(:title, :string)
     field(:slug, :string)
     field(:category, :string)
@@ -19,21 +19,23 @@ defmodule Erlef.Blogs.Post do
     field(:tags, {:array, :string}, default: [])
   end
 
-  @required_fields [
+  @all_fields [
     :excerpt,
     :excerpt_html,
     :body,
     :body_html,
     :excerpt_html,
-    :author,
+    :authors,
     :slug,
     :category,
     :datetime,
-    :title
+    :title,
+    :tags
   ]
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_fields ++ [:tags])
+    |> cast(params, @all_fields)
+    |> validate_required([:authors, :body, :body_html, :category, :datetime, :tags, :title, :slug])
   end
 end

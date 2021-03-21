@@ -23,7 +23,7 @@
           </div>
           <div>
             <div><%= long_date(story.datetime) %></div>
-            <div>by <%= author_name(story.author) %></div>
+            <div>by <%= author_name(story.authors) %></div>
           </div>
         </div>
       </div>
