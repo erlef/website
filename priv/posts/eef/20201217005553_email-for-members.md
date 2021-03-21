@@ -1,6 +1,6 @@
 {
   "title": "Email for members program",
-  "author": "eef",
+  "authors": ["eef"],
   "slug": "email-for-members",
   "category": "eef",
   "tags": ["eef", "programs"],

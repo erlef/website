@@ -1,6 +1,6 @@
 {
   "title": "Time is running out!",
-  "author": "EEF",
+  "authors": ["eef"],
   "slug": "time-is-running-out",
   "category": "eef",
   "tags": ["eef"],

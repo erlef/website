@@ -26,7 +26,7 @@ defmodule Mix.Tasks.Eef.Gen.Post do
     case OptionParser.parse(args, switches: switches, aliases: aliases) do
       {options, [blog, slug], _invalid} ->
         title = Keyword.get(options, :title, "Title")
-        author = Keyword.get(options, :author, "Author")
+        author = Keyword.get(options, :authors, "Author")
         datetime = DateTime.utc_now()
         path = Keyword.get(options, :path, root_path(blog))
         file = Path.join(path, "#{format_datetime(datetime)}_#{slug}.md")
@@ -90,7 +90,7 @@ defmodule Mix.Tasks.Eef.Gen.Post do
   embed_template(:post, """
   {
     "title": "<%= @title %>",
-    "author": "<%= @author %>",
+    "authors": ["<%= @author %>"],
     "slug": "<%= @slug %>",
     "category": "<%= @category %>",
     "tags": ["<%= @category %>"],

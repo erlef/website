@@ -17,7 +17,7 @@ defmodule ErlefWeb.BlogView do
     month = Calendar.strftime(post.datetime, "%B")
     day = post.datetime.day
     year = post.datetime.year
-    author = author_name(post.author)
+    author = author_name(post.authors)
 
     "#{month} #{day}, #{year} by #{author}"
   end

@@ -37,14 +37,13 @@
                   <% month =  Calendar.strftime(post1.datetime, "%B") %>
                   <% day =  post1.datetime.day %>
                   <% year = post1.datetime.year %>
-                  <% _author = post1.author %>
                   <div>
                     <%= month %>
                     <%= day %>,
                     <%= year %>
                   </div>
                   <div>by <a class="text-capitalize" href="#">
-                      <%= post1.author %></a>
+                      <%= author_name(post1.authors) %></a>
                   </div>
                 </div>
               </div>
@@ -82,9 +81,9 @@
               <% month =  Calendar.strftime(post.datetime, "%B") %>
               <% day =  post.datetime.day %>
               <% year = post.datetime.year %>
-              <% author = post.author %>
+              <% author = post.authors %>
               <p class="small">Posted by
-              <%= author %> on
+              <%= author_name(author) %> on
               <%= month %>
               <%= day %>,
               <%= year %>

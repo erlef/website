@@ -1,9 +1,11 @@
 defmodule ErlefWeb.ViewHelpers do
   @moduledoc "View Helpers"
 
-  def author_name("eef"), do: "ErlEF"
+  def author_name(["eef"]), do: "ErlEF"
 
-  def author_name(name), do: name
+  def author_name([name]), do: name
+
+  def author_name(names), do: Enum.join(names, ", ")
 
   def blog_tag_name("eef"), do: "announcements"
   def blog_tag_name(name), do: name
