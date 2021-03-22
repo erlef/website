@@ -65,5 +65,5 @@ defmodule ErlefWeb.SlackInviteController do
   end
 
   defp format_error(_error),
-    do: "An an unknown error occurred while processing your request. Please try again"
+    do: "An unknown error occurred while processing your request. Please try again"
 end
