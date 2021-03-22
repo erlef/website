@@ -64,5 +64,6 @@ defmodule ErlefWeb.SlackInviteController do
     "Invalid email Address"
   end
 
-  defp format_error(_error), do: "An an unknown error occured while processing your request. Please try again"
+  defp format_error(_error),
+    do: "An an unknown error occured while processing your request. Please try again"
 end
