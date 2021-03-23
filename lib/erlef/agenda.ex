@@ -75,7 +75,7 @@ defmodule Erlef.Agenda do
         err ->
           # credo:disable-for-lines:3
           if Erlef.in_env?([:dev, :prod]) do
-            Logger.error(fn -> "Error getting feed #{l} : #{inspect(err)}" end)
+            Logger.warning(fn -> "Error getting feed #{l} : #{inspect(err)}" end)
           end
 
           acc
