@@ -20,7 +20,6 @@ defmodule Erlef.Admins.Notifications do
     |> text_body(msg)
   end
 
-  @spec new(notification_type(), params()) :: Swoosh.Email.t()
   def new(:new_event_submitted, _) do
     msg = """
     A new event was submitted. Visit https://erlef.org/admin/ to view unapproved events.
