@@ -1,7 +1,7 @@
 defmodule ErlefWeb.Admin.EventController do
   use ErlefWeb, :controller
   action_fallback ErlefWeb.FallbackController
-  alias Erlef.{Accounts, Community}
+  alias Erlef.Community
 
   def index(conn, _params) do
     events = Community.unapproved_events()
