@@ -72,6 +72,24 @@ defmodule Erlef.Schema do
     end
   end
 
+  @spec validate_uuid(Ecto.Changeset.t(), atom()) :: Ecto.Changeset.t()
+  def validate_uuid(cs, field) do
+    case Map.get(cs.changes, field) do
+      nil ->
+        cs
+
+      _ ->
+        case Inputs.is_uuid?(Map.get(cs.changes, field)) do
+          true ->
+            cs
+
+          false ->
+            msg = "#{humanize(field)} is invalid. Not a valid UUID."
+            add_error(cs, field, msg)
+        end
+    end
+  end
+
   @spec humanize(atom | String.t()) :: String.t()
   def humanize(atom) when is_atom(atom),
     do: humanize(Atom.to_string(atom))

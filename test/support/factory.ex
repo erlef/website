@@ -32,8 +32,7 @@ defmodule Erlef.Factory do
       start: Date.utc_today(),
       end: Date.utc_today(),
       organizer: Faker.Company.name(),
-      url: Faker.Internet.url(),
-      submitted_by: Ecto.UUID.generate()
+      url: Faker.Internet.url()
     }
   end
 
@@ -66,8 +65,12 @@ defmodule Erlef.Factory do
       roles: [],
       suspended_member: false,
       terms_of_use_accepted: true,
-      external: %{source: :wildapricot, id: :rand.uniform(10_000)}
+      external: %{source: :wildapricot, id: Integer.to_string(:rand.uniform(10_000))}
     }
+  end
+
+  def build(:admin) do
+    build(:member, is_app_admin: true, roles: [:app_admin])
   end
 
   def build(:volunteer) do
