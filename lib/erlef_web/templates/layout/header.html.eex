@@ -20,7 +20,7 @@
         <li class="nav-item"><a href="/wg/" class="nav-link">Working Groups</a></li>
         <li class="nav-item"><a href="/stipends/" class="nav-link">Stipends</a></li>
         <li class="nav-item"><a href="/news/" class="nav-link">News</a></li>
-
+        <li class="nav-item"><a href="/events/" class="nav-link">Events</a>
        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="resources-dropdown" 
                 role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -28,7 +28,6 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="resources-dropdown">
             <a class="dropdown-item" href="/academic-papers/">Academic Papers</a>
             <a class="dropdown-item" href="/community/">Community</a>
-            <a class="dropdown-item" href="/events/">Events</a>
           </div>
         </li>
         
