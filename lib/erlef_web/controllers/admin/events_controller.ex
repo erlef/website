@@ -20,6 +20,7 @@ defmodule ErlefWeb.Admin.EventController do
   def approve(conn, %{"id" => id, "event" => params}) do
     admin = conn.assigns.current_user
     p = Map.put(params, "approved_by_id", admin.id)
+
     case Community.approve_event(id, p) do
       {:ok, _} ->
         redirect(conn, to: "/admin/events")

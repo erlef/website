@@ -12,12 +12,14 @@ defmodule Erlef.Community.Query do
   """
   @spec get_event(id :: Ecto.UUID.t()) :: Event.t() | nil
   def get_event(id) do
-    q = from(e in Event,
-      join: m in assoc(e, :submitted_by),
-      left_join: a in assoc(e, :approved_by),
-      where: e.id == ^id,
-      preload: [submitted_by: m, approved_by: a]
-    )
+    q =
+      from(e in Event,
+        join: m in assoc(e, :submitted_by),
+        left_join: a in assoc(e, :approved_by),
+        where: e.id == ^id,
+        preload: [submitted_by: m, approved_by: a]
+      )
+
     Repo.one(q)
   end
 

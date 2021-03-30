@@ -70,7 +70,7 @@ defmodule Erlef.Factory do
     }
   end
 
-  def build(:admin) do 
+  def build(:admin) do
     build(:member, is_app_admin: true, roles: [:app_admin])
   end
 

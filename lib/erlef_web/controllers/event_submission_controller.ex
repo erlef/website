@@ -6,7 +6,7 @@ defmodule ErlefWeb.EventSubmissionController do
 
   def create(conn, %{"event" => params}) do
     user = conn.assigns.current_user
-    
+
     p = Map.put(params, "submitted_by_id", user.id)
 
     case Community.submit_event(p) do
