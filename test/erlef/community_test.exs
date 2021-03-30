@@ -3,6 +3,7 @@ defmodule Erlef.CommunityTest do
 
   alias Erlef.Community
   alias Erlef.Community.Event
+  import Swoosh.TestAssertions
 
   test "event_types/0" do
     assert [:conference, :training, :meetup, :hackathon] = Community.event_types()
@@ -17,6 +18,7 @@ defmodule Erlef.CommunityTest do
     p = string_params_for(:event, type: :hackathon)
     p = Map.put(p, "organizer_brand_logo", logo)
     assert {:ok, %Event{}} = Community.submit_event(p)
+    assert_email_sent(Erlef.Admins.Notifications.new(:new_event_submitted, %{}))
   end
 
   test "approve/2" do
