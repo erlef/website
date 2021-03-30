@@ -10,7 +10,7 @@ defmodule Erlef.EventTest do
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
-        submitted_by: Ecto.UUID.generate(),
+        submitted_by_id: Ecto.UUID.generate(),
         url: "https://foo.bar/",
         organizer: "Organizer",
         type: :meetup
@@ -32,7 +32,7 @@ defmodule Erlef.EventTest do
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
-        submitted_by: Ecto.UUID.generate(),
+        submitted_by_id: Ecto.UUID.generate(),
         url: "https://foo.bar/",
         organizer: "Organizer",
         organizer_brand_color: "#12345",
@@ -59,8 +59,8 @@ defmodule Erlef.EventTest do
         {:end, {"can't be blank", [validation: :required]}},
         {:organizer, {"can't be blank", [validation: :required]}},
         {:url, {"can't be blank", [validation: :required]}},
-        {:submitted_by, {"can't be blank", [validation: :required]}},
         {:type, {"can't be blank", [validation: :required]}},
+        {:submitted_by_id, {"can't be blank", [validation: :required]}},
         {:title, {"is invalid", [{:type, :string}, {:validation, :cast}]}},
         {:description, {"is invalid", [type: :string, validation: :cast]}}
       ]
@@ -79,8 +79,8 @@ defmodule Erlef.EventTest do
         {:end, {"can't be blank", [validation: :required]}},
         {:organizer, {"can't be blank", [validation: :required]}},
         {:url, {"can't be blank", [validation: :required]}},
-        {:submitted_by, {"can't be blank", [validation: :required]}},
-        {:type, {"can't be blank", [validation: :required]}}
+        {:type, {"can't be blank", [validation: :required]}},
+        {:submitted_by_id, {"can't be blank", [validation: :required]}}
       ]
 
       assert exp_errors == cs.errors
@@ -94,14 +94,14 @@ defmodule Erlef.EventTest do
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
-        submitted_by: Ecto.UUID.generate(),
+        submitted_by_id: Ecto.UUID.generate(),
         url: "https://foo.bar/",
         organizer: "Organizer",
         type: :hackathon
       }
 
       params = %{
-        approved_by: Ecto.UUID.generate()
+        approved_by_id: Ecto.UUID.generate()
       }
 
       cs = Event.approval_changeset(event, params)
@@ -124,12 +124,12 @@ defmodule Erlef.EventTest do
       }
 
       params = %{
-        approved_by: "eh"
+        approved_by_id: "eh"
       }
 
       cs = Event.approval_changeset(event, params)
       refute cs.valid?
-      assert cs.errors == [{:approved_by, {"is invalid", [type: Ecto.UUID, validation: :cast]}}]
+      assert cs.errors == [{:approved_by_id, {"Approved by is invalid. Not a valid UUID.", []}}]
     end
   end
 end

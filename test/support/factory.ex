@@ -32,8 +32,7 @@ defmodule Erlef.Factory do
       start: Date.utc_today(),
       end: Date.utc_today(),
       organizer: Faker.Company.name(),
-      url: Faker.Internet.url(),
-      submitted_by: Ecto.UUID.generate()
+      url: Faker.Internet.url()
     }
   end
 

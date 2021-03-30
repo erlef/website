@@ -16,9 +16,9 @@ defmodule Erlef.Community.Event do
           organizer: String.t(),
           organizer_brand_color: String.t(),
           organizer_brand_logo: String.t() | nil,
-          submitted_by: Ecto.UUID.t(),
+          submitted_by_id: Ecto.UUID.t(),
           approved: boolean() | nil,
-          approved_by: Ecto.UUID.t() | nil,
+          approved_by_id: Ecto.UUID.t() | nil,
           approved_at: DateTime.t() | nil
         }
 
@@ -92,6 +92,7 @@ defmodule Erlef.Community.Event do
     struct
     |> cast(params, [:approved_by_id])
     |> validate_required([:approved_by_id])
+    |> validate_uuid(:approved_by_id)
     |> put_change(:approved, true)
     |> put_change(:approved_at, DateTime.truncate(DateTime.utc_now(), :second))
   end

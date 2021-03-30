@@ -70,4 +70,25 @@ defmodule Erlef.Inputs do
         false
     end
   end
+
+  @doc ~S"""
+    Validates a non-binary UUID.
+
+    ## Examples
+
+      iex> Erlef.Inputs.is_uuid?("7f96d432-568e-4b14-bd8d-02b56ff04844")
+      true
+      iex> Erlef.Inputs.is_uuid?("7f96d432-568e-4b14-bd8d-eh")
+      false
+      iex> Erlef.Inputs.is_uuid?("eh?")
+      false
+
+  """
+
+  def is_uuid?(uuid) do
+    case Ecto.UUID.dump(uuid) do
+      {:ok, _} -> true
+      _ -> false
+    end
+  end
 end

@@ -9,11 +9,15 @@ defmodule ErlefWeb.EventControllerTest do
   end
 
   test "GET /event/:id", %{conn: conn} do
+    member = insert_member!("basic_member")
+    admin = insert_member!("admin")
+
     e =
       insert!(:event,
         type: :meetup,
         approved: true,
-        approved_by: Ecto.UUID.generate(),
+        submitted_by_id: member.id,
+        approved_by_id: admin.id,
         slug: "eh"
       )
 
