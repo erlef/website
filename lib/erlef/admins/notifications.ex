@@ -19,4 +19,17 @@ defmodule Erlef.Admins.Notifications do
     |> subject("A new email request was created")
     |> text_body(msg)
   end
+
+  @spec new(notification_type(), params()) :: Swoosh.Email.t()
+  def new(:new_event_submitted, _) do
+    msg = """
+    A new event was submitted. Visit https://erlef.org/admin/ to view unapproved events.
+    """
+
+    new()
+    |> to({"Infrastructure Requests", "infra@erlef.org"})
+    |> from({"Erlef Notifications", "notifications@erlef.org"})
+    |> subject("A new event was submitted")
+    |> text_body(msg)
+  end
 end

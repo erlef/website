@@ -6,7 +6,7 @@ defmodule Erlef.Community do
   alias Ecto.{Changeset, UUID}
   alias Erlef.Community.Query
   alias Erlef.Community.Event
-  alias Erlef.Repo
+  alias Erlef.{Admins, Repo}
   alias Erlef.Community.Resources
 
   defdelegate approved_events(), to: Query
@@ -55,8 +55,10 @@ defmodule Erlef.Community do
   def submit_event(params) do
     with {:ok, event_params} <- maybe_upload_org_image(params),
          %Changeset{} = cs <- Event.new_submission(event_params),
-         {:ok, cs} <- valid_changeset(cs) do
-      Repo.insert(cs)
+         {:ok, cs} <- valid_changeset(cs), 
+         {:ok, event} <- Repo.insert(cs),
+         {:ok, _notify} <- Admins.notify(:new_event_submitted) do 
+          {:ok, event}
     end
   end
 
