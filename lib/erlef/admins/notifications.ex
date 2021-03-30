@@ -27,7 +27,7 @@ defmodule Erlef.Admins.Notifications do
     """
 
     new()
-    |> to({"Infrastructure Requests", "infra@erlef.org"})
+    |> to({"Website Admins", "infra@erlef.org"})
     |> from({"Erlef Notifications", "notifications@erlef.org"})
     |> subject("A new event was submitted")
     |> text_body(msg)
