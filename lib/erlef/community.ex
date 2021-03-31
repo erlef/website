@@ -33,6 +33,12 @@ defmodule Erlef.Community do
            {:ok, event} <- Repo.update(cs),
            {:ok, _notify} <- Members.notify(:new_event_approved, %{member: member}) do
         event
+      else
+        {:error, err} ->
+          Repo.rollback(err)
+
+        err ->
+          Repo.rollback(err)
       end
     end)
   end
@@ -66,6 +72,12 @@ defmodule Erlef.Community do
            {:ok, _notify} <- Admins.notify(:new_event_submitted, opts),
            {:ok, _notify} <- Members.notify(:new_event_submitted, opts) do
         event
+      else
+        {:error, err} ->
+          Repo.rollback(err)
+
+        err ->
+          Repo.rollback(err)
       end
     end)
   end
