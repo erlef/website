@@ -18,8 +18,9 @@ defmodule Erlef.CommunityTest do
     p = string_params_for(:event, type: :hackathon)
     member = insert_member!("basic_member")
     p = Map.merge(p, %{"organizer_brand_logo" => logo, "submitted_by_id" => member.id})
-    assert {:ok, %Event{}} = Community.submit_event(p)
+    assert {:ok, %Event{}} = Community.submit_event(p, %{member: member})
     assert_email_sent(Erlef.Admins.Notifications.new(:new_event_submitted, %{}))
+    assert_email_sent(Erlef.Members.Notifications.new(:new_event_submitted, %{member: member}))
   end
 
   test "approve/2" do
@@ -43,6 +44,7 @@ defmodule Erlef.CommunityTest do
     assert Community.unapproved_events_count() == 0
     assert [] = Community.unapproved_events()
     assert [%Event{}] = Community.approved_events()
+    assert_email_sent(Erlef.Members.Notifications.new(:new_event_approved, %{member: member}))
   end
 
   test "get_event/1" do

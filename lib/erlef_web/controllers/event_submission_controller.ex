@@ -9,7 +9,7 @@ defmodule ErlefWeb.EventSubmissionController do
 
     p = Map.put(params, "submitted_by_id", user.id)
 
-    case Community.submit_event(p) do
+    case Community.submit_event(p, %{member: user}) do
       {:ok, _event} ->
         conn
         |> put_flash(
