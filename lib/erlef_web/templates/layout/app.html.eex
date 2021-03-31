@@ -34,7 +34,7 @@
  
   
     <%= if Erlef.is_env?(:prod) do %>
-      <script async defer data-domain="erlef.org" src="https://plausible.io/js/plausible.js"></script>
+      <script async defer data-domain="erlef.org" src="https://stats.erlef.org/js/index.js"></script>
     <% end %>
   </head>
 
