@@ -15,7 +15,7 @@ defmodule Erlef.Members do
     EmailRequest.changeset(%EmailRequest{}, params)
   end
 
-  def notify(type, params \\ %{}) do
+  def notify(type, params) do
     type
     |> Notifications.new(params)
     |> Mailer.deliver()
