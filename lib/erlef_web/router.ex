@@ -4,7 +4,7 @@ defmodule ErlefWeb.Router do
   import Phoenix.LiveDashboard.Router
 
   @trusted_sources ~w(
-    use.fontawesome.com platform.twitter.com syndication.twitter.com
+    stats.erlef.org use.fontawesome.com platform.twitter.com syndication.twitter.com
     syndication.twitter.com/settings cdn.syndication.twimg.com
     licensebuttons.net i.creativecommons.org
     pbs.twimg.com use.typekit.net p.typekit.net
@@ -15,7 +15,7 @@ defmodule ErlefWeb.Router do
   )
 
   @trusted_connect_sources ~w(https://user.fm https://www.erlef.org wss://erlef.org 
-    wss://www.erlef.org ws://erlef.org ws://www.erlef.org  https://plausible.io https://raw.githubusercontent.com)
+    wss://www.erlef.org ws://erlef.org ws://www.erlef.org  https://stats.erlef.org https://plausible.io https://raw.githubusercontent.com)
 
   if Erlef.in_env?([:dev, :test]) do
     @default_source Enum.join(@trusted_sources ++ ["127.0.0.1:9998"], " ")
