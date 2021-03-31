@@ -3,7 +3,7 @@
   "authors": ["The Marketing Working Group"],
   "slug": "getting-to-know-us-prodriguez",
   "category": "marketing",
-  "tags": ["marketing", "getting-to-know-us", "bio"],
+  "tags": ["developer", "marketing", "getting-to-know-us", "bio"],
   "datetime": "2021-03-31T20:16:45.430923Z"
 }
 ---
