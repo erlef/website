@@ -38,5 +38,8 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
+  },
+  "resolutions": {
+    "uglifyjs-webpack-plugin/serialize-javascript": "^5.0.1"
   }
 }
