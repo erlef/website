@@ -64,6 +64,7 @@ defmodule Erlef.MixProject do
       {:honeybadger, "~> 0.1"},
       {:html_sanitize_ex, "~> 1.4"},
       {:hackney, "~> 1.17.0"},
+      {:logflare_logger_backend, "~> 0.8.0"},
       {:oauther, "1.1.1"},
       {:phoenix, "~> 1.5.7"},
       {:phoenix_ecto, "~> 4.2.1"},
