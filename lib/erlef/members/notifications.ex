@@ -7,6 +7,8 @@ defmodule Erlef.Members.Notifications do
 
   @type params() :: map()
 
+  def new(type, params \\ %{})
+
   def new(:new_event_submitted, %{member: member}) do
     msg = """
     Thanks for submitting a new event, we appreciate your involvment in our community. 
