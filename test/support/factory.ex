@@ -7,7 +7,7 @@ defmodule Erlef.Factory do
   alias Erlef.Publications.AcademicPaper
   alias Erlef.Accounts.Member
   alias Erlef.Community.Event
-  alias Erlef.Groups.{WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer, Volunteer}
+  alias Erlef.Groups.{WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer, Volunteer, Sponsor}
   alias Erlef.News.NewsTip
 
   def build(:news_tip) do
@@ -71,6 +71,16 @@ defmodule Erlef.Factory do
 
   def build(:admin) do
     build(:member, is_app_admin: true, roles: [:app_admin])
+  end
+
+  def build(:sponsor) do
+    %Sponsor{
+      active: true,
+      logo_url: Faker.Internet.url(),
+      is_founding_sponsor: false,
+      name: Faker.Company.name(),
+      url: Faker.Internet.url()
+    }
   end
 
   def build(:volunteer) do

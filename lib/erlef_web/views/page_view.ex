@@ -1,7 +1,7 @@
 defmodule ErlefWeb.PageView do
   use ErlefWeb, :view
 
-  import ErlefWeb.ViewHelpers, only: [event_dates: 2]
+  import ErlefWeb.ViewHelpers
 
   def community_card_wall(items) do
     ~E"""
@@ -65,45 +65,5 @@ defmodule ErlefWeb.PageView do
       <% end %>
     </div>
     """
-  end
-
-  def active_sponsors([]), do: []
-
-  def active_sponsors(sponsors) do
-    sponsors
-    |> Enum.filter(& &1.active)
-    |> Enum.shuffle()
-  end
-
-  def active_and_founding_sponsors([]), do: []
-
-  def active_and_founding_sponsors(sponsors) do
-    sponsors
-    |> Enum.filter(&(&1.active and &1.is_founding_sponsor))
-    |> Enum.shuffle()
-  end
-
-  def active_non_founding_sponsors([]), do: []
-
-  def active_non_founding_sponsors(sponsors) do
-    sponsors
-    |> Enum.filter(&(&1.active and not &1.is_founding_sponsor))
-    |> Enum.shuffle()
-  end
-
-  def founding_non_active_sponsors([]), do: []
-
-  def founding_non_active_sponsors(sponsors) do
-    sponsors
-    |> Enum.filter(&(not &1.active and &1.is_founding_sponsor))
-    |> Enum.shuffle()
-  end
-
-  def founding_sponsors([]), do: []
-
-  def founding_sponsors(sponsors) do
-    sponsors
-    |> Enum.filter(& &1.is_founding_sponsor)
-    |> Enum.shuffle()
   end
 end
