@@ -4,8 +4,7 @@ defmodule Erlef.Members do
   """
 
   alias Erlef.Repo
-  alias Erlef.Members.EmailRequest
-  alias Erlef.Members.EmailRequestNotification
+  alias Erlef.Members.{EmailRequest, EmailRequestNotification, Notifications}
   alias Erlef.Mailer
   alias Erlef.Admins
   alias Erlef.Accounts.Member
@@ -14,6 +13,12 @@ defmodule Erlef.Members do
 
   def new_email_request(params \\ %{}) do
     EmailRequest.changeset(%EmailRequest{}, params)
+  end
+
+  def notify(type, params) do
+    type
+    |> Notifications.new(params)
+    |> Mailer.deliver()
   end
 
   def create_email_request(params) do
@@ -65,7 +70,7 @@ defmodule Erlef.Members do
     with %EmailRequest{} = req <- get_email_request(id),
          {:ok, member} <- update_member_fields(req),
          {:ok, _req} <- update_email_request(req.id, %{status: :completed}) do
-      notify(req, %{member: member, password: password})
+      do_notify(req, %{member: member, password: password})
     end
   end
 
@@ -73,7 +78,7 @@ defmodule Erlef.Members do
     with %EmailRequest{} = req <- get_email_request(id),
          {:ok, member} <- update_member_fields(req),
          {:ok, req} <- update_email_request(req.id, %{status: :completed}) do
-      notify(req, %{member: member})
+      do_notify(req, %{member: member})
     end
   end
 
@@ -117,7 +122,7 @@ defmodule Erlef.Members do
     end
   end
 
-  defp notify(%EmailRequest{type: :email_alias}, params) do
+  def do_notify(%EmailRequest{type: :email_alias}, params) do
     {:ok, _} =
       params.member
       |> EmailRequestNotification.email_alias_created()
@@ -126,7 +131,7 @@ defmodule Erlef.Members do
     :ok
   end
 
-  defp notify(%EmailRequest{type: :email_box}, params) do
+  def do_notify(%EmailRequest{type: :email_box}, params) do
     {:ok, _} =
       params.member
       |> EmailRequestNotification.email_box_created(params.password)
