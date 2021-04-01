@@ -1,6 +1,10 @@
 defmodule ErlefWeb.Admin.VolunteerView do
   use ErlefWeb, :view
 
+  def title(%{assigns: %{volunteer: nil}}) do
+    ""
+  end  
+
   def title(%{assigns: %{volunteer: vol}}) do
     "Volunteer - #{vol.name}"
   end
