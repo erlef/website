@@ -11,7 +11,7 @@ defmodule ErlefWeb.Admin.VolunteerController do
 
   def new(conn, _params) do
     changeset = Groups.change_volunteer(%Volunteer{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, volunteer: nil)
   end
 
   def create(conn, %{"volunteer" => volunteer_params}) do
