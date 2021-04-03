@@ -3,7 +3,7 @@ defmodule ErlefWeb.Admin.VolunteerView do
 
   def title(%{assigns: %{volunteer: nil}}) do
     ""
-  end  
+  end
 
   def title(%{assigns: %{volunteer: vol}}) do
     "Volunteer - #{vol.name}"
