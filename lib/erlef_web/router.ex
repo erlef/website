@@ -108,8 +108,7 @@ defmodule ErlefWeb.Router do
       resources "/news", NewsTipController
     end
 
-    get "/events/:slug", EventController, :show
-    get "/events", EventController, :index
+    live "/events", EventsLive.Index, :index
 
     # Working Groups
     resources "/wg", WorkingGroupController, only: [:index, :show], param: "slug"
