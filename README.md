@@ -9,12 +9,11 @@
  - Erlang/OTP 23
  - Elixir 1.11
  - NodeJS v10 (or greatter)
- - Yarn
 
 ## Up and running
 
   * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `cd assets && yarn`
+  * Install Node.js dependencies with `npm install --prefix assets`
   * Run `mix ecto.setup` to setup the local database
   * Start Phoenix endpoint with `mix phx.server`
 
