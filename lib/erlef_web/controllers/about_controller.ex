@@ -4,5 +4,4 @@ defmodule ErlefWeb.AboutController do
   action_fallback ErlefWeb.FallbackController
 
   def show(conn, %{"topic" => "working-groups"}), do: render(conn, "working_groups.html")
-
 end
