@@ -111,6 +111,9 @@ defmodule ErlefWeb.Router do
     get "/events/:slug", EventController, :show
     get "/events", EventController, :index
 
+    get "/about", AboutController, :index
+    get "/about/:topic", AboutController, :show
+
     # Working Groups
     resources "/wg", WorkingGroupController, only: [:index, :show], param: "slug"
 
