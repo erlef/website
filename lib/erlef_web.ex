@@ -42,34 +42,25 @@ defmodule ErlefWeb do
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
 
-      # Use all HTML functionality (forms, tags, etc)
-      use Phoenix.HTML
+      unquote(view_helpers())
+    end
+  end
 
-      import ErlefWeb.ErrorHelpers
-      import ErlefWeb.Gettext
-      import ErlefWeb.HTML
-      import Phoenix.LiveView.Helpers
-      import ErlefWeb.ViewHelpers
+  def live_view do
+    quote do
+      use Phoenix.LiveView,
+          # TODO fix
+          # layout: {ErlefWeb.LayoutView, "live.html"}
 
-      alias ErlefWeb.Router.Helpers, as: Routes
+          unquote(view_helpers())
+    end
+  end
 
-      def render_shared(template, assigns \\ []) do
-        render(ErlefWeb.SharedView, template, assigns)
-      end
+  def live_component do
+    quote do
+      use Phoenix.LiveComponent
 
-      def logged_in?(assigns) do
-        !!assigns[:current_user]
-      end
-
-      def image_path(conn, nil), do: ""
-
-      def image_path(_conn, <<"http", _rest::binary>> = url), do: url
-
-      def image_path(conn, <<"volunteers", _rest::binary>> = path) do
-        Routes.static_path(conn, "/images/" <> path)
-      end
-
-      def image_path(conn, path), do: Routes.static_path(conn, path)
+      unquote(view_helpers())
     end
   end
 
@@ -79,6 +70,26 @@ defmodule ErlefWeb do
       import Plug.Conn
       import Phoenix.Controller
       import Phoenix.LiveView.Router
+    end
+  end
+
+  defp view_helpers do
+    quote do
+      # Use all HTML functionality (forms, tags, etc)
+      use Phoenix.HTML
+
+      # Import LiveView helpers (live_render, live_component, live_patch, etc)
+      import Phoenix.LiveView.Helpers
+
+      # Import basic rendering functionality (render, render_layout, etc)
+      import Phoenix.View
+
+      import ErlefWeb.ErrorHelpers
+      import ErlefWeb.Gettext
+      import ErlefWeb.HTML
+      import ErlefWeb.ViewHelpers
+
+      alias ErlefWeb.Router.Helpers, as: Routes
     end
   end
 

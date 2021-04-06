@@ -89,4 +89,22 @@ defmodule ErlefWeb.ViewHelpers do
 
   def event_dates(start_date, end_date),
     do: "#{start_date} - #{end_date}"
+
+  def render_shared(template, assigns \\ []) do
+    Phoenix.View.render(ErlefWeb.SharedView, template, assigns)
+  end
+
+  def logged_in?(assigns) do
+    !!assigns[:current_user]
+  end
+
+  def image_path(_conn, nil), do: ""
+
+  def image_path(_conn, <<"http", _rest::binary>> = url), do: url
+
+  def image_path(conn, <<"volunteers", _rest::binary>> = path) do
+    ErlefWeb.Router.Helpers.static_path(conn, "/images/" <> path)
+  end
+
+  def image_path(conn, path), do: ErlefWeb.Router.Helpers.static_path(conn, path)
 end
