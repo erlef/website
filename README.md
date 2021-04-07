@@ -1,6 +1,6 @@
 # Erlef
 
-![CI](https://github.com/erlef/website/workflows/CI/badge.svg)
+![CI](https://github.com/erlef/website/workflows/test/badge.svg)
 
 ## Prerequisites
 
