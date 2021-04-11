@@ -5,7 +5,7 @@ defmodule Erlef.Members.EmailRequestTest do
 
   describe "changeset/2" do
     test "when username is valid" do
-      p = %{status: :created, type: :email_alias, submitted_by: Ecto.UUID.generate()}
+      p = %{status: :created, type: :email_alias, submitted_by_id: Ecto.UUID.generate()}
       cs = EmailRequest.changeset(%EmailRequest{}, Map.put(p, :username, "foo.bar"))
       assert cs.valid?
       cs = EmailRequest.changeset(%EmailRequest{}, Map.put(p, :username, "f_o_o.b_a_r"))
@@ -16,7 +16,7 @@ defmodule Erlef.Members.EmailRequestTest do
     end
 
     test "when username is invalid" do
-      p = %{status: :created, type: :email_alias, submitted_by: Ecto.UUID.generate()}
+      p = %{status: :created, type: :email_alias, submitted_by_id: Ecto.UUID.generate()}
       cs = EmailRequest.changeset(%EmailRequest{}, Map.put(p, :username, "foo.bar!"))
       refute cs.valid?
       cs = EmailRequest.changeset(%EmailRequest{}, Map.put(p, :username, "f_o_o.b_a_r@"))
