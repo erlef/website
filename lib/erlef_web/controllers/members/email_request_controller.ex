@@ -18,7 +18,7 @@ defmodule ErlefWeb.Members.EmailRequestController do
   def create(conn, %{"email_request" => params}) do
     req_params = %{
       "status" => "created",
-      "submitted_by" => conn.assigns.current_user.id
+      "submitted_by_id" => conn.assigns.current_user.id
     }
 
     case Members.create_email_request(Map.merge(params, req_params)) do

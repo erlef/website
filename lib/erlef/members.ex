@@ -37,17 +37,17 @@ defmodule Erlef.Members do
     end
   end
 
-  def get_email_request(id), do: Repo.get(EmailRequest, id)
+  def get_email_request(id), do: Repo.one(EmailRequest.get(id))
 
   def has_email_request?(member) do
-    case Repo.get_by(EmailRequest, submitted_by: member.id) do
+    case Repo.get_by(EmailRequest, submitted_by_id: member.id) do
       nil -> false
       _ -> true
     end
   end
 
   def get_email_request_by_member(member) do
-    Repo.get_by(EmailRequest, submitted_by: member.id)
+    Repo.get_by(EmailRequest, submitted_by_id: member.id)
   end
 
   def update_email_request(%EmailRequest{} = req, params) do
@@ -113,7 +113,7 @@ defmodule Erlef.Members do
           %{erlef_email_address: email, has_email_box?: false, has_email_alias?: true}
       end
 
-    case Erlef.Accounts.get_member!(req.submitted_by) do
+    case Erlef.Accounts.get_member!(req.submitted_by_id) do
       %Member{} = member ->
         Erlef.Accounts.update_member(member, update, update_external: true)
 

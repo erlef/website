@@ -10,9 +10,6 @@ defmodule ErlefWeb.Admin.EmailRequestController do
 
   def show(conn, %{"id" => id}) do
     req = Members.get_email_request(id)
-    member = Erlef.Accounts.get_member!(req.submitted_by)
-
-    req = cast_assigned_to(req, conn)
 
     logs =
       Enum.map(req.logs, fn l ->
@@ -20,7 +17,7 @@ defmodule ErlefWeb.Admin.EmailRequestController do
       end)
 
     render(conn,
-      email_request: %{req | logs: logs, submitted_by: member}
+      email_request: %{req | logs: logs}
     )
   end
 
@@ -30,7 +27,7 @@ defmodule ErlefWeb.Admin.EmailRequestController do
     {:ok, _req} =
       Members.update_email_request(req, %{
         status: :in_progress,
-        assigned_to: conn.assigns.current_user.id
+        assigned_to_id: conn.assigns.current_user.id
       })
 
     redirect(conn, to: Routes.admin_email_request_path(conn, :show, id))
@@ -47,7 +44,7 @@ defmodule ErlefWeb.Admin.EmailRequestController do
   end
 
   defp cast_assigned_to(req, conn) do
-    case req.assigned_to do
+    case req.assigned_to_id do
       nil ->
         req
 

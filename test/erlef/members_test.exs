@@ -26,11 +26,11 @@ defmodule Erlef.MembersTest do
                status: :created,
                type: :email_alias,
                username: "starbelly",
-               submitted_by: member.id
+               submitted_by_id: member.id
              })
 
-    assert ^req = Members.get_email_request(req.id)
-    assert ^req = Members.get_email_request_by_member(member)
+    assert %EmailRequest{id: id} = Members.get_email_request(req.id)
+    assert %EmailRequest{id: ^id} = Members.get_email_request_by_member(member)
     assert_email_sent(Erlef.Admins.Notifications.new(:new_email_request, %{}))
   end
 
@@ -40,7 +40,7 @@ defmodule Erlef.MembersTest do
                status: :created,
                type: :email_alias,
                username: "starbelly",
-               submitted_by: member.id
+               submitted_by_id: member.id
              })
 
     assert Members.has_email_request?(member)
@@ -57,7 +57,7 @@ defmodule Erlef.MembersTest do
                status: :created,
                type: :email_alias,
                username: "starbelly",
-               submitted_by: member.id
+               submitted_by_id: member.id
              })
 
     assert Members.update_email_request(req, %{status: :in_progress})
@@ -66,28 +66,28 @@ defmodule Erlef.MembersTest do
   end
 
   describe "complete_email_request/1" do
-    test "when request is of type email_alias", %{member: member} do
+    test "when request is of type email_alias", %{admin: admin, member: member} do
       assert {:ok, %EmailRequest{} = req} =
                Members.create_email_request(%{
                  status: :created,
                  type: :email_alias,
                  username: "starbelly",
-                 assigned_to: Ecto.UUID.generate(),
-                 submitted_by: member.id
+                 assigned_to_id: admin.id,
+                 submitted_by_id: member.id
                })
 
       assert Members.complete_email_request(%{id: req.id})
       assert_email_sent(Members.EmailRequestNotification.email_alias_created(member))
     end
 
-    test "when request is of type email_box", %{member: member} do
+    test "when request is of type email_box", %{admin: admin, member: member} do
       assert {:ok, %EmailRequest{} = req} =
                Members.create_email_request(%{
                  status: :created,
                  type: :email_box,
                  username: "starbelly",
-                 assigned_to: Ecto.UUID.generate(),
-                 submitted_by: member.id
+                 assigned_to_id: admin.id,
+                 submitted_by_id: member.id
                })
 
       member = Accounts.get_member!(member.id)
