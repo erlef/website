@@ -16,8 +16,6 @@ defmodule ErlefWeb.Admin.EmailRequestController do
         cast_assigned_to(l, conn)
       end)
 
-    eh = %{req | logs: logs}
-
     render(conn,
       email_request: %{req | logs: logs}
     )
