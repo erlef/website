@@ -50,6 +50,8 @@ defmodule ErlefWeb.PageController do
     render(conn, fellows: Erlef.Fellows.all())
   end
 
+  def public_records(conn, _), do: render(conn)
+
   def sponsors(conn, _params) do
     render(conn)
   end
