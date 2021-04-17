@@ -90,6 +90,7 @@ defmodule ErlefWeb.Router do
     get "/contact", PageController, :contact
     get "/faq", PageController, :faq
     get "/fellows", PageController, :fellows
+    get "/public_records", PageController, :public_records
     get "/sponsors", PageController, :sponsors
     get "/wg-proposal-template", PageController, :wg_proposal_template
 
