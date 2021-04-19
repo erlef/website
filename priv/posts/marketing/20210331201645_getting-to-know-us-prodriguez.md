@@ -19,7 +19,7 @@ Getting to know Pehuén Rodriguez
 ## About this series 
 
 <p>
- Welcome the first edition in our getting to know us series. Getting to know us consists of articles and interviews
+ Welcome the first edition in our "Getting to know us" series. "Getting to know us" consists of articles and interviews
  about a wide variety of people in our ecosystem, with the main goal of making their work with BEAM technologies
  visible. Some have been around a long time, while others may seem new to you, but they all share a love for this
  ecosystem. If you know of interesting work that deserves more visibility, let us know at 
