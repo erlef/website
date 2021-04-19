@@ -10,10 +10,23 @@
 Getting to know Pehuén Rodriguez
 ---
 
+
 <img src="/images/getting-to-know/prodriguez.png" class="img-fluid" alt="Pehuén Rodriguez"/>
 
 <br/>
 <br/>
+
+## About this series 
+
+<p>
+ Welcome the first edition in our "Getting to know us" series. "Getting to know us" consists of articles and interviews
+ about a wide variety of people in our ecosystem, with the main goal of making their work with BEAM technologies
+ visible. Some have been around a long time, while others may seem new to you, but they all share a love for this
+ ecosystem. If you know of interesting work that deserves more visibility, let us know at 
+ <a href="mailto:marcom@erlef.org">marcom@erlef.org</a> !
+</p>
+
+## Getting to know Pehuén Rodriguez
 
 Pehuén Rodriguez is an Argentine 34-year-old software developer and artist with over thirteen years of experience. He’s also a partner at Nayra, a digital development cooperative. He “speaks” OOP, some C++, Javascript, SQL and no-SQL, among others.He has been interested in BEAM technologies for a while now, and nowadays he’s specializing in Erlang and distributed systems at NextRoll.
 
@@ -42,3 +55,10 @@ As a cooperativist, work and personal life are almost the same thing. Cooperativ
 ## Something to keep working on
 
 We asked Pehuén what he thinks could collaborate with more people to become interested in BEAM technologies. In his opinion, and as constructive criticism, something more people should talk about and debate is Erlang documentation. As a fervent defender of the ecosystem technologies, he thinks Erlang has many advantages and technological attractions. However, he notes that its documentation is a bit unwelcoming to the uninitiated, especially compared to other languages that saw technical marketing as a tool to attract new developers.Still, he wouldn’t trade BEAM technologies for anything.
+
+
+-------------
+<p>
+We're eager to hear your stories, please share them at 
+<a href="mailto:marcom@erlef.org">marcom@erlef.org</a> !
+</p>

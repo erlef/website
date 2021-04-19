@@ -139,7 +139,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: priv/plts
-          key: ${{ runner.os }}-erlef-dialyzer-${{ env.otp-version }}-${{ env.elixir-version }}-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
+          key: ${{ runner.os }}-erlef-dialyzer-1-${{ env.otp-version }}-${{ env.elixir-version }}-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
       - name: dialyze
         run: mix dialyzer
 
