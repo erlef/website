@@ -58,4 +58,7 @@ We asked Pehuén what he thinks could collaborate with more people to become int
 
 
 -------------
-We're eager to hear your stories, please share them at <a href="mailto:marcom@erlef.org">marcom@erlef.org</a>!
+<p>
+We're eager to hear your stories, please share them at 
+<a href="mailto:marcom@erlef.org">marcom@erlef.org</a> !
+</p>
