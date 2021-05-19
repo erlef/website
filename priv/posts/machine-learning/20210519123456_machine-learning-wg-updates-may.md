@@ -13,9 +13,9 @@ Machine Learning WG updates - May 2021
 The Erlang Ecosystem Foundation has recently announced the Machine Learning Working Group which is working on bringing Numerical Computing and Machine Learning libraries to the Erlang Ecosystem.
 The working group has enjoyed tremendous growth in the last months and today we want to share what we have accomplished in the last 30 days or so.
 
-## [Nx](https://github.com/elixir-nx/nx) updates
+## Nx updates
 
-Nx is a multi-dimensional arrays (tensors) library with multi-staged compilation to the CPU/GPU.
+[Nx](https://github.com/elixir-nx/nx) is a multi-dimensional arrays (tensors) library with multi-staged compilation to the CPU/GPU.
 
 *   It is now possible to slice a tensor based on dynamic indexes, allowing you to access a tensor position based on the value of another tensor. `Nx.put_slice/3` has also been added, which allows you to update part of a tensor with another tensor, statically or dynamically (see [pull request](https://github.com/elixir-nx/nx/pull/400))
 
@@ -27,9 +27,9 @@ Nx is a multi-dimensional arrays (tensors) library with multi-staged compilation
 
 *   Work has started on built-in support for vmap, also known as auto-vectorization. Some operations, such as the dot product, have already been extended to support batching
 
-## [Axon](https://github.com/elixir-nx/axon/) updates
+## Axon updates
 
-Axon is a library led by Sean Moriarity that brings deep learning to the Erlang Ecosystem. It is powered by Nx and runs on the CPU/GPU.
+[Axon](https://github.com/elixir-nx/axon/) is a library led by Sean Moriarity that brings deep learning to the Erlang Ecosystem. It is powered by Nx and runs on the CPU/GPU.
 
 *   Axon now supports recurrent layers (`Axon.lstm/3`, `Axon.gru/3`, `Axon.conv_lstm/3`) with the option to dynamically or statically unroll layers over an entire sequence
 
@@ -43,9 +43,9 @@ Axon is a library led by Sean Moriarity that brings deep learning to the Erlang 
 
 *   We are in the process of migrating Axon’s examples to Livebooks. See the [MNIST Livebook example](https://github.com/elixir-nx/axon/blob/main/notebooks/mnist.livemd).  We are accepting PRs for [additional examples](https://github.com/elixir-nx/axon/issues/47) as well as for [converting examples to live markdown](https://github.com/elixir-nx/axon/issues/52). Both issues are a great way to get involved with the project and to learn about Axon!
 
-## [Livebook](https://github.com/elixir-nx/livebook/) updates
+## Livebook updates
 
-Livebook is a collaborative and interactive code notebook maintained by Jonatan Kłosko.
+[Livebook](https://github.com/elixir-nx/livebook/) is a collaborative and interactive code notebook maintained by Jonatan Kłosko.
 
 *   Livebook was announced last month. [Watch the original announcement by José Valim](https://www.youtube.com/watch?v=RKvqc-UEe34)
 
@@ -57,10 +57,9 @@ Livebook is a collaborative and interactive code notebook maintained by Jonatan 
 
 *   Users can also import notebooks from a URL, so trying out notebooks from GitHub or Gist is extremely straightforward. You can already get some examples from [here](https://github.com/elixir-nx/axon/tree/main/notebooks) and [here](https://github.com/jonatanklosko/notebooks)
 
+## Scidata updates
 
-## [Scidata](https://github.com/elixir-nx/scidata) updates
-
-Last month we also announced Scidata, a library by Tom Rutten for downloading and normalizing data sets related to science.
+Last month we also announced [Scidata](https://github.com/elixir-nx/scidata), a library by Tom Rutten for downloading and normalizing data sets related to science.
 
 *   Scidata currently supports MNIST, FashionMNIST, CIFAR10 and CIFAR100 data sets
 
