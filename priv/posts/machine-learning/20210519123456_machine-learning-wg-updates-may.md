@@ -1,7 +1,7 @@
 {
   "title": "Machine Learning WG updates - May 2021",
   "authors": ["The Machine Learning WG"],
-  "slug": "machine-learning-udpates-may-2021",
+  "slug": "machine-learning-updates-may-2021",
   "tags": ["machine learning", "axon", "nx", "livebook", "scidata"],
   "category": "machine-learning",
   "datetime": "2021-05-19T12:34:56.921505Z"
