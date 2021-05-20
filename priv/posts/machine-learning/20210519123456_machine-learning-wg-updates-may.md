@@ -69,9 +69,9 @@ Last month we also announced [Scidata](https://github.com/elixir-nx/scidata), a 
 
 Here is a collection of fun stuff people are doing with the existing libraries and with machine learning on the BEAM:
 
-*   [Masatoshi Nishiguchi wrote a Livebook document that controls a BMP280 temperature sensor that is connected to a Raspberry Pi](https://twitter.com/MNishiguchiDC/status/1390658051267563520) \
+*   [Masatoshi Nishiguchi wrote a Livebook document that controls a BMP280 temperature sensor that is connected to a Raspberry Pi](https://twitter.com/MNishiguchiDC/status/1390658051267563520)
 
-*   [Marcelo Reichert used Axon to simulate an autonomous car finding its objective](https://twitter.com/marceloreichert/status/1385427566278975491) \
+*   [Marcelo Reichert used Axon to simulate an autonomous car finding its objective](https://twitter.com/marceloreichert/status/1385427566278975491)
 
 *   [Jonatan Kłosko was on the ThinkingElixir podcast to talk about Livebook and its implementation](https://thinkingelixir.com/podcast-episodes/046-livebook-with-jonatan-klosko/)
 
