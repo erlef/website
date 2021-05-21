@@ -55,7 +55,7 @@ working_groups = [
   },
   %{
     description:
-      "Standardize, improve, and promote the APIs, tooling, and infrastructure for building embedded systems and IoT devices usingErlang VMs",
+      "Standardize, improve, and promote the APIs, tooling, and infrastructure for building embedded systems and IoT devices using Erlang VMs",
     formed: ~D[2019-08-09],
     id: "73dfc610-b804-4ed7-9f5f-5a2d0a76dccf",
     meta: %Erlef.Groups.WorkingGroup.Meta{
