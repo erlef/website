@@ -22,8 +22,11 @@
 
       <%= community_card_wall(Enum.shuffle(@community.languages)) %>
 
-      <!-- TOC plugin expects more than one heading. This is a hack until we have a second section -->
-      <h1 id="hack_heading" style="display:none;"></h1>
+       <!-- Blogs -->
+      <h1>Blogs</h1>
+      <p>TODO: Needs copy</p>
+
+      <%= community_card_wall(Enum.shuffle(@community.blogs)) %>
     </div>  
   </div>
 </div>
@@ -31,7 +34,7 @@
 <script>
   $( ".card" ).hover(
     function() {
-      $(this).addClass('shadow-lg').css('cursor', 'pointer'); 
+      $(this).addClass('shadow-lg').css('cursor', 'pointer');
     }, function() {
       $(this).removeClass('shadow-lg');
     }
@@ -42,13 +45,9 @@ $(function() {
   var $myNav = $(navSelector);
   Toc.init($myNav);
 
-  // TOC plugin expects more than one heading. This is a hack until we have a second section
-  $("#hack_heading").remove();
-  $("#community-toc > ul.nav:nth-child(1) > li:nth-child(2)").remove();
-  
   $("body").scrollspy({
     target: navSelector,
-    offset: 0
+    offset: 10
   });
 });
 </script>
