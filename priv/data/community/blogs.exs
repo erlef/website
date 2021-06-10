@@ -5,7 +5,7 @@
     icon: "/images/community/blogs/dashbit.png",
     logo: nil,
     about:
-      "Dashbit copy."
+      "Maintainers and contributors to many Elixir projects, such as Ecto, Broadway, LiveView, and Elixir itself."
   },
   %{
     name: "OTP Team",
