@@ -53,7 +53,7 @@
     icon: nil,
     logo: nil,
     about:
-      "Keep updated with what's happening in the Elixir community."
+      "Elixir Radar is a weekly Elixir newsletter with curated content and a job board for Elixir developers."
   },
   %{
     name: "Changelog",
