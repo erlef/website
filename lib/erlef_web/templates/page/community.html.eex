@@ -24,7 +24,7 @@
 
        <!-- Blogs -->
       <h1>Blogs</h1>
-      <p>TODO: Needs copy</p>
+      <p>The community produces a lot of content dedicated to discussing and exploring all facets of the Erlang ecosystem. Blogs listed below offer a great way to stay up to date with the state of the ecosystem.</p>
 
       <%= community_card_wall(Enum.shuffle(@community.blogs)) %>
     </div>  
