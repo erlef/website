@@ -61,22 +61,22 @@
     icon: "/images/community/blogs/changelog.png",
     logo: nil,
     about:
-      "Changelog"
+      "Changelog is an indie media company creating content for software developers, including a dedicated topic for Elixir."
   },
   %{
-    name: "Elixir Status",
+    name: "ElixirStatus",
     link: "https://elixirstatus.com/",
     icon: "/images/community/blogs/elixirstatus.png",
     logo: nil,
     about:
-      "Elixir Status"
+      "ElixirStatus is a community where Elixir creators post their newest blog posts, project updates, podcast episodes and videos."
   },
   %{
-    name: "Elixir Weekly",
+    name: "ElixirWeekly",
     link: "https://elixirweekly.net/",
     icon: "/images/community/blogs/elixirweekly.png",
     logo: nil,
     about:
-      "Elixir Weekly"
+      "ElixirWeekly is focusing on the very latest creations of the community in one weekly email."
   },
 ]
