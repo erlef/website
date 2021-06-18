@@ -118,24 +118,36 @@ nav.navbar {
 
 .right-bleed {
     display: none;
-}
-
-.left-bleed {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .right-bleed {
+    
+    @media (min-width: 768px) {
         left: 0;
-
         display: block;
         margin-right: calc(-50vw / 2);
         overflow: hidden;
     }
+}
 
-    .left-bleed {
+.left-bleed {
+    display: none;
+    
+    // The Twitter feed uses this in addition to the join-us section, and we want
+    // to avoid touching that. This should later be refactored into something that
+    // can be more easily used without worrying about breaking anything. 
+    #join & {
+        @media (min-width: 768px) {
+            display: none;
+        }
+        
+        @media (min-width: 992px) {
+            right: 0;
+            display: block;
+            margin-left: calc(-50vw / 2);
+            overflow: hidden;
+        }
+    }
+    
+    @media (min-width: 768px) {
         right: 0;
-
         display: block;
         margin-left: calc(-50vw / 2);
         overflow: hidden;
