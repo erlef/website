@@ -109,7 +109,5 @@
         </aside>
       </div>
   </main>
-  <section class="py-5 mt-5 bg-brand text-white">
-    <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
-  </section>
+    <%= render(ErlefWeb.LayoutView, "join_us.html", assigns) %>
     </div>
