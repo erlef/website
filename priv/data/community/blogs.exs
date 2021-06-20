@@ -79,4 +79,12 @@
     about:
       "ElixirWeekly is focusing on the very latest creations of the community in one weekly email."
   },
+  %{
+    name: "Erlang Battleground",
+    link: "https://medium.com/erlang-battleground",
+    icon: "/images/community/blogs/erlang-battleground.png",
+    logo: nil,
+    about:
+      "Funny & Weird Stories found while coding on the BEAM."
+  },
 ]
