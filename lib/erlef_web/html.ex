@@ -4,6 +4,7 @@ defmodule ErlefWeb.HTML do
   """
   import Phoenix.HTML.Tag
   import Phoenix.HTML
+  import Phoenix.HTML.Link
 
   def to_date_string(date_time) do
     Calendar.strftime(date_time, "%B, %d, %Y, %H:%M:%S UTC")
@@ -45,32 +46,8 @@ defmodule ErlefWeb.HTML do
     div_tag(contents, opts)
   end
 
-  def subscribe_form do
-    """
-     <form action="https://erlef.us20.list-manage.com/subscribe/post?u=8d8ff4d9284d463c374e574bb&amp;id=8cad7357f8"
-           method="post" id="mc-embedded-subscribe-form"
-           name="mc-embedded-subscribe-form"
-           class="form-inline"
-           target="_blank" novalidate>
-           
-      <div style="position: absolute; left: -5000px;" aria-hidden="true">
-             <input type="text" 
-                  name="b_8d8ff4d9284d463c374e574bb_8cad7357f8" 
-                  tabindex="-1" value="">
-      </div>
-
-      <div class="form-group mb-2">
-        <label for="email_subscribe" class="sr-only">Email</label>
-          <input type="text" 
-                class="form-control" 
-                id="email_subscribe" placeholder="Email">
-        </div>
-      <div class="col ml-sm-1">
-        <button type="submit" 
-              class="btn btn-primary mb-2">Subscribe</button>
-      </div>
-    </form>
-    """
+  def join_us_link do
+    link("Join us", to: "https://members.erlef.org/join-us", class: "btn btn-primary")
   end
 
   def calendar(ics_url) do

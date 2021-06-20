@@ -1,44 +1,44 @@
-	<div id="content" class="site-content">
-
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-12">
-                <div id="primary" class="content-area">
-                    <main id="main" class="site-main">
-
-                        
-<article id="post-10" class="card mt-3r post-10 page type-page status-publish hentry">
-	<div class="card-body">
-		<header class="entry-header">
-		</header><!-- .entry-header -->
-
-		
-		<div class="entry-content">
-			<p>Sign up for our newsletter to stay informed of EEF updates!</p>
-            <%= raw subscribe_form() %>
-            
-            <p>General: eef (at) erlef.org</p>
-            <p>Marketing: marketing (at) erlef (dot) org</p>
-            <p>Sponsorships: sponsorship (at) erlef (dot) org</p>
-            <p>Education, Training, Adoption: education (at) erlef (dot) org</p>
-            <p>Stipends: stipends (at) erlef (dot) org</p>
-
-		</div><!-- .entry-content -->
-	</div>
-	<!-- /.card-body -->
-
-	</article><!-- #post-10 -->
-
-                    </main><!-- #main -->
-                </div><!-- #primary -->
-            </div>
-            <!-- /.col-md-8 -->
-        </div>
-        <!-- /.row -->
+<div class="container">
+    <div class="py-3">
+        <h1 class="display-4 font-weight-bold">Contact</h1>
+        <p class="lead">Reach out to the people working for the Erlang Ecosystem Foundation</p>
     </div>
-    <!-- /.container -->
+    <div class="row mb-5">
+        <div class="col-md-8">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <article id="post-10" class="card mt-3r">
+                        <div class="card-body">
+                            <div class="entry-content">
+                                <p><strong>General:</strong> eef (at) erlef.org</p>
+                                <p><strong>Marketing:</strong> marketing (at) erlef (dot) org</p>
+                                <p><strong>Sponsorships:</strong> sponsorship (at) erlef (dot) org</p>
+                                <p><strong>Education, Training, Adoption:</strong> education (at) erlef (dot) org</p>
+                                <p><strong>Stipends:</strong> stipends (at) erlef (dot) org</p>
+                            </div>
+                            <!-- .entry-content -->
+                        </div>
+                        <!-- /.card-body -->
+                    </article>
+                </main>
+                <!-- #main -->
+            </div>
+            <!-- #primary -->
+        </div>
+        <!-- /.col-md-10 -->
+        <div class="col-md-4">
+            <article id="post-10" class="card mt-3r">
+                <div class="card-body">
+                    <h3>Sponsors</h3>
+                    <p>Interested in becoming a sponsor? <%= link("Read more from our Sponsors page", to: "/sponsors") %></p>
+                </div>
+                <!-- /.card-body -->
+            </article>
+        </div>
+        <!-- /.col-md-2 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
 
-
-	</div><!-- #content -->
-
+<%= render(ErlefWeb.LayoutView, "join_us.html", assigns) %>

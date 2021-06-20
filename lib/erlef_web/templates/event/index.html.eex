@@ -9,6 +9,4 @@
 
 <%= live_render(@conn, ErlefWeb.EventsLive, session: %{"events" => @events}) %>
 
-<section class="py-5 text-white bg-dark">
-    <%= render(ErlefWeb.LayoutView, "subscribe.html", assigns) %>
-</section>
+<%= render(ErlefWeb.LayoutView, "join_us.html", assigns) %>
