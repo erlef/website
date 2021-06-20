@@ -1,10 +1,15 @@
-defmodule Erlef.Community.Resources do
+defmodule Erlef.Data.Resources do
   @moduledoc """
-  Module for getting static community data
+  Module for getting static resources for Community or Affiliates
 
   All resources data for the community page of the site can be found in 
   [priv/data/community](priv/data/community). 
+
+  All resources data for the affiliate page of the site can be found in 
+  [priv/data/community](priv/data/affiliate). 
+
   Said data ends up compiled into this module along with a few dynamically generated helper functions.
+
   As an example,we have all active languages in 
   `priv/data/community/languages.exs`, 
   this file ends up being evalulated and the base name of the file without the 
@@ -12,8 +17,8 @@ defmodule Erlef.Community.Resources do
   Like wise the atom `languages` is also used as a key pointing to the evalulated term as returned by the `all/0`  function. 
   """
 
-  data =
-    for d <- "priv/data/community/*.exs" |> Path.wildcard() |> Enum.sort() do
+  load_data = fn path ->
+    for d <- path |> Path.wildcard() |> Enum.sort() do
       @external_resource d
       base_name = Path.basename(d) |> String.replace(".exs", "")
       name = String.to_atom(base_name)
@@ -27,10 +32,18 @@ defmodule Erlef.Community.Resources do
 
       {name, evaled}
     end
-
-  @data Enum.reduce(data, %{}, fn {k, v}, acc -> Map.put(acc, k, v) end)
-
-  def all() do
-    @data
   end
+
+  @community_resources_path "priv/data/community/*.exs"
+  @affiliate_resources_path "priv/data/affiliate/*.exs"
+
+  community_data = load_data.(@community_resources_path)
+  affiliate_data = load_data.(@affiliate_resources_path)
+
+  @community_data Enum.reduce(community_data, %{}, fn {k, v}, acc -> Map.put(acc, k, v) end)
+  @affiliate_data Enum.reduce(affiliate_data, %{}, fn {k, v}, acc -> Map.put(acc, k, v) end)
+
+  def all_community_resources(), do: @community_data
+  def all_affiliate_resources(), do: @affiliate_data
+
 end

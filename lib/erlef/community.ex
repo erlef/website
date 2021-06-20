@@ -8,7 +8,7 @@ defmodule Erlef.Community do
   alias Erlef.Community.Event
   alias Erlef.{Accounts, Admins, Members, Repo}
   alias Erlef.Accounts.Member
-  alias Erlef.Community.Resources
+  alias Erlef.Data.Resources
 
   defdelegate approved_events(), to: Query
   defdelegate event_types(), to: Event, as: :types
@@ -22,7 +22,7 @@ defmodule Erlef.Community do
   Said map does not include database backed entities such as events.
   """
 
-  defdelegate all_resources(), to: Resources, as: :all
+  defdelegate all_resources(), to: Resources, as: :all_community_resources
 
   @spec approve_event(UUID.t(), map()) :: {:ok, Event.t()} | {:error, Changeset.t()}
   def approve_event(id, params) do

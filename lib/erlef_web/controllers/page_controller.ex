@@ -36,6 +36,10 @@ defmodule ErlefWeb.PageController do
 
   def bylaws(conn, _params), do: render(conn)
 
+  def affiliate(conn, _params) do
+    render(conn, affiliate: Erlef.Affiliate.all_resources())
+  end
+
   def community(conn, _params) do
     render(conn, community: Erlef.Community.all_resources())
   end

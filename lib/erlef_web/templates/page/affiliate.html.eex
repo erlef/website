@@ -1,0 +1,39 @@
+<div id="affiliate" class="container mt-4">
+  <div>
+    <h1 data-toc-skip="true"><i class="fas fa-people-carry" style="color:#82c91e;"></i> Affiliates Program</h1>
+    <p style="margin-left:1rem;">
+    The Erlang Ecosystem Foundation has a affiliate program to foster our relationship with related organizations. .
+    Join our affiliate program contacting us via email to: <strong> marketing (at) erlef (dot) org </strong>
+    </p>
+  </div>
+
+  <hr/>
+
+  <div class="row"> 
+    <div class="col-sm-10 pb-5"> 
+      <!-- Affiliate Companies -->
+      <%= community_card_wall(Enum.shuffle(@affiliate.affiliates)) %>
+    </div>  
+  </div>
+</div>
+
+<script>
+  $( ".card" ).hover(
+    function() {
+      $(this).addClass('shadow-lg').css('cursor', 'pointer');
+    }, function() {
+      $(this).removeClass('shadow-lg');
+    }
+  );
+
+$(function() {
+  var navSelector = "#affiliate-toc";
+  var $myNav = $(navSelector);
+  Toc.init($myNav);
+
+  $("body").scrollspy({
+    target: navSelector,
+    offset: 10
+  });
+});
+</script>
