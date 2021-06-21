@@ -1,16 +1,16 @@
-.community-card {
+.affiliate-card {
     min-height: 300px;
     .card-header { 
         min-height: 4rem;
 
-        .community-icon { 
+        .affiliate-icon { 
             vertical-align: middle;
             max-height:32px;
-            max-width:32px;
+            max-width:64px;
             margin-right:0.5rem;
         }
 
-        .community-name {
+        .affiliate-name {
             display:inline-block;
         }
     }
@@ -20,3 +20,4 @@
     }
 
 }
+

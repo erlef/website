@@ -45,5 +45,4 @@ defmodule Erlef.Data.Resources do
 
   def all_community_resources(), do: @community_data
   def all_affiliate_resources(), do: @affiliate_data
-
 end
