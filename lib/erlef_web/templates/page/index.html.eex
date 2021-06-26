@@ -16,8 +16,8 @@
                         <h5 class="py-2 text-white font-weight-bold">Upcoming Events</h5>
                         <%= for event <- @events do %>
                             <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
-                                <div style="background-color: <%= event.organizer_brand_color %>; height: 100%; width: 6rem;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
-                                    <img src="<%= event.organizer_brand_logo %>" class="img-fluid d-block mx-auto event-card-list-image" alt="">
+                                <div style="background-color: <%= event_organizer_color(event.organizer_brand_color) %>; height: 100%; width: 6rem;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
+                                    <img src="<%= event_organizer_logo(event.organizer_brand_logo) %>" class="img-fluid d-block mx-auto event-card-list-image" alt="">
                                 </div>
                                 <div>
                                     <h4>
