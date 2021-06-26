@@ -1,6 +1,6 @@
 defmodule ErlefWeb.Admin.EventView do
   use ErlefWeb, :view
-  import ErlefWeb.ViewHelpers, only: [event_dates: 2]
+  import ErlefWeb.ViewHelpers
 
   def title(_), do: "Events"
 end
