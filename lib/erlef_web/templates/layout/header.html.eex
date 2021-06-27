@@ -27,6 +27,7 @@
                 aria-expanded="false">Resources</a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="resources-dropdown">
             <a class="dropdown-item" href="/academic-papers/">Academic Papers</a>
+            <a class="dropdown-item" href="/affiliates/">Affiliates</a>
             <a class="dropdown-item" href="/community/">Community</a>
           </div>
         </li>

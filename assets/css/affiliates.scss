@@ -1,0 +1,23 @@
+.affiliate-card {
+    min-height: 300px;
+    .card-header { 
+        min-height: 4rem;
+
+        .affiliate-icon { 
+            vertical-align: middle;
+            max-height:32px;
+            max-width:64px;
+            margin-right:0.5rem;
+        }
+
+        .affiliate-name {
+            display:inline-block;
+        }
+    }
+
+    .card-body { 
+        font-size: 0.9rem;
+    }
+
+}
+
