@@ -87,7 +87,7 @@ defmodule ErlefWeb.Router do
     get "/bylaws", PageController, :bylaws
     get "/board_members", PageController, :board_members
     get "/community", PageController, :community
-    get "/affiliate", PageController, :affiliate
+    get "/affiliates", PageController, :affiliates
     get "/contact", PageController, :contact
     get "/faq", PageController, :faq
     get "/fellows", PageController, :fellows
