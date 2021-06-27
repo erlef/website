@@ -77,7 +77,7 @@ span.help-block {
 
         <div class="col-md-4 mb-2">
           <%= label f, :organizer_brand_color, "Organizer Brand Color" %>
-          <%= color_input f, :organizer_brand_color, value: "#235185", class: "form-control" %>
+          <%= color_input f, :organizer_brand_color, value: "#efefef", class: "form-control" %>
           <%= error_tag f, :organizer_brand_color %>
         </div>
 

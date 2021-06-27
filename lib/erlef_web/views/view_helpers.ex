@@ -107,4 +107,10 @@ defmodule ErlefWeb.ViewHelpers do
   end
 
   def image_path(conn, path), do: ErlefWeb.Router.Helpers.static_path(conn, path)
+
+  def event_organizer_logo(nil), do: "/images/default_event_icon.svg"
+  def event_organizer_logo(logo_path), do: logo_path
+
+  def event_organizer_color(nil), do: "#efefef"
+  def event_organizer_color(color), do: color
 end

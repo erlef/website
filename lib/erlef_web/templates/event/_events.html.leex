@@ -26,8 +26,8 @@
 
       <%= for event <- @events do %>
         <div class="event-card rounded border bg-white my-2 d-flex align-items-stretch">
-          <div style="background-color: <%= event.organizer_brand_color %>;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
-            <img src="<%= event.organizer_brand_logo %>" class="img-fluid d-block mx-auto event-card-image">
+          <div style="background-color: <%= event_organizer_color(event.organizer_brand_color) %>;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
+            <img src="<%= event_organizer_logo(event.organizer_brand_logo) %>" class="img-fluid d-block mx-auto event-card-image">
           </div>
           <div class="py-4 pr-4">
             <h3>

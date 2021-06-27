@@ -51,7 +51,7 @@ defmodule Erlef.Community.Event do
     field(:start, :date)
     field(:end, :date)
     field(:organizer, :string)
-    field(:organizer_brand_color, :string, default: "#235185")
+    field(:organizer_brand_color, :string, default: "#efefef")
     field(:organizer_brand_logo, :binary)
 
     field(:approved, :boolean)
