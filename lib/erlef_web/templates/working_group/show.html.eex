@@ -13,5 +13,5 @@
       </ul>
 
       <div class="mt-5">
-        <%= render "gallery.html", Map.put(assigns, :members, Enum.shuffle(@wg.volunteers)) %>
+        <%= render_shared "gallery.html", Map.put(assigns, :members, Enum.shuffle(@wg.volunteers)) %>
       </div>
