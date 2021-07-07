@@ -13,7 +13,6 @@ defmodule Erlef.Community do
   defdelegate approved_events(), to: Query
   defdelegate event_types(), to: Event, as: :types
   defdelegate get_event(id), to: Query
-  defdelegate get_event_by_slug(slug), to: Query
   defdelegate unapproved_events(), to: Query
   defdelegate unapproved_events_count(), to: Query
 

@@ -24,18 +24,6 @@ defmodule Erlef.Community.Query do
   end
 
   @doc """
-  Returns a event by slug.
-  """
-  @spec get_event_by_slug(slug :: String.t()) :: Event.t() | nil
-  def get_event_by_slug(slug) do
-    from(p in Event,
-      where: p.slug == ^slug,
-      limit: 1
-    )
-    |> Repo.one()
-  end
-
-  @doc """
   Returns all approved events
   """
   @spec approved_events() :: [Event.t()]

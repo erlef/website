@@ -9,7 +9,6 @@ defmodule Erlef.Community.Event do
           type: atom() | String.t(),
           title: String.t(),
           description: String.t(),
-          slug: String.t(),
           url: :uri_string.uri_string(),
           start: Date.t(),
           end: Date.t(),
@@ -45,7 +44,6 @@ defmodule Erlef.Community.Event do
   schema "events" do
     field(:type, Ecto.Enum, values: [:conference, :training, :meetup, :hackathon])
     field(:title, :string)
-    field(:slug, :string)
     field(:description, :string)
     field(:url, :string)
     field(:start, :date)
@@ -74,7 +72,6 @@ defmodule Erlef.Community.Event do
     |> cast(params, @all_fields)
     |> validate_required(@required_fields)
     |> unique_constraint(:title)
-    |> maybe_generate_slug()
     |> post_process_description()
   end
 
@@ -83,7 +80,6 @@ defmodule Erlef.Community.Event do
     |> cast(params, @all_fields)
     |> validate_required(@required_fields)
     |> unique_constraint(:title)
-    |> maybe_generate_slug()
     |> post_process_description()
   end
 
@@ -98,12 +94,6 @@ defmodule Erlef.Community.Event do
   end
 
   def types, do: Ecto.Enum.values(__MODULE__, :type)
-
-  defp maybe_generate_slug(%{changes: %{title: title}, errors: []} = set) do
-    put_change(set, :slug, Slug.slugify(title))
-  end
-
-  defp maybe_generate_slug(set), do: set
 
   defp post_process_description(%{changes: %{description: description}, errors: []} = set) do
     {:ok, html, _} = Earmark.as_html(description)

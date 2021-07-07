@@ -20,10 +20,7 @@ defmodule Erlef.EventTest do
       assert cs.valid?
       assert cs.errors == []
 
-      assert cs.changes ==
-               params
-               |> Map.put(:slug, "event-title")
-               |> Map.put(:description, "<p>\nFull description</p>\n")
+      assert cs.changes == Map.put(params, :description, "<p>\nFull description</p>\n")
     end
 
     test "when optional params are valid" do
@@ -44,10 +41,7 @@ defmodule Erlef.EventTest do
       assert cs.valid?
       assert cs.errors == []
 
-      assert cs.changes ==
-               params
-               |> Map.put(:slug, "event-title")
-               |> Map.put(:description, "<p>\nFull description</p>\n")
+      assert cs.changes == Map.put(params, :description, "<p>\nFull description</p>\n")
     end
 
     test "when params are invalid" do
@@ -90,7 +84,6 @@ defmodule Erlef.EventTest do
   describe "approval_changeset/2" do
     test "when params are valid" do
       event = %Event{
-        slug: "This should be generated",
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),
@@ -113,7 +106,6 @@ defmodule Erlef.EventTest do
 
     test "when params are invalid" do
       event = %Event{
-        slug: "This should be generated",
         description: "Full description",
         start: Date.utc_today(),
         end: Date.utc_today(),

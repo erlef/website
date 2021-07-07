@@ -57,16 +57,6 @@ defmodule Erlef.CommunityTest do
     assert fetched_event.id == event.id
   end
 
-  test "get_event_by_slug/1" do
-    member = insert_member!("basic_member")
-    p = params_for(:event, %{submitted_by_id: member.id, title: "foo bar", type: :meetup})
-    cs = Event.submission_changeset(%Event{}, p)
-    event = Repo.insert!(cs)
-
-    fetched_event = Community.get_event_by_slug("foo-bar")
-    assert fetched_event.id == event.id
-  end
-
   test "format_error/1" do
     exp =
       "The event organization logo you attempted to upload is not supported. Supported formats : jpg, png"
