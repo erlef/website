@@ -8,7 +8,7 @@ defmodule Erlef.Blog.Post do
   schema "blog_posts" do
     field(:body, :string)
     field(:slug, :string)
-    field(:status, :string)
+    field(:status, Ecto.Enum, values: [:draft, :published, :archived])
     field(:title, :string)
     field(:member_id, :id)
     field(:working_group_id, :id)

@@ -15,16 +15,5 @@ defmodule Erlef.Repo.Migrations.CreateBlogPosts do
 
     create unique_index(:blog_posts, [:slug])
     create index(:blog_posts, [:member_id])
-
-    create(
-      constraint(
-        :blog_posts,
-        "status_is_one_of_allowed",
-        check: """
-        status IN ('DRAFT', 'PUBLISHED', 'ARCHIVED')
-        """
-      )
-    )
-
   end
 end
