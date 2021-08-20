@@ -6,10 +6,11 @@ defmodule Erlef.Blog.Post do
   import Ecto.Changeset
 
   schema "blog_posts" do
-    field(:body, :string)
-    field(:slug, :string)
-    field(:status, Ecto.Enum, values: [:draft, :published, :archived])
     field(:title, :string)
+    field(:slug, :string)
+    field(:body, :string)
+    field(:status, Ecto.Enum, values: [:draft, :published, :archived])
+
     field(:member_id, :id)
     field(:working_group_id, :id)
 
@@ -22,8 +23,14 @@ defmodule Erlef.Blog.Post do
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:title, :slug, :body, :status])
-    |> validate_required([:title, :slug, :body, :status, :member_id])
-    |> unique_constraint(:slug)
+    |> cast(attrs, [:title, :body, :status, :member_id, :working_group_id])
+    |> validate_required([:title, :body, :status, :member_id])
+    |> slug_from_title()
   end
+
+  defp slug_from_title(%{changes: %{title: title}} = changeset) do
+    put_change(changeset, :slug, Slug.slugify(title))
+  end
+
+  defp slug_from_title(cs), do: cs
 end
