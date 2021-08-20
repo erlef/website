@@ -14,8 +14,15 @@ defmodule Erlef.Blog.Tag do
   @doc false
   def changeset(tag, attrs) do
     tag
-    |> cast(attrs, [:name, :slug])
-    |> validate_required([:name, :slug])
+    |> cast(attrs, [:name])
+    |> validate_required([:name])
+    |> slug_from_name()
     |> unique_constraint(:slug)
   end
+
+  defp slug_from_name(%{changes: %{name: name}} = changeset) do
+    put_change(changeset, :slug, Slug.slugify(name))
+  end
+
+  defp slug_from_name(cs), do: cs
 end

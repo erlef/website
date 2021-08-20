@@ -26,6 +26,7 @@ defmodule Erlef.Blog.Post do
     |> cast(attrs, [:title, :body, :status, :member_id, :working_group_id])
     |> validate_required([:title, :body, :status, :member_id])
     |> slug_from_title()
+    |> unique_constraint(:slug)
   end
 
   defp slug_from_title(%{changes: %{title: title}} = changeset) do
