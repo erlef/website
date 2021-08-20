@@ -23,7 +23,7 @@ defmodule Erlef.Blog.Post do
   def changeset(post, attrs) do
     post
     |> cast(attrs, [:title, :slug, :body, :status])
-    |> validate_required([:title, :slug, :body, :status])
+    |> validate_required([:title, :slug, :body, :status, :member_id])
     |> unique_constraint(:slug)
   end
 end
