@@ -40,7 +40,7 @@ defmodule Erlef.Members.Notifications do
 
     new()
     |> to({member.name, member.email})
-    |> from({member.name, member.email})
+    |> from({"Erlef Notifications", "notifications@erlef.org"})
     |> subject("Your submitted event has been approved!")
     |> text_body(msg)
   end
