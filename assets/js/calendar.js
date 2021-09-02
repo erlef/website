@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             });
 
                             let ical_events = iCalComponent.getAllSubcomponents('vevent');
-                            console.log(ical_events.flatMap(build_event).flat());
                             successCallback(ical_events.flatMap(build_event).flat()); 
                         }
                         xhr.send();
