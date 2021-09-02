@@ -75,7 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         let xhr = new XMLHttpRequest();
                         xhr.open('GET', ics_url, true);   
                         xhr.onload = function () {
-                            let iCalFeed = ICAL.parse(xhr.responseText);
+                            // We perform a regex on the response text as line folding can get
+                            // borked at least when the new line is not followed by a space and the
+                            // new line begins with escaped chars.
+                            let iCalFeed = ICAL.parse(xhr.responseText.replace(/\n^\\/mg, "\n \\"));
                             let iCalComponent = new ICAL.Component(iCalFeed);
                             let vtimezones = iCalComponent.getAllSubcomponents("vtimezone");
                             vtimezones.forEach(function (vtimezone) {
