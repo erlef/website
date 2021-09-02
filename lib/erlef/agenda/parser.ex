@@ -20,7 +20,7 @@ defmodule Erlef.Agenda.Parser do
     |> wrap(opts)
   end
 
-  defp split_and_trim(ics_str) do 
+  defp split_and_trim(ics_str) do
     Enum.map(String.split(ics_str, "\n"), fn s -> s end)
   end
 
