@@ -22,8 +22,8 @@ function build_event(vevent) {
 
     let recurrances = [];
     let i = 0;
-    for (i = 0; i < 12; i++) {
-        if (i === 12) { break; }
+    for (i = 0; i < 52; i++) {
+        if (i === 52) { break; }
         let next = iterator.next();
         if (event && next) { 
             let occurance = event.getOccurrenceDetails(next);
@@ -75,10 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         let xhr = new XMLHttpRequest();
                         xhr.open('GET', ics_url, true);   
                         xhr.onload = function () {
-                            // We perform a regex on the response text as line folding can get
-                            // borked at least when the new line is not followed by a space and the
-                            // new line begins with escaped chars.
-                            let iCalFeed = ICAL.parse(xhr.responseText.replace(/\n^\\/mg, "\n \\"));
+                            let iCalFeed = ICAL.parse(xhr.responseText);
                             let iCalComponent = new ICAL.Component(iCalFeed);
                             let vtimezones = iCalComponent.getAllSubcomponents("vtimezone");
                             vtimezones.forEach(function (vtimezone) {

@@ -20,8 +20,9 @@ defmodule Erlef.Agenda.Parser do
     |> wrap(opts)
   end
 
-  defp split_and_trim(ics_str),
-    do: Enum.map(String.split(ics_str, "\n"), fn s -> String.trim(s) end)
+  defp split_and_trim(ics_str) do
+    Enum.map(String.split(ics_str, "\n"), fn s -> s end)
+  end
 
   defp wrap(body, opts) do
     name = Keyword.get(opts, :name, "Erlef Calendar")
@@ -42,23 +43,23 @@ defmodule Erlef.Agenda.Parser do
 
   defp get_events_and_timezones([], acc), do: acc
 
-  defp get_events_and_timezones([<<"BEGIN:VTIMEZONE">> = line | lines], acc) do
+  defp get_events_and_timezones([<<"BEGIN:VTIMEZONE\r">> = line | lines], acc) do
     {lines, timezone} = collect_timezone(lines, [line])
     get_events_and_timezones(lines, [timezone | acc])
   end
 
-  defp get_events_and_timezones([<<"BEGIN:VEVENT">> = line | lines], acc) do
+  defp get_events_and_timezones([<<"BEGIN:VEVENT\r">> = line | lines], acc) do
     {lines, event} = collect_event(lines, [line])
     get_events_and_timezones(lines, [event | acc])
   end
 
   defp get_events_and_timezones([_ | lines], acc), do: get_events_and_timezones(lines, acc)
 
-  defp collect_event([<<"END:VEVENT">> = line | lines], acc), do: {lines, [line | acc]}
+  defp collect_event([<<"END:VEVENT\r">> = line | lines], acc), do: {lines, [line | acc]}
 
   defp collect_event([line | lines], acc), do: collect_event(lines, [line | acc])
 
-  defp collect_timezone([<<"END:VTIMEZONE">> = line | lines], acc), do: {lines, [line | acc]}
+  defp collect_timezone([<<"END:VTIMEZONE\r">> = line | lines], acc), do: {lines, [line | acc]}
 
   defp collect_timezone([line | lines], acc), do: collect_timezone(lines, [line | acc])
 end
