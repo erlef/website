@@ -1,0 +1,175 @@
+<div class="card card-primary">
+  <%= form_for @changeset, @action, [multipart: true], fn f -> %>
+    <div class="card-body">
+      <%= if @changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= label f, :title %>
+        <%= text_input f, :title, class: "form-control form-control-lg", oninput: "save(this)"%>
+        <%= error_tag f, :title %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :authors %>
+        <%= text_input f, :authors, class: "form-control", value: authors_value(f), oninput: "save(this)"%>
+        <%= error_tag f, :authors %>
+      </div>
+
+      <div class="form-row mb-3">
+        <div class="col-sm-6">
+          <%= label f, :category %>
+          <%= select f, :category, @categories, class: "form-control", oninput: "save(this)"%>
+          <%= error_tag f, :category %>
+        </div>
+
+        <div class="col-sm-6">
+          <%= label f, :tags %>
+          <%= text_input f, :tags, class: "form-control", value: tags_value(f), oninput: "save(this)"%>
+          <%= error_tag f, :tags %>
+        </div>
+      </div>
+
+
+      <div class="mb-1"></div>
+
+      <div class="form-group">
+        <%= label f, :excerpt %>
+        <%= textarea f, :excerpt, class: "form-control", oninput: "save(this)"%>
+        <%= error_tag f, :excerpt %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :body %>
+        <%= hidden_input f, :body, class: "form-control"%>
+        <%= error_tag f, :body %>
+        <div id="body-editor"></div>
+      </div>
+
+    <div>
+      <%= submit "Save", class: "btn btn-primary", onclick: "discard_post()" %>
+    </div>
+  <% end %>
+</div>
+</div>
+<script>
+  if (typeof(Storage) !== "undefined") {
+
+    function get_post() {
+      return JSON.parse(localStorage.post)};
+
+    function save_post(post) {localStorage.post = JSON.stringify(post)};
+
+    function discard_post() {localStorage.post = null}
+
+    function save(el) {
+      post = get_post();
+      post[el.id] = el.value;
+      post["updated_at"] = Math.floor((new Date()).getTime() / 1000);
+      save_post(post);
+    };
+
+    function new_post() {
+      return {
+      <%= if assigns[:post] do %>
+        "post_id": "<%= @post.id %>",
+        "post_title": "<%= @post.title %>",
+        "post_category": "<%= @post.category %>",
+        "post_authors": "<%= Enum.join(@post.authors, ", ") %>",
+        "post_tags": "<%= Enum.join(@post.tags, ", ") %>",
+        "post_excerpt": "<%= @post.excerpt %>",
+        "post_body": "<%= @post.body %>",
+        "updated_at": "0"
+      <% else %>
+        "post_id": "new",
+        "post_title": "",
+        "post_category": "<%= hd(@categories) %>",
+        "post_authors": "",
+        "post_tags": "",
+        "post_excerpt": "",
+        "post_body": "",
+        "updated_at": "0"
+      <% end %>
+      }
+    }
+
+    try {
+      post = get_post()
+      <%= if assigns[:post] do %>
+      //If we are not editing the same post
+      if (post["post_id"] != "<%= @post.id %>"
+          //If the post was updated since our changes
+          || parseInt(post["updated_at"]) < <%= DateTime.to_unix(@post.updated_at) %>
+          //If the changes are older than 24h
+          || parseInt(post["updated_at"]) < Math.floor((new Date()).getTime() / 1000 - 60 * 60 * 24)) {
+        post = new_post()
+        save_post(post)
+      }
+      <% else %>
+      if (post["post_id"] != "new"
+          //If the changes are older than 24h
+          || parseInt(post["updated_at"]) < Math.floor((new Date()).getTime() / 1000 - 60 * 60 * 24)) {
+        post = new_post()
+        save_post(post)
+      }
+      <% end %>
+    } catch(err) {
+      post = new_post()
+      save_post(post)
+    }
+
+    document.getElementById("post_title").value = post["post_title"]
+    document.getElementById("post_category").value = post["post_category"]
+    document.getElementById("post_authors").value = post["post_authors"]
+    document.getElementById("post_tags").value = post["post_tags"]
+    document.getElementById("post_excerpt").value = post["post_excerpt"]
+    document.getElementById("post_body").value = post["post_body"]
+  }
+</script>
+<script src="<%= Routes.static_path(@conn, "/js/toastui-editor-all.min.js") %>"></script> 
+<script>
+  var post_body = document.getElementById('post_body');
+  var editor = new toastui.Editor({
+    el: document.querySelector('#body-editor'),
+    height: '500px',
+    initialEditType: 'markdown',
+    initialValue: post_body.value,
+    previewStyle: 'vertical',
+    previewHighlight: false,
+    usageStatistics: false,
+      toolbarItems: [
+          'heading',
+          'bold',
+          'italic',
+          'strike',
+          'divider',
+          'hr',
+          'quote',
+          'divider',
+          'ul',
+          'ol',
+          'task',
+          'indent',
+          'outdent',
+          'divider',
+          'table',
+          'link',
+          'divider',
+          'code',
+          'codeblock',
+        'divider'
+      ],
+     events: {
+        change: function() {
+          post_body.value = editor.getMarkdown();
+          save(post_body);
+        }
+     }
+  });
+
+editor.getHtml();
+</script>
+

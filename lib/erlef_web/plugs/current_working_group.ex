@@ -15,6 +15,7 @@ defmodule ErlefWeb.Plug.CurrentWorkingGroup do
       {:ok, wg} ->
         conn
         |> assign(:current_working_group, wg)
+        |> assign(:is_volunteer, is_volunteer(conn, wg))
         |> assign(:is_chair, is_chair(conn, wg))
 
       {:error, :not_found} ->
@@ -22,6 +23,10 @@ defmodule ErlefWeb.Plug.CurrentWorkingGroup do
         |> Phoenix.Controller.redirect(to: "/")
         |> Plug.Conn.halt()
     end
+  end
+
+  defp is_volunteer(%{assigns: %{current_user: member}}, wg) do
+    Groups.is_volunteer?(wg, member)
   end
 
   defp is_chair(%{assigns: %{current_user: member}}, wg) do

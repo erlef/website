@@ -1,0 +1,38 @@
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <h5>Archived blog posts</h5>
+    </div>
+    <div class="col-sm-2 offset-sm-6"> 
+      <span><%= link "Create a new post", to: Routes.blog_path(@conn, :new) %></span>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Authors</th>
+        <th>Publication date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for post <- @posts do %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= humanize(post.category) %></td>
+          <td><%= author_name(post.authors) %></td>
+          <td><%= long_date(post.published_at) %></td>
+          <td>
+            <span><%= link "Show", to: Routes.blog_path(@conn, :show, post.category, post.slug) %></span>
+
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%#<span><%= link "Publish", to: Routes.news_path(@conn, :index), data: [confirm: "Are you sure?"] %></span>
+

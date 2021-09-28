@@ -23,6 +23,10 @@
   </div>
 <% end %>
 
+<%= if @is_volunteer do %>
+  <%= render(ErlefWeb.BlogView, "post_sidebar.html", assigns) %>
+<% end %>
+
 <%= if contents = ErlefWeb.WorkingGroupView.content(@wg.slug) do %>
   <div class="card my-4 shadow-sm rounded" style="padding:1rem;">
     <h5 class="card-title">Content</h5>

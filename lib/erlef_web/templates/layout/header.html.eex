@@ -59,7 +59,9 @@
                 <%= if @current_user.is_app_admin do %>
                   <a href="/admin" class="dropdown-item">Administration</a>
                 <% end %>
-
+                <%= if allowed_to_post?(assigns) do %>
+                  <a href="/blog/new" class="dropdown-item">New Post</a>
+                <% end %>
                 <%= form_tag(Routes.session_path(@conn, :delete)) do %>
                   <button type="submit" class="dropdown-item btn btn-link">Log out</button>
                 <% end %>

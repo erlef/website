@@ -14,6 +14,9 @@
         <% end %>
     </div>
     <div class="col-md-4 mb-4">
+      <%= if logged_in?(assigns) && allowed_to_post?(assigns) do %>
+        <%= render(ErlefWeb.BlogView, "post_sidebar.html", assigns) %>
+      <% end %>
       <%= render(ErlefWeb.BlogView, "recent_posts.html", latest_news: @latest_posts, all_tags: @all_tags) %>
     </div>
   </div>

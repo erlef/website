@@ -1,4 +1,7 @@
 <main role="main" class="container mt-4">
+  <%= if @post.status == :archived do %>
+    <h5>Showing archived post</h5>
+  <% end %>
   <div class="row">
     <div class="col-lg-8 blog-main">
       <div class="blog-post">
@@ -21,11 +24,16 @@
             </div>
           </div>
         </div>
-        <%= raw @post.body_html %>
+        <%= as_html(@post.body) %>
       </div>
     </div>
     <div class="col-md-4 mb-4">
+      <%= if logged_in?(assigns) && allowed_to_edit?(assigns, @post) do %>
+      <%= render(ErlefWeb.BlogView, "post_sidebar.html", assigns) %>
+      <% end %>
+      <%= if @post.status == :published do %>
       <%= render(ErlefWeb.BlogView, "recent_posts.html", latest_news: @latest_news, all_tags: @all_tags) %>
+      <% end %>
     </div>
   </div>
 </main>

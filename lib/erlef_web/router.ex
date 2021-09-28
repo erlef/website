@@ -64,6 +64,10 @@ defmodule ErlefWeb.Router do
     plug ErlefWeb.Plug.CurrentWorkingGroup
   end
 
+  pipeline :able_to_post_required do
+    plug ErlefWeb.Plug.Authz.AbleToPost
+  end
+
   pipeline :chair_required do
     plug ErlefWeb.Plug.Authz.Chair
   end
@@ -94,6 +98,18 @@ defmodule ErlefWeb.Router do
     get "/public_records", PageController, :public_records
     get "/sponsors", PageController, :sponsors
     get "/wg-proposal-template", PageController, :wg_proposal_template
+
+    scope "/blog" do
+      pipe_through [:session_required, :able_to_post_required]
+      get "/new", BlogController, :new
+      get "/:id/edit", BlogController, :edit
+      put "/:id", BlogController, :update
+      put "/:id/publish", BlogController, :publish
+      put "/:id/archive", BlogController, :archive
+      post "/", BlogController, :create
+
+      get "/archived", BlogController, :index_archived
+    end
 
     # NOTE: News routes are still in place for links that may be out there.
     # Please use blog routes. 

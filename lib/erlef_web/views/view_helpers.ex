@@ -98,6 +98,11 @@ defmodule ErlefWeb.ViewHelpers do
     !!assigns[:current_user]
   end
 
+  def allowed_to_post?(assigns) do
+    true
+    Erlef.Blog.categories_allowed_to_post(assigns.current_user) != []
+  end
+
   def image_path(_conn, nil), do: ""
 
   def image_path(_conn, <<"http", _rest::binary>> = url), do: url

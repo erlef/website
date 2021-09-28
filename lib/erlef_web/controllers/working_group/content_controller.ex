@@ -3,7 +3,7 @@ defmodule ErlefWeb.WorkingGroup.ContentController do
 
   plug :put_layout, :wg
 
-  alias Erlef.{Blogs, Groups}
+  alias Erlef.{Blog, Groups}
 
   action_fallback ErlefWeb.FallbackController
 
@@ -16,7 +16,7 @@ defmodule ErlefWeb.WorkingGroup.ContentController do
           conn,
           "#{slug}-#{page}.html",
           wg: wg,
-          blog_posts: Blogs.get_posts_by_category(slug),
+          blog_posts: Blog.get_posts_by_category(slug),
           topic: slug,
           is_chair: is_chair?(conn, wg)
         )

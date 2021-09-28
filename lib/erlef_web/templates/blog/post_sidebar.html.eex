@@ -1,0 +1,36 @@
+<div class="card my-4">
+  <div class="card-body p-0">
+    <ul class="nav nav-pills flex-column">
+      <%= if assigns[:post] do %>
+        <li class="nav-item">
+          <%= link to: Routes.blog_path(ErlefWeb.Endpoint, :edit,  @post.slug), class: "nav-link" do %>
+            <i class="fas fa-edit"></i> Edit Post
+          <% end %>
+        </li>
+        <%= if @post.status == :archived do %>
+          <li class="nav-item">
+            <%= link to: Routes.blog_path(@conn, :publish, @post.slug), method: :put, data: [confirm: "Are you sure?"], class: "nav-link" do %>
+              <i class="fas fa-paper-plane"></i> Publish post
+            <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item"> 
+            <%= link to: Routes.blog_path(@conn, :archive, @post.slug), method: :put, data: [confirm: "Are you sure?"], class: "nav-link" do %>
+              <i class="fas fa-archive"></i> Archive post
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+      <li class="nav-item">
+        <%= link to: Routes.blog_path(@conn, :new), class: "nav-link" do %>
+          <i class="fas fa-file-alt"></i> Create new post
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link to: Routes.blog_path(@conn, :index_archived), class: "nav-link" do %>
+          <i class="fas fa-folder-open"></i> View archived posts
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
