@@ -50,7 +50,7 @@
       </div>
 
     <div>
-      <%= submit "Save", class: "btn btn-primary", onclick: "discard_post()" %>
+      <%= submit "Save", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
@@ -62,8 +62,6 @@
       return JSON.parse(localStorage.post)};
 
     function save_post(post) {localStorage.post = JSON.stringify(post)};
-
-    function discard_post() {localStorage.post = null}
 
     function save(el) {
       post = get_post();

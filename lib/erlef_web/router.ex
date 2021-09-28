@@ -107,6 +107,7 @@ defmodule ErlefWeb.Router do
       put "/:id/publish", BlogController, :publish
       put "/:id/archive", BlogController, :archive
       post "/", BlogController, :create
+      delete "/:id", BlogController, :delete
 
       get "/archived", BlogController, :index_archived
     end

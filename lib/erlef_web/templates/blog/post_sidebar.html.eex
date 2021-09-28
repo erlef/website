@@ -7,18 +7,30 @@
             <i class="fas fa-edit"></i> Edit Post
           <% end %>
         </li>
-        <%= if @post.status == :archived do %>
-          <li class="nav-item">
-            <%= link to: Routes.blog_path(@conn, :publish, @post.slug), method: :put, data: [confirm: "Are you sure?"], class: "nav-link" do %>
-              <i class="fas fa-paper-plane"></i> Publish post
-            <% end %>
-          </li>
-        <% else %>
-          <li class="nav-item"> 
-            <%= link to: Routes.blog_path(@conn, :archive, @post.slug), method: :put, data: [confirm: "Are you sure?"], class: "nav-link" do %>
-              <i class="fas fa-archive"></i> Archive post
-            <% end %>
-          </li>
+        <%= case @post.status do %>
+          <% :draft -> %>
+            <li class="nav-item">
+              <%= link to: Routes.blog_path(@conn, :publish, @post.slug), method: :put, data: [confirm: "Are you sure?"], class: "nav-link" do %>
+                <i class="fas fa-paper-plane"></i> Publish post
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="modal" data-target="#confirmModal">
+                <i class="fas fa-trash-alt"></i> Delete post
+              </a>
+            </li>
+          <% :published -> %>
+            <li class="nav-item"> 
+              <a class="nav-link" data-toggle="modal" data-target="#confirmModal">
+                <i class="fas fa-archive"></i> Archive post
+              </a>
+            </li>
+          <% :archived -> %>
+            <li class="nav-item">
+              <%= link to: Routes.blog_path(@conn, :publish, @post.slug), method: :put, data: [confirm: "Are you sure?"], class: "nav-link" do %>
+                <i class="fas fa-paper-plane"></i> Publish post
+              <% end %>
+            </li>
         <% end %>
       <% end %>
       <li class="nav-item">
@@ -34,3 +46,60 @@
     </ul>
   </div>
 </div>
+
+<%= if assigns[:post] do %>
+<!-- Archive confirmation Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmModalLabel">
+          <%= case @post.status do %>
+            <% :draft -> %>
+              Delete Post
+            <% :published -> %>
+              Archive Post
+            <% _ -> %>
+          <% end %>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <label>Write <strong><%= @post.slug %></strong> to confirm</label>
+          <input type="text" placeholder="<%= @post.slug %>"
+            class="form-control" oninput="check_slug(this)">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= case @post.status do %>
+            <% :draft -> %>
+              <%= button to: Routes.blog_path(@conn, :delete, @post.slug), method: :delete,
+                class: "btn btn-danger", id: "confirm-button", disabled: "" do %>
+                Delete
+              <% end %>
+            <% :published -> %>
+              <%= button to: Routes.blog_path(@conn, :archive, @post.slug), method: :put,
+                class: "btn btn-primary", id: "confirm-button", disabled: "" do %>
+                Archive
+              <% end %>
+            <% _ -> %>
+          <% end %>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function check_slug(el) {
+    slug = el.value
+    if (slug == "<%= @post.slug %>") {
+      document.getElementById("confirm-button").removeAttribute("disabled")
+    } else {
+      document.getElementById("confirm-button").setAttribute("disabled", "")
+    }
+  }
+
+</script>
+<% end %>

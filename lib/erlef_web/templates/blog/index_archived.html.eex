@@ -12,6 +12,7 @@
     <thead>
       <tr>
         <th>Title</th>
+        <th>Status</th>
         <th>Category</th>
         <th>Authors</th>
         <th>Publication date</th>
@@ -22,6 +23,7 @@
       <%= for post <- @posts do %>
         <tr>
           <td><%= post.title %></td>
+          <td><%= post.status %></td>
           <td><%= humanize(post.category) %></td>
           <td><%= author_name(post.authors) %></td>
           <td><%= long_date(post.published_at) %></td>

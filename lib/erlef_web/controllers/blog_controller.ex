@@ -166,6 +166,20 @@ defmodule ErlefWeb.BlogController do
     end
   end
 
+  def delete(conn, %{"id" => id}) do
+    post = get!(id)
+    case post.status do
+      :draft ->
+        {:ok, _post} = Blog.delete_post(post)
+
+        conn
+        |> put_flash(:info, "Post draft deleted successfully.")
+        |> redirect(to: Routes.blog_path(conn, :index_archived))
+      _ ->
+        {:error, :not_found}
+    end    
+  end
+
   defp get!(id), do: Blog.get_post_by_slug!(id)
 
   defp get(id), do: Blog.get_post_by_slug(id)

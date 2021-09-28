@@ -61,6 +61,7 @@
                 <% end %>
                 <%= if allowed_to_post?(assigns) do %>
                   <a href="/blog/new" class="dropdown-item">New Post</a>
+                  <a href="/blog/archived" class="dropdown-item">View Archived Posts</a>
                 <% end %>
                 <%= form_tag(Routes.session_path(@conn, :delete)) do %>
                   <button type="submit" class="dropdown-item btn btn-link">Log out</button>
