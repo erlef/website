@@ -1,7 +1,7 @@
 {
   "title": "Machine Learning WG updates - Sep 2021",
   "authors": ["The Machine Learning WG"],
-  "slug": "machine-learning-udpates-sep-2021",
+  "slug": "machine-learning-updates-sep-2021",
   "tags": ["machine learning", "axon", "nx", "livebook", "explorer"],
   "category": "machine-learning",
   "datetime": "2021-09-30T12:34:56.921505Z"
