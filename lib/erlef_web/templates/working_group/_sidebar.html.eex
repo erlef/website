@@ -73,7 +73,7 @@
 <%= unless Enum.empty?(@blog_posts) do %>
   <div class="card my-4 shadow-sm rounded" style="padding:1rem;">
     <div class="mb-1">Recent posts</div>
-    <%= for post <- @blog_posts do %>
+    <%= for post <- Enum.reverse(@blog_posts) do %>
       <div class="padding-left:1em;">
         <%= render(ErlefWeb.BlogView, "list_preview.html", post: post, topic: @topic) %>
       </div>
