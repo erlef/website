@@ -59,7 +59,7 @@ Livebook has been moved to its own organization and it will launch their own web
 ## Other bits
 
 * Benjamin Moss wrote an article on [Predicting fuel efficiency with Elixir, Nx, and Axon: a gentle introduction to Machine Learning](https://bitfield.co/posts/machine-learning-in-elixir-with-nx-and-axon/)
-* Dmitry Rubinstein has implemented [a Jupyter backend for Elixir](https://github.com/spawnfest/ielixir) during this year's Spawnfest
+* Dmitry Rubinstein has implemented [a Jupyter backend for Elixir](https://github.com/spawnfest/ielixir) during this year's [Spawnfest](https://spawnfest.org)
 * Robert Bates has shared a presentation about [AI packages for Elixir currently available on Hex.pm](https://docs.google.com/presentation/d/1_GiJ32hv3mv1qBHlZHkLH-GiSlrNTvObBnAPRoagm00/edit#slide=id.gc6f73a04f_0_46)
 
 Are you also interested in Machine Learning and the Erlang Ecosystem? [Join us and come chat on our Slack](https://erlef.org/wg/machine-learning).
