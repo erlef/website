@@ -1,4 +1,7 @@
 defmodule Erlef.Blog.Post do
+  @moduledoc """
+  Erlef.Blog.Post schema
+  """
   use Erlef.Schema
 
   alias Erlef.Blog

@@ -9,7 +9,7 @@ defmodule ErlefWeb.BlogControllerTest do
     body: "some body",
     authors: "some author, some other author",
     category: "eef",
-    tags: "some tag, some other tag"
+    tags: "[{\"value\":\"some tag\"}, {\"value\":\"some other tag\"}]"
   }
   @update_attrs %{
     title: "some updated title",
@@ -17,7 +17,7 @@ defmodule ErlefWeb.BlogControllerTest do
     body: "some updated body",
     authors: "some updated author, some other updated author",
     category: "newsletter",
-    tags: "some updated tag, some other updated tag"
+    tags: "[{\"value\":\"some updated tag\"}, {\"value\":\"some other updated tag\"}]"
   }
   @invalid_attrs %{
     title: nil,

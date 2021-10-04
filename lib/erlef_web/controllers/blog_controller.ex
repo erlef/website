@@ -89,7 +89,8 @@ defmodule ErlefWeb.BlogController do
   def create(conn, %{"post" => post_params}) do
     post_params =
       post_params
-      |> split_params(["authors", "tags"])
+      |> split_authors()
+      |> parse_tags()
       |> assign_owner(conn)
 
     with true <- post_params["category"] in categories(conn),
@@ -121,7 +122,8 @@ defmodule ErlefWeb.BlogController do
 
     post_params =
       post_params
-      |> split_params(["authors", "tags"])
+      |> split_authors()
+      |> parse_tags()
       |> Map.put("updated_by", conn.assigns.current_user.id)
 
     with true <- post.category in categories(conn),
@@ -168,6 +170,7 @@ defmodule ErlefWeb.BlogController do
 
   def delete(conn, %{"id" => id}) do
     post = get!(id)
+
     case post.status do
       :draft ->
         {:ok, _post} = Blog.delete_post(post)
@@ -175,9 +178,10 @@ defmodule ErlefWeb.BlogController do
         conn
         |> put_flash(:info, "Post draft deleted successfully.")
         |> redirect(to: Routes.blog_path(conn, :index_archived))
+
       _ ->
         {:error, :not_found}
-    end    
+    end
   end
 
   defp get!(id), do: Blog.get_post_by_slug!(id)
@@ -205,17 +209,29 @@ defmodule ErlefWeb.BlogController do
     Map.put(post_params, "owner_id", conn.assigns.current_user.id)
   end
 
-  defp split_params(post_params, params) do
-    Enum.reduce(params, post_params, fn p, acc -> Map.update!(acc, p, &split_param/1) end)
+  defp parse_tags(%{"tags" => ""} = params), do: %{params | "tags" => []}
+
+  defp parse_tags(%{"tags" => tags} = params) when is_bitstring(tags) do
+    parsed_tags =
+      tags
+      |> Jason.decode!()
+      |> Enum.map(&Map.fetch!(&1, "value"))
+
+    %{params | "tags" => parsed_tags}
   end
 
-  defp split_param(param) when is_bitstring(param) do
-    param
-    |> String.split(~r/[[:blank:]]*,[[:blank:]]*/, trim: true)
-    |> Enum.map(&String.trim/1)
+  defp parse_tags(post_params), do: post_params
+
+  defp split_authors(%{"authors" => authors} = params) when is_bitstring(authors) do
+    splited_authors =
+      authors
+      |> String.split(~r/[[:blank:]]*,[[:blank:]]*/, trim: true)
+      |> Enum.map(&String.trim/1)
+
+    %{params | "authors" => splited_authors}
   end
 
-  defp split_param(param), do: param
+  defp split_authors(post_params), do: post_params
 
   defp categories(conn) do
     Blog.categories_allowed_to_post(conn.assigns.current_user)

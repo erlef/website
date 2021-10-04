@@ -175,14 +175,14 @@ defmodule Erlef.BlogTest do
       board_member = insert!(:member, %{membership_level: :board})
       categories = Blog.categories_allowed_to_post(board_member)
       assert categories == ["eef", "newsletter"]
-      wg = insert!(:working_group)
+      _wg = insert!(:working_group)
       categories = Blog.categories_allowed_to_post(board_member)
       assert categories == ["eef", "newsletter"]
     end
 
     test "categories_allowed_to_post/1 returns working groups for volunteer", %{member: member} do
       wg1 = insert!(:working_group)
-      wg2 = insert!(:working_group)
+      _wg2 = insert!(:working_group)
       volunteer = build(:volunteer, member_id: member.id)
       insert!(:working_group_volunteer, working_group: wg1, volunteer: volunteer)
 

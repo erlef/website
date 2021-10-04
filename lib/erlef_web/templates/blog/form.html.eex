@@ -19,18 +19,16 @@
         <%= error_tag f, :authors %>
       </div>
 
-      <div class="form-row mb-3">
-        <div class="col-sm-6">
-          <%= label f, :category %>
-          <%= select f, :category, @categories, class: "form-control", oninput: "save(this)"%>
-          <%= error_tag f, :category %>
-        </div>
+      <div class="form-group">
+        <%= label f, :category %>
+        <%= select f, :category, @categories, class: "form-control", oninput: "save(this)"%>
+        <%= error_tag f, :category %>
+      </div>
 
-        <div class="col-sm-6">
-          <%= label f, :tags %>
-          <%= text_input f, :tags, class: "form-control", value: tags_value(f), oninput: "save(this)"%>
-          <%= error_tag f, :tags %>
-        </div>
+      <div class="form-group">
+        <%= label f, :tags %>
+        <%= text_input f, :tags, class: "form-control", value: tags_value(f), oninput: "save(this)"%>
+        <%= error_tag f, :tags %>
       </div>
 
 
@@ -170,4 +168,3 @@
 
 editor.getHtml();
 </script>
-
