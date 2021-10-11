@@ -26,7 +26,7 @@ config :phoenix, :json_library, Jason
 
 # paths are implicitly priv
 config :erlef, :repo_imports, [
-  {"/posts/**/*.md", Erlef.Blogs.Post}
+  {"/posts/**/*.md", Erlef.Blog.Post}
 ]
 
 config :erlef, :slack_teams, ["erlanger", "lfe", "luerl"]

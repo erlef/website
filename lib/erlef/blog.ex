@@ -52,11 +52,6 @@ defmodule Erlef.Blog do
     Repo.all(query)
   end
 
-  @spec get_post_by_slug!(String.t()) :: Post.t()
-  def get_post_by_slug!(slug) do
-    Repo.one!(from(Post, where: [slug: ^slug]))
-  end
-
   @spec get_post_by_slug(String.t()) :: {:ok, Post.t()} | {:error, :not_found}
   def get_post_by_slug(slug) do
     query = from(Post, where: [slug: ^slug])
@@ -105,7 +100,7 @@ defmodule Erlef.Blog do
     |> Repo.update()
   end
 
-  @spec change_post(Post.t(), map()) :: {:ok, Post.t()} | {:error, Ecto.Changeset.t()}
+  @spec change_post(Post.t(), map()) :: Ecto.Changeset.t()
   def change_post(%Post{} = post, attrs \\ %{}) do
     Post.changeset(post, attrs)
   end
@@ -125,7 +120,8 @@ defmodule Erlef.Blog do
   end
 
   def categories_allowed_to_post(%{membership_level: :board} = member) do
-    ["eef", "newsletter"] ++ maybe_wg_categories(member)
+    (["eef", "newsletter"] ++ maybe_wg_categories(member))
+    |> Enum.uniq()
   end
 
   def categories_allowed_to_post(member), do: maybe_wg_categories(member)
@@ -133,7 +129,9 @@ defmodule Erlef.Blog do
   defp maybe_wg_categories(member) do
     case Erlef.Groups.get_volunteer_by_member_id(member.id) do
       %Erlef.Groups.Volunteer{working_groups: working_groups} ->
-        wg_categories(working_groups)
+        working_groups
+        |> wg_categories()
+        |> maybe_marketing_categories()
 
       _ ->
         []
@@ -142,6 +140,14 @@ defmodule Erlef.Blog do
 
   defp wg_categories(working_groups) do
     Enum.map(working_groups, fn wg -> wg.slug end)
+  end
+
+  defp maybe_marketing_categories(categories) do
+    if "marketing" in categories do
+      ["newsletter"] ++ categories
+    else
+      categories
+    end
   end
 
   defp published_posts_query() do

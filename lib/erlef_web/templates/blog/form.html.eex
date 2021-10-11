@@ -11,11 +11,15 @@
         <%= label f, :title %>
         <%= text_input f, :title, class: "form-control form-control-lg", oninput: "save(this)"%>
         <%= error_tag f, :title %>
+        <%= error_tag f, :slug %>
       </div>
 
       <div class="form-group">
         <%= label f, :authors %>
-        <%= text_input f, :authors, class: "form-control", value: authors_value(f), oninput: "save(this)"%>
+        <div class="input-group flex-row">
+          <%= text_input f, :authors, class: "post-form-authors", value: authors_value(f), onchange: "save(this)"%>
+          <button type="button" class="btn btn-primary">+</button>
+        </div>
         <%= error_tag f, :authors %>
       </div>
 
@@ -27,7 +31,7 @@
 
       <div class="form-group">
         <%= label f, :tags %>
-        <%= text_input f, :tags, class: "form-control", value: tags_value(f), oninput: "save(this)"%>
+        <%= text_input f, :tags, class: "post-form-tags", value: tags_value(f), onchange: "save(this)"%>
         <%= error_tag f, :tags %>
       </div>
 
@@ -51,6 +55,7 @@
       <%= submit "Save", class: "btn btn-primary" %>
     </div>
   <% end %>
+  <div id="blog_categories" style="display:none;"><%= Jason.encode!(@categories) %></div>
 </div>
 </div>
 <script>
@@ -70,25 +75,14 @@
 
     function new_post() {
       return {
-      <%= if assigns[:post] do %>
-        "post_id": "<%= @post.id %>",
-        "post_title": "<%= @post.title %>",
-        "post_category": "<%= @post.category %>",
-        "post_authors": "<%= Enum.join(@post.authors, ", ") %>",
-        "post_tags": "<%= Enum.join(@post.tags, ", ") %>",
-        "post_excerpt": "<%= @post.excerpt %>",
-        "post_body": "<%= @post.body %>",
-        "updated_at": "0"
-      <% else %>
-        "post_id": "new",
-        "post_title": "",
-        "post_category": "<%= hd(@categories) %>",
-        "post_authors": "",
-        "post_tags": "",
-        "post_excerpt": "",
-        "post_body": "",
-        "updated_at": "0"
-      <% end %>
+      "post_id": "<%= @changeset.data.id || "new" %>",
+      "post_title": "<%= javascript_escape(@changeset.data.title || "") %>",
+      "post_category": "<%= @changeset.data.category || hd(@categories)%>",
+      "post_authors": "<%= Enum.join(@changeset.data.authors || [], ", ") %>",
+      "post_tags": "<%= Enum.join(@changeset.data.tags, ", ") %>",
+      "post_excerpt": "<%= javascript_escape(@changeset.data.excerpt || "") %>",
+      "post_body": "<%= javascript_escape(@changeset.data.body || "") %>",
+      "updated_at": "0"
       }
     }
 
@@ -125,7 +119,7 @@
     document.getElementById("post_body").value = post["post_body"]
   }
 </script>
-<script src="<%= Routes.static_path(@conn, "/js/toastui-editor-all.min.js") %>"></script> 
+<script src="<%= Routes.static_path(@conn, "/js/toastui-editor-all.min.js") %>"></script>
 <script>
   var post_body = document.getElementById('post_body');
   var editor = new toastui.Editor({

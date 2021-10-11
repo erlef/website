@@ -4,20 +4,18 @@ defmodule Erlef.Blog.Post do
   """
   use Erlef.Schema
 
-  alias Erlef.Blog
-
   schema "blog_posts" do
     field(:title, :string)
     field(:slug, :string)
     field(:excerpt, :string)
     field(:body, :string)
-    field(:authors, {:array, :string}, default: [])
+    field(:authors, {:array, :string})
     field(:category, :string)
     field(:tags, {:array, :string}, default: [])
     field(:status, Ecto.Enum, values: [:draft, :published, :archived], default: :draft)
     field(:published_at, :utc_datetime)
 
-    embeds_many(:post_versions, PostVersion) do
+    embeds_many(:post_versions, PostVersion, on_replace: :delete) do
       field(:title, :string)
       field(:excerpt, :string)
       field(:body, :string)
@@ -56,9 +54,10 @@ defmodule Erlef.Blog.Post do
     |> cast(attrs, @all_fields)
     |> validate_required(@required_fields)
     |> validate_length(:authors, min: 1)
+    |> slugify()
+    |> unique_constraint(:slug)
     |> published_at()
     |> sanitize_body()
-    |> slugify()
     |> maybe_save_post_version(attrs)
   end
 
@@ -71,25 +70,13 @@ defmodule Erlef.Blog.Post do
   defp time_now(), do: DateTime.truncate(DateTime.utc_now(), :second)
 
   defp slugify(%{changes: %{title: title}} = cs) do
-    slug = Slug.slugify(title)
-
-    case Blog.get_post_by_slug(slug) do
-      {:ok, post} ->
-        if post.id != Map.get(cs.data, :id) do
-          add_error(cs, :title, "Title must be unique")
-        else
-          put_change(cs, :slug, slug)
-        end
-
-      {:error, :not_found} ->
-        put_change(cs, :slug, slug)
-    end
+    put_change(cs, :slug, Slug.slugify(title))
   end
 
   defp slugify(cs), do: cs
 
   defp sanitize_body(%{changes: %{body: body}} = cs) do
-    put_change(cs, :body, HtmlSanitizeEx.strip_tags(body))
+    put_change(cs, :body, HtmlSanitizeEx.markdown_html(body))
   end
 
   defp sanitize_body(cs), do: cs

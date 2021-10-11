@@ -1,60 +1,33 @@
 defmodule ErlefWeb.BlogControllerTest do
   use ErlefWeb.ConnCase
 
-  alias Erlef.Blog
-
-  @create_attrs %{
-    title: "some title",
-    excerpt: "some excerpt",
-    body: "some body",
-    authors: "some author, some other author",
-    category: "eef",
-    tags: "[{\"value\":\"some tag\"}, {\"value\":\"some other tag\"}]"
-  }
-  @update_attrs %{
-    title: "some updated title",
-    excerpt: "some updated excerpt",
-    body: "some updated body",
-    authors: "some updated author, some other updated author",
-    category: "newsletter",
-    tags: "[{\"value\":\"some updated tag\"}, {\"value\":\"some other updated tag\"}]"
-  }
   @invalid_attrs %{
     title: nil,
     excerpt: nil,
     body: nil,
-    authors: "",
+    authors: [],
     category: "eef",
     tags: nil,
     status: "42"
   }
 
   setup do
-    wg =
-      build(:working_group, %{
-        name: "Fellowship",
-        slug: "fellowship",
-        description: "members for a fellowship role"
-      })
+    chair = insert_member!("wg_chair")
+    vol = insert!(:volunteer, member_id: chair.id)
+    wg1 = insert!(:working_group)
+    wg2 = insert!(:working_group)
 
-    member = insert!(:member)
-    volunteer = build(:volunteer, member_id: member.id)
+    _wgv = insert!(:working_group_volunteer, working_group: wg1, volunteer: vol)
+    _wgv = insert!(:working_group_volunteer, working_group: wg2, volunteer: vol)
 
-    wgv = insert!(:working_group_volunteer, working_group: wg, volunteer: volunteer)
-    insert!(:working_group_chair, volunteer: wgv.volunteer, working_group: wgv.working_group)
+    post = insert!(:post, category: wg1.slug, status: :published)
 
-    {:ok, post} =
-      Blog.create_post(%{
-        title: "Honoring our fellows",
-        body: "The First Fellows",
-        authors: ["Author"],
-        category: "fellowship",
-        tags: ["eef"],
-        status: "published",
-        owner_id: member.id
-      })
-
-    [working_group: wgv.working_group, volunteer: wgv.volunteer, post: post]
+    [
+      chair: chair,
+      wg1: wg1,
+      wg2: wg2,
+      post: post
+    ]
   end
 
   test "GET /news", %{conn: conn} do
@@ -62,22 +35,22 @@ defmodule ErlefWeb.BlogControllerTest do
     assert html_response(conn, 200) =~ "Find all the related news"
   end
 
-  test "GET /news/:topic", %{conn: conn} do
-    conn = get(conn, Routes.blog_path(conn, :index, "fellowship"))
-    assert html_response(conn, 200) =~ "members for a fellowship role"
+  test "GET /news/:topic", %{conn: conn, post: post} do
+    conn = get(conn, Routes.blog_path(conn, :index, post.category))
+    assert html_response(conn, 200) =~ post.title
 
     # Deprecated, but kept in place for backwards compat
-    conn = get(conn, Routes.news_path(conn, :index, "fellowship"))
-    assert html_response(conn, 200) =~ "members for a fellowship role"
+    conn = get(conn, Routes.news_path(conn, :index, post.category))
+    assert html_response(conn, 200) =~ post.title
   end
 
-  test "GET /news/:topic/:id", %{conn: conn} do
-    conn = get(conn, Routes.blog_path(conn, :show, "fellowship", "honoring-our-fellows"))
-    assert html_response(conn, 200) =~ "The First Fellows"
+  test "GET /news/:topic/:id", %{conn: conn, post: post} do
+    conn = get(conn, Routes.blog_path(conn, :show, post.category, post.slug))
+    assert html_response(conn, 200) =~ post.title
 
     # Deprecated, but kept in place for backwards compat
-    conn = get(conn, Routes.news_path(conn, :show, "fellowship", "honoring-our-fellows"))
-    assert html_response(conn, 200) =~ "The First Fellows"
+    conn = get(conn, Routes.news_path(conn, :show, post.category, post.slug))
+    assert html_response(conn, 200) =~ post.title
   end
 
   test "GET /news/:topic does not exist", %{conn: conn} do
@@ -91,26 +64,32 @@ defmodule ErlefWeb.BlogControllerTest do
   end
 
   describe "create post" do
-    setup :admin_session
+    setup :chair_session
 
-    test "redirects to show when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.blog_path(conn, :create), post: @create_attrs)
+    test "redirects to show when data is valid", %{conn: conn, chair: chair, wg1: wg1} do
+      post =
+        build(:post, category: wg1.slug, owner: chair, status: :published)
+        |> Map.from_struct()
+
+      conn = post(conn, Routes.blog_path(conn, :create), post: post)
 
       assert %{topic: topic, id: id} = redirected_params(conn)
       assert redirected_to(conn) == Routes.blog_path(conn, :show, topic, id)
 
       conn = get(conn, Routes.blog_path(conn, :show, topic, id))
-      assert html_response(conn, 200) =~ @create_attrs.title
+      assert html_response(conn, 200) =~ post.title
     end
 
-    test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.blog_path(conn, :create), post: @invalid_attrs)
+    test "renders errors when data is invalid", %{conn: conn, wg1: wg1} do
+      conn =
+        post(conn, Routes.blog_path(conn, :create), post: %{@invalid_attrs | category: wg1.slug})
+
       assert html_response(conn, 200) =~ "Creating Post"
     end
   end
 
   describe "edit post" do
-    setup :admin_session
+    setup :chair_session
 
     test "renders form for editing chosen post", %{conn: conn, post: post} do
       conn = get(conn, Routes.blog_path(conn, :edit, post.slug))
@@ -119,20 +98,38 @@ defmodule ErlefWeb.BlogControllerTest do
   end
 
   describe "update post" do
-    setup :admin_session
+    setup :chair_session
 
-    test "redirects when data is valid", %{conn: conn, post: post} do
-      conn = put(conn, Routes.blog_path(conn, :update, post.slug), post: @update_attrs)
+    test "redirects when data is valid", %{conn: conn, chair: chair, wg2: wg2, post: post} do
+      updated_post =
+        build(:post, category: wg2.slug, owner: chair, status: :published)
+        |> Map.from_struct()
+
+      conn = put(conn, Routes.blog_path(conn, :update, post.slug), post: updated_post)
 
       assert redirected_to(conn) ==
-               Routes.blog_path(conn, :show, "newsletter", "some-updated-title")
+               Routes.blog_path(
+                 conn,
+                 :show,
+                 updated_post.category,
+                 Slug.slugify(updated_post.title)
+               )
 
-      conn = get(conn, Routes.blog_path(conn, :show, "newsletter", "some-updated-title"))
-      assert html_response(conn, 200) =~ "some updated body"
+      conn =
+        get(
+          conn,
+          Routes.blog_path(conn, :show, updated_post.category, Slug.slugify(updated_post.title))
+        )
+
+      assert html_response(conn, 200) =~ updated_post.title
     end
 
-    test "renders errors when data is invalid", %{conn: conn, post: post} do
-      conn = put(conn, Routes.blog_path(conn, :update, post.slug), post: @invalid_attrs)
+    test "renders errors when data is invalid", %{conn: conn, post: post, wg2: wg2} do
+      conn =
+        put(conn, Routes.blog_path(conn, :update, post.slug),
+          post: %{@invalid_attrs | category: wg2.slug}
+        )
+
       assert html_response(conn, 200) =~ "Editing Post"
     end
   end

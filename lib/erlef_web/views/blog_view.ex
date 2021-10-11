@@ -3,7 +3,7 @@ defmodule ErlefWeb.BlogView do
 
   def as_html(txt) do
     txt
-    |> HtmlSanitizeEx.strip_tags()
+    |> HtmlSanitizeEx.markdown_html()
     |> Earmark.as_html!()
     |> raw()
   end
@@ -35,21 +35,21 @@ defmodule ErlefWeb.BlogView do
 
   def authors_value(form) do
     case form.params do
-      %{"authors" => authors} when is_bitstring(authors) ->
-        Enum.join(form.params["authors"], ", ")
+      %{"authors" => authors} when not is_nil(authors) ->
+        Enum.join(authors, ", ")
 
       _ ->
-        Enum.join(form.data.authors, ", ")
+        Enum.join(form.data.authors || [], ", ")
     end
   end
 
   def tags_value(form) do
     case form.params do
-      %{"tags" => tags} when is_bitstring(tags) ->
-        Enum.join(form.params["tags"], ", ")
+      %{"tags" => tags} when not is_nil(tags) ->
+        Enum.join(tags, ", ")
 
       _ ->
-        Enum.join(form.data.tags, ", ")
+        Enum.join(form.data.tags || [], ", ")
     end
   end
 end

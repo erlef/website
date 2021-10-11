@@ -83,7 +83,7 @@ defmodule Erlef.BlogTest do
 
     test "get_post_by_slug!/1 returns the post with given slug", %{admin: admin} do
       post = post_fixture(%{owner_id: admin.id})
-      assert Blog.get_post_by_slug!(post.slug) == post
+      assert Blog.get_post_by_slug(post.slug) == {:ok, post}
     end
 
     test "get_post_by_slug/1 returns the post with given slug", %{admin: admin} do
@@ -150,7 +150,7 @@ defmodule Erlef.BlogTest do
     test "update_post/2 with invalid data returns error changeset", %{admin: admin} do
       post = post_fixture(%{owner_id: admin.id})
       assert {:error, %Ecto.Changeset{}} = Blog.update_post(post, @invalid_attrs)
-      assert post == Blog.get_post_by_slug!(post.slug)
+      assert Blog.get_post_by_slug(post.slug) == {:ok, post}
     end
 
     test "change_post/1 returns a post changeset", %{admin: admin} do

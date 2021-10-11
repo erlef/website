@@ -1,13 +1,21 @@
 import Tagify from '@yaireo/tagify'
   
 document.addEventListener('DOMContentLoaded', function() {
-  var tagsEl = document.querySelector('input[id=post_tags]');
+  var tagsEl = document.getElementById("post_tags");
 
-  var whitelist = ["announcements", "embedded", "education", "infrastructure"]
+  if (tagsEl != null) {
+    var whitelist = JSON.parse(document.getElementById("blog_categories").innerText)
 
-  if (tagsEl != null) { 
-   var tagifiy = new Tagify(tagsEl)
+    var tagify = new Tagify(tagsEl, {
+      whitelist: whitelist,
+      dropdown: {
+        fuzzysearch: false,
+        maxItems: 5,
+        position: "text",
+        enabled: 0
+      }
+    })
 
-   document.querySelector('tags').classList.add("h-100")
+    document.querySelector('tags').classList.add("h-100")
   }
 });
