@@ -6,7 +6,7 @@
                     <div style="position: relative; z-index: 100">
                         <h1 class="mb-4 h3 font-weight-normal text-white">Erlang Ecosystem Foundation</h1>
                         <h2 class="text-white font-weight-bold mb-4 display-4">Supporting the next generation of advanced, reliable, realtime applications</h2>
-                        <p class="lead text-white">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 750 members who embrace its collaborative Working Group model, and community-building events.</p>
+                        <p class="lead text-white">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 1,000 members who embrace its collaborative Working Group model, and community-building events.</p>
                         <p class="lead text-white">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
                         <a class="h3" href="https://members.erlef.org/join-us">Join Now →</a>
                     </div>
