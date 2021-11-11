@@ -7,6 +7,10 @@
       </p>
       <%= if logged_in?(assigns) do %>
         <%= link("Submit a news tip", to: Routes.news_tip_path(@conn, :new)) %>
+          <%= if allowed_to_post?(assigns) do %>
+            or 
+            <%= link("Create a new post", to: Routes.blog_path(@conn, :new)) %>
+          <% end %>
       <% else %>
       <p>Do you have news to share? <a href="https://members.erlef.org/join-us">Join us</a> and submit a        news tip</a>.</p>
     <% end %>
@@ -34,9 +38,9 @@
                   <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" />
                 </div>
                 <div>
-                  <% month =  Calendar.strftime(post1.datetime, "%B") %>
-                  <% day =  post1.datetime.day %>
-                  <% year = post1.datetime.year %>
+                  <% month =  Calendar.strftime(post1.published_at, "%B") %>
+                  <% day =  post1.published_at.day %>
+                  <% year = post1.published_at.year %>
                   <div>
                     <%= month %>
                     <%= day %>,
@@ -78,12 +82,12 @@
               <p class="lead post-subtitle">
               <%= post.excerpt %>
               </p>
-              <% month =  Calendar.strftime(post.datetime, "%B") %>
-              <% day =  post.datetime.day %>
-              <% year = post.datetime.year %>
-              <% author = post.authors %>
+              <% month =  Calendar.strftime(post.published_at, "%B") %>
+              <% day =  post.published_at.day %>
+              <% year = post.published_at.year %>
+              <% authors = post.authors %>
               <p class="small">Posted by
-              <%= author_name(author) %> on
+              <%= author_name(authors) %> on
               <%= month %>
               <%= day %>,
               <%= year %>
@@ -104,6 +108,10 @@
           <p>
             <%= link("Submit a news tip", to: Routes.news_tip_path(@conn, :new), class: "mb-2") %>
           </p>
+
+          <%= if logged_in?(assigns) && allowed_to_post?(assigns) do %>
+            <%= render(ErlefWeb.BlogView, "post_sidebar.html", assigns) %>
+          <% end %>
 
           <%= render(ErlefWeb.BlogView, "recent_posts.html", latest_news: @latest_news, all_tags: @all_tags) %>
         </aside>

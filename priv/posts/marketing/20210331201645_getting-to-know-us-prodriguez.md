@@ -11,7 +11,7 @@ Getting to know Pehuén Rodriguez
 ---
 
 
-<img src="/images/getting-to-know/prodriguez.png" class="img-fluid" alt="Pehuén Rodriguez"/>
+<img src="/images/getting-to-know/prodriguez.png" width="100%" height="auto" alt="Pehuén Rodriguez"/>
 
 <br/>
 <br/>

@@ -11,6 +11,7 @@
     "@fullcalendar/core": "5.5.0",
     "@fullcalendar/daygrid": "5.5.0",
     "@fullcalendar/list": "5.5.0",
+    "@yaireo/tagify": "^4.8.1",
     "admin-lte": "^3.1.0-rc",
     "bootstrap": "^4.6.0",
     "ical.js": "1.4.0",
@@ -19,7 +20,8 @@
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
     "phoenix_live_view": "file:../deps/phoenix_live_view",
-    "popper.js": "1.16.1"
+    "popper.js": "1.16.1",
+    "sass": "^1.42.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

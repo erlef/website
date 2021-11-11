@@ -11,7 +11,7 @@ Getting to know to Paulo F. Oliveira
 ---
 
 
-<img src="/images/getting-to-know/poliveira.png" class="img-fluid" alt="Paulo F. Oliveira"/>
+<img src="/images/getting-to-know/poliveira.png" width="100%" height="auto" alt="Paulo F. Oliveira"/>
 
 <br/>
 <br/>

@@ -3,7 +3,7 @@ defmodule ErlefWeb.PageController do
 
   alias Erlef.{
     Community,
-    Blogs,
+    Blog,
     Groups,
     Twitter
   }
@@ -19,7 +19,7 @@ defmodule ErlefWeb.PageController do
   end
 
   def index(conn, _params) do
-    latest_news = Blogs.latest_posts()
+    latest_news = Blog.latest_posts()
 
     render(conn,
       working_groups: Groups.list_working_groups(),

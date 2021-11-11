@@ -22,7 +22,7 @@
             <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" alt="" />
           </div>
           <div>
-            <div><%= long_date(story.datetime) %></div>
+            <div><%= long_date(story.published_at) %></div>
             <div>by <%= author_name(story.authors) %></div>
           </div>
         </div>

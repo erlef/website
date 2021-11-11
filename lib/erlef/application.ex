@@ -48,7 +48,7 @@ defmodule Erlef.Application do
         base ++ [Erlef.Agenda]
 
       :test ->
-        base
+        Enum.reject(base, fn c -> c == Erlef.Repo.ETS.Importer end)
     end
   end
 

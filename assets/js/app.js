@@ -20,3 +20,5 @@ window.liveSocket = liveSocket
 
 // Import local files
 require("./calendar.js")
+require("./tags.js")
+require("./authors.js")

@@ -165,6 +165,21 @@ defmodule Erlef.Groups do
     |> Repo.transaction()
   end
 
+  @spec is_volunteer?(WorkingGroup.t(), Volunteer.t() | Member.t() | Ecto.UUID.t()) :: boolean()
+  def is_volunteer?(wg, %Volunteer{member_id: member_id}) do
+    is_volunteer?(wg, member_id)
+  end
+
+  def is_volunteer?(wg, %Member{id: member_id}) do
+    is_volunteer?(wg, member_id)
+  end
+
+  def is_volunteer?(%WorkingGroup{volunteers: volunteers}, member_id) when is_binary(member_id) do
+    Enum.any?(volunteers, fn v -> v.member_id == member_id end)
+  end
+
+  def is_volunteer?(_wg, _member_or_id), do: false
+
   ### Working group chairs ###
 
   @spec create_wg_chair(WorkingGroup.t(), Volunteer.t(), Keyword.t()) ::

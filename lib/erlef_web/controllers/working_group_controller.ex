@@ -3,7 +3,7 @@ defmodule ErlefWeb.WorkingGroupController do
 
   plug :put_layout, :wg
 
-  alias Erlef.{Blogs, Groups}
+  alias Erlef.{Blog, Groups}
 
   action_fallback ErlefWeb.FallbackController
 
@@ -22,8 +22,9 @@ defmodule ErlefWeb.WorkingGroupController do
       {:ok, wg} ->
         render(conn,
           wg: wg,
-          blog_posts: Blogs.get_posts_by_category(slug),
+          blog_posts: Blog.get_posts_by_category(slug),
           topic: slug,
+          is_volunteer: is_volunteer(conn, wg),
           is_chair: is_chair(conn, wg)
         )
 
@@ -36,6 +37,10 @@ defmodule ErlefWeb.WorkingGroupController do
     Groups.list_working_groups()
     |> Enum.reject(fn wg -> wg.slug == "eef" end)
     |> sort_by_formation()
+  end
+
+  defp is_volunteer(%{assigns: %{current_user: member}}, wg) do
+    Groups.is_volunteer?(wg, member)
   end
 
   defp is_chair(%{assigns: %{current_user: member}}, wg) do
