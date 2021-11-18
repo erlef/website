@@ -31,6 +31,8 @@ Moreover, they are an active part of the Security working group, so they plan to
 
 They would like to see the foundation sponsor work on development projects that benefit the community as a whole.
 
+# A little more about NineFX
+
 The company was founded in 2009 and is based in Columbia, South Carolina, and most of its employees work there.
 
 
