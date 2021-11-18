@@ -20,7 +20,7 @@ Enjoy it!
 
 NineFX provides services and software to commercial and US government customers. Its specialty is mission-critical messaging systems with stringent security requirements.
 
-Their first contact with Erlang was when they came across a copy of Joe Armstrong’s book while was deployed to the Middle East with the Army. At present, they use it in multiple solutions for their customers. 
+Their first contact with Erlang was when they came across a copy of Joe Armstrong’s book while their founder was deployed to the Middle East with the Army. At present, they use it in multiple solutions for their customers.
 They are also looking at Gleam as a strongly-typed option for the BEAM.
 
 
