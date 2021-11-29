@@ -10,7 +10,7 @@
 Meet the sponsors - NineFX
 ---
 
-Welcome to **Meet the Sponsors**, a new blog posts series in which you will learn about our sponsors and why they decide to support this great community. Today we will get to know DNSimple. 
+Welcome to **Meet the Sponsors**, a new blog posts series in which you will learn about our sponsors and why they decide to support this great community. Today we will get to know NineFX. 
 Enjoy it!
 
 <img src="/images/meet-the-sponsors/ninefx.png" class="img-fluid" alt="Meet the Sponsors - NineFX"/>
