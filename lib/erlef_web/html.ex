@@ -3,8 +3,8 @@ defmodule ErlefWeb.HTML do
   ErlefWeb.HTML - HTML helpers for ErlefWeb
   """
   import Phoenix.HTML.Tag
-  import Phoenix.HTML
   import Phoenix.HTML.Link
+  import Phoenix.LiveView.Helpers
 
   def to_date_string(date_time) do
     Calendar.strftime(date_time, "%B, %d, %Y, %H:%M:%S UTC")
@@ -51,7 +51,8 @@ defmodule ErlefWeb.HTML do
   end
 
   def calendar(ics_url) do
-    ~E"""
+    assigns = %{ics_url: ics_url}
+    ~H"""
     <div class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -104,7 +105,7 @@ defmodule ErlefWeb.HTML do
     <div class="container">
         <div id="calendar"
              data-calendar-header="true"
-             data-calendar-ics-url="<%= ics_url %>">
+             data-calendar-ics-url={@ics_url}>
         </div>
     </div>
     """

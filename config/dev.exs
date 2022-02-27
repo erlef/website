@@ -16,12 +16,13 @@ config :erlef, ErlefWeb.Endpoint,
   check_origin: false,
   watchers: [
     node: [
-      "node_modules/webpack/bin/webpack.js",
-      "--mode",
-      "development",
-      "--watch-stdin",
-      cd: Path.expand("../assets", __DIR__)
-    ]
+        "node_modules/webpack/bin/webpack.js",
+        "--mode",
+       "development",
+        "--watch",
+        "--watch-options-stdin",
+        cd: "assets", env: [{"TAILWIND_MODE", "watch"}]
+      ]
   ]
 
 # Watch static and templates for browser reloading.
