@@ -1,6 +1,11 @@
 defmodule ErlefWeb.ViewHelpers do
   @moduledoc "View Helpers"
 
+  def view_title(assigns) do
+    module = Phoenix.Controller.view_module(assigns.conn)
+    module.title(assigns)
+  end
+
   def author_name(["eef"]), do: "ErlEF"
 
   def author_name([name]), do: name
