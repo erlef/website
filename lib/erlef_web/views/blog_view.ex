@@ -16,9 +16,9 @@ defmodule ErlefWeb.BlogView do
   end
 
   def posted_in(post, wg) do
-    assigns = %{post: "/wg/" <> post, wg: wg}
+    assigns = %{post_wg: "/wg/" <> post.category, wg: wg}
     ~H"""
-    Posted in <a href={@post}><%= @wg.name %></a>
+    Posted in <a href={@post_wg}><%= @wg.name %></a>
     """
   end
 
