@@ -7,7 +7,7 @@ defmodule Erlef.StipendMail do
 
   use Phoenix.Swoosh, view: ErlefWeb.EmailView, layout: {ErlefWeb.LayoutView, :email}
 
-  @spec submission(%Erlef.StipendProposal{}) :: %Swoosh.Email{}
+  @spec submission(Erlef.StipendProposal.t()) :: Swoosh.Email.t()
   def submission(proposal) do
     dt_str = DateTime.utc_now() |> DateTime.truncate(:second)
 

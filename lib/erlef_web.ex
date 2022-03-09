@@ -49,9 +49,6 @@ defmodule ErlefWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-          # TODO fix
-          # layout: {ErlefWeb.LayoutView, "live.html"}
-
           unquote(view_helpers())
     end
   end
