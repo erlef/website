@@ -2,14 +2,16 @@ defmodule ErlefWeb.PostView do
   use ErlefWeb, :view
 
   def posted_in(%{category: cat}, nil) when cat in ["eef", "newsletter"] do
-    ~E"""
+    """
     Posted in <a href="/news">News</a>
     """
   end
 
-  def posted_in(post, wg) do
-    ~E"""
-    Posted in <a href="/wg/<%= post.category %>"><%= wg.name %></a>
+  def posted_in(%{category: cat} = _post, wg) do
+    assigns = %{cat_path: "/wg/#{cat}", wg: wg}
+
+    ~H"""
+    Posted in <a href={@cat_path}><%= wg.name %></a>
     """
   end
 

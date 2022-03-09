@@ -58,7 +58,7 @@ defmodule ErlefWeb.Admin.AppTest do
     test "renders errors when data is invalid", %{conn: conn, app: app} do
       conn = put(conn, Routes.admin_app_path(conn, :update, app.slug), app: @invalid_attrs)
 
-      assert html_response(conn, 200) =~ "App #{app.name}"
+      assert html_response(conn, 200) =~ app.name
     end
   end
 

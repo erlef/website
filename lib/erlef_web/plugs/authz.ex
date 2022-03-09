@@ -45,8 +45,6 @@ defmodule ErlefWeb.Plug.Authz do
     msg = "The resource you requested requires that you are logged in."
     link = "https://members.erlef.org/join-us"
 
-    "<h3 class='text-center'>#{msg}</h3><p class='text-center'>Don't have a login? <a href='#{
-      link
-    }'>Join us!</a></p>"
+    "<h3 class='text-center'>#{msg}</h3><p class='text-center'>Don't have a login? <a href='#{link}'>Join us!</a></p>"
   end
 end

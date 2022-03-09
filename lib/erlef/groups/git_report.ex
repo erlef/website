@@ -114,9 +114,8 @@ defmodule Erlef.Groups.GitReport do
          {:ok, state} <- get_token(state),
          {:ok, state} <- create_files(state),
          {:ok, state} <- create_commit(state),
-         {:ok, state} <- update_branch(state),
-         {:ok, state} <- get_pr(state) do
-      {:ok, state}
+         {:ok, state} <- update_branch(state) do
+      get_pr(state)
     end
   end
 

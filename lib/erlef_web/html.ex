@@ -52,6 +52,7 @@ defmodule ErlefWeb.HTML do
 
   def calendar(ics_url) do
     assigns = %{ics_url: ics_url}
+
     ~H"""
     <div class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">

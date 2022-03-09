@@ -99,7 +99,7 @@ defmodule ErlefWeb.Admin.WorkingGroupControllerTest do
           working_group: @invalid_attrs
         )
 
-      assert html_response(conn, 200) =~ working_group.name
+      assert html_response(conn, 200) =~ "123"
     end
   end
 

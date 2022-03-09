@@ -43,7 +43,7 @@ defmodule ErlefWeb.PageView do
 
   def community_card_wall(items) do
     assigns = %{items: items}
-    
+
     ~H"""
      <div class="row">
         <%= for i <- @items do %>

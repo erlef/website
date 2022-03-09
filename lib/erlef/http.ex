@@ -52,8 +52,7 @@ defmodule Erlef.HTTP do
   defp safe_header_value(v) do
     v
     |> String.split(" ")
-    |> Enum.map(&URI.encode/1)
-    |> Enum.join(" ")
+    |> Enum.map_join(" ", &URI.encode/1)
   end
 
   defp content_type(headers) do
