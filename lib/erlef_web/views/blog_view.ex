@@ -10,6 +10,7 @@ defmodule ErlefWeb.BlogView do
 
   def posted_in(%{category: cat}, nil) when cat in ["eef", "newsletter"] do
     assigns = %{}
+
     ~H"""
     Posted in <a href="/news">News</a>
     """
@@ -17,6 +18,7 @@ defmodule ErlefWeb.BlogView do
 
   def posted_in(post, wg) do
     assigns = %{post_wg: "/wg/" <> post.category, wg: wg}
+
     ~H"""
     Posted in <a href={@post_wg}><%= @wg.name %></a>
     """

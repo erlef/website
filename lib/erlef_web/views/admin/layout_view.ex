@@ -12,6 +12,7 @@ defmodule ErlefWeb.Admin.LayoutView do
 
     icon = Keyword.get(params, :icon, "")
     assigns = %{icon: "fas " <> icon}
+
     ~H"""
       <li class="nav-item"> 
         <%= link(p) do %>
