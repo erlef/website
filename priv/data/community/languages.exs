@@ -117,7 +117,7 @@
       logo: nil,
       icon: nil,
       about:
-        "PureScript is a small strongly typed programming language with expressive types, written in and inspired by Haskell; purerl is a PureScript backend targetting Erlang source."
+        "PureScript is a small strongly typed programming language with expressive types, written in and inspired by Haskell; purerl is a PureScript backend targeting Erlang source."
     },
     %{
       name: "Rufus",

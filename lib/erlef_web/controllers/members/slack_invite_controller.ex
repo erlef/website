@@ -23,7 +23,7 @@ defmodule ErlefWeb.Members.SlackInviteController do
     else
       _ ->
         conn
-        |> put_flash(:error, "An unknown error occured.")
+        |> put_flash(:error, "An unknown error occurred.")
         |> redirect(to: Routes.members_profile_path(conn, :show))
     end
   end

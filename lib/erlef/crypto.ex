@@ -12,7 +12,7 @@ defmodule Erlef.Crypto do
   def compare(str1, str2), do: Plug.Crypto.secure_compare(str1, str2)
 
   @doc """
-  Computes Message Authencation Code (MAC) via `:erlang.mac/4`. 
+  Computes Message Authentication Code (MAC) via `:erlang.mac/4`. 
   The computed MAC is base 16 encoded and lower cased. 
   """
   @spec hmac_encode(binary(), binary()) :: String.t()

@@ -179,19 +179,19 @@ if Application.get_env(:erlef, :env) == :prod do
   discount_link =
     System.get_env("CODE_BEAM_V_AMERICA_2021_DISCOUNT_LINK") ||
       raise """
-      enviroment variable CODE_BEAM_V_AMERICA_2021_DISCOUNT_LINK
+      environment variable CODE_BEAM_V_AMERICA_2021_DISCOUNT_LINK
       """
 
   key_note_link =
     System.get_env("CODE_BEAM_V_AMERICA_2021_KEYNOTE_LINK") ||
       raise """
-      enviroment variable CODE_BEAM_V_AMERICA_2021_KEYNOTE_LINK
+      environment variable CODE_BEAM_V_AMERICA_2021_KEYNOTE_LINK
       """
 
   bof_link =
     System.get_env("CODE_BEAM_V_AMERICA_2021_BOF_LINK") ||
       raise """
-      enviroment variable CODE_BEAM_V_AMERICA_2021_BOF_LINK
+      environment variable CODE_BEAM_V_AMERICA_2021_BOF_LINK
       """
 
   config :erlef, :conference_perks, %{
@@ -218,13 +218,13 @@ if Application.get_env(:erlef, :env) == :prod do
   bot_token =
     System.get_env("ERLEF_SLACK_BOT_TOKEN") ||
       raise """
-      enviroment variable ERLEF_SLACK_BOT_TOKEN
+      environment variable ERLEF_SLACK_BOT_TOKEN
       """
 
   erlef_slack_invite_channel =
     System.get_env("ERLEF_SLACK_INVITE_CHANNEL") ||
       raise """
-      enviroment variable ERLEF_SLACK_INVITE_CHANNEL
+      environment variable ERLEF_SLACK_INVITE_CHANNEL
       """
 
   config :erlef, :slack,
@@ -239,13 +239,13 @@ if Application.get_env(:erlef, :env) == :prod do
   logflare_api_key =
     System.get_env("LOGFLARE_API_KEY") ||
       raise """
-      enviroment variable LOGFLARE_API_KEY
+      environment variable LOGFLARE_API_KEY
       """
 
   logflare_source_id =
     System.get_env("LOGFLARE_SOURCE_ID") ||
       raise """
-      enviroment variable LOGFLARE_SOURCE_ID
+      environment variable LOGFLARE_SOURCE_ID
       """
 
   config :logflare_logger_backend,

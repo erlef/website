@@ -63,7 +63,7 @@ defmodule Erlef.CommunityTest do
 
     assert exp == Community.format_error({:error, :unsupported_org_file_type})
 
-    assert "An unknown error ocurred" == Community.format_error(:anything_else)
+    assert "An unknown error occurred" == Community.format_error(:anything_else)
   end
 
   test "new_event/0" do

@@ -9,7 +9,7 @@ defmodule Erlef.Members.Notifications do
 
   def new(:new_event_submitted, %{member: member}) do
     msg = """
-    Thanks for submitting a new event, we appreciate your involvment in our community. 
+    Thanks for submitting a new event, we appreciate your involvement in our community. 
     An admin will approve the event for display shortly. Once approved you will get an email stating so. 
 
     In the event you haven't seen an approval in 48 hours please send an email to web_admin@erlef.org.
