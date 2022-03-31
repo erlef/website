@@ -172,7 +172,8 @@ vols = [
     avatar_url: "volunteers/ben-marx.jpg",
     id: "2cf7ff99-6d98-4a54-8dc6-d63c0797af0a",
     member_id: "cf74b2b1-c51f-42d0-b6ec-425954c75cd5",
-    name: "Ben Marx"
+    name: "Ben Marx",
+    is_board_member: true
   },
   %{
     avatar_url: "volunteers/alistair-woodman.png",
@@ -426,8 +427,7 @@ vols = [
   %{
     id: Ecto.UUID.generate(), 
     avatar_url: "volunteers/richard-carlsson.jpg", 
-    name: "Richard Carlsson",
-    is_board_member: true
+    name: "Richard Carlsson"
   }
   ]
 
