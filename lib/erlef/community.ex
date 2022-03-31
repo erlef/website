@@ -53,7 +53,7 @@ defmodule Erlef.Community do
   end
 
   def format_error(_) do
-    "An unknown error ocurred"
+    "An unknown error occurred"
   end
 
   @spec new_event() :: Changeset.t()

@@ -26,7 +26,7 @@ defmodule Erlef.Members.EmailRequestNotification do
     We are glad to inform you that the mail alias you requested has been created.
 
     It may take up to 15 minutes for the alias to become active. Once the alias is active you will
-    begin receving emails sent to your new alias at this address.
+    begin receiving emails sent to your new alias at this address.
 
     If you have any problems, please reach out to infra.requests@erlef.org
     """

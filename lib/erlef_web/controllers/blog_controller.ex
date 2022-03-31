@@ -172,7 +172,7 @@ defmodule ErlefWeb.BlogController do
       {:error, :not_authorized_to_edit} ->
         {:error, :not_found}
 
-      # Posible error from update_post/2 should not happen but dialyzer wants it covered
+      # Possible error from update_post/2 should not happen but dialyzer wants it covered
       {:error, %Ecto.Changeset{}} ->
         {:error, :not_found}
     end
@@ -196,7 +196,7 @@ defmodule ErlefWeb.BlogController do
       {:error, :not_authorized_to_edit} ->
         {:error, :not_found}
 
-      # Posible error from update_post/2 should not happen but dialyzer wants it covered
+      # Possible error from update_post/2 should not happen but dialyzer wants it covered
       {:error, %Ecto.Changeset{}} ->
         {:error, :not_found}
     end

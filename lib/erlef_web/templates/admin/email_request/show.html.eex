@@ -82,7 +82,7 @@
 
     <p>
     <% path = Routes.admin_email_request_path(@conn, :complete, id: @email_request.id) %>
-    Click the complete button below to finish the request. Once completed a notification will be sent to <strong><%= @email_request.submitted_by.email %></strong> informing them the alias has been crated and may take up to 15 minutes to become active.
+    Click the complete button below to finish the request. Once completed a notification will be sent to <strong><%= @email_request.submitted_by.email %></strong> informing them the alias has been created and may take up to 15 minutes to become active.
     </p>
     <%= link("Complete", to: path, method: :post, class: "btn btn-warning", data: [confirm: "Are you sure?"] ) %> 
   <% else %>
@@ -112,7 +112,7 @@
       </ol>
 
       <p>
-      Click the complete button below to finish the request. Once completed a notification will be sent to <strong><%= @email_request.submitted_by.email %></strong> informing them the alias has been crated and may take up to 15 minutes to become active.
+      Click the complete button below to finish the request. Once completed a notification will be sent to <strong><%= @email_request.submitted_by.email %></strong> informing them the alias has been created and may take up to 15 minutes to become active.
       </p>
       <%= submit("Complete", class: "btn btn-warning") %>
     <% end %> 

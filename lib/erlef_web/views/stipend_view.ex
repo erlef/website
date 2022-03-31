@@ -115,7 +115,7 @@ defmodule ErlefWeb.StipendView do
     {"Jamaica", "Jamaica"},
     {"Japan", "Japan"},
     {"Jordan", "Jordan"},
-    {"Kazakstan", "Kazakstan"},
+    {"Kazakhstan", "Kazakhstan"},
     {"Kenya", "Kenya"},
     {"Kiribati", "Kiribati"},
     {"Korea, Democratic People's Republic Of", "Korea, Democratic People's Republic Of"},

@@ -57,7 +57,7 @@ defmodule Erlef.SlackInvite do
   end
 
   defp format_error(_) do
-    "An unknown error has occured. Please contact infra@erlef.org for assistance"
+    "An unknown error has occurred. Please contact infra@erlef.org for assistance"
   end
 
   defp post(path, headers, body, opts) do

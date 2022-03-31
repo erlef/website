@@ -21,7 +21,7 @@ defmodule Erlef.Groups do
   - wg : Abbreviation for working group
   - vol : Abbreviation for volunteer
   - wgc: Abbreviation for working group chair
-  - wgv : Abbreviation forr working group volunteer
+  - wgv : Abbreviation for working group volunteer
 
   """
 
