@@ -79,6 +79,9 @@
             <div class="col-sm-3 pb-2">
               <span><a href="https://github.com/erlef"><i class="fab fa-lg fa-github fa-2x"></i></a></span>
             </div>
+            <div class="col-sm-3 pb-2">
+              <span><a href="https://erlef.org/slack-invite/erlef"><i class="fab fa-lg fa-slack fa-2x"></i></a></span>
+            </div>
           </div>
         </div>
       </div>
