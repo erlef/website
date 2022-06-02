@@ -21,7 +21,7 @@ EMQ is an open-source IoT data infrastructure software provider that delivers th
 
 # Why the BEAM
 
-EMQ has been developing telecom software using Erlang since 2006, for they are impressed with Erlang's concurrent soft real-time runtime system and the message passing architecture.
+The founders of EMQ started developing telecom software using Erlang since 2006, for they are impressed with Erlang's concurrent soft real-time runtime system and the message passing architecture.
 
 They use Erlang and Elixir to build their MQTT message broker [EMQX](https://www.emqx.com/en/products/emqx).
 EMQX is an open-source project that has received over 9,000 stars on [GitHub](https://github.com/emqx/emqx). 
