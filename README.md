@@ -8,7 +8,7 @@
 
  - Erlang/OTP 23
  - Elixir 1.11
- - NodeJS v10 (or greatter)
+ - NodeJS v10 (or greater)
 
 ## Up and running
 
