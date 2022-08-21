@@ -26,7 +26,7 @@ visibility, let us know at <marcom@erlef.org>!*
 
 [Tristan Sloughter](https://github.com/tsloughter) is a long time Erlang programmer and member of the Erlang Ecosystem Foundation.
 While he was working at Heroku, he teamed up with [Fred Hebert](https://ferd.ca/) to build rebar3 and relx, tools for Erlang development and packaging.
-Nowaday he works on OpenTelemetry at Splunk. He has given great contributions to the BEAM and today we get to know him.
+Nowaday he works on [OpenTelemetry](https://opentelemetry.io/) at [Splunk](https://www.splunk.com/en_us/products/apm-application-performance-monitoring.html). He has given great contributions to the BEAM and today we get to know him.
 
 **Tell us about yourself, why did you choose to be a programmer and why Erlang?**
 
@@ -57,7 +57,7 @@ I was working at Heroku at that time and Fred Hebert joined. One of the issues w
 
 Regarding the current state of rebar3 and relx, there is always work to be done. Recently, Fred reworked the compilation to be a lot faster. Now he is working on vendoring dependencies – both rebar3 itself and for projects it builds – which is something asked for by corporate users needing to build in environments without Internet access.
 
-OpenTelemetry, which my work at Splunk is focused on, is still under heavy development, both the specification and the Erlang/Elixir implementation and instrumentations, and looking for contributors. The Erlang implementation of the tracing spec is complete but metrics is in the very early stages. I hope to have a first iteration of metrics support this year. After metrics there are still logs and the upcoming profiling spec to work on. I hope to work on [grpcbox](https://github.com/tsloughter/grpcbox) more in the future since the OpenTelemetry exporter relies on it, right now it works but could use a lot of love.
+[OpenTelemetry](https://opentelemetry.io/), which my work at [Splunk](https://www.splunk.com/en_us/products/apm-application-performance-monitoring.html) is focused on, is still under heavy development, both the specification and the Erlang/Elixir implementation and instrumentations, and looking for contributors. The Erlang implementation of the tracing spec is complete but metrics is in the very early stages. I hope to have a first iteration of metrics support this year. After metrics there are still logs and the upcoming profiling spec to work on. I hope to work on [grpcbox](https://github.com/tsloughter/grpcbox) more in the future since the OpenTelemetry exporter relies on it, right now it works but could use a lot of love.
 
 [Erleans](https://github.com/erleans/erleans) is a project to bring the ideas of Microsoft Orleans to BEAM. It is not used in production but I believe it, or at least the ideas from Orleans, have a place in any story to improve building distributed applications on BEAM and dynamic environments like Kubernetes.
 
