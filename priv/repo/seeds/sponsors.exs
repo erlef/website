@@ -219,10 +219,10 @@ sponsors = [
     id: "0fe87b90-f6af-47a5-97d6-ce2ad130faa4",
     inserted_at: ~U[2021-01-02 04:01:32Z],
     is_founding_sponsor: true,
-    logo_url: "/images/sponsors/simplabs-logo.png",
-    name: "simplabs",
+    logo_url: "/images/sponsors/mainmatter-logo.svg",
+    name: "Mainmatter",
     updated_at: ~U[2021-01-02 04:01:32Z],
-    url: "https://simplabs.com/"
+    url: "https://mainmatter.com/"
   },
   %{
     id: "274bf649-4be4-42b9-ad1d-4dfd9a0de7eb",
