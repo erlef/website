@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Unapproved job posts</h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body p-0">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th style="width: 10px">#</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for post <- @unapproved_job_posts do %>
+          <tr>
+            <td><%= link(post.id, to: Routes.admin_job_path(@conn, :show, post.id))  %></td>
+            <td><%= post.title %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.card-body -->
+</div>

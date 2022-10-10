@@ -2,14 +2,19 @@ defmodule ErlefWeb.Plug.Session do
   @moduledoc """
   Erlef.Plug.Session - handles session refresh and expiration
   """
-
   import Plug.Conn
+
   require Logger
 
   def init(opts), do: opts
 
   def call(conn, _opts) do
-    case session(conn) do
+    session =
+      conn
+      |> get_session("member_session")
+      |> Erlef.Session.build()
+
+    case session do
       %Erlef.Session{} = session ->
         set_session(conn, session)
 
@@ -32,16 +37,14 @@ defmodule ErlefWeb.Plug.Session do
   end
 
   defp set_session(conn, session) do
-    case Erlef.Session.expired?(session) do
-      true ->
-        purge_session(conn, session)
-
-      false ->
-        conn
-        |> maybe_refresh_token(session)
-        |> assign(:current_session, session)
-        |> assign(:current_user, session.member)
-        |> maybe_assign_volunteer(session.member)
+    if Erlef.Session.expired?(session) do
+      purge_session(conn, session)
+    else
+      conn
+      |> maybe_refresh_token(session)
+      |> assign(:current_session, session)
+      |> assign(:current_user, session.member)
+      |> maybe_assign_volunteer(session.member)
     end
   end
 
@@ -73,10 +76,6 @@ defmodule ErlefWeb.Plug.Session do
       _ ->
         conn
     end
-  end
-
-  defp session(conn) do
-    get_session(conn, "member_session") |> Erlef.Session.build()
   end
 
   defp store_session(conn, session) do

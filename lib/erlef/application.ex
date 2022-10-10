@@ -29,6 +29,7 @@ defmodule Erlef.Application do
   defp base_children() do
     [
       Erlef.Repo,
+      {Oban, Application.fetch_env!(:erlef, Oban)},
       Erlef.Repo.ETS,
       Erlef.Repo.ETS.Importer,
       ErlefWeb.Telemetry,

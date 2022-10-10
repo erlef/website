@@ -14,9 +14,6 @@ config :erlef, :env, :test
 
 config :erlef, Erlef.Mailer, adapter: Swoosh.Adapters.Test
 
-config :erlef, :wild_apricot_base_api_url, "http://127.0.0.1:9999"
-config :erlef, :wild_apricot_base_auth_url, "http://127.0.0.1:9999"
-
 # Print only warnings and errors during test
 config :logger, level: :warn
 
@@ -55,5 +52,7 @@ config :honeybadger,
   environment_name: :test,
   api_key: "test",
   exclude_envs: [:test]
+
+config :erlef, Oban, testing: :inline
 
 config :erlef, api_key: "key"

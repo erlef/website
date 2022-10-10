@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Creating Post</h2>
+
+      <.form let={f} for={@changeset} action={Routes.job_path(@conn, :create)} as={:post}>
+        <%= if @changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.
+          </p>
+        </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= label f, :title %>
+          <%= text_input f, :title, class: "form-control" %>
+          <%= error_tag f, :title %>
+        </div>
+
+        <div class="form-group">
+          <%= label f, :description %>
+          <%= textarea f, :description, class: "form-control" %>
+          <%= error_tag f, :description %>
+        </div>
+
+        <div class="form-group">
+          <%= label f, :position_type %>
+          <%= select f, :position_type, ["Pernament": "permanent", "Contractor": "contractor"], class: "form-control" %>
+          <%= error_tag f, :position_type %>
+        </div>
+
+        <div class="form-group">
+          <%= label f, :city %>
+          <%= text_input f, :city, class: "form-control" %>
+          <%= error_tag f, :city %>
+        </div>
+
+        <div class="form-group">
+          <%= label f, :region %>
+          <%= text_input f, :region, class: "form-control" %>
+          <%= error_tag f, :region %>
+        </div>
+
+        <div class="form-group">
+          <%= label f, :country %>
+          <%= text_input f, :country, class: "form-control" %>
+          <%= error_tag f, :country %>
+        </div>
+
+        <div class="form-group">
+          <%= label f, :postal_code %>
+          <%= text_input f, :postal_code, class: "form-control" %>
+          <%= error_tag f, :postal_code %>
+        </div>
+
+        <div class="form-group">
+          <div class="form-check">
+            <%= checkbox f, :remote, class: "form-check-input" %>
+            <%= label f, :remote, class: "form-check-label" %>
+            <%= error_tag f, :remote %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label f, :website %>
+          <%= text_input f, :website, class: "form-control" %>
+          <%= error_tag f, :website %>
+        </div>
+
+        <div class="form-group">
+          <%= label f, :days_to_live %>
+          <%= number_input f, :days_to_live, class: "form-control" %>
+          <%= error_tag f, :days_to_live %>
+        </div>
+
+        <div>
+          <%= submit "Save", class: "btn btn-primary" %>
+        </div>
+      </.form>
+    </div>
+  </div>
+</div>

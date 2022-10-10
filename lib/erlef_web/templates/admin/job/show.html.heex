@@ -1,0 +1,17 @@
+<article role="main">
+  <header>
+    <h1><%= @post.title %></h1>
+  </header>
+
+  <section>
+    <h1>Description</h1>
+
+    <%= raw(@post.description) %>
+  </section>
+
+
+
+  <footer>
+    <%= button("Approve", to: Routes.admin_job_path(@conn, :approve, @post.id), method: :put, data: [confirm: "Are you sure?"]) %>
+  </footer>
+</article>

@@ -2,14 +2,14 @@ defmodule Erlef.Test.WildApricot do
   @moduledoc false
 
   # n.b., strings such as "account_id", "admin" and "basic_member" are used in place of integer ids
-  # in this model. 
+  # in this model.
 
   # The following are base profiles for different personas. Said base profiles are merged
   # with default profile data. See test/support/models/wild_apricot/data.ex for more detail.
 
   # n.b., all profiles except the basic member profile have erlef_app_id(s) (UUID(s)). This
   # is for testing the mechanism in the app that is responsible for populating this field.
-  # Otherwise, testing other features would be a bit of pain since we don't persist data in 
+  # Otherwise, testing other features would be a bit of pain since we don't persist data in
   # ets between runtime(s)
   #
   @base_admin_profile %{
@@ -153,6 +153,26 @@ defmodule Erlef.Test.WildApricot do
     ]
   }
 
+  @base_sponsored_profile %{
+    "DisplayName" => "Sponsored Member",
+    "Email" => "sponsored-member@foo.bar",
+    "FirstName" => "Sponsored",
+    "Id" => 7,
+    "LastName" => "Member",
+    "MembershipLevel" => %{
+      "Id" => "1234567",
+      "Name" => "Sponsored Membership",
+      "Url" => "https://api.wildapricot.org/v2.2/accounts/010101/MembershipLevels/1234567"
+    },
+    "FieldValues" => [
+      %{
+        "FieldName" => "erlef_app_id",
+        "SystemCode" => "custom-12523894",
+        "Value" => "a35d0a58-3cb3-4bba-9f6d-b92703a31aa7"
+      }
+    ]
+  }
+
   # Static data for each type of member used in the return from the ../me endpoint
   @stub_data_map %{
     "admin" => Erlef.Test.WildApricot.Data.contact_data(@base_admin_profile),
@@ -160,7 +180,8 @@ defmodule Erlef.Test.WildApricot do
     "basic_member" => Erlef.Test.WildApricot.Data.contact_data(@base_basic_profile),
     "annual_member" => Erlef.Test.WildApricot.Data.contact_data(@base_annual_profile),
     "lifetime_member" => Erlef.Test.WildApricot.Data.contact_data(@base_lifetime_profile),
-    "fellow_member" => Erlef.Test.WildApricot.Data.contact_data(@base_fellow_profile)
+    "fellow_member" => Erlef.Test.WildApricot.Data.contact_data(@base_fellow_profile),
+    "sponsored_member" => Erlef.Test.WildApricot.Data.contact_data(@base_sponsored_profile)
   }
 
   use Plug.Router

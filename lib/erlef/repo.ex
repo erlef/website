@@ -3,15 +3,8 @@ defmodule Erlef.Repo do
     otp_app: :erlef,
     adapter: Ecto.Adapters.Postgres
 
-  import Ecto.Query
-
-  @spec count(Ecto.Schema.t()) :: integer() | nil
-  def count(schema) do
-    q =
-      from(s in schema,
-        select: count(s.id)
-      )
-
-    one(q)
+  @spec count(Ecto.Schema.t(), Keyword.t()) :: integer() | nil
+  def count(schema, opts \\ []) do
+    aggregate(schema, :count, opts)
   end
 end

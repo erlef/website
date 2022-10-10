@@ -1,17 +1,20 @@
 defmodule Erlef.Accounts.Member do
   use Erlef.Schema
 
+  alias Erlef.Jobs.Post
+  alias Erlef.Groups.Sponsor
+
   @moduledoc """
   Erlef.Accounts.Member provides a schema and helper functions for working with erlef members.
 
 
-  Members are a "concrete" representation of an associated external resource, namely wildapricot, 
+  Members are a "concrete" representation of an associated external resource, namely wildapricot,
   and as such it shou  ld be duly that this application is not the source of truth of members.
 
-  The schema allows us to cache member attributes, such as the member's name. This is useful in the case of 
-  quite wildapricot per their strict api rate limits. Additionally, this allows us to properly associate and 
-  constraint other schemas within the system to a member; as well as keeping the rest of the application 
-  completely ignorant in regards to wildapricot 
+  The schema allows us to cache member attributes, such as the member's name. This is useful in the case of
+  quite wildapricot per their strict api rate limits. Additionally, this allows us to properly associate and
+  constraint other schemas within the system to a member; as well as keeping the rest of the application
+  completely ignorant in regards to wildapricot
 
   See `Erlef.Accounts.External` for details on how fields are mapped between the two resources.
   """
@@ -21,11 +24,13 @@ defmodule Erlef.Accounts.Member do
     :lifetime,
     :board,
     :fellow,
-    :contributor
+    :contributor,
+    :sponsored
   ]
 
   @membership_level_str_map %{
     "Basic Membership" => :basic,
+    "Sponsored Membership" => :sponsored,
     "Annual Supporting Membership" => :annual,
     "Lifetime Supporting Membership" => :lifetime,
     "Board" => :board,
@@ -59,7 +64,12 @@ defmodule Erlef.Accounts.Member do
     field(:has_requested_slack_invite, :boolean, default: false)
     field(:requested_slack_invite_at, :utc_datetime)
     field(:deactivated_at, :utc_datetime)
+
     embeds_one(:external, Erlef.Accounts.External, on_replace: :update)
+
+    belongs_to(:sponsor, Sponsor)
+    has_many(:posts, Post, foreign_key: :created_by)
+
     timestamps()
   end
 
@@ -84,7 +94,8 @@ defmodule Erlef.Accounts.Member do
     :requested_slack_invite_at,
     :suspended_member,
     :terms_of_use_accepted,
-    :deactivated_at
+    :deactivated_at,
+    :sponsor_id
   ]
 
   @required_fields [
@@ -116,10 +127,16 @@ defmodule Erlef.Accounts.Member do
     |> validate_email(:erlef_email_address)
   end
 
-  def by_external_id(id) do
-    from(m in __MODULE__,
-      where: fragment("(external->>'id' = ?)", ^id)
-    )
+  def from(query \\ __MODULE__) do
+    from(query, as: :member)
+  end
+
+  def where_sponsor_id(query \\ from(), sponsor_id) do
+    where(query, [member: m], m.sponsor_id == ^sponsor_id)
+  end
+
+  def by_external_id(query \\ from(), external_id) do
+    where(query, [member: m], fragment("(?->>'id' = ?)", m.external, ^external_id))
   end
 
   def is_paying?(%Member{membership_level: level}) when is_atom(level) do

@@ -1,6 +1,9 @@
 defmodule Erlef.Groups.Sponsor do
   @moduledoc false
+
   use Erlef.Schema
+
+  alias Erlef.Accounts.Member
 
   schema "sponsors" do
     field(:active, :boolean, default: true)
@@ -11,6 +14,9 @@ defmodule Erlef.Groups.Sponsor do
     field(:url, :string)
     field(:created_by, Ecto.UUID)
     field(:updated_by, Ecto.UUID)
+
+    has_many(:members, Member)
+    has_many(:posts, through: [:members, :posts])
 
     timestamps()
   end

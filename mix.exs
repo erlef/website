@@ -69,6 +69,7 @@ defmodule Erlef.MixProject do
       {:mint, "~> 1.4.1", override: true},
       {:mime, "~> 2.0.2"},
       {:oauther, "1.3.0"},
+      {:oban, "~> 2.13"},
       {:phoenix, "~> 1.6.6"},
       {:phoenix_ecto, "~> 4.4.0"},
       {:phoenix_html, "~> 3.2.0"},
