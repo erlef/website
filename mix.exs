@@ -55,7 +55,7 @@ defmodule Erlef.MixProject do
       {:ex_aws, "~> 2.2.10"},
       {:ex_aws_s3, "~> 2.3.2"},
       {:excoveralls, "~> 0.14.4"},
-      {:extwitter, "~> 0.13.0"},
+      {:extwitter, "~> 0.13.1"},
       {:faker, "~> 0.17.0", only: [:dev, :test]},
       {:floki, ">= 0.0.0", only: :test},
       {:gen_smtp, "~> 1.0", override: true},
