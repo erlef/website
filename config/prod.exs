@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 # See runtime.exs for more detail on production configuration
 
