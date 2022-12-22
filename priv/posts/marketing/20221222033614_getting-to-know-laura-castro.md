@@ -138,7 +138,7 @@ I am a little bit  torn, because I am always trying to get involved in programs 
 contribute to, if that can help. Then, on the other hand, I see that the effect that we are hoping for, is not really
 there. So, my personal take is that the problem is far more complex.
 
-At UDC, we have a group called "Hello, Sisters!" (https://hellosisters.github.io/): it is a group for female computer
+At UDC, we have a group called ["Hello, Sisters!"](https://hellosisters.github.io/) : it is a group for female computer
 science students, teachers and women that have graduated and are already working in the industry. We do mentoring,
 counselling, and mainly provide a safe space and a network of peers as contacts for personal and professional growth.
 There, we also talk a lot about the difference that society sees in technology nowadays from 20 or 30 years ago. I think
