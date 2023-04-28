@@ -10,7 +10,6 @@ vols = [
     id: "8d8d7d05-cc79-445a-8e37-c56525024f7e",
     member_id: "69be5f73-fcae-4844-adbb-7de0d2d613b3",
     name: "Fred Hebert",
-    is_board_member: true
   },
   %{
     avatar_url: "volunteers/bryan-paxton.jpg",
@@ -59,7 +58,6 @@ vols = [
     id: "affdba10-18a8-4402-9847-fe1976166dc3",
     member_id: "84e26a9b-ddf5-4690-97ee-742afb48a689",
     name: "José Valim",
-    is_board_member: true
   },
   %{
     avatar_url: nil,
@@ -283,7 +281,6 @@ vols = [
     id: "a62f4db4-54d7-4fa3-aa8d-b141407d7cf1",
     member_id: "89ae528d-082c-4ebc-8ae5-22f4b1e5190d",
     name: "Benoit Chesneau",
-    is_board_member: true
   },
   %{
     avatar_url: nil,
@@ -296,6 +293,7 @@ vols = [
     id: "005264af-6639-4981-81b1-b72eec701b63",
     member_id: "753ceae2-6715-4e60-82d1-46a6bad15a07",
     name: "Amos King"
+    is_board_member: true
   },
   %{
     avatar_url: "volunteers/magdalena-pokorska.jpg",
