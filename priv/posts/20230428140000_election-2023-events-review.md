@@ -1,7 +1,7 @@
 {
   "title": "EEF 2023 Elections Events Review",
   "authors": ["Fred Hebert"],
-  "slug": "election-2023-revote-results",
+  "slug": "election-2023-events-review",
   "category": "eef",
   "tags": ["eef", "board", "elections"],
   "datetime": "2023-04-28T14:00:00.152799Z"
@@ -48,7 +48,7 @@ Since I was stepping down from the board, we decided to let the elections be run
 
 I gave them a quick list (shorter than the one described in the previous section), told them to copy/paste most of the content and tweak it, and said I’d be around to help and answer questions. That is, after all, what I did for the last 3 elections. This hand-off was done on February 18th, a single week before the election was supposed to be kicked off.
 
-Even though the elections were kicked off at the right time, we were tight on the schedule. 
+Even though the elections were kicked off at the right time, we were tight on the schedule.
 
 As we waited for candidates to send in their profiles, the foundation’s inbox remained quite empty. It turns out we have no idea what happens to the foundation if we can’t fill the board and run a proper election, and we need candidates. This was starting to be concerning.
 
@@ -58,7 +58,7 @@ Now here’s the thing about running a volunteer board: volunteers aren’t paid
 
 On Friday March 10th, people who had voiced their intent to participate still had not submitted their profiles, and when we reached out to them, they stated that they had mis-understood the dates and expected the candidacy period to be open for an extra day. Part of the problem here is that some of these answers came from board members who we thought would know the dates, but did not.
 
-Dates and time are confusing, comms were rushed, sample profiles came in late, and election officers were busy, enough to miss the poll-opening deadline. We decided to extend the running period by an extra week to give everyone the opportunity to participate, announced the delay, and waited some more. 
+Dates and time are confusing, comms were rushed, sample profiles came in late, and election officers were busy, enough to miss the poll-opening deadline. We decided to extend the running period by an extra week to give everyone the opportunity to participate, announced the delay, and waited some more.
 
 On March 18 at midnight PT, the poll was open. The polls are run using the Wild Apricot software, which we use to track and process member payments, to send our batched emails, and so on. This is economical because we don’t need to create any extra software, and just use theirs directly.
 
@@ -96,7 +96,7 @@ In this section, I’ll quickly break them down and report what we think may or 
 
 As many readers are possibly aware, dealing with dates and time in an international manner is not straightforward.
 
-To make things somewhat simple we try to keep election cycles on a Friday-to-Friday cadence, over a few weeks. But whose Friday exactly? We default to Pacific Time because that’s where the Foundation is incorporated, but our Election officers are not necessarily on the North American West coast; elections are always at a risk of running too long depending on sleep schedules. 
+To make things somewhat simple we try to keep election cycles on a Friday-to-Friday cadence, over a few weeks. But whose Friday exactly? We default to Pacific Time because that’s where the Foundation is incorporated, but our Election officers are not necessarily on the North American West coast; elections are always at a risk of running too long depending on sleep schedules.
 
 Similarly, the dates and times communicated are also confusing. People read “Friday March 18” and they assume it’s going to be _their_ Friday March 18. Time zones are tricky, and really easy to mess up. It’s also sometimes really confusing if “midnight” means as the day starts or as the day ends. Anyone who waits close to the deadline to vote risks being in for a bad surprise.
 
@@ -111,7 +111,7 @@ What is becoming more obvious to us is the need for a central location for canon
 
 It does not please me to say this, but a bunch of our members put the Foundation’s emails into their spam folders. If they don’t, it looks like they do. The constructive way to see this is that we need to be very judicious about when we decide to contact members, because people will rightfully trash things they do not believe are relevant.
 
-We would usually fall back onto Twitter to easily reach out to a wide part of the community, but with the recent Twitter events, fragmentation in the community has gone up slightly. 
+We would usually fall back onto Twitter to easily reach out to a wide part of the community, but with the recent Twitter events, fragmentation in the community has gone up slightly.
 
 This, in general, means that if we have to bring in corrections or change schedules, the cost of doing so is large, and we risk losing more and more people every time.
 
@@ -120,7 +120,7 @@ We need to revisit our current communication strategy for internal mechanisms su
 
 #### Things were rushed and had no buffer
 
-The way elections are started at the last minute whenever someone remembers “oh yeah, we need to do that” makes our overall process far more brittle than it needs to be. 
+The way elections are started at the last minute whenever someone remembers “oh yeah, we need to do that” makes our overall process far more brittle than it needs to be.
 
 The running period for candidates is short, there are no profile samples, and we need to improvise emergency campaigns to get more participants. Even board members who had run in the past and had profiles pre-written could be slow to send them in.
 
@@ -135,7 +135,7 @@ Having this added to a calendar with automated reminders lowers the probabilitie
 
 #### Limited redundancy
 
-Finally, the board elections in the past were run by two board members who covered the process for 3 years. 
+Finally, the board elections in the past were run by two board members who covered the process for 3 years.
 
 This year was our first year doing a transfer, but because one of the members was leaving the board, he tried to be as hands-off as possible. This, of course, removed support from the new members trying to take over the responsibility.
 
