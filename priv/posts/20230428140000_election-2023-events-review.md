@@ -68,7 +68,7 @@ On March 18, the poll is opened, election officers confirm they received the ema
 
 But on that very same day, one of our members tries to vote, and finds the poll closed. They point out that the email that was sent (and copied from a template) indicates the votes should still be open:
 
-![Email poll preview showing the wrong ending date as "March 25 at 23:59 Pacific time"](assets/static/images/community/blogs/elections-2023-wrong-date.png)
+<img src="/images/community/blogs/elections-2023-wrong-date.png" class="img-fluid" width="100%" height="auto" alt="Email poll preview showing the wrong ending date as March 25 at 23:59 Pacific time"/>
 
 The email was intended to show March 24 at 23:59 Pacific Time, or March 25 at 00:00 Pacific time. Instead we got the hybrid version, and some members could not have voted when they thought they could.
 

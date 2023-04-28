@@ -292,7 +292,7 @@ vols = [
     avatar_url: "volunteers/amos-king.png",
     id: "005264af-6639-4981-81b1-b72eec701b63",
     member_id: "753ceae2-6715-4e60-82d1-46a6bad15a07",
-    name: "Amos King"
+    name: "Amos King",
     is_board_member: true
   },
   %{
@@ -423,8 +423,8 @@ vols = [
     is_board_member: true
   },
   %{
-    id: Ecto.UUID.generate(), 
-    avatar_url: "volunteers/richard-carlsson.jpg", 
+    id: Ecto.UUID.generate(),
+    avatar_url: "volunteers/richard-carlsson.jpg",
     name: "Richard Carlsson"
   }
   ]
