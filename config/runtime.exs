@@ -19,7 +19,7 @@ if Application.get_env(:erlef, :env) == :prod do
     System.get_env("URL_PORT") ||
       raise """
       environment variable URL_PORT is missing.
-      The value of this port should reflect the port 
+      The value of this port should reflect the port
       that clients will use to connect to the site (e.g., 443).
       """
 
@@ -232,29 +232,6 @@ if Application.get_env(:erlef, :env) == :prod do
     invite_channel: erlef_slack_invite_channel
 
   config :logger,
-    # or other Logger level,
-    level: :info,
-    backends: [LogflareLogger.HttpBackend]
+    level: :info
 
-  logflare_api_key =
-    System.get_env("LOGFLARE_API_KEY") ||
-      raise """
-      enviroment variable LOGFLARE_API_KEY
-      """
-
-  logflare_source_id =
-    System.get_env("LOGFLARE_SOURCE_ID") ||
-      raise """
-      enviroment variable LOGFLARE_SOURCE_ID
-      """
-
-  config :logflare_logger_backend,
-    url: "https://api.logflare.app",
-    level: :info,
-    api_key: logflare_api_key,
-    source_id: logflare_source_id,
-    # minimum time in ms before a log batch is sent to the server ",
-    flush_interval: 1_000,
-    # maximum number of events before a log batch is sent to the server
-    max_batch_size: 50
 end
