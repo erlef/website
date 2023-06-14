@@ -95,12 +95,6 @@ if Application.get_env(:erlef, :env) == :prod do
     username: {:system, "SMTP_USER"},
     password: {:system, "SMTP_PASSWORD"}
 
-  config :extwitter, :oauth,
-    consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
-    consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET"),
-    access_token: System.get_env("TWITTER_ACCESS_TOKEN"),
-    access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET")
-
   config :ex_aws,
     access_key_id: [System.get_env("VULTR_ACCESS_KEY_ID"), :instance_role],
     secret_access_key: [System.get_env("VULTR_SECRET_KEY_ID"), :instance_role]

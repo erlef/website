@@ -79,14 +79,6 @@ config :erlef, Erlef.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
-# ExTwitter is not used in dev or test mode, but we set the config here for good measure
-# to fake credentials
-config :extwitter, :oauth,
-  consumer_key: "consumer_key",
-  consumer_secret: "consumer_secret",
-  access_token: "access_token",
-  access_token_secret: "access_token_secret"
-
 config :ex_aws,
   access_key_id: ["access_key_id", :instance_role],
   secret_access_key: ["secret_access_key", :instance_role],
