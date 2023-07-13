@@ -34,7 +34,11 @@ defmodule Erlef.Admins do
     (select count(id) from sponsors),
     (select count(id) from events where events.approved = false), 
     (select count(id) from member_email_requests where member_email_requests.status != 'complete'),
-    (select count(id) from apps)
+    (select count(id) from apps),
+    (select count(id) from academic_papers where
+            academic_papers.deleted_at is null and academic_papers.published_at is not null), 
+    (select count(id) from academic_papers where 
+            academic_papers.deleted_at is null and academic_papers.published_at is null)
     """
 
     %{
@@ -45,7 +49,9 @@ defmodule Erlef.Admins do
           sponsors_count,
           unapproved_events_count,
           outstanding_email_requests_count,
-          apps_count
+          apps_count,
+          academic_papers_count,
+          unapproved_academic_papers_count
         ]
       ]
     } = Ecto.Adapters.SQL.query!(Erlef.Repo, q)
@@ -56,7 +62,9 @@ defmodule Erlef.Admins do
       sponsors_count: sponsors_count,
       unapproved_events_count: unapproved_events_count,
       outstanding_email_requests_count: outstanding_email_requests_count,
-      apps_count: apps_count
+      apps_count: apps_count,
+      academic_papers_count: academic_papers_count,
+      unapproved_academic_papers_count: unapproved_academic_papers_count
     }
   end
 end

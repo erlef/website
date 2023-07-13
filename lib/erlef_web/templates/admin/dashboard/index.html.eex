@@ -6,6 +6,8 @@
                       Routes.admin_event_path(@conn, :index), 
                       "warning") 
   %>
+
+  <%= small_info_box(@resource_counts.unapproved_academic_papers_count , "Unapproved Academic Papers" , "fa-file-download" , Routes.admin_unapproved_academic_paper_path(@conn , :index) , "green") %>
   
   <%= small_info_box(@resource_counts.outstanding_email_requests_count, "Email Requests", "fa-envelope",  Routes.admin_email_request_path(@conn, :index)) %>
 
@@ -17,5 +19,7 @@
   <%= small_info_box(@resource_counts.volunteers_count, "Volunteers", "fa-user",  Routes.admin_volunteer_path(@conn, :index), "blue") %>
 
   <%= small_info_box(@resource_counts.apps_count, "Apps", "fa-rocket",  Routes.admin_app_path(@conn, :index), "red") %>
+
+  <%= small_info_box(@resource_counts.academic_papers_count, "Academic Papers" , "fa-file-alt" , Routes.admin_academic_paper_path(@conn , :index) , "gray") %> 
 
 </div>

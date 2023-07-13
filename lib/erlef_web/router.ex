@@ -125,6 +125,8 @@ defmodule ErlefWeb.Router do
     scope "/submissions" do
       pipe_through [:session_required]
       resources "/news", NewsTipController
+      resources "/academic-papers", AcademicPaperController, only: [:new , :create]
+
     end
 
     get "/events/:slug", EventController, :show
@@ -182,8 +184,10 @@ defmodule ErlefWeb.Router do
     scope "/admin", Admin, as: :admin do
       pipe_through [:admin_required]
       get "/", DashboardController, :index
-
       resources "/apps", AppController, param: "slug"
+      resources "/academic_papers", AcademicPaperController, except: [:new , :create]     
+      resources "/unapproved_academic_papers" , UnapprovedAcademicPaperController, only: [:index , :edit , :delete]
+      put "/unapproved_academic_papers/:id", UnapprovedAcademicPaperController , :approve
 
       scope "/apps/:slug", App, as: :app do
         resources "/keys", KeyController, only: [:create, :delete, :index]

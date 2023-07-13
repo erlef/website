@@ -1,4 +1,4 @@
-defmodule Erlef.Publications.AcademicPaper do
+defmodule Erlef.AcademicPapers.AcademicPaper do
   @moduledoc """
   Schema module for academic papers
   """
@@ -12,7 +12,7 @@ defmodule Erlef.Publications.AcademicPaper do
           url: String.t(),
           pay_wall?: :boolean | nil,
           description: String.t() | nil,
-          technologies: {:array, String.t()} | nil,
+          technologies: {:array, String.t()},
           original_publish_date: Date.t() | nil,
           published_at: :utc_datetime | nil,
           deleted_at: :utc_datetime | nil
@@ -23,12 +23,12 @@ defmodule Erlef.Publications.AcademicPaper do
     author
     language
     url
+    technologies
   |a
 
   @optional_fields ~w|
     pay_wall?
     description
-    technologies
     original_publish_date
     published_at
     deleted_at
