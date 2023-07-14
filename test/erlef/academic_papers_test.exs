@@ -1,11 +1,12 @@
-defmodule Erlef.PublicationsTest do
+defmodule Erlef.AcademicPapersTest do
   @moduledoc """
   Tests for the AcademicPaper Query module
   """
   use Erlef.DataCase
 
-  alias Erlef.Publications.Query
-  alias Erlef.Publications.AcademicPaper
+  alias Erlef.AcademicPapers.Query
+  alias Erlef.AcademicPapers
+  alias Erlef.AcademicPapers.AcademicPaper
 
   describe "all/0" do
     test "returns an empty list when no academic papers are present" do
@@ -83,13 +84,16 @@ defmodule Erlef.PublicationsTest do
 
   describe "create/1" do
     test "returns error if the required fields are missing" do
-      assert {:error, %Ecto.Changeset{errors: errors}} = Query.create(%{})
+      changeset = AcademicPapers.change_academic_paper(%AcademicPaper{}, %{})
+
+      assert {:error, %Ecto.Changeset{errors: errors}} = Query.create(changeset)
 
       assert errors == [
                title: {"can't be blank", [validation: :required]},
                author: {"can't be blank", [validation: :required]},
                language: {"can't be blank", [validation: :required]},
-               url: {"can't be blank", [validation: :required]}
+               url: {"can't be blank", [validation: :required]},
+               technologies: {"can't be blank", [validation: :required]}
              ]
     end
 
@@ -100,10 +104,12 @@ defmodule Erlef.PublicationsTest do
         language: "English",
         url:
           "https://www.rollingstone.com/culture/culture-news/fear-and-loathing-on-the-campaign-trail-in-72-204428/",
-        technologies: ["BEAM"]
+        technologies: ["Erlang , Elixir , BEAM"]
       }
 
-      assert {:ok, %AcademicPaper{} = academic_paper} = Query.create(params, Repo)
+      changeset = AcademicPapers.change_academic_paper(%AcademicPaper{}, params)
+
+      assert {:ok, %AcademicPaper{} = academic_paper} = Query.create(changeset, Repo)
       assert params.title == academic_paper.title
       assert params.author == academic_paper.author
       assert params.language == academic_paper.language
@@ -121,14 +127,20 @@ defmodule Erlef.PublicationsTest do
     end
 
     test "returns error if the required fields are not set", %{academic_paper: academic_paper} do
-      assert {:error, %Ecto.Changeset{errors: errors}} =
-               Query.update(academic_paper, %{title: nil, author: nil, language: nil, url: nil})
+      changeset =
+        AcademicPapers.change_academic_paper(
+          academic_paper,
+          %{title: nil, author: nil, language: nil, url: nil, technologies: nil}
+        )
+
+      assert {:error, %Ecto.Changeset{errors: errors}} = Query.update(changeset)
 
       assert errors == [
                title: {"can't be blank", [validation: :required]},
                author: {"can't be blank", [validation: :required]},
                language: {"can't be blank", [validation: :required]},
-               url: {"can't be blank", [validation: :required]}
+               url: {"can't be blank", [validation: :required]},
+               technologies: {"can't be blank", [validation: :required]}
              ]
     end
 
@@ -139,10 +151,12 @@ defmodule Erlef.PublicationsTest do
         language: "Spanish",
         url:
           "https://www.rollingstone.com/culture/culture-news/fear-and-loathing-on-the-campaign-trail-in-72-204428/",
-        technologies: ["Erlang", "Elixir"]
+        technologies: ["Erlang", "Elixir", "BEAM"]
       }
 
-      assert {:ok, %AcademicPaper{} = updated} = Query.update(academic_paper, params, Repo)
+      changeset = AcademicPapers.change_academic_paper(academic_paper, params)
+
+      assert {:ok, %AcademicPaper{} = updated} = Query.update(changeset, Repo)
       assert updated.id == academic_paper.id
       assert params.title == updated.title
       assert params.author == updated.author
@@ -152,36 +166,20 @@ defmodule Erlef.PublicationsTest do
       refute updated.deleted_at
     end
 
-    test "prevent delete in updates", %{academic_paper: academic_paper} do
-      delete_error = {:invalid_operation, "use delete/1 for the delete operation"}
-
-      assert {:error, delete_error} ==
-               Query.update(academic_paper, %{deleted_at: DateTime.utc_now()})
-
-      assert {:error, delete_error} ==
-               Query.update(academic_paper, %{"deleted_at" => DateTime.utc_now()})
-    end
-  end
-
-  describe "delete/1" do
-    setup do
-      {:ok, academic_paper: insert!(:academic_paper)}
-    end
-
-    test "returns the deleted academic paper on success", %{academic_paper: academic_paper} do
+    test "delete academic paper: returns the deleted on success", %{
+      academic_paper: academic_paper
+    } do
       assert [active] = Query.all(Repo)
       assert active.id == academic_paper.id
 
-      assert {:ok, %AcademicPaper{} = deleted} = Query.delete(academic_paper, Repo)
+      changeset =
+        AcademicPapers.change_academic_paper(academic_paper, %{deleted_at: DateTime.utc_now()})
+
+      assert {:ok, %AcademicPaper{} = deleted} = Query.update(changeset, Repo)
       assert deleted.id == academic_paper.id
       assert deleted.deleted_at
 
       assert [] == Query.all(Repo)
-    end
-
-    test "returns an error if the record is not found" do
-      assert {:error, :no_record_found} =
-               Query.delete(%AcademicPaper{id: Ecto.UUID.generate()}, Repo)
     end
   end
 end

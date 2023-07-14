@@ -1,14 +1,15 @@
-defmodule Erlef.Publications.AcademicPaperTest do
+defmodule Erlef.AcademicPapers.AcademicPaperTest do
   use ExUnit.Case
 
-  alias Erlef.Publications.AcademicPaper
+  alias Erlef.AcademicPapers.AcademicPaper
 
   @test_data %{
     title: "Fear and Loathing on the Campaign Trail in ’72",
     author: "Hunter S. Thompson",
     language: "English",
     url:
-      "https://www.rollingstone.com/culture/culture-news/fear-and-loathing-on-the-campaign-trail-in-72-204428/"
+      "https://www.rollingstone.com/culture/culture-news/fear-and-loathing-on-the-campaign-trail-in-72-204428/",
+    technologies: ["BEAM"]
   }
 
   describe "validate required fields" do
@@ -19,7 +20,8 @@ defmodule Erlef.Publications.AcademicPaperTest do
                title: {"can't be blank", [validation: :required]},
                author: {"can't be blank", [validation: :required]},
                language: {"can't be blank", [validation: :required]},
-               url: {"can't be blank", [validation: :required]}
+               url: {"can't be blank", [validation: :required]},
+               technologies: {"can't be blank", [validation: :required]}
              ]
     end
 

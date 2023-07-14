@@ -61,9 +61,9 @@ defmodule Erlef.AcademicPapers.Query do
   @doc """
   Creates a new academic paper. Used for admin functionality
   """
-  @spec create(changeset :: Ecto.Changeset.t() , repo :: Ecto.Repo.t()) ::
+  @spec create(changeset :: Ecto.Changeset.t(), repo :: Ecto.Repo.t()) ::
           {:ok, AcademicPaper.t()} | {:error, Ecto.Changeset.t()}
-  def create(%Ecto.Changeset{} = changeset, repo \\ Repo), do: repo.insert(changeset)    
+  def create(%Ecto.Changeset{} = changeset, repo \\ Repo), do: repo.insert(changeset)
 
   @doc """
   Updates an existing academic paper, Used for admin functionality. To make sure that data is not changed with a delete
@@ -72,6 +72,5 @@ defmodule Erlef.AcademicPapers.Query do
   @spec update(changeset :: Ecto.Changeset.t(), repo :: Ecto.Repo.t()) ::
           {:ok, AcademicPaper.t()} | {:error, Ecto.Changeset.t()}
 
-  def update(%Ecto.Changeset{} = changeset , repo \\ Repo), do: repo.update(changeset)
- 
+  def update(%Ecto.Changeset{} = changeset, repo \\ Repo), do: repo.update(changeset)
 end
