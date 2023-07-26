@@ -1,0 +1,5 @@
+<div class = "container">
+  <h1>Submit an Academic Paper</h1>  
+  <%= render "form.html" , Map.put(assigns, :action , Routes.academic_paper_path(@conn , :create)) %>
+</div>
+

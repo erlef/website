@@ -1,0 +1,2 @@
+<%= render "form.html", Map.put(assigns , :action , Routes.admin_unapproved_academic_paper_path(@conn , :approve , @unapproved_academic_paper)) %>
+

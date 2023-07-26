@@ -339,4 +339,4 @@ papers = [
   }
 ]
 
-Erlef.Seeds.insert(Erlef.Publications.AcademicPaper, papers)
+Erlef.Seeds.insert(Erlef.AcademicPapers.AcademicPaper, papers)

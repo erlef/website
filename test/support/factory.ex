@@ -4,7 +4,7 @@ defmodule Erlef.Factory do
   """
 
   alias Erlef.Repo
-  alias Erlef.Publications.AcademicPaper
+  alias Erlef.AcademicPapers.AcademicPaper
   alias Erlef.Accounts.Member
   alias Erlef.Community.Event
   alias Erlef.Groups.{WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer, Volunteer, Sponsor}
