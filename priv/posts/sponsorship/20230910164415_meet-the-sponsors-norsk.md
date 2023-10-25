@@ -34,7 +34,7 @@ The Norsk stack is written in a combination of Purerl (PureScript that compiles 
 
 #### About sponsoring the foundation
 
-id3as has recognized the important role of Erlang as a significant and consistent differentiator for the company, one of the reasons they become a founding sponsor of the Foundation, aiming to support the ecosystem and foster greater adoption of BEAM-related technologies. They firmly believe that this sponsorship indirectly contributes value to id3as.
+id3as has recognized the important role of Erlang as a significant and consistent differentiator for the company, one of the reasons they became a founding sponsor of the Foundation, aiming to support the ecosystem and foster greater adoption of BEAM-related technologies. They firmly believe that this sponsorship indirectly contributes value to id3as.
 
 Looking ahead, they would like to promote Purerl and the benefits of strong typing on the BEAM. They proudly shared that Purerl has been successfully used in production for many years now, comes with an entire supporting ecosystem (from PureScript) and offers very straightforward FFI into Erlang itself. They recall that the adoption from within the PureScript ecosystem is encouraging (it is the second most popular backend behind Javascript) and they would love to see members of the Erlang community benefit from it as well.
 
