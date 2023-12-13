@@ -1,5 +1,6 @@
 defmodule ErlefWeb.StipendController do
   use ErlefWeb, :controller
+
   action_fallback ErlefWeb.FallbackController
 
   def index(conn, _params) do
@@ -23,8 +24,14 @@ defmodule ErlefWeb.StipendController do
 
     case Erlef.StipendProposal.from_map(Map.put(params, "files", files)) do
       {:ok, proposal} ->
-        Erlef.StipendMail.submission(proposal) |> Erlef.Mailer.send()
-        Erlef.StipendMail.submission_copy(proposal) |> Erlef.Mailer.send()
+        proposal
+        |> Erlef.StipendMail.submission()
+        |> Erlef.Mailer.deliver()
+
+        proposal
+        |> Erlef.StipendMail.submission_copy()
+        |> Erlef.Mailer.deliver()
+
         render(conn)
 
       {:error, errs} ->

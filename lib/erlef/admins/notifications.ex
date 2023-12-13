@@ -3,7 +3,8 @@ defmodule Erlef.Admins.Notifications do
 
   import Swoosh.Email
 
-  @type notification_type() :: :new_email_request | :new_event_submitted | :new_slack_invite
+  @type notification_type() ::
+          :new_email_request | :new_event_submitted | :new_slack_invite | :new_job_post_submitted
 
   @type params() :: map()
 
@@ -29,6 +30,18 @@ defmodule Erlef.Admins.Notifications do
     |> to({"Website Admins", "infra@erlef.org"})
     |> from({"Erlef Notifications", "notifications@erlef.org"})
     |> subject("A new event was submitted")
+    |> text_body(msg)
+  end
+
+  def new_job_post_submission() do
+    msg = """
+    A new job post was submitted. Visit https://erlef.org/admin/ to view unapproved events.
+    """
+
+    new()
+    |> to({"Website Admins", "infra@erlef.org"})
+    |> from({"Erlef Notifications", "notifications@erlef.org"})
+    |> subject("A new job post was successfully submitted.")
     |> text_body(msg)
   end
 end

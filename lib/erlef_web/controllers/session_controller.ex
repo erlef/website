@@ -1,5 +1,6 @@
 defmodule ErlefWeb.SessionController do
   use ErlefWeb, :controller
+
   action_fallback ErlefWeb.FallbackController
 
   @spec show(Plug.Conn.t(), map()) :: no_return()

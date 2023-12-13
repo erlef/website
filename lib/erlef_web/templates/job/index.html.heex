@@ -1,0 +1,22 @@
+<%= if Enum.empty?(@posts) do %>
+  <h2>No job posts yet</h2>
+<% else %>
+  <table style="width: 100%; margin-bottom: 1em">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Sponsored</th>
+        <th>Published at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for post <- @posts do %>
+        <tr>
+          <td><%= link(post.title, to: Routes.job_path(@conn, :show, post.id)) %></td>
+          <td><%= !!post.sponsor_id %></td>
+          <td><%= Calendar.strftime(post.inserted_at, "%m/%d/%Y") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

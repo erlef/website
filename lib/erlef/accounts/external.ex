@@ -1,9 +1,9 @@
 defmodule Erlef.Accounts.External do
   @moduledoc """
-  Erlef.Accounts.External provides a schema and helper functions for converting external accounts to an Erlef app 
-  member or member attributes. 
+  Erlef.Accounts.External provides a schema and helper functions for converting external accounts to an Erlef app
+  member or member attributes.
 
-  While this module is called External to leave it open, the only supported external account is Wildapricot. 
+  While this module is called External to leave it open, the only supported external account is Wildapricot.
 
   The module is intended to serve as boundary between the accounts context and wildapricot data structures.
 
@@ -26,7 +26,7 @@ defmodule Erlef.Accounts.External do
 
   # The following is used to map wildapricot fields to normalized atoms for use
   # within the app. Likewise,it used to construct lists that are in turn used to map this struct back to
-  # the wildapricot format. Note that the structure below is flat, where as the wildapricot data 
+  # the wildapricot format. Note that the structure below is flat, where as the wildapricot data
   # structure is not, in particular the "FieldValues" section of a contact is a list of maps.
   #
   # Per the above we annotate fields that are part of the "FieldValues" list.
@@ -51,8 +51,8 @@ defmodule Erlef.Accounts.External do
     "has_email_box" => {:has_email_box, :field_value}
   }
 
-  # We build these lists so that we don't have to compute them at runtime. 
-  # They are used for mapping Member fields back to wildapricot fields and forms. 
+  # We build these lists so that we don't have to compute them at runtime.
+  # They are used for mapping Member fields back to wildapricot fields and forms.
   @field_value_key_map Enum.filter(@str_key_map, fn {_k, v} -> is_tuple(v) end)
 
   @membership_level_str_map %{
@@ -61,6 +61,7 @@ defmodule Erlef.Accounts.External do
     "Lifetime Supporting Membership" => :lifetime,
     "Board" => :board,
     "Fellow" => :fellow,
+    "Sponsored Membership" => :sponsored,
     "Managing and Contributing" => :contributor
   }
 

@@ -155,10 +155,15 @@ defmodule Erlef.Factory do
     end
   end
 
-  def insert_member!(name) do
+  @type contact :: String.t()
+
+  @spec insert_member!(contact(), Enum.t()) :: Member.t()
+  def insert_member!(name, attributes \\ []) do
     {:ok, contact} = Erlef.Test.WildApricot.get_contact(name)
     params = Erlef.Accounts.to_member_params(contact, %{from: :wildapricot})
-    insert!(:member, params)
+    attributes = Enum.into(attributes, %{})
+
+    insert!(:member, Map.merge(params, attributes))
   end
 
   def params_for(factory_name, attributes \\ []) do

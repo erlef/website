@@ -112,6 +112,14 @@ defmodule ErlefWeb.Router do
       get "/archived", BlogController, :index_archived
     end
 
+    scope "/jobs" do
+      pipe_through [:session_required]
+
+      resources "/", JobController, except: [:index, :show]
+    end
+
+    resources "/jobs", JobController, only: [:index, :show]
+
     # NOTE: News routes are still in place for links that may be out there.
     # Please use blog routes. 
     get "/news", BlogController, :index, as: :news
@@ -190,6 +198,10 @@ defmodule ErlefWeb.Router do
       end
 
       resources "/events", EventController, only: [:index, :show]
+
+      resources "/jobs", JobController, only: [:index, :show]
+      put "/jobs/:id", JobController, :approve
+
       resources "/email_requests", EmailRequestController, only: [:index, :show]
       post "/email_requests/assign", EmailRequestController, :assign
       post "/email_requests/complete", EmailRequestController, :complete

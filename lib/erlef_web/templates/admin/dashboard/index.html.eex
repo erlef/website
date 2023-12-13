@@ -1,5 +1,12 @@
 <div class="row">
 
+  <%= small_info_box(@resource_counts.unapproved_job_posts_count,
+                    "Unapproved Job Posts",
+                    "fa-file-user",
+                      Routes.admin_job_path(@conn, :index),
+                      "warning")
+  %>
+
   <%= small_info_box(@resource_counts.unapproved_events_count, 
                     "Unapproved Events", 
                     "fa-calendar-alt",  

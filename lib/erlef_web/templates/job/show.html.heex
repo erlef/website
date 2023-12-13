@@ -1,0 +1,35 @@
+<div role="main" class="container">
+  <div class="row">
+    <div class="col">
+      <article>
+        <header>
+          <h1>
+            <%= @post.title %>
+          </h1>
+
+          Posted
+          <%= if @sponsor do %>by
+          <address>
+            <%= link(@sponsor.name, to: @sponsor.url) %>
+          </address>
+          <% end %> on
+          <time datetime={@post.inserted_at}>
+            <%= Calendar.strftime(@post.inserted_at, "%B %-d %Y") %>
+          </time>
+        </header>
+
+
+        <section>
+          <h2>Description
+          </h2>
+          <%= @post.description %>
+        </section>
+
+        <footer>
+          <%= link("Visit website", to: @post.website, class: "btn btn-primary") %>
+        </footer>
+
+      </article>
+    </div>
+  </div>
+</div>
