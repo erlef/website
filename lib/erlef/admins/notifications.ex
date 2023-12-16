@@ -3,7 +3,11 @@ defmodule Erlef.Admins.Notifications do
 
   import Swoosh.Email
 
-  @type notification_type() :: :new_email_request | :new_event_submitted | :new_slack_invite
+  @type notification_type() ::
+          :new_email_request
+          | :new_event_submitted
+          | :new_academic_paper_submitted
+          | :new_slack_invite
 
   @type params() :: map()
 
@@ -29,6 +33,18 @@ defmodule Erlef.Admins.Notifications do
     |> to({"Website Admins", "infra@erlef.org"})
     |> from({"Erlef Notifications", "notifications@erlef.org"})
     |> subject("A new event was submitted")
+    |> text_body(msg)
+  end
+
+  def new(:new_academic_paper_submitted, _) do
+    msg = """
+    A new academic paper was submitted, Visit https://erlef.org/admin/unapproved_academic_papers/ to view unapproved academic papers
+    """
+
+    new()
+    |> to({"Website Admins", "infra@erlef.org"})
+    |> from({"Erlef Notifications", "notifications@erlef.org"})
+    |> subject("A new academic paper was submitted")
     |> text_body(msg)
   end
 end

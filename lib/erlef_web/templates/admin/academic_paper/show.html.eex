@@ -1,0 +1,71 @@
+<hr/>
+<ul>
+
+  <li>
+    <strong>Title: </strong>
+    <%= @academic_paper.title %>
+  </li>
+  
+  <li>
+    <strong>Author: </strong>
+    <%= @academic_paper.author %>
+  </li>
+
+
+  <li>
+    <strong>Language: </strong>
+    <%= @academic_paper.language %>
+  </li>
+
+  <li>
+    <strong>Url: </strong>
+    <%= @academic_paper.url %>
+  </li>
+
+  <li>
+    <strong>Pay Wall: </strong>
+    <%= @academic_paper.pay_wall? %>
+  </li>
+
+  <li>
+    <strong>Description: </strong>
+    <%= @academic_paper.description %>
+  </li>
+
+  <li>
+    <strong>Technologies: </strong>
+    <%= @academic_paper.technologies %>
+  </li>
+
+  <li>
+    <strong>Original Publish Date: </strong>
+    <%= @academic_paper.original_publish_date %>
+  </li>
+
+  <li class = "mt-4">
+    <strong>Published at: </strong>
+    <%= @academic_paper.published_at %>
+  </li>
+
+  <li>
+    <% submitter = get_member(@academic_paper.submitted_by) %>
+    <strong>Submitted_by: </strong>
+    <%= name(submitter) %>
+    <div class = "badge bg-primary text-wrap align-middle"><%= email(submitter) %></div>
+  </li>
+
+  <% approver = get_member(@academic_paper.approved_by) %>
+  <li>
+    <strong>Approved_by: </strong>
+    <%= name(approver) %>
+    <div class = "badge bg-primary text-wrap align-middle"><%= email(approver) %></div>
+  </li>
+</ul>
+
+<div class = "inline-flex">
+  <%= link "Edit", to: Routes.admin_academic_paper_path(@conn, :edit, @academic_paper),  class: "btn btn-primary" %>
+  <%= link "Delete", to: Routes.admin_academic_paper_path(@conn , :delete , @academic_paper), method: :delete , class: "btn btn-danger", data: [confirm: "Are you sure ?"] %>  
+</div>
+
+
+

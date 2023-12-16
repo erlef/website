@@ -1,4 +1,4 @@
-defmodule Erlef.Publications.AcademicPaper do
+defmodule Erlef.AcademicPapers.AcademicPaper do
   @moduledoc """
   Schema module for academic papers
   """
@@ -12,8 +12,10 @@ defmodule Erlef.Publications.AcademicPaper do
           url: String.t(),
           pay_wall?: :boolean | nil,
           description: String.t() | nil,
-          technologies: {:array, String.t()} | nil,
+          technologies: {:array, String.t()},
           original_publish_date: Date.t() | nil,
+          submitted_by: Ecto.UUID.t() | nil,
+          approved_by: Ecto.UUID.t() | nil,
           published_at: :utc_datetime | nil,
           deleted_at: :utc_datetime | nil
         }
@@ -23,13 +25,15 @@ defmodule Erlef.Publications.AcademicPaper do
     author
     language
     url
+    technologies
   |a
 
   @optional_fields ~w|
     pay_wall?
     description
-    technologies
     original_publish_date
+    submitted_by
+    approved_by
     published_at
     deleted_at
   |a
@@ -45,6 +49,8 @@ defmodule Erlef.Publications.AcademicPaper do
     field(:description, :string)
     field(:technologies, {:array, :string})
     field(:original_publish_date, :date)
+    field(:submitted_by, :binary_id)
+    field(:approved_by, :binary_id)
 
     field(:published_at, :utc_datetime)
     field(:deleted_at, :utc_datetime)

@@ -1,11 +1,11 @@
-defmodule Erlef.Publications.Query do
+defmodule Erlef.AcademicPapers.Query do
   @moduledoc """
   Module for the academic paper queries
   """
 
   import Ecto.Query, only: [from: 2]
 
-  alias Erlef.Publications.AcademicPaper
+  alias Erlef.AcademicPapers.AcademicPaper
   alias Erlef.Repo
 
   @doc """
@@ -21,7 +21,7 @@ defmodule Erlef.Publications.Query do
   end
 
   @doc """
-  Returns a academic paper by id. Used for admin functionality
+  Returns an academic paper by id. Used for admin functionality
   """
   @spec get(id :: binary(), repo :: Ecto.Repo.t()) :: AcademicPaper.t() | nil
   def get(id, repo \\ Repo) do
@@ -29,7 +29,7 @@ defmodule Erlef.Publications.Query do
       where: is_nil(p.deleted_at),
       where: p.id == ^id
     )
-    |> repo.one()
+    |> repo.one
   end
 
   @doc """
@@ -61,62 +61,16 @@ defmodule Erlef.Publications.Query do
   @doc """
   Creates a new academic paper. Used for admin functionality
   """
-  @spec create(params :: map(), repo :: Ecto.Repo.t()) ::
+  @spec create(changeset :: Ecto.Changeset.t(), repo :: Ecto.Repo.t()) ::
           {:ok, AcademicPaper.t()} | {:error, Ecto.Changeset.t()}
-  def create(params, repo \\ Repo) do
-    %AcademicPaper{}
-    |> AcademicPaper.changeset(params)
-    |> case do
-      %Ecto.Changeset{valid?: true} = changeset ->
-        repo.insert(changeset)
-
-      changeset ->
-        {:error, changeset}
-    end
-  end
+  def create(%Ecto.Changeset{} = changeset, repo \\ Repo), do: repo.insert(changeset)
 
   @doc """
   Updates an existing academic paper, Used for admin functionality. To make sure that data is not changed with a delete
   use the delete/0 function for deletes.
   """
-  @spec update(academic_paper :: AcademicPaper.t(), params :: map(), repo :: Ecto.Repo.t()) ::
+  @spec update(changeset :: Ecto.Changeset.t(), repo :: Ecto.Repo.t()) ::
           {:ok, AcademicPaper.t()} | {:error, Ecto.Changeset.t()}
-  def update(academic_paper, params, repo \\ Repo)
 
-  def update(_, %{deleted_at: _}, _),
-    do: {:error, {:invalid_operation, "use delete/1 for the delete operation"}}
-
-  def update(_, %{"deleted_at" => _}, _),
-    do: {:error, {:invalid_operation, "use delete/1 for the delete operation"}}
-
-  def update(%AcademicPaper{} = original, params, repo) when is_map(params) do
-    original
-    |> AcademicPaper.changeset(params)
-    |> case do
-      %Ecto.Changeset{valid?: true} = changeset ->
-        repo.update(changeset)
-
-      changeset ->
-        {:error, changeset}
-    end
-  end
-
-  @doc """
-  Deletes an academic paper. This is a logical delete
-  """
-  @spec delete(academic_paper :: AcademicPaper.t(), repo :: Ecto.Repo.t()) ::
-          {:ok, AcademicPaper.t()} | {:error, :no_record_found}
-  def delete(%AcademicPaper{id: id}, repo \\ Repo) do
-    id
-    |> get(repo)
-    |> case do
-      %AcademicPaper{} = academic_paper ->
-        academic_paper
-        |> AcademicPaper.changeset(%{deleted_at: DateTime.utc_now()})
-        |> repo.update()
-
-      nil ->
-        {:error, :no_record_found}
-    end
-  end
+  def update(%Ecto.Changeset{} = changeset, repo \\ Repo), do: repo.update(changeset)
 end

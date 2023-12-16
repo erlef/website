@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-body">
+    <table id="academic_papers-table" class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Language</th>
+          <th>Url</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for academic_paper <- @academic_papers do %>
+          <tr>
+	    <td><%= link academic_paper.title, to: Routes.admin_academic_paper_path(@conn , :show , academic_paper) %>
+            <td><%= academic_paper.author %></td>
+            <td><%= academic_paper.language %></td>
+            <td><%= academic_paper.url %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  $(document).ready( function () {
+    $('#academic_papers-table').DataTable();
+  });
+</script>

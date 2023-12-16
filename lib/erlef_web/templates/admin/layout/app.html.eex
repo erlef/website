@@ -4,6 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Erlang Ecosystem Foundation">
+    <meta name="twitter:description" content="Supporting the BEAM Community">
+    <meta name="twitter:image" content="https://gdurl.com/ztSu">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Erlang Ecosystem Foundation">
+    <meta property="og:description" content="Supporting the BEAM Community">
+    <meta property="og:url" content="https://erlef.org/admin/">
+    <meta property="og:image" content="https://gdurl.com/ztSu">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/admin.css") %>"> 
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/codemirror.min.css") %>">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/toastui-editor.min.css") %>">

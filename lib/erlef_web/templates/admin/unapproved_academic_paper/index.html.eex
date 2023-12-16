@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-body">
+    <table id="academic_papers-table" class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Language</th>
+          <th>Url</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for unapproved_academic_paper <- @unapproved_academic_papers do %>
+          <tr>
+	    <td><%= link unapproved_academic_paper.title, to: Routes.admin_unapproved_academic_paper_path(@conn , :edit , unapproved_academic_paper) %>
+            <td><%= unapproved_academic_paper.author %></td>
+            <td><%= unapproved_academic_paper.language %></td>
+            <td><%= unapproved_academic_paper.url %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  $(document).ready( function () {
+    $('#academic_papers-table').DataTable();
+  });
+</script>
