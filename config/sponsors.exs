@@ -193,7 +193,7 @@ config :erlef, :sponsors, [
     url: "https://www.sfractal.com/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: true,
     logo_url: "/images/sponsors/whatsapp-logo.png",
     name: "WhatsApp",
