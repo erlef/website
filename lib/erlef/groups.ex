@@ -11,12 +11,12 @@ defmodule Erlef.Groups do
   ## Audit support
 
    - All functions that create or update a resource require a keyword list which in turn
-     must provide an audit k/v. Of which the value of audit is to be a map which must include 
-     the id of the member (`member_id`) who is modifying the resource. 
+     must provide an audit k/v. Of which the value of audit is to be a map which must include
+     the id of the member (`member_id`) who is modifying the resource.
 
   This module imports helpers from Erlef.Context to aid in working with audit data.
 
-  ## Terminology 
+  ## Terminology
 
   - wg : Abbreviation for working group
   - vol : Abbreviation for volunteer
@@ -242,8 +242,10 @@ defmodule Erlef.Groups do
 
   ### Sponsors ###
 
-  @spec list_sponsors() :: [Sponsor.t()]
-  def list_sponsors, do: Repo.all(Sponsor)
+  @spec list_sponsors() :: [map()]
+  def list_sponsors do
+    Application.get_env(:erlef, :sponsors)
+  end
 
   @spec get_sponsor!(Ecto.UUID.t()) :: Sponsor.t()
   def get_sponsor!(id), do: Repo.get!(Sponsor, id)
