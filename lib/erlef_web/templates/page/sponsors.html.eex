@@ -11,7 +11,7 @@
         Our sponsors play a vital role in supporting the foundation's initiatives. It is through their generous donations that we can work on our mission to support and expand the Beam community.
         </p>
 
-        <div class="row text-center text-lg-left mt-3 mb-3">
+        <div class="row text-center text-lg-left mt-3 mb-3 d-flex align-items-center justify-content-center">
           <%= for %{logo_url: logo_path, url: href} <- active_and_founding_sponsors(@sponsors) do %>
             <div class="col-lg-2 col-md-4 col-6">
               <a href="<%= href %>" class="d-block mb-2">
