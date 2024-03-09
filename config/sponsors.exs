@@ -274,7 +274,7 @@ config :erlef, :sponsors, [
     is_founding_sponsor: true,
     logo_url: "/images/sponsors/mainmatter-logo.png",
     name: "Mainmatter",
-    url: "https://mainmatter.com/"
+    url: "https://mainmatter.com/expertise/elixir-phoenix/"
   },
   %{
     active: true,
