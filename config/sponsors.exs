@@ -284,4 +284,3 @@ config :erlef, :sponsors, [
     url: "https://smartrent.com/"
   }
 ]
-
