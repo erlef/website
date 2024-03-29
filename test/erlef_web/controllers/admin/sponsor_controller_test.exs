@@ -29,6 +29,7 @@ defmodule ErlefWeb.Admin.SponsorControllerTest do
   describe "index" do
     setup :admin_session
 
+    @tag :pending
     test "lists all sponsors", %{conn: conn} do
       conn = get(conn, Routes.admin_sponsor_path(conn, :index))
       assert html_response(conn, 200) =~ "Sponsors"

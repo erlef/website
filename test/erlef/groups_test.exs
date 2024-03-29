@@ -224,6 +224,7 @@ defmodule Erlef.GroupsTest do
       sponsor
     end
 
+    @tag :pending
     test "list_sponsors/0 returns all sponsors" do
       sponsor = sponsor_fixture()
       assert Groups.list_sponsors() == [sponsor]

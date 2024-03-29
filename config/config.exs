@@ -59,7 +59,6 @@ config :ex_aws,
     host: "ewr1.vultrobjects.com"
   ]
 
-
 import_config "sponsors.exs"
 
 # Import environment specific config. This must remain at the bottom
