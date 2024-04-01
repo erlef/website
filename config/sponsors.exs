@@ -88,7 +88,7 @@ config :erlef, :sponsors, [
     url: "https://alembic.com.au/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/learn-elixir-logo.png",
     name: "Learn Elixir",
@@ -109,7 +109,7 @@ config :erlef, :sponsors, [
     url: "https://binarynoggin.com/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: true,
     logo_url: "/images/sponsors/cisco-logo.png",
     name: "Cisco",
@@ -130,7 +130,7 @@ config :erlef, :sponsors, [
     url: "https://www.ericsson.com/en"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/simplifi-logo.png",
     name: "simplifi",
@@ -186,7 +186,7 @@ config :erlef, :sponsors, [
     url: "https://www.pharos-corp.com/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: true,
     logo_url: "/images/sponsors/sfractal-logo.png",
     name: "sFractal Consulting LLC",
@@ -221,7 +221,7 @@ config :erlef, :sponsors, [
     url: "https://dashbit.co/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/shiguredo-logo.png",
     name: "Shiguredo",
