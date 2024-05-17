@@ -44,5 +44,9 @@ Their commitment to community growth is evident through their sponsorship of the
 
 For more information, take a look at their [website](https://www.appsignal.com).
 
-*Our foundation is supported by the funding of our sponsors, and it is what allows us to carry out projects, marketing initiatives, stipends programs, and accomplish the goals that we have established as an organization. So if you are interested in becoming a sponsor, contact us at sponsorship@erlef.org. We look forward to hearing from you!*
+<i>Our foundation is supported by the funding of our sponsors, and it is what allows us to carry out projects, marketing initiatives, stipends programs, and accomplish the goals that we have established as an organization. So if you are interested in becoming a sponsor, contact us at <a href="mailto:sponsorship@erlef.org">sponsorship@erlef.org</a>. We look forward to hearing from you!
+</i>
+
+<br/>
+<br/>
 
