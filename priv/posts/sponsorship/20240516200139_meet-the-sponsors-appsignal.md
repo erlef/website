@@ -4,7 +4,7 @@
   "slug": "meet-the-sponsors-appsignal",
   "category": "sponsorship",
   "tags": ["sponsorship", "meet-the-sponsors"],
-  "datetime": "2024-05-16T20:01:39.078314Z"
+  "datetime": "2024-05-17T16:44:27.841502Z"
 }
 ---
 Meet the Sponsors - AppSignal
