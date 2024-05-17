@@ -14,7 +14,7 @@ Meet the Sponsors - AppSignal
 
 *Welcome to **Meet the Sponsors**, a section in which you will find the profiles of our sponsors. Here you will learn about them and why they decide to support this great community. Today we will get to know AppSignal. Enjoy it!*
 
-<img src="./././static/images/meet-the-sponsors/AppSignal.png" class="img-fluid" alt="Meet the Sponsors - AppSignal"/>
+<img src="/images/meet-the-sponsors/AppSignal.png" class="img-fluid" alt="Meet the Sponsors - AppSignal"/>
 
 AppSignal emerged from an agency that loved and worked with Ruby and Rails since 2005. What initially began as a side project is now one of the leading monitoring services for teams using Ruby. 
 
