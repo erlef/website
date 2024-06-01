@@ -22,7 +22,8 @@ Natalia Chechina is a developer at Erlang Solutions specializing in fintech.  He
 
 #### How did you decide to learn programming and what were your first steps on it?
 
-Programming was a practical choice for me. I was really good at math at school. While I was participating in all sorts of competitions, including international ones, I faced the question of what path to pursue. Initially, I wanted to be a pure math engineer, but since there were not many appealing job opportunities I could see at that age and environment I decided to go for programming – it’s really close to math, so it was relatively easy to learn.
+Programming was a practical choice for me. I was really good at math in school. While I was participating in all sorts of competitions, including international ones, I faced the question of what path to pursue. Initially, I wanted to be a pure math engineer, but since there were not many appealing job opportunities I could see at that age and environment I decided to go for programming – it’s really close to math, so it was relatively easy to learn.
+
 
 #### When did you meet the BEAM ecosystem and how did you decide to learn Erlang and Elixir?
 
