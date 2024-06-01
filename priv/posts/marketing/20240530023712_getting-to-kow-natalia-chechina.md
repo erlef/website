@@ -4,7 +4,8 @@
     "slug": "getting-to-know-natalia-chechina",
     "category": "marketing",
     "tags": ["developer", "marketing", "getting-to-know-us", "bio"],
-    "datetime": "2024-05-30T02:37:12.810583Z"
+    "datetime": "2024-06-01T02:37:12.810583Z"
+
 }
 
 ---
