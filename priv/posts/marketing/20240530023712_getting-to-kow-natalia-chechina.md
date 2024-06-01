@@ -28,7 +28,8 @@ Programming was a practical choice for me. I was really good at math in school. 
 
 #### When did you meet the BEAM ecosystem and how did you decide to learn Erlang and Elixir?
 
-I had just finished my PhD when my supervisor (Prof Phil Trinder) got funding for quite a big project called RELEASE on scaling distributed Erlang and he needed a postdoc in the project, so he suggested that I apply. I went to the interview and got the job. From there on, I started my work on scaling distributed Erlang. When I started, I didn’t know Erlang, so it was very intense learning from Robert Virding, Kenneth Lundin, Joe Armstrong, Francesco Cesarini and many other amazing developers and researchers who were either involved or interested in the project. Erlang became my main programming language and still is.
+I had just finished my PhD when my supervisor (Prof Phil Trinder) got funding for quite a big project called RELEASE on scaling distributed Erlang and he needed a postdoc in the project, so he suggested that I apply. I went to the interview and got the job. From there on, I started my work on scaling distributed Erlang. When I started, I didn’t know Erlang, so it was a very intense learning experience from Robert Virding, Kenneth Lundin, Joe Armstrong, Francesco Cesarini and many other amazing developers and researchers who were either involved or interested in the project. Erlang became my main programming language and still is.
+
 
 #### What are some of your favorite technical highlights in Erlang/OTP, Elixir, etc. that have occurred over the past few years? 
 
