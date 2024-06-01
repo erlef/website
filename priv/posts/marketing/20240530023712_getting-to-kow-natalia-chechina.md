@@ -18,7 +18,8 @@ Getting to know to Natalia Chechina
 
 <img src="/images/getting-to-know/natalia-chechina.png" class="img-fluid" alt="Natalia-Chechina"/>
 
-Natalia Chechina is a developer at Erlang Solutions specializing in fintech.  Her research interests include distributed computation, robotics, parallel programming, stochastic modeling, and autonomous systems. She was the chair of the Steering Committee at Erlang Workshop in 2021–2023 and serves as an industrial supervisor, providing valuable guidance and insights to students working on Msc and PhD projects.  She is also a Chair of the Embedded Working Group of our Foundation. Today we get to know her.
+Natalia Chechina is a developer at Erlang Solutions specializing in fintech.  Her research interests include distributed computation, robotics, parallel programming, stochastic modeling, and autonomous systems. She was the chair of the Steering Committee at Erlang Workshop in 2021–2023 and serves as an industrial supervisor, providing valuable guidance and insights to students working on Msc and PhD projects.  She is also a chair of the Embedded Working Group of our foundation. Today we get to know her.
+
 
 #### How did you decide to learn programming and what were your first steps on it?
 
