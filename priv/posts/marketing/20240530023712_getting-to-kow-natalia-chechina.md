@@ -67,7 +67,8 @@ So, when we say that a robot has safety issues or is not fault-tolerant, robotic
 
 There are lots of exciting bits and bobs but I don’t think I have a gold project at the moment… I’m supporting Erlang Workshop co-chairs in organising the workshop – it’s going to be in Milan, Italy this year. So, if you happen to be in Italy/Europe in September, do consider attending the Workshop – it’s always an exciting place to be to learn about new research and ideas in Functional programming.
 
-In the Embedded Systems WP we work on developing a bank of projects for developers and academics, so that these can be picked up when developers/academics have time and would like to work on a project that is of value to the community.
+In the Embedded Systems WG we work on developing a bank of projects for developers and academics, so that these can be picked up when developers/academics have time and would like to work on a project that is of value to the community.
+
 
 #### Why did you decide to join the Erlang Ecosystems Foundation? And why would you recommend others to do so?
 
