@@ -16,7 +16,7 @@ Getting to know to Natalia Chechina
 
 *Welcome to another edition in our Getting to Know Us series. Getting to know us consists of articles and interviews about a wide variety of people in our ecosystem, with the main goal of making their work with BEAM technologies visible. Some have been around a long time, while others may seem new to you, but they all share a love for this ecosystem. If you know of interesting work that deserves more visibility, let us know at marcom@erlef.org!*
 
-<img src="/images/getting-to-know/natalia-chechina.png" class="img-fluid" alt="Natalia-Chechina"/>
+<img src="/images/getting-to-know/natalia-chechina.jpeg" class="img-fluid" alt="Natalia-Chechina"/>
 
 Natalia Chechina is a developer at Erlang Solutions specializing in fintech.  Her research interests include distributed computation, robotics, parallel programming, stochastic modeling, and autonomous systems. She was the chair of the Steering Committee at Erlang Workshop in 2021–2023 and serves as an industrial supervisor, providing valuable guidance and insights to students working on Msc and PhD projects.  She is also a chair of the Embedded Working Group of our foundation. Today we get to know her.
 
