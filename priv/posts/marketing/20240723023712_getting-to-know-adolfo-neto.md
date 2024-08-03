@@ -65,7 +65,8 @@ As a professor, I make an effort to introduce my students to Elixir and Erlang l
 
 I'm excited about exploring the new machine learning features available in Livebook, Nx, and Scholar. At the Elixir Days event, Paulo Valente from the Nx core team gave an insightful talk. He talked about many interesting things that you can do with machine learning in Elixir using Livebook, which is another great project. One area I haven't had the chance to delve into yet is Nerves, mainly because I'm not much of a hardware guy. To experiment with Nerves, I'd need some embedded hardware like Arduino or similar devices.
 
-And also we want to, Lee Barney is working on that, create resources for people who don't know how to program, so they can learn Elixir using a resource, as a website. That's what I want to see in the future, it would be great. Of course, we have Elixir school which is great, but its focus is more on people that already know a programming language.
+And also we want to create resources such as a website for people who don't know how to program, so they can learn Elixir using a resource, Lee Barney is working on that. That's what I want to see in the future, it would be great. Of course, we have Elixir school which is great, but its focus is more on people that already know a programming language.
+
 
 #### Why did you decide to join the Erlang Ecosystems Foundation? You are currently part of the [Education Working Group](https://erlef.org/wg/education) of the Foundation, what can you tell us about this WG?
 
