@@ -1,13 +1,14 @@
 {
     "title": "Getting to know - Adolfo Neto",
     "authors": ["The Marketing Working Group"],
-    "slug": "getting-to-know-natalia-chechina",
+    "slug": "getting-to-know-adolfo-neto",
     "category": "marketing",
     "tags": ["developer", "marketing", "getting-to-know-us", "bio"],
     "datetime": "2024-07-23T02:37:12.810583Z"
-    }
-
-#  Getting to know - Adolfo Neto
+}
+---
+Getting to know -  Adolfo Neto
+---
 
 *Welcome to another edition in our Getting to Know Us series. Getting to know us consists of articles and interviews about a wide variety of people in our ecosystem, with the main goal of making their work with BEAM technologies visible. Some have been around a long time, while others may seem new to you, but they all share a love for this ecosystem. If you know of interesting work that deserves more visibility, let us know at marcom@erlef.org!*
 
@@ -25,7 +26,7 @@ I started learning programming as a teenager in the 80s. It all began when I vis
 
 The first time I heard about Erlang was in 2011 when I was reading Bruce Tate's book, Seven Languages in Seven Weeks: A Pragmatic Guide to Learning Programming Languages. One of the languages he describes is Erlang. Interestingly, José Valim also read that book and was inspired to create Elixir.
 
-I spent a year in the USA, where people would often mention, "Oh, there is this new language, Elixir." However, I didn't decide to study Elixir until 2018. My main motivation was that it was created by a Brazilian, and as a fellow Brazilian, I felt a connection. 
+I spent a year in the USA, where people would often mention, "Oh, there is this new language, Elixir." However, I didn't decide to study Elixir until 2018. My main motivation was that it was created by a Brazilian, and as a fellow Brazilian, I felt a connection.
 
 #### What are some of your favorite technical highlights in Erlang/OTP, Elixir, etc. that have occurred over the past few years?
 
@@ -57,7 +58,7 @@ Additionally, I am part of the [Hello Erlang podcast](https://helloerlang.github
 
 It's a growing community. I believe many people try to learn Elixir for the same reason that I did, because it was created by a Brazilian. José Valim is a great guy, he is always helping. I've had students who had questions and reached out to Valim; he always responds.
 
-And also, there are some companies in Brazil that use Elixir in production. But one problem is that the community has grown so much that there are not enough jobs in Brazil for the people that want to work with Elixir. We need more companies adopting Elixir, we need more citizens learning what you can do with Elixir in Erlang, in the BEAM. 
+And also, there are some companies in Brazil that use Elixir in production. But one problem is that the community has grown so much that there are not enough jobs in Brazil for the people that want to work with Elixir. We need more companies adopting Elixir, we need more citizens learning what you can do with Elixir in Erlang, in the BEAM.
 
 As a professor, I make an effort to introduce my students to Elixir and Erlang languages because there isn't a dedicated course only focused on learning Elixir. Without this effort, some students may graduate without ever discovering Elixir, a programming language created by a Brazilian that's widely adopted by both Brazilian and international companies.
 
@@ -72,19 +73,19 @@ And also we want to create resources such as a website for people who don't know
 
 When I started, people in the community encouraged me by saying, “oh, now there's the Erlang Ecosystem Foundation, you can join”. So I joined, and after a short while, they mentioned, “Oh, we need volunteers for the Education Working Group.” I joined that as well, and now I am the co-chair of the Education Working Group.
 
-My goal in the Education Working Group is to make it easier for people -at least for programmers- to learn languages such as Elixir, Erlang, and Gleam. Of course, communities around these languages already do a lot to facilitate learning, and we want to contribute to that. 
+My goal in the Education Working Group is to make it easier for people -at least for programmers- to learn languages such as Elixir, Erlang, and Gleam. Of course, communities around these languages already do a lot to facilitate learning, and we want to contribute to that.
 
 #### And why would you recommend others join the Erlang Ecosystems Foundation?
 
-In every episode of the Elixir em Foco, I recommend people joining the Erlang Ecosystem Foundation. I was on the Elixir Days event, and I also told everyone there to join. There is a free membership option, and if you want to support financially, you can do that as well. And if your company uses Elixir or Erlang or any BEAM language, you can also become a sponsor. 
+In every episode of the Elixir em Foco, I recommend people joining the Erlang Ecosystem Foundation. I was on the Elixir Days event, and I also told everyone there to join. There is a free membership option, and if you want to support financially, you can do that as well. And if your company uses Elixir or Erlang or any BEAM language, you can also become a sponsor.
 
-As a member, you can join the Erlang Ecosystem Foundation in Slack and be part of any Working Group. For instance, the most popular right now is the Machine Learning Working Group, people are always discussing there. And you can also, if you really love the BEAM, Erlang, Elixir, join the Education Working group and help us. You can also ask the Erlang Ecosystem Foundation for support. 
+As a member, you can join the Erlang Ecosystem Foundation in Slack and be part of any Working Group. For instance, the most popular right now is the Machine Learning Working Group, people are always discussing there. And you can also, if you really love the BEAM, Erlang, Elixir, join the Education Working group and help us. You can also ask the Erlang Ecosystem Foundation for support.
 
-There are many opportunities for helping the community. For instance, Brian Cardarela, created a GitHub repo asking “What do you miss in Elixir?” and many people contributed with solutions. So there are many ways where you can share knowledge. 
+There are many opportunities for helping the community. For instance, Brian Cardarela, created a GitHub repo asking “What do you miss in Elixir?” and many people contributed with solutions. So there are many ways where you can share knowledge.
 
 There are also great events all over the world, such as Elixir Days, here in Brazil. Last year I organized, with support from the Erlang Ecosystem Foundation the Elixir Fortaleza event. I have never been able to attend an ElixirConf yet, but I’ve heard great things about it. I have attended Code Beam America also with help from the Foundation, and it was an amazing experience. Additionally, there are Code Beam Europe, Code Beam Lite Stockholm, and Code Beam Lite A Coruña.
 
-For some people in certain countries, attending these conferences might be difficult, but there are always other ways to stay connected. You can listen to podcasts, follow the community on X, where many people share nice things, or join the Elixir Forum. There are many options to join this community and see how great it is. 
+For some people in certain countries, attending these conferences might be difficult, but there are always other ways to stay connected. You can listen to podcasts, follow the community on X, where many people share nice things, or join the Elixir Forum. There are many options to join this community and see how great it is.
 
 Watch the interview on our [YouTube Channel](https://www.youtube.com/watch?v=XGl0Ine6_0A&list=PLY45aG1H7rFo-DLQvpwzdJgkkaoP1gWlK&index=4)
 
