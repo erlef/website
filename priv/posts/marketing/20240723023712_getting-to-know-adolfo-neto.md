@@ -15,7 +15,8 @@
 
 Adolfo Neto is an Associate Professor at the Federal University of Technology, Paraná, and the creator and co-host of the Elixir em Foco podcast, a podcast about Elixir and the BEAM in Portuguese. He is one of the chairs of the Education, Training, & Adoption Working Group of the Foundation, and a prominent mentor in the growing Elixir community in Brazil. Today we get to know him.
 
-#### How did you decide to learn programming, and what were your first steps on it?
+#### How did you decide to learn programming, and what were your first steps?
+
 
 I started learning programming as a teenager in the 80s. It all began when I visited a friend's house and saw their computer. After that, I told my father that I wanted a computer too. My computer came with the BASIC programming language, so I started learning that. Later, I learned some assembly language for that computer and when I entered college, I studied Pascal, C, and Lisp.
 
