@@ -19,7 +19,8 @@ Adolfo Neto is an Associate Professor at the Federal University of Technology, P
 
 I started learning programming as a teenager in the 80s. It all began when I visited a friend's house and saw their computer. After that, I told my father that I wanted a computer too. My computer came with the BASIC programming language, so I started learning that. Later, I learned some assembly language for that computer and when I entered college, I studied Pascal, C, and Lisp.
 
-#### When did you meet the BEAM ecosystem, and how did you decide to learn Erlang and Elixir?
+#### When did you encounter the BEAM ecosystem, and how did you decide to learn Erlang and Elixir?
+
 
 The first time I heard about Erlang was in 2011 when I was reading Bruce Tate's book, Seven Languages in Seven Weeks: A Pragmatic Guide to Learning Programming Languages. One of the languages he describes is Erlang. Interestingly, José Valim also read that book and was inspired to create Elixir.
 
