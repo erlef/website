@@ -16,9 +16,9 @@ The Erlang Ecosystem Foundation (EEF) Security Working Group is committed to enh
 
 We have recently updated our key resources to provide the most current and practical guidance for developers and organizations:
 
-- **[Secure Coding and Deployment Hardening Guidelines](/secure_coding_and_deployment_hardening):** This comprehensive guide covers best practices for writing secure code and hardening deployments specific to the BEAM ecosystem. It addresses common vulnerabilities and offers strategies to mitigate them effectively.
+- **[Secure Coding and Deployment Hardening Guidelines](https://erlef.github.io/security-wg/secure_coding_and_deployment_hardening/):** This comprehensive guide covers best practices for writing secure code and hardening deployments specific to the BEAM ecosystem. It addresses common vulnerabilities and offers strategies to mitigate them effectively.
 
-- **[Web Application Security Best Practices for BEAM Languages](/web_app_security_best_practices_beam):** Tailored for web developers, this resource delves into security considerations unique to web applications running on the BEAM, helping you build applications that are secure by design.
+- **[Web Application Security Best Practices for BEAM Languages](https://erlef.github.io/security-wg/web_app_security_best_practices_beam/):** Tailored for web developers, this resource delves into security considerations unique to web applications running on the BEAM, helping you build applications that are secure by design.
 
 We believe that security is a collective responsibility. By following these guidelines, developers can significantly reduce the risk of vulnerabilities in their applications, contributing to a safer digital environment for all users.
 
