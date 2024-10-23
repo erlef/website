@@ -10,6 +10,8 @@
 The Erlang Ecosystem Foundation (EEF) Security Working Group is committed to enhancing the security of the BEAM community by providing updated resources and guidance for developers and organizations.
 ---
 
+![Cybersecurity Awareness Month - Join Us in Building a Secure Future!](/images/posts/cybersecurity-awareness-month/header.png) {: .img-fluid}
+
 The Erlang Ecosystem Foundation (EEF) Security Working Group is committed to enhancing the security of the BEAM community. In an era where cybersecurity threats are increasingly sophisticated, we are proactively addressing security challenges to ensure that applications built on Erlang, Elixir, and other BEAM languages remain robust and reliable.
 
 **Our Commitment to Security**
