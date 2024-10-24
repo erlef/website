@@ -1,5 +1,5 @@
 {
-  "title": "Cybersecurity Awareness Month",
+  "title": "Cybersecurity Awareness Month (CAM 2024)",
   "authors": ["The Security Working Group"],
   "slug": "cybersecurity-awareness-month",
   "category": "security",
