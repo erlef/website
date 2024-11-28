@@ -59,7 +59,8 @@ I believe there are several reasons why participation is important. If you work 
 
 From the **academic** point of view, I think if you want to know if your research is relevant for industry, this is a place to go and check. You can just work all you want on the theory, and that is a really important part. But if you want to see if this is applicable to a concurrent and distributed programming language, the Erlang Workshop is probably where you need to be. You can submit ongoing work and interact with industry and academics. You're going to get lots of feedback. In this year’s Workshop, there were great discussions. 
 
-Finally, as a **participant**, if you want to know more or less what is the latest that's going on in the BEAM ecosystem, then you should participate. You are going to make academic contacts, in case you need the part of the Innovation side. And if not, you're still going to meet plenty of people from industry. I think it's really important to continue building this up so that we can do great things together.
+Finally, as a **participant**, if you want to know more or less what is the latest that's going on in the BEAM ecosystem, then you should participate. You are going to make academic contacts, in case you need that part of the innovation side. And if not, you're still going to meet plenty of people from industry. I think it's really important to continue building this up so that we can do great things together.
+
 
 #### What aspects of the future of Erlang/OTP excite you the most? Is there a particular development you're eagerly anticipating?
 
