@@ -39,7 +39,7 @@ Personally, I think the use of documentation attributes in Erlang is extremely u
 
 Another highlight, of course, is the JIT. In many languages, there’s something called a tracing JIT. The JVM, for example, uses a tracing JIT, where it checks at runtime whether it’s worth optimizing certain patterns. However, Erlang doesn’t do that. Instead, we use something called a template-based JIT. I don’t think there are many programming languages out there doing the same.
 
-When it comes to Elixir, I’ve been following the Phoenix framework from the sidelines, and I think it’s excellent for web development. If you’re working in web development, I’d certainly recommend using Elixir. One notable recent update is the release of type inference, which I believe is due to their integration and experiments with set-theoretic types. Coming from a background in typed theory, I find this really important. I’m excited to see how this evolves over time.
+When it comes to Elixir, I’ve been following the Phoenix framework from the sidelines, and I think it’s excellent for web development. If you’re working in web development, I’d certainly recommend using Elixir. Regarding Elixir, one notable recent update is the release of type inference, which I believe is due to their integration and experiments with set-theoretic types. Coming from a background in typed theory, I find this really important. I’m excited to see how this evolves over time.
 
 #### As a core member of the Erlang/OTP team, can you give us some insights into your current work and the challenges you face in this team? What does the Erlang/OTP team do?
 
