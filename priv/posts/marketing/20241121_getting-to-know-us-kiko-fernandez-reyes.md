@@ -1,22 +1,27 @@
-{ "title": "Getting to know - Kiko Fernandez-Reyes",
-"authors": ["The Marketing Working Group"], 
-"slug": "getting-to-know-kiko-fernandez-reyes", 
-"category": "marketing", 
-"tags": ["developer", "marketing", "getting-to-know-us", "bio"], 
-"datetime": "2024-11-21T02:37:12.810583Z" }
+{
+    "title": "Getting to know - Kiko Fernandez-Reyes",
+    "authors": ["The Marketing Working Group"],
+    "slug": "getting-to-know-kiko-fernandez-reyes",
+    "category": "marketing",
+    "tags": ["developer", "marketing", "getting-to-know-us", "bio"],
+    "datetime": "2024-11-27T02:37:12.810583Z"
+}
 
-#  Getting to know - Kiko Fernandez-Reyes
+---
+Getting to know - Kiko Fernandez-Reyes
+---
 
 *Welcome to another edition in our Getting to Know Us series. Getting to know us consists of articles and interviews about a wide variety of people in our ecosystem, with the main goal of making their work with BEAM technologies visible. Some have been around a long time, while others may seem new to you, but they all share a love for this ecosystem. If you know of interesting work that deserves more visibility, let us know at marcom@erlef.org!*
 
-<img src="/images/getting-to-know/kiko-fernandez-reyes.png" class="img-fluid" alt="gtku-adolfo-neto"/>
+<img src="/images/getting-to-know/kiko-fernandez-reyes.png" class="img-fluid" alt="gtku-kiko-fernandez-reyes"/>
 
 Kiko Fernandez-Reyes is a software engineer and a core member of the Erlang/OTP team. He works building and improving the Erlang programming language at Ericsson. He is also the co-chair of the Erlang Workshop for the second year in a row and a board member of our Foundation. Today we get to know him.
 
 #### How did you decide to learn programming, and what were your first steps on it?
 
-I was around 12–13 years old when I started playing with BASIC. At that time — of course, I didn't know — I wanted to write some kind of AI program, something that replies to you so that you can maintain a conversation. I managed to a small a degree.
-
+I was around 12–13 years old when I started playing with BASIC. At that time — of course, I didn't know — I wanted to
+write some kind of AI program, something that replies to you so that you can maintain a conversation. I managed to do
+this, a small a degree, and I suppose these were my initial steps.
 
 Then, at the University of Malaga, I learned C/C++, but I did not like it that much. I also took a course called Declarative and Logical Programming, where I learned Haskell and Prolog. I really fell in love with Prolog, to be honest. Furthermore, I learned Ada, which was mind-blowing because of its parallel concurrency model.
 
