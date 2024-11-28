@@ -74,7 +74,8 @@ Last, it would be fascinating to see if we can call Elixir code from Erlang in a
 
 #### What motivated you to join the Erlang Ecosystems Foundation, and what role do you see the foundation playing in the community's future?
 
-I always wanted to contribute to a non-profit organization. During my Master's studies, I collaborated with a non-profit organization called “[Doctors Without Borders](https://www.msf.org/spain "Doctors Without Borders")”. There, I had to create a prototype for the learning platform, and I kind of succeeded. I don't think in the end they used it, but it was a really good experience.
+I always wanted to contribute to a non-profit organization. During my Master's studies, I collaborated with a non-profit organization called [Doctors Without Borders](https://www.msf.org/spain). There, I had to create a prototype for the learning platform, and I kind of succeeded. I don't think in the end they used it, but it was a really good experience.
+
 
 For the Erlang Ecosystem Foundation, I really wanted to contribute to the community, and with our manager Kenneth retiring from Ericsson, I thought it would be a great opportunity to step in. My goal was to help the community and articulate the challenges we face in Erlang/OTP, particularly for those issues where we lack resources.
 
