@@ -15,7 +15,8 @@ Kiko Fernandez-Reyes is a software engineer and a core member of the Erlang/OTP 
 
 #### How did you decide to learn programming, and what were your first steps on it?
 
-I was around 12–13 years old when I started playing with BASIC. At that time — of course, I didn't know — I wanted to write some kind of AI program, something that replies to you so that you can maintain a conversation. I managed to a BASIC degree.
+I was around 12–13 years old when I started playing with BASIC. At that time — of course, I didn't know — I wanted to write some kind of AI program, something that replies to you so that you can maintain a conversation. I managed to a small a degree.
+
 
 Then, at the University of Malaga, I learned C/C++, but I did not like it that much. I also took a course called Declarative and Logical Programming, where I learned Haskell and Prolog. I really fell in love with Prolog, to be honest. Furthermore, I learned Ada, which was mind-blowing because of its parallel concurrency model.
 
