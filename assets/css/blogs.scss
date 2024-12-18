@@ -24,6 +24,10 @@ div.blog-post > table {
    border-collapse: collapse;
 }
 
+div.blog-post .responsive-image {
+  width: 100%;
+}
+
 div.blog-post > td, th {
   border: 0.0625rem solid #ddd;
   padding: 0.5rem;
