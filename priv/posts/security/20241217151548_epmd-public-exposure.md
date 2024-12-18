@@ -44,6 +44,8 @@ If left unsecured, exposed Erlang Distribution ports let attackers gain a footho
   ```
   Ensuring that distribution ports are only accessible via localhost or a private network interface further reduces the attack surface.
 
+- **Enable epmd-less mode in your releases**: Both Erlang and Elixir tooling allows you to use the Erlang Distribution without exposing EPMD. Rebar3 enables this option by default. In Elixir, [it is part of your generated release configuration](https://hexdocs.pm/mix/Mix.Tasks.Release.html#module-epmd-less-deployment).
+
 - **Remove or avoid using `-name` or `-sname` if you don’t need clustering**:  
   If you’re not clustering nodes, don’t assign them a name. Without -name or -sname, the node won’t just be absent from EPMD—it disables Erlang distribution entirely. This means your application won’t attempt to listen on distribution ports at all, further reducing the attack surface.
 
