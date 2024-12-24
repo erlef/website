@@ -1,15 +1,20 @@
 {
-    "title": "Case study: Application Performance Monitoring (APM) tool","authors": ["Sponsorship"],
-    "slug": "case-study-app-signal",
-    "category": "sponsorship",
-    "tags": ["sponsorship", "meet-the-sponsors"],
-    "datetime": "2024-12-17T02:37:12.810583Z" }
+"title": "Case study: Application Performance Monitoring (APM) tool",
+"authors": ["Sponsorship"],
+"slug": "case-study-app-signal",
+"category": "sponsorship",
+"tags": ["sponsorship", "meet-the-sponsors"],
+"datetime": "2024-12-23T02:37:12.810583Z"
+}
+---
+Case study: Application Performance Monitoring (APM) tool
+---
 
 # Case study: Application Performance Monitoring (APM) tool
 
 AppSignal is a powerful Application Performance Monitoring (APM) tool designed to help developers build scalable and reliable applications. Originally known for its strong support of Ruby on Rails applications, AppSignal has expanded its capabilities to offer APM tools for a variety of programming languages, including Elixir, Ruby, Node.js, and Python. 
 
-<img src="priv/posts/sponsorship/CaseStudy-AppSignal.png" class="img-fluid" alt="Case Study - AppSignal"/>
+<img src="/images/meet-the-sponsors/CaseStudy-AppSignal.png" class="img-fluid" alt="Case Study - AppSignal"/>
 
 This case study explores AppSignal's entry into the Elixir ecosystem and its ongoing efforts to provide developers with valuable insights into their applications.
 
