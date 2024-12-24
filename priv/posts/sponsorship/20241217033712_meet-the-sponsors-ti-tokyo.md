@@ -1,10 +1,20 @@
-{ "title": "Meet the Sponsors - Ti Tokyo", "authors": ["Sponsorship"], "slug": "case-study-app-signal", "category": "sponsorship", "tags": ["sponsorship", "meet-the-sponsors"], "datetime": "2024-12-17T03:37:12.810583Z" }
+{
+  "title": "Meet the Sponsors - Ti Tokyo",
+  "authors": ["Sponsorship"],
+  "slug": "case-study-ti-tokyo",
+  "category": "sponsorship",
+  "tags": ["sponsorship", "meet-the-sponsors"],
+  "datetime": "2024-12-23T03:37:12.810583Z"
+}
+---
+Meet the Sponsors - Ti Tokyo
+---
 
 # Meet the Sponsors - Ti Tokyo
 
 Welcome to Meet the Sponsors, a section in which you will find the profiles of our sponsors. Here you will learn about them and why they decide to support this great community. Today we will get to know TI Tokyo. Enjoy it!
 
-<img src="priv/posts/sponsorship/TiTokyo.png" class="img-fluid" alt="Meet the Sponsors - Ti Tokyo"/>
+<img src="/images/meet-the-sponsors/TiTokyo.png" class="img-fluid" alt="Meet the Sponsors - Ti Tokyo"/>
 
 TI Tokyo is an English IT company based in Japan. Initially founded as a training company, it transitioned into IT support at the request of its customers. Over time, it became the world’s leading provider of Enterprise-Grade, SLA-backed Riak support
 
