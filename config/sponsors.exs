@@ -282,5 +282,13 @@ config :erlef, :sponsors, [
     logo_url: "/images/sponsors/smartrent-logo.png",
     name: "SmartRent",
     url: "https://smartrent.com/"
+  },
+  %{
+    active: true,
+    is_founding_sponsor: false,
+    logo_url: "/images/sponsors/calm-wave.png",
+    name: "CalmWave",
+    url: "https://calmwave.ai/"
   }
+
 ]
