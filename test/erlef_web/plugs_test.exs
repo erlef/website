@@ -42,7 +42,7 @@ defmodule ErlefWeb.PlugsTest do
 
       assert get_session(conn, :return_to) == "/"
 
-      assert get_flash(conn, :notice) =~
+      assert conn.assigns.flash["notice"] =~
                "The resource you requested requires that you are logged in"
     end
   end

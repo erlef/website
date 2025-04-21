@@ -338,22 +338,18 @@ defmodule Erlef.Groups do
   def update_wg_report(%WorkingGroupReport{} = wg_report, attrs) do
     cs = WorkingGroupReport.update_changeset(wg_report, attrs)
 
-    case cs.valid? do
-      true ->
-        Repo.transaction(fn ->
-          case GitReport.update(Ecto.Changeset.apply_changes(cs)) do
-            {:ok, meta} ->
-              wg_report
-              |> WorkingGroupReport.update_changeset(put_meta(attrs, meta))
-              |> Repo.update!()
+    with {:ok, schema} <- Ecto.Changeset.apply_action(cs, :update) do
+      Repo.transaction(fn ->
+        case GitReport.update(schema) do
+          {:ok, meta} ->
+            wg_report
+            |> WorkingGroupReport.update_changeset(put_meta(attrs, meta))
+            |> Repo.update!()
 
-            err ->
-              err
-          end
-        end)
-
-      false ->
-        {:error, cs}
+          err ->
+            err
+        end
+      end)
     end
   end
 

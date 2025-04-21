@@ -48,25 +48,25 @@
 
   <body>
     <%= render "header.html", assigns %>
-        <%= if flash = get_flash(@conn, :info) do %>
+        <%= if flash = Phoenix.Flash.get(@flash, :info) do %>
           <div class="alert alert-info" role="alert">
             <%= raw flash %>
           </div>
       <% end %>
 
-        <%= if flash = get_flash(@conn, :notice) do %>
+        <%= if flash = Phoenix.Flash.get(@flash, :notice) do %>
           <div class="alert" role="alert">
             <%= raw flash %>
           </div>
       <% end %>
 
-      <%= if flash = get_flash(@conn, :error) do %>
+      <%= if flash = Phoenix.Flash.get(@flash, :error) do %>
         <div class="alert alert-danger" role="alert">
           <%= raw flash %>
         </div>
       <% end %>
 
-      <%= if flash = get_flash(@conn, :success) do %>
+      <%= if flash = Phoenix.Flash.get(@flash, :success) do %>
         <div class="alert alert-success" role="alert">
           <%= raw flash %>
         </div>
