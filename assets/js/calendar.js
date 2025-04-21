@@ -2,7 +2,7 @@ import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
-import * as ICAL from 'ical.js'
+import ICAL from 'ical.js'
 import { DateTime } from "luxon";
 
 function to_JSDate(date) {
