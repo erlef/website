@@ -4,6 +4,9 @@ defmodule Erlef.Groups.WorkingGroup do
   """
 
   use Erlef.Schema
+
+  @type t() :: Ecto.Schema.schema()
+
   alias Erlef.Groups.{WorkingGroupChair, WorkingGroupVolunteer, Volunteer}
 
   schema "working_groups" do

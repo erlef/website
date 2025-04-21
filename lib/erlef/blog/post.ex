@@ -4,6 +4,8 @@ defmodule Erlef.Blog.Post do
   """
   use Erlef.Schema
 
+  @type t() :: Ecto.Schema.schema()
+
   schema "blog_posts" do
     field(:title, :string)
     field(:slug, :string)

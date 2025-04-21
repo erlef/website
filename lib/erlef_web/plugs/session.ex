@@ -16,15 +16,6 @@ defmodule ErlefWeb.Plug.Session do
       nil ->
         assign(conn, :current_user, nil)
 
-      {:error, :timeout} ->
-        msg =
-          "There was a problem fetching your member details. Please refresh the page " <>
-            " or try logging in again"
-
-        conn
-        |> Phoenix.Controller.put_flash(:info, msg)
-        |> assign(:current_user, nil)
-
       err ->
         Logger.error(fn -> "Unexpected error while building session -> #{err}" end)
         assign(conn, :current_user, nil)
