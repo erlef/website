@@ -112,16 +112,15 @@ defmodule Erlef.MemberTest do
 
       assert [
                membership_level:
-                 {"is invalid", [{:type, {:parameterized, _, _}}, {:validation, :cast}]}
+                 {"is invalid",
+                  [type: {:parameterized, _}, validation: :inclusion, enum: [_ | _]]}
              ] = cs.errors
 
       cs = Member.changeset(%Member{}, Map.put(@valid_attrs, :roles, :root))
       refute cs.valid?
 
-      assert [
-               roles:
-                 {"is invalid", [{:type, {:array, {:parameterized, _, _}}}, {:validation, :cast}]}
-             ] = cs.errors
+      assert [roles: {"is invalid", [type: {:array, {:parameterized, _}}, validation: :cast]}] =
+               cs.errors
 
       cs = Member.changeset(%Member{}, Map.put(@valid_attrs, :member_since, "02/07/2021"))
       refute cs.valid?

@@ -20,9 +20,9 @@ defmodule ErlefWeb do
   def controller do
     quote do
       use Phoenix.Controller, namespace: ErlefWeb
+      use Gettext, backend: ErlefWeb.Gettext
 
       import Plug.Conn
-      import ErlefWeb.Gettext
       import Phoenix.LiveView.Controller
 
       alias ErlefWeb.Router.Helpers, as: Routes
@@ -40,7 +40,7 @@ defmodule ErlefWeb do
         namespace: ErlefWeb
 
       # Import convenience functions from controllers
-      import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
+      import Phoenix.Controller, only: [view_module: 1]
 
       unquote(view_helpers())
     end
@@ -73,7 +73,10 @@ defmodule ErlefWeb do
   defp view_helpers do
     quote do
       # Use all HTML functionality (forms, tags, etc)
-      use Phoenix.HTML
+      import Phoenix.HTML
+      import Phoenix.HTML.Form
+      import Phoenix.Component
+      use PhoenixHTMLHelpers
 
       # Import LiveView helpers (live_render, live_component, live_patch, etc)
       import Phoenix.LiveView.Helpers
@@ -81,8 +84,9 @@ defmodule ErlefWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
+      use Gettext, backend: ErlefWeb.Gettext
+
       import ErlefWeb.ErrorHelpers
-      import ErlefWeb.Gettext
       import ErlefWeb.HTML
       import ErlefWeb.ViewHelpers
 

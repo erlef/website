@@ -113,7 +113,7 @@ defmodule ErlefWeb.Admin.WorkingGroupControllerTest do
     } do
       conn = put(conn, Routes.admin_working_group_path(conn, :create_chair, working_group, vol))
       assert redirected_to(conn) == Routes.admin_working_group_path(conn, :show, working_group)
-      assert %{"info" => "Successfully assigned volunteer as chair."} = get_flash(conn)
+      assert %{"info" => "Successfully assigned volunteer as chair."} = conn.assigns.flash
     end
   end
 
@@ -127,13 +127,13 @@ defmodule ErlefWeb.Admin.WorkingGroupControllerTest do
     } do
       conn = put(conn, Routes.admin_working_group_path(conn, :create_chair, working_group, vol))
       assert redirected_to(conn) == Routes.admin_working_group_path(conn, :show, working_group)
-      assert %{"info" => "Successfully assigned volunteer as chair."} = get_flash(conn)
+      assert %{"info" => "Successfully assigned volunteer as chair."} = conn.assigns.flash
 
       conn =
         delete(conn, Routes.admin_working_group_path(conn, :delete_chair, working_group, vol))
 
       assert redirected_to(conn) == Routes.admin_working_group_path(conn, :show, working_group)
-      assert %{"info" => "Volunteer successfully removed as chair."} = get_flash(conn)
+      assert %{"info" => "Volunteer successfully removed as chair."} = conn.assigns.flash
     end
 
     test "does not remove volunteer when only one chair exists", %{
@@ -145,7 +145,7 @@ defmodule ErlefWeb.Admin.WorkingGroupControllerTest do
         delete(conn, Routes.admin_working_group_path(conn, :delete_chair, working_group, chair))
 
       assert redirected_to(conn) == Routes.admin_working_group_path(conn, :show, working_group)
-      assert %{"error" => _} = get_flash(conn)
+      assert %{"error" => _} = conn.assigns.flash
     end
   end
 
@@ -161,7 +161,7 @@ defmodule ErlefWeb.Admin.WorkingGroupControllerTest do
         delete(conn, Routes.admin_working_group_path(conn, :delete_volunteer, working_group, vol))
 
       assert redirected_to(conn) == Routes.admin_working_group_path(conn, :show, working_group)
-      assert %{"info" => "Volunteer successfully removed."} = get_flash(conn)
+      assert %{"info" => "Volunteer successfully removed."} = conn.assigns.flash
     end
 
     test "does not remove volunteer when volunteer is still a chair", %{
@@ -171,13 +171,13 @@ defmodule ErlefWeb.Admin.WorkingGroupControllerTest do
     } do
       conn = put(conn, Routes.admin_working_group_path(conn, :create_chair, working_group, vol))
       assert redirected_to(conn) == Routes.admin_working_group_path(conn, :show, working_group)
-      assert %{"info" => "Successfully assigned volunteer as chair."} = get_flash(conn)
+      assert %{"info" => "Successfully assigned volunteer as chair."} = conn.assigns.flash
 
       conn =
         delete(conn, Routes.admin_working_group_path(conn, :delete_volunteer, working_group, vol))
 
       assert redirected_to(conn) == Routes.admin_working_group_path(conn, :show, working_group)
-      assert %{"error" => _} = get_flash(conn)
+      assert %{"error" => _} = conn.assigns.flash
     end
 
     test "does not remove volunteer when volunteer is the only chair", %{
@@ -192,7 +192,7 @@ defmodule ErlefWeb.Admin.WorkingGroupControllerTest do
         )
 
       assert redirected_to(conn) == Routes.admin_working_group_path(conn, :show, working_group)
-      assert %{"error" => _} = get_flash(conn)
+      assert %{"error" => _} = conn.assigns.flash
     end
   end
 end

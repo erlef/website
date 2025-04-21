@@ -36,5 +36,5 @@
     </tbody>
   </table>
 </div>
-<%#<span><%= link "Publish", to: Routes.news_path(@conn, :index), data: [confirm: "Are you sure?"] %></span>
+<% #<span><%= link "Publish", to: Routes.news_path(@conn, :index), data: [confirm: "Are you sure?"] %></span>
 

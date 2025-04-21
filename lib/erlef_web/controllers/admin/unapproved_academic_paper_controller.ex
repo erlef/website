@@ -15,7 +15,10 @@ defmodule ErlefWeb.Admin.UnapprovedAcademicPaperController do
     unapproved_academic_paper = AcademicPapers.get(id)
     changeset = AcademicPapers.change_academic_paper(unapproved_academic_paper)
 
-    render(conn, :edit, unapproved_academic_paper: unapproved_academic_paper, changeset: changeset)
+    render(conn, :edit,
+      unapproved_academic_paper: unapproved_academic_paper,
+      changeset: changeset
+    )
   end
 
   def approve(conn, %{"id" => id, "academic_paper" => params}) do

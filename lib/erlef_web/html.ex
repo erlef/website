@@ -2,9 +2,10 @@ defmodule ErlefWeb.HTML do
   @moduledoc """
   ErlefWeb.HTML - HTML helpers for ErlefWeb
   """
-  import Phoenix.HTML.Tag
-  import Phoenix.HTML.Link
-  import Phoenix.LiveView.Helpers
+
+  import PhoenixHTMLHelpers.Tag
+  import PhoenixHTMLHelpers.Link
+  import Phoenix.Component
 
   def to_date_string(date_time) do
     Calendar.strftime(date_time, "%B, %d, %Y, %H:%M:%S UTC")

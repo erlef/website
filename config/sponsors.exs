@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 config :erlef, :sponsors, [
   %{
@@ -297,5 +297,4 @@ config :erlef, :sponsors, [
     name: "Aleph Archives",
     url: "https://www.aleph-archives.com/"
   }
-
 ]

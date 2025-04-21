@@ -11,7 +11,7 @@ defmodule ErlefWeb.PostView do
     assigns = %{cat_path: "/wg/#{cat}", wg: wg}
 
     ~H"""
-    Posted in <a href={@cat_path}><%= wg.name %></a>
+    Posted in <a href={@cat_path}><%= @wg.name %></a>
     """
   end
 
