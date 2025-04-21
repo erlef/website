@@ -21,6 +21,7 @@ jobs:
         uses: erlef/setup-beam@5304e04ea2b355f03681464e683d92e3b2f18451 # v1.18.2
         with:
           version-file: '.tool-versions'
+          version-type: 'strict'
       - name: restore-deps
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
@@ -47,6 +48,7 @@ jobs:
         uses: erlef/setup-beam@5304e04ea2b355f03681464e683d92e3b2f18451 # v1.18.2
         with:
           version-file: '.tool-versions'
+          version-type: 'strict'
       - name: restore-deps
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
@@ -71,6 +73,7 @@ jobs:
         uses: erlef/setup-beam@5304e04ea2b355f03681464e683d92e3b2f18451 # v1.18.2
         with:
           version-file: '.tool-versions'
+          version-type: 'strict'
       - name: restore-deps
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
@@ -94,6 +97,7 @@ jobs:
         uses: erlef/setup-beam@5304e04ea2b355f03681464e683d92e3b2f18451 # v1.18.2
         with:
           version-file: '.tool-versions'
+          version-type: 'strict'
       - name: restore-deps
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
@@ -119,6 +123,7 @@ jobs:
         id: setup-beam
         with:
           version-file: '.tool-versions'
+          version-type: 'strict'
       - name: restore-deps
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
@@ -160,6 +165,7 @@ jobs:
         uses: erlef/setup-beam@5304e04ea2b355f03681464e683d92e3b2f18451 # v1.18.2
         with:
           version-file: '.tool-versions'
+          version-type: 'strict'
       - name: restore-deps
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
