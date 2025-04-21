@@ -7,17 +7,16 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
-    "@fullcalendar/bootstrap": "5.11.5",
-    "@fullcalendar/core": "5.11.5",
-    "@fullcalendar/daygrid": "5.11.5",
-    "@fullcalendar/list": "5.11.5",
+    "@fullcalendar/bootstrap": "6.1.17",
+    "@fullcalendar/core": "6.1.17",
+    "@fullcalendar/daygrid": "6.1.17",
+    "@fullcalendar/list": "6.1.17",
     "@yaireo/tagify": "^4.34.0",
     "admin-lte": "^3.2.0",
     "bootstrap": "^4.6.2",
-    "glob": "^7.2.3",
-    "ical.js": "1.5.0",
+    "ical.js": "2.1.0",
     "jquery": "3.7.1",
-    "luxon": "1.28.1",
+    "luxon": "3.6.1",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
     "phoenix_live_view": "file:../deps/phoenix_live_view",
@@ -38,7 +37,8 @@
     "sass-loader": "^16.0.5",
     "serialize-javascript": "^6.0.2",
     "webpack": "^5.99.6",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "glob": "^11.0.1"
   },
   "resolutions": {
     "uglifyjs-webpack-plugin/serialize-javascript": "^5.0.1"
