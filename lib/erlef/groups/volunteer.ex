@@ -5,6 +5,8 @@ defmodule Erlef.Groups.Volunteer do
 
   use Erlef.Schema
 
+  @type t() :: Ecto.Schema.schema()
+
   schema "volunteers" do
     field(:member_id, Ecto.UUID)
     field(:name, :string)

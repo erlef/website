@@ -1,7 +1,9 @@
 defmodule Erlef.StipendProposal do
   @moduledoc """
-    Erlef.StipendProposal
+  Erlef.StipendProposal
   """
+
+  @type t() :: Ecto.Schema.schema()
 
   # The string version of the key name followed by
   # a tuple consisting of the atom version of the key,

@@ -16,6 +16,8 @@ defmodule Erlef.Accounts.Member do
   See `Erlef.Accounts.External` for details on how fields are mapped between the two resources.
   """
 
+  @type t() :: Ecto.Schema.schema()
+
   @paid_member_levels [
     :annual,
     :lifetime,

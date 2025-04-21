@@ -71,12 +71,6 @@ defmodule Erlef.Session do
     with {:ok, normal} <- normalize(data),
          %Member{} = member <- get_member(normal.member_id) do
       struct(__MODULE__, Map.put(normal, :member, member))
-    else
-      {:error, :timeout} ->
-        {:error, "Timed out getting member details"}
-
-      err ->
-        err
     end
   end
 

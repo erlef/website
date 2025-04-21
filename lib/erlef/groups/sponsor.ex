@@ -2,6 +2,8 @@ defmodule Erlef.Groups.Sponsor do
   @moduledoc false
   use Erlef.Schema
 
+  @type t() :: Ecto.Schema.schema()
+
   schema "sponsors" do
     field(:active, :boolean, default: true)
     field(:logo, :string, virtual: true)
