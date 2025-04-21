@@ -3,14 +3,14 @@ const glob = require('glob');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, options) => ({
     optimization: {
         minimizer: [
             new TerserPlugin(),
-            new OptimizeCSSAssetsPlugin({})
+            new CssMinimizerPlugin({})
         ]
     },
     entry: {
