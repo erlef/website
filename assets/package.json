@@ -11,7 +11,7 @@
     "@fullcalendar/core": "6.1.17",
     "@fullcalendar/daygrid": "6.1.17",
     "@fullcalendar/list": "6.1.17",
-    "@yaireo/tagify": "^4.34.0",
+    "@yaireo/tagify": "^4.35.0",
     "admin-lte": "^3.2.0",
     "bootstrap": "^4.6.2",
     "ical.js": "2.1.0",
@@ -36,9 +36,9 @@
     "sass": "1.39.2",
     "sass-loader": "^16.0.5",
     "serialize-javascript": "^6.0.2",
-    "webpack": "^5.99.6",
+    "webpack": "^5.99.7",
     "webpack-cli": "^6.0.1",
-    "glob": "^11.0.1"
+    "glob": "^11.0.2"
   },
   "resolutions": {
     "uglifyjs-webpack-plugin/serialize-javascript": "^5.0.1"
