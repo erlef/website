@@ -1,12 +1,13 @@
 <div class="row">
 <%= for %{name: name, avatar_url: image} <- @members do %>
-  <div class="col-xs-6 pr-1 pl-1">
-  <% src_url = image || "volunteers/profile-placeholder.png" %>
-    <div class="avatar-large rounded">
+  <div class="col-6 col-sm-auto pe-1 ps-1 d-flex flex-column h-100">
+    <% src_url = image || "volunteers/profile-placeholder.png" %>
+    <div class="avatar-large rounded flex-grow-1 d-flex align-items-center justify-content-center">
       <img class="img-fluid" src="<%= image_path(@conn, src_url) %>" alt="<%= name %>">
     </div>
-    <%= name %>
+    <div class="text-center mt-2">
+      <%= name %>
+    </div>
   </div>
-  <% end %>
+<% end %>
 </div>
-

@@ -1,6 +1,11 @@
-<p>If you're looking to submit an event head on over to our <%= link("event submissions form", to: Routes.event_submission_path(@conn, :new)) %></p>
+<p>
+  If you're looking to submit an event, head over to our
+  <%= link("event submissions form", to: Routes.event_submission_path(@conn, :new)) %>.
+</p>
 
-<small class="mb-2 form-text mt-4 text-muted">Required fields are denoted with <span style="color:red;">*</span></small>
+<small class="form-text text-muted mb-4">
+  Required fields are denoted with <span style="color:red;">*</span>
+</small>
 
 <%= form_for @changeset, @action, [multipart: true], fn f -> %>
   <%= if @changeset.action do %>
@@ -9,128 +14,129 @@
     </div>
   <% end %>
 
-  <div class="form-group row">
+  <div class="row mb-3">
     <div class="col-lg-8">
-      <%= label f, :type, class: "required col-form-label" %>
-      <% types = [{"--", ""}] ++ Enum.map(@types, fn(t) -> {humanize(t), t} end) %>
-      <%= select f, :type, types, required: true, selected: [""], required: true, class: "form-control" %>
+      <%= label f, :type, "* Type", class: "form-label" %>
+      <% types = [{"--", ""}] ++ Enum.map(@types, fn t -> {humanize(t), t} end) %>
+      <%= select f, :type, types, required: true, class: "form-control" %>
       <%= error_tag f, :type %>
     </div>
-
     <div class="col-lg-4">
-      <small class="form-text mt-4 text-muted">Select the category of news you believe this tip falls under. If you're not sure then simply select other.</small>
+      <small class="form-text mt-2 text-muted">
+        Select the news category. If unsure, choose "Other".
+      </small>
     </div>
   </div>
 
-  <div class="from-group row">
+  <div class="row mb-3">
     <div class="col-lg-8">
-      <%= label f, :who, class: "col-form-label required" %>
-      <%= text_input f, :who, required: true, class: "form-control"%>
+      <%= label f, :who, "* Who", class: "form-label" %>
+      <%= text_input f, :who, required: true, class: "form-control" %>
       <%= error_tag f, :who %>
     </div>
-
     <div class="col-lg-4">
-      <small class="form-text mt-4 text-muted">Who is this about? e.g., an app, lib, person, company. Feel free to tell us a little something about the subject as well.</small>
+      <small class="form-text mt-2 text-muted">
+        Who is this about? (App, library, person, company)
+      </small>
     </div>
   </div>
 
-  <div class="form-group row">
+  <div class="row mb-3">
     <div class="col-lg-8">
-      <%= label f, :what, class: "col-form-label required" %>
+      <%= label f, :what, "* What", class: "form-label" %>
       <%= textarea f, :what, required: true, class: "form-control" %>
       <%= error_tag f, :what %>
     </div>
-
-
     <div class="col-lg-4">
-      <small class="form-text mt-4 text-muted">What is this about? e.g., Did a release of a software happen? Is this related to an interview someone gave? Did a company make an announcement?</small>
+      <small class="form-text mt-2 text-muted">
+        What happened? (e.g., release, announcement)
+      </small>
     </div>
   </div>
 
-
-  <div class="form-group row">
+  <div class="row mb-3">
     <div class="col-lg-8">
-      <%= label f, :at_when, "When", class: "required col-form-label" %>
+      <%= label f, :at_when, "* When", class: "form-label" %>
       <%= textarea f, :at_when, required: true, class: "form-control" %>
       <%= error_tag f, :at_when %>
     </div>
-
-    <div class="col-sm-4">
-      <small class="form-text mt-4 text-muted">When did this happen? Or when is it happening?</small>
+    <div class="col-lg-4">
+      <small class="form-text mt-2 text-muted">
+        When did or will it happen?
+      </small>
     </div>
   </div>
 
-
-  <div class="form-group row">
+  <div class="row mb-3">
     <div class="col-lg-8">
-      <%= label f, :at_where, "Where", class: "required col-form-label" %>
+      <%= label f, :at_where, "* Where", class: "form-label" %>
       <%= textarea f, :at_where, required: true, class: "form-control" %>
       <%= error_tag f, :at_where %>
     </div>
-
     <div class="col-lg-4">
-      <small class="form-text mt-4 text-muted">Where did it happen? Or where will it happen? For most cases this might simply be a link or set of links, but feel free to tell us more.</small>
+      <small class="form-text mt-2 text-muted">
+        Where did or will it happen? (Link or place)
+      </small>
     </div>
   </div>
 
-  <div class="form-group row">
+  <div class="row mb-3">
     <div class="col-lg-8">
-      <%= label f, :why, class: "col-form-label" %>
+      <%= label f, :why, "Why", class: "form-label" %>
       <%= textarea f, :why, class: "form-control" %>
       <%= error_tag f, :why %>
     </div>
-
     <div class="col-lg-4">
-      <small class="form-text mt-4 text-muted">Why did it happen? Or why will it happen? This field is optional, but we encourage you to fill it out when it makes sense.</small>
+      <small class="form-text mt-2 text-muted">
+        Why did it happen? (Optional)
+      </small>
     </div>
   </div>
 
-  <div class="form-group row">
+  <div class="row mb-3">
     <div class="col-lg-8">
-      <%= label f, :how, class: "col-form-label" %>
+      <%= label f, :how, "How", class: "form-label" %>
       <%= textarea f, :how, class: "form-control" %>
       <%= error_tag f, :how %>
     </div>
-
     <div class="col-lg-4">
-      <small class="form-text mt-4 text-muted">How did it happen? Or how will it happen? This field is optional, but we encourage you to fill it out when it makes sense.</small>
+      <small class="form-text mt-2 text-muted">
+        How did it happen? (Optional)
+      </small>
     </div>
   </div>
 
-  <div class="form-group row">
+  <div class="row mb-3">
     <div class="col-lg-8">
-      <%= label f, :additional_info, class: "col-form-label"  %>
+      <%= label f, :additional_info, "Additional Info", class: "form-label" %>
       <%= textarea f, :additional_info, class: "form-control" %>
       <%= error_tag f, :additional_info %>
     </div>
-
     <div class="col-lg-4">
-      <small id="emailHelp" class="form-text mt-4 text-muted">Add any additional information you think helps support this news tip here.</small>
+      <small class="form-text mt-2 text-muted">
+        Any extra notes you want to share.
+      </small>
     </div>
   </div>
 
-  <div class="form-group row">
-
+  <div class="row mb-4">
     <div class="col-lg-8">
-      <%= label f, :supporting_documents %>
-      <div>
-        <%= file_input(f, "supporting_documents", multiple: true,  accept: "image/png, image/jpeg, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf") %>
+      <%= label f, :supporting_documents, "Supporting Documents", class: "form-label" %>
+      <div class="mb-2">
+        <%= file_input f, :supporting_documents, multiple: true, accept: "image/png, image/jpeg, application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" %>
       </div>
-
-      <div>
-        <%= file_input(f, "supporting_documents", multiple: true, accept: "image/png, image/jpeg, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf") %>
-      </div>
+      <%= error_tag f, :supporting_documents %>
     </div>
-
     <div class="col-lg-4">
-      <small class="form-text mt-4 text-muted">Feel free to attach up to two supporting images or documents. 
-        We accept jpeg, png, pdf, and docx files</small>
+      <small class="form-text mt-2 text-muted">
+        Attach up to 2 files (png, jpeg, pdf, docx).
+      </small>
     </div>
-
-    <%= error_tag f, :supporting_documents %>
   </div>
 
-  <div class="form-group row">
-    <%= submit "Submit", class: "btn btn-primary" %>
+  <div class="row">
+    <div class="col">
+      <%= submit "Submit", class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>

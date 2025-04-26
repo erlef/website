@@ -1,10 +1,10 @@
 <div class="container">
 <div class="row mb-2">
   <div class="col-sm-8">
-    <h2 class="ml-2">Editing Post</h2>
+    <h2 class="ms-2">Editing Post</h2>
   </div>
   <div class="col-md-1 offset-md-3">
-  <span><%= link "Back", to: Routes.blog_path(@conn, :show, @post.category, @post.slug), class: "btn btn-primary" %></span>
+    <span><%= link "Back", to: Routes.blog_path(@conn, :show, @post.category, @post.slug), class: "btn btn-primary" %></span>
   </div>
 </div>
 

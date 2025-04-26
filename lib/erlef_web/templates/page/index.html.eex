@@ -4,24 +4,24 @@
             <div class="row align-items-stretch">
                 <div class="col-lg-6 py-5">
                     <div style="position: relative; z-index: 100">
-                        <h1 class="mb-4 h3 font-weight-normal text-white">Erlang Ecosystem Foundation</h1>
-                        <h2 class="text-white font-weight-bold mb-4 display-4">Supporting the next generation of advanced, reliable, realtime applications</h2>
+                        <h1 class="mb-4 h3 fw-normal text-white">Erlang Ecosystem Foundation</h1>
+                        <h2 class="text-white fw-medium mb-4 display-4">Supporting the next generation of advanced, reliable, realtime applications</h2>
                         <p class="lead text-white">The Erlang Ecosystem Foundation is a 501(c)(3) not-for-profit organization supported by over 1,000 members who embrace its collaborative Working Group model, and community-building events.</p>
                         <p class="lead text-white">Our members include industry leaders who are dedicated to furthering state of the art for Erlang, Elixir, LFE and other technologies based on the BEAM.</p>
                         <a class="h3" href="https://members.erlef.org/join-us">Join Now →</a>
                     </div>
                 </div>
-                <div class="offset-lg-1 col-lg-5">
+                <div class="offset-lg-1 col-lg-5 position-relative">
                     <div class="d-flex flex-column h-100 py-0 py-md-5" style="position: relative; z-index: 100;">
-                        <h5 class="py-2 text-white font-weight-bold">Upcoming Events</h5>
+                        <h5 class="py-2 text-white fw-medium">Upcoming Events</h5>
                         <%= for event <- @events do %>
-                            <div class="event-card rounded bg-white  my-2 d-flex align-items-center">
-                                <div style="background-color: <%= event_organizer_color(event.organizer_brand_color) %>; height: 100%; width: 6rem;" class="p-2 p-md-4 mr-4 rounded-left event-card-image-wrapper d-flex align-items-center">
+                            <div class="event-card rounded bg-white my-2 d-flex align-items-center">
+                                <div style="background-color: <%= event_organizer_color(event.organizer_brand_color) %>; height: 100%; width: 6rem;" class="p-2 p-md-4 me-4 rounded-start event-card-image-wrapper d-flex align-items-center">
                                     <img src="<%= event_organizer_logo(event.organizer_brand_logo) %>" class="img-fluid d-block mx-auto event-card-list-image" alt="">
                                 </div>
                                 <div>
                                     <h4>
-                                        <%= link(event.title, to: event.url, class: "text-dark font-weight-bold") %>
+                                        <%= link(event.title, to: event.url, class: "text-dark fw-medium") %>
                                     </h4>
                                     <h5 class="mb-0"><%= event_dates(event.start, event.end) %></h5>
                                 </div>
@@ -52,7 +52,7 @@
         <div class="container">
             <div class="row mb-6">
                 <div class="col-md-12">
-                    <h2 class="text-white display-4 font-weight-bold">What does the Erlang Ecosystem Foundation do?</h2>
+                    <h2 class="text-white display-4 fw-medium">What does the Erlang Ecosystem Foundation do?</h2>
                     <p class="lead text-white">
                         In order to meet the needs of the ecosystem, the ErlEF sponsors Working Groups to solve specific challenges faced by users of BEAM technology. Areas of particular interest include documentation, interoperability, and performance.
                     </p>
