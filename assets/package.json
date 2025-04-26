@@ -33,7 +33,7 @@
     "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.9.2",
-    "sass": "~1.39.2",
+    "sass": "1.39.2",
     "sass-loader": "^16.0.5",
     "serialize-javascript": "^6.0.2",
     "webpack": "^5.99.6",
