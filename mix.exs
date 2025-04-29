@@ -61,7 +61,7 @@ defmodule Erlef.MixProject do
       {:gettext, "~> 0.26.0"},
       {:jason, "~> 1.3"},
       {:joken, "~> 2.4"},
-      {:honeybadger, "~> 0.23.0"},
+      {:honeybadger, "~> 0.24.0"},
       {:html_sanitize_ex, "~> 1.4"},
       {:hackney, "~> 1.18"},
       {:logflare_logger_backend, "~> 0.11.0"},
