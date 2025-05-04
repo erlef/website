@@ -296,6 +296,13 @@ config :erlef, :sponsors, [
     logo_url: "/images/sponsors/aleph.png",
     name: "Aleph Archives",
     url: "https://www.aleph-archives.com/"
+  },
+  %{
+    active: true,
+    is_founding_sponsor: false,
+    logo_url: "/images/sponsors/herrmann-ultraschall.png",
+    name: "Herrmann Ultraschall",
+    url: "https://www.herrmannultraschall.com/"
   }
 
 ]
