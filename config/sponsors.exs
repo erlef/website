@@ -304,5 +304,4 @@ config :erlef, :sponsors, [
     name: "Herrmann Ultraschall",
     url: "https://www.herrmannultraschall.com/"
   }
-
 ]
