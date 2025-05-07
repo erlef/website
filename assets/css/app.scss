@@ -1,5 +1,4 @@
-@import "custom";
-@import "~bootstrap/scss/bootstrap";
+@import "bootstrap";
 @import "../static/vendored/css/bootstrap-toc.css";
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "../node_modules/@yaireo/tagify/src/tagify";
@@ -26,7 +25,23 @@ h6 {
     font-weight: 400;
 }
 
+a {
+    text-decoration: none;
+}
 
+a,
+a.h1,
+a.h2,
+a.h3,
+a.h4,
+a.h5,
+a.h6 {
+    color: var(--bs-link-color);
+}
+
+.fc a {
+    color: inherit;
+}
 
 section {
     overflow: hidden;
@@ -46,8 +61,8 @@ section {
 }
 
 .btn-primary {
-    border-color: var(--primary);
-    background: var(--primary);
+    border-color: var(--bs-primary);
+    background: var(--bs-primary);
 }
 
 .btn-primary.active {
@@ -55,11 +70,11 @@ section {
 }
 
 .bg-brand-light {
-    background: var(--light);
+    background: var(--bs-light);
 }
 
 .bg-brand {
-    background-color: var(--dark);
+    background-color: var(--bs-dark);
 }
 
 

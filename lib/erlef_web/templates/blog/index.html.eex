@@ -52,7 +52,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 position-relative">
               <%= right_svg_hero() do %>
                 <img class="gradient-mask-right" style="height: 800px" src="/images/crowd.jpg" alt="">
               <% end %>

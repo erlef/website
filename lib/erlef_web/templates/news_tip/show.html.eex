@@ -1,57 +1,40 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-2">
-      <h1>News tip</h1>
+<div class="container mt-4">
+  <div class="row align-items-center mb-4">
+    <div class="col-sm-6">
+      <h1 class="h3">News Tip</h1>
     </div>
-    <div class="col-sm-2 offset-sm-6">
-       <span><%= link "Back to yours news tips", to: Routes.news_tip_path(@conn, :index) %></span>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <strong>Type:</strong>
-      <p>
-        <%= @news_tip.type %>
-      </p>
+    <div class="col-sm-6 text-sm-end">
+      <%= link "Back to Your News Tips", to: Routes.news_tip_path(@conn, :index), class: "btn btn-outline-primary" %>
     </div>
   </div>
 
-  <div>
-    <strong>Who:</strong>
-  <p>
-    <%= @news_tip.who %>
-  </p>
-  </div>
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <dl class="row">
+        <dt class="col-sm-3">Type:</dt>
+        <dd class="col-sm-9"><%= @news_tip.type %></dd>
 
-  <div>
-    <strong>What:</strong>
-    <p><%= @news_tip.what %></p>
-  </div>
+        <dt class="col-sm-3">Who:</dt>
+        <dd class="col-sm-9"><%= @news_tip.who %></dd>
 
-  <div>
-    <strong>When:</strong>
-    <p><%= @news_tip.at_when %></p>
-  </div>
+        <dt class="col-sm-3">What:</dt>
+        <dd class="col-sm-9"><%= @news_tip.what %></dd>
 
-  <div>
-    <strong>Where:</strong>
-    <p><%= @news_tip.at_where %></p>
-  </div>
+        <dt class="col-sm-3">When:</dt>
+        <dd class="col-sm-9"><%= @news_tip.at_when %></dd>
 
-  <div>
-    <strong>Why:</strong>
-    <p><%= @news_tip.why %> </p>
-  </div>
+        <dt class="col-sm-3">Where:</dt>
+        <dd class="col-sm-9"><%= @news_tip.at_where %></dd>
 
-  <div>
-    <strong>How:</strong>
-    <p><%= @news_tip.how %></p>
-  </div>
+        <dt class="col-sm-3">Why:</dt>
+        <dd class="col-sm-9"><%= @news_tip.why %></dd>
 
-  <div>
-    <strong>Additional info:</strong>
-    <p><%= @news_tip.additional_info %></p>
+        <dt class="col-sm-3">How:</dt>
+        <dd class="col-sm-9"><%= @news_tip.how %></dd>
+
+        <dt class="col-sm-3">Additional Info:</dt>
+        <dd class="col-sm-9"><%= @news_tip.additional_info %></dd>
+      </dl>
+    </div>
   </div>
-  
 </div>

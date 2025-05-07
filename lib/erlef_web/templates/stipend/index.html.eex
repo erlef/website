@@ -3,17 +3,16 @@
   <h2>Stipend request process</h2>
   <hr />
   <div class="row">
-    <%= render( "sidebar.html", assigns) %>
+    <%= render("sidebar.html", assigns) %>
 
     <div class="col-sm-10 mb-2">
       <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="intro" role="tabpanel"
-                                                          aria-labelledby="pills-home-tab">
+        <div class="tab-pane fade show active" id="intro" role="tabpanel" aria-labelledby="pills-home-tab">
           <p>
-          It is our great pleasure to announce that we have just opened our stipend program. The goal of it is to
-          fund open source development, trainings, workshops and other initiatives that will help increase
-          and expand the Beam community. These stipends are funded by our <a href="/sponsors/">sponsors</a>,
-          membership fees and donations.
+            It is our great pleasure to announce that we have just opened our stipend program. The goal of it is to
+            fund open source development, trainings, workshops and other initiatives that will help increase
+            and expand the Beam community. These stipends are funded by our <a href="/sponsors/">sponsors</a>,
+            membership fees and donations.
           </p>
           <p>The current focus of the foundation is on increasing and
           expanding the
@@ -46,9 +45,9 @@
           organizer and/or city that are stipended within a given year. </p>
 
           <p>
-          If you want to apply for a stipend, fill out the form <a href="/stipends/form?type=devel_work">here</a>.
-          If you have any questions please reach out to
-          <a href="mailto:stipends@erlef.org">stipends@erlef.org</a>
+            If you want to apply for a stipend, fill out the form <a href="/stipends/form?type=devel_work">here</a>.
+            If you have any questions please reach out to
+            <a href="mailto:stipends@erlef.org">stipends@erlef.org</a>
           </p>
         </div>
       </div>

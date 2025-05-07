@@ -1,9 +1,9 @@
-<main role="main" class="container mt-4">
+<main class="container mt-4" role="main">
   <%= if @post.status != :published do %>
-    <h5>Showing <%= humanize(@post.status)%> post</h5>
+    <h5>Showing <%= humanize(@post.status) %> post</h5>
   <% end %>
   <div class="row">
-    <div class="col-lg-8 blog-main">
+    <div class="col-lg-8">
       <div class="blog-post">
         <h2 class="blog-post-title"><%= @post.title %></h2>
         <div class="blog-post-meta">
@@ -13,11 +13,11 @@
           </div>
           <div class="row mt-1">
             <div class="col">
-              <span class="mr-1">Tags</span>
+              <span class="me-1">Tags</span>
               <%= for t <- @post.tags do %>
                 <span style="font-size: 0.8rem;">
-                  <%= link(to: Routes.blog_path(ErlefWeb.Endpoint, :tags, t), class: "blog-tag badge badge-pill badge-primary") do %>
-                    <i class="fas fa-tag mr-1 mt-1"></i><%= blog_tag_name(t) %>
+                  <%= link(to: Routes.blog_path(ErlefWeb.Endpoint, :tags, t), class: "blog-tag badge rounded-pill bg-primary") do %>
+                    <i class="fas fa-tag me-1 mt-1"></i><%= blog_tag_name(t) %>
                   <% end %>
                 </span>
               <% end %>
@@ -29,10 +29,10 @@
     </div>
     <div class="col-md-4 mb-4">
       <%= if logged_in?(assigns) && allowed_to_edit?(assigns, @post) do %>
-      <%= render(ErlefWeb.BlogView, "post_sidebar.html", assigns) %>
+        <%= render(ErlefWeb.BlogView, "post_sidebar.html", assigns) %>
       <% end %>
       <%= if @post.status == :published do %>
-      <%= render(ErlefWeb.BlogView, "recent_posts.html", latest_news: @latest_news, all_tags: @all_tags) %>
+        <%= render(ErlefWeb.BlogView, "recent_posts.html", latest_news: @latest_news, all_tags: @all_tags) %>
       <% end %>
     </div>
   </div>
@@ -42,12 +42,11 @@
   // Discard local storage if created the post
   if (typeof(Storage) !== "undefined") {
     try {
-      post = JSON.parse(localStorage.post)
-
+      var post = JSON.parse(localStorage.post);
       if (post["post_id"] == "new"
         && "<%= @post.status %>" == "draft"
-        && "<%= @post.title %>" == post["post_title"]){
-        localStorage.post = null
+        && "<%= @post.title %>" == post["post_title"]) {
+        localStorage.post = null;
       }      
     } catch (err) {}
   }

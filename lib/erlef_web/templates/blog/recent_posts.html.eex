@@ -1,25 +1,25 @@
-  <div class="recent-posts-widget card mb-4 shadow-sm rounded">
-    <div class="mb-1">Recent posts</div>
-    <%= for p <- @latest_news do %>
-      <div>
-        <%= link p.title, to: Routes.blog_path(ErlefWeb.Endpoint, :show, p.category, p.slug) %>
-        <div class="blog-post-meta" style="margin-bottom:0.5rem;">
-          <%= byline(p) %>
-        </div>
-      </div>
-    <% end %>
-    <hr/>
+<div class="recent-posts-widget card mb-4 shadow-sm rounded">
+  <div class="mb-1">Recent posts</div>
+  <%= for p <- @latest_news do %>
     <div>
-      <div class="row">
-        <div class="col">
-          <%= for t <- @all_tags do %>
-            <span>
-            <%= link(to: Routes.blog_path(ErlefWeb.Endpoint, :tags, t), class: "blog-tag badge badge-pill badge-primary") do %>
-            <i class="fas fa-tag mr-1 mt-1"></i><%= blog_tag_name(t) %>
-          <% end %>
-            </span>
-          <% end %>
-        </div>
+      <%= link p.title, to: Routes.blog_path(ErlefWeb.Endpoint, :show, p.category, p.slug) %>
+      <div class="blog-post-meta mb-2">
+        <%= byline(p) %>
+      </div>
+    </div>
+  <% end %>
+  <hr/>
+  <div>
+    <div class="row">
+      <div class="col">
+        <%= for t <- @all_tags do %>
+          <span>
+            <%= link(to: Routes.blog_path(ErlefWeb.Endpoint, :tags, t), class: "blog-tag badge rounded-pill bg-primary") do %>
+              <i class="fas fa-tag me-1 mt-1"></i><%= blog_tag_name(t) %>
+            <% end %>
+          </span>
+        <% end %>
       </div>
     </div>
   </div>
+</div>

@@ -25,22 +25,24 @@ span.help-block {
     </p>
 
     <%= form_for @changeset, Routes.event_submission_path(@conn, :create), [multipart: true], fn f -> %>
-      <div class="form-row">
+      <div class="row">
         <div class="col-md-4 mb-2">
           <%= label f, :title, "* Event Title" %>
           <%= text_input f, :title, class: "form-control", required: true, placeholder: "Event Title" %>
-            <%= error_tag f, :title %>
+          <%= error_tag f, :title %>
         </div>
 
-        <div class="form-group" style="margin-top:2em; margin-left: 1.5rem;">
-          <%= label f, :type, "* Event Type" %>
-          <%= select(f, :type, @event_types, required: true, style: "margin-left:1em;") %>
-          <%= error_tag f, :type %>
+        <div class="col-md-4 mb-2 d-flex align-items-end" style="margin-top:2em;">
+          <div class="w-100">
+            <%= label f, :type, "* Event Type" %>
+            <%= select(f, :type, @event_types, required: true, class: "form-select") %>
+            <%= error_tag f, :type %>
+          </div>
         </div>
       </div>
 
-      <div class="form-group">
-        <%= label f, :description, "* Description"%>
+      <div class="mb-3">
+        <%= label f, :description, "* Description" %>
         <%= textarea f, :description, class: "form-control", required: true, placeholder: "Full description" %>
         <%= error_tag f, :description %>
         <small class="form-text text-muted">
@@ -48,7 +50,7 @@ span.help-block {
         </small>
       </div>
 
-      <div class="form-row">
+      <div class="row">
         <div class="col-md-4 mb-2">
           <%= label f, :start, "* Event Start" %>
           <%= date_input f, :start, class: "form-control", required: true %>
@@ -57,18 +59,18 @@ span.help-block {
 
         <div class="col-md-4 mb-2">
           <%= label f, :end, "* Event End" %>
-          <%= date_input f, :end, class: "form-control", required: true%>
+          <%= date_input f, :end, class: "form-control", required: true %>
           <%= error_tag f, :end %>
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="mb-3">
         <%= label f, :url, "* Event URL" %>
         <%= url_input f, :url, class: "form-control", required: true, placeholder: "Event URL" %>
         <%= error_tag f, :url %>
       </div>
 
-      <div class="form-row">
+      <div class="row">
         <div class="col-md-4 mb-2">
           <%= label f, :organizer, "* Organizer" %>
           <%= text_input f, :organizer, class: "form-control", required: true, placeholder: "Organizer" %>
@@ -80,7 +82,6 @@ span.help-block {
           <%= color_input f, :organizer_brand_color, value: "#efefef", class: "form-control" %>
           <%= error_tag f, :organizer_brand_color %>
         </div>
-
 
         <div class="col-md-4 mb-2">
           <%= label f, :organizer_brand_logo, "Organizer Brand Logo" %>
@@ -94,7 +95,7 @@ span.help-block {
       </div>
 
       <%= hidden_input f, :submitted_by, value: assigns.current_user.id %>
-      <%= submit "Submit", class: "btn btn-primary" %>
+      <%= submit "Submit", class: "btn btn-primary mt-3" %>
     <% end %>
   </div>
   <!-- /.container -->

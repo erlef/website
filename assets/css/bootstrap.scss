@@ -1,0 +1,20 @@
+/* Bootstrap 5 overrides :
+   See https://getbootstrap.com/docs/5.0/customize/sass/ for details
+*/
+
+$primary: #4CA9E7;
+$dark: #1F2C34;
+$light: #f8f5f6;
+
+// Component active state colors
+$component-active-color: $dark;
+$component-active-bg: $light;
+
+// Display font sizes
+$display-4-size: 3rem;
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/bootstrap";

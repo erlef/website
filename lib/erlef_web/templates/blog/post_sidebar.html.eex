@@ -3,7 +3,7 @@
     <ul class="nav nav-pills flex-column">
       <%= if assigns[:post] do %>
         <li class="nav-item">
-          <%= link to: Routes.blog_path(ErlefWeb.Endpoint, :edit,  @post.slug), class: "nav-link" do %>
+          <%= link to: Routes.blog_path(ErlefWeb.Endpoint, :edit, @post.slug), class: "nav-link" do %>
             <i class="fas fa-edit"></i> Edit Post
           <% end %>
         </li>
@@ -15,13 +15,13 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="modal" data-target="#confirmModal" style="cursor: pointer;">
+              <a class="nav-link" data-bs-toggle="modal" data-bs-target="#confirmModal" style="cursor: pointer;">
                 <i class="fas fa-trash-alt"></i> Delete post
               </a>
             </li>
           <% :published -> %>
             <li class="nav-item"> 
-              <a class="nav-link" data-toggle="modal" data-target="#confirmModal" style="cursor: pointer;">
+              <a class="nav-link" data-bs-toggle="modal" data-bs-target="#confirmModal" style="cursor: pointer;">
                 <i class="fas fa-archive"></i> Archive post
               </a>
             </li>
@@ -49,8 +49,8 @@
 
 <%= if assigns[:post] do %>
 <!-- Archive confirmation Modal -->
-<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="confirmModalLabel">
@@ -62,17 +62,14 @@
             <% _ -> %>
           <% end %>
         </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
           <label>Write <strong><%= @post.slug %></strong> to confirm</label>
-          <input type="text" placeholder="<%= @post.slug %>"
-            class="form-control" oninput="check_slug(this)">
+          <input type="text" placeholder="<%= @post.slug %>" class="form-control" oninput="check_slug(this)">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <%= case @post.status do %>
             <% :draft -> %>
               <%= button to: Routes.blog_path(@conn, :delete, @post.slug), method: :delete,
@@ -86,20 +83,19 @@
               <% end %>
             <% _ -> %>
           <% end %>
-        
       </div>
     </div>
   </div>
 </div>
+
 <script>
   function check_slug(el) {
-    slug = el.value
+    var slug = el.value;
     if (slug == "<%= @post.slug %>") {
-      document.getElementById("confirm-button").removeAttribute("disabled")
+      document.getElementById("confirm-button").removeAttribute("disabled");
     } else {
-      document.getElementById("confirm-button").setAttribute("disabled", "")
+      document.getElementById("confirm-button").setAttribute("disabled", "");
     }
   }
-
 </script>
 <% end %>

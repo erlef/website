@@ -1,17 +1,21 @@
-    <h1 class="display-5 font-weight-bold"><%= @wg.name %> Working Group</h1>
-    <p class="lead">
-      <%= @wg.description %>
-    </p>
-    <%= raw @wg.charter_html %>
-    <h4>Current Working Group Chairs</h4>
-      <ul>
-        <%= for %{name: name} = member <- @wg.volunteers do %> 
-          <%= if Erlef.Groups.is_chair?(@wg, member) do %>
-            <li><%= name %></li>
-          <% end %>
-        <% end %>
-      </ul>
+<h1 class="display-5 fw-medium">
+  <%= @wg.name %> Working Group
+</h1>
+<p class="lead">
+  <%= @wg.description %>
+</p>
+<%= raw @wg.charter_html %>
+<h4>Current Working Group Chairs</h4>
+<ul>
+  <%= for %{name: name}=member <- @wg.volunteers do %>
+    <%= if Erlef.Groups.is_chair?(@wg, member) do %>
+      <li>
+        <%= name %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
 
-      <div class="mt-5">
-        <%= render_shared "gallery.html", Map.put(assigns, :members, Enum.shuffle(@wg.volunteers)) %>
-      </div>
+<div class="mt-5">
+  <%= render_shared "gallery.html" , Map.put(assigns, :members, Enum.shuffle(@wg.volunteers)) %>
+</div>

@@ -2,7 +2,7 @@
 <div class="py-3 mb-1">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 pr-5">
+      <div class="col-lg-8 pe-5">
         <%= @inner_content %>
       </div>
       <div class="col-lg-4">
@@ -12,4 +12,3 @@
   </div>
 </div>
 <% end %>
-

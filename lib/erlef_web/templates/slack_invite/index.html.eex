@@ -3,17 +3,14 @@
     <h3>Keep your 👀 peeled for an invitation email to <%= @team %>.slack.com</h3>
   <% else %>
     <h3>Get an invite to <%= @team %>.slack.com</h3>
-    <div class="form-group">
-    <%= form_for @conn, Routes.slack_invite_path(@conn, :create, @team), [], fn f -> %>
+    <div class="mb-3">
+      <%= form_for @conn, Routes.slack_invite_path(@conn, :create, @team), [], fn f -> %>
 
-      <%= email_input(f, :email, placeholder: "Enter email") %>
+        <%= email_input(f, :email, placeholder: "Enter email", class: "form-control mb-3") %>
 
-      <br/>
+        <%= submit "Submit", class: "btn btn-primary" %>
 
-      <%= submit "Submit", class: "btn-primary" %>
-
-    <% end %>
-
+      <% end %>
     </div>
   <% end %>
 </div>

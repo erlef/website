@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <h1 class="display-4 font-weight-bold">Posts with tag <%= @tag %> found</h1>
+  <h1 class="display-4 fw-medium">Posts with tag <%= @tag %> found</h1>
   <div class="row">
     <div class="col-lg-8">
       <%= for p <- @posts do %> 
@@ -11,7 +11,7 @@
             <a href="/blog/<%= p.category %>/<%= p.slug %>" class="card-link">Read more</a>
           </div>
         </div>
-        <% end %>
+      <% end %>
     </div>
     <div class="col-md-4 mb-4">
       <%= if logged_in?(assigns) && allowed_to_post?(assigns) do %>

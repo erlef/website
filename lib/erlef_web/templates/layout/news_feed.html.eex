@@ -18,7 +18,7 @@
           <h4><%= link(story.title, to:  Routes.blog_path(@conn, :show, story.category, story.slug)) %></h4>
         </div>
         <div class="d-flex align-items-center mt-4">
-          <div class="avatar mr-2 rounded-circle">
+          <div class="avatar me-2 rounded-circle">
             <img class="img-fluid" src="<%= Routes.static_path(@conn, "/images/eef-avatar.png") %>" alt="" />
           </div>
           <div>

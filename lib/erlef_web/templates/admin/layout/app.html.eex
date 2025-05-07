@@ -13,7 +13,7 @@
     <meta property="og:description" content="Supporting the BEAM Community">
     <meta property="og:url" content="https://erlef.org/admin/">
     <meta property="og:image" content="https://gdurl.com/ztSu">
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/admin.css") %>"> 
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/admin.css") %>">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/codemirror.min.css") %>">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/toastui-editor.min.css") %>">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/datatables.min.css") %>">
@@ -46,23 +46,29 @@
                 <%= raw flash %>
               </div>
             <% end %>
+
             <div class="row">
               <div class="col-sm-6">
-                <h3><%= view_title(assigns) %></h3>
+                <h3 class="mb-0"><%= view_title(assigns) %></h3>
               </div>
               <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                  <% current = current_path_segment(@conn) %>
-                  <%= for {part, path} <- bread_crumbs(@conn) do %>
-                    <%= if part == current do %>
-                      <li class="breadcrumb-item active"><%= breadcrumb_name(part) %></li>
-                    <% else %>
-                      <li class="breadcrumb-item"><a href="<%= path %>"><%= breadcrumb_name(part) %></a></li>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end mb-0">
+                    <% current = current_path_segment(@conn) %>
+                    <%= for {part, path} <- bread_crumbs(@conn) do %>
+                      <%= if part == current do %>
+                        <li class="breadcrumb-item active" aria-current="page"><%= breadcrumb_name(part) %></li>
+                      <% else %>
+                        <li class="breadcrumb-item">
+                          <a href="<%= path %>"><%= breadcrumb_name(part) %></a>
+                        </li>
+                      <% end %>
                     <% end %>
-                  <% end %>
-                </ol>
+                  </ol>
+                </nav>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -81,8 +87,6 @@
       </aside>
 
       <%= render "footer.html", conn: @conn, current_user: @current_user %>
-
-    </div>
     </div>
   </body>
 </html>

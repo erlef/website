@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let calendar = new Calendar(calendarEl, {
             plugins: [listPlugin, dayGridPlugin, bootstrapPlugin],
             navLinks: navLinks,
-            themeSystem: 'bootstrap',
+            themeSystem: 'bootstrap5',
             timeZone: "local",
             views: {
                 listMonth: {
