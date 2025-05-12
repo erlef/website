@@ -1,5 +1,4 @@
 <div>
   <%= link @post.title, to: Routes.blog_path(ErlefWeb.Endpoint, :show, @topic, @post.slug) %>
-  <div class="blog-post-meta" style="margin-bottom:0.5rem;"><%= byline(@post) %></div>
-  </span>
+  <div class="blog-post-meta mb-2"><%= byline(@post) %></div>
 </div>

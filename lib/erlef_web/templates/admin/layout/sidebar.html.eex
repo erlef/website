@@ -3,29 +3,22 @@
   <!-- Brand Logo -->
   <a href="/" class="brand-link">
     <img src="/images/eef-logo-1.png" alt="Erlef Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">EEF</span>
+    <span class="brand-text fw-light">EEF</span>
   </a>
 
   <!-- Sidebar -->
   <div class="sidebar">
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar text-sm flex-column" data-widget="treeview" role="menu">
-
-        <%= nav_link(to: Routes.admin_event_path(@conn, :index), name: "Events", icon: "fa-calendar-alt") %>
-
-        <%= nav_link(to: Routes.admin_email_request_path(@conn, :index), name: "Email Requests", icon: "fa-envelope") %>
-
-        <%= nav_link(to: Routes.admin_sponsor_path(@conn, :index), name: "Sponsors", icon: "fa-hand-holding-heart") %>
-
-        <%= nav_link(to: Routes.admin_working_group_path(@conn, :index), name: "Working Groups", icon: "fa-users-cog") %>
-
-        <%= nav_link(to: Routes.admin_volunteer_path(@conn, :index), name: "Volunteers", icon: "fa-user") %>
-
+      <ul class="nav nav-pills nav-sidebar flex-column text-sm" data-widget="treeview" role="menu">
         
+        <%= nav_link(to: Routes.admin_event_path(@conn, :index), name: "Events", icon: "fa-calendar-alt") %>
+        <%= nav_link(to: Routes.admin_email_request_path(@conn, :index), name: "Email Requests", icon: "fa-envelope") %>
+        <%= nav_link(to: Routes.admin_sponsor_path(@conn, :index), name: "Sponsors", icon: "fa-hand-holding-heart") %>
+        <%= nav_link(to: Routes.admin_working_group_path(@conn, :index), name: "Working Groups", icon: "fa-users-cog") %>
+        <%= nav_link(to: Routes.admin_volunteer_path(@conn, :index), name: "Volunteers", icon: "fa-user") %>
         <%= nav_link(to: Routes.admin_app_path(@conn, :index), name: "Apps", icon: "fa-rocket") %>
-
         <%= nav_link(to: Routes.live_dashboard_path(@conn, :home), name: "Live dashboard", icon: "fa-tachometer-alt", target: "_blank") %>
- 
+
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

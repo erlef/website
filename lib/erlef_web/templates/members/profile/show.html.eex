@@ -11,100 +11,96 @@
         <li><strong>Email:</strong> <%= @current_user.email %></li>
         <li><strong>Member since:</strong> <%= member_since(@current_user) %></li>
         <li><strong>Member level:</strong> <%= member_level(@current_user) %></li>
-        <li>
-
       </ul>
 
       <hr class="mb-4"/>
       <h1>Requests</h1>
+
       <%= if is_paying?(@current_user) do %>
         <h2>Erlef Email Request</h2>
       <% end %>
 
       <%= if is_paying?(@current_user) && not @current_user.has_email_address && not @has_email_request do %> 
         <div class="alert alert-info" role="alert">
-          You are eligible for a erlef.org email address or alias. 
+          You are eligible for an erlef.org email address or alias. 
           <%= link("Click here to opt in", to: Routes.members_email_request_path(@conn, :new)) %>
         </div>
       <% end %>
 
       <%= if @has_email_request do %>
-        <p>You submitted a request for an erlef.org address. Details are below : </p>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Status</th>
-              <th>Requested name</th>
-              <th>Submitted on</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td><%= humanize(@email_request.type) %></td>
-              <td><%= humanize(@email_request.status) %></td>
-              <td><%= @email_request.username %></td>
-              <td><%= to_date_string(@email_request.inserted_at) %></td>
-            </tr>
-          </tbody>
-        </table>
+        <p>You submitted a request for an erlef.org address. Details are below:</p>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Requested name</th>
+                <th>Submitted on</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= humanize(@email_request.type) %></td>
+                <td><%= humanize(@email_request.status) %></td>
+                <td><%= @email_request.username %></td>
+                <td><%= to_date_string(@email_request.inserted_at) %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       <% end %>
 
-      <h2>Erlef Slack invite</h2>
-      <p>Request an invite to the Erlef slack workspace</p>
+      <h2>Erlef Slack Invite</h2>
+      <p>Request an invite to the Erlef Slack workspace</p>
       <%= if @current_user.has_requested_slack_invite do %>
-        You previously requested an invite to Erlef slack on <%= long_date(@current_user.requested_slack_invite_at) %>. If you did not receive an invite or you are having related problems, please contact <a href="mailto:infra@erlef.org">infra@erlef.org</a> describing the issue you having.
+        You previously requested an invite on <%= long_date(@current_user.requested_slack_invite_at) %>. If you did not receive it or are having related problems, please contact <a href="mailto:infra@erlef.org">infra@erlef.org</a>.
       <% else %>
-        <%= link("Send me a slack invite", to: Routes.members_slack_invite_path(@conn, :create), class: "btn btn-primary", method: :post) %>
+        <%= link("Send me a Slack invite", to: Routes.members_slack_invite_path(@conn, :create), class: "btn btn-primary", method: :post) %>
       <% end %>
 
-      <hr class="mb-4" />
+      <hr class="mb-4"/>
 
       <%= if @conference_perks_on do %>
-      <h1>Conference Perks</h1>
-      <p>From time to time we are able to offer our members discounts on tickets to conferences and other related perks.</p>
+        <h1>Conference Perks</h1>
+        <p>We sometimes offer members discounts or perks related to conferences.</p>
 
-      <% code_beam_perks = @conference_perks.code_beam_v_2021 %>
-      <%= if Date.compare(code_beam_perks.ends, Date.utc_today()) in [:gt, :eq] do %> 
-        <h2>Code BEAM V 2021 - America</h2>
-
-        <h3>Discount codes</h3>
         <% code_beam_perks = @conference_perks.code_beam_v_2021 %>
-        <% discount_link = code_beam_perks.discount.link %>
-        <p>Get a 30% discount on Code Beam V 2021 tickets <a href="<%= discount_link %>">here</a>.</p>
+        <%= if Date.compare(code_beam_perks.ends, Date.utc_today()) in [:gt, :eq] do %> 
+          <h2>Code BEAM V 2021 - America</h2>
 
-        <h3>Streaming video access</h3>
-        <%= if @video_perks_on do %>
-          <p>We are able to offer steaming video access to members for certain events at Code BEAM V America 2021, regardless of whether you have a ticket or not. Check back here starting the day of the conference up until the end of the conference for links to watch the foundation keynote live and Birds of a Feather sessions</p>
-          <p><b>Note:</b>&nbsp;We trust our members and as such we trust you will not share the links below with the general public.</p>
-        
-        <h4>Keynote</h4>
-          <% keynote_link = code_beam_perks.keynote.link %>
-          <ul>
-            <li><b>Starts at :</b> <%= long_date_time(code_beam_perks.keynote.starts) %> UTC</li>
-            <li><b>Ends at   :</b> <%= long_date_time(code_beam_perks.keynote.starts) %> UTC</li>
-          </ul>
-          <p><a href="<%= keynote_link %>">Click here to watch the foundation keynote live</a></p>
-          
-          <h4>Birds of a Feather sessions</h4>
-          <% bof_link = code_beam_perks.bof.link %>
-          <ul>
-            <li><b>Starts at :</b> <%= long_date_time(code_beam_perks.bof.starts) %> UTC</li>
-            <li><b>Ends at   :</b> <%= long_date_time(code_beam_perks.bof.ends) %> UTC</li>
-          </ul>
-          <p><a href="<%= bof_link %>">Click here to watch and participate in Birds of Feather</a></p>
-        <% else %>
-          <p> Stay tuned. We will be providing members access to certain key events at Code BEAM 2021 V - America</p>
+          <h3>Discount Codes</h3>
+          <p>Get a 30% discount on Code BEAM V 2021 tickets <a href="<%= code_beam_perks.discount.link %>">here</a>.</p>
+
+          <h3>Streaming Video Access</h3>
+          <%= if @video_perks_on do %>
+            <p>We offer streaming video access for certain events at Code BEAM V 2021, regardless of ticket ownership. Links available the day of the conference.</p>
+            <p><strong>Note:</strong> Please do not share these links publicly.</p>
+
+            <h4>Keynote</h4>
+            <ul>
+              <li><strong>Starts at:</strong> <%= long_date_time(code_beam_perks.keynote.starts) %> UTC</li>
+              <li><strong>Ends at:</strong> <%= long_date_time(code_beam_perks.keynote.ends) %> UTC</li>
+            </ul>
+            <p><a href="<%= code_beam_perks.keynote.link %>">Watch the keynote live</a></p>
+
+            <h4>Birds of a Feather Sessions</h4>
+            <ul>
+              <li><strong>Starts at:</strong> <%= long_date_time(code_beam_perks.bof.starts) %> UTC</li>
+              <li><strong>Ends at:</strong> <%= long_date_time(code_beam_perks.bof.ends) %> UTC</li>
+            </ul>
+            <p><a href="<%= code_beam_perks.bof.link %>">Join the Birds of a Feather sessions</a></p>
+          <% else %>
+            <p>Streaming links will be shared closer to the event date.</p>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
 
       <hr class="mb-4"/>
       <h1 class="mb-4">Member Settings</h1>
       <p>
-      <a target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Click here</a>
-      to view more manage your memberships details and subscription. 
+        <a target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Click here</a>
+        to manage your membership details and subscription.
       </p>
     </div>
   </div>

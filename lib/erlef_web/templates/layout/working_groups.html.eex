@@ -2,7 +2,7 @@
     <div class="row">
         <%= for group <- @working_groups do %>
             <div class="col-md-4 mb-5">
-                <h3 class="font-weight-bold"><a href="/wg/<%= group.slug %>">
+                <h3 class="fw-medium"><a href="/wg/<%= group.slug %>">
                     <%= group.name %></a></h3>
                 <p class="text-white"><%=  group.description %></p>
                 <a href="/wg/<%= group.slug %>">
@@ -10,7 +10,7 @@
             </div>
         <% end %>
         <div class="col-md-4 mb-5">
-            <h3 class="font-weight-bold text-white">Participating</h3>
+            <h3 class="fw-medium text-white">Participating</h3>
             <p class="text-white">Do you have an idea for a working group? Anyone can start one by following these steps:</p>
             <ul>
                 <li class="text-white">Fill out the Proposal Template: <a class="d-block" href="/wg-proposal-template">Proposal Template</a></li>
@@ -20,4 +20,3 @@
     </div>
     <!--row-->
 </div>
-

@@ -7,118 +7,111 @@
         </div>
       <% end %>
 
-      <div class="form-group">
+      <div class="mb-3">
         <%= label f, :title %>
-        <%= text_input f, :title, class: "form-control form-control-lg", oninput: "save(this)"%>
+        <%= text_input f, :title, class: "form-control form-control-lg", oninput: "save(this)" %>
         <%= error_tag f, :title %>
         <%= error_tag f, :slug %>
       </div>
 
-      <div class="form-group">
+      <div class="mb-3">
         <%= label f, :authors %>
-        <div class="input-group flex-row">
-          <%= text_input f, :authors, class: "post-form-authors", value: authors_value(f), onchange: "save(this)"%>
+        <div class="input-group">
+          <%= text_input f, :authors, class: "post-form-authors form-control", value: authors_value(f), onchange: "save(this)" %>
           <button type="button" class="btn btn-primary">+</button>
         </div>
         <%= error_tag f, :authors %>
       </div>
 
-      <div class="form-group">
+      <div class="mb-3">
         <%= label f, :category %>
-        <%= select f, :category, @categories, class: "form-control", oninput: "save(this)"%>
+        <%= select f, :category, @categories, class: "form-control", oninput: "save(this)" %>
         <%= error_tag f, :category %>
       </div>
 
-      <div class="form-group">
+      <div class="mb-3">
         <%= label f, :tags %>
-        <%= text_input f, :tags, class: "post-form-tags", value: tags_value(f), onchange: "save(this)"%>
+        <%= text_input f, :tags, class: "post-form-tags form-control", value: tags_value(f), onchange: "save(this)" %>
         <%= error_tag f, :tags %>
       </div>
 
-
-      <div class="mb-1"></div>
-
-      <div class="form-group">
+      <div class="mb-3">
         <%= label f, :excerpt %>
-        <%= textarea f, :excerpt, class: "form-control", oninput: "save(this)"%>
+        <%= textarea f, :excerpt, class: "form-control", oninput: "save(this)" %>
         <%= error_tag f, :excerpt %>
       </div>
 
-      <div class="form-group">
+      <div class="mb-3">
         <%= label f, :body %>
-        <%= hidden_input f, :body, class: "form-control"%>
+        <%= hidden_input f, :body, class: "form-control" %>
         <%= error_tag f, :body %>
         <div id="body-editor"></div>
       </div>
 
-    <div>
-      <%= submit "Save", class: "btn btn-primary" %>
+      <div>
+        <%= submit "Save", class: "btn btn-primary" %>
+      </div>
     </div>
   <% end %>
   <div id="blog_categories" style="display:none;"><%= Jason.encode!(@categories) %></div>
 </div>
-</div>
+
 <script>
   if (typeof(Storage) !== "undefined") {
-
     function get_post() {
-      return JSON.parse(localStorage.post)};
-
-    function save_post(post) {localStorage.post = JSON.stringify(post)};
-
+      return JSON.parse(localStorage.post);
+    }
+    function save_post(post) {
+      localStorage.post = JSON.stringify(post);
+    }
     function save(el) {
-      post = get_post();
+      var post = get_post();
       post[el.id] = el.value;
       post["updated_at"] = Math.floor((new Date()).getTime() / 1000);
       save_post(post);
-    };
-
+    }
     function new_post() {
       return {
-      "post_id": "<%= @changeset.data.id || "new" %>",
-      "post_title": "<%= javascript_escape(@changeset.data.title || "") %>",
-      "post_category": "<%= @changeset.data.category || hd(@categories)%>",
-      "post_authors": "<%= Enum.join(@changeset.data.authors || [], ", ") %>",
-      "post_tags": "<%= Enum.join(@changeset.data.tags, ", ") %>",
-      "post_excerpt": "<%= javascript_escape(@changeset.data.excerpt || "") %>",
-      "post_body": "<%= javascript_escape(@changeset.data.body || "") %>",
-      "updated_at": "0"
+        "post_id": "<%= @changeset.data.id || "new" %>",
+        "post_title": "<%= javascript_escape(@changeset.data.title || "") %>",
+        "post_category": "<%= @changeset.data.category || hd(@categories) %>",
+        "post_authors": "<%= Enum.join(@changeset.data.authors || [], ", ") %>",
+        "post_tags": "<%= Enum.join(@changeset.data.tags, ", ") %>",
+        "post_excerpt": "<%= javascript_escape(@changeset.data.excerpt || "") %>",
+        "post_body": "<%= javascript_escape(@changeset.data.body || "") %>",
+        "updated_at": "0"
       }
     }
-
     try {
-      post = get_post()
+      var post = get_post();
       <%= if assigns[:post] do %>
-      //If we are not editing the same post
       if (post["post_id"] != "<%= @post.id %>"
-          //If the post was updated since our changes
           || parseInt(post["updated_at"]) < <%= DateTime.to_unix(@post.updated_at) %>
-          //If the changes are older than 24h
           || parseInt(post["updated_at"]) < Math.floor((new Date()).getTime() / 1000 - 60 * 60 * 24)) {
-        post = new_post()
-        save_post(post)
+        post = new_post();
+        save_post(post);
       }
       <% else %>
       if (post["post_id"] != "new"
-          //If the changes are older than 24h
           || parseInt(post["updated_at"]) < Math.floor((new Date()).getTime() / 1000 - 60 * 60 * 24)) {
-        post = new_post()
-        save_post(post)
+        post = new_post();
+        save_post(post);
       }
       <% end %>
     } catch(err) {
-      post = new_post()
-      save_post(post)
+      var post = new_post();
+      save_post(post);
     }
 
-    document.getElementById("post_title").value = post["post_title"]
-    document.getElementById("post_category").value = post["post_category"]
-    document.getElementById("post_authors").value = post["post_authors"]
-    document.getElementById("post_tags").value = post["post_tags"]
-    document.getElementById("post_excerpt").value = post["post_excerpt"]
-    document.getElementById("post_body").value = post["post_body"]
+    document.getElementById("post_title").value = post["post_title"];
+    document.getElementById("post_category").value = post["post_category"];
+    document.getElementById("post_authors").value = post["post_authors"];
+    document.getElementById("post_tags").value = post["post_tags"];
+    document.getElementById("post_excerpt").value = post["post_excerpt"];
+    document.getElementById("post_body").value = post["post_body"];
   }
 </script>
+
 <script src="<%= Routes.static_path(@conn, "/js/toastui-editor-all.min.js") %>"></script>
 <script>
   var post_body = document.getElementById('post_body');
@@ -130,35 +123,18 @@
     previewStyle: 'vertical',
     previewHighlight: false,
     usageStatistics: false,
-      toolbarItems: [
-          'heading',
-          'bold',
-          'italic',
-          'strike',
-          'divider',
-          'hr',
-          'quote',
-          'divider',
-          'ul',
-          'ol',
-          'task',
-          'indent',
-          'outdent',
-          'divider',
-          'table',
-          'link',
-          'divider',
-          'code',
-          'codeblock',
-        'divider'
-      ],
-     events: {
-        change: function() {
-          post_body.value = editor.getMarkdown();
-          save(post_body);
-        }
-     }
+    toolbarItems: [
+      'heading', 'bold', 'italic', 'strike', 'divider', 'hr', 'quote', 'divider',
+      'ul', 'ol', 'task', 'indent', 'outdent', 'divider', 'table', 'link',
+      'divider', 'code', 'codeblock', 'divider'
+    ],
+    events: {
+      change: function() {
+        post_body.value = editor.getMarkdown();
+        save(post_body);
+      }
+    }
   });
 
-editor.getHtml();
+  editor.getHtml();
 </script>

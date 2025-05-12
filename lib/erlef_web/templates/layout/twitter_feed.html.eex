@@ -1,6 +1,6 @@
 <% [tweet|tweets] = @tweets %>
 <div class="row py-2 py-lg-0 align-items-stretch">
-  <div class="py-lg-5 col-lg-4">
+  <div class="py-lg-5 col-lg-4 position-relative">
     <div class="event-card h-100 rounded bg-white">
       <div class="p-4 d-flex flex-column h-100">
         <div class="d-flex align-items-center mb-3">

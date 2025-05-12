@@ -1,70 +1,55 @@
 <div class="bg-dark mb-5">
-    <div class="container">
-        <ul class="nav bg-dark nav-pills mb-2 py-3 h5 font-weight-normal">
-            <li class="nav-item">
-                <div class="nav-link" style="cursor: pointer; background-color: #f8f5f6; flex: flex: 0 0 65%; width: 7em; text-align: center; color: #1F2C34; margin-left: 10px;"phx-click="filter" phx-value-filter="ALL">All Papers</div>
-            </li>
-            <li class="nav-item">
-                <div class="nav-link" style="cursor: pointer; background-color: #92a8d1; flex: flex: 0 0 65%; width: 6em; text-align: center; color: white; margin-left: 10px;"phx-click="filter" phx-value-filter="BEAM">BEAM</div>
-            </li>
-            <li class="nav-item">
-                <div class="nav-link" style="cursor: pointer; background-color: #eca1a6; flex: flex: 0 0 65%; width: 6em; text-align: center; color: white; margin-left: 10px;" phx-click="filter" phx-value-filter="Erlang">Erlang</div>
-            </li>
-            <li class="nav-item">
-                <div class="nav-link" style="cursor: pointer; background-color: #6b5b95; flex: flex: 0 0 65%; width: 6em; text-align: center; color: white; margin-left: 10px;" phx-click="filter" phx-value-filter="Elixir">Elixir</div>
-            </li>
-        </ul>
-    </div>
+  <div class="container">
+    <ul class="nav bg-dark nav-pills mb-2 py-3 h5 fw-normal flex-wrap">
+      <li class="nav-item">
+        <div class="nav-link" style="cursor: pointer; background-color: #f8f5f6; width: 7em; text-align: center; color: #1F2C34; margin-left: 10px;" phx-click="filter" phx-value-filter="ALL">All Papers</div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link" style="cursor: pointer; background-color: #92a8d1; width: 6em; text-align: center; color: white; margin-left: 10px;" phx-click="filter" phx-value-filter="BEAM">BEAM</div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link" style="cursor: pointer; background-color: #eca1a6; width: 6em; text-align: center; color: white; margin-left: 10px;" phx-click="filter" phx-value-filter="Erlang">Erlang</div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link" style="cursor: pointer; background-color: #6b5b95; width: 6em; text-align: center; color: white; margin-left: 10px;" phx-click="filter" phx-value-filter="Elixir">Elixir</div>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div class="container mb-5">
-    <div class="row">
-        <div class="col-lg-8 pr-5">
-
-            <%= for paper <- @academic_papers do %>
-                <div class="event-card rounded border bg-white  my-2 d-flex align-items-stretch">
-                    <div style="background-color: #5e636b" class="mr-4 rounded-left d-flex align-items-center">
-                    </div>
-                    <div class="py-4 pr-4">
-                        <h5><a class="text-dark font-weight-bold" href="<%= paper.url %>"><%= paper.title %></a></h3>
-                        <h6 class="mb-0"><%= paper.author %> | <%= paper.language %> | <%= if paper.pay_wall?, do: "Paid", else: "Free" %></h5>
-                            <section style="display: flex; margin-top: 20px;">
-                              <%= for tech <- paper.technologies do %>
-                                  <%= if tech == "Erlang" do %>
-                                    <div style="background-color: #eca1a6; flex: flex: 0 0 65%; font-size: small; height: 20px; border-radius: 5px; width: 6em; text-align: center; color: white; margin-left: 3px;" class="">
-                                        Erlang
-                                    </div>
-                                  <% end %>
-                                  <%= if tech == "Elixir" do %>
-                                    <div style="background-color: #6b5b95; flex: flex: 0 0 65%; font-size: small; height: 20px; border-radius: 5px; width: 6em; text-align: center; color: white; margin-left: 3px;" class="">
-                                        Elixir
-                                    </div>
-                                  <% end %>
-                                  <%= if tech == "BEAM" do %>
-                                    <div style="background-color: #92a8d1; flex: flex: 0 0 65%; font-size: small; height: 20px; border-radius: 5px; width: 6em; text-align: center; color: white; margin-left: 3px;" class="">
-                                        BEAM
-                                    </div>
-                                  <% end %>
-                                  <%= if tech not in ["BEAM", "Erlang", "Elixir"] do %>
-                                    <div style="background-color: #b2b2b2; flex: flex: 0 0 65%; font-size: small; height: 20px; border-radius: 5px; width: 6em; text-align: center; color: white; margin-left: 3px;" class="">
-                                        <%= tech %>
-                                    </div>
-                                  <% end %>
-                              <% end %>
-                            </section>
-                        <a class="h7 mt-4 d-block" href="<%= paper.url %>" target="_blank">Read More →</a>
-                    </div>
+  <div class="row">
+    <div class="col-lg-8 pe-5">
+      <%= for paper <- @academic_papers do %>
+        <div class="event-card rounded border bg-white my-2 d-flex align-items-stretch">
+          <div style="background-color: #5e636b;" class="me-4 rounded-start d-flex align-items-center" style="min-width: 5px;"></div>
+          <div class="py-4 pe-4">
+            <h5><a class="text-dark fw-medium" href="<%= paper.url %>"><%= paper.title %></a></h5>
+            <h6 class="mb-0"><%= paper.author %> | <%= paper.language %> | <%= if paper.pay_wall?, do: "Paid", else: "Free" %></h6>
+            <section class="d-flex flex-wrap mt-3">
+              <%= for tech <- paper.technologies do %>
+                <% color = case tech do
+                  "Erlang" -> "#eca1a6"
+                  "Elixir" -> "#6b5b95"
+                  "BEAM" -> "#92a8d1"
+                  _ -> "#b2b2b2"
+                end %>
+                <div style="background-color: <%= color %>; font-size: small; height: 20px; border-radius: 5px; width: 6em; text-align: center; color: white; margin: 3px;">
+                  <%= tech %>
                 </div>
-            <% end %>
-
+              <% end %>
+            </section>
+            <a class="h6 mt-4 d-block" href="<%= paper.url %>" target="_blank">Read More →</a>
+          </div>
         </div>
-        <div class="col-lg-4">
-            <h6>Include Academic Papaers</h6>
-            <h4>Have an academic paper to share?</h4>
-            <p>If you know about an academic paper that is not yet listed here, please submit a new one
-            <%= link("here", to: "/submissions/academic-papers/new") %> to get it added!</p>
-        </div>
-        <!--col-->
+      <% end %>
     </div>
-    <!--col-->
+
+    <div class="col-lg-4">
+      <h6>Include Academic Papers</h6>
+      <h4>Have an academic paper to share?</h4>
+      <p>If you know about an academic paper that is not yet listed here, please submit a new one
+      <%= link("here", to: "/submissions/academic-papers/new") %> to get it added!</p>
+    </div>
+  </div>
 </div>
