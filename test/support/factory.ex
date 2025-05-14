@@ -9,22 +9,6 @@ defmodule Erlef.Factory do
   alias Erlef.Community.Event
   alias Erlef.Groups.{WorkingGroup, WorkingGroupChair, WorkingGroupVolunteer, Volunteer, Sponsor}
   alias Erlef.News.NewsTip
-  alias Erlef.Blog.Post
-
-  def build(:post) do
-    %Post{
-      title: Faker.Lorem.sentence(3),
-      slug: Faker.Internet.slug(),
-      excerpt: Faker.Lorem.paragraph(3),
-      body: Faker.Markdown.markdown(),
-      authors: [Faker.Person.name()],
-      category: Faker.Internet.slug(),
-      tags: [Faker.Lorem.word()],
-      status: Enum.random([:draft, :published, :archived]),
-      published_at: DateTime.truncate(Faker.DateTime.backward(7), :second),
-      owner: build(:member)
-    }
-  end
 
   def build(:news_tip) do
     %NewsTip{

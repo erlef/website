@@ -65,7 +65,7 @@ defmodule Erlef.Groups.WorkingGroup do
   end
 
   defp maybe_gen_html(%{changes: %{charter: charter}} = cs) do
-    charter = HtmlSanitizeEx.markdown_html(charter)
+    charter = HtmlSanitizeEx.strip_tags(charter)
     {:ok, html, _} = Earmark.as_html(charter)
 
     cs

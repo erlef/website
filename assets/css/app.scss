@@ -2,11 +2,11 @@
 @import "~bootstrap/scss/bootstrap";
 @import "../static/vendored/css/bootstrap-toc.css";
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
-@import "../node_modules/@yaireo/tagify/src/tagify";
+@import "../node_modules/@fullcalendar/common/main.css";
+@import "../node_modules/@fullcalendar/bootstrap/main.css";
 @import "community";
 @import "affiliates";
 @import "blogs";
-@import "post_form";
 @import "events";
 @import "fellows";
 
