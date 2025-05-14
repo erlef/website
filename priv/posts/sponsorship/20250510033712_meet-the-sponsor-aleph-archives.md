@@ -1,10 +1,18 @@
-{ "title": "Meet the Sponsors - Aleph Archives", "authors": ["Sponsorship"], "slug": "meet-the-sponsor-aleph-archives", "category": "sponsorship", "tags": ["sponsorship", "meet-the-sponsors"], "datetime": "2025-05-10T03:37:12.810583Z" }
-
-# Meet the Sponsors -  Aleph Archives
+{ 
+  "title": "Meet the Sponsors - Aleph Archives", 
+  "authors": ["sponsorship"], 
+  "slug": "meet-the-sponsor-aleph-archives", 
+  "category": "sponsorship", 
+  "tags": ["sponsorship", "meet-the-sponsors"], 
+  "datetime": "2025-05-10T03:37:12.810583Z" 
+}
+---
+Meet the sponsors - Aleph Archives
+---
 
 Welcome to Meet the Sponsors, a section in which you will find the profiles of our sponsors. Here you will learn about them and why they decide to support this great community. Today we will get to know  Aleph Archives. Enjoy it!
 
-<img src="priv/posts/sponsorship/AlephArchives.png" class="img-fluid" alt="Meet the Sponsors - Aleph Archives"/>
+<img src="/images/meet-the-sponsors/AlephArchives.png" class="img-fluid" alt="Meet the Sponsors - Aleph Archives"/>
 
 **Aleph Archives** is a leading Swiss IT company specializing in long-term data archiving solutions for businesses and organizations. Since its founding in 2010, its mission has been to safeguard today’s digital heritage for tomorrow, providing peace of mind to organizations that need to ensure data integrity and accessibility over extended periods. Aleph Archives helps enterprises preserve their critical data while ensuring compliance with regulatory requirements and maintaining accessibility for decades to come.
 
