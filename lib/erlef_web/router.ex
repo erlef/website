@@ -52,7 +52,7 @@ defmodule ErlefWeb.Router do
   end
 
   pipeline :admin_required do
-    plug :put_layout, {ErlefWeb.Admin.LayoutView, "app.html"}
+    plug :put_layout, html: {ErlefWeb.Admin.LayoutView, :app}
     plug ErlefWeb.Plug.Authz.Admin
   end
 

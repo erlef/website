@@ -3,6 +3,8 @@ defmodule Erlef.Blogs.Post do
   Erlef.Blog schema
   """
 
+  @type t() :: Ecto.Schema.schema()
+
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -36,6 +38,15 @@ defmodule Erlef.Blogs.Post do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @all_fields)
-    |> validate_required([:authors, :body, :body_html, :category, :datetime, :tags, :title, :slug])
+    |> validate_required([
+      :authors,
+      :body,
+      :body_html,
+      :category,
+      :datetime,
+      :tags,
+      :title,
+      :slug
+    ])
   end
 end

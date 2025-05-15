@@ -1,7 +1,7 @@
 defmodule ErlefWeb.WorkingGroupController do
   use ErlefWeb, :controller
 
-  plug :put_layout, :wg
+  plug :put_layout, html: {ErlefWeb.LayoutView, :wg}
 
   alias Erlef.{Blogs, Groups}
 
@@ -9,7 +9,7 @@ defmodule ErlefWeb.WorkingGroupController do
 
   def index(conn, _params) do
     conn
-    |> put_layout(:app)
+    |> put_layout(html: {ErlefWeb.LayoutView, :app})
     |> render(working_groups: all_groups())
   end
 
