@@ -44,16 +44,15 @@ defmodule Erlef.Repo.ETS.Importer do
     Process.monitor(repo_pid)
   end
 
-  defp import_resources({_, schema} = resource) do
-    set = files_to_changesets(resource)
-
-    {_, _inserted} =
-      Erlef.Repo.insert_all(schema, set, conflict_target: [:slug], on_conflict: :nothing)
+  defp import_resources(resource) do
+    Enum.each(files_to_changesets(resource), fn set ->
+      {:ok, _inserted} = Erlef.Repo.ETS.insert(set)
+    end)
   end
 
-  defp files_to_changesets({path, _schema}) do
+  defp files_to_changesets({path, schema}) do
     Enum.map(find_files(path), fn f ->
-      parse_post(f)
+      schema.changeset(struct(schema), parse_post(f))
     end)
   end
 
@@ -72,23 +71,17 @@ defmodule Erlef.Repo.ETS.Importer do
 
   defp compile({front_str, excerpt_str, body_str}) do
     {:ok, front} = Jason.decode(front_str)
+    {:ok, excerpt_html, _} = Earmark.as_html(excerpt_str)
+    {:ok, body_html, _} = Earmark.as_html(body_str)
 
-    {:ok, dt, _} = DateTime.from_iso8601(front["datetime"])
-    dt = DateTime.truncate(dt, :second)
-
-    %{
-      title: front["title"],
-      slug: front["slug"],
-      excerpt: excerpt_str,
-      body: body_str,
-      authors: front["authors"],
-      category: front["category"],
-      tags: front["tags"],
-      inserted_at: dt,
-      updated_at: dt,
-      published_at: dt,
-      status: :published
+    back = %{
+      "body" => body_str,
+      "body_html" => body_html,
+      "excerpt" => excerpt_str,
+      "excerpt_html" => excerpt_html
     }
+
+    Map.merge(front, back)
   end
 
   defp find_files(wildcard) do
