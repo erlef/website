@@ -201,10 +201,13 @@
         date in which the funds must be received. We recommend to
         send the requests at minimum 12 weeks before the
         event so we have enough time to review, ask questions and
-        send you the funds.
+        send you the funds. Also let us know what other forms of
+        sponsorship you have applied for.<br />
         Make sure you explain how this stipend is designed to help
-        grow the community. Also let us know what other forms of
-        sponsorship you have applied for.
+        grow the community. We would love to have an overview of
+        other BEAM related activities/meetups/trainings/conferences
+        located in that area, the number of attendees, frequency,
+        and such.<br />
         For workshops/trainings please include the staff:student
         ratio, the amount of hands-on training time and a lesson
         plan with learning outcomes for participants.
@@ -221,16 +224,7 @@
     <div class="col-md-9">
       <small id="stipend_amount_help" class="form-text text-muted">
         <p class="form-text alert alert-info">
-        Specify here the stipend amount in detail. Please note that
-        the EEF may only be able to provide partial funding for a
-        proposal so let us know if this is acceptable to you. Be
-        sure to include a breakdown of the amount you are
-        requesting. We prefer to see what you plan on using the
-        funds for.
-        Example: 1200$ total ($700 for venue, $300 for trav
-        el, $200 for food). To thank you for your sponsorship, we
-        will place the EEF logo on our site and offer you 3 free
-        tickets to the event to distribute as you see fit.
+        Specify here the stipend amount.
         </p>
       </small>
     </div>
@@ -269,11 +263,14 @@
 
         <p class="form-text alert alert-info">
         Describe who will be the beneficiaries of the stipend and
-        the expected size of the event.
-        For onsite events we would love to have an overview of
-        other Beam related
-        activities/meetups/trainings/conferences located in that
-        area, the number of attendees, frequency and such.
+        the expected size of the event. Please note that the EEF
+        may only be able to provide partial funding for a proposal
+        so let us know if this is acceptable to you. Be sure to include
+        a breakdown of the amount you are requesting.
+        Example: 1200$ total ($700 for venue, $300 for travel, $200 for food).<br />
+
+        For organizers of events and trainings, we request the EEF logo to
+        be placed on your site as sponsor.
         </p>
 
         <%= textarea(f, :beneficiaries, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
