@@ -269,8 +269,8 @@
         a breakdown of the amount you are requesting.
         Example: 1200$ total ($700 for venue, $300 for travel, $200 for food).<br />
 
-        For organizers of events and trainings, we request the EEF logo to
-        be placed on your site as sponsor.
+        If the beneficiary is the organizer of an event, we request that
+        the EEF logo be placed on your site as a sponsor.
         </p>
 
         <%= textarea(f, :beneficiaries, class: "form-control", maxlength: "5000", rows: 3, required: true) %>
