@@ -308,6 +308,13 @@ defmodule ErlefWeb.StipendView do
       "data-requires-coc": "true"
     ],
     [
+      key: "Elixir Outreach",
+      value: "Elixir Outreach",
+      type: "elixir-outreach",
+      "data-type": "elixir-outreach",
+      "data-requires-coc": "false"
+    ],
+    [
       key: "Other",
       value: "Other",
       type: "other",
