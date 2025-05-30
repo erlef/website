@@ -13,9 +13,15 @@ defmodule Erlef.StipendMail do
 
     subject_suffix = "on #{dt_str} via #{full_name(proposal)} (#{proposal.email_address}"
 
+    to =
+      case proposal.stipend_type do
+        "Elixir Outreach" -> {"Elixir Outreach Stipend Committee", "elixir_outreach@theeef.org"}
+        _other -> {"eef-stipends", "eef-stipends@googlegroups.com"}
+      end
+
     email =
       new()
-      |> to({"eef-stipends", "eef-stipends@googlegroups.com"})
+      |> to(to)
       |> from({"EEF Stipend Submissions", "notifications@erlef.org"})
       |> subject("EEF Stipend Proposal Submission #{subject_suffix}")
 
