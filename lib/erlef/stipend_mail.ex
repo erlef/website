@@ -15,7 +15,7 @@ defmodule Erlef.StipendMail do
 
     to =
       case proposal.stipend_type do
-        "Elixir Outreach" -> {"Elixir Outreach Stipend Committee", "elixir_outreach@theeef.org"}
+        "Elixir Outreach" -> {"Elixir Outreach Stipend Committee", "elixir_outreach@erlef.org"}
         _other -> {"eef-stipends", "eef-stipends@googlegroups.com"}
       end
 
