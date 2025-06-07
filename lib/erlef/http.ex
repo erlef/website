@@ -76,8 +76,14 @@ defmodule Erlef.HTTP do
 
   defp maybe_json_decode(_headers, body), do: {:ok, body}
 
-  defp build_options(params) do
-    [{:pool, :default}] ++ params
+  if Mix.env() == :test do
+    defp build_options(params) do
+      [{:pool, :default}, {:insecure_basic_auth, true}] ++ params
+    end
+  else
+    defp build_options(params) do
+      [{:pool, :default}] ++ params
+    end
   end
 
   defp is_success(status) do
