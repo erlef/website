@@ -14,18 +14,18 @@ defmodule Erlef.StipendMail do
     subject_suffix = "on #{dt_str} via #{full_name(proposal)} (#{proposal.email_address}"
 
     new()
-    |> recipient(proposal.stipend_type)
+    |> recipients(proposal.stipend_type)
     |> from({"EEF Stipend Submissions", "notifications@erlef.org"})
     |> subject("EEF Stipend Proposal Submission #{subject_suffix}")
     |> attach_files(email, proposal.files)
     |> render_body("stipend_submission.html", proposal: proposal, copy: false)
   end
 
-  defp recipient(email, "Elixir Outreach") do
+  defp recipients(email, "Elixir Outreach") do
     to(email, {"Elixir Outreach Stipend Committee", "elixir_outreach@erlef.org"})
   end
 
-  defp recipient(email, _) do
+  defp recipients(email, _) do
     email
     |> to({"eef-stipends", "eef-stipends@googlegroups.com"})
     |> bcc({"eef-stipends", "stipends@erlef.org"})
