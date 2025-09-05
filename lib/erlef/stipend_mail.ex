@@ -14,7 +14,7 @@ defmodule Erlef.StipendMail do
     subject_suffix = "on #{dt_str} via #{full_name(proposal)} (#{proposal.email_address}"
 
     new()
-    |> recipient(proposal.stupend_type)
+    |> recipient(proposal.stipend_type)
     |> from({"EEF Stipend Submissions", "notifications@erlef.org"})
     |> subject("EEF Stipend Proposal Submission #{subject_suffix}")
     |> attach_files(email, proposal.files)
