@@ -17,7 +17,7 @@ defmodule Erlef.StipendMail do
     |> recipients(proposal.stipend_type)
     |> from({"EEF Stipend Submissions", "notifications@erlef.org"})
     |> subject("EEF Stipend Proposal Submission #{subject_suffix}")
-    |> attach_files(email, proposal.files)
+    |> attach_files(proposal.files)
     |> render_body("stipend_submission.html", proposal: proposal, copy: false)
   end
 
