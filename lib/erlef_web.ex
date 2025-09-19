@@ -19,7 +19,11 @@ defmodule ErlefWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: ErlefWeb, layouts: [html: {ErlefWeb.LayoutView, :app}]
+      use Phoenix.Controller,
+        namespace: ErlefWeb,
+        layouts: [html: {ErlefWeb.LayoutView, :app}],
+        formats: [html: "View"]
+
       use Gettext, backend: ErlefWeb.Gettext
 
       import Plug.Conn
