@@ -7,7 +7,11 @@ defmodule Erlef.MixProject do
       version: "0.1.0",
       elixir: "~> 1.13",
       elixirc_paths: elixirc_paths(Mix.env()),
-      listeners: [Phoenix.CodeReloader],
+      listeners:
+        case System.fetch_env("CI") do
+          :error -> [Phoenix.CodeReloader]
+          {:ok, _truthy} -> []
+        end,
       start_permanent: Mix.env() == :prod,
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [coveralls: :test, "coveralls.html": :test],
