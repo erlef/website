@@ -13,21 +13,22 @@ defmodule Erlef.StipendMail do
 
     subject_suffix = "on #{dt_str} via #{full_name(proposal)} (#{proposal.email_address}"
 
-    to =
-      case proposal.stipend_type do
-        "Elixir Outreach" -> {"Elixir Outreach Stipend Committee", "elixir_outreach@erlef.org"}
-        _other -> {"eef-stipends", "eef-stipends@googlegroups.com"}
-      end
+    new()
+    |> recipients(proposal.stipend_type)
+    |> from({"EEF Stipend Submissions", "notifications@erlef.org"})
+    |> subject("EEF Stipend Proposal Submission #{subject_suffix}")
+    |> attach_files(proposal.files)
+    |> render_body("stipend_submission.html", proposal: proposal, copy: false)
+  end
 
-    email =
-      new()
-      |> to(to)
-      |> bcc({"eef-stipends", "stipends@erlef.org"})
-      |> from({"EEF Stipend Submissions", "notifications@erlef.org"})
-      |> subject("EEF Stipend Proposal Submission #{subject_suffix}")
+  defp recipients(email, "Elixir Outreach") do
+    to(email, {"Elixir Outreach Stipend Committee", "elixir_outreach@erlef.org"})
+  end
 
-    new_email = attach_files(email, proposal.files)
-    render_body(new_email, "stipend_submission.html", proposal: proposal, copy: false)
+  defp recipients(email, _) do
+    email
+    |> to({"eef-stipends", "eef-stipends@googlegroups.com"})
+    |> bcc({"eef-stipends", "stipends@erlef.org"})
   end
 
   def submission_copy(proposal) do
