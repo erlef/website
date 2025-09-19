@@ -68,7 +68,7 @@ if Application.get_env(:erlef, :env) == :prod do
 
   config :erlef,
          Erlef.Repo,
-         hostname: System.get_env("DATABASE_PASSWORD", "localhost"),
+         hostname: System.get_env("DATABASE_HOST", "localhost"),
          database: database,
          username: database_user,
          password: database_password,
