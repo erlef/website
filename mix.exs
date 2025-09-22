@@ -58,7 +58,7 @@ defmodule Erlef.MixProject do
       {:faker, "~> 0.18.0", only: [:dev, :test]},
       {:floki, ">= 0.0.0", only: :test},
       {:gen_smtp, "~> 1.0"},
-      {:gettext, "~> 0.26.0"},
+      {:gettext, "~> 1.0.0"},
       {:jason, "~> 1.3"},
       {:joken, "~> 2.4"},
       {:honeybadger, "~> 0.24.0"},
