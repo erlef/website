@@ -9,6 +9,7 @@
 ---
 The Erlang Ecosystem Foundation is excited to support the launch of Rebar4 on Kickstarter. As the next evolution of one of the BEAM’s most important tools, Rebar4 will bring tighter integration with Erlang/OTP, unified support for Erlang, Elixir, and other BEAM languages, and a smoother onboarding experience for developers. The campaign is live now — help shape the future of the ecosystem by backing it today.
 ---
+
 The Erlang Ecosystem Foundation is proud to have supported the launch of the Rebar4 project on Kickstarter. Rebar has been a cornerstone tool for the Erlang/OTP ecosystem for years, and this new version will ensure seamless integration with OTP going forward.
 
 <img src="/images/posts/Rebar4.png" class="img-fluid" alt="Rebar4"/>
