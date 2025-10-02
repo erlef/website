@@ -221,7 +221,7 @@ config :erlef, :sponsors, [
     url: "https://dashbit.co/"
   },
   %{
-    active: false,
+    active: true,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/shiguredo-logo.png",
     name: "Shiguredo",
