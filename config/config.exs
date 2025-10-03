@@ -59,6 +59,8 @@ config :ex_aws,
     host: "ewr1.vultrobjects.com"
   ]
 
+config :hackney, :insecure_basic_auth, true
+
 import_config "sponsors.exs"
 
 # Import environment specific config. This must remain at the bottom

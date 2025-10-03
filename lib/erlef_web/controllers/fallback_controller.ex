@@ -1,5 +1,6 @@
 defmodule ErlefWeb.FallbackController do
-  use Phoenix.Controller
+  use Phoenix.Controller,
+    formats: [html: "View"]
 
   def call(conn, {:error, :not_found}) do
     conn

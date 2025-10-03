@@ -1,7 +1,7 @@
 defmodule ErlefWeb.WorkingGroup.ContentController do
   use ErlefWeb, :controller
 
-  plug :put_layout, html: ErlefWeb.Admin.LayoutView
+  plug :put_layout, html: {ErlefWeb.LayoutView, :wg}
 
   alias Erlef.{Blogs, Groups}
 

@@ -43,6 +43,7 @@ config :ex_aws,
   ]
 
 config :erlef, Erlef.Repo,
+  hostname: System.get_env("DATABASE_HOST", "localhost"),
   database: "erlef_website_test",
   username: "postgres",
   password: "postgres",

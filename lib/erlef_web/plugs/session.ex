@@ -82,7 +82,5 @@ defmodule ErlefWeb.Plug.Session do
     conn
     |> delete_session("member_session")
     |> assign(:current_user, nil)
-    |> Phoenix.Controller.redirect(to: "/")
-    |> halt()
   end
 end
