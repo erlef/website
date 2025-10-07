@@ -223,7 +223,7 @@ config :erlef, :sponsors, [
   %{
     active: true,
     is_founding_sponsor: false,
-    logo_url: "/images/sponsors/shiguredo-logo.png",
+    logo_url: "/images/sponsors/shiguredo-logo.webp",
     name: "Shiguredo",
     url: "https://shiguredo.jp"
   },
