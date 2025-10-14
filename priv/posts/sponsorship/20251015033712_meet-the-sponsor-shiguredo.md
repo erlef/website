@@ -1,18 +1,17 @@
 {
-    "title": "Meet the Sponsors - Shiguredo",
-    "authors": ["Sponsorship"],
-    "slug": "meet-the-sponsor-shiguredo",
-    "category": "sponsorship",
-    "tags": ["sponsorship", "meet-the-sponsors"]
-    "datetime": "2025-10-15T03:37:12.810583Z"
-    }
-    
+  "title": "Meet the Sponsors - Shiguredo",
+  "authors": ["Sponsorship"],
+  "slug": "meet-the-sponsor-shiguredo",
+  "category": "sponsorship",
+  "tags": ["sponsorship", "meet-the-sponsors"],
+  "datetime": "2025-10-15T03:37:12.810583Z"
+}
 ---
-# Meet the Sponsors - Shiguredo
+Welcome to Meet the Sponsors, a section in which you will find the profiles of our sponsors. Here you will learn about them and why they decide to support this great community. Today we will get to know Shiguredo. Enjoy it!
 ---
 Welcome to Meet the Sponsors, a section in which you will find the profiles of our sponsors. Here you will learn about them and why they decide to support this great community. Today we will get to know Shiguredo. Enjoy it!
 
-<img src="priv/posts/sponsorship/Shiguredo.png" class="img-fluid" alt="Meet the Sponsors - Shiguredo"/>
+<img src="/images/meet-the-sponsors/Shiguredo.png" class="img-fluid" alt="Meet the Sponsors - Shiguredo"/>
 
 Founded in 2013 and based in Tokyo, Japan, **Shiguredo Inc.** builds WebRTC-based server software for real-time audio, video, and data. Their solutions power interactive meetings, large-scale broadcasts, and low-latency streaming experiences.
 
@@ -34,5 +33,4 @@ Shiguredo would like to see continued investment from the Foundation in both reb
 
 For more information, have a look at their [website](https://shiguredo.jp/).
 
-*Our foundation is supported by the funding of our sponsors, and it is what allows us to carry out projects, marketing initiatives, stipends programs, and accomplish the goals that we have established as an organization. So if you are interested in becoming a sponsor, contact us at sponsorship@erlef.org. We look forward to hearing from you!*
-
+*Our foundation is supported by the funding of our sponsors, and it is what allows us to carry out projects, marketing initiatives, stipends programs, and accomplish the goals that we have established as an organization. So if you are interested in becoming a sponsor, contact us at [sponsorship@erlef.org](mailto:sponsorship@erlef.org). We look forward to hearing from you!*
