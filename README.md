@@ -31,6 +31,10 @@ We use GitHub issues to track public bugs and feature requests. Please ensure yo
 
 By contributing to erlef/website, you agree that your contributions will be licensed under its Apache License Version 2.0.
 
+### Working Group
+
+You may also join the EEF working group and join the [EEF #marketing](https://erlef.org/wg/marketing) Slack channel.
+
 ## Installation
 
 This application is using [Phoenix](https://phoenixframework.org), the [most loved web framework](https://survey.stackoverflow.co/2025/technology/#2-web-frameworks-and-technologies), written in Elixir.
