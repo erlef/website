@@ -1,5 +1,5 @@
 {
-  "title": "Case Study: Sora - DNSimple",
+  "title": "Case Study: DNSimple",
   "authors": ["Sponsorship"],
   "slug": "case-study-sora-dnsimple",
   "category": "sponsorship",
