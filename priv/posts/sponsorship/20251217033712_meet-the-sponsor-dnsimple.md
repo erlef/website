@@ -1,5 +1,5 @@
 {
-  "title": "Case Study: Sora - DNSimple",
+  "title": "Case Study: DNSimple",
   "authors": ["Sponsorship"],
   "slug": "case-study-sora-dnsimple",
   "category": "sponsorship",
@@ -47,3 +47,4 @@ Another ongoing challenge is finding developers with Erlang expertise. The avail
 Erlang is a natural fit for DNS because of its functional design, its excellent bitstring handling for packet parsing and generation, and its well-established OTP patterns. The resulting DNS-processing code is fast, concise, and easy to read — essential for a system that handles billions of queries each month. Erlang’s reliability and concurrency model have played a central role in the design of DNSimple’s global DNS architecture.
 
 *Our foundation is supported by the funding of our sponsors, and it is what allows us to carry out projects, marketing initiatives, stipends programs, and accomplish the goals that we have established as an organization. So if you are interested in becoming a sponsor, contact us at [sponsorship@erlef.org](mailto:sponsorship@erlef.org). We look forward to hearing from you!*
+
