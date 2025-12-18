@@ -2,6 +2,8 @@
 
 ![CI](https://github.com/erlef/website/workflows/test/badge.svg)
 
+This is the repo for the [erlef.org](https://erlef.org/) website.
+
 ## Prerequisites
 
  A `.tool-versions` file is provided in this repo for [asdf](https://asdf-vm.com/) users.
