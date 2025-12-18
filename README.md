@@ -42,7 +42,7 @@ Now you may open up the created file and edit the metadata and author the conten
 In this example to preview the rendered markdown on the local instance of the site one would visit
 `http://localhost:4000/news/education/missing-rug`
 
-### post file format
+### Post file format
 
 ```
 {
