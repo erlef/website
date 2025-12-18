@@ -6,16 +6,16 @@
 
  A `.tool-versions` file is provided in this repo for [asdf](https://asdf-vm.com/) users.
 
- - Erlang/OTP 23
- - Elixir 1.11
- - NodeJS v10 (or greater)
+- Erlang/OTP 23
+- Elixir 1.11
+- NodeJS v10 (or greater)
 
 ## Up and running
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `npm install --prefix assets`
-  * Run `mix ecto.setup` to setup the local database
-  * Start Phoenix endpoint with `mix phx.server`
+- Install dependencies with `mix deps.get`
+- Install Node.js dependencies with `npm install --prefix assets`
+- Run `mix ecto.setup` to setup the local database
+- Start Phoenix endpoint with `mix phx.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
@@ -36,6 +36,7 @@ Note that you may edit the author, title, and other meta data after the post is 
 mix eef.gen.post education missing-rug --author "The Dude" --title "It tied the room together"
 * creating priv/posts/education/20190708231334_missing-rug.md
 ```
+
 Now you may open up the created file and edit the metadata and author the content of your post with your favorite editor.
 
 In this example to preview the rendered markdown on the local instance of the site one would visit
@@ -64,22 +65,23 @@ This is where the body of the post goes.
 
  The following groups can be used with the eef.gen.post command:
 
- - eef
- - building
- - education
- - marketing
- - proposal
- - observability
- - sponsorship
- - security
- - documentation
+- eef
+- building
+- education
+- marketing
+- proposal
+- observability
+- sponsorship
+- security
+- documentation
 
 ## Development
 
 ### Getting around in dev mode
-- No extra configuration is needed to getting up and running in dev mode. Simply start up the app after
-  initializing the database and login. 
-- You may login in with different personas in dev mode using the `Login as` dropdown menu. 
+
+- No extra configuration is needed to getting up and running in dev mode.
+  Simply start up the app after initializing the database and login.
+- You may login in with different personas in dev mode using the `Login as` dropdown menu.
 
 ### Contributing to the community section of the site
 
@@ -87,31 +89,25 @@ All resources data for the community page of the site can be found in [priv/data
 
 Before proceeding please:
 
-   -  Stick to facts about entries you add and avoid asserting comparative or superlative differences of one product, 
-      project, company or individual over another.
-   -  Note than an `about` value for sections of the page that make use of cards can have no more than 240 characters and
-      optimally have no less than 200 characters.
+- Stick to facts about entries you add and avoid asserting comparative or superlative differences of one product,
+  project, company or individual over another.
+- Note than an `about` value for sections of the page that make use of cards can have no more than 240 characters and
+  optimally have no less than 200 characters.
 
 #### Adding an entry to an existing section
 
-  To add an entry to an existing section simply find the relevant `.exs` file in  [priv/data/community](priv/data/community) and add a new entry. That's it!
+To add an entry to an existing section simply find the relevant `.exs` file in  [priv/data/community](priv/data/community) and add a new entry. That's it!
 
-#### Adding a new section or sub-section 
+#### Adding a new section or sub-section
 
-  - Create a new `.exs` file in [priv/data/community](priv/data/community) with a name that reflects the section of the site (e.g, languages, platforms, etc.) 
-    
-    - See [priv/data/community/languages.exs](priv/data/community/languages.exs) as an example. 
-
-  - A new function should be able after you recompile `Erlef.Community.Resources` with the base name of the file you added prefixed with `all_` (e.g., `all_languages`). Likewise it will also be available in the main data map returned by the `all/0` function.
-
-  - Add the new section or sub-section
-    to [lib/erlef_web/templates/page/community.html.eex](lib/erlef_web/templates/page/community.html.eex).
-    
-    - Note that both `<h1>` and `<h2>` tags within this file will automatically end up within the TOC component on the 
-      page. Deeper nesting is not supported. See existing sections for examples.
-
-    - The layout for what you're adding may depend on the type of section and there are are no hard rules around how
-      something should be displayed. If you're unsure or need feedback please reach out to us in an issue or as 
-      part of a pull request.
-
-  - Commit your changes and open up a new pull request using the Community Section pull request template 🎉
+- Create a new `.exs` file in [priv/data/community](priv/data/community) with a name that reflects the section of the site (e.g, languages, platforms, etc.)
+  - See [priv/data/community/languages.exs](priv/data/community/languages.exs) as an example.
+- A new function should be able after you recompile `Erlef.Community.Resources` with the base name of the file you added prefixed with `all_` (e.g., `all_languages`). Likewise it will also be available in the main data map returned by the `all/0` function.
+- Add the new section or sub-section
+  to [lib/erlef_web/templates/page/community.html.eex](lib/erlef_web/templates/page/community.html.eex).
+  - Note that both `<h1>` and `<h2>` tags within this file will automatically end up within the TOC component on the
+    page. Deeper nesting is not supported. See existing sections for examples.
+  - The layout for what you're adding may depend on the type of section and there are are no hard rules around how
+    something should be displayed. If you're unsure or need feedback please reach out to us in an issue or as
+    part of a pull request.
+- Commit your changes and open up a new pull request using the Community Section pull request template 🎉
