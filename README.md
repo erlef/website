@@ -31,7 +31,11 @@ We use GitHub issues to track public bugs and feature requests. Please ensure yo
 
 By contributing to erlef/website, you agree that your contributions will be licensed under its Apache License Version 2.0.
 
-## Prerequisites
+## Installation
+
+This application is using [Phoenix](https://phoenixframework.org), the [most loved web framework](https://survey.stackoverflow.co/2025/technology/#2-web-frameworks-and-technologies), written in Elixir.
+
+### Prerequisites
 
  A `.tool-versions` file is provided in this repo for [asdf](https://asdf-vm.com/) users.
 
@@ -39,9 +43,9 @@ By contributing to erlef/website, you agree that your contributions will be lice
 - Elixir 1.11
 - NodeJS v10 (or greater)
 
-## Up and running
+### Up and running
 
-- Install dependencies with `mix deps.get`
+- Install Elixir dependencies with `mix deps.get`
 - Install Node.js dependencies with `npm install --prefix assets`
 - Run `mix ecto.setup` to setup the local database
 - Start Phoenix endpoint with `mix phx.server`
