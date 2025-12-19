@@ -11,3 +11,4 @@ In alphabetical order by lastname:
 - Ben Marx (@bgmarx)
 - Bryan Paxton (@starbelly)
 - Miriam Pena (@miriampena)
+- Emmanuel Sambo (@esambo)
