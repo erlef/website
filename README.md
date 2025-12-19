@@ -4,7 +4,7 @@
 
 This is the repo for the [erlef.org](https://erlef.org/) website.
 
-## Installation
+## Local Installation
 
 This application is using [Phoenix](https://phoenixframework.org), the [most loved web framework](https://survey.stackoverflow.co/2025/technology/#2-web-frameworks-and-technologies), written in Elixir.
 
