@@ -17,38 +17,35 @@
 
       <hr class="mb-4"/>
       <h1>Requests</h1>
-      <%= if is_paying?(@current_user) do %>
+      <%= if is_paying?(@current_user) && not @current_user.has_email_address do %>
         <h2>Erlef Email Request</h2>
-      <% end %>
-
-      <%= if is_paying?(@current_user) && not @current_user.has_email_address && not @has_email_request do %> 
-        <div class="alert alert-info" role="alert">
-          You are eligible for a erlef.org email address or alias. 
-          <%= link("Click here to opt in", to: Routes.members_email_request_path(@conn, :new)) %>
-        </div>
-      <% end %>
-
-      <%= if @has_email_request do %>
-        <p>You submitted a request for an erlef.org address. Details are below : </p>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Status</th>
-              <th>Requested name</th>
-              <th>Submitted on</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td><%= humanize(@email_request.type) %></td>
-              <td><%= humanize(@email_request.status) %></td>
-              <td><%= @email_request.username %></td>
-              <td><%= to_date_string(@email_request.inserted_at) %></td>
-            </tr>
-          </tbody>
-        </table>
+        <p>As a paying member, you are eligible for a free erlef.org email address. Fill out the form below to request yours.</p>
+        <% tally_url = %URI{
+          scheme: "https",
+          host: "forms.erlef.org",
+          path: "/email-request",
+          query: URI.encode_query(%{
+            "embed" => "1",
+            "alignLeft" => "1",
+            "hideTitle" => "1",
+            "transparentBackground" => "1",
+            "dynamicHeight" => "1",
+            "formEventsForwarding" => "1",
+            "name" => @current_user.name,
+            "email" => @current_user.email
+          })
+        } |> URI.to_string() %>
+        <iframe
+          data-tally-src="<%= tally_url %>"
+          loading="lazy"
+          width="100%"
+          height="391"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Email Address Request">
+        </iframe>
+        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
       <% end %>
 
       <h2>Erlef Slack invite</h2>

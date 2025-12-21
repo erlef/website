@@ -9,7 +9,6 @@ defmodule Erlef.AdminsTest do
       working_groups_count: 0,
       sponsors_count: 0,
       unapproved_events_count: 0,
-      outstanding_email_requests_count: 0,
       apps_count: 0,
       academic_papers_count: 0,
       unapproved_academic_papers_count: 0
