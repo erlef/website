@@ -8,7 +8,7 @@
             href="/stipends/faq" role="tab" aria-controls="v-pills-messages"
             aria-selected="false">FAQ</a>
           <a id="form_link" class="nav-link" id="v-pills-profile-tab"
-            href="/stipends/form?type=devel_work" role="tab" aria-controls="v-pills-profile"
+            href="/stipends/form" role="tab" aria-controls="v-pills-profile"
             aria-selected="false">Form</a>
         </div>
       </div>
