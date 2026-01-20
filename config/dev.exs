@@ -72,10 +72,10 @@ config :erlef, :wild_apricot,
   client_secret: "client_secret"
 
 config :erlef, Erlef.Repo,
-  hostname: System.get_env("DATABASE_HOST", "erlef-db"),
+  hostname: System.get_env("DATABASE_HOST", "localhost"),
   database: "erlef_website_dev",
-  username: "erlef_db",
-  password: "erlef-db-pw",
+  username: "postgres",
+  password: "postgres",
   migration_primary_key: [id: :uuid, type: :binary_id],
   migration_timestamps: [type: :utc_datetime],
   show_sensitive_data_on_connection_error: true,

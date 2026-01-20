@@ -9,9 +9,6 @@ defmodule ErlefWeb.Plug.Attack do
     rule "allow local", %{remote_ip: {127, 0, 0, 1}} = conn do
       allow(conn)
     end
-    rule "allow local", %{remote_ip: {192, 168, _, _}} = conn do
-      allow(conn)
-    end
   end
 
   rule "throttle by ip", %{path_info: ["slack-invite" | _rest]} = conn do

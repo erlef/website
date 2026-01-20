@@ -16,8 +16,7 @@ defmodule Erlef.MixProject do
       name: "Erlef",
       source_url: "https://github.com/erlef/website",
       homepage_url: "https://erlef.org/",
-      docs: docs(),
-      listeners: [Phoenix.CodeReloader],
+      docs: docs()
     ]
   end
 
