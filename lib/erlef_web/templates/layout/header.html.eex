@@ -9,6 +9,9 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav navbar-right ml-auto">
         <li class="nav-item">
+          <a href="https://www.every.org/erlang-ecosystem-foundation-inc?theme_color=1b85cb&designation=home&utm_campaign=donate-link#/donate" class="nav-link">Donate</a>
+        </li>
+        <li class="nav-item">
           <a href="https://members.erlef.org/join-us" class="nav-link">Join Us!</a>
         </li>
 
