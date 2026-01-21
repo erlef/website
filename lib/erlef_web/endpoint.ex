@@ -39,6 +39,12 @@ defmodule ErlefWeb.Endpoint do
   plug Plug.RequestId
   plug Plug.Logger
 
+  plug Plug.Static,
+    at: "/email",
+    from: {:erlef, "priv/email"},
+    gzip: true
+
+  
   # Note: This must be disabled if we switch to an env where there is no reverse proxy in front of this
   # app.
   if Erlef.is_env?(:prod) do
