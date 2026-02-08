@@ -8,14 +8,14 @@ defmodule ErlefWeb.Router do
     syndication.twitter.com/settings cdn.syndication.twimg.com
     licensebuttons.net i.creativecommons.org
     pbs.twimg.com use.typekit.net p.typekit.net
-    avatar-images.ewr1.vultrobjects.com event-org-images.ewr1.vultrobjects.com 
+    avatar-images.ewr1.vultrobjects.com event-org-images.ewr1.vultrobjects.com
     sponsors.ewr1.vultrobjects.com erlef.matomo.cloud cdn.rawgit.com
     127.0.0.1:9998 cdn.datatables.net user.fm cdnjs.cloudflare.com uicdn.toast.com
-    plausible.io fonts.googleapis.com fonts.gstatic.com
+    plausible.io fonts.googleapis.com fonts.gstatic.com tally.so forms.erlef.org
   )
 
-  @trusted_connect_sources ~w(https://user.fm https://www.erlef.org wss://erlef.org 
-    wss://www.erlef.org ws://erlef.org ws://www.erlef.org  https://stats.erlef.org https://plausible.io https://raw.githubusercontent.com)
+  @trusted_connect_sources ~w(https://user.fm https://www.erlef.org wss://erlef.org
+    wss://www.erlef.org ws://erlef.org ws://www.erlef.org https://stats.erlef.org https://plausible.io https://raw.githubusercontent.com)
 
   if Erlef.in_env?([:dev, :test]) do
     @default_source Enum.join(@trusted_sources ++ ["127.0.0.1:9998"], " ")
@@ -96,7 +96,7 @@ defmodule ErlefWeb.Router do
     get "/wg-proposal-template", PageController, :wg_proposal_template
 
     # NOTE: News routes are still in place for links that may be out there.
-    # Please use blog routes. 
+    # Please use blog routes.
     get "/news", BlogController, :index, as: :news
     get "/news/:topic", BlogController, :index, as: :news
     get "/news/:topic/:id", BlogController, :show, as: :news
@@ -158,7 +158,6 @@ defmodule ErlefWeb.Router do
     scope "/members", Members, as: :members do
       pipe_through [:session_required]
       resources "/profile", ProfileController, only: [:show], singleton: true
-      resources "/email_requests", EmailRequestController
       resources "/slack-invite", SlackInviteController, only: [:create]
     end
 
@@ -173,9 +172,6 @@ defmodule ErlefWeb.Router do
       end
 
       resources "/events", EventController, only: [:index, :show]
-      resources "/email_requests", EmailRequestController, only: [:index, :show]
-      post "/email_requests/assign", EmailRequestController, :assign
-      post "/email_requests/complete", EmailRequestController, :complete
       put "/events/:id", EventController, :approve
 
       resources "/sponsors", SponsorController

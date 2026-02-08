@@ -6,7 +6,7 @@ defmodule Erlef.Admins do
 
   def slack_notify(:new_slack_invite, %{member: member}) do
     msg = """
-    A member has requested access to the Erlef slack. 
+    A member has requested access to the Erlef slack.
 
     Please type `/invite`, hit, then enter the members's email : #{member.email}
 
@@ -28,12 +28,11 @@ defmodule Erlef.Admins do
 
   def resource_counts() do
     q = """
-    select 
-    (select count(id) from volunteers), 
-    (select count(id) from working_groups), 
+    select
+    (select count(id) from volunteers),
+    (select count(id) from working_groups),
     (select count(id) from sponsors),
-    (select count(id) from events where events.approved = false), 
-    (select count(id) from member_email_requests where member_email_requests.status != 'complete'),
+    (select count(id) from events where events.approved = false),
     (select count(id) from apps)
     """
 
@@ -44,7 +43,6 @@ defmodule Erlef.Admins do
           working_group_count,
           sponsors_count,
           unapproved_events_count,
-          outstanding_email_requests_count,
           apps_count
         ]
       ]
@@ -55,7 +53,6 @@ defmodule Erlef.Admins do
       working_groups_count: working_group_count,
       sponsors_count: sponsors_count,
       unapproved_events_count: unapproved_events_count,
-      outstanding_email_requests_count: outstanding_email_requests_count,
       apps_count: apps_count
     }
   end
