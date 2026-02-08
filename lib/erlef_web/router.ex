@@ -123,7 +123,7 @@ defmodule ErlefWeb.Router do
 
     get "/wg/:slug/calendar", WorkingGroupController, :calendar
 
-    resources "/stipends", StipendController, only: [:index, :create]
+    resources "/stipends", StipendController, only: [:index]
     get "/stipends/faq", StipendController, :faq
     get "/stipends/form", StipendController, :form
 

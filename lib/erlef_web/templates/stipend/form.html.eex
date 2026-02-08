@@ -2,45 +2,34 @@
   <h2>Stipend request process</h2>
   <hr />
   <div class="row">
-    <%= render( "sidebar.html", assigns) %>
+    <%= render("sidebar.html", assigns) %>
 
     <div class="col-sm-10 mb-2">
-      <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane active show" id="form" role="tabpanel"
-                                           aria-labelledby="pills-contact-tab">
-          <%= if @type == "devel_work" do %>
-            <%= render("devel_form.html", assigns) %>
-          <% else %>
-            <%= render("default_form.html", assigns) %>
-          <% end %>
-        </div>
-      </div>
+      <% tally_url = %URI{
+        scheme: "https",
+        host: "forms.erlef.org",
+        path: "/stipend",
+        query: URI.encode_query(%{
+          "embed" => "1",
+          "alignLeft" => "1",
+          "hideTitle" => "1",
+          "transparentBackground" => "1",
+          "dynamicHeight" => "1",
+          "tallyBranding" => "0",
+          "formEventsForwarding" => "1"
+        })
+      } |> URI.to_string() %>
+      <iframe
+        data-tally-src="<%= tally_url %>"
+        loading="lazy"
+        width="100%"
+        height="500"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Stipend Request">
+      </iframe>
+      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
     </div>
   </div>
 </div>
-
-<script>
-  document.querySelector("#stipend_type").addEventListener("change", function(e) {
-    var type = this.options[this.selectedIndex].getAttribute("data-type");
-    window.location = "/stipends/form?type=" + type;
-
-    var required = this.options[this.selectedIndex].getAttribute("data-requires-coc");
-    var show = "#" + type;
-    $(".active-stipend-type-help").removeClass("active-stipend-type-help").addClass("d-none");
-    $(show).addClass("active-stipend-type-help").removeClass("d-none");
-    if (required == "true" || required == true) {
-      $("#coc_input").prop("required", true);
-      $("#coc_link").removeClass("d-none");
-    } else {
-      $("#coc_link").addClass("d-none");
-      $('#coc_input').removeAttr('required');
-    }
-  });
-
-
-$(document).ready(function() { 
-  var show = "#" + "<%= @type %>";
-  $(show).addClass("active-stipend-type-help").removeClass("d-none");
-});
-
-</script>
