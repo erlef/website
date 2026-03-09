@@ -9,7 +9,7 @@
 ---
 Welcome to Meet the Sponsors, a section where you can learn about the organizations that support our foundation. Here you will learn about them and why they decide to support this great community. Today we will get to know WyeWorks. Enjoy!
 ---
-<img src="/images/wyeworks.png" class="img-fluid" alt="Sponsor- WyeWorks"/>
+<img src="/images/meet-the-sponsors/wyeworks.png" class="img-fluid" alt="Sponsor- WyeWorks"/>
 
 WyeWorks is a custom software agency with a team of expert Elixir engineers that partners with startups and growing companies to build and scale high-quality web products, acting as a true extension of their teams. WyeWorks focuses on long-term impact, as evidenced by the past 17+ years helping companies across a wide range of industries, including EdTech, healthcare, e-commerce, and more.
 
