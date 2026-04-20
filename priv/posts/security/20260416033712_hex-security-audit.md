@@ -1,15 +1,14 @@
 {
-"title": "Hex.pm Security Audit: Results and Next Steps",
-"authors": ["Marketing"],
-"slug": "hex-security-audit",
-"category": "Security",
-"tags": ["security", "aegis"],
-"datetime": "2026-04-16T03:37:12.810583Z"
+  "title": "Hex.pm Security Audit: Results and Next Steps",
+  "authors": ["Marketing"],
+  "slug": "hex-security-audit",
+  "category": "security",
+  "tags": ["security", "aegis"],
+  "datetime": "2026-04-16T03:37:12.810583Z"
 }
-
 ---
-
-## The Erlang Ecosystem Foundation, in collaboration with Alpha-Omega, has completed the first comprehensive third-party security audit of the Hex.pm and its surrounding ecosystem. This work is part of the ongoing efforts to strengthen security across the BEAM ecosystem under the Ægis initiative.
+The Erlang Ecosystem Foundation, in collaboration with Alpha-Omega, has completed the first comprehensive third-party security audit of the Hex.pm and its surrounding ecosystem. This work is part of the ongoing efforts to strengthen security across the BEAM ecosystem under the Ægis initiative.
+---
 
 <img src="/images/posts/hex.jpg" class="img-fluid" alt="hex"/>
 
