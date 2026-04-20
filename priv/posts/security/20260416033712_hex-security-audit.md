@@ -1,0 +1,22 @@
+{
+  "title": "Hex.pm Security Audit: Results and Next Steps",
+  "authors": ["Marketing"],
+  "slug": "hex-security-audit",
+  "category": "security",
+  "tags": ["security", "aegis"],
+  "datetime": "2026-04-16T03:37:12.810583Z"
+}
+---
+The Erlang Ecosystem Foundation, in collaboration with Alpha-Omega, has completed the first comprehensive third-party security audit of the Hex.pm and its surrounding ecosystem. This work is part of the ongoing efforts to strengthen security across the BEAM ecosystem under the Ægis initiative.
+---
+
+<img src="/images/posts/hex.jpg" class="img-fluid" alt="hex"/>
+
+The Erlang Ecosystem Foundation, in collaboration with Alpha-Omega, has completed the first comprehensive third-party security audit of the Hex.pm and its surrounding ecosystem. This work is part of the ongoing efforts to strengthen security across the BEAM ecosystem under the Ægis initiative.
+
+Hex is critical infrastructure for the BEAM ecosystem. It underpins package distribution for Erlang, Elixir, and Gleam, and is used in production systems across thousands of organizations.
+Across both audits, a number of issues were identified, ranging from high severity vulnerabilities to low-severity hardening gaps.
+
+The team has already addressed several findings, and they continue to work on remediation to further enhance the security posture of Hex.pm and its related tools.
+
+We encourage the community to explore the full results and next steps: [Read more](https://hex.pm/blog/security-audit "read more").
