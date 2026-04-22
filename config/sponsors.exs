@@ -46,7 +46,7 @@ config :erlef, :sponsors, [
     url: "https://dockyard.com/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/84codes-logo.png",
     name: "84codes",
@@ -60,14 +60,14 @@ config :erlef, :sponsors, [
     url: "https://avassa.io/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/hca-logo.png",
     name: "HCA",
     url: "https://hcahealthcare.com/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/weedmaps-logo.png",
     name: "Weedmaps",
@@ -81,7 +81,7 @@ config :erlef, :sponsors, [
     url: "https://plausible.io/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/alembic-logo.png",
     name: "Alembic ",
@@ -102,7 +102,7 @@ config :erlef, :sponsors, [
     url: "https://dnsimple.com/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: true,
     logo_url: "/images/sponsors/binary_noggin-logo.png",
     name: "Binary Noggin",
@@ -116,7 +116,7 @@ config :erlef, :sponsors, [
     url: "https://www.cisco.com/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: true,
     logo_url: "/images/sponsors/coders51-logo.png",
     name: "coders51",
@@ -151,21 +151,21 @@ config :erlef, :sponsors, [
     url: "https://www.genetec.com/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: true,
     logo_url: "/images/sponsors/happi-hacking-logo.png",
     name: "happihacking",
     url: "http://happihacking.com/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: true,
     logo_url: "/images/sponsors/id3as-logo.png",
     name: "id3as",
     url: "https://www.id3as.com/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/ninefx-logo.png",
     name: "NineFX",
@@ -242,7 +242,7 @@ config :erlef, :sponsors, [
     url: "https://pepsi.co/ecommerce"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/spiff-logo.png",
     name: "Spiff",
@@ -263,7 +263,7 @@ config :erlef, :sponsors, [
     url: "https://www.emqx.io/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/revelry-logo.png",
     name: "Revelry",
@@ -277,14 +277,14 @@ config :erlef, :sponsors, [
     url: "https://mainmatter.com/expertise/elixir-phoenix/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/smartrent-logo.png",
     name: "SmartRent",
     url: "https://smartrent.com/"
   },
   %{
-    active: true,
+    active: false,
     is_founding_sponsor: false,
     logo_url: "/images/sponsors/calm-wave.png",
     name: "CalmWave",
@@ -310,5 +310,26 @@ config :erlef, :sponsors, [
     logo_url: "/images/sponsors/wyeworks-logo.png",
     name: "WyeWorks",
     url: "https://www.wyeworks.com/"
+  },
+  %{
+    active: true,
+    is_founding_sponsor: false,
+    logo_url: "/images/sponsors/leapsight-logo.png",
+    name: "Leapsight Technologies LTD",
+    url: "https://leapsight.com/"
+  },
+  %{
+    active: true,
+    is_founding_sponsor: false,
+    logo_url: "/images/sponsors/bitcrowd-logo.png",
+    name: "bitcrowd",
+    url: "https://bitcrowd.net/en/"
+  },
+  %{
+    active: true,
+    is_founding_sponsor: false,
+    logo_url: "/images/sponsors/daylite-logo.png",
+    name: "Daylite",
+    url: "https://www.daylite.app/"
   }
 ]
