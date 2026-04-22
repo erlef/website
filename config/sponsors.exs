@@ -310,5 +310,26 @@ config :erlef, :sponsors, [
     logo_url: "/images/sponsors/wyeworks-logo.png",
     name: "WyeWorks",
     url: "https://www.wyeworks.com/"
+  },
+  %{
+    active: true,
+    is_founding_sponsor: false,
+    logo_url: "/images/sponsors/leapsight-logo.png",
+    name: "Leapsight Technologies LTD",
+    url: "https://leapsight.com/"
+  },
+  %{
+    active: true,
+    is_founding_sponsor: false,
+    logo_url: "/images/sponsors/bitcrowd-logo.png",
+    name: "bitcrowd",
+    url: "https://bitcrowd.net/en/"
+  },
+  %{
+    active: true,
+    is_founding_sponsor: false,
+    logo_url: "/images/sponsors/daylite-logo.png",
+    name: "Daylite",
+    url: "https://www.daylite.app/"
   }
 ]
