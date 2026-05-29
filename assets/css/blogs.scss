@@ -44,3 +44,14 @@ div.blost-post > th {
   background-color: #4CAF50;
   color: white;
 }
+
+div.blog-post blockquote {
+  border-left: 0.25rem solid #ccc;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: #555;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
