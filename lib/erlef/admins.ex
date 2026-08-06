@@ -31,7 +31,6 @@ defmodule Erlef.Admins do
     select
     (select count(id) from volunteers),
     (select count(id) from working_groups),
-    (select count(id) from sponsors),
     (select count(id) from events where events.approved = false),
     (select count(id) from apps),
     (select count(id) from academic_papers where
@@ -45,7 +44,6 @@ defmodule Erlef.Admins do
         [
           volunteer_count,
           working_group_count,
-          sponsors_count,
           unapproved_events_count,
           apps_count,
           academic_papers_count,
@@ -57,7 +55,6 @@ defmodule Erlef.Admins do
     %{
       volunteers_count: volunteer_count,
       working_groups_count: working_group_count,
-      sponsors_count: sponsors_count,
       unapproved_events_count: unapproved_events_count,
       apps_count: apps_count,
       academic_papers_count: academic_papers_count,

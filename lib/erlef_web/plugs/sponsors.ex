@@ -1,15 +1,15 @@
 defmodule ErlefWeb.Plug.Sponsors do
   @moduledoc """
-  Sponsors are listed on every page thus we assign them to the conn regardless of the route (sans API).
+  Assigns the cached current sponsors to browser requests.
   """
 
   import Plug.Conn
 
-  alias Erlef.Groups
+  alias Erlef.Sponsors.Cache
 
   def init(opts), do: opts
 
   def call(conn, _opts) do
-    assign(conn, :sponsors, Groups.list_sponsors())
+    assign(conn, :sponsors, Enum.shuffle(Cache.all()))
   end
 end

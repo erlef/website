@@ -9,8 +9,6 @@
 
   <%= small_info_box(@resource_counts.unapproved_academic_papers_count , "Unapproved Academic Papers" , "fa-file-download" , Routes.admin_unapproved_academic_paper_path(@conn , :index) , "green") %>
 
-  <%= small_info_box(@resource_counts.sponsors_count, "Sponsors", "fa-hand-holding-heart",  Routes.admin_sponsor_path(@conn, :index), "maroon") %>
-
   <%= small_info_box(@resource_counts.working_groups_count, "Working Groups", "fa-users-cog",  Routes.admin_working_group_path(@conn, :index), "teal") %>
 
 

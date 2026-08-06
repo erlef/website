@@ -57,7 +57,7 @@ defmodule ErlefWeb.PageController do
   def public_records(conn, _), do: render(conn)
 
   def sponsors(conn, _params) do
-    render(conn)
+    redirect(conn, external: "https://sponsor.erlef.org")
   end
 
   def past_founding_sponsors(conn, _params) do

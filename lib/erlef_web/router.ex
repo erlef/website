@@ -12,6 +12,7 @@ defmodule ErlefWeb.Router do
     sponsors.ewr1.vultrobjects.com erlef.matomo.cloud cdn.rawgit.com
     127.0.0.1:9998 cdn.datatables.net user.fm cdnjs.cloudflare.com uicdn.toast.com
     plausible.io fonts.googleapis.com fonts.gstatic.com tally.so forms.erlef.org
+    sponsor.erlef.org
   )
 
   @trusted_connect_sources ~w(https://user.fm https://www.erlef.org wss://erlef.org
@@ -179,8 +180,6 @@ defmodule ErlefWeb.Router do
 
       resources "/events", EventController, only: [:index, :show]
       put "/events/:id", EventController, :approve
-
-      resources "/sponsors", SponsorController
 
       resources "/wg", WorkingGroupController
 
