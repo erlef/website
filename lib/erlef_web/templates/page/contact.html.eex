@@ -30,7 +30,7 @@
             <article id="post-10" class="card mt-3r">
                 <div class="card-body">
                     <h3>Sponsors</h3>
-                    <p>Interested in becoming a sponsor? <%= link("Read more from our Sponsors page", to: "/sponsors") %></p>
+                    <p>Interested in becoming a sponsor? <%= link("Read more from our Sponsors page", to: "https://sponsor.erlef.org") %></p>
                 </div>
                 <!-- /.card-body -->
             </article>

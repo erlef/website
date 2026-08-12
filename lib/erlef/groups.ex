@@ -5,7 +5,6 @@ defmodule Erlef.Groups do
   ## Types of groups
 
   - working groups, volunteers, and chairs
-  - sponsors
   - board and board members
 
   ## Audit support
@@ -36,8 +35,7 @@ defmodule Erlef.Groups do
     WorkingGroupChair,
     WorkingGroupReport,
     WorkingGroupVolunteer,
-    Query,
-    Sponsor
+    Query
   }
 
   require Logger
@@ -225,38 +223,6 @@ defmodule Erlef.Groups do
   @spec list_board_members() :: [Volunteer.t()]
   def list_board_members(), do: Repo.all(Query.all_board_members())
 
-  ### Sponsors ###
-
-  @spec list_sponsors() :: [map()]
-  def list_sponsors do
-    Application.get_env(:erlef, :sponsors)
-  end
-
-  @spec get_sponsor!(Ecto.UUID.t()) :: Sponsor.t()
-  def get_sponsor!(id), do: Repo.get!(Sponsor, id)
-
-  @spec create_sponsor(map(), Keyword.t()) :: {:ok, Sponsor.t()} | {:error, Ecto.Changeset.t()}
-  def create_sponsor(attrs \\ %{}, audit: audit) do
-    %Sponsor{}
-    |> Sponsor.changeset(maybe_upload_image(audit_attrs(:create, attrs, audit)))
-    |> Repo.insert()
-  end
-
-  @spec update_sponsor(Sponsor.t(), map(), Keyword.t()) ::
-          {:ok, Sponsor.t()} | {:error, Ecto.Changeset.t()}
-  def update_sponsor(%Sponsor{} = sponsor, attrs, audit: audit) do
-    sponsor
-    |> Sponsor.update_changeset(
-      maybe_upload_image(sponsor.name, audit_attrs(:update, attrs, audit))
-    )
-    |> Repo.update()
-  end
-
-  @spec change_sponsor(Sponsor.t(), map | nil) :: Ecto.Changeset.t()
-  def change_sponsor(%Sponsor{} = sponsor, attrs \\ %{}) do
-    Sponsor.changeset(sponsor, attrs)
-  end
-
   ### Working Group Reports ###
 
   @spec list_wg_reports_by_member_id(Ecto.UUID.t()) :: [WorkingGroupReport.t()]
@@ -351,18 +317,7 @@ defmodule Erlef.Groups do
     Map.put(params, "avatar_url", url)
   end
 
-  defp maybe_upload_image(%{"name" => name} = attrs), do: maybe_upload_image(name, attrs)
-
-  defp maybe_upload_image(%{name: name} = attrs), do: maybe_upload_image(name, attrs)
-
-  defp maybe_upload_image(sponsor_name, %{"logo" => %Plug.Upload{} = upload} = params) do
-    content = File.read!(upload.path)
-    filename = sponsor_image_filename(sponsor_name, upload.content_type)
-    {:ok, url} = Storage.upload_sponsor_image(filename, content)
-    Map.put(params, "logo_url", url)
-  end
-
-  defp maybe_upload_image(_, attrs), do: attrs
+  defp maybe_upload_image(params), do: params
 
   defp put_meta(attrs, meta) do
     case all_atoms_map?(attrs) do
@@ -372,10 +327,6 @@ defmodule Erlef.Groups do
       false ->
         Map.put(attrs, "meta", meta)
     end
-  end
-
-  defp sponsor_image_filename(sponsor_name, <<"image/", ext::binary>>) do
-    sponsor_name <> "-" <> Ecto.UUID.generate() <> "." <> ext
   end
 
   defp unique_image_filename(<<"image/", ext::binary>>) do

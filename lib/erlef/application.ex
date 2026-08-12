@@ -45,7 +45,7 @@ defmodule Erlef.Application do
     case env do
       :dev ->
         # Agenda must be started after the repo, but only in dev
-        base ++ [Erlef.Agenda]
+        base ++ [Erlef.Sponsors.Cache, Erlef.Agenda]
 
       :test ->
         base
@@ -53,5 +53,7 @@ defmodule Erlef.Application do
   end
 
   # The WildApricot Cache server should be started last when not in dev/test
-  defp children_for(_), do: base_children() ++ [Erlef.WildApricot.Cache, Erlef.Agenda]
+  defp children_for(_) do
+    base_children() ++ [Erlef.WildApricot.Cache, Erlef.Sponsors.Cache, Erlef.Agenda]
+  end
 end

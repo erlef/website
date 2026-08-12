@@ -52,6 +52,9 @@ config :erlef, :slack_invite_config, %{
 config :erlef,
   ecto_repos: [Erlef.Repo]
 
+config :erlef,
+  sponsors_endpoint: "https://sponsor.erlef.org/current-sponsors.json"
+
 config :ex_aws,
   s3: [
     scheme: "https://",

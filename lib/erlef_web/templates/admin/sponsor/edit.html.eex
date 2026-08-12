@@ -1,3 +1,0 @@
-<%= render "form.html", Map.put(assigns, :action, Routes.admin_sponsor_path(@conn, :update, @sponsor)) %>
-
-

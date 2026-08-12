@@ -1,37 +1,27 @@
 <footer id="colophon" class="site-footer border-top text-center bg-white py-4">
-     <%= unless @conn.request_path == "/sponsors" do %>
-      <div class="container-fluid">
-       <div class="row">
-        <div class="col">
-          <h5 class="display-5 font-weight-bold">Our Sponsors</h5>
+  <section class="container-fluid pb-4">
+    <h5 class="display-5 font-weight-bold">Our Sponsors</h5>
+    <div class="row text-center text-lg-left mt-3 mb-3 d-flex align-items-center justify-content-center">
+      <%= for %{name: name, logo_url: logo_url, url: url} <- @sponsors do %>
+        <div class="col-6 col-sm-4 col-md-3 sponsor-grid-item">
+          <a href="<%= url %>" class="d-block" target="_blank" rel="noopener noreferrer">
+            <img
+              class="img-fluid img-thumbnail borderless sponsor mb-1"
+              src="<%= logo_url %>"
+              alt="<%= name %>"
+              loading="lazy"
+              style="max-height: 90px;"
+            >
+          </a>
         </div>
-       </div>
-       <div class="row">
-      <div class="col-lg-12 pr-5">
-        <div class="row text-center text-lg-left mt-3 mb-3 d-flex align-items-center justify-content-center">
-          <%= for %{logo_url: logo_path, url: href} <- active_and_founding_sponsors(@sponsors) do %>
-            <div class="col-lg-1 col-md-3 col-sm-4">
-              <a href="<%= href %>" class="d-block">
-                <img class="img-fluid img-thumbnail borderless sponsor mb-1" src="<%= image_path(@conn, logo_path) %>" alt="">
-              </a>
-            </div>
-          <% end %>
-          <%= for %{logo_url: logo_path, url: href} <- active_non_founding_sponsors(@sponsors) do %>
-            <div class="col-lg-1 col-md-3 col-sm-4">
-              <a href="<%= href %>" class="d-block">
-                <img class="img-fluid img-thumbnail borderless sponsor mb-1" src="<%= image_path(@conn, logo_path) %>" alt="">
-              </a>
-            </div>
-          <% end %>
-        </div>
-        <p class="mb-0">
-          Interested in becoming a sponsor? 
-          <%= link("Click here to learn more", to: Routes.page_path(@conn, :sponsors), class: "ml-1") %>.        </p>      
-      </div>
+      <% end %>
     </div>
-  </div>
+    <p class="mb-0">
+      Interested in becoming a sponsor?
+      <a href="https://sponsor.erlef.org/#current" class="ml-1">Click here to learn more</a>.
+    </p>
+  </section>
   <hr/>
-<% end %>
   <section class="footer-widgets text-left">
     <div class="container pt-2">
       <div class="row">
@@ -49,7 +39,7 @@
               <a target="_blank" href="https://ErlangEcosystemFoundation.wildapricot.org/Sys/Profile">Membership details</a>
             </li>
             <li class="list-item"><a href="https://members.erlef.org/join-us">Join us!</a></li>
-            <li class="list-item"><a href="/sponsors/">Sponsors</a></li>
+            <li class="list-item"><a href="https://sponsor.erlef.org/#current">Sponsors</a></li>
             <li class="list-item"><a href="/wg/">Working Groups</a></li>
             <li class="list-item"><a href="/stipends">Stipends</a></li>
             <li class="list-item"><a href="/bylaws">Bylaws</a></li>

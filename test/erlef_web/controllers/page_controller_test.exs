@@ -15,7 +15,7 @@ defmodule ErlefWeb.PageControllerTest do
 
   test "GET /sponsors", %{conn: conn} do
     conn = get(conn, Routes.page_path(conn, :sponsors))
-    assert html_response(conn, 200) =~ "Become a sponsor!"
+    assert redirected_to(conn, 302) == "https://sponsor.erlef.org"
   end
 
   test "GET /board_members", %{conn: conn} do
