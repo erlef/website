@@ -6,8 +6,6 @@
                       Routes.admin_event_path(@conn, :index), 
                       "warning") 
   %>
-  
-  <%= small_info_box(@resource_counts.sponsors_count, "Sponsors", "fa-hand-holding-heart",  Routes.admin_sponsor_path(@conn, :index), "maroon") %>
 
   <%= small_info_box(@resource_counts.working_groups_count, "Working Groups", "fa-users-cog",  Routes.admin_working_group_path(@conn, :index), "teal") %>
 

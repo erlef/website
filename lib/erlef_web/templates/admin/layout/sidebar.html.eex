@@ -13,8 +13,6 @@
 
         <%= nav_link(to: Routes.admin_event_path(@conn, :index), name: "Events", icon: "fa-calendar-alt") %>
 
-        <%= nav_link(to: Routes.admin_sponsor_path(@conn, :index), name: "Sponsors", icon: "fa-hand-holding-heart") %>
-
         <%= nav_link(to: Routes.admin_working_group_path(@conn, :index), name: "Working Groups", icon: "fa-users-cog") %>
 
         <%= nav_link(to: Routes.admin_volunteer_path(@conn, :index), name: "Volunteers", icon: "fa-user") %>

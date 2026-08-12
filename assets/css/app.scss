@@ -275,3 +275,10 @@ label.required:after {
   content:"*";
   color:red;
 }
+
+@media (min-width: 992px) {
+  .sponsor-grid-item {
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+  }
+}
