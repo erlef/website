@@ -1,10 +1,10 @@
 <footer id="colophon" class="site-footer border-top text-center bg-white py-4">
   <section class="container-fluid pb-4">
     <h5 class="display-5 font-weight-bold">Our Sponsors</h5>
-    <div class="row text-center text-lg-left mt-3 mb-3 d-flex align-items-center justify-content-center">
+    <div class="row text-center mt-3 mb-3 d-flex align-items-center justify-content-center">
       <%= for %{name: name, logo_url: logo_url, url: url} <- @sponsors do %>
         <div class="col-6 col-sm-4 col-md-3 sponsor-grid-item">
-          <a href="<%= url %>" class="d-block" target="_blank" rel="noopener noreferrer">
+          <a title="<%= name %>" href="<%= url %>" class="d-block" target="_blank" rel="noopener noreferrer">
             <img
               class="img-fluid img-thumbnail borderless sponsor mb-1"
               src="<%= logo_url %>"
@@ -76,14 +76,14 @@
         </div>
       </div>
       <!-- /.row -->
-  <div class="row">
-    <div class="col-lg-3 offset-lg-3 mt-2">
-      <h6 class="text-muted text-uppercase">Associate Organizations</h6>
-      <a href="https://www.ow2.org/view/Membership_Joining/Associate_Organizations" target="_blank">
-        <img src="<%= Routes.static_path(@conn, "/images/community/affiliates/ow2.svg") %>" alt="OW2"/>
-      </a>
-    </div>
-  </div>
+      <div class="row">
+        <div class="col-lg-3 offset-lg-3 mt-2">
+          <h6 class="text-muted text-uppercase">Associate Organizations</h6>
+          <a href="https://www.ow2.org/view/Membership_Joining/Associate_Organizations" target="_blank">
+            <img src="<%= Routes.static_path(@conn, "/images/community/affiliates/ow2.svg") %>" alt="OW2"/>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </footer>
